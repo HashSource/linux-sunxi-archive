@@ -1,0 +1,4489 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Linux mainlining effort - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"f84a74becc72a1f54096eaf4","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Linux_mainlining_effort","wgTitle":"Linux mainlining effort","wgCurRevisionId":26792,"wgRevisionId":26792,"wgArticleId":267,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Development"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Linux_mainlining_effort","wgRelevantArticleId":267,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready",
+"noscript":"ready","user.styles":"ready","user":"ready","user.options":"loading","ext.cite.styles":"ready","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","ext.cite.ux-enhancements","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=ext.cite.styles%7Cmediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="Linux_mainlining_effort.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-Linux_mainlining_effort rootpage-Linux_mainlining_effort skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">Linux mainlining effort</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>The purpose of this page is to try and define sub-goals and milestones for the mainlining effort, containing goals and sub-goals with milestones for adding Allwinner support in the upstream mainline Linux Kernel.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Overview"><span class="tocnumber">1</span> <span class="toctext">Overview</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Status"><span class="tocnumber">2</span> <span class="toctext">Status</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Status_Matrix"><span class="tocnumber">2.1</span> <span class="toctext">Status Matrix</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Work_In_Progress"><span class="tocnumber">2.2</span> <span class="toctext">Work In Progress</span></a>
+<ul>
+<li class="toclevel-3 tocsection-5"><a href="#Core_Stuff"><span class="tocnumber">2.2.1</span> <span class="toctext">Core Stuff</span></a></li>
+<li class="toclevel-3 tocsection-6"><a href="#Major_drivers"><span class="tocnumber">2.2.2</span> <span class="toctext">Major drivers</span></a></li>
+<li class="toclevel-3 tocsection-7"><a href="#Minor_drivers"><span class="tocnumber">2.2.3</span> <span class="toctext">Minor drivers</span></a></li>
+<li class="toclevel-3 tocsection-8"><a href="#Drivers_that_can_still_be_improved.2Fadded"><span class="tocnumber">2.2.4</span> <span class="toctext">Drivers that can still be improved/added</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-9"><a href="#Planned_for_next"><span class="tocnumber">2.3</span> <span class="toctext">Planned for next</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#Merged_into_6.17.28-rc1.29"><span class="tocnumber">2.4</span> <span class="toctext">Merged into 6.17(-rc1)</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="#Merged_into_6.16"><span class="tocnumber">2.5</span> <span class="toctext">Merged into 6.16</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="#Merged_into_6.15"><span class="tocnumber">2.6</span> <span class="toctext">Merged into 6.15</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="#Merged_into_6.14"><span class="tocnumber">2.7</span> <span class="toctext">Merged into 6.14</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="#Merged_into_6.13"><span class="tocnumber">2.8</span> <span class="toctext">Merged into 6.13</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="#Merged_into_6.12"><span class="tocnumber">2.9</span> <span class="toctext">Merged into 6.12</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="#Merged_into_6.11"><span class="tocnumber">2.10</span> <span class="toctext">Merged into 6.11</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="#Merged_into_6.10"><span class="tocnumber">2.11</span> <span class="toctext">Merged into 6.10</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="#Merged_into_6.9"><span class="tocnumber">2.12</span> <span class="toctext">Merged into 6.9</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="#Merged_into_6.8"><span class="tocnumber">2.13</span> <span class="toctext">Merged into 6.8</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="#Merged_into_6.7"><span class="tocnumber">2.14</span> <span class="toctext">Merged into 6.7</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="#Merged_into_6.6_.28LTS.29"><span class="tocnumber">2.15</span> <span class="toctext">Merged into 6.6 (LTS)</span></a></li>
+<li class="toclevel-2 tocsection-22"><a href="#Merged_into_6.5"><span class="tocnumber">2.16</span> <span class="toctext">Merged into 6.5</span></a></li>
+<li class="toclevel-2 tocsection-23"><a href="#Merged_into_6.4"><span class="tocnumber">2.17</span> <span class="toctext">Merged into 6.4</span></a></li>
+<li class="toclevel-2 tocsection-24"><a href="#Merged_into_6.3"><span class="tocnumber">2.18</span> <span class="toctext">Merged into 6.3</span></a></li>
+<li class="toclevel-2 tocsection-25"><a href="#Merged_into_6.2"><span class="tocnumber">2.19</span> <span class="toctext">Merged into 6.2</span></a></li>
+<li class="toclevel-2 tocsection-26"><a href="#Merged_into_6.1_.28LTS.29"><span class="tocnumber">2.20</span> <span class="toctext">Merged into 6.1 (LTS)</span></a></li>
+<li class="toclevel-2 tocsection-27"><a href="#Merged_into_6.0"><span class="tocnumber">2.21</span> <span class="toctext">Merged into 6.0</span></a></li>
+<li class="toclevel-2 tocsection-28"><a href="#Merged_into_5.19"><span class="tocnumber">2.22</span> <span class="toctext">Merged into 5.19</span></a></li>
+<li class="toclevel-2 tocsection-29"><a href="#Merged_into_5.18"><span class="tocnumber">2.23</span> <span class="toctext">Merged into 5.18</span></a></li>
+<li class="toclevel-2 tocsection-30"><a href="#Merged_into_5.17"><span class="tocnumber">2.24</span> <span class="toctext">Merged into 5.17</span></a></li>
+<li class="toclevel-2 tocsection-31"><a href="#Merged_into_5.16"><span class="tocnumber">2.25</span> <span class="toctext">Merged into 5.16</span></a></li>
+<li class="toclevel-2 tocsection-32"><a href="#Merged_into_5.15_.28LTS.29"><span class="tocnumber">2.26</span> <span class="toctext">Merged into 5.15 (LTS)</span></a></li>
+<li class="toclevel-2 tocsection-33"><a href="#Merged_into_5.14"><span class="tocnumber">2.27</span> <span class="toctext">Merged into 5.14</span></a></li>
+<li class="toclevel-2 tocsection-34"><a href="#Merged_into_5.13"><span class="tocnumber">2.28</span> <span class="toctext">Merged into 5.13</span></a></li>
+<li class="toclevel-2 tocsection-35"><a href="#Merged_into_5.12"><span class="tocnumber">2.29</span> <span class="toctext">Merged into 5.12</span></a></li>
+<li class="toclevel-2 tocsection-36"><a href="#Merged_into_5.11"><span class="tocnumber">2.30</span> <span class="toctext">Merged into 5.11</span></a></li>
+<li class="toclevel-2 tocsection-37"><a href="#Merged_into_5.10_.28LTS.29"><span class="tocnumber">2.31</span> <span class="toctext">Merged into 5.10 (LTS)</span></a></li>
+<li class="toclevel-2 tocsection-38"><a href="#Merged_into_5.9"><span class="tocnumber">2.32</span> <span class="toctext">Merged into 5.9</span></a></li>
+<li class="toclevel-2 tocsection-39"><a href="#Merged_into_5.8"><span class="tocnumber">2.33</span> <span class="toctext">Merged into 5.8</span></a></li>
+<li class="toclevel-2 tocsection-40"><a href="#Merged_into_5.7"><span class="tocnumber">2.34</span> <span class="toctext">Merged into 5.7</span></a></li>
+<li class="toclevel-2 tocsection-41"><a href="#Merged_into_5.6"><span class="tocnumber">2.35</span> <span class="toctext">Merged into 5.6</span></a></li>
+<li class="toclevel-2 tocsection-42"><a href="#Merged_into_5.5"><span class="tocnumber">2.36</span> <span class="toctext">Merged into 5.5</span></a></li>
+<li class="toclevel-2 tocsection-43"><a href="#Merged_into_5.4_.28LTS.29"><span class="tocnumber">2.37</span> <span class="toctext">Merged into 5.4 (LTS)</span></a></li>
+<li class="toclevel-2 tocsection-44"><a href="#Merged_into_5.3"><span class="tocnumber">2.38</span> <span class="toctext">Merged into 5.3</span></a></li>
+<li class="toclevel-2 tocsection-45"><a href="#Merged_into_5.2"><span class="tocnumber">2.39</span> <span class="toctext">Merged into 5.2</span></a></li>
+<li class="toclevel-2 tocsection-46"><a href="#Merged_into_5.1"><span class="tocnumber">2.40</span> <span class="toctext">Merged into 5.1</span></a></li>
+<li class="toclevel-2 tocsection-47"><a href="#Merged_into_5.0"><span class="tocnumber">2.41</span> <span class="toctext">Merged into 5.0</span></a></li>
+<li class="toclevel-2 tocsection-48"><a href="#Merged_into_4.20"><span class="tocnumber">2.42</span> <span class="toctext">Merged into 4.20</span></a></li>
+<li class="toclevel-2 tocsection-49"><a href="#Merged_into_4.19_.28LTS.29"><span class="tocnumber">2.43</span> <span class="toctext">Merged into 4.19 (LTS)</span></a></li>
+<li class="toclevel-2 tocsection-50"><a href="#Changes_merged_up_to_4.18"><span class="tocnumber">2.44</span> <span class="toctext">Changes merged up to 4.18</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-51"><a href="#References"><span class="tocnumber">3</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1 tocsection-52"><a href="#See_also"><span class="tocnumber">4</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-53"><a href="#External_Links"><span class="tocnumber">5</span> <span class="toctext">External Links</span></a>
+<ul>
+<li class="toclevel-2 tocsection-54"><a href="#How_to_upstream"><span class="tocnumber">5.1</span> <span class="toctext">How to upstream</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-55"><a href="#Notes"><span class="tocnumber">6</span> <span class="toctext">Notes</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Overview">Overview</span></h1>
+<p>The idea is to submit the code needed to run the Linux kernel on Allwinner SoCs upstream, ie. to the official Linux kernel.
+</p><p>This can be achieved by following the concept outlined in the <i>Your new ARM SoC Linux support check-list!</i> article published by Thomas Petazzoni from Bootlin.<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup><sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;2&#93;</a></sup>
+</p><p>Where relevant, I have attempted to include who is currently working on an item, mostly separate from any particular mainlining goal.
+</p>
+<h1><span class="mw-headline" id="Status">Status</span></h1>
+<p>The <a href="Mainline_Kernel_Howto.html" title="Mainline Kernel Howto">Mainline Kernel howto</a> contains the currently used repositories for the mainlining process. The U-Boot repository and toolchain is described in the <a href="Mainline_U-Boot.html" class="mw-redirect" title="Mainline U-Boot">Mainline U-Boot howto</a>.
+</p><p>The <a href="Category:Mainline_Kernel.html" title="Category:Mainline Kernel"> Mainline Kernel category </a> gives an overview of currently supported devices.
+</p>
+<h2><span class="mw-headline" id="Status_Matrix">Status Matrix</span></h2>
+<p>The goal of this matrix is to give an easy view of work on each SoC worked on by linux-sunxi.
+</p>
+<table class="wikitable" style="text-align: center; width: 100%">
+
+<tbody><tr>
+<th colspan="2" style="text-align: left; width: 13%">Model
+</th>
+<th><a href="F1C100s.html" title="F1C100s">F1C-<br />100s<br />200s</a>
+</th>
+<th><a href="A10.html" title="A10">A10</a>
+</th>
+<th><a href="A10s.html" title="A10s">A10s</a>
+</th>
+<th><a href="A13.html" title="A13">A13</a><br /><a href="R8.html" class="mw-redirect" title="R8">R8</a>
+</th>
+<th><a href="GR8.html" title="GR8">GR8</a>
+</th>
+<th><a href="A20.html" title="A20">A20</a><br /><a href="https://linux-sunxi.org/index.php?title=T2&amp;action=edit&amp;redlink=1" class="new" title="T2 (page does not exist)">T2</a>
+</th>
+<th><a href="R40.html" title="R40">R40</a><br /><a href="V40.html" class="mw-redirect" title="V40">V40</a><br /><a href="T3.html" class="mw-redirect" title="T3">T3</a><br /><a href="A40i.html" class="mw-redirect" title="A40i">A40i</a>
+</th>
+<th><a href="A80.html" title="A80">A80</a>
+</th>
+<th><a href="A31.html" title="A31">A31</a>
+</th>
+<th><a href="A23.html" title="A23">A23</a>
+</th>
+<th><a href="A33.html" title="A33">A33</a><br /><a href="R16.html" class="mw-redirect" title="R16">R16</a>
+</th>
+<th><a href="A83T.html" title="A83T">A83T</a>
+</th>
+<th><a href="H3.html" title="H3">H3</a><br /><a href="H2+.html" class="mw-redirect" title="H2+">H2+</a>
+</th>
+<th><a href="S3.html" title="S3">S3</a><br /><a href="https://linux-sunxi.org/index.php?title=S3L&amp;action=edit&amp;redlink=1" class="new" title="S3L (page does not exist)">S3L</a><br /><a href="V3.html" title="V3">V3</a><br /><a href="V3s.html" title="V3s">V3s</a>
+</th>
+<th><a href="A64.html" title="A64">A64</a><br /><a href="H64.html" title="H64">H64</a>
+</th>
+<th><a href="H5.html" title="H5">H5</a>
+</th>
+<th><a href="H6.html" title="H6">H6</a>
+</th>
+<th><a href="A50.html" title="A50">A50</a>
+</th>
+<th><a href="V831.html" title="V831">V831</a><br /><a href="https://linux-sunxi.org/index.php?title=V833&amp;action=edit&amp;redlink=1" class="new" title="V833 (page does not exist)">V833</a>
+</th>
+<th><a href="H313.html" class="mw-redirect" title="H313">H313</a><br /><a href="H616.html" title="H616">H616</a><br /><a href="H618.html" class="mw-redirect" title="H618">H618</a><br /><a href="H700.html" class="mw-redirect" title="H700">H700</a><br /><a href="T507.html" title="T507">T507</a>
+</th>
+<th><a href="A100.html" class="mw-redirect" title="A100">A100</a><br /><a href="A133.html" title="A133">A133</a>
+</th>
+<th><a href="R329.html" title="R329">R329</a>
+</th>
+<th><a href="D1.html" title="D1">D1</a><br /><a href="D1s.html" title="D1s">D1s</a><br /><a href="T113-s3.html" title="T113-s3">T113</a>
+</th>
+<th><a href="A523.html" title="A523">A523</a><br /><a href="A527.html" class="mw-redirect" title="A527">A527</a><br /><a href="https://linux-sunxi.org/index.php?title=MR527&amp;action=edit&amp;redlink=1" class="new" title="MR527 (page does not exist)">MR527</a><br /><a href="T527.html" class="mw-redirect" title="T527">T527</a><br /><a href="H728.html" class="mw-redirect" title="H728">H728</a>
+</th></tr>
+<tr>
+<td style="text-align: left;" rowspan="4">ADC
+</td>
+<td style="text-align: left;">GPADC
+</td>
+<td>N/A
+</td>
+<td style="background: lightgreen;">4.12
+</td>
+<td style="background: lightgreen;">4.12
+</td>
+<td style="background: lightgreen;">4.12
+</td>
+<td style="background: lightgreen;">4.12
+</td>
+<td style="background: lightgreen;">4.12
+</td>
+<td style="background: orange;"><a href="Linux_mainlining_effort.html#Minor_drivers" title="Linux mainlining effort">WIP</a>
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: orange;"><a href="Linux_mainlining_effort.html#Minor_drivers" title="Linux mainlining effort">WIP</a>
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: lightgreen;">6.11
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: orange;"><a href="Linux_mainlining_effort.html#Minor_drivers" title="Linux mainlining effort">WIP</a>
+</td>
+<td style="background: lightgreen;">6.6
+</td>
+<td style="background: red;">NO
+</td></tr>
+<tr>
+<td style="text-align: left;"><a href="LRADC.html" title="LRADC">LRADC</a>
+</td>
+<td style="background: lightgreen;">6.2
+</td>
+<td style="background: lightgreen;">4.0
+</td>
+<td style="background: lightgreen;">4.0
+</td>
+<td style="background: lightgreen;">4.0
+</td>
+<td style="background: lightgreen;">4.9
+</td>
+<td style="background: lightgreen;">4.0
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: lightgreen;">4.0
+</td>
+<td style="background: lightgreen;">4.0
+</td>
+<td style="background: lightgreen;">4.2
+</td>
+<td style="background: lightgreen;">5.2
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: lightgreen;">4.13
+</td>
+<td style="background: lightgreen;">5.3
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td>N/A
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: lightgreen;">6.11
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: lightgreen;">5.19
+</td>
+<td style="background: lightgreen;">5.19
+</td>
+<td style="background: red;">NO
+</td></tr>
+<tr>
+<td style="text-align: left;">Thermal
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: lightgreen;">3.16
+</td>
+<td style="background: lightgreen;">3.14
+</td>
+<td style="background: lightgreen;">3.14
+</td>
+<td style="background: lightgreen;">4.9
+</td>
+<td style="background: lightgreen;">3.16
+</td>
+<td style="background: lightgreen;">5.7
+</td>
+<td style="background: orange;"><a href="Linux_mainlining_effort.html#Minor_drivers" title="Linux mainlining effort">WIP</a>
+</td>
+<td style="background: orange;"><a href="Linux_mainlining_effort.html#Minor_drivers" title="Linux mainlining effort">WIP</a>
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: lightgreen;">4.12
+</td>
+<td style="background: lightgreen;">5.6
+</td>
+<td style="background: lightgreen;">5.6
+</td>
+<td>N/A
+</td>
+<td style="background: lightgreen;">5.6
+</td>
+<td style="background: lightgreen;">5.6
+</td>
+<td style="background: lightgreen;">5.6
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: lightgreen;">6.9
+</td>
+<td style="background: lightgreen;">5.10
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: lightgreen;">6.8
+</td>
+<td style="background: orange;"><a href="Linux_mainlining_effort.html#Minor_drivers" title="Linux mainlining effort">WIP</a>
+</td></tr>
+<tr>
+<td style="text-align: left;">Touch
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: lightgreen;">3.16
+</td>
+<td style="background: lightgreen;">3.14
+</td>
+<td style="background: lightgreen;">3.14
+</td>
+<td style="background: lightgreen;">4.9
+</td>
+<td style="background: lightgreen;">3.16
+</td>
+<td style="background: orange;"><a href="Linux_mainlining_effort.html#Minor_drivers" title="Linux mainlining effort">WIP</a>
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: lightgreen;">4.0
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: red;">NO
+</td>
+<td>N/A
+</td></tr>
+<tr>
+<td style="text-align: left;" rowspan="6">Audio
+</td>
+<td style="text-align: left;">AC97
+</td>
+<td>N/A
+</td>
+<td style="background: red;">NO
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: red;">NO
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td></tr>
+<tr>
+<td style="text-align: left;"><a href="Audio_Codec.html" title="Audio Codec">Analog Codec</a>
+</td>
+<td style="background: lightgreen;">6.14
+</td>
+<td style="background: lightgreen;">4.4
+</td>
+<td style="background: lightgreen;">4.4
+</td>
+<td style="background: lightgreen;">4.4
+</td>
+<td style="background: lightgreen;">4.9
+</td>
+<td style="background: lightgreen;">4.4
+</td>
+<td style="background: red;">NO
+</td>
+<td>N/A
+</td>
+<td style="background: lightgreen;">4.10
+</td>
+<td style="background: lightgreen;">4.10
+</td>
+<td style="background: lightgreen;">4.11
+</td>
+<td>N/A
+</td>
+<td style="background: lightgreen;">4.10
+</td>
+<td style="background: lightgreen;">4.13
+</td>
+<td style="background: lightgreen;">5.0
+</td>
+<td style="background: lightgreen;">4.12
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: orange;"><a href="Linux_mainlining_effort.html#Minor_drivers" title="Linux mainlining effort">WIP</a>
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: orange;">WIP
+</td>
+<td style="background: orange;"><a href="Linux_mainlining_effort.html#Minor_drivers" title="Linux mainlining effort">WIP</a>
+</td>
+<td style="background: red;">NO
+</td></tr>
+<tr>
+<td style="text-align: left;">Audio Hub
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: red;">NO
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: red;">NO
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td></tr>
+<tr>
+<td style="text-align: left;">DMIC
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: red;">NO
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: lightgreen;">6.1
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td>N/A
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: red;">NO
+</td></tr>
+<tr>
+<td style="text-align: left;">I2S
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: lightgreen;">4.8
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td>N/A
+</td>
+<td style="background: lightgreen;">4.9
+</td>
+<td style="background: lightgreen;">4.8
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: lightgreen;">4.13
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: lightgreen;">4.11
+</td>
+<td style="background: lightgreen;">4.16
+</td>
+<td style="background: lightgreen;">4.14
+</td>
+<td style="background: orange;"><a href="Linux_mainlining_effort.html#Minor_drivers" title="Linux mainlining effort">WIP</a>
+</td>
+<td style="background: lightgreen;">4.17
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: lightgreen;">5.11
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: lightgreen;">5.18
+</td>
+<td style="background: lightgreen;">5.18
+</td>
+<td style="background: orange;"><a href="Linux_mainlining_effort.html#Minor_drivers" title="Linux mainlining effort">WIP</a>
+</td></tr>
+<tr>
+<td style="text-align: left;"><a href="SPDIF.html" title="SPDIF">SPDIF</a>
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: lightgreen;">4.7
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: lightgreen;">4.9
+</td>
+<td style="background: lightgreen;">4.7
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: lightgreen;">4.9
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: lightgreen;">4.13
+</td>
+<td style="background: lightgreen;">4.11
+</td>
+<td>N/A
+</td>
+<td style="background: lightgreen;">4.17
+</td>
+<td style="background: lightgreen;">4.12
+</td>
+<td style="background: lightgreen;">5.4
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: lightgreen;">6.9
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: orange;">WIP
+</td>
+<td style="background: orange;"><a href="Linux_mainlining_effort.html#Minor_drivers" title="Linux mainlining effort">WIP</a>
+</td></tr>
+<tr>
+<td style="text-align: left;" rowspan="4"><a href="CSI.html" title="CSI">Camera</a>
+</td>
+<td style="text-align: left;">BT656
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: lightgreen;">5.6
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: lightgreen;">5.4
+</td>
+<td style="background: lightgreen;">5.6
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: lightgreen;">5.0
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: lightgreen;">5.3
+</td>
+<td style="background: lightgreen;">5.0
+</td>
+<td style="background: lightgreen;">5.0
+</td>
+<td style="background: lightgreen;">5.1
+</td>
+<td style="background: lightgreen;">5.0
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: red;">NO
+</td></tr>
+<tr>
+<td style="text-align: left;">ISP
+</td>
+<td>N/A
+</td>
+<td style="background: red;">NO
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: red;">NO
+</td>
+<td>N/A
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: red;">NO
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: red;">NO
+</td>
+<td>N/A
+</td>
+<td style="background: orange;"><a href="Linux_mainlining_effort.html#Major_drivers" title="Linux mainlining effort">WIP</a>
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td>N/A
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td></tr>
+<tr>
+<td style="text-align: left;">MIPI CSI-2
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: orange;"><a href="Linux_mainlining_effort.html#Major_drivers" title="Linux mainlining effort">WIP</a>
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: orange;"><a href="Linux_mainlining_effort.html#Major_drivers" title="Linux mainlining effort">WIP</a>
+</td>
+<td>N/A
+</td>
+<td style="background: lightgreen;">5.19
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td>N/A
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: red;">NO
+</td></tr>
+<tr>
+<td style="text-align: left;">Parallel
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: lightgreen;">5.6
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: lightgreen;">5.4
+</td>
+<td style="background: lightgreen;">5.6
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: lightgreen;">5.0
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: lightgreen;">5.3
+</td>
+<td style="background: lightgreen;">5.0
+</td>
+<td style="background: lightgreen;">5.0
+</td>
+<td style="background: lightgreen;">5.1
+</td>
+<td style="background: lightgreen;">5.0
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: red;">NO
+</td></tr>
+<tr>
+<td style="text-align: left;" colspan="2">CAN bus
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: lightgreen;">4.4
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: lightgreen;">4.4
+</td>
+<td style="background: lightgreen;">5.17
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: lightgreen;">6.6
+</td>
+<td style="background: red;">NO
+</td></tr>
+<tr>
+<td style="text-align: left;" colspan="2">Clocks
+</td>
+<td style="background: lightgreen;">5.0
+</td>
+<td style="background: lightgreen;">3.10
+</td>
+<td style="background: lightgreen;">3.11
+</td>
+<td style="background: lightgreen;">3.10
+</td>
+<td style="background: lightgreen;">4.9
+</td>
+<td style="background: lightgreen;">3.12
+</td>
+<td style="background: lightgreen;">4.14
+</td>
+<td style="background: lightgreen;">3.19
+</td>
+<td style="background: lightgreen;">3.12
+</td>
+<td style="background: lightgreen;">3.17
+</td>
+<td style="background: lightgreen;">4.2
+</td>
+<td style="background: lightgreen;">4.13
+</td>
+<td style="background: lightgreen;">4.8
+</td>
+<td style="background: lightgreen;">4.11
+</td>
+<td style="background: lightgreen;">4.10
+</td>
+<td style="background: lightgreen;">4.12
+</td>
+<td style="background: lightgreen;">4.17
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: orange;"><a href="Linux_mainlining_effort.html#Core_Stuff" title="Linux mainlining effort">WIP</a>
+</td>
+<td style="background: lightgreen;">5.12
+</td>
+<td style="background: lightgreen;">5.10
+</td>
+<td style="background: orange;">WIP
+</td>
+<td style="background: lightgreen;">5.17
+</td>
+<td style="background: lightgreen;">6.15
+</td></tr>
+<tr>
+<td style="text-align: left;" colspan="2">CPUFreq (DVFS)
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: lightgreen;">4.0
+</td>
+<td style="background: lightgreen;">4.0
+</td>
+<td style="background: lightgreen;">4.0
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: lightgreen;">4.0
+</td>
+<td style="background: lightgreen;">6.0
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: lightgreen;">4.2
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: lightgreen;">4.11
+</td>
+<td style="background: lightgreen;">4.17
+</td>
+<td style="background: lightgreen;">4.18
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: lightgreen;">5.6
+</td>
+<td style="background: lightgreen;">5.9
+</td>
+<td style="background: lightgreen;">5.8
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: lightgreen;">6.10
+</td>
+<td style="background: lightgreen;">6.15
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: orange;"><a href="Linux_mainlining_effort.html#Minor_drivers" title="Linux mainlining effort">WIP</a>
+</td>
+<td style="background: orange;">WIP
+</td></tr>
+<tr>
+<td style="text-align: left;" colspan="2">CPUIdle
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: orange;">Crust
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: orange;">Crust
+</td>
+<td style="background: orange;">Crust
+</td>
+<td style="background: orange;">Crust
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: orange;">SBI
+</td>
+<td style="background: red;">NO
+</td></tr>
+<tr>
+<td style="text-align: left;" colspan="2"><a href="Cryptographic_Hardware_Accelerators.html" title="Cryptographic Hardware Accelerators">Crypto</a>
+</td>
+<td>N/A
+</td>
+<td style="background: lightgreen;">4.3
+</td>
+<td style="background: lightgreen;">4.13
+</td>
+<td style="background: lightgreen;">4.13
+</td>
+<td style="background: lightgreen;">4.13
+</td>
+<td style="background: lightgreen;">4.3
+</td>
+<td style="background: lightgreen;">5.5
+</td>
+<td style="background: lightgreen;">5.5
+</td>
+<td style="background: lightgreen;">4.3
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: lightgreen;">4.3
+</td>
+<td style="background: lightgreen;">5.5
+</td>
+<td style="background: lightgreen;">5.5
+</td>
+<td style="background: lightgreen;">5.10
+</td>
+<td style="background: lightgreen;">5.5
+</td>
+<td style="background: lightgreen;">5.5
+</td>
+<td style="background: lightgreen;">5.5
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: lightgreen;">6.11
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: lightgreen;">6.3
+</td>
+<td style="background: red;">NO
+</td></tr>
+<tr>
+<td style="text-align: left;" rowspan="9"><a rel="nofollow" class="external text" href="https://dri.freedesktop.org/wiki/DRM/">Display (DRM)</a>
+</td>
+<td style="text-align: left;">CVBS
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: lightgreen;">4.9&#160;?
+</td>
+<td style="background: lightgreen;">4.7
+</td>
+<td style="background: lightgreen;">4.9
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: red;">NO
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: orange;"><a href="Linux_mainlining_effort.html#Minor_drivers" title="Linux mainlining effort">WIP</a>
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: orange;"><a href="Linux_mainlining_effort.html#Minor_drivers" title="Linux mainlining effort">WIP</a>
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: grey; color: white;">?
+</td></tr>
+<tr>
+<td style="text-align: left;">G2D
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: red;">NO
+</td></tr>
+<tr>
+<td style="text-align: left;">HDMI Audio
+</td>
+<td>N/A
+</td>
+<td style="background: orange;"><a href="Linux_mainlining_effort.html#Minor_drivers" title="Linux mainlining effort">WIP</a>
+</td>
+<td style="background: red;">NO
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: orange;"><a href="Linux_mainlining_effort.html#Minor_drivers" title="Linux mainlining effort">WIP</a>
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: orange;"><a href="Linux_mainlining_effort.html#Minor_drivers" title="Linux mainlining effort">WIP</a>
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: orange;"><a href="Linux_mainlining_effort.html#Major_drivers" title="Linux mainlining effort">WIP</a>
+</td>
+<td>N/A
+</td>
+<td style="background: orange;"><a href="Linux_mainlining_effort.html#Major_drivers" title="Linux mainlining effort">WIP</a>
+</td>
+<td style="background: orange;"><a href="Linux_mainlining_effort.html#Major_drivers" title="Linux mainlining effort">WIP</a>
+</td>
+<td style="background: orange;"><a href="Linux_mainlining_effort.html#Major_drivers" title="Linux mainlining effort">WIP</a>
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: red;">NO
+</td></tr>
+<tr>
+<td style="text-align: left;">HDMI CEC
+</td>
+<td>N/A
+</td>
+<td style="background: lightgreen;">4.15
+</td>
+<td style="background: lightgreen;">4.14
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: lightgreen;">4.15
+</td>
+<td style="background: lightgreen;">4.19
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: lightgreen;">4.15
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: lightgreen;">4.17
+</td>
+<td style="background: lightgreen;">4.17
+</td>
+<td>N/A
+</td>
+<td style="background: lightgreen;">4.20
+</td>
+<td style="background: lightgreen;">4.17
+</td>
+<td style="background: lightgreen;">5.2
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: red;">NO
+</td></tr>
+<tr>
+<td style="text-align: left;">HDMI Video
+</td>
+<td>N/A
+</td>
+<td style="background: lightgreen;">4.15
+</td>
+<td style="background: lightgreen;">4.13
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: lightgreen;">4.15
+</td>
+<td style="background: lightgreen;">4.19
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: lightgreen;">4.15
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: lightgreen;">4.17
+</td>
+<td style="background: lightgreen;">4.17
+</td>
+<td>N/A
+</td>
+<td style="background: lightgreen;">4.20
+</td>
+<td style="background: lightgreen;">4.17
+</td>
+<td style="background: lightgreen;">5.0
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: orange;">WIP
+</td>
+<td style="background: red;">NO
+</td></tr>
+<tr>
+<td style="text-align: left;">LVDS
+</td>
+<td>N/A
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: lightgreen;">5.7
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: lightgreen;">4.16
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: orange;"><a href="Linux_mainlining_effort.html#Minor_drivers" title="Linux mainlining effort">WIP</a>
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: orange;"><a href="Linux_mainlining_effort.html#Minor_drivers" title="Linux mainlining effort">WIP</a>
+</td>
+<td style="background: red;">NO
+</td></tr>
+<tr>
+<td style="text-align: left;">MIPI DSI
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: orange;"><a href="Linux_mainlining_effort.html#Major_drivers" title="Linux mainlining effort">WIP</a>
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: lightgreen;">4.18
+</td>
+<td style="background: red;">NO
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: lightgreen;">5.6
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td>N/A
+</td>
+<td style="background: lightgreen;">6.2
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: lightgreen;">6.2
+</td>
+<td style="background: red;">NO
+</td></tr>
+<tr>
+<td style="text-align: left;">RGB
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: lightgreen;">4.15
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: lightgreen;">4.7
+</td>
+<td style="background: lightgreen;">4.9
+</td>
+<td style="background: lightgreen;">4.15
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: lightgreen;">4.17
+</td>
+<td style="background: lightgreen;">4.10
+</td>
+<td style="background: lightgreen;">5.1
+</td>
+<td style="background: lightgreen;">4.9
+</td>
+<td style="background: lightgreen;">4.16
+</td>
+<td>N/A
+</td>
+<td style="background: lightgreen;">4.13
+</td>
+<td style="background: lightgreen;">5.3
+</td>
+<td>N/A
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: orange;"><a href="Linux_mainlining_effort.html#Minor_drivers" title="Linux mainlining effort">WIP</a>
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: lightgreen;">6.0
+</td>
+<td style="background: red;">NO
+</td></tr>
+<tr>
+<td style="text-align: left;">VGA
+</td>
+<td>N/A
+</td>
+<td style="background: red;">NO
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: red;">NO
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td></tr>
+<tr>
+<td style="text-align: left;" colspan="2">Display (SimpleFB)
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: lightgreen;">3.19
+</td>
+<td style="background: lightgreen;">3.19
+</td>
+<td style="background: lightgreen;">4.0
+</td>
+<td style="background: lightgreen;">4.9
+</td>
+<td style="background: lightgreen;">3.19
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: lightgreen;">3.19
+</td>
+<td style="background: lightgreen;">3.19
+</td>
+<td style="background: lightgreen;">3.19
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: lightgreen;">4.16
+</td>
+<td style="background: lightgreen;">5.10
+</td>
+<td style="background: lightgreen;">4.17
+</td>
+<td style="background: lightgreen;">4.16
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: red;">NO
+</td></tr>
+<tr>
+<td style="text-align: left;" colspan="2">DMA
+</td>
+<td style="background: lightgreen;">6.14
+</td>
+<td style="background: lightgreen;">4.3
+</td>
+<td style="background: lightgreen;">4.3
+</td>
+<td style="background: lightgreen;">4.3
+</td>
+<td style="background: lightgreen;">4.9
+</td>
+<td style="background: lightgreen;">4.3
+</td>
+<td style="background: lightgreen;">5.10
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: lightgreen;">3.17
+</td>
+<td style="background: lightgreen;">3.18
+</td>
+<td style="background: lightgreen;">4.2
+</td>
+<td style="background: lightgreen;">4.9
+</td>
+<td style="background: lightgreen;">4.2
+</td>
+<td style="background: lightgreen;">4.13
+</td>
+<td style="background: lightgreen;">4.15
+</td>
+<td style="background: lightgreen;">4.12
+</td>
+<td style="background: lightgreen;">5.3
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: lightgreen;">6.9
+</td>
+<td style="background: lightgreen;">6.1
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: lightgreen;">5.19
+</td>
+<td style="background: orange;"><a href="Linux_mainlining_effort.html#Minor_drivers" title="Linux mainlining effort">WIP</a>
+</td></tr>
+<tr>
+<td style="text-align: left;" rowspan="2"><a href="Ethernet.html" title="Ethernet">Ethernet</a>
+</td>
+<td style="text-align: left;"><a href="Ethernet.html#EMAC" title="Ethernet">EMAC</a>
+</td>
+<td>N/A
+</td>
+<td style="background: lightgreen;">3.11
+</td>
+<td style="background: lightgreen;">3.11
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: lightgreen;">3.11
+</td>
+<td style="background: orange;"><a href="Linux_mainlining_effort.html#Minor_drivers" title="Linux mainlining effort">WIP</a>
+</td>
+<td style="background: lightgreen;">5.1
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: lightgreen;">4.16
+</td>
+<td style="background: lightgreen;">4.15
+</td>
+<td style="background: lightgreen;">4.13
+</td>
+<td style="background: lightgreen;">4.15
+</td>
+<td style="background: lightgreen;">4.15
+</td>
+<td style="background: lightgreen;">5.0
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: lightgreen;">6.17
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: lightgreen;">5.15
+</td>
+<td style="background: lightgreen;">6.16
+</td></tr>
+<tr>
+<td style="text-align: left;"><a href="Ethernet.html#GMAC" title="Ethernet">GMAC</a>
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: lightgreen;">3.15
+</td>
+<td style="background: lightgreen;">4.18
+</td>
+<td style="background: lightgreen;">5.1
+</td>
+<td style="background: lightgreen;">3.17
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: lightgreen;">4.16
+</td>
+<td style="background: lightgreen;">4.15
+</td>
+<td style="background: lightgreen;">4.13
+</td>
+<td style="background: lightgreen;">4.15
+</td>
+<td style="background: lightgreen;">4.15
+</td>
+<td style="background: lightgreen;">5.0
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td>N/A
+</td>
+<td style="background: lightgreen;">6.0
+</td>
+<td>N/A
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td>N/A
+</td>
+<td style="background: orange;"><a href="Linux_mainlining_effort.html#Minor_drivers" title="Linux mainlining effort">WIP</a>
+</td></tr>
+<tr>
+<td style="text-align: left;" rowspan="2">GPU (3D)
+</td>
+<td style="text-align: left;"><a href="Mali.html" title="Mali">Mali</a>
+</td>
+<td>N/A
+</td>
+<td style="background: lightgreen;">5.2
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: lightgreen;">5.2
+</td>
+<td style="background: lightgreen;">5.10
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td>N/A
+</td>
+<td style="background: lightgreen;">5.2
+</td>
+<td>N/A
+</td>
+<td style="background: lightgreen;">5.2
+</td>
+<td style="background: lightgreen;">5.2
+</td>
+<td style="background: lightgreen;">5.5
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: lightgreen;">6.15
+</td>
+<td>N/A
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td>N/A
+</td>
+<td style="background: lightgreen;">6.17
+</td></tr>
+<tr>
+<td style="text-align: left;"><a href="PowerVR.html" title="PowerVR">PowerVR</a>
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: red;">NO
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: red;">NO
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: red;">NO
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td></tr>
+<tr>
+<td style="text-align: left;" colspan="2">HW Spinlocks
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: orange;"><a href="Linux_mainlining_effort.html#Minor_drivers" title="Linux mainlining effort">WIP</a>
+</td>
+<td style="background: orange;"><a href="Linux_mainlining_effort.html#Minor_drivers" title="Linux mainlining effort">WIP</a>
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: orange;"><a href="Linux_mainlining_effort.html#Minor_drivers" title="Linux mainlining effort">WIP</a>
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td>N/A
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: red;">NO
+</td></tr>
+<tr>
+<td style="text-align: left;" colspan="2"><a href="I2C.html" class="mw-redirect" title="I2C">I2C</a>
+</td>
+<td style="background: lightgreen;">6.2
+</td>
+<td style="background: lightgreen;">3.11
+</td>
+<td style="background: lightgreen;">3.12
+</td>
+<td style="background: lightgreen;">3.11
+</td>
+<td style="background: lightgreen;">4.9
+</td>
+<td style="background: lightgreen;">3.13
+</td>
+<td style="background: lightgreen;">4.15
+</td>
+<td style="background: lightgreen;">3.19
+</td>
+<td style="background: lightgreen;">3.15
+</td>
+<td style="background: lightgreen;">3.18
+</td>
+<td style="background: lightgreen;">4.2
+</td>
+<td style="background: lightgreen;">4.16
+</td>
+<td style="background: lightgreen;">4.9
+</td>
+<td style="background: lightgreen;">4.11
+</td>
+<td style="background: lightgreen;">4.10
+</td>
+<td style="background: lightgreen;">4.12
+</td>
+<td style="background: lightgreen;">4.19
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: lightgreen;">6.0
+</td>
+<td style="background: lightgreen;">5.10
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: lightgreen;">6.0
+</td>
+<td style="background: lightgreen;">6.15
+</td></tr>
+<tr>
+<td style="text-align: left;" colspan="2">IOMMU
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: lightgreen;">5.8
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: lightgreen;">6.11
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: orange;">WIP
+</td>
+<td style="background: red;">NO
+</td></tr>
+<tr>
+<td style="text-align: left;" rowspan="2"><a href="IR.html" title="IR">IR</a>
+</td>
+<td style="text-align: left;"><a href="IR.html" title="IR">IR RX</a>
+</td>
+<td style="background: lightgreen;">6.2
+</td>
+<td style="background: lightgreen;">3.17
+</td>
+<td style="background: lightgreen;">4.0
+</td>
+<td style="background: lightgreen;">4.0
+</td>
+<td style="background: lightgreen;">4.9
+</td>
+<td style="background: lightgreen;">3.17
+</td>
+<td style="background: lightgreen;">5.10
+</td>
+<td style="background: lightgreen;">4.5
+</td>
+<td style="background: lightgreen;">4.0
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: lightgreen;">4.20
+</td>
+<td style="background: lightgreen;">4.6
+</td>
+<td>N/A
+</td>
+<td style="background: lightgreen;">5.4
+</td>
+<td style="background: lightgreen;">4.12
+</td>
+<td style="background: lightgreen;">5.4
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: lightgreen;">6.0
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: red;">NO
+</td></tr>
+<tr>
+<td style="text-align: left;">IR TX
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td>N/A
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: red;">NO
+</td></tr>
+<tr>
+<td style="text-align: left;" colspan="2">Keypad
+</td>
+<td>N/A
+</td>
+<td style="background: orange;">WIP
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: orange;">WIP
+</td>
+<td style="background: red;">NO
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td></tr>
+<tr>
+<td style="text-align: left;" colspan="2">LDOs
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: orange;">WIP
+</td>
+<td style="background: orange;">WIP
+</td>
+<td style="background: grey; color: white;">?
+</td></tr>
+<tr>
+<td style="text-align: left;" colspan="2">LEDC
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: lightgreen;">6.8
+</td>
+<td style="background: lightgreen;">6.8
+</td>
+<td style="background: lightgreen;">6.8
+</td>
+<td style="background: red;">NO
+</td></tr>
+<tr>
+<td style="text-align: left;" colspan="2">MBUS
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: lightgreen;">5.17
+</td>
+<td style="background: lightgreen;">5.17
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: grey; color: white;">?
+</td></tr>
+<tr>
+<td style="text-align: left;" colspan="2">MsgBox
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: lightgreen;">5.8
+</td>
+<td style="background: lightgreen;">5.8
+</td>
+<td>N/A
+</td>
+<td style="background: lightgreen;">5.8
+</td>
+<td style="background: lightgreen;">5.8
+</td>
+<td style="background: lightgreen;">5.8
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td>N/A
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: orange;">WIP
+</td>
+<td style="background: red;">NO
+</td></tr>
+<tr>
+<td style="text-align: left;" colspan="2">PCIe
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: orange;"><a href="Linux_mainlining_effort.html#Major_drivers" title="Linux mainlining effort">WIP</a> <sup id="cite_ref-h6-pcie_3-0" class="reference"><a href="#cite_note-h6-pcie-3">&#91;3&#93;</a></sup>
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: red;">NO
+</td></tr>
+<tr>
+<td style="text-align: left;" colspan="2">Pinctrl
+</td>
+<td style="background: lightgreen;">5.0
+</td>
+<td style="background: lightgreen;">3.9
+</td>
+<td style="background: lightgreen;">3.9
+</td>
+<td style="background: lightgreen;">3.9
+</td>
+<td style="background: lightgreen;">4.9
+</td>
+<td style="background: lightgreen;">3.12
+</td>
+<td style="background: lightgreen;">4.14
+</td>
+<td style="background: lightgreen;">3.19
+</td>
+<td style="background: lightgreen;">3.12
+</td>
+<td style="background: lightgreen;">3.18
+</td>
+<td style="background: lightgreen;">4.2
+</td>
+<td style="background: lightgreen;">4.4
+</td>
+<td style="background: lightgreen;">4.5
+</td>
+<td style="background: lightgreen;">4.11
+</td>
+<td style="background: lightgreen;">4.6
+</td>
+<td style="background: lightgreen;">4.12
+</td>
+<td style="background: lightgreen;">4.17
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: orange;"><a href="Linux_mainlining_effort.html#Core_Stuff" title="Linux mainlining effort">WIP</a>
+</td>
+<td style="background: lightgreen;">5.12
+</td>
+<td style="background: lightgreen;">5.10
+</td>
+<td style="background: orange;">WIP
+</td>
+<td style="background: lightgreen;">6.0
+</td>
+<td style="background: lightgreen;">6.15
+</td></tr>
+<tr>
+<td style="text-align: left;" colspan="2"><a href="https://linux-sunxi.org/index.php?title=PMU&amp;action=edit&amp;redlink=1" class="new" title="PMU (page does not exist)">PMU</a> (perf, DT only)
+</td>
+<td>N/A
+</td>
+<td style="background: lightgreen;">5.1
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: lightgreen;">3.16
+</td>
+<td style="background: lightgreen;">5.6
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: lightgreen;">3.16
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: lightgreen;">5.6
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: lightgreen;">5.5
+</td>
+<td style="background: lightgreen;">5.6
+</td>
+<td style="background: lightgreen;">5.6
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: lightgreen;">6.0
+</td>
+<td style="background: lightgreen;">6.13
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: orange;"><a href="Linux_mainlining_effort.html#Minor_drivers" title="Linux mainlining effort">WIP</a>
+</td>
+<td style="background: lightgreen;">6.16
+</td></tr>
+<tr>
+<td style="text-align: left;" colspan="2"><a href="PWM_Controller.html" class="mw-redirect" title="PWM Controller">PWM</a>
+</td>
+<td style="background: lightgreen;">6.2
+</td>
+<td style="background: lightgreen;">4.0
+</td>
+<td style="background: lightgreen;">4.4
+</td>
+<td style="background: lightgreen;">4.4
+</td>
+<td style="background: lightgreen;">4.9
+</td>
+<td style="background: lightgreen;">4.0
+</td>
+<td style="background: orange;"><a href="Linux_mainlining_effort.html#Minor_drivers" title="Linux mainlining effort">WIP</a>
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: lightgreen;">4.4
+</td>
+<td style="background: lightgreen;">4.4
+</td>
+<td style="background: lightgreen;">4.16
+</td>
+<td style="background: lightgreen;">4.9
+</td>
+<td style="background: lightgreen;">4.12
+</td>
+<td style="background: lightgreen;">4.19
+</td>
+<td style="background: lightgreen;">4.12
+</td>
+<td style="background: lightgreen;">5.6
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: orange;">WIP
+</td>
+<td style="background: orange;">WIP
+</td>
+<td style="background: orange;"><a href="Linux_mainlining_effort.html#Minor_drivers" title="Linux mainlining effort">WIP</a>
+</td>
+<td style="background: orange;"><a href="Linux_mainlining_effort.html#Minor_drivers" title="Linux mainlining effort">WIP</a>
+</td>
+<td style="background: red;">NO
+</td></tr>
+<tr>
+<td style="text-align: left;" rowspan="2">Remoteproc
+</td>
+<td style="text-align: left;">AIPU
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: red;">NO
+</td>
+<td>N/A
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: red;">NO
+</td>
+<td>N/A
+</td>
+<td style="background: red;">NO
+</td></tr>
+<tr>
+<td style="text-align: left;">DSP
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: orange;">WIP
+</td>
+<td style="background: orange;">WIP
+</td>
+<td style="background: red;">NO
+</td></tr>
+<tr>
+<td style="text-align: left;" colspan="2"><a href="RSB.html" class="mw-redirect" title="RSB">RSB</a>
+</td>
+<td style="background: red;">NO
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: lightgreen;">4.3
+</td>
+<td>N/A
+</td>
+<td style="background: lightgreen;">4.4
+</td>
+<td style="background: lightgreen;">4.4
+</td>
+<td style="background: lightgreen;">4.14
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td>N/A
+</td>
+<td style="background: lightgreen;">4.13
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: lightgreen;">5.12
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: lightgreen;">6.0
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td></tr>
+<tr>
+<td style="text-align: left;" colspan="2"><a href="RTC.html" title="RTC">RTC</a>
+</td>
+<td>N/A
+</td>
+<td style="background: lightgreen;">3.14
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: lightgreen;">3.14
+</td>
+<td style="background: lightgreen;">5.0
+</td>
+<td>N/A
+</td>
+<td style="background: lightgreen;">3.18
+</td>
+<td style="background: lightgreen;">3.18
+</td>
+<td style="background: lightgreen;">4.2
+</td>
+<td>N/A
+</td>
+<td style="background: lightgreen;">4.5
+</td>
+<td style="background: lightgreen;">4.11
+</td>
+<td style="background: lightgreen;">4.10
+</td>
+<td style="background: lightgreen;">4.12
+</td>
+<td style="background: lightgreen;">5.4
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: orange;"><a href="Linux_mainlining_effort.html#Core_Stuff" title="Linux mainlining effort">WIP</a>
+</td>
+<td style="background: lightgreen;">6.0
+</td>
+<td style="background: orange;">WIP
+</td>
+<td style="background: orange;">WIP
+</td>
+<td style="background: lightgreen;">6.0
+</td>
+<td style="background: lightgreen;">6.15
+</td></tr>
+<tr>
+<td style="text-align: left;" colspan="2">SID (eFuse)
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: lightgreen;">6.7
+</td>
+<td style="background: lightgreen;">5.10
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: lightgreen;">5.18
+</td>
+<td style="background: lightgreen;">6.17
+</td></tr>
+<tr>
+<td style="text-align: left;" colspan="2">SMP
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: lightgreen;">PSCI
+</td>
+<td style="background: lightgreen;">PSCI
+</td>
+<td style="background: lightgreen;">4.17
+</td>
+<td style="background: lightgreen;">PSCI
+</td>
+<td style="background: lightgreen;">PSCI
+</td>
+<td style="background: lightgreen;">PSCI
+</td>
+<td style="background: lightgreen;">4.18
+</td>
+<td style="background: lightgreen;">PSCI
+</td>
+<td>N/A
+</td>
+<td style="background: lightgreen;">PSCI
+</td>
+<td style="background: lightgreen;">PSCI
+</td>
+<td style="background: lightgreen;">PSCI
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: lightgreen;">PSCI
+</td>
+<td style="background: orange;">PSCI
+</td>
+<td style="background: lightgreen;">PSCI
+</td>
+<td>N/A
+</td>
+<td style="background: orange;">PSCI
+</td></tr>
+<tr>
+<td style="text-align: left;" colspan="2"><a href="SPIdev.html" title="SPIdev">SPI</a>
+</td>
+<td style="background: lightgreen;">5.19
+</td>
+<td style="background: lightgreen;">3.16
+</td>
+<td style="background: lightgreen;">3.15
+</td>
+<td style="background: lightgreen;">3.15
+</td>
+<td style="background: lightgreen;">4.9
+</td>
+<td style="background: lightgreen;">3.15
+</td>
+<td style="background: lightgreen;">5.6
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: lightgreen;">3.15
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: lightgreen;">4.10
+</td>
+<td style="background: lightgreen;">4.13
+</td>
+<td style="background: lightgreen;">4.15
+</td>
+<td style="background: lightgreen;">4.12
+</td>
+<td style="background: lightgreen;">5.7
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: orange;"><a href="Linux_mainlining_effort.html#Core_Stuff" title="Linux mainlining effort">WIP</a>
+</td>
+<td style="background: lightgreen;">6.0
+</td>
+<td style="background: orange;">WIP
+</td>
+<td style="background: orange;"><a href="Linux_mainlining_effort.html#Minor_drivers" title="Linux mainlining effort">WIP</a>
+</td>
+<td style="background: lightgreen;">6.5
+</td>
+<td style="background: red;">NO
+</td></tr>
+<tr>
+<td style="text-align: left;" colspan="2"><a href="SRAM_Controller.html" class="mw-redirect" title="SRAM Controller">SRAM</a>
+</td>
+<td style="background: lightgreen;">5.0
+</td>
+<td style="background: lightgreen;">4.2
+</td>
+<td style="background: lightgreen;">4.2
+</td>
+<td style="background: lightgreen;">4.2
+</td>
+<td style="background: lightgreen;">4.2
+</td>
+<td style="background: lightgreen;">4.2
+</td>
+<td style="background: lightgreen;">5.10
+</td>
+<td>N/A
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: lightgreen;">4.19
+</td>
+<td style="background: lightgreen;">4.19
+</td>
+<td>N/A
+</td>
+<td style="background: lightgreen;">4.19
+</td>
+<td style="background: lightgreen;">5.10
+</td>
+<td style="background: lightgreen;">4.19
+</td>
+<td style="background: lightgreen;">5.0
+</td>
+<td style="background: lightgreen;">5.1
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: lightgreen;">6.0
+</td>
+<td style="background: lightgreen;">6.14
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: lightgreen;">6.1
+</td>
+<td style="background: orange;"><a href="Linux_mainlining_effort.html#Minor_drivers" title="Linux mainlining effort">WIP</a>
+</td></tr>
+<tr>
+<td style="text-align: left;" rowspan="4">Storage
+</td>
+<td style="text-align: left;">EMCE
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: orange;"><a href="Linux_mainlining_effort.html#Major_drivers" title="Linux mainlining effort">WIP</a>
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td></tr>
+<tr>
+<td style="text-align: left;"><a href="NAND.html" title="NAND">NAND</a>
+</td>
+<td>N/A
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: lightgreen;">4.12 <sup id="cite_ref-mlc_4-0" class="reference"><a href="#cite_note-mlc-4">&#91;4&#93;</a></sup>
+</td>
+<td style="background: lightgreen;">4.9 <sup id="cite_ref-mlc_4-1" class="reference"><a href="#cite_note-mlc-4">&#91;4&#93;</a></sup>
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: lightgreen;">4.9 <sup id="cite_ref-mlc_4-2" class="reference"><a href="#cite_note-mlc-4">&#91;4&#93;</a></sup>
+</td>
+<td style="background: lightgreen;">4.9 <sup id="cite_ref-mlc_4-3" class="reference"><a href="#cite_note-mlc-4">&#91;4&#93;</a></sup>
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td>N/A
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: orange;"><a href="Linux_mainlining_effort.html#Minor_drivers" title="Linux mainlining effort">WIP</a>
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: orange;"><a href="Linux_mainlining_effort.html#Minor_drivers" title="Linux mainlining effort">WIP</a>
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: red;">NO
+</td></tr>
+<tr>
+<td style="text-align: left;"><a href="SATA.html" title="SATA">SATA</a>
+</td>
+<td>N/A
+</td>
+<td style="background: lightgreen;">3.15
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: lightgreen;">3.15
+</td>
+<td style="background: lightgreen;">4.20
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td></tr>
+<tr>
+<td style="text-align: left;"><a href="EMMC.html" title="EMMC">SD/MMC</a>
+</td>
+<td style="background: lightgreen;">5.19
+</td>
+<td style="background: lightgreen;">3.16
+</td>
+<td style="background: lightgreen;">3.16
+</td>
+<td style="background: lightgreen;">3.16
+</td>
+<td style="background: lightgreen;">4.9
+</td>
+<td style="background: lightgreen;">3.16
+</td>
+<td style="background: lightgreen;">4.14
+</td>
+<td style="background: lightgreen;">4.0
+</td>
+<td style="background: lightgreen;">3.16
+</td>
+<td style="background: lightgreen;">3.18
+</td>
+<td style="background: lightgreen;">4.2
+</td>
+<td style="background: lightgreen;">4.14
+</td>
+<td style="background: lightgreen;">4.5
+</td>
+<td style="background: lightgreen;">4.11
+</td>
+<td style="background: lightgreen;">4.11
+</td>
+<td style="background: lightgreen;">4.12
+</td>
+<td style="background: lightgreen;">4.19
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: orange;"><a href="Linux_mainlining_effort.html#Core_Stuff" title="Linux mainlining effort">WIP</a>
+</td>
+<td style="background: lightgreen;">6.0
+</td>
+<td style="background: lightgreen;">5.12
+</td>
+<td style="background: orange;">WIP
+</td>
+<td style="background: lightgreen;">5.18
+</td>
+<td style="background: lightgreen;">6.15
+</td></tr>
+<tr>
+<td style="text-align: left;" rowspan="3">Timer
+</td>
+<td style="text-align: left;">Arch Timer
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: lightgreen;">3.15
+</td>
+<td style="background: lightgreen;">4.15
+</td>
+<td style="background: lightgreen;">4.2
+</td>
+<td style="background: lightgreen;">4.0
+</td>
+<td style="background: lightgreen;">4.2
+</td>
+<td style="background: lightgreen;">4.2
+</td>
+<td style="background: lightgreen;">4.6
+</td>
+<td style="background: lightgreen;">4.5
+</td>
+<td style="background: lightgreen;">4.11
+</td>
+<td style="background: orange;">WIP
+</td>
+<td style="background: lightgreen;">4.12
+</td>
+<td style="background: lightgreen;">4.17
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: lightgreen;">6.0
+</td>
+<td style="background: lightgreen;">5.10
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: orange;">WIP
+</td>
+<td style="background: lightgreen;">6.16
+</td></tr>
+<tr>
+<td style="text-align: left;">HSTIMER
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: lightgreen;">4.2
+</td>
+<td style="background: lightgreen;">4.2
+</td>
+<td style="background: lightgreen;">4.2
+</td>
+<td style="background: lightgreen;">3.14
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: lightgreen;">4.2
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: red;">NO
+</td></tr>
+<tr>
+<td style="text-align: left;">TIMER
+</td>
+<td style="background: lightgreen;">5.0
+</td>
+<td style="background: lightgreen;">3.15
+</td>
+<td style="background: lightgreen;">4.2
+</td>
+<td style="background: lightgreen;">4.2
+</td>
+<td style="background: lightgreen;">4.2
+</td>
+<td style="background: lightgreen;">3.15
+</td>
+<td style="background: lightgreen;">5.14
+</td>
+<td style="background: lightgreen;">3.19
+</td>
+<td style="background: lightgreen;">3.15
+</td>
+<td style="background: lightgreen;">5.4
+</td>
+<td style="background: lightgreen;">5.4
+</td>
+<td style="background: lightgreen;">5.4
+</td>
+<td style="background: lightgreen;">5.4
+</td>
+<td style="background: lightgreen;">5.4
+</td>
+<td style="background: lightgreen;">5.14
+</td>
+<td style="background: lightgreen;">5.4
+</td>
+<td style="background: lightgreen;">5.14
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: lightgreen;">6.0
+</td>
+<td style="background: darkgreen; color: white;">?
+</td></tr>
+<tr>
+<td style="text-align: left;" rowspan="3"><a href="USB.html" title="USB">USB</a>
+</td>
+<td style="text-align: left;"><a href="USB.html" title="USB">USB</a>
+</td>
+<td style="background: lightgreen;">6.3
+</td>
+<td style="background: lightgreen;">3.15
+</td>
+<td style="background: lightgreen;">3.15
+</td>
+<td style="background: lightgreen;">3.15
+</td>
+<td style="background: lightgreen;">4.9
+</td>
+<td style="background: lightgreen;">3.15
+</td>
+<td style="background: lightgreen;">4.15
+</td>
+<td style="background: lightgreen;">4.2
+</td>
+<td style="background: lightgreen;">3.16
+</td>
+<td style="background: lightgreen;">4.3
+</td>
+<td style="background: lightgreen;">4.3
+</td>
+<td style="background: lightgreen;">4.14
+</td>
+<td style="background: lightgreen;">4.8
+</td>
+<td style="background: lightgreen;">4.11
+</td>
+<td style="background: lightgreen;">4.11
+</td>
+<td style="background: lightgreen;">4.12
+</td>
+<td style="background: lightgreen;">5.0
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: lightgreen;">6.1.3
+</td>
+<td style="background: lightgreen;">6.13
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: lightgreen;">5.18
+</td>
+<td style="background: lightgreen;">6.15
+</td></tr>
+<tr>
+<td style="text-align: left;"><a href="https://linux-sunxi.org/index.php?title=USB_OTG_Controller_Register_guide&amp;action=edit&amp;redlink=1" class="new" title="USB OTG Controller Register guide (page does not exist)">USB OTG</a>
+</td>
+<td style="background: lightgreen;">6.3
+</td>
+<td style="background: lightgreen;">4.3
+</td>
+<td style="background: lightgreen;">4.3
+</td>
+<td style="background: lightgreen;">4.3
+</td>
+<td style="background: lightgreen;">4.9
+</td>
+<td style="background: lightgreen;">4.3
+</td>
+<td style="background: orange;"><a href="Linux_mainlining_effort.html#Minor_drivers" title="Linux mainlining effort">WIP</a>
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: lightgreen;">4.3
+</td>
+<td style="background: lightgreen;">4.8
+</td>
+<td style="background: lightgreen;">4.8
+</td>
+<td style="background: lightgreen;">5.2
+</td>
+<td style="background: lightgreen;">4.12
+</td>
+<td style="background: lightgreen;">4.11
+</td>
+<td style="background: lightgreen;">4.11
+</td>
+<td style="background: lightgreen;">4.12
+</td>
+<td style="background: lightgreen;">5.0
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: lightgreen;">6.1.3
+</td>
+<td style="background: lightgreen;">6.13
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: lightgreen;">5.18
+</td>
+<td style="background: lightgreen;">6.15
+</td></tr>
+<tr>
+<td style="text-align: left;">USB3.0
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: red;">NO
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: lightgreen;">5.5
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td>N/A
+</td>
+<td style="background: orange;"><a href="Linux_mainlining_effort.html#Minor_drivers" title="Linux mainlining effort">WIP</a>
+</td></tr>
+<tr>
+<td style="text-align: left;" colspan="2"><a href="Video_Engine.html" title="Video Engine">VE</a>
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: lightgreen;">5.1
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: lightgreen;">4.20
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: lightgreen;">4.20
+</td>
+<td style="background: lightgreen;">5.10
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: lightgreen;">4.20
+</td>
+<td style="background: red;">NO
+</td>
+<td style="background: lightgreen;">4.20
+</td>
+<td style="background: orange;"><a href="Linux_mainlining_effort.html#Major_drivers" title="Linux mainlining effort">WIP</a>
+</td>
+<td style="background: lightgreen;">5.0
+</td>
+<td style="background: lightgreen;">5.0
+</td>
+<td style="background: lightgreen;">5.2
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: grey; color: white;">?
+</td>
+<td style="background: lightgreen;">5.17
+</td>
+<td style="background: red;">NO
+</td></tr>
+<tr>
+<td style="text-align: left;" colspan="2">Watchdog
+</td>
+<td style="background: lightgreen;">5.19
+</td>
+<td style="background: lightgreen;">3.12
+</td>
+<td style="background: lightgreen;">3.12
+</td>
+<td style="background: lightgreen;">3.12
+</td>
+<td style="background: lightgreen;">4.9
+</td>
+<td style="background: lightgreen;">3.12
+</td>
+<td style="background: lightgreen;">4.15
+</td>
+<td style="background: lightgreen;">3.19
+</td>
+<td style="background: lightgreen;">3.18
+</td>
+<td style="background: lightgreen;">3.18
+</td>
+<td style="background: lightgreen;">4.2
+</td>
+<td style="background: lightgreen;">4.6
+</td>
+<td style="background: lightgreen;">4.5
+</td>
+<td style="background: lightgreen;">4.11
+</td>
+<td style="background: lightgreen;">4.17
+</td>
+<td style="background: lightgreen;">4.12
+</td>
+<td style="background: lightgreen;">5.3
+</td>
+<td style="background: darkgreen; color: white;">?
+</td>
+<td style="background: orange;"><a href="Linux_mainlining_effort.html#Core_Stuff" title="Linux mainlining effort">WIP</a>
+</td>
+<td style="background: lightgreen;">6.0
+</td>
+<td style="background: lightgreen;">6.13
+</td>
+<td style="background: lightgreen;">5.16
+</td>
+<td style="background: lightgreen;">5.16
+</td>
+<td style="background: lightgreen;">6.15
+</td></tr>
+<tr>
+<th colspan="2" style="text-align: left; width: 13%">Model
+</th>
+<th><a href="F1C100s.html" title="F1C100s">F1C-<br />100s<br />200s</a>
+</th>
+<th><a href="A10.html" title="A10">A10</a>
+</th>
+<th><a href="A10s.html" title="A10s">A10s</a>
+</th>
+<th><a href="A13.html" title="A13">A13</a><br /><a href="R8.html" class="mw-redirect" title="R8">R8</a>
+</th>
+<th><a href="GR8.html" title="GR8">GR8</a>
+</th>
+<th><a href="A20.html" title="A20">A20</a><br /><a href="https://linux-sunxi.org/index.php?title=T2&amp;action=edit&amp;redlink=1" class="new" title="T2 (page does not exist)">T2</a>
+</th>
+<th><a href="R40.html" title="R40">R40</a><br /><a href="V40.html" class="mw-redirect" title="V40">V40</a><br /><a href="T3.html" class="mw-redirect" title="T3">T3</a><br /><a href="A40i.html" class="mw-redirect" title="A40i">A40i</a>
+</th>
+<th><a href="A80.html" title="A80">A80</a>
+</th>
+<th><a href="A31.html" title="A31">A31</a>
+</th>
+<th><a href="A23.html" title="A23">A23</a>
+</th>
+<th><a href="A33.html" title="A33">A33</a><br /><a href="R16.html" class="mw-redirect" title="R16">R16</a>
+</th>
+<th><a href="A83T.html" title="A83T">A83T</a>
+</th>
+<th><a href="H3.html" title="H3">H3</a><br /><a href="H2+.html" class="mw-redirect" title="H2+">H2+</a>
+</th>
+<th><a href="S3.html" title="S3">S3</a><br /><a href="https://linux-sunxi.org/index.php?title=S3L&amp;action=edit&amp;redlink=1" class="new" title="S3L (page does not exist)">S3L</a><br /><a href="V3.html" title="V3">V3</a><br /><a href="V3s.html" title="V3s">V3s</a>
+</th>
+<th><a href="A64.html" title="A64">A64</a><br /><a href="H64.html" title="H64">H64</a>
+</th>
+<th><a href="H5.html" title="H5">H5</a>
+</th>
+<th><a href="H6.html" title="H6">H6</a>
+</th>
+<th><a href="A50.html" title="A50">A50</a>
+</th>
+<th><a href="V831.html" title="V831">V831</a><br /><a href="https://linux-sunxi.org/index.php?title=V833&amp;action=edit&amp;redlink=1" class="new" title="V833 (page does not exist)">V833</a>
+</th>
+<th><a href="H313.html" class="mw-redirect" title="H313">H313</a><br /><a href="H616.html" title="H616">H616</a><br /><a href="H618.html" class="mw-redirect" title="H618">H618</a><br /><a href="H700.html" class="mw-redirect" title="H700">H700</a><br /><a href="T507.html" title="T507">T507</a>
+</th>
+<th><a href="A100.html" class="mw-redirect" title="A100">A100</a><br /><a href="A133.html" title="A133">A133</a>
+</th>
+<th><a href="R329.html" title="R329">R329</a>
+</th>
+<th><a href="D1.html" title="D1">D1</a><br /><a href="D1s.html" title="D1s">D1s</a><br /><a href="T113-s3.html" title="T113-s3">T113</a>
+</th>
+<th><a href="A523.html" title="A523">A523</a><br /><a href="A527.html" class="mw-redirect" title="A527">A527</a><br /><a href="https://linux-sunxi.org/index.php?title=MR527&amp;action=edit&amp;redlink=1" class="new" title="MR527 (page does not exist)">MR527</a><br /><a href="T527.html" class="mw-redirect" title="T527">T527</a><br /><a href="H728.html" class="mw-redirect" title="H728">H728</a>
+</th></tr></tbody></table>
+<table class="wikitable" style="text-align: center;">
+
+<tbody><tr>
+<th>Legend
+</th></tr>
+<tr>
+<td style="background: lightgreen;">In Linux mainline since version x
+</td></tr>
+<tr>
+<td style="background: darkgreen;">Nobody works on it, but it should be compatible with already done drivers
+</td></tr>
+<tr>
+<td style="background: orange;">Somebody works on it
+</td></tr>
+<tr>
+<td style="background: red;">No support, nobody works on it
+</td></tr>
+<tr>
+<td style="background: black; color: white;">support impossible
+</td></tr>
+<tr>
+<td style="background: grey; color: white;">Status is unknown/to be completed
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="Work_In_Progress">Work In Progress</span></h2>
+<h3><span class="mw-headline" id="Core_Stuff">Core Stuff</span></h3>
+<ul><li><a href="A733.html" title="A733">A733</a> <b>Andre Przywara</b> <a rel="nofollow" class="external text" href="https://lore.kernel.org/linux-sunxi/20250821004232.8134-1-andre.przywara@arm.com/T">pinctrl: sunxi: Allwinner A733 support</a></li></ul>
+<ul><li><a href="V853.html" title="V853">V853</a> / <a href="V851s.html" title="V851s">V851s</a> / <a href="https://linux-sunxi.org/index.php?title=V851s3&amp;action=edit&amp;redlink=1" class="new" title="V851s3 (page does not exist)">V851s3</a> Andras Szemzo <a rel="nofollow" class="external text" href="https://lore.kernel.org/linux-sunxi/20250205125225.1152849-1-szemzo.andras@gmail.com/T">Support for Allwinner V853 SoC</a></li></ul>
+<ul><li><a href="R329.html" title="R329">R329</a> Clocks &amp; Pinctrl / RTC / MMC - Icenowy Zheng <a rel="nofollow" class="external text" href="https://lore.kernel.org/linux-sunxi/20220422140902.1058101-1-icenowy@aosc.io/T/#u#u">Initial support for Allwinner R329</a></li></ul>
+<ul><li><a href="V831.html" title="V831">V831</a> / <a href="https://linux-sunxi.org/index.php?title=V833&amp;action=edit&amp;redlink=1" class="new" title="V833 (page does not exist)">V833</a> Clocks &amp; Pinctrl / RTC / MMC / Watchdog  / SPI - Icenowy Zheng <a rel="nofollow" class="external text" href="https://patchwork.kernel.org/project/linux-arm-kernel/cover/20201212040157.3639864-1-icenowy@aosc.io/">Support for Allwinner V831 SoC</a></li></ul>
+<ul><li><a href="AR100.html" title="AR100">AR100</a> firmware (WiP: Samuel Holland) <a class="external text" href="https://github.com/crust-firmware/crust">ARISC firmware for sunxi SoCs </a></li></ul>
+<ul><li><a href="A13.html" title="A13">A13</a> PSCI Suspend / Resume / CPUIdle (WiP: Antoine Tenart) <a rel="nofollow" class="external text" href="http://lists.denx.de/pipermail/u-boot/2016-September/265453.html">patch-v1</a></li></ul>
+<h3><span class="mw-headline" id="Major_drivers">Major drivers</span></h3>
+<ul><li><a href="V3s.html" title="V3s">V3s</a> ISP (Image Signal Processor) Paul Kocialkowski <a rel="nofollow" class="external text" href="https://bootlin.com/blog/initial-allwinner-v3-isp-support-in-mainline-linux/">initial-allwinner-v3-isp-support-in-mainline-linux</a></li></ul>
+<ul><li><a href="H6.html" title="H6">H6</a> Hypervisor for PCIe <a rel="nofollow" class="external text" href="https://forum.armbian.com/topic/13529-a-try-on-utilizing-h6-pcie-with-virtualization/">A try on utilizing H6 PCIe with "Virtualization"</a></li></ul>
+<ul><li><a href="A64.html" title="A64">A64</a> / <a href="H3.html" title="H3">H3</a> / <a href="H5.html" title="H5">H5</a> / <a href="H6.html" title="H6">H6</a> HDMI Audio - Clément Péron / Marcus Cooper / Jernej Škrabec <a rel="nofollow" class="external text" href="https://patchwork.kernel.org/cover/11510511/">Add Allwinner H3/H5/A64 HDMI audio</a></li></ul>
+<ul><li><a href="R40.html" title="R40">R40</a> MIPI-DSI WIP Jagan Teki <a rel="nofollow" class="external text" href="https://patchwork.kernel.org/cover/11314031/">drm/sun4i: Allwinner R40 MIPI-DSI support v3</a></li></ul>
+<ul><li><a href="https://linux-sunxi.org/index.php?title=AC100&amp;action=edit&amp;redlink=1" class="new" title="AC100 (page does not exist)">AC100</a> Audio codec WiP Ondrej Jirman <a rel="nofollow" class="external text" href="https://megous.com/git/linux/commit/?h=orange-pi-5.5&amp;id=170d38d650f67657600d4e0e868e0e7110b89ee1">digital part</a> <a rel="nofollow" class="external text" href="https://megous.com/git/linux/commit/?h=orange-pi-5.5&amp;id=ee424255a6fb9280ac27c1953019b768ca973ca7">analog part</a></li></ul>
+<ul><li><a href="V3s.html" title="V3s">V3s</a> SRAM &amp; Video Decoding Engine (Cedrus) WiP Martin Cerveny <a rel="nofollow" class="external text" href="https://patchwork.kernel.org/project/linux-arm-kernel/list/?series=347787">Enable video decoder</a> (<a class="external text" href="https://github.com/mcerveny/linux/commits/v3s_videocodec_v4">testing with attached LCD</a>)</li>
+<li><a href="H6.html" title="H6">H6</a> VP9 decoder (Hantro G2) WiP jernej <a class="external text" href="https://github.com/jernejsk/linux-1/commits/vp9">branch</a></li></ul>
+<h3><span class="mw-headline" id="Minor_drivers">Minor drivers</span></h3>
+<ul><li><a href="A523.html" title="A523">A523</a> / <a href="H728.html" class="mw-redirect" title="H728">H728</a> / <a href="A527.html" class="mw-redirect" title="A527">A527</a> / <a href="T527.html" class="mw-redirect" title="T527">T527</a> Chen-Yu Tsai <a rel="nofollow" class="external text" href="https://lore.kernel.org/linux-sunxi/20251020171059.2786070-1-wens@kernel.org/T">allwinner: a523: Enable I2S and SPDIF TX</a></li>
+<li><a href="H6.html" title="H6">H6</a>, <a href="H313.html" class="mw-redirect" title="H313">H313</a>,<a href="H616.html" title="H616">H616</a>,<a href="H618.html" class="mw-redirect" title="H618">H618</a>,<a href="H700.html" class="mw-redirect" title="H700">H700</a>,<a href="T507.html" title="T507">T507</a> Richard Genoud <a rel="nofollow" class="external text" href="https://lore.kernel.org/linux-sunxi/20251010084042.341224-1-richard.genoud@bootlin.com/T">Introduce Allwinner H6/H616 NAND controller support</a></li>
+<li><a href="A523.html" title="A523">A523</a> / <a href="H728.html" class="mw-redirect" title="H728">H728</a> / <a href="A527.html" class="mw-redirect" title="A527">A527</a> / <a href="T527.html" class="mw-redirect" title="T527">T527</a> Mikhail Kalashnikov <a rel="nofollow" class="external text" href="https://lore.kernel.org/linux-sunxi/20250816084700.569524-1-iuncuim@gmail.com/T">arm64: allwinner: a523: add USB3.0 support</a></li>
+<li><a href="H313.html" class="mw-redirect" title="H313">H313</a>,<a href="H616.html" title="H616">H616</a>,<a href="H618.html" class="mw-redirect" title="H618">H618</a>,<a href="H700.html" class="mw-redirect" title="H700">H700</a>,<a href="T507.html" title="T507">T507</a> Ryan Walklin <a rel="nofollow" class="external text" href="https://lore.kernel.org/linux-sunxi/20250720085047.5340-1-ryan@testtoast.com/T">allwinner: h616: add LCD timing controller and display engine support</a></li>
+<li><a href="A523.html" title="A523">A523</a> / <a href="H728.html" class="mw-redirect" title="H728">H728</a> / <a href="A527.html" class="mw-redirect" title="A527">A527</a> / <a href="T527.html" class="mw-redirect" title="T527">T527</a> Mikhail Kalashnikov <a rel="nofollow" class="external text" href="https://lore.kernel.org/linux-sunxi/20250411003827.782544-1-iuncuim@gmail.com/T">Add support for A523 Thermal system</a></li>
+<li><a href="D1s.html" title="D1s">D1s</a> / <a href="T113-s3.html" title="T113-s3">T113</a> Kuba Szczodrzyński <a rel="nofollow" class="external text" href="https://lore.kernel.org/linux-sunxi/20250221161751.1278049-1-kuba@szczodrzynski.pl/T/#u#u">drm/sun4i: Support LVDS on D1s/T113 combo D-PHY</a></li>
+<li><a href="A64.html" title="A64">A64</a> Ondrej Jirman <a rel="nofollow" class="external text" href="https://lore.kernel.org/linux-sunxi/20240302140042.1990256-1-megi@xff.cz/">A64 audio jack detection</a></li>
+<li><a href="D1.html" title="D1">D1</a> Brandon Cheo Fusi <a rel="nofollow" class="external text" href="https://lore.kernel.org/linux-sunxi/20231218110543.64044-1-fusibrandon13@gmail.com/T/">cpufreq support for the D1</a></li>
+<li><a href="D1.html" title="D1">D1</a> Inochi Amaoto <a rel="nofollow" class="external text" href="https://lore.kernel.org/linux-sunxi/IA1PR20MB495363989FE43EB1FFBF8730BBE0A@IA1PR20MB4953.namprd20.prod.outlook.com/T/">riscv: dts: allwinner: d1: Add PMU event node</a></li>
+<li><a href="D1.html" title="D1">D1</a> / <a href="T113-s3.html" title="T113-s3">T113</a> Maksim Kiselev <a rel="nofollow" class="external text" href="https://lore.kernel.org/linux-sunxi/20230805180506.718364-1-bigunclemax@gmail.com/T/">ASoC: sunxi: Add support for D1/T113s internal audio codec</a></li>
+<li><a href="H6.html" title="H6">H6</a> ethernet on opi3/opi1+ LABBE Corentin <a rel="nofollow" class="external text" href="https://lore.kernel.org/linux-arm-kernel/Y3RDumClNkEW6L4F@lunn.ch/T/">arm64: add ethernet to orange pi 3</a></li>
+<li><a href="D1.html" title="D1">D1</a> / <a href="R329.html" title="R329">R329</a> Aleksandr Shubin <a rel="nofollow" class="external text" href="https://lore.kernel.org/linux-sunxi/20230615144423.828698-1-privatesub2@gmail.com/T/">Add support for Allwinner PWM on D1/T113s/R329 SoCs</a></li>
+<li><a href="D1.html" title="D1">D1</a> IOMMU Samuel Holland <a rel="nofollow" class="external text" href="https://lore.kernel.org/linux-sunxi/20230103010903.11181-1-samuel@sholland.org/T/">iommu/sun50i: Allwinner D1 support</a></li>
+<li><a href="D1.html" title="D1">D1</a> System LDOs Samuel Holland <a rel="nofollow" class="external text" href="https://lore.kernel.org/linux-sunxi/20221208084127.17443-1-samuel@sholland.org/T/">regulator: Add support for Allwinner D1 system LDOs</a></li>
+<li><a href="D1.html" title="D1">D1</a> Video Engine Samuel Holland <a rel="nofollow" class="external text" href="https://lore.kernel.org/linux-sunxi/20221231164628.19688-1-samuel@sholland.org/T/">Allwinner D1 video engine support</a></li>
+<li><a href="R40.html" title="R40">R40</a>/<a href="T3.html" class="mw-redirect" title="T3">T3</a>/<a href="A40i.html" class="mw-redirect" title="A40i">A40i</a> RTP/LRADC Evgeny Boger <a rel="nofollow" class="external autonumber" href="https://lore.kernel.org/linux-sunxi/20211119191456.510435-1-boger@wirenboard.com/">[1]</a></li>
+<li><a href="R40.html" title="R40">R40</a>/<a href="T3.html" class="mw-redirect" title="T3">T3</a>/<a href="A40i.html" class="mw-redirect" title="A40i">A40i</a> EMAC Evgeny Boger <a rel="nofollow" class="external text" href="https://lore.kernel.org/linux-sunxi/20220111160600.58384-1-boger@wirenboard.com/">support for two Ethernet ports on Allwinner R40</a></li>
+<li><a href="R40.html" title="R40">R40</a>/<a href="T3.html" class="mw-redirect" title="T3">T3</a>/<a href="A40i.html" class="mw-redirect" title="A40i">A40i</a> USB OTG qianfan Zhao <a rel="nofollow" class="external text" href="https://lore.kernel.org/linux-sunxi/20220518101706.26869-1-qianfanguijin@163.com/T/">ARM: sun8i-r40: Enable usb otg support</a></li>
+<li><a href="V3.html" title="V3">V3</a> I2S Tobias Schramm <a rel="nofollow" class="external text" href="https://patchwork.kernel.org/project/linux-arm-kernel/list/?series=482161&amp;archive=both&amp;state=*">Add missing peripherals to Allwinner V3s/V3 device trees</a></li>
+<li><a href="H3.html" title="H3">H3</a> / <a href="H5.html" title="H5">H5</a> CVBS WIP  Jernej Skrabec <a class="external text" href="https://github.com/LibreELEC/LibreELEC.tv/blob/master/projects/Allwinner/patches/linux/0036-wip-h3-h5-cvbs.patch">Add H3/H5 TVE support</a></li>
+<li><a href="A64.html" title="A64">A64</a> hwspinlock WIP Nikolay Borisov <a rel="nofollow" class="external text" href="https://patchwork.kernel.org/cover/11373645/">Add support for hwspinlock on A64 SoC</a></li>
+<li><a href="A83T.html" title="A83T">A83T</a> / <a href="A64.html" title="A64">A64</a> / <a href="H3.html" title="H3">H3</a> hwspinlock WIP Corentin Labbe (montjoie) <a rel="nofollow" class="external text" href="https://lore.kernel.org/patchwork/patch/706512/">RFC,1/3</a><a rel="nofollow" class="external text" href="https://lore.kernel.org/patchwork/patch/706511/">RFC,2/3</a><a rel="nofollow" class="external text" href="https://lore.kernel.org/patchwork/patch/706513/">RFC,3/3</a></li>
+<li><a href="A10.html" title="A10">A10</a> / <a href="A20.html" title="A20">A20</a> / <a href="A31.html" title="A31">A31</a> HDMI Audio WIP Stefan Mavrodiev <a rel="nofollow" class="external text" href="https://lore.kernel.org/patchwork/cover/1177803/">Add support for sun4i HDMI audio</a></li>
+<li><a href="A80.html" title="A80">A80</a> Thermal sensor WIP Philipp Rossak (embed-3d): <a class="external free" href="https://github.com/embed-3d/linux/branches/all">https://github.com/embed-3d/linux/branches/all</a></li>
+<li><a href="R40.html" title="R40">R40</a> PWM (WIP Hao Zhang <a rel="nofollow" class="external text" href="https://www.spinics.net/lists/kernel/msg2731498.html">patch-v2</a>)</li>
+<li><a href="A20.html" title="A20">A20</a> Keypad (WiP: Yassin Jaffer (ddc) <a rel="nofollow" class="external text" href="http://lists.infradead.org/pipermail/linux-arm-kernel/2015-September/370079.html">patch</a>)</li>
+<li>sun8i-ce/sun8i-ss RSA/ECC WIP Corentin LABBE (no public patch yet)</li>
+<li>EMCE WIP Corentin LABBE (no public patch yet) / Mripard <a rel="nofollow" class="external free" href="https://git.kernel.org/pub/scm/linux/kernel/git/mripard/linux.git/log/?h=sunxi/h6-emmc-inline-encryption">https://git.kernel.org/pub/scm/linux/kernel/git/mripard/linux.git/log/?h=sunxi/h6-emmc-inline-encryption</a> BUT proably not usable <a rel="nofollow" class="external free" href="https://lore.kernel.org/linux-mmc/20210317171554.a4vgihqfjq2xa5cb@gilmour/">https://lore.kernel.org/linux-mmc/20210317171554.a4vgihqfjq2xa5cb@gilmour/</a></li></ul>
+<h3><span id="Drivers_that_can_still_be_improved/added"></span><span class="mw-headline" id="Drivers_that_can_still_be_improved.2Fadded">Drivers that can still be improved/added</span></h3>
+<p>Nobody works on these features. If you're interested, you can pick one of these add your name to them and move them to one of the sections above, to indicate you're working on the driver/feature.
+</p>
+<ul><li><a href="A31.html" title="A31">A31</a>/<a href="A31s.html" class="mw-redirect" title="A31s">A31s</a> PWM support (<a rel="nofollow" class="external text" href="https://patchwork.ozlabs.org/project/linux-pwm/list/?submitter=70938&amp;state=*&amp;archive=both">patch-v4</a> abandoned by Siarhei Volkau)</li>
+<li>sunxi-musb driver lacks DMA support (with current driver, USB gadgets are limited to PIO, limiting speed to 10MiB/s and causing large CPU)</li>
+<li>DE2 driver has buggy layer support, see <a rel="nofollow" class="external autonumber" href="https://patchwork.kernel.org/patch/11145803/">[2]</a></li>
+<li>DE1/DE2/DE3 writeback support</li>
+<li>H616 (and later) UHS-I SD card support (pinctrl device contains voltage switch for PortF)</li></ul>
+<h2><span class="mw-headline" id="Planned_for_next">Planned for next</span></h2>
+<h2><span id="Merged_into_6.17(-rc1)"></span><span class="mw-headline" id="Merged_into_6.17.28-rc1.29">Merged into 6.17(-rc1)</span></h2>
+<ul><li><a href="A523.html" title="A523">A523</a>
+<ul><li>Mali GPU support</li>
+<li>power domain controller support</li>
+<li>SID support</li></ul></li>
+<li><a href="A133.html" title="A133">A100/A133</a>
+<ul><li>EMAC Ethernet support</li></ul></li></ul>
+<p>New devices supported:
+</p>
+<ul><li><a href="A523.html" title="A523">A523</a>: <a href="Xunlong_Orange_Pi_4A.html" title="Xunlong Orange Pi 4A">Xunlong Orange Pi 4A</a></li></ul>
+<h2><span class="mw-headline" id="Merged_into_6.16">Merged into 6.16</span></h2>
+<ul><li><a href="A523.html" title="A523">A523</a>
+<ul><li>Basic DT support</li>
+<li>First Ethernet port support</li></ul></li>
+<li><a href="H616.html" title="H616">H616</a>
+<ul><li>Mali GPU support</li></ul></li></ul>
+<p>New devices supported
+</p>
+<ul><li><a href="A133.html" title="A133">A133</a>: <a href="Liontron_H-A133L.html" title="Liontron H-A133L">Liontron H-A133L</a></li>
+<li><a href="H616.html" title="H616">H616</a>: YuzukiHD Chameleon</li>
+<li><a href="A523.html" title="A523">A523</a>: <a href="Radxa_Cubie_A5E.html" title="Radxa Cubie A5E">Radxa Cubie A5E</a></li>
+<li><a href="A523.html" title="A523">A523</a>: <a href="X96QPro+.html" title="X96QPro+">X96QPro+</a></li>
+<li><a href="A523.html" title="A523">A523</a>: <a href="YuzukiHD_Avaota_A1.html" title="YuzukiHD Avaota A1">YuzukiHD Avaota A1</a></li></ul>
+<h2><span class="mw-headline" id="Merged_into_6.15">Merged into 6.15</span></h2>
+<ul><li><a href="A133.html" title="A133">A100/A133</a>
+<ul><li>enable DVFS support</li></ul></li>
+<li><a href="A523.html" title="A523">A523</a>
+<ul><li>main and PRCM clock support</li>
+<li>pinctrl/GPIO support</li>
+<li>watchdog support</li>
+<li>NMI support</li></ul></li></ul>
+<p>New devices supported
+</p>
+<ul><li><a href="V3s.html" title="V3s">V3s</a>: <a href="NetCube_Systems_Kumquat.html" title="NetCube Systems Kumquat">NetCube Systems Kumquat</a></li></ul>
+<h2><span class="mw-headline" id="Merged_into_6.14">Merged into 6.14</span></h2>
+<ul><li><a href="A133.html" title="A133">A100/A133</a>
+<ul><li>syscon support</li></ul></li>
+<li><a href="F1C100s.html" title="F1C100s">F1C100s</a>
+<ul><li>DMA support</li>
+<li>audio codec support</li></ul></li></ul>
+<h2><span class="mw-headline" id="Merged_into_6.13">Merged into 6.13</span></h2>
+<ul><li><a href="A133.html" title="A133">A100/A133</a>
+<ul><li>PMU support (for perf tool)</li>
+<li>watchdog support</li>
+<li>USB support</li>
+<li>MMC support</li></ul></li>
+<li><a href="H616.html" title="H616">H616</a>
+<ul><li>audio codec support</li></ul></li></ul>
+<p>New devices supported
+</p>
+<ul><li><a href="A33.html" title="A33">A33</a>: RerVision A33-Vstar board</li></ul>
+<h2><span class="mw-headline" id="Merged_into_6.12">Merged into 6.12</span></h2>
+<p>New devices supported
+</p>
+<ul><li><a href="H616.html" title="H616">H616</a>: Anbernic RG35XX-SP</li></ul>
+<h2><span class="mw-headline" id="Merged_into_6.11">Merged into 6.11</span></h2>
+<ul><li><a href="H616.html" title="H616">H616</a>
+<ul><li>LRADC support</li>
+<li>IOMMU support</li>
+<li>crypto engine</li></ul></li></ul>
+<h2><span class="mw-headline" id="Merged_into_6.10">Merged into 6.10</span></h2>
+<ul><li><a href="D1.html" title="D1">D1</a>/<a href="T113-s3.html" title="T113-s3">T113-s3</a>
+<ul><li>LDO driver</li></ul></li>
+<li><a href="H616.html" title="H616">H616</a>
+<ul><li>enable DVFS support</li></ul></li>
+<li>sun4i-i2s: Support 32-bit audio formats</li></ul>
+<p>New devices supported
+</p>
+<ul><li><a href="A13.html" title="A13">A13</a>: PocketBook 614 Plus</li>
+<li><a href="H616.html" title="H616">H616</a>: <a href="Tanix_TX1.html" title="Tanix TX1">Tanix TX1</a></li>
+<li><a href="H616.html" title="H616">H616</a>: <a href="Anbernic_RG35XX_Plus.html" title="Anbernic RG35XX Plus">Anbernic RG35XX Plus</a></li>
+<li><a href="H616.html" title="H616">H616</a>: <a href="Anbernic_RG35XX_H.html" title="Anbernic RG35XX H">Anbernic RG35XX H</a></li>
+<li><a href="H616.html" title="H616">H616</a>: Anbernic RG35XX 2024</li></ul>
+<h2><span class="mw-headline" id="Merged_into_6.9">Merged into 6.9</span></h2>
+<ul><li><a href="H616.html" title="H616">H616</a>
+<ul><li>SPDIF</li>
+<li>DMA</li>
+<li>Thermal</li></ul></li></ul>
+<p>New Devices supported
+</p>
+<ul><li><a href="H616.html" title="H616">H616</a>: Sipeed LonganPi 3H</li>
+<li><a href="A64.html" title="A64">A64</a>: <a href="Jide_Remix_Mini.html" title="Jide Remix Mini">Remix Mini PC</a></li></ul>
+<h2><span class="mw-headline" id="Merged_into_6.8">Merged into 6.8</span></h2>
+<ul><li><a href="D1.html" title="D1">D1</a>/<a href="T113-s3.html" title="T113-s3">T113-s3</a>
+<ul><li>Thermal</li></ul></li></ul>
+<p>New Devices supported
+</p>
+<ul><li><a href="H616.html" title="H616">H616</a>: <a href="Xunlong_Orange_Pi_Zero2W.html" title="Xunlong Orange Pi Zero2W">OrangePi Zero 2W</a></li>
+<li><a href="H616.html" title="H616">H616</a>: <a href="Transpeed_8K618-T.html" title="Transpeed 8K618-T">Transpeed 8K618-T</a></li></ul>
+<h2><span class="mw-headline" id="Merged_into_6.7">Merged into 6.7</span></h2>
+<ul><li><a href="H616.html" title="H616">H616</a>
+<ul><li>SID</li></ul></li></ul>
+<p>New Devices supported
+</p>
+<ul><li><a href="H616.html" title="H616">H616</a>: Bigtreetech CB1 Manta</li>
+<li><a href="H616.html" title="H616">H616</a>: Bigtreetech Pi</li>
+<li><a href="V3s.html" title="V3s">V3s</a>: Anbernic RG-Nano</li></ul>
+<h2><span id="Merged_into_6.6_(LTS)"></span><span class="mw-headline" id="Merged_into_6.6_.28LTS.29">Merged into 6.6 (LTS)</span></h2>
+<ul><li><a href="D1.html" title="D1">D1</a>/<a href="T113-s3.html" title="T113-s3">T113-s3</a>
+<ul><li>CAN</li>
+<li>GPADC</li></ul></li></ul>
+<p>New Devices supported
+</p>
+<ul><li><a href="H616.html" title="H616">H616</a>: <a href="Xunlong_Orange_Pi_Zero3.html" title="Xunlong Orange Pi Zero3">OrangePi Zero 3</a></li></ul>
+<h2><span class="mw-headline" id="Merged_into_6.5">Merged into 6.5</span></h2>
+<ul><li><a href="D1.html" title="D1">D1</a>/<a href="T113-s3.html" title="T113-s3">T113-s3</a>
+<ul><li>SPI</li></ul></li></ul>
+<h2><span class="mw-headline" id="Merged_into_6.4">Merged into 6.4</span></h2>
+<ul><li><a href="F1C100s.html" title="F1C100s">F1C100s</a>
+<ul><li>Enable <a href="LicheePi_Nano.html" title="LicheePi Nano">LicheePi Nano</a> USB support</li></ul></li></ul>
+<p>New Devices supported
+</p>
+<ul><li><a href="F1C100s.html" title="F1C100s">F1C100s</a>
+<ul><li>Popcorn Computer PopStick</li>
+<li><a href="Lctech_Pi_F1C200s.html" title="Lctech Pi F1C200s">Lctech Pi F1C200s</a></li></ul></li></ul>
+<ul><li><a href="T113-s3.html" title="T113-s3">T113-s3</a>
+<ul><li><a href="MangoPi_MQ-R.html" title="MangoPi MQ-R">MangoPi MQ-R-T113</a></li></ul></li></ul>
+<h2><span class="mw-headline" id="Merged_into_6.3">Merged into 6.3</span></h2>
+<ul><li><a href="D1.html" title="D1">D1</a>
+<ul><li>Base DT and Kconfig</li>
+<li>Crypto</li>
+<li>Power Domain</li></ul></li></ul>
+<ul><li><a href="T113-s3.html" title="T113-s3">T113-s3</a>
+<ul><li>R528/T113 Clocks support</li></ul></li></ul>
+<ul><li><a href="F1C100s.html" title="F1C100s">F1C100s</a>
+<ul><li>USB PHY support</li>
+<li>USB MUSB support</li></ul></li></ul>
+<h2><span class="mw-headline" id="Merged_into_6.2">Merged into 6.2</span></h2>
+<ul><li><a href="A100.html" class="mw-redirect" title="A100">A100</a>
+<ul><li>MIPI-DSI</li></ul></li>
+<li><a href="D1.html" title="D1">D1</a>
+<ul><li>MIPI-DSI</li></ul></li></ul>
+<h2><span id="Merged_into_6.1_(LTS)"></span><span class="mw-headline" id="Merged_into_6.1_.28LTS.29">Merged into 6.1 (LTS)</span></h2>
+<ul><li><a href="A100.html" class="mw-redirect" title="A100">A100</a>
+<ul><li>DMA</li></ul></li>
+<li><a href="D1.html" title="D1">D1</a>
+<ul><li>SRAM</li></ul></li>
+<li><a href="H6.html" title="H6">H6</a>
+<ul><li>DMIC</li>
+<li>GPU Devfreq</li></ul></li></ul>
+<h2><span class="mw-headline" id="Merged_into_6.0">Merged into 6.0</span></h2>
+<ul><li><a href="D1.html" title="D1">D1</a>
+<ul><li>RGB LCD</li>
+<li>I2C</li>
+<li>Pinctrl</li>
+<li>RTC</li></ul></li>
+<li><a href="H616.html" title="H616">H616</a> <a href="Orange_Pi_Zero_2.html" class="mw-redirect" title="Orange Pi Zero 2">Orange Pi Zero 2</a></li>
+<li><a href="H616.html" title="H616">H616</a> <a href="X96_Mate.html" title="X96 Mate">X96 Mate</a></li>
+<li><a href="R40.html" title="R40">R40</a>/<a href="T3.html" class="mw-redirect" title="T3">T3</a>/<a href="A40i.html" class="mw-redirect" title="A40i">A40i</a>
+<ul><li>CPUFreq (DVFS)</li></ul></li></ul>
+<h2><span class="mw-headline" id="Merged_into_5.19">Merged into 5.19</span></h2>
+<ul><li><a href="D1.html" title="D1">D1</a>
+<ul><li>DMA</li>
+<li>LRADC</li></ul></li>
+<li><a href="F1C100s.html" title="F1C100s">F1C100s</a>
+<ul><li>SD/MMC</li>
+<li>SPI</li>
+<li>Watchdog</li></ul></li>
+<li><a href="V3s.html" title="V3s">V3s</a>
+<ul><li><a rel="nofollow" class="external text" href="https://bootlin.com/blog/linux-5-19-released-bootlin-contributions-inside/">MIPI-CSI2</a></li></ul></li></ul>
+<h2><span class="mw-headline" id="Merged_into_5.18">Merged into 5.18</span></h2>
+<ul><li><a href="D1.html" title="D1">D1</a>
+<ul><li>I2S</li>
+<li>MMC</li>
+<li>SID</li>
+<li>USB</li></ul></li></ul>
+<h2><span class="mw-headline" id="Merged_into_5.17">Merged into 5.17</span></h2>
+<ul><li><a href="A64.html" title="A64">A64</a>/<a href="H5.html" title="H5">H5</a>
+<ul><li>DRAM frequency scaling (DEVFREQ)</li></ul></li>
+<li><a href="D1.html" title="D1">D1</a>
+<ul><li>Clocks</li>
+<li>PLIC</li></ul></li>
+<li><a href="R40.html" title="R40">R40</a>/<a href="T3.html" class="mw-redirect" title="T3">T3</a>/<a href="A40i.html" class="mw-redirect" title="A40i">A40i</a>
+<ul><li>CAN (<a rel="nofollow" class="external text" href="https://lore.kernel.org/linux-sunxi/20220111155709.56501-1-boger@wirenboard.com/">series</a>)</li></ul></li></ul>
+<h2><span class="mw-headline" id="Merged_into_5.16">Merged into 5.16</span></h2>
+<ul><li><a href="R329.html" title="R329">R329</a>/<a href="D1.html" title="D1">D1</a>
+<ul><li>Watchdog</li></ul></li></ul>
+<h2><span id="Merged_into_5.15_(LTS)"></span><span class="mw-headline" id="Merged_into_5.15_.28LTS.29">Merged into 5.15 (LTS)</span></h2>
+<h2><span class="mw-headline" id="Merged_into_5.14">Merged into 5.14</span></h2>
+<ul><li><a href="H616.html" title="H616">H616</a>
+<ul><li>PMIC - AXP305</li></ul></li></ul>
+<p>New Devices Supported
+</p>
+<ul><li><a href="H616.html" title="H616">H616</a>
+<ul><li><a href="Tanix_TX6s.html" title="Tanix TX6s">Tanix TX6s</a></li>
+<li><a href="X96_Mate.html" title="X96 Mate">X96 Mate</a></li>
+<li><a href="Xunlong_Orange_Pi_Zero2.html" title="Xunlong Orange Pi Zero2">Xunlong Orange Pi Zero2</a></li></ul></li></ul>
+<h2><span class="mw-headline" id="Merged_into_5.13">Merged into 5.13</span></h2>
+<p>New Devices Supported
+</p>
+<ul><li><a href="A10.html" title="A10">A10</a>
+<ul><li>Topwise A721 Tablet</li></ul></li></ul>
+<h2><span class="mw-headline" id="Merged_into_5.12">Merged into 5.12</span></h2>
+<ul><li><a href="H616.html" title="H616">H616</a>
+<ul><li>Clocks</li>
+<li>Pinctrl</li>
+<li>MMC</li></ul></li>
+<li><a href="H6.html" title="H6">H6</a>
+<ul><li>RSB</li></ul></li>
+<li><a href="A100.html" class="mw-redirect" title="A100">A100</a>
+<ul><li>MMC</li></ul></li></ul>
+<h2><span class="mw-headline" id="Merged_into_5.11">Merged into 5.11</span></h2>
+<ul><li><a href="H6.html" title="H6">H6</a>
+<ul><li><a href="https://linux-sunxi.org/index.php?title=I2S&amp;action=edit&amp;redlink=1" class="new" title="I2S (page does not exist)">I2S</a></li></ul></li>
+<li>multiple SoCs
+<ul><li><a href="Cedrus.html" title="Cedrus">Cedrus</a> VP8 decoding</li></ul></li></ul>
+<p>New Devices Supported
+</p>
+<ul><li><a href="H3.html" title="H3">H3</a>
+<ul><li><a href="https://linux-sunxi.org/index.php?title=FriendlyArm_NanoPi_R1&amp;action=edit&amp;redlink=1" class="new" title="FriendlyArm NanoPi R1 (page does not exist)">FriendlyArm NanoPi R1</a></li>
+<li><a href="https://linux-sunxi.org/index.php?title=FriendlyArm_ZeroPi&amp;action=edit&amp;redlink=1" class="new" title="FriendlyArm ZeroPi (page does not exist)">FriendlyArm ZeroPi</a></li></ul></li>
+<li><a href="S3.html" title="S3">S3</a>
+<ul><li><a href="https://linux-sunxi.org/index.php?title=Elimo_Impetus&amp;action=edit&amp;redlink=1" class="new" title="Elimo Impetus (page does not exist)">Elimo Impetus</a></li>
+<li><a href="https://linux-sunxi.org/index.php?title=Elimo_Initium&amp;action=edit&amp;redlink=1" class="new" title="Elimo Initium (page does not exist)">Elimo Initium</a></li></ul></li></ul>
+<h2><span id="Merged_into_5.10_(LTS)"></span><span class="mw-headline" id="Merged_into_5.10_.28LTS.29">Merged into 5.10 (LTS)</span></h2>
+<ul><li><a href="A100.html" class="mw-redirect" title="A100">A100</a>
+<ul><li>Clocks</li>
+<li>Pinctrl</li>
+<li><a href="I2C.html" class="mw-redirect" title="I2C">I2C</a></li>
+<li>Thermal (THS)</li></ul></li></ul>
+<ul><li><a href="R40.html" title="R40">R40</a>
+<ul><li>DMA</li>
+<li>GPU <a href="Mali.html" title="Mali">Mali</a></li>
+<li><a href="IR.html" title="IR">IR</a></li>
+<li><a href="SRAM_Controller.html" class="mw-redirect" title="SRAM Controller">SRAM</a></li>
+<li><a href="Video_Engine.html" title="Video Engine">Video_Engine</a> | <a href="Sunxi-Cedrus.html" title="Sunxi-Cedrus">Sunxi-Cedrus</a></li></ul></li></ul>
+<ul><li><a href="V3s.html" title="V3s">V3s</a>
+<ul><li>Crypto</li>
+<li>Ethernet</li>
+<li>SimpleFB</li>
+<li><a href="SRAM_Controller.html" class="mw-redirect" title="SRAM Controller">SRAM</a></li></ul></li></ul>
+<ul><li>sun8i-ce/sun8i-ss
+<ul><li>support for PRNG</li>
+<li>support for hashs</li>
+<li>support for TRNG (<a href="H6.html" title="H6">H6</a> only)</li></ul></li></ul>
+<p>New Devices Supported
+</p>
+<ul><li><a href="A100.html" class="mw-redirect" title="A100">A100</a>
+<ul><li><a href="https://linux-sunxi.org/index.php?title=Perf1_board&amp;action=edit&amp;redlink=1" class="new" title="Perf1 board (page does not exist)">Perf1 board</a></li></ul></li>
+<li><a href="https://linux-sunxi.org/index.php?title=S3l&amp;action=edit&amp;redlink=1" class="new" title="S3l (page does not exist)">S3l</a>
+<ul><li><a href="https://linux-sunxi.org/index.php?title=PineCube&amp;action=edit&amp;redlink=1" class="new" title="PineCube (page does not exist)">PineCube</a></li></ul></li></ul>
+<h2><span class="mw-headline" id="Merged_into_5.9">Merged into 5.9</span></h2>
+<ul><li><a href="H5.html" title="H5">H5</a>
+<ul><li>DVFS</li></ul></li></ul>
+<p>New Devices Supported
+</p>
+<ul><li>A64
+<ul><li>PinePhone v1.2</li></ul></li></ul>
+<h2><span class="mw-headline" id="Merged_into_5.8">Merged into 5.8</span></h2>
+<ul><li><a href="H6.html" title="H6">H6</a>
+<ul><li>DVFS</li>
+<li>IOMMU</li></ul></li></ul>
+<ul><li><a href="A64.html" title="A64">A64</a> / <a href="A83T.html" title="A83T">A83T</a> / <a href="H3.html" title="H3">H3</a> / <a href="H5.html" title="H5">H5</a> / <a href="H6.html" title="H6">H6</a>
+<ul><li>Message Box</li></ul></li></ul>
+<p>New Devices Supported
+</p>
+<ul><li>A20
+<ul><li><a href="Olimex_A20-OLinuXino-Lime.html" title="Olimex A20-OLinuXino-Lime">OLinuXino Lime (A20)</a> eMMC</li></ul></li></ul>
+<h2><span class="mw-headline" id="Merged_into_5.7">Merged into 5.7</span></h2>
+<ul><li><a href="A20.html" title="A20">A20</a>
+<ul><li>LVDS</li></ul></li></ul>
+<ul><li><a href="A83T.html" title="A83T">A83T</a> and <a href="A64.html" title="A64">A64</a>
+<ul><li>Rotate driver</li></ul></li></ul>
+<ul><li><a href="H6.html" title="H6">H6</a>
+<ul><li><a href="SPIdev.html" title="SPIdev">SPI</a></li></ul></li></ul>
+<ul><li><a href="R40.html" title="R40">R40</a>
+<ul><li>Thermal</li></ul></li></ul>
+<p>New Devices Supported
+</p>
+<ul><li><a href="A13.html" title="A13">A13</a>
+<ul><li><a href="PocketBook_Touch_Lux_3.html" title="PocketBook Touch Lux 3">PocketBook Touch Lux 3</a></li></ul></li>
+<li><a href="A64.html" title="A64">A64</a>
+<ul><li><a href="PineTab.html" title="PineTab">PineTab</a></li>
+<li><a href="PinePhone.html" title="PinePhone">PinePhone</a> v1.0 &amp; v1.1</li></ul></li>
+<li><a href="A20.html" title="A20">A20</a>
+<ul><li>Linutronix Testbox v2</li></ul></li></ul>
+<h2><span class="mw-headline" id="Merged_into_5.6">Merged into 5.6</span></h2>
+<ul><li><a href="A10.html" title="A10">A10</a>
+<ul><li>CSI (BT656 and Parallel)</li></ul></li></ul>
+<ul><li><a href="A64.html" title="A64">A64</a>
+<ul><li>MIPI DSI</li>
+<li>DVFS</li></ul></li></ul>
+<ul><li><a href="A64.html" title="A64">A64</a> / <a href="A83T.html" title="A83T">A83T</a> / <a href="H3.html" title="H3">H3</a> / <a href="H5.html" title="H5">H5</a> / <a href="H6.html" title="H6">H6</a>
+<ul><li>Thermal</li></ul></li></ul>
+<ul><li><a href="H6.html" title="H6">H6</a>
+<ul><li>PWM</li></ul></li></ul>
+<ul><li><a href="H3.html" title="H3">H3</a> / <a href="H5.html" title="H5">H5</a> / <a href="H6.html" title="H6">H6</a> / <a href="R40.html" title="R40">R40</a>
+<ul><li>PMU</li></ul></li></ul>
+<ul><li><a href="R40.html" title="R40">R40</a>
+<ul><li>CSI (BT656 and Parallel)</li>
+<li><a href="SPIdev.html" title="SPIdev">SPI</a></li></ul></li></ul>
+<p>New Devices Supported
+</p>
+<ul><li><a href="H5.html" title="H5">H5</a>
+<ul><li>ALL-H3-IT H5 board</li>
+<li>ALL-H5-CC H5 board</li></ul></li>
+<li><a href="H6.html" title="H6">H6</a>
+<ul><li><a href="PineH64.html" title="PineH64">PineH64</a> Model B</li></ul></li></ul>
+<h2><span class="mw-headline" id="Merged_into_5.5">Merged into 5.5</span></h2>
+<ul><li><a href="H3.html" title="H3">H3</a>
+<ul><li>Deinterlace driver</li></ul></li></ul>
+<ul><li><a href="H6.html" title="H6">H6</a>
+<ul><li>Crypto</li>
+<li>GPU(3D) Mali</li>
+<li>USB3 PHY (for boards not needing vbus switching)</li></ul></li></ul>
+<ul><li><a href="A64.html" title="A64">A64</a> / <a href="A80.html" title="A80">A80</a> / <a href="A83T.html" title="A83T">A83T</a> / <a href="H3.html" title="H3">H3</a> / <a href="H5.html" title="H5">H5</a> / <a href="R40.html" title="R40">R40</a>
+<ul><li>Crypto</li></ul></li></ul>
+<ul><li>multiple SoCs
+<ul><li><a href="Cedrus.html" title="Cedrus">Cedrus</a> HEVC/H.265</li></ul></li></ul>
+<ul><li><a href="Bluetooth.html#AMPAK" title="Bluetooth">Broadcom-based (AMPAK modules) Bluetooth</a> support on
+<ul><li>Emlid Neutis</li></ul></li></ul>
+<p>New Devices Supported
+</p>
+<ul><li><a href="H3.html" title="H3">H3</a>
+<ul><li><a href="FriendlyARM_NanoPi_Duo2.html" title="FriendlyARM NanoPi Duo2">FriendlyARM_NanoPi_Duo2</a></li></ul></li></ul>
+<h2><span id="Merged_into_5.4_(LTS)"></span><span class="mw-headline" id="Merged_into_5.4_.28LTS.29">Merged into 5.4 (LTS)</span></h2>
+<ul><li><a href="A20.html" title="A20">A20</a>
+<ul><li>CSI (BT656 and Parallel)</li></ul></li>
+<li><a href="A64.html" title="A64">A64</a>
+<ul><li>IR</li></ul></li>
+<li><a href="H6.html" title="H6">H6</a>
+<ul><li>IR</li>
+<li>RTC</li>
+<li>SPDIF</li></ul></li></ul>
+<p>New Devices Supported
+</p>
+<ul><li><a href="A64.html" title="A64">A64</a>
+<ul><li><a href="Olimex_A64-OLinuXino.html" title="Olimex A64-OLinuXino">Olimex A64-OLinuXino</a> eMMC</li></ul></li>
+<li><a href="H6.html" title="H6">H6</a>
+<ul><li><a href="Tanix_TX6.html" title="Tanix TX6">Tanix TX6</a></li></ul></li>
+<li><a href="S3.html" title="S3">S3</a>
+<ul><li><a href="https://linux-sunxi.org/index.php?title=Lichee_Zero_Plus&amp;action=edit&amp;redlink=1" class="new" title="Lichee Zero Plus (page does not exist)">Lichee Zero Plus</a></li></ul></li></ul>
+<h2><span class="mw-headline" id="Merged_into_5.3">Merged into 5.3</span></h2>
+<ul><li><a href="A64.html" title="A64">A64</a>
+<ul><li>LRADC</li>
+<li>RGB LCD</li></ul></li>
+<li><a href="A83T.html" title="A83T">A83T</a>
+<ul><li>CSI (BT656 and Parallel)</li></ul></li>
+<li><a href="H6.html" title="H6">H6</a>
+<ul><li>DMA</li>
+<li>Watchdog</li></ul></li>
+<li>multiple SoCs
+<ul><li><a href="Cedrus.html" title="Cedrus">Cedrus</a> h264</li></ul></li></ul>
+<h2><span class="mw-headline" id="Merged_into_5.2">Merged into 5.2</span></h2>
+<ul><li><a href="A83T.html" title="A83T">A83T</a>
+<ul><li>LRADC</li>
+<li>USB OTG</li></ul></li></ul>
+<ul><li><a href="H6.html" title="H6">H6</a>
+<ul><li><a href="Cedrus.html" title="Cedrus">Cedrus</a></li></ul></li></ul>
+<ul><li>multiple SoCs
+<ul><li><a href="Mali_Open_Source_Driver.html" title="Mali Open Source Driver">Lima</a></li>
+<li><a href="Mali_Open_Source_Driver.html" title="Mali Open Source Driver">Panfrost</a></li></ul></li></ul>
+<ul><li><a href="Bluetooth.html#AMPAK" title="Bluetooth">Broadcom-based (AMPAK modules) Bluetooth</a> support on
+<ul><li>Banana-Pi-M2-Zero</li></ul></li></ul>
+<p>New Devices Supported
+</p>
+<ul><li><a href="H6.html" title="H6">H6</a>
+<ul><li><a href="Beelink_GS1.html" title="Beelink GS1">Beelink GS1</a></li>
+<li><a href="Xunlong_Orange_Pi_3.html" title="Xunlong Orange Pi 3">Xunlong Orange Pi 3</a></li></ul></li></ul>
+<h2><span class="mw-headline" id="Merged_into_5.1">Merged into 5.1</span></h2>
+<ul><li>A10
+<ul><li>Cedrus</li>
+<li>PMU</li></ul></li></ul>
+<ul><li>A20
+<ul><li>Audio Codec improvements</li></ul></li></ul>
+<ul><li>A23
+<ul><li>Display pipeline</li>
+<li>LCD enabled on Q8 A23 tablets</li></ul></li></ul>
+<ul><li>A64
+<ul><li><a rel="nofollow" class="external text" href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=c950ca8c35eeb32224a63adc47e12f9e226da241">ARM Architectural Timer errata workaround</a></li>
+<li>PMU</li>
+<li>CSI (BT656 and Parallel)</li></ul></li></ul>
+<ul><li>A80
+<ul><li>GMAC support</li></ul></li></ul>
+<ul><li>CSI in general
+<ul><li>RGR565 support</li>
+<li>JPEG pass-through support</li></ul></li></ul>
+<ul><li><a href="Bluetooth.html#AMPAK" title="Bluetooth">Broadcom-based (AMPAK modules) Bluetooth</a> support on
+<ul><li><a href="Banana_Pi_M2+.html" class="mw-redirect" title="Banana Pi M2+">Banana Pi M2+</a></li>
+<li><a href="Banana_Pi_M2_Ultra.html" class="mw-redirect" title="Banana Pi M2 Ultra">Banana Pi M2 Ultra</a></li></ul></li></ul>
+<ul><li><a href="LCD.html" title="LCD">LCD</a> enabled on <a href="A13.html" title="A13">A13</a> <a href="Q8.html" title="Q8">Q8</a> tablets</li></ul>
+<h2><span class="mw-headline" id="Merged_into_5.0">Merged into 5.0</span></h2>
+<ul><li>A64
+<ul><li>Cedrus</li>
+<li>DTS changes for audio codec</li></ul></li></ul>
+<ul><li>F1C100s
+<ul><li>initial F1C100s support</li></ul></li></ul>
+<ul><li>H6
+<ul><li>Ethernet</li>
+<li>DE3/HDMI support</li>
+<li>USB 2.0</li></ul></li></ul>
+<ul><li>H3 / H5
+<ul><li>CSI (BT656 and Parallel) Support</li></ul></li></ul>
+<ul><li>H5
+<ul><li>Cedrus</li></ul></li></ul>
+<ul><li>R40
+<ul><li>RTC</li></ul></li></ul>
+<ul><li>T3
+<ul><li>initial T3 support<sup id="cite_ref-5" class="reference"><a href="#cite_note-5">&#91;5&#93;</a></sup></li></ul></li></ul>
+<ul><li>V3s
+<ul><li>CSI (BT656 and Parallel) Support</li></ul></li></ul>
+<ul><li><a href="Bluetooth.html#AMPAK" title="Bluetooth">Broadcom-based (AMPAK modules) Bluetooth</a> support on
+<ul><li><a href="Sinovoip_Banana_Pi_M2_Magic.html" title="Sinovoip Banana Pi M2 Magic"> Banana Pi M2 Magic</a></li>
+<li><a href="Banana_Pi_M3.html" class="mw-redirect" title="Banana Pi M3">Banana Pi M3</a></li>
+<li><a href="Banana_Pi_M64.html" class="mw-redirect" title="Banana Pi M64">Banana Pi M64</a></li>
+<li><a href="Cubietruck.html" class="mw-redirect" title="Cubietruck">Cubietruck</a></li>
+<li><a href="Cubietech_Cubietruck_Plus.html" title="Cubietech Cubietruck Plus">Cubietruck Plus</a></li></ul></li></ul>
+<p>New Devices Supported
+</p>
+<ul><li><a href="Xunlong_Orange_Pi_Lite_2.html" title="Xunlong Orange Pi Lite 2">Xunlong Orange Pi Lite 2</a></li>
+<li>Mapleboard MP130</li>
+<li>LicheePi Nano</li>
+<li>Emlid Neutis N5</li></ul>
+<h2><span class="mw-headline" id="Merged_into_4.20">Merged into 4.20</span></h2>
+<ul><li>A13 / A20 / A33 / H3
+<ul><li>Cedrus driver</li></ul></li></ul>
+<ul><li>A83T
+<ul><li>IR receiver</li></ul></li></ul>
+<ul><li>A64
+<ul><li>Cleanup for device tree files</li>
+<li>HDMI support</li>
+<li>Audio codec support (DTS changes will be merged in 5.0)</li></ul></li></ul>
+<ul><li>H3 / H5
+<ul><li>SID</li></ul></li></ul>
+<ul><li>R40
+<ul><li>SATA</li></ul></li></ul>
+<p>New Devices Supported
+</p>
+<ul><li><a href="Pine64.html" title="Pine64">Pine64</a> LTS</li>
+<li><a href="Xunlong_Orange_Pi_One_Plus.html" title="Xunlong Orange Pi One Plus">Xunlong Orange Pi One Plus</a></li>
+<li><a href="Xunlong_Orange_Pi_Zero_Plus_2.html" title="Xunlong Orange Pi Zero Plus 2">Xunlong Orange Pi Zero Plus 2</a> (H3 variant)</li>
+<li><a href="Sinovoip_Banana_Pi_M2+.html" title="Sinovoip Banana Pi M2+">Sinovoip Banana Pi M2+</a> (H5 variant)</li></ul>
+<h2><span id="Merged_into_4.19_(LTS)"></span><span class="mw-headline" id="Merged_into_4.19_.28LTS.29">Merged into 4.19 (LTS)</span></h2>
+<ul><li>A10 / A13 / A20 / A23 / A33
+<ul><li>SRAM controller / system control</li></ul></li></ul>
+<ul><li>A64
+<ul><li>SRAM controller / system control</li>
+<li>Display clocks and bus</li>
+<li>RTC clock output</li>
+<li>PWM</li>
+<li>R_I2C</li></ul></li></ul>
+<ul><li>H3
+<ul><li>SRAM controller / system control</li></ul></li></ul>
+<ul><li>H6
+<ul><li>MMC</li>
+<li>PMIC</li></ul></li></ul>
+<ul><li>R40
+<ul><li>HDMI support</li></ul></li></ul>
+<p>Board Changes
+</p>
+<ul><li>SPI flash node for <a href="Orange_Pi_PC_2.html" class="mw-redirect" title="Orange Pi PC 2">Orange Pi PC 2</a> and <a href="Pine64.html#Variants" title="Pine64"> Pine64 SoPINE</a></li>
+<li>Use lid switch as wake-up source for A64 based laptops</li>
+<li>LEDs added for <a href="PineH64.html" title="PineH64">PineH64</a></li></ul>
+<p>New Devices
+</p>
+<ul><li><a href="Pine_Pinebook.html" title="Pine Pinebook">Pine Pinebook</a></li>
+<li>Amarula A64-Relic</li></ul>
+<h2><span class="mw-headline" id="Changes_merged_up_to_4.18">Changes merged up to 4.18</span></h2>
+<p>Changes up to 4.18 can be found on <a href="Linux_mainlining_history.html" title="Linux mainlining history">Linux mainlining history</a> page.
+</p>
+<h1><span class="mw-headline" id="References">References</span></h1>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.elinux.org/images/a/ad/Arm-soc-checklist.pdf">http://www.elinux.org/images/a/ad/Arm-soc-checklist.pdf</a></span>
+</li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external text" href="http://www.cnx-software.com/2013/01/16/your-new-arm-soc-linux-support-check-list-elce-2012/">Your New ARM SoC Linux Support Check-List – ELCE 2012</a></span>
+</li>
+<li id="cite_note-h6-pcie-3"><span class="mw-cite-backlink"><a href="#cite_ref-h6-pcie_3-0">↑</a></span> <span class="reference-text">Allwinner H6 has a quirky PCIe controller that doesn't map the PCIe address space properly to CPU,
+ and accessing the PCIe config space, IO space or memory space needs to be wrapped. As Linux doesn't wrap PCIe memory space access, it's not possible to do a proper PCIe controller without using an hypervisor. The BSP kernel modifies the driver to wrap the access, so it's also not generic, and only devices with modified driver will work. <a rel="nofollow" class="external free" href="https://forum.armbian.com/topic/13529-a-try-on-utilizing-h6-pcie-with-virtualization/">https://forum.armbian.com/topic/13529-a-try-on-utilizing-h6-pcie-with-virtualization/</a></span>
+</li>
+<li id="cite_note-mlc-4"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-mlc_4-0">4.0</a></sup> <sup><a href="#cite_ref-mlc_4-1">4.1</a></sup> <sup><a href="#cite_ref-mlc_4-2">4.2</a></sup> <sup><a href="#cite_ref-mlc_4-3">4.3</a></sup></span> <span class="reference-text">While the NAND controller itself is supported, the NAND technology found on the vast majority of boards isn't. See <a href="MTD_Driver.html#Challenges" title="MTD Driver">this page</a> </span>
+</li>
+<li id="cite_note-5"><span class="mw-cite-backlink"><a href="#cite_ref-5">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b7badd1d7aa61087010803affa19bb83fb5a0af1">https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b7badd1d7aa61087010803affa19bb83fb5a0af1</a></span>
+</li>
+</ol></div>
+<h1><span class="mw-headline" id="See_also">See also</span></h1>
+<ul><li><a href="Mainline_Kernel_Howto.html" title="Mainline Kernel Howto">Mainline Kernel Howto</a></li>
+<li><a href="Possible_setups_for_hacking_on_mainline.html" title="Possible setups for hacking on mainline">Possible setups for hacking on mainline</a></li>
+<li><a href="Linux_Kernel.html" title="Linux Kernel">Linux Kernel</a>
+<ul><li><a href="Toolchain.html" title="Toolchain">Toolchain</a></li></ul></li></ul>
+<h1><span class="mw-headline" id="External_Links">External Links</span></h1>
+<ul><li><a rel="nofollow" class="external text" href="http://www.kernel.org">kernel.org</a> - Official website for the Linux Kernel
+<ul><li><a class="external text" href="http://github.com/torvalds/linux">http://github.com/torvalds/linux</a> - Linus Torvalds' GitHub account with the upstream Linux kernel</li></ul></li>
+<li><a rel="nofollow" class="external text" href="http://www.kernel.org/doc/">Linux Kernel documentation index</a></li>
+<li><a rel="nofollow" class="external text" href="http://www.kernel.org/doc/man-pages/">Linux Kernel man pages</a></li>
+<li><a rel="nofollow" class="external text" href="http://kernelnewbies.org/">Kernel Newbies Site - Excellent source of information for people new to kernel</a></li>
+<li><a rel="nofollow" class="external text" href="http://git.kernel.org/?p=linux/kernel/git/torvalds/linux-2.6.git;a=summary">Linus' kernel tree for 2.6</a></li>
+<li><a rel="nofollow" class="external text" href="https://bugzilla.kernel.org/">Kernel bugzilla</a> - <a rel="nofollow" class="external text" href="https://bugzilla.kernel.org/show_bug.cgi?id=15790">Regressions for each of recent versions</a></li>
+<li><a rel="nofollow" class="external text" href="http://www.fsfla.org/svnwiki/selibre/linux-libre/">Linux-libre project - Maintains and distributes fully free kernel</a></li>
+<li><a rel="nofollow" class="external text" href="http://lingrok.org/">LinGrok, Linux kernel source code cross-reference</a></li>
+<li><a rel="nofollow" class="external text" href="https://elixir.bootlin.com/linux/latest/source?a=arm">Bootlin LXR (Linux Cross Reference)</a></li>
+<li><a rel="nofollow" class="external text" href="http://lists.infradead.org/pipermail/linux-arm-kernel/">linux-arm-kernel - Mailing list archive</a></li></ul>
+<h3><span class="mw-headline" id="How_to_upstream">How to upstream</span></h3>
+<ul><li><a rel="nofollow" class="external text" href="http://www.elinux.org/images/a/ad/Arm-soc-checklist.pdf">Your new ARM SoC Linux support check-list! by Thomas Petazzoni of Bootlin</a></li>
+<li><a rel="nofollow" class="external text" href="http://www.cnx-software.com/2014/03/04/linux-kernel-upstreaming-how-to-linaro-connect-asia-2014/">Linux Kernel Upstreaming How-To (CNXSoft - Embedded Software Development)</a>
+<ul><li><a rel="nofollow" class="external text" href="http://www.youtube.com/watch?v=dY7fikYZ42c">Matt Porter's YouTube video talk on “Upstreaming 101" (LCA14-111)</a>
+<ul><li><a rel="nofollow" class="external text" href="http://www.linaro.org/documents/download/65f888c674508efcf9bd5d90398a186a530d01c4c78db">Matt Porter's presentation slides for “Upstreaming 101" (LCA14-111)</a></li></ul></li>
+<li><a rel="nofollow" class="external text" href="https://www.youtube.com/watch?v=FiQ5uV_Mm5c">Matt Porter's YouTube video talk on “Upstreaming 201" (LCA14-112)</a>
+<ul><li><a rel="nofollow" class="external text" href="http://www.linaro.org/documents/download/7b9920fcc89589bad9063d87d9137f08530d020b71924">Matt Porter's presentation slides for “Upstreaming 201" (LCA14-112)</a></li></ul></li></ul></li>
+<li><a rel="nofollow" class="external text" href="http://www.cnx-software.com/2011/08/19/how-to-write-and-submit-a-linux-kernel-patch/">How to Write and Submit a Linux Kernel Patch (CNXSoft - Embedded Software Development)</a>
+<ul><li><a rel="nofollow" class="external text" href="http://www.youtube.com/watch?v=LLBrBBImJt4">YouTube Video- Write and Submit your first Linux kernel Patch</a></li>
+<li><a rel="nofollow" class="external text" href="http://www.cnx-software.com/pdf/kernel-tutorial/kernel_patch_tutorial.pdf">Greg Kroah-­Hartman Kernel Tutorial Write and Submit your first Linux Kernel Patch</a></li></ul></li>
+<li><a rel="nofollow" class="external text" href="http://www.linaro.org/connect-lca14/resources">Linaro resources page from LCA (Linaro Connect Asia) 2014</a></li></ul>
+<h1><span class="mw-headline" id="Notes">Notes</span></h1>
+
+<!-- 
+NewPP limit report
+Cached time: 20251029034449
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.416 seconds
+Real time usage: 0.432 seconds
+Preprocessor visited node count: 719/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 3075/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:267-0!canonical and timestamp 20251029034449 and revision id 26792
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=Linux_mainlining_effort&amp;oldid=26792">https://linux-sunxi.org/index.php?title=Linux_mainlining_effort&amp;oldid=26792</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Category</a>: <ul><li><a href="Category:Development.html" title="Category:Development">Development</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=Linux+mainlining+effort" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=Linux+mainlining+effort" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="Linux_mainlining_effort.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:Linux_mainlining_effort&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="Linux_mainlining_effort.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Linux_mainlining_effort&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Linux_mainlining_effort&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/Linux_mainlining_effort.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/Linux_mainlining_effort" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=Linux_mainlining_effort&amp;oldid=26792" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=Linux_mainlining_effort&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 20 October 2025, at 19:47.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.416","walltime":"0.432","ppvisitednodes":{"value":719,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":3075,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20251029034449","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":176});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

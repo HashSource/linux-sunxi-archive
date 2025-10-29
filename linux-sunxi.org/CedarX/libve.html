@@ -1,0 +1,307 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>CedarX/libve - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"cc61cee57f0087ae5132bd14","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"CedarX/libve","wgTitle":"CedarX/libve","wgCurRevisionId":21821,"wgRevisionId":21821,"wgArticleId":573,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["CedarX","Proprietary Software"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"CedarX/libve","wgRelevantArticleId":573,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready",
+"user.styles":"ready","user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=mediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="libve.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-CedarX_libve rootpage-CedarX skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">CedarX/libve</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"><span class="subpages">&lt; <a href="../CedarX" title="CedarX">CedarX</a></span></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Using_the_native_Linux_library"><span class="tocnumber">2</span> <span class="toctext">Using the native Linux library</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Using_libhybris_wrapped_Android_libraries"><span class="tocnumber">3</span> <span class="toctext">Using libhybris wrapped Android libraries</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Testing_libhybris_wrapped_Android_libraries_with_VLC"><span class="tocnumber">3.1</span> <span class="toctext">Testing libhybris wrapped Android libraries with VLC</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Testing_libhybris_wrapped_Android_libraries_with_XBMC"><span class="tocnumber">3.2</span> <span class="toctext">Testing libhybris wrapped Android libraries with XBMC</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Having_problems_with_the_Android_libraries.3F"><span class="tocnumber">3.3</span> <span class="toctext">Having problems with the Android libraries?</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Introduction">Introduction</span></h1>
+<p>libve is a small proprietary library, which is providing the core of <a href="../CedarX" title="CedarX">CedarX</a> video decoding functionality. There is some documentation about the use of libve API here <a class="external autonumber" href="https://github.com/linux-sunxi/cedarx-libs/tree/master/doc">[1]</a>. Also the sources of <a href="VLC.html" title="CedarX/VLC">CedarX/VLC</a> and <a href="XBMC.html" title="CedarX/XBMC">CedarX/XBMC</a> media players can be used as examples.
+</p>
+<h1><span class="mw-headline" id="Using_the_native_Linux_library">Using the native Linux library</span></h1>
+<p>There is a Linux armhf blob available at <a class="external autonumber" href="https://github.com/linux-sunxi/cedarx-libs/tree/master/libcedarv/linux-armhf/libvecore">[2]</a> (af9caeac58876819623e8e7ac3ee19798079a102 libvecore.so). Unfortunately it has little practical value because of a serious decoding bug: <a class="external free" href="https://github.com/linux-sunxi/cedarx-libs/issues/1">https://github.com/linux-sunxi/cedarx-libs/issues/1</a>
+</p><p>A good example of a file triggering this bug is Sintel trailer: <a rel="nofollow" class="external free" href="http://download.blender.org/durian/trailer/sintel_trailer-1080p.mp4">http://download.blender.org/durian/trailer/sintel_trailer-1080p.mp4</a>
+</p><p>But don't lose your hope yet and move on to the next section.
+</p>
+<h1><span class="mw-headline" id="Using_libhybris_wrapped_Android_libraries">Using <a rel="nofollow" class="external text" href="http://www.cnx-software.com/2013/04/08/libhybris-let-you-use-android-drivers-hw-libraries-in-linux/">libhybris</a> wrapped Android libraries</span></h1>
+<p>First we need to get access to the Android /system directory with the required Android libraries.
+</p><p>One way to do this is just by simply mounting this directory for the vendor provided Android firmware in NAND. But make sure that a recent Android firmware is used (unfortunately ABI keeps changing between releases). This method was successfully tested on Mele A2000 with Mele_HTPC_20130116_V1.3.1.img vendor provided firmware <a rel="nofollow" class="external autonumber" href="http://www.mele.cn/download/show/21.htm">[3]</a>.
+</p>
+<pre>  mkdir /system
+  mount /dev/nandd /system
+</pre>
+<p>An alternative method can be used in the case if your Android blobs are not compatible (cause crashes) or you don't have Android in NAND in the first place. It is possible to build Android from sources for cubieboard (or some other Allwinner A10 hardware) using the instructions from <a rel="nofollow" class="external text" href="http://martinbrook.blogspot.fi/2013/04/adventures-with-libhybris-and-andriod.html">http://martinbrook.blogspot.fi/2013/04/adventures-with-libhybris-and-andriod.html</a>. For convenience, a minimal set of pre-built libraries can be obtained by using the following instructions:
+</p>
+<pre>  cd /
+  wget <a rel="nofollow" class="external free" href="http://people.freedesktop.org/~siamashka/files/20130509/system.tar.gz">http://people.freedesktop.org/~siamashka/files/20130509/system.tar.gz</a>
+  tar -xzf system.tar.gz
+  cd /system/lib
+  wget <a class="external free" href="https://github.com/allwinner-dev-team/android_external_cedarx/raw/ef36cd760e9d76a2/CedarAndroidLib/LIB_JB_F23/libcedarv_adapter.so">https://github.com/allwinner-dev-team/android_external_cedarx/raw/ef36cd760e9d76a2/CedarAndroidLib/LIB_JB_F23/libcedarv_adapter.so</a>
+  wget <a class="external free" href="https://github.com/allwinner-dev-team/android_external_cedarx/raw/ef36cd760e9d76a2/CedarAndroidLib/LIB_JB_F23/libcedarv_base.so">https://github.com/allwinner-dev-team/android_external_cedarx/raw/ef36cd760e9d76a2/CedarAndroidLib/LIB_JB_F23/libcedarv_base.so</a>
+  wget <a class="external free" href="https://github.com/allwinner-dev-team/android_external_cedarx/raw/ef36cd760e9d76a2/CedarAndroidLib/LIB_JB_F23/libcedarxosal.so">https://github.com/allwinner-dev-team/android_external_cedarx/raw/ef36cd760e9d76a2/CedarAndroidLib/LIB_JB_F23/libcedarxosal.so</a>
+  wget <a class="external free" href="https://github.com/allwinner-dev-team/android_external_cedarx/raw/ef36cd760e9d76a2/CedarAndroidLib/LIB_JB_F23/libve.so">https://github.com/allwinner-dev-team/android_external_cedarx/raw/ef36cd760e9d76a2/CedarAndroidLib/LIB_JB_F23/libve.so</a>
+</pre>
+<p>Then we need to compile and install libhybris with CedarX libve patches (to some directory of your choice, but *not* into /usr because it would clash with GLESv2 Mali libraries):
+</p>
+<pre>  git clone -b cedarx <a class="external free" href="git://github.com/ssvb/libhybris.git">git://github.com/ssvb/libhybris.git</a>
+  cd libhybris/hybris
+  ./autogen.sh --prefix=/usr/local/hybris
+  make
+  make install
+</pre>
+<p>That's all. Now you should have /usr/local/hybris/lib/libvecore.so library, which is a drop-in replacement for the native libvecore.so
+</p>
+<h2><span class="mw-headline" id="Testing_libhybris_wrapped_Android_libraries_with_VLC">Testing libhybris wrapped Android libraries with <a href="../VLC.html" title="VLC">VLC</a></span></h2>
+<p>The VLC test itself can be done with:
+</p>
+<pre>  export LD_LIBRARY_PATH=/usr/local/hybris/lib
+  wget <a rel="nofollow" class="external free" href="http://download.blender.org/durian/trailer/sintel_trailer-1080p.mp4">http://download.blender.org/durian/trailer/sintel_trailer-1080p.mp4</a>
+  ./cvlc --demux ffmpeg --codec cedar --vout cedarfb --no-osd sintel_trailer-1080p.mp4
+</pre>
+<p>The Sintel trailer video used in this example normally triggers severe decoding bugs in the native Linux blob. With the libhybris wrapped and loaded Android blobs this video should play perfectly fine.
+</p>
+<h2><span class="mw-headline" id="Testing_libhybris_wrapped_Android_libraries_with_XBMC">Testing libhybris wrapped Android libraries with XBMC</span></h2>
+<p>First replace libvecore.so with a symlink to the libhybris wrapper:
+</p>
+<pre>  cd /allwinner/xbmc-pvr-binhf/lib
+  mv libvecore.so libvecore.so.old_native_linux_blob
+  ln -s /usr/local/hybris/lib/libvecore.so libvecore.so
+</pre>
+<p>Then run XBMC:
+</p>
+<pre>  cd /allwinner/xbmc-pvr-binhf/lib/xbmc
+  ./xbmc.bin
+</pre>
+<h2><span id="Having_problems_with_the_Android_libraries?"></span><span class="mw-headline" id="Having_problems_with_the_Android_libraries.3F">Having problems with the Android libraries?</span></h2>
+<p><strike>Please report them to <a class="external free" href="https://github.com/ssvb/libhybris/issues">https://github.com/ssvb/libhybris/issues</a>
+</strike></p><p><strike>Note: please only report the cases when libhybris wrapped Android libraries work worse than the native Linux library (otherwise it is unlikely to have anything to do with the libhybris wrapper). Also don't forget to describe the steps needed to reproduce the issue, some information about the video player (VLC or XBMC) and a link to the sample file causing problems.</strike>
+</p><p>The promise to debug issues in the libhybris libve wrapper has already expired and it is not maintained anymore. Please consider using <a class="external free" href="https://github.com/linux-sunxi/libvdpau-sunxi">https://github.com/linux-sunxi/libvdpau-sunxi</a> as a solution for hardware accelerated video decoding.
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20251029040902
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.038 seconds
+Real time usage: 0.044 seconds
+Preprocessor visited node count: 20/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:573-0!canonical and timestamp 20251029040902 and revision id 21821
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=CedarX/libve&amp;oldid=21821">https://linux-sunxi.org/index.php?title=CedarX/libve&amp;oldid=21821</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="../Special:Categories.html" title="Special:Categories">Categories</a>: <ul><li><a href="../Category:CedarX.html" title="Category:CedarX">CedarX</a></li><li><a href="../Category:Proprietary_Software.html" title="Category:Proprietary Software">Proprietary Software</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=CedarX%2Flibve" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=CedarX%2Flibve" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="libve.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:CedarX/libve&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="libve.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=CedarX/libve&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=CedarX/libve&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="../index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="../index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="../sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="../Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="../Special:WhatLinksHere/CedarX/libve.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/CedarX/libve" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="../Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=CedarX/libve&amp;oldid=21821" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=CedarX/libve&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 3 December 2018, at 15:50.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.038","walltime":"0.044","ppvisitednodes":{"value":20,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":0,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20251029040902","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":1076});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

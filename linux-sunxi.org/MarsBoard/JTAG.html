@@ -1,0 +1,370 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>MarsBoard/JTAG - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"5c166dffc2a683ae56486945","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"MarsBoard/JTAG","wgTitle":"MarsBoard/JTAG","wgCurRevisionId":4655,"wgRevisionId":4655,"wgArticleId":692,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Pages with broken file links"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"MarsBoard/JTAG","wgRelevantArticleId":692,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready"
+,"user.styles":"ready","user":"ready","user.options":"loading","mediawiki.page.gallery.styles":"ready","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=mediawiki.page.gallery.styles%7Cmediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="JTAG.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-MarsBoard_JTAG rootpage-MarsBoard skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">MarsBoard/JTAG</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Connection"><span class="tocnumber">1</span> <span class="toctext">Connection</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Notes:"><span class="tocnumber">2</span> <span class="toctext">Notes:</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Lauterbach_Trace32"><span class="tocnumber">3</span> <span class="toctext">Lauterbach Trace32</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#See_Also"><span class="tocnumber">4</span> <span class="toctext">See Also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Connection">Connection</span></h2>
+<p>The marsboard P2 connector includes the UART 0 and JTAG signals as
+<span style="color:red">3.3V TTL!</span>.
+</p><p>You will need to make a JTAG adapter to suit your JTAG debugger.
+</p>
+<table class="wikitable">
+
+<tbody><tr>
+<th scope="col"><b>ARM 20-pin JTAG</b>
+</th>
+<th scope="col"><b>MarsBoard P2 Header</b>
+</th></tr>
+<tr>
+<td>pin 1 - Vref</td>
+<td>pin 63 - VCC-3V3
+</td></tr>
+<tr>
+<td>pin 5 - TDI</td>
+<td>pin 70 - JTAG-DI
+</td></tr>
+<tr>
+<td>pin 7 - TMS</td>
+<td>pin 67 - JTAG-MS
+</td></tr>
+<tr>
+<td>pin 9 - TCK</td>
+<td>pin 68 - JTAG-CK
+</td></tr>
+<tr>
+<td>pin 13 - TDO</td>
+<td>pin 68 - JTAG-DO
+</td></tr>
+<tr>
+<td>pins 2-20 (even)</td>
+<td>pin 64 - GND
+</td></tr>
+</tbody></table>
+<p>Check your JTAG tool's cable details for alternate pinouts.
+</p>
+<ul class="gallery mw-gallery-traditional">
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="height: 150px;">MarsBoard P2-uart-jtag.png</div>
+			<div class="gallerytext">
+<p>MarsBoard P2 connector debug pins.
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:15px auto;"><a href="../File:MarsBoard_ARM-JTAG-20-Header.png.html" class="image"><img alt="" src="https://linux-sunxi.org/images/thumb/0/0f/MarsBoard_ARM-JTAG-20-Header.png/118px-MarsBoard_ARM-JTAG-20-Header.png" decoding="async" width="118" height="120" srcset="https://linux-sunxi.org/images/thumb/0/0f/MarsBoard_ARM-JTAG-20-Header.png/178px-MarsBoard_ARM-JTAG-20-Header.png 1.5x, https://linux-sunxi.org/images/thumb/0/0f/MarsBoard_ARM-JTAG-20-Header.png/237px-MarsBoard_ARM-JTAG-20-Header.png 2x" /></a></div></div>
+			<div class="gallerytext">
+<p>ARM 20-pin JTAG Header.
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:43px auto;"><a href="../File:MarsBoard_uart-jtag-adapter2.png.html" class="image"><img alt="" src="https://linux-sunxi.org/images/thumb/7/71/MarsBoard_uart-jtag-adapter2.png/120px-MarsBoard_uart-jtag-adapter2.png" decoding="async" width="120" height="64" srcset="https://linux-sunxi.org/images/thumb/7/71/MarsBoard_uart-jtag-adapter2.png/180px-MarsBoard_uart-jtag-adapter2.png 1.5x, https://linux-sunxi.org/images/thumb/7/71/MarsBoard_uart-jtag-adapter2.png/240px-MarsBoard_uart-jtag-adapter2.png 2x" /></a></div></div>
+			<div class="gallerytext">
+<p>Combo serial / JTAG breakout.
+</p>
+			</div>
+		</div></li>
+</ul>
+<h2><span class="mw-headline" id="Notes:">Notes:</span></h2>
+<p><b>On Allwinner A20</b>:
+</p>
+<ul><li>Ensure Linux power-management is <b>disabled</b> and both CPUs are enabled to connect reliably, or setup your debugger to use a single-core only.</li></ul>
+<pre> echo userspace &gt; /sys/bus/cpu/devices/cpu0/cpufreq/scaling_governor
+ echo 1 &gt; /sys/bus/cpu/devices/cpu0/online
+ echo 1 &gt; /sys/bus/cpu/devices/cpu1/online
+</pre>
+<h2><span class="mw-headline" id="Lauterbach_Trace32">Lauterbach Trace32</span></h2>
+<p>The following are a single-core and dual-core version of the script.
+</p>
+<pre>   ; MarsBoard A20 uniprocessor Trace32 Script
+   ; connect to CPU0 only
+   ; 2013-08-12
+
+   RESet
+   SYStem.CPU CortexA7MPCore
+   SYStem.CONFIG CoreNumber 1.
+   CORE.ASSIGN 1.
+
+   SYStem.JTAGCLOCK 20MHz
+
+   SYStem.CONFIG MEMORYACCESSPORT 0.
+   SYStem.CONFIG DEBUGACCESSPORT 1.
+   SYStem.CONFIG COREBASE              0x80110000
+   SYStem.CONFIG BMCBASE               0x80111000
+
+   SYStem.Option EnReset OFF
+
+   ; Allwinner A20 Details
+   MAP.BONCHIP 0xffff0000--0xffff7fff
+
+   Break.Implementation Program Onchip
+
+   SYStem.Up
+</pre>
+<p>The script below connects to the A20 configured in SMP mode with both
+CPUs powered on. If you are in the bootloader or trying to connect while
+only CPU0 is online, use the uni-processor script.
+</p>
+<pre>   ; MarsBoard A20 Dual-Core Trace32 Script
+   ; This script requires BOTH cores to be powered on!
+   ; 2013-08-12
+
+   RESet
+   SYStem.CPU CortexA7MPCore
+   SYStem.CONFIG CoreNumber 2.
+   CORE.ASSIGN 1. 2.
+
+   SYStem.JTAGCLOCK 20MHz
+
+   SYStem.CONFIG MEMORYACCESSPORT 0.
+   SYStem.CONFIG DEBUGACCESSPORT 1.
+   SYStem.CONFIG COREBASE              0x80110000 0x80112000
+   SYStem.CONFIG BMCBASE               0x80111000 0x80113000
+
+   SYStem.Option EnReset OFF
+
+   ; Allwinner A20 Details
+   MAP.BONCHIP 0xffff0000--0xffff7fff
+
+   Break.Implementation Program Onchip
+
+   SYStem.Up
+</pre>
+<h2><span class="mw-headline" id="See_Also">See Also</span></h2>
+<p><a href="../JTAG.html" title="JTAG">JTAG</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20251029040528
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.203 seconds
+Real time usage: 0.343 seconds
+Preprocessor visited node count: 21/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 1609/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:692-0!canonical and timestamp 20251029040528 and revision id 4655
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=MarsBoard/JTAG&amp;oldid=4655">https://linux-sunxi.org/index.php?title=MarsBoard/JTAG&amp;oldid=4655</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="../Special:Categories.html" title="Special:Categories">Category</a>: <ul><li><a href="https://linux-sunxi.org/index.php?title=Category:Pages_with_broken_file_links&amp;action=edit&amp;redlink=1" class="new" title="Category:Pages with broken file links (page does not exist)">Pages with broken file links</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=MarsBoard%2FJTAG" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=MarsBoard%2FJTAG" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="JTAG.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:MarsBoard/JTAG&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="JTAG.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=MarsBoard/JTAG&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=MarsBoard/JTAG&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="../index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="../index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="../sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="../Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="../Special:WhatLinksHere/MarsBoard/JTAG.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/MarsBoard/JTAG" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="../Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=MarsBoard/JTAG&amp;oldid=4655" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=MarsBoard/JTAG&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 12 August 2013, at 03:07.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.203","walltime":"0.343","ppvisitednodes":{"value":21,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":1609,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20251029040528","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":395});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

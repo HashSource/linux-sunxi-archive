@@ -1,0 +1,736 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>DWC HDMI Controller - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"eec679e463d31879026cd7cc","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"DWC_HDMI_Controller","wgTitle":"DWC HDMI Controller","wgCurRevisionId":20933,"wgRevisionId":20933,"wgArticleId":2591,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Hardware"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"DWC_HDMI_Controller","wgRelevantArticleId":2591,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready",
+"user.styles":"ready","user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=mediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="DWC_HDMI_Controller.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-DWC_HDMI_Controller rootpage-DWC_HDMI_Controller skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">DWC HDMI Controller</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>The <a href="A83T.html" title="A83T">A83T</a>/<a href="H3.html" title="H3">H3</a>/<a href="A64.html" title="A64">A64</a>/<a href="A80.html" title="A80">A80</a> SoCs use a Synopsys DesignWare HDMI controller. A80 and A83T use a PHY from Synopsys too, but H3 and A64 PHY is unknown.
+</p><p>There is no sunxi specific documentation about this controller, so everything on this page is only guessed based on observations, trial and error and third party documentation of similar systems. Don't rely on it being 100% correct and feel free to discuss ambiguous parts.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Overview"><span class="tocnumber">1</span> <span class="toctext">Overview</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Clocks"><span class="tocnumber">1.1</span> <span class="toctext">Clocks</span></a>
+<ul>
+<li class="toclevel-3 tocsection-3"><a href="#H3"><span class="tocnumber">1.1.1</span> <span class="toctext">H3</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-4"><a href="#Resets"><span class="tocnumber">1.2</span> <span class="toctext">Resets</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="#Register_Guide"><span class="tocnumber">2</span> <span class="toctext">Register Guide</span></a>
+<ul>
+<li class="toclevel-2 tocsection-6"><a href="#HDMI_READ_EN"><span class="tocnumber">2.1</span> <span class="toctext">HDMI_READ_EN</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#HDMI_UNSCRAMBLE_ADDR"><span class="tocnumber">2.2</span> <span class="toctext">HDMI_UNSCRAMBLE_ADDR</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#DWC_HDMI_Controller"><span class="tocnumber">2.3</span> <span class="toctext">DWC HDMI Controller</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#DWC_HDMI_PHY"><span class="tocnumber">2.4</span> <span class="toctext">DWC HDMI PHY</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#H3.2FA64_HDMI_PHY"><span class="tocnumber">2.5</span> <span class="toctext">H3/A64 HDMI PHY</span></a>
+<ul>
+<li class="toclevel-3 tocsection-11"><a href="#HDMI_H3_PHY_CTRL"><span class="tocnumber">2.5.1</span> <span class="toctext">HDMI_H3_PHY_CTRL</span></a></li>
+<li class="toclevel-3 tocsection-12"><a href="#HDMI_H3_PHY_PLL"><span class="tocnumber">2.5.2</span> <span class="toctext">HDMI_H3_PHY_PLL</span></a></li>
+<li class="toclevel-3 tocsection-13"><a href="#HDMI_H3_PHY_CLK"><span class="tocnumber">2.5.3</span> <span class="toctext">HDMI_H3_PHY_CLK</span></a></li>
+<li class="toclevel-3 tocsection-14"><a href="#HDMI_H3_PHY_STATUS"><span class="tocnumber">2.5.4</span> <span class="toctext">HDMI_H3_PHY_STATUS</span></a></li>
+<li class="toclevel-3 tocsection-15"><a href="#HDMI_H3_PHY_CEC"><span class="tocnumber">2.5.5</span> <span class="toctext">HDMI_H3_PHY_CEC</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-16"><a href="#Documents"><span class="tocnumber">3</span> <span class="toctext">Documents</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Overview">Overview</span></h1>
+<p>The HDMI controller consists of two blocks, the inner real HDMI controller from Synopsys, and some outer wrapper (above address 0x10000) scrambling the addresses and locking read access of the inner controller. On H3/A64 the outer block also provides configuration registers for the PHY. A80 might not have the outer part, this has to be checked.
+</p>
+<h2><span class="mw-headline" id="Clocks">Clocks</span></h2>
+<p>(A80/A83T/A64 not checked yet, might be different there)
+</p>
+<h3><span class="mw-headline" id="H3">H3</span></h3>
+<p>There are three clocks: BUS_CLK_HDMI_GATE, HDMI_SLOW_CLK, PLL3_CLK. HDMI_CLK seems to be unused, leaving it disabled or changing dividers has no effect.
+</p><p>HDMI_SLOW_CLK is the actual module clock, used by the inner controller for configuration and low-speed interfaces. Everything except the high-speed data is clocked from this.
+</p><p>PLL3_CLK is input to the PHY PLL, which provides a 1-16 pre-divider to match the pixel clock from TCON. This PLL generates the pixel/TMDS clocks and feeds them back to the inner controller as required.
+</p>
+<h2><span class="mw-headline" id="Resets">Resets</span></h2>
+<p>There are two resets (A80 not checked yet), HDMI0_RST and HDMI1_RST.
+</p><p>HDMI0_RST resets the inner controller.
+</p><p>HDMI1_RST resets the outer wrapper (and at least on H3/A64 the PHY too).
+</p>
+<h1><span class="mw-headline" id="Register_Guide">Register Guide</span></h1>
+<p>Base address: 0x01ee0000 (sun8i/sun50i), 0x03d00000 (sun9i)
+</p>
+<h3><span class="mw-headline" id="HDMI_READ_EN">HDMI_READ_EN</span></h3>
+<table class="wikitable" style="max-width:1000px; margin-right:0px;">
+<tbody><tr>
+<th style="padding:0em 1em; font-size:75%; color:#444444;">Offset</th>
+<td style="padding:0em 1em;" colspan="2"><center><tt>0x10010</tt></center></td>
+</tr>
+<tr style="font-size:75%; color:#444444;">
+<th style="padding:0em 1em; min-width:23em;">Name</th>
+<th style="padding:0em 1em;">Bits</th>
+<th style="padding:0em 1em;">R/W</th>
+<th style="padding:0em 1em;">Default</th>
+<th style="padding:0em 1em;">Values</th>
+<th style="padding:0em 1em; width:100%; text-align:left;">Description</th>
+</tr>
+
+
+
+<tr>
+<td style="padding:0em .4em;"><tt> HDMI_READ_EN
+</tt></td>
+<td><tt> 31:0 </tt></td>
+<td><center><tt>W</tt></center></td>
+<td><center><tt></tt></center></td>
+<td><pre>0x54524545 = enable read access
+0x57415452 = disable read access
+</pre></td>
+<td style="padding:0em .4em;"></td>
+</tr>
+
+
+</tbody></table>
+<h3><span class="mw-headline" id="HDMI_UNSCRAMBLE_ADDR">HDMI_UNSCRAMBLE_ADDR</span></h3>
+<table class="wikitable" style="max-width:1000px; margin-right:0px;">
+<tbody><tr>
+<th style="padding:0em 1em; font-size:75%; color:#444444;">Offset</th>
+<td style="padding:0em 1em;" colspan="2"><center><tt>0x10014</tt></center></td>
+</tr>
+<tr style="font-size:75%; color:#444444;">
+<th style="padding:0em 1em; min-width:23em;">Name</th>
+<th style="padding:0em 1em;">Bits</th>
+<th style="padding:0em 1em;">R/W</th>
+<th style="padding:0em 1em;">Default</th>
+<th style="padding:0em 1em;">Values</th>
+<th style="padding:0em 1em; width:100%; text-align:left;">Description</th>
+</tr>
+
+
+
+<tr>
+<td style="padding:0em .4em;"><tt> HDMI_UNSCRAMBLE_ADDR
+</tt></td>
+<td><tt> 31:0 </tt></td>
+<td><center><tt>W</tt></center></td>
+<td><center><tt></tt></center></td>
+<td><pre>0x42494E47 = unscramble addresses
+0 = scramble addresses
+</pre></td>
+<td style="padding:0em .4em;">Unsrambling restores same addresses as they are described in i.MX6 manual.<br />
+NOTE: Be sure to make dummy read before scrambling addresses, otherwise, if the last operation is write to HDMI register, value will be lost.</td>
+</tr>
+
+
+</tbody></table>
+<h2><span class="mw-headline" id="DWC_HDMI_Controller">DWC HDMI Controller</span></h2>
+<p>0x01ee0000 - 0x01eeffff (only byte-accessible)
+</p><p>(A similar version of) the controller is publicly documented in the i.MX6 Reference Manual, chapter 33. 
+There also is a mainline Linux driver for the controller in <a rel="nofollow" class="external text" href="https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/drivers/gpu/drm/bridge/dw-hdmi.c">drivers/gpu/drm/bridge/dw_hdmi.c</a>.
+</p><p>The design, revision, product and config IDs are 13 2a a0 c1 bf 02 fe 00 on H3/A64/A80/A83T and 21 2a a0 c1 9f 62 f3 00 on H6.
+</p><p>Now the hard part, the register addresses are obfuscated in sunxi SoCs (except A80 and H6). To use existing drivers/documentation the address bits have to be rearranged in the following way:
+</p>
+<pre>real &lt;-&gt; obfuscated address bits
+A1   &lt;-&gt; A15
+A3   &lt;-&gt; A14
+A5   &lt;-&gt; A13
+A7   &lt;-&gt; A12
+A9   &lt;-&gt; A11
+A11  &lt;-&gt; A10
+A13  &lt;-&gt; A9
+A15  &lt;-&gt; A8
+A14  &lt;-&gt; A7
+A12  &lt;-&gt; A6
+A10  &lt;-&gt; A5
+A8   &lt;-&gt; A4
+A6   &lt;-&gt; A3
+A4   &lt;-&gt; A2
+A2   &lt;-&gt; A1
+A0   &lt;-&gt; A0</pre>
+<p>For example, to access register 0x100D (vsync width) one has to access 0x4043 on sunxi.
+</p>
+<pre># Python functions to translate DWC registers to sunxi register value:
+def bitrev32(x):
+    x = ((x &amp; 0x55555555) &lt;&lt;  1) | ((x &amp; 0xAAAAAAAA) &gt;&gt;  1)
+    x = ((x &amp; 0x33333333) &lt;&lt;  2) | ((x &amp; 0xCCCCCCCC) &gt;&gt;  2)
+    x = ((x &amp; 0x0F0F0F0F) &lt;&lt;  4) | ((x &amp; 0xF0F0F0F0) &gt;&gt;  4)
+    x = ((x &amp; 0x00FF00FF) &lt;&lt;  8) | ((x &amp; 0xFF00FF00) &gt;&gt;  8)
+    x = ((x &amp; 0x0000FFFF) &lt;&lt; 16) | ((x &amp; 0xFFFF0000) &gt;&gt; 16)
+    return x
+
+def dwc2sunxi(x):
+    x = bitrev32(x) | x                 # put bit-reversed version in upper 16bit
+    x = x &amp; 0x55555555                  # extract all even bits
+    x = (x | (x &gt;&gt; 1)) &amp; 0x33333333     # move all of them to lower 16 bits
+    x = (x | (x &gt;&gt; 2)) &amp; 0x0f0f0f0f     # in multiple steps
+    x = (x | (x &gt;&gt; 4)) &amp; 0x00ff00ff
+    x = (x | (x &gt;&gt; 8)) &amp; 0x0000ffff
+    return x
+</pre>
+<pre>def sunxi2dwc(x):
+    x = ((x &amp; 0xff00) &lt;&lt; 8) | (x &amp; 0x00ff)
+    x = ((x &lt;&lt; 4) | x) &amp; 0x0f0f0f0f
+    x = ((x &lt;&lt; 2) | x) &amp; 0x33333333
+    x = ((x &lt;&lt; 1) | x) &amp; 0x55555555
+    x = (bitrev32(x) | x) &amp; 0xffff
+    return x
+</pre>
+<p>Optimized version (bitrev32() as defined in linux bitrev.h):
+</p>
+<pre>uint16_t dwc2sunxi(uint16_t addr)
+{
+    uint32_t x = bitrev32((uint32_t)addr) | (uint32_t)addr; // put bit-reversed version in upper 16bit
+    x = x &amp; 0x55555555;                                     // then extract all even bits
+    x = (x | (x &gt;&gt; 1)) &amp; 0x33333333;                        // and move them all to the lower 16bit
+    x = (x | (x &gt;&gt; 2)) &amp; 0x0f0f0f0f;                        // in multiple steps
+    x = (x | (x &gt;&gt; 4)) &amp; 0x00ff00ff;                        // ...
+    x = (x | (x &gt;&gt; 8)) &amp; 0x0000ffff;
+    return (uint16_t)x;
+}
+</pre>
+<h2><span class="mw-headline" id="DWC_HDMI_PHY">DWC HDMI PHY</span></h2>
+<p>A80 and A83T use a Synopsys PHY, connected to controllers internal I2C bus. This PHY is documented in the i.MX6 Reference Manual, chapter 34, too. The existing Linux driver has support for this PHY, but SoC specific parameters are needed for configuration.
+</p>
+<h2><span id="H3/A64_HDMI_PHY"></span><span class="mw-headline" id="H3.2FA64_HDMI_PHY">H3/A64 HDMI PHY</span></h2>
+<p>The H3/A64 PHY is unknown and undocumented.
+</p><p>The HDMI block uses PLL3 as input clock, not HDMI_CLK. It looks like the input clock has to be higher than ~165MHz to get a stable HDMI signal.
+</p><p>Some register guessing, only notes from experiments, no facts yet:
+</p>
+<h3><span class="mw-headline" id="HDMI_H3_PHY_CTRL">HDMI_H3_PHY_CTRL</span></h3>
+<table class="wikitable" style="max-width:1000px; margin-right:0px;">
+<tbody><tr>
+<th style="padding:0em 1em; font-size:75%; color:#444444;">Offset</th>
+<td style="padding:0em 1em;" colspan="2"><center><tt>0x10020</tt></center></td>
+</tr>
+<tr style="font-size:75%; color:#444444;">
+<th style="padding:0em 1em; min-width:23em;">Name</th>
+<th style="padding:0em 1em;">Bits</th>
+<th style="padding:0em 1em;">R/W</th>
+<th style="padding:0em 1em;">Default</th>
+<th style="padding:0em 1em;">Values</th>
+<th style="padding:0em 1em; width:100%; text-align:left;">Description</th>
+</tr>
+
+
+
+<tr>
+<td style="padding:0em .4em;"><tt> HDMI_TMDS_CLK_OUTPUT_EN </tt></td>
+<td><tt> 15 </tt></td>
+<td><center><tt>RW</tt></center></td>
+<td><center><tt></tt></center></td>
+<td></td>
+<td style="padding:0em .4em;">enable TMDS clock output</td>
+</tr>
+
+
+
+<tr>
+<td style="padding:0em .4em;"><tt> HDMI_TMDS_2_OUTPUT_EN </tt></td>
+<td><tt> 14 </tt></td>
+<td><center><tt>RW</tt></center></td>
+<td><center><tt></tt></center></td>
+<td></td>
+<td style="padding:0em .4em;">enable TMDS data2 output</td>
+</tr>
+
+
+
+<tr>
+<td style="padding:0em .4em;"><tt> HDMI_TMDS_1_OUTPUT_EN </tt></td>
+<td><tt> 13 </tt></td>
+<td><center><tt>RW</tt></center></td>
+<td><center><tt></tt></center></td>
+<td></td>
+<td style="padding:0em .4em;">enable TMDS data1 output</td>
+</tr>
+
+
+
+<tr>
+<td style="padding:0em .4em;"><tt> HDMI_TMDS_0_OUTPUT_EN </tt></td>
+<td><tt> 12 </tt></td>
+<td><center><tt>RW</tt></center></td>
+<td><center><tt></tt></center></td>
+<td></td>
+<td style="padding:0em .4em;">enable TMDS data0 output</td>
+</tr>
+
+
+</tbody></table>
+<h3><span class="mw-headline" id="HDMI_H3_PHY_PLL">HDMI_H3_PHY_PLL</span></h3>
+<table class="wikitable" style="max-width:1000px; margin-right:0px;">
+<tbody><tr>
+<th style="padding:0em 1em; font-size:75%; color:#444444;">Offset</th>
+<td style="padding:0em 1em;" colspan="2"><center><tt>0x1002c</tt></center></td>
+</tr>
+<tr style="font-size:75%; color:#444444;">
+<th style="padding:0em 1em; min-width:23em;">Name</th>
+<th style="padding:0em 1em;">Bits</th>
+<th style="padding:0em 1em;">R/W</th>
+<th style="padding:0em 1em;">Default</th>
+<th style="padding:0em 1em;">Values</th>
+<th style="padding:0em 1em; width:100%; text-align:left;">Description</th>
+</tr>
+
+
+
+<tr>
+<td style="padding:0em .4em;"><tt>  </tt></td>
+<td><tt> 25 </tt></td>
+<td><center><tt>RW</tt></center></td>
+<td><center><tt></tt></center></td>
+<td></td>
+<td style="padding:0em .4em;">enable pll?</td>
+</tr>
+
+
+
+<tr>
+<td style="padding:0em .4em;"><tt>  </tt></td>
+<td><tt> 5:0 </tt></td>
+<td><center><tt>RW</tt></center></td>
+<td><center><tt></tt></center></td>
+<td></td>
+<td style="padding:0em .4em;">some pll parameter</td>
+</tr>
+
+
+</tbody></table>
+<h3><span class="mw-headline" id="HDMI_H3_PHY_CLK">HDMI_H3_PHY_CLK</span></h3>
+<table class="wikitable" style="max-width:1000px; margin-right:0px;">
+<tbody><tr>
+<th style="padding:0em 1em; font-size:75%; color:#444444;">Offset</th>
+<td style="padding:0em 1em;" colspan="2"><center><tt>0x10030</tt></center></td>
+</tr>
+<tr style="font-size:75%; color:#444444;">
+<th style="padding:0em 1em; min-width:23em;">Name</th>
+<th style="padding:0em 1em;">Bits</th>
+<th style="padding:0em 1em;">R/W</th>
+<th style="padding:0em 1em;">Default</th>
+<th style="padding:0em 1em;">Values</th>
+<th style="padding:0em 1em; width:100%; text-align:left;">Description</th>
+</tr>
+
+
+
+<tr>
+<td style="padding:0em .4em;"><tt>  </tt></td>
+<td><tt> 19 </tt></td>
+<td><center><tt>RW</tt></center></td>
+<td><center><tt></tt></center></td>
+<td></td>
+<td style="padding:0em .4em;">?enable 18:16?</td>
+</tr>
+
+
+
+<tr>
+<td style="padding:0em .4em;"><tt>  </tt></td>
+<td><tt> 18:16 </tt></td>
+<td><center><tt>RW</tt></center></td>
+<td><center><tt></tt></center></td>
+<td></td>
+<td style="padding:0em .4em;">some pll parameter (bandwidth?)</td>
+</tr>
+
+
+
+<tr>
+<td style="padding:0em .4em;"><tt>  </tt></td>
+<td><tt> 15:12 </tt></td>
+<td><center><tt>RW</tt></center></td>
+<td><center><tt></tt></center></td>
+<td></td>
+<td style="padding:0em .4em;">some pll parameter</td>
+</tr>
+
+
+
+<tr>
+<td style="padding:0em .4em;"><tt> HDMI_CLK_DIV </tt></td>
+<td><tt> 3:0 </tt></td>
+<td><center><tt>RW</tt></center></td>
+<td><center><tt></tt></center></td>
+<td></td>
+<td style="padding:0em .4em;">clock divider</td>
+</tr>
+
+
+</tbody></table>
+<h3><span class="mw-headline" id="HDMI_H3_PHY_STATUS">HDMI_H3_PHY_STATUS</span></h3>
+<table class="wikitable" style="max-width:1000px; margin-right:0px;">
+<tbody><tr>
+<th style="padding:0em 1em; font-size:75%; color:#444444;">Offset</th>
+<td style="padding:0em 1em;" colspan="2"><center><tt>0x10038</tt></center></td>
+</tr>
+<tr style="font-size:75%; color:#444444;">
+<th style="padding:0em 1em; min-width:23em;">Name</th>
+<th style="padding:0em 1em;">Bits</th>
+<th style="padding:0em 1em;">R/W</th>
+<th style="padding:0em 1em;">Default</th>
+<th style="padding:0em 1em;">Values</th>
+<th style="padding:0em 1em; width:100%; text-align:left;">Description</th>
+</tr>
+
+
+
+<tr>
+<td style="padding:0em .4em;"><tt> HPD </tt></td>
+<td><tt> 19 </tt></td>
+<td><center><tt>RW</tt></center></td>
+<td><center><tt></tt></center></td>
+<td></td>
+<td style="padding:0em .4em;">HPD status</td>
+</tr>
+
+
+
+<tr>
+<td style="padding:0em .4em;"><tt>  </tt></td>
+<td><tt> 16:11 </tt></td>
+<td><center><tt>RW</tt></center></td>
+<td><center><tt></tt></center></td>
+<td></td>
+<td style="padding:0em .4em;">some pll calibration? result</td>
+</tr>
+
+
+</tbody></table>
+<h3><span class="mw-headline" id="HDMI_H3_PHY_CEC">HDMI_H3_PHY_CEC</span></h3>
+<p>Note: Description field has notes found by trial and error.
+</p>
+<table class="wikitable" style="max-width:1000px; margin-right:0px;">
+<tbody><tr>
+<th style="padding:0em 1em; font-size:75%; color:#444444;">Offset</th>
+<td style="padding:0em 1em;" colspan="2"><center><tt>0x1003c</tt></center></td>
+</tr>
+<tr style="font-size:75%; color:#444444;">
+<th style="padding:0em 1em; min-width:23em;">Name</th>
+<th style="padding:0em 1em;">Bits</th>
+<th style="padding:0em 1em;">R/W</th>
+<th style="padding:0em 1em;">Default</th>
+<th style="padding:0em 1em;">Values</th>
+<th style="padding:0em 1em; width:100%; text-align:left;">Description</th>
+</tr>
+
+
+
+<tr>
+<td style="padding:0em .4em;"><tt> CTRL_SEL </tt></td>
+<td><tt> 7 </tt></td>
+<td><center><tt>RW</tt></center></td>
+<td><center><tt>0</tt></center></td>
+<td><pre>0 - cec controller
+1 - reg control
+</pre></td>
+<td style="padding:0em .4em;">if bit 2=0 send bit 0 on cec line</td>
+</tr>
+
+
+
+<tr>
+<td style="padding:0em .4em;"><tt> / </tt></td>
+<td><tt> 6 </tt></td>
+<td><center><tt>RW</tt></center></td>
+<td><center><tt>0</tt></center></td>
+<td></td>
+<td style="padding:0em .4em;"></td>
+</tr>
+
+
+
+<tr>
+<td style="padding:0em .4em;"><tt> PAD_SELO2 </tt></td>
+<td><tt> 5 </tt></td>
+<td><center><tt>RW</tt></center></td>
+<td><center><tt>0</tt></center></td>
+<td></td>
+<td style="padding:0em .4em;">?</td>
+</tr>
+
+
+
+<tr>
+<td style="padding:0em .4em;"><tt> PAD_SELO1 </tt></td>
+<td><tt> 4 </tt></td>
+<td><center><tt>RW</tt></center></td>
+<td><center><tt>0</tt></center></td>
+<td></td>
+<td style="padding:0em .4em;">?</td>
+</tr>
+
+
+
+<tr>
+<td style="padding:0em .4em;"><tt> INPUT_EN </tt></td>
+<td><tt> 3 </tt></td>
+<td><center><tt>RW</tt></center></td>
+<td><center><tt>0</tt></center></td>
+<td></td>
+<td style="padding:0em .4em;">1 = disable input cec line(bit 1) If set to 1 hw tx will send but don't get ACKs</td>
+</tr>
+
+
+
+<tr>
+<td style="padding:0em .4em;"><tt> OUTPUT_EN </tt></td>
+<td><tt> 2 </tt></td>
+<td><center><tt>RW</tt></center></td>
+<td><center><tt>0</tt></center></td>
+<td></td>
+<td style="padding:0em .4em;">1 = pass cec line to hardware cec receiver<br />
+0 = pass cec line to hardware cec transmitter. Transmitting works only when bits 2:7 = 0</td>
+</tr>
+
+
+
+<tr>
+<td style="padding:0em .4em;"><tt> INPUT_DATA </tt></td>
+<td><tt> 1 </tt></td>
+<td><center><tt>RW</tt></center></td>
+<td><center><tt>0</tt></center></td>
+<td></td>
+<td style="padding:0em .4em;">status cec line when bit 3=0</td>
+</tr>
+
+
+
+<tr>
+<td style="padding:0em .4em;"><tt> OUPUT_DATA </tt></td>
+<td><tt> 0 </tt></td>
+<td><center><tt>RW</tt></center></td>
+<td><center><tt>0</tt></center></td>
+<td></td>
+<td style="padding:0em .4em;">output on cec line when bit 2=0 and 7=1</td>
+</tr>
+
+
+</tbody></table>
+<h1><span class="mw-headline" id="Documents">Documents</span></h1>
+<ul><li><a href="File:AW_HDMI_TX_PHY_S40_Spec_V0.1.pdf.html" title="File:AW HDMI TX PHY S40 Spec V0.1.pdf">File:AW HDMI TX PHY S40 Spec V0.1.pdf</a><small>(PDF, 11 pages, 2018-01-03)</small></li></ul>
+<!-- 
+NewPP limit report
+Cached time: 20251029040253
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.132 seconds
+Real time usage: 0.146 seconds
+Preprocessor visited node count: 545/1000000
+Post‐expand include size: 15185/2097152 bytes
+Template argument size: 6844/2097152 bytes
+Highest expansion depth: 6/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 2248/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   15.785      1 -total
+ 95.20%   15.027      7 Template:REG
+ 49.74%    7.851     22 Template:REG/FIELD
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:2591-0!canonical and timestamp 20251029040253 and revision id 20933
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=DWC_HDMI_Controller&amp;oldid=20933">https://linux-sunxi.org/index.php?title=DWC_HDMI_Controller&amp;oldid=20933</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Category</a>: <ul><li><a href="Category:Hardware.html" title="Category:Hardware">Hardware</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=DWC+HDMI+Controller" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=DWC+HDMI+Controller" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="DWC_HDMI_Controller.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:DWC_HDMI_Controller&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="DWC_HDMI_Controller.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=DWC_HDMI_Controller&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=DWC_HDMI_Controller&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/DWC_HDMI_Controller.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/DWC_HDMI_Controller" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=DWC_HDMI_Controller&amp;oldid=20933" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=DWC_HDMI_Controller&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 27 January 2018, at 12:24.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.132","walltime":"0.146","ppvisitednodes":{"value":545,"limit":1000000},"postexpandincludesize":{"value":15185,"limit":2097152},"templateargumentsize":{"value":6844,"limit":2097152},"expansiondepth":{"value":6,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":2248,"limit":5000000},"timingprofile":["100.00%   15.785      1 -total"," 95.20%   15.027      7 Template:REG"," 49.74%    7.851     22 Template:REG/FIELD"]},"cachereport":{"timestamp":"20251029040253","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":447});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

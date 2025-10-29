@@ -1,0 +1,2501 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Table of Allwinner based boards - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"1a27197fcfc3d6dc13fe541a","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Table_of_Allwinner_based_boards","wgTitle":"Table of Allwinner based boards","wgCurRevisionId":24006,"wgRevisionId":24006,"wgArticleId":2726,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Hardware"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Table_of_Allwinner_based_boards","wgRelevantArticleId":2726,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={
+"site.styles":"ready","noscript":"ready","user.styles":"ready","user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready","jquery.tablesorter.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","jquery.tablesorter","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=jquery.tablesorter.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="Table_of_Allwinner_based_boards.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-Table_of_Allwinner_based_boards rootpage-Table_of_Allwinner_based_boards skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">Table of Allwinner based boards</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>This is a manually generated list of Allwinner based development boards.
+</p><p>There is the possibility that the information here is out of sync with <a href="Category:Devices.html" title="Category:Devices">the actual device page</a>, so always check the device specific page, that should be the canonical source of all device specific information.
+</p><p><a href="Category:Devices.html" title="Category:Devices">Here is the full list of devices that are listed on this website</a>, note that there are also some interesting categories listed there depending on board features.
+</p>
+<h1><span class="mw-headline" id="Important_notes:">Important notes:</span></h1>
+<ul><li>WiP - work in progress, JS - just started</li>
+<li>RAM speed is a suggested failsafe value</li>
+<li>USB ports marked with * are behind internal hub (must share bandwidth), USB ports, S/PDIF etc. marked with # are available via GPIO pins / unpopulated headers</li>
+<li>SATA marked with * means the board is using a crappy GL830 USB-to-SATA converter. So far, using such converter will result in crappy performance (~15-20MB/s, less if USB is used at the same time)</li>
+<li>power req: for the board WITHOUT peripherials, if you consider connecting 3 usb disks, do the math first. Also keep in mind that phone chargers are crap and you shouldn't believe that cheap USB charger would be enough for higher loads.</li>
+<li>eMMC - megabytes = eMMC NAND flash, megabits = SPI NOR flash</li>
+<li>Mainline support: ** means a dedicated device tree description for the board is missing, but a compatible configuration for some other board (possibly with patches) is available</li></ul>
+<h1><span class="mw-headline" id="Table_of_Allwinner_based_boards">Table of Allwinner based boards</span></h1>
+<table class="wikitable sortable">
+
+<tbody><tr>
+<th><a href="Category:Maker.html" title="Category:Maker">Maker</a></th>
+<th>Model</th>
+<th><a href="Allwinner_SoC_Family.html" title="Allwinner SoC Family">SoC</a></th>
+<th><a href="Linux_mainlining_effort.html" title="Linux mainlining effort"> Mainline</a></th>
+<th><a href="Category:Power.html" title="Category:Power">PMU/Vreg</a></th>
+<th>Board size (mm)</th>
+<th>RAM (MHz)</th>
+<th><a href="Storage.html" title="Storage">Storage</a></th>
+<th><a href="EMMC.html" title="EMMC">eMMC</a>/<a href="Bootable_SPI_flash.html" title="Bootable SPI flash">SPI Flash</a></th>
+<th><a href="Ethernet.html" title="Ethernet">Ethernet</a> speed (chip)</th>
+<th><a href="Wifi.html" title="Wifi">Wifi</a></th>
+<th><a href="USB.html" title="USB">USB</a></th>
+<th><a href="Audio_Codec.html" title="Audio Codec">Audio</a></th>
+<th>Mic</th>
+<th><a href="IR.html" title="IR">IR</a></th>
+<th><a href="GPIO.html" title="GPIO">GPIO</a></th>
+<th><a href="CSI.html" title="CSI">CSI</a></th>
+<th><a href="https://linux-sunxi.org/index.php?title=DSI&amp;action=edit&amp;redlink=1" class="new" title="DSI (page does not exist)">DSI</a></th>
+<th>Video out</th>
+<th><a href="Powering_the_boards_and_accessories.html#Power_connectors" title="Powering the boards and accessories">Power src</a></th>
+<th>Power req
+</th></tr>
+<tr>
+<td>CubieTech</td>
+<td><a href="Cubietech_Cubieboard.html" title="Cubietech Cubieboard"> Cubieboard</a></td>
+<td><a href="A10.html" title="A10">A10</a></td>
+<td>3.8</td>
+<td><a href="AXP209.html" title="AXP209">AXP209</a></td>
+<td>100x60</td>
+<td>0.5GB ()</td>
+<td>µSD, SATA</td>
+<td>4GB</td>
+<td>100 (RTL8201CP)</td>
+<td>-</td>
+<td>2xUSB2, 1xOTG</td>
+<td>3.5mm, HDMI</td>
+<td>3.5mm</td>
+<td>IRDA</td>
+<td>2x48pin</td>
+<td>+</td>
+<td>+</td>
+<td>HDMI, CVBS, VGA</td>
+<td>4.0/1.7mm</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td>CubieTech</td>
+<td><a href="Cubietech_Cubieboard2.html" title="Cubietech Cubieboard2"> Cubieboard2</a></td>
+<td><a href="A20.html" title="A20">A20</a></td>
+<td>3.12</td>
+<td><a href="AXP209.html" title="AXP209">AXP209</a></td>
+<td>100x60</td>
+<td>1GB ()</td>
+<td>µSD, SATA</td>
+<td>4GB</td>
+<td>100 (RTL8201CP)</td>
+<td>-</td>
+<td>2xUSB2, 1xOTG</td>
+<td>3.5mm, HDMI</td>
+<td>3.5mm</td>
+<td>IRDA</td>
+<td>2x48pin</td>
+<td>+</td>
+<td>+</td>
+<td>HDMI, CVBS, VGA</td>
+<td>4.0/1.7mm</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td>CubieTech</td>
+<td><a href="Cubietech_Cubieboard4.html" title="Cubietech Cubieboard4"> Cubieboard4</a></td>
+<td><a href="A80.html" title="A80">A80</a></td>
+<td>4.2</td>
+<td><a href="https://linux-sunxi.org/index.php?title=AXP809&amp;action=edit&amp;redlink=1" class="new" title="AXP809 (page does not exist)">AXP809</a> + <a href="https://linux-sunxi.org/index.php?title=AXP806&amp;action=edit&amp;redlink=1" class="new" title="AXP806 (page does not exist)">AXP806</a></td>
+<td>111x111</td>
+<td>2GB ()</td>
+<td>µSD</td>
+<td>8GB</td>
+<td>1000 (RTL8211E)</td>
+<td>b/g/n (AP6330)</td>
+<td>4xUSB2?, 1xOTG 3.0</td>
+<td>3.5mm, HDMI</td>
+<td>3.5mm</td>
+<td>IRDA</td>
+<td>?</td>
+<td>-</td>
+<td>-</td>
+<td>HDMI, VGA</td>
+<td>?</td>
+<td>4A, 5V
+</td></tr>
+<tr>
+<td>CubieTech</td>
+<td><a href="Cubietech_Cubietruck.html" title="Cubietech Cubietruck"> Cubietruck</a></td>
+<td><a href="A20.html" title="A20">A20</a></td>
+<td>3.13</td>
+<td><a href="AXP209.html" title="AXP209">AXP209</a></td>
+<td>110x80</td>
+<td>2GB ()</td>
+<td>µSD, SATA</td>
+<td>8GB</td>
+<td>1000 (RTL8211E)</td>
+<td>-</td>
+<td>2xUSB2, 1xOTG</td>
+<td>3.5mm, HDMI, S/PDIF</td>
+<td>gpio</td>
+<td>IRDA</td>
+<td>30 + 24pin</td>
+<td>+</td>
+<td>+</td>
+<td>HDMI, CVBS, VGA</td>
+<td>4.0/1.7mm</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td>CubieTech</td>
+<td><a href="Cubietech_Cubietruck_Plus.html" title="Cubietech Cubietruck Plus"> Cubietruck Plus</a></td>
+<td><a href="H8.html" class="mw-redirect" title="H8">H8</a></td>
+<td>4.6</td>
+<td><a href="https://linux-sunxi.org/index.php?title=AXP818&amp;action=edit&amp;redlink=1" class="new" title="AXP818 (page does not exist)">AXP818</a></td>
+<td>112x82</td>
+<td>2GB ()</td>
+<td>µSD, SATA*</td>
+<td>8GB</td>
+<td>1000 (RTL8211E)</td>
+<td>a/b/g/n (AP6330)</td>
+<td>2xUSB2, 1xOTG</td>
+<td>3.5mm, HDMI, S/PDIF</td>
+<td>+</td>
+<td>IRDA</td>
+<td>30 + 24pin</td>
+<td>+</td>
+<td>+</td>
+<td>HDMI, DSI, CVBS, VGA</td>
+<td>4.0/1.7mm</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td><a href="Category:FriendlyARM.html" title="Category:FriendlyARM"> FriendlyARM</a></td>
+<td><a href="FriendlyARM_NanoPi_A64.html" title="FriendlyARM NanoPi A64"> NanoPi A64 </a></td>
+<td><a href="A64.html" title="A64">A64</a></td>
+<td>4.14</td>
+<td><a href="AXP803.html" title="AXP803">AXP803</a></td>
+<td>64x60</td>
+<td>1GB</td>
+<td>µSD</td>
+<td>-</td>
+<td>1000 (RTL8211E)</td>
+<td>b/g/n (RTL8189ETV)</td>
+<td>1xUSB2, 1xOTG</td>
+<td>3.5mm, HDMI</td>
+<td>-</td>
+<td>RX</td>
+<td>40 + 4pin</td>
+<td>?</td>
+<td>+</td>
+<td>HDMI, CVBS</td>
+<td>µUSB</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td><a href="Category:FriendlyARM.html" title="Category:FriendlyARM"> FriendlyARM</a></td>
+<td><a href="FriendlyARM_NanoPi_Duo.html" title="FriendlyARM NanoPi Duo"> NanoPi Duo </a></td>
+<td><a href="H2+.html" class="mw-redirect" title="H2+">H2+</a></td>
+<td>WiP</td>
+<td><a href="https://linux-sunxi.org/index.php?title=MP2143DJ&amp;action=edit&amp;redlink=1" class="new" title="MP2143DJ (page does not exist)">MP2143DJ</a></td>
+<td>25.4x50</td>
+<td>0.25/0.5GB</td>
+<td>µSD</td>
+<td>(optional)</td>
+<td>100 (EPHY, headers)</td>
+<td>b/g/n (XR819)</td>
+<td>2xUSB2#, 1xOTG</td>
+<td>gpio</td>
+<td>gpio</td>
+<td>RX (headers)</td>
+<td>2x16pins</td>
+<td>-</td>
+<td>-</td>
+<td>CVBS (headers)</td>
+<td>µUSB</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td><a href="Category:FriendlyARM.html" title="Category:FriendlyARM"> FriendlyARM</a></td>
+<td><a href="FriendlyARM_NanoPi_M1.html" title="FriendlyARM NanoPi M1"> NanoPi M1 </a></td>
+<td><a href="H3.html" title="H3">H3</a></td>
+<td>4.10</td>
+<td><a href="SY8113B.html" title="SY8113B">SY8113B</a></td>
+<td>56x64</td>
+<td>0.5GB/1GB</td>
+<td>µSD</td>
+<td>-</td>
+<td>100 (EPHY)</td>
+<td>-</td>
+<td>3xUSB2, 1xOTG</td>
+<td>3.5mm, HDMI</td>
+<td>+</td>
+<td>IRDA</td>
+<td>40pin</td>
+<td>?</td>
+<td>?</td>
+<td>HDMI, CVBS</td>
+<td>µUSB</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td><a href="Category:FriendlyARM.html" title="Category:FriendlyARM"> FriendlyARM</a></td>
+<td><a href="FriendlyARM_NanoPi_M1.html#NanoPi_M1.2B" title="FriendlyARM NanoPi M1"> NanoPi M1 Plus </a></td>
+<td><a href="H3.html" title="H3">H3</a></td>
+<td>WiP</td>
+<td><a href="https://linux-sunxi.org/index.php?title=MP2143DJ&amp;action=edit&amp;redlink=1" class="new" title="MP2143DJ (page does not exist)">MP2143DJ</a></td>
+<td>60x64</td>
+<td>1GB</td>
+<td>µSD</td>
+<td>8GB</td>
+<td>1000 (RTL8211E)</td>
+<td>b/g/n (AP6212)</td>
+<td>1xUSB2#, 3xUSB2, 1xOTG</td>
+<td>3.5mm, HDMI</td>
+<td>+</td>
+<td>IRDA</td>
+<td>40 + 4 + 4pin</td>
+<td>?</td>
+<td>?</td>
+<td>HDMI, CVBS</td>
+<td>µUSB</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td><a href="Category:FriendlyARM.html" title="Category:FriendlyARM"> FriendlyARM</a></td>
+<td><a href="FriendlyARM_NanoPi_NEO.html" class="mw-redirect" title="FriendlyARM NanoPi NEO"> NanoPi NEO</a></td>
+<td><a href="H3.html" title="H3">H3</a></td>
+<td>4.9</td>
+<td><a href="SY8113B.html" title="SY8113B">SY8113B</a> / <a href="https://linux-sunxi.org/index.php?title=MP2143DJ&amp;action=edit&amp;redlink=1" class="new" title="MP2143DJ (page does not exist)">MP2143DJ</a> (v1.3+)</td>
+<td>40x40</td>
+<td>0.25GB/0.5GB</td>
+<td>µSD</td>
+<td>-</td>
+<td>100 (EPHY)</td>
+<td>-</td>
+<td>2xUSB2#, 1xUSB2, 1xOTG</td>
+<td>gpio</td>
+<td>gpio</td>
+<td>-</td>
+<td>24 + 12pin</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>µUSB</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td><a href="Category:FriendlyARM.html" title="Category:FriendlyARM"> FriendlyARM</a></td>
+<td><a href="FriendlyARM_NanoPi_NEO_Air.html" class="mw-redirect" title="FriendlyARM NanoPi NEO Air"> NanoPi NEO Air</a></td>
+<td><a href="H3.html" title="H3">H3</a></td>
+<td>4.12</td>
+<td><a href="https://linux-sunxi.org/index.php?title=MP2143DJ&amp;action=edit&amp;redlink=1" class="new" title="MP2143DJ (page does not exist)">MP2143DJ</a></td>
+<td>40x40</td>
+<td>0.5GB</td>
+<td>µSD</td>
+<td>8 GB</td>
+<td>-</td>
+<td>b/g/n (AP6212)</td>
+<td>2xUSB2#, 1xOTG</td>
+<td>S/PDIF#</td>
+<td>-</td>
+<td>gpio</td>
+<td>24 + 12 + 4pin</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>µUSB</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td><a href="Category:FriendlyARM.html" title="Category:FriendlyARM"> FriendlyARM</a></td>
+<td><a href="FriendlyARM_NanoPi_NEO_&_AIR.html#NanoPi_NEO_Core" title="FriendlyARM NanoPi NEO &amp; AIR"> NanoPi NEO Core</a></td>
+<td><a href="H3.html" title="H3">H3</a></td>
+<td>WiP</td>
+<td><a href="https://linux-sunxi.org/index.php?title=MP2143DJ&amp;action=edit&amp;redlink=1" class="new" title="MP2143DJ (page does not exist)">MP2143DJ</a></td>
+<td>40x40</td>
+<td>0.25GB/0.5GB</td>
+<td>µSD</td>
+<td>8-32 GB</td>
+<td>100 (EPHY, gpio)</td>
+<td>-</td>
+<td>3xUSB2#, 1xOTG</td>
+<td>gpio</td>
+<td>gpio</td>
+<td>-</td>
+<td>24 + 24 + 20pin</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>µUSB</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td><a href="Category:FriendlyARM.html" title="Category:FriendlyARM"> FriendlyARM</a></td>
+<td><a href="FriendlyARM_NanoPi_NEO2.html#NanoPi_NEO_Core2" title="FriendlyARM NanoPi NEO2"> NanoPi NEO Core2</a></td>
+<td><a href="H5.html" title="H5">H5</a></td>
+<td>WiP</td>
+<td><a href="SY8106A.html" title="SY8106A">SY8106A</a></td>
+<td>40x40</td>
+<td>0.5GB/1.0GB</td>
+<td>µSD</td>
+<td>8-32 GB</td>
+<td>1000 (RTL8211E, gpio)</td>
+<td>-</td>
+<td>3xUSB2#, 1xOTG</td>
+<td>gpio</td>
+<td>gpio</td>
+<td>-</td>
+<td>24 + 24 + 20pin</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>µUSB</td>
+<td>2A, 5V
+</td></tr>
+
+<tr>
+<td><a href="Category:FriendlyARM.html" title="Category:FriendlyARM"> FriendlyARM</a></td>
+<td><a href="FriendlyARM_NanoPi_NEO2.html" title="FriendlyARM NanoPi NEO2"> NanoPi NEO2</a></td>
+<td><a href="H5.html" title="H5">H5</a></td>
+<td>4.13</td>
+<td><a href="https://linux-sunxi.org/index.php?title=MP2143DJ&amp;action=edit&amp;redlink=1" class="new" title="MP2143DJ (page does not exist)">MP2143DJ</a></td>
+<td>40x40</td>
+<td>0.5GB</td>
+<td>µSD</td>
+<td>-</td>
+<td>1000 (RTL8211E)</td>
+<td>-</td>
+<td>2xUSB2#, 1xUSB2, 1xOTG</td>
+<td>gpio</td>
+<td>gpio</td>
+<td>-</td>
+<td>24 + 12 + 5 + 4pin</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>µUSB</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td><a href="Category:FriendlyARM.html" title="Category:FriendlyARM"> FriendlyARM</a></td>
+<td><a href="FriendlyARM_NanoPi_NEO_Plus_2.html" title="FriendlyARM NanoPi NEO Plus 2"> NanoPi NEO Plus2</a></td>
+<td><a href="H5.html" title="H5">H5</a></td>
+<td>4.15</td>
+<td><a href="https://linux-sunxi.org/index.php?title=MP2143DJ&amp;action=edit&amp;redlink=1" class="new" title="MP2143DJ (page does not exist)">MP2143DJ</a></td>
+<td>52x40</td>
+<td>1GB</td>
+<td>µSD</td>
+<td>8 GB</td>
+<td>1000 (RTL8211E)</td>
+<td>b/g/n (AP6212A)</td>
+<td>2xUSB2#, 2xUSB2, 1xOTG</td>
+<td>gpio</td>
+<td>gpio</td>
+<td>-</td>
+<td>24 + 12 + 5 + 4pin</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>µUSB, gpio</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td><a href="https://linux-sunxi.org/index.php?title=Category:FriendlyElec&amp;action=edit&amp;redlink=1" class="new" title="Category:FriendlyElec (page does not exist)"> FriendlyElec</a></td>
+<td><a href="FriendlyElec_NanoPi_R1.html" title="FriendlyElec NanoPi R1"> NanoPi R1</a></td>
+<td><a href="H3.html" title="H3">H3</a></td>
+<td>5.11</td>
+<td>?</td>
+<td>?</td>
+<td>512M or 1GB</td>
+<td>µSD</td>
+<td>8 GB (optional)</td>
+<td>1x10/100/1000, 1x10/100</td>
+<td>Yes</td>
+<td>2xUSB2, 1xOTG</td>
+<td>?</td>
+<td>?</td>
+<td>?</td>
+<td>?</td>
+<td>?</td>
+<td>?</td>
+<td>?</td>
+<td>µUSB,&#160;?</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<th><a href="Category:Maker.html" title="Category:Maker">Maker</a></th>
+<th>Model</th>
+<th><a href="Allwinner_SoC_Family.html" title="Allwinner SoC Family">SoC</a></th>
+<th><a href="Linux_mainlining_effort.html" title="Linux mainlining effort"> Mainline</a></th>
+<th><a href="Category:Power.html" title="Category:Power">PMU/Vreg</a></th>
+<th>Board size (mm)</th>
+<th>RAM (MHz)</th>
+<th><a href="Storage.html" title="Storage">Storage</a></th>
+<th><a href="EMMC.html" title="EMMC">eMMC</a>/<a href="Bootable_SPI_flash.html" title="Bootable SPI flash">SPI Flash</a></th>
+<th><a href="Ethernet.html" title="Ethernet">Ethernet</a> speed (chip)</th>
+<th><a href="Wifi.html" title="Wifi">Wifi</a></th>
+<th><a href="USB.html" title="USB">USB</a></th>
+<th><a href="Audio_Codec.html" title="Audio Codec">Audio</a></th>
+<th>Mic</th>
+<th><a href="IR.html" title="IR">IR</a></th>
+<th><a href="GPIO.html" title="GPIO">GPIO</a></th>
+<th><a href="CSI.html" title="CSI">CSI</a></th>
+<th><a href="https://linux-sunxi.org/index.php?title=DSI&amp;action=edit&amp;redlink=1" class="new" title="DSI (page does not exist)">DSI</a></th>
+<th>Video out</th>
+<th><a href="Powering_the_boards_and_accessories.html#Power_connectors" title="Powering the boards and accessories">Power src</a></th>
+<th>Power req
+</th></tr>
+<tr>
+<td>Foxconn</td>
+<td><a href="Foxconn_Super_Pi.html" title="Foxconn Super Pi"> Super Pi</a></td>
+<td><a href="A20.html" title="A20">A20</a></td>
+<td>WiP</td>
+<td>?</td>
+<td>92x60</td>
+<td>1GB (432)</td>
+<td>SD, SATA</td>
+<td>-</td>
+<td>1000 (RTL8211E)</td>
+<td>-</td>
+<td>2xUSB2, 1xOTG</td>
+<td>3.5mm, HDMI</td>
+<td>+</td>
+<td>RX</td>
+<td>26pin</td>
+<td>+</td>
+<td>+</td>
+<td>HDMI, DSI</td>
+<td>µUSB</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td>HAOYU Electronics</td>
+<td><a href="MarsBoard_A10.html" title="MarsBoard A10"> MarsBoard A10</a></td>
+<td><a href="A10.html" title="A10">A10</a></td>
+<td>WiP</td>
+<td>?</td>
+<td>80x55</td>
+<td>1GB ()</td>
+<td>µSD, SATA</td>
+<td>4GB</td>
+<td>100 (RTL8201CP)</td>
+<td>-</td>
+<td>2xUSB2, 1xOTG</td>
+<td>3.5mm, HDMI</td>
+<td>-</td>
+<td>-</td>
+<td>2x 70pin</td>
+<td>?</td>
+<td>?</td>
+<td>HDMI(mini)</td>
+<td>?</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td>HAOYU Electronics</td>
+<td><a href="MarsBoard_A20.html" title="MarsBoard A20"> MarsBoard A20</a></td>
+<td><a href="A20.html" title="A20">A20</a></td>
+<td>WiP</td>
+<td>?</td>
+<td>80x55</td>
+<td>1GB ()</td>
+<td>µSD, SATA</td>
+<td>4GB</td>
+<td>100 (RTL8201CP)</td>
+<td>-</td>
+<td>2xUSB2, 1xOTG</td>
+<td>3.5mm, HDMI</td>
+<td>-</td>
+<td>-</td>
+<td>2x 70pin</td>
+<td>?</td>
+<td>?</td>
+<td>HDMI(mini)</td>
+<td>?</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td>HAOYU Electronics</td>
+<td><a href="MarsBoard_A20-SOM.html" title="MarsBoard A20-SOM"> MarsBoard A20-SOM</a></td>
+<td><a href="A20.html" title="A20">A20</a></td>
+<td>WiP</td>
+<td>?</td>
+<td>115x90</td>
+<td>1GB ()</td>
+<td>µSD, SATA</td>
+<td>8GB</td>
+<td>100 (LAN8710A)</td>
+<td>b/g/n (RTL8188EU)</td>
+<td>4xUSB2*, 1xOTG</td>
+<td>3.5mm, HDMI</td>
+<td>3.5mm</td>
+<td>-</td>
+<td>2x 70pin</td>
+<td>?</td>
+<td>?</td>
+<td>HDMI, VGA, LVDS</td>
+<td>?</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td>Lamobo</td>
+<td><a href="Lamobo_R1.html" title="Lamobo R1"> Lamobo R1</a></td>
+<td><a href="A20.html" title="A20">A20</a></td>
+<td>WiP</td>
+<td>?</td>
+<td>148x100</td>
+<td>1GB (432)</td>
+<td>µSD, SATA</td>
+<td>-</td>
+<td>1000 (BCM53125 5p switch)</td>
+<td>b/g/n (RTL8192CU)</td>
+<td>1xUSB2, 1xOTG</td>
+<td>3.5mm, HDMI</td>
+<td>+</td>
+<td>RX</td>
+<td>26pin</td>
+<td>+</td>
+<td>+</td>
+<td>HDMI, DSI</td>
+<td>µUSB</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td>LeMaker</td>
+<td><a href="Banana_Pi.html" class="mw-redirect" title="Banana Pi"> Banana Pi</a></td>
+<td><a href="A20.html" title="A20">A20</a></td>
+<td>3.19</td>
+<td>?</td>
+<td>92x60</td>
+<td>1GB (432)</td>
+<td>SD, SATA</td>
+<td>-</td>
+<td>1000 (RTL8211E)</td>
+<td>-</td>
+<td>2xUSB2, 1xOTG</td>
+<td>3.5mm, HDMI</td>
+<td>+</td>
+<td>RX</td>
+<td>26pin</td>
+<td>+</td>
+<td>+</td>
+<td>HDMI, DSI</td>
+<td>µUSB</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td>LeMaker</td>
+<td><a href="LeMaker_Banana_Pro.html" title="LeMaker Banana Pro"> Banana Pro</a></td>
+<td><a href="A20.html" title="A20">A20</a></td>
+<td>4.0</td>
+<td><a href="AXP209.html" title="AXP209">AXP209</a></td>
+<td>92x60</td>
+<td>1GB (432)</td>
+<td>µSD, SATA</td>
+<td>-</td>
+<td>1000 (RTL8211E)</td>
+<td>b/g/n (AP6181)</td>
+<td>2xUSB2, 1xOTG</td>
+<td>3.5mm, HDMI</td>
+<td>+</td>
+<td>RX</td>
+<td>40pin</td>
+<td>+</td>
+<td>+</td>
+<td>HDMI, DSI, 3.5mm</td>
+<td>µUSB</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td><a href="https://linux-sunxi.org/index.php?title=Libre_Computing&amp;action=edit&amp;redlink=1" class="new" title="Libre Computing (page does not exist)">Libre Computing</a></td>
+<td><a href="Libre_Computer_Board_ALL-H3-CC.html" title="Libre Computer Board ALL-H3-CC"> ALL-H3-CC H2+ (Tritium IoT)</a></td>
+<td><a href="H2+.html" class="mw-redirect" title="H2+">H2+</a></td>
+<td>4.18</td>
+<td><a href="https://linux-sunxi.org/index.php?title=AXP8036&amp;action=edit&amp;redlink=1" class="new" title="AXP8036 (page does not exist)">AXP8036</a></td>
+<td>83x55</td>
+<td>0.5GB</td>
+<td>µSD</td>
+<td>eMMC port</td>
+<td>100 (EPHY)</td>
+<td>-</td>
+<td>3xUSB2, 1xOTG (USB-A)</td>
+<td>3.5mm, HDMI</td>
+<td>+</td>
+<td>RX</td>
+<td>40pin+3pin</td>
+<td>+</td>
+<td>-</td>
+<td>HDMI, CVBS</td>
+<td>µUSB</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td><a href="https://linux-sunxi.org/index.php?title=Libre_Computing&amp;action=edit&amp;redlink=1" class="new" title="Libre Computing (page does not exist)">Libre Computing</a></td>
+<td><a href="Libre_Computer_Board_ALL-H3-CC.html" title="Libre Computer Board ALL-H3-CC"> ALL-H3-CC H3 (Tritium 1GB)</a></td>
+<td><a href="H3.html" title="H3">H3</a></td>
+<td>4.16</td>
+<td><a href="https://linux-sunxi.org/index.php?title=AXP8036&amp;action=edit&amp;redlink=1" class="new" title="AXP8036 (page does not exist)">AXP8036</a></td>
+<td>83x55</td>
+<td>1GB</td>
+<td>µSD</td>
+<td>eMMC port</td>
+<td>100 (EPHY)</td>
+<td>-</td>
+<td>3xUSB2, 1xOTG (USB-A)</td>
+<td>3.5mm, HDMI</td>
+<td>+</td>
+<td>RX</td>
+<td>40pin+3pin</td>
+<td>+</td>
+<td>-</td>
+<td>HDMI, CVBS</td>
+<td>µUSB</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td><a href="https://linux-sunxi.org/index.php?title=Libre_Computing&amp;action=edit&amp;redlink=1" class="new" title="Libre Computing (page does not exist)">Libre Computing</a></td>
+<td><a href="Libre_Computer_Board_ALL-H3-CC.html" title="Libre Computer Board ALL-H3-CC"> ALL-H3-CC H5 (Tritium 2GB)</a></td>
+<td><a href="H5.html" title="H5">H5</a></td>
+<td>4.18</td>
+<td><a href="https://linux-sunxi.org/index.php?title=AXP8036&amp;action=edit&amp;redlink=1" class="new" title="AXP8036 (page does not exist)">AXP8036</a></td>
+<td>83x55</td>
+<td>2GB</td>
+<td>µSD</td>
+<td>eMMC port</td>
+<td>100 (EPHY)</td>
+<td>-</td>
+<td>3xUSB2, 1xOTG (USB-A)</td>
+<td>3.5mm, HDMI</td>
+<td>+</td>
+<td>RX</td>
+<td>40pin+3pin</td>
+<td>+</td>
+<td>-</td>
+<td>HDMI, CVBS</td>
+<td>µUSB</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td>LinkSprite</td>
+<td><a href="LinkSprite_pcDuino.html" title="LinkSprite pcDuino"> pcDuino</a></td>
+<td><a href="A10.html" title="A10">A10</a></td>
+<td>WiP</td>
+<td>?</td>
+<td>125x52</td>
+<td>1GB ()</td>
+<td>µSD, SATA</td>
+<td>2GB</td>
+<td>100 (?)</td>
+<td>-</td>
+<td>2xUSB2, 1xOTG</td>
+<td>HDMI</td>
+<td>-</td>
+<td>-</td>
+<td>?</td>
+<td>?</td>
+<td>?</td>
+<td>HDMI</td>
+<td>?</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td>LinkSprite</td>
+<td><a href="LinkSprite_pcDuino_Lite.html" title="LinkSprite pcDuino Lite"> pcDuino Lite</a></td>
+<td><a href="A10.html" title="A10">A10</a></td>
+<td>?</td>
+<td>?</td>
+<td>?</td>
+<td>0.5GB (?)</td>
+<td>µSD</td>
+<td>-</td>
+<td>100</td>
+<td>-</td>
+<td>?</td>
+<td>?</td>
+<td>?</td>
+<td>?</td>
+<td>?</td>
+<td>?</td>
+<td>?</td>
+<td>?</td>
+<td>?</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td>LinkSprite</td>
+<td><a href="LinkSprite_pcDuino_Lite_WiFi.html" title="LinkSprite pcDuino Lite WiFi"> pcDuino Lite WiFi</a></td>
+<td><a href="A10.html" title="A10">A10</a></td>
+<td>WiP</td>
+<td>?</td>
+<td>105x53</td>
+<td>0.25GB ()</td>
+<td>µSD</td>
+<td>2GB</td>
+<td>-</td>
+<td>b/g/n (RTL8188)</td>
+<td>1xUSB2, 1xOTG</td>
+<td>HDMI</td>
+<td>-</td>
+<td>-</td>
+<td>?</td>
+<td>?</td>
+<td>?</td>
+<td>HDMI</td>
+<td>?</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td>LinkSprite</td>
+<td><a href="LinkSprite_pcDuino2.html" title="LinkSprite pcDuino2"> pcDuino2</a></td>
+<td><a href="A10.html" title="A10">A10</a></td>
+<td>WiP</td>
+<td><a href="AXP209.html" title="AXP209">AXP209</a></td>
+<td>125x52</td>
+<td>1GB (360)</td>
+<td>µSD</td>
+<td>2/4GB</td>
+<td>100 (IC+ IP101A)</td>
+<td>b/g/n (RTL8188CUS)</td>
+<td>1xUSB2, 1xOTG</td>
+<td>HDMI</td>
+<td>-</td>
+<td>-</td>
+<td>?</td>
+<td>?</td>
+<td>?</td>
+<td>HDMI</td>
+<td>?</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td>LinkSprite</td>
+<td><a href="LinkSprite_pcDuino3.html" title="LinkSprite pcDuino3"> pcDuino3</a></td>
+<td><a href="A20.html" title="A20">A20</a></td>
+<td>WiP</td>
+<td>?</td>
+<td>125x65</td>
+<td>1GB ()</td>
+<td>µSD, SATA</td>
+<td>4GB</td>
+<td>100 (IC+ IP101A)</td>
+<td>b/g/n (RTL8188EUS)</td>
+<td>1xUSB2, 1xOTG</td>
+<td>3.5mm, HDMI</td>
+<td>-</td>
+<td>-</td>
+<td>?</td>
+<td>?</td>
+<td>?</td>
+<td>HDMI, LVDS</td>
+<td>µUSB</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td>LinkSprite</td>
+<td><a href="LinkSprite_pcDuino3_Nano.html" title="LinkSprite pcDuino3 Nano"> pcDuino3 Nano</a></td>
+<td><a href="A20.html" title="A20">A20</a></td>
+<td>WiP</td>
+<td>?</td>
+<td>96x64</td>
+<td>1GB ()</td>
+<td>µSD, SATA</td>
+<td>4GB</td>
+<td>1000 (RTL8211E)</td>
+<td>-</td>
+<td>2xUSB2, 1xOTG</td>
+<td>3.5mm, HDMI</td>
+<td>-</td>
+<td>+</td>
+<td>?</td>
+<td>?</td>
+<td>?</td>
+<td>HDMI</td>
+<td>µUSB</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td>LinkSprite</td>
+<td><a href="LinkSprite_pcDuino3_Nano.html#Variants" title="LinkSprite pcDuino3 Nano"> pcDuino3 Nano Lite</a></td>
+<td><a href="A20.html" title="A20">A20</a></td>
+<td>WiP</td>
+<td>?</td>
+<td>96x64</td>
+<td>1GB ()</td>
+<td>µSD, SATA</td>
+<td>-</td>
+<td>1000 (RTL8211E)</td>
+<td>-</td>
+<td>2xUSB2, 1xOTG</td>
+<td>3.5mm, HDMI</td>
+<td>-</td>
+<td>-</td>
+<td>?</td>
+<td>?</td>
+<td>?</td>
+<td>HDMI</td>
+<td>µUSB</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td>LinkSprite</td>
+<td><a href="FriendlyARM_NanoPi_M1.html#Variants" title="FriendlyARM NanoPi M1"> pcDuino4 Nano</a></td>
+<td><a href="H3.html" title="H3">H3</a></td>
+<td>4.10**</td>
+<td><a href="SY8113B.html" title="SY8113B">SY8113B</a></td>
+<td>56x64</td>
+<td>1GB</td>
+<td>µSD</td>
+<td>-</td>
+<td>100 (EPHY)</td>
+<td>-</td>
+<td>3xUSB2, 1xOTG</td>
+<td>3.5mm, HDMI</td>
+<td>+</td>
+<td>IRDA</td>
+<td>40pin</td>
+<td>?</td>
+<td>?</td>
+<td>HDMI, CVBS</td>
+<td>µUSB</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td>LinkSprite</td>
+<td><a href="Pcduino8_A80_Board.html" title="Pcduino8 A80 Board"> pcDuino8 A80</a></td>
+<td><a href="A80.html" title="A80">A80</a></td>
+<td>JS</td>
+<td>?</td>
+<td>?</td>
+<td>2GB ()</td>
+<td>µSD</td>
+<td>8GB</td>
+<td>1000 (RTL8211E)</td>
+<td>b/g/n (AP6330)</td>
+<td>2xUSB2, 1xOTG</td>
+<td>3.5mm, HDMI</td>
+<td>-</td>
+<td>-</td>
+<td>?</td>
+<td>CSI</td>
+<td>?</td>
+<td>HDMI</td>
+<td>?</td>
+<td>3A, 5V
+</td></tr>
+<tr>
+<th><a href="Category:Maker.html" title="Category:Maker">Maker</a></th>
+<th>Model</th>
+<th><a href="Allwinner_SoC_Family.html" title="Allwinner SoC Family">SoC</a></th>
+<th><a href="Linux_mainlining_effort.html" title="Linux mainlining effort"> Mainline</a></th>
+<th><a href="Category:Power.html" title="Category:Power">PMU/Vreg</a></th>
+<th>Board size (mm)</th>
+<th>RAM (MHz)</th>
+<th><a href="Storage.html" title="Storage">Storage</a></th>
+<th><a href="EMMC.html" title="EMMC">eMMC</a>/<a href="Bootable_SPI_flash.html" title="Bootable SPI flash">SPI Flash</a></th>
+<th><a href="Ethernet.html" title="Ethernet">Ethernet</a> speed (chip)</th>
+<th><a href="Wifi.html" title="Wifi">Wifi</a></th>
+<th><a href="USB.html" title="USB">USB</a></th>
+<th><a href="Audio_Codec.html" title="Audio Codec">Audio</a></th>
+<th>Mic</th>
+<th><a href="IR.html" title="IR">IR</a></th>
+<th><a href="GPIO.html" title="GPIO">GPIO</a></th>
+<th><a href="CSI.html" title="CSI">CSI</a></th>
+<th><a href="https://linux-sunxi.org/index.php?title=DSI&amp;action=edit&amp;redlink=1" class="new" title="DSI (page does not exist)">DSI</a></th>
+<th>Video out</th>
+<th><a href="Powering_the_boards_and_accessories.html#Power_connectors" title="Powering the boards and accessories">Power src</a></th>
+<th>Power req
+</th></tr>
+<tr>
+<td><a href="https://linux-sunxi.org/index.php?title=Category:Miniand&amp;action=edit&amp;redlink=1" class="new" title="Category:Miniand (page does not exist)"> Miniand</a></td>
+<td><a href="Miniand_Hackberry.html" title="Miniand Hackberry"> Hackberry</a></td>
+<td><a href="A10.html" title="A10">A10</a></td>
+<td>WiP</td>
+<td>?</td>
+<td>85.6x54</td>
+<td>0.5/1GB (408)</td>
+<td>SD</td>
+<td>-</td>
+<td>100 (RTL8201CP)</td>
+<td>b/g/n (RTL8188CUS)</td>
+<td>1xUSB2, 1xOTG</td>
+<td>HDMI, 3.5mm, AV</td>
+<td>3.5mm</td>
+<td>IRDA</td>
+<td>4 connectors</td>
+<td>-</td>
+<td>-</td>
+<td>HDMI, AV, 3.5mm</td>
+<td>dc plug</td>
+<td>1A, 5V
+</td></tr>
+<tr>
+<td><a href="https://linux-sunxi.org/index.php?title=Next_Thing_Co.&amp;action=edit&amp;redlink=1" class="new" title="Next Thing Co. (page does not exist)">Next Thing Co.</a></td>
+<td><a href="NextThingCo_CHIP.html" title="NextThingCo CHIP"> CHIP</a></td>
+<td><a href="R8.html" class="mw-redirect" title="R8">R8</a></td>
+<td>4.4</td>
+<td><a href="AXP209.html" title="AXP209">AXP209</a></td>
+<td>62x41</td>
+<td>0.5 (360)</td>
+<td>-</td>
+<td>4/8 GB</td>
+<td>-</td>
+<td>b/g/n (RTL8723BS)</td>
+<td>1xOTG</td>
+<td>3.5mm, AV</td>
+<td>gpio</td>
+<td>-</td>
+<td>40 + 40 pin</td>
+<td>gpio</td>
+<td>-</td>
+<td>AV, 3.5mm</td>
+<td>mUSB + Li-battery</td>
+<td>1A, 5V
+</td></tr>
+<tr>
+<td><a href="Category:Olimex.html" title="Category:Olimex"> Olimex</a></td>
+<td><a href="Olimex_A10-OLinuXino-Lime.html" title="Olimex A10-OLinuXino-Lime"> OLinuXino Lime</a></td>
+<td><a href="A10.html" title="A10">A10</a></td>
+<td>WiP</td>
+<td>?</td>
+<td>84x60</td>
+<td>0.5GB ()</td>
+<td>µSD, SATA</td>
+<td>4GB (optional)</td>
+<td>100 (RTL8201CP)</td>
+<td>-</td>
+<td>2xUSB2, 1xOTG</td>
+<td>HDMI</td>
+<td>?</td>
+<td>?</td>
+<td>4 connectors</td>
+<td>?</td>
+<td>?</td>
+<td>HDMI,&#160;?</td>
+<td>?</td>
+<td>1A, 5V
+</td></tr>
+<tr>
+<td><a href="Category:Olimex.html" title="Category:Olimex"> Olimex</a></td>
+<td><a href="Olimex_A10s-OLinuXino-Micro.html" title="Olimex A10s-OLinuXino-Micro"> OLinuXino Micro</a></td>
+<td>A10s</td>
+<td>WiP</td>
+<td>?</td>
+<td>102x82</td>
+<td>0.5GB ()</td>
+<td>µSD, SD</td>
+<td>4GB (optional)</td>
+<td>100 (RTL8201CP)</td>
+<td>-</td>
+<td>1xUSB2, 1xOTG</td>
+<td>3.5mm, HDMI</td>
+<td>3.5mm</td>
+<td>?</td>
+<td>3 connectors</td>
+<td>?</td>
+<td>?</td>
+<td>HDMI,&#160;?</td>
+<td>?</td>
+<td>1A, 5V
+</td></tr>
+<tr>
+<td><a href="Category:Olimex.html" title="Category:Olimex"> Olimex</a></td>
+<td><a href="Olimex_A13-OLinuXino.html" title="Olimex A13-OLinuXino"> OLinuXino</a></td>
+<td><a href="A13.html" title="A13">A13</a></td>
+<td>WiP</td>
+<td>?</td>
+<td>120x120</td>
+<td>0.5GB ()</td>
+<td>µSD</td>
+<td>4GB (optional)</td>
+<td>-</td>
+<td>b/g/n (RTL8188CTV) (optional)</td>
+<td>3xUSB2*, 1xOTG</td>
+<td>3.5mm</td>
+<td>3.5mm</td>
+<td>?</td>
+<td>3 connectors</td>
+<td>?</td>
+<td>?</td>
+<td>VGA</td>
+<td>?</td>
+<td>1A, 6V (6-16V)
+</td></tr>
+<tr>
+<td><a href="Category:Olimex.html" title="Category:Olimex"> Olimex</a></td>
+<td><a href="Olimex_A13-OLinuXino-Micro.html" title="Olimex A13-OLinuXino-Micro"> OLinuXino Micro</a></td>
+<td><a href="A13.html" title="A13">A13</a></td>
+<td>WiP</td>
+<td>?</td>
+<td>100x85</td>
+<td>0.25GB ()</td>
+<td>µSD</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>1xUSB2, 1xOTG</td>
+<td>3.5mm</td>
+<td>-</td>
+<td>?</td>
+<td>3 connectors</td>
+<td>?</td>
+<td>?</td>
+<td>VGA</td>
+<td>?</td>
+<td>1A, 5V
+</td></tr>
+<tr>
+<td><a href="Category:Olimex.html" title="Category:Olimex"> Olimex</a></td>
+<td><a href="Olimex_A13-SOM.html" title="Olimex A13-SOM"> SOM (A13)</a></td>
+<td><a href="A13.html" title="A13">A13</a></td>
+<td>WiP</td>
+<td>?</td>
+<td>61x32</td>
+<td>0.25GB ()</td>
+<td>µSD</td>
+<td>4GB (optional)</td>
+<td>-</td>
+<td>b/g/n (RTL8188CU)</td>
+<td>1xOTG</td>
+<td>-</td>
+<td>-</td>
+<td>?</td>
+<td>2 connectors</td>
+<td>?</td>
+<td>?</td>
+<td>-</td>
+<td>?</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td><a href="Category:Olimex.html" title="Category:Olimex"> Olimex</a></td>
+<td><a href="Olimex_A20-OLinuXino-Lime.html" title="Olimex A20-OLinuXino-Lime"> OLinuXino Lime (A20)</a></td>
+<td><a href="A20.html" title="A20">A20</a></td>
+<td>WiP</td>
+<td><a href="AXP209.html" title="AXP209">AXP209</a></td>
+<td>84x60</td>
+<td>0.5GB ()</td>
+<td>µSD, SATA</td>
+<td>4GB (optional)</td>
+<td>100 (RTL8201CP)</td>
+<td>-</td>
+<td>2xUSB2, 1xOTG</td>
+<td>HDMI</td>
+<td>?</td>
+<td>?</td>
+<td>4 connectors</td>
+<td>?</td>
+<td>?</td>
+<td>HDMI,&#160;?</td>
+<td>?</td>
+<td>1A, 5V
+</td></tr>
+<tr>
+<td><a href="Category:Olimex.html" title="Category:Olimex"> Olimex</a></td>
+<td><a href="Olimex_A20-OLinuXino-Lime2.html" title="Olimex A20-OLinuXino-Lime2"> OLinuXino Lime2 (A20)</a></td>
+<td><a href="A20.html" title="A20">A20</a></td>
+<td>WiP</td>
+<td><a href="AXP209.html" title="AXP209">AXP209</a></td>
+<td>84x60</td>
+<td>1GB ()</td>
+<td>µSD, SATA</td>
+<td>4GB (optional)</td>
+<td>1000 (RTL8211CL)</td>
+<td>-</td>
+<td>2xUSB2, 1xOTG</td>
+<td>HDMI</td>
+<td>?</td>
+<td>?</td>
+<td>5 connectors</td>
+<td>?</td>
+<td>?</td>
+<td>HDMI,&#160;?</td>
+<td>5.5/2.1mm</td>
+<td>?A, 5V
+</td></tr>
+<tr>
+<td><a href="Category:Olimex.html" title="Category:Olimex"> Olimex</a></td>
+<td><a href="Olimex_A20-OLinuXino-Micro.html" title="Olimex A20-OLinuXino-Micro"> OLinuXino Micro (A20)</a></td>
+<td><a href="A20.html" title="A20">A20</a></td>
+<td>WiP</td>
+<td>?</td>
+<td>142x82</td>
+<td>1GB ()</td>
+<td>µSD, SD, SATA</td>
+<td>4GB (optional)</td>
+<td>100 (RTL8201CP)</td>
+<td>-</td>
+<td>2xUSB2, 1xOTG</td>
+<td>3.5mm, HDMI</td>
+<td>3.5mm</td>
+<td>?</td>
+<td>4 connectors</td>
+<td>?</td>
+<td>?</td>
+<td>HDMI,&#160;?</td>
+<td>?</td>
+<td>3A, 6V (6-16V)
+</td></tr>
+<tr>
+<td><a href="Category:Olimex.html" title="Category:Olimex"> Olimex</a></td>
+<td><a href="Olimex_A20-SOM.html" title="Olimex A20-SOM"> OLimex A20-SOM</a></td>
+<td><a href="A20.html" title="A20">A20</a></td>
+<td>WiP</td>
+<td>?</td>
+<td>85x54</td>
+<td>1GB ()</td>
+<td>µSD, SD, SATA</td>
+<td>4GB (optional)</td>
+<td>100 (RTL8201CP)</td>
+<td>-</td>
+<td>2xUSB2, 1xOTG</td>
+<td>3.5mm, HDMI</td>
+<td>3.5mm</td>
+<td>?</td>
+<td>6 connectors</td>
+<td>?</td>
+<td>?</td>
+<td>HDMI,&#160;?</td>
+<td>?</td>
+<td>3A, 6V (6-16V)
+</td></tr>
+<tr>
+<td><a href="Category:Olimex.html" title="Category:Olimex"> Olimex</a></td>
+<td><a href="Olimex_A33-OLinuXino.html" title="Olimex A33-OLinuXino"> OLinuXino (A33)</a></td>
+<td><a href="A33.html" title="A33">A33</a></td>
+<td>WiP</td>
+<td><a href="AXP223.html" title="AXP223">AXP223</a></td>
+<td>66x71</td>
+<td>1GB ()</td>
+<td>SD</td>
+<td>4GB (optional)</td>
+<td>-</td>
+<td>-</td>
+<td>1xOTG</td>
+<td>3.5mm</td>
+<td>3.5mm</td>
+<td>?</td>
+<td>40 + 40 + 5 pin</td>
+<td>yes</td>
+<td>?</td>
+<td>-</td>
+<td>5.5mm, Li-battery</td>
+<td>?, 5V
+</td></tr>
+<tr>
+<td><a href="Category:Olimex.html" title="Category:Olimex"> Olimex</a></td>
+<td><a href="Olimex_A64-OLinuXino.html" title="Olimex A64-OLinuXino"> OLinuXino A64</a></td>
+<td><a href="A64.html" title="A64">A64</a></td>
+<td>4.14</td>
+<td><a href="AXP803.html" title="AXP803">AXP803</a></td>
+<td>90x62.5</td>
+<td>1/2GB ()</td>
+<td>µSD</td>
+<td>8/16GB (optional), SPI (optional)</td>
+<td>1000</td>
+<td>RTL8732BS (optional)</td>
+<td>1xUSB2, 1xOTG, 1xheader</td>
+<td>3.5mm, HDMI</td>
+<td>3.5mm</td>
+<td>-</td>
+<td>40 + 10 + 4 pin</td>
+<td>?</td>
+<td>?</td>
+<td>HDMI, MIPI, LCD</td>
+<td>5.5mm, Li-battery</td>
+<td>1A, 5V
+</td></tr>
+<tr>
+<td>Pine64</td>
+<td><a href="Pine64.html" title="Pine64"> Pine64</a></td>
+<td><a href="A64.html" title="A64">A64</a></td>
+<td>4.10</td>
+<td><a href="AXP803.html" title="AXP803">AXP803</a></td>
+<td>133x80</td>
+<td>0.5GB ()</td>
+<td>µSD</td>
+<td>-</td>
+<td>100 (RTL8201EN)</td>
+<td>(headers)</td>
+<td>1xUSB2, 1xOTG</td>
+<td>3.5mm, HDMI</td>
+<td>3.5mm</td>
+<td>RX</td>
+<td>40 + 34 + 10pin</td>
+<td>-</td>
+<td>-</td>
+<td>HDMI</td>
+<td>µUSB</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td>Pine64</td>
+<td><a href="Pine64.html" title="Pine64"> Pine64+</a></td>
+<td><a href="A64.html" title="A64">A64</a></td>
+<td>4.10</td>
+<td><a href="AXP803.html" title="AXP803">AXP803</a></td>
+<td>133x80</td>
+<td>1GB/2GB ()</td>
+<td>µSD</td>
+<td>-</td>
+<td>1000 (RTL8211E)</td>
+<td>(headers)</td>
+<td>1xUSB2, 1xOTG</td>
+<td>3.5mm, HDMI</td>
+<td>3.5mm</td>
+<td>RX</td>
+<td>40 + 34 + 10pin</td>
+<td>+</td>
+<td>+</td>
+<td>HDMI, DSI</td>
+<td>µUSB</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td>Pine64</td>
+<td><a href="PineH64.html" title="PineH64">PineH64</a></td>
+<td><a href="H6.html" title="H6">H6</a></td>
+<td>4.17</td>
+<td><a href="https://linux-sunxi.org/index.php?title=AXP805&amp;action=edit&amp;redlink=1" class="new" title="AXP805 (page does not exist)">AXP805</a></td>
+<td>133x80</td>
+<td>1GB/2GB/3GB ()</td>
+<td>µSD</td>
+<td>128Mbit + eMMC port</td>
+<td>1000 (RTL8211E)</td>
+<td>(headers)</td>
+<td>1xUSB3, 2xUSB2</td>
+<td>3.5mm, HDMI</td>
+<td>3.5mm</td>
+<td>(headers)</td>
+<td>40 + 34 + 10pin</td>
+<td>+</td>
+<td>+</td>
+<td>HDMI, DSI</td>
+<td>µUSB</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<th><a href="Category:Maker.html" title="Category:Maker">Maker</a></th>
+<th>Model</th>
+<th><a href="Allwinner_SoC_Family.html" title="Allwinner SoC Family">SoC</a></th>
+<th><a href="Linux_mainlining_effort.html" title="Linux mainlining effort"> Mainline</a></th>
+<th><a href="Category:Power.html" title="Category:Power">PMU/Vreg</a></th>
+<th>Board size (mm)</th>
+<th>RAM (MHz)</th>
+<th><a href="Storage.html" title="Storage">Storage</a></th>
+<th><a href="EMMC.html" title="EMMC">eMMC</a>/<a href="Bootable_SPI_flash.html" title="Bootable SPI flash">SPI Flash</a></th>
+<th><a href="Ethernet.html" title="Ethernet">Ethernet</a> speed (chip)</th>
+<th><a href="Wifi.html" title="Wifi">Wifi</a></th>
+<th><a href="USB.html" title="USB">USB</a></th>
+<th><a href="Audio_Codec.html" title="Audio Codec">Audio</a></th>
+<th>Mic</th>
+<th><a href="IR.html" title="IR">IR</a></th>
+<th><a href="GPIO.html" title="GPIO">GPIO</a></th>
+<th><a href="CSI.html" title="CSI">CSI</a></th>
+<th><a href="https://linux-sunxi.org/index.php?title=DSI&amp;action=edit&amp;redlink=1" class="new" title="DSI (page does not exist)">DSI</a></th>
+<th>Video out</th>
+<th><a href="Powering_the_boards_and_accessories.html#Power_connectors" title="Powering the boards and accessories">Power src</a></th>
+<th>Power req
+</th></tr>
+<tr>
+<td>Sinlinx</td>
+<td><a href="Sinlinx_SinA31s.html" title="Sinlinx SinA31s"> Sinlinx SinA31s</a></td>
+<td><a href="A31s.html" class="mw-redirect" title="A31s">A31s</a></td>
+<td>WiP</td>
+<td><a href="AXP221.html" title="AXP221">AXP221s</a></td>
+<td>170x108</td>
+<td>1GB (432)</td>
+<td>SD</td>
+<td>4/16 GB</td>
+<td>100 (RTL8201CP)</td>
+<td>-</td>
+<td>5xUSB2, 1xOTG</td>
+<td>3.5mm</td>
+<td>3.5mm</td>
+<td>-</td>
+<td>3 x 20pin</td>
+<td>-</td>
+<td>+</td>
+<td>LCD</td>
+<td>5.5/2.1mm (?)</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td>Sinlinx</td>
+<td><a href="Sinlinx_SinA33.html" title="Sinlinx SinA33"> Sinlinx SinA33</a></td>
+<td><a href="A33.html" title="A33">A33</a></td>
+<td>WiP</td>
+<td><a href="AXP223.html" title="AXP223">AXP223</a></td>
+<td>99x82</td>
+<td>1GB (552)</td>
+<td>µSD</td>
+<td>4 GB</td>
+<td>-</td>
+<td>-</td>
+<td>1xUSB2, 1xOTG</td>
+<td>3.5mm</td>
+<td>3.5mm</td>
+<td>-</td>
+<td>3 x 20pin</td>
+<td>-</td>
+<td>+</td>
+<td>LCD</td>
+<td>5.5/2.1mm (?)</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td>Sinlinx</td>
+<td><a href="https://linux-sunxi.org/index.php?title=Sinlinx_SinA33_Plus&amp;action=edit&amp;redlink=1" class="new" title="Sinlinx SinA33 Plus (page does not exist)"> Sinlinx SinA33 Plus</a></td>
+<td><a href="A33.html" title="A33">A33</a></td>
+<td>WiP</td>
+<td><a href="AXP223.html" title="AXP223">AXP223</a></td>
+<td>145x108</td>
+<td>1GB (552)</td>
+<td>SD</td>
+<td>4 GB</td>
+<td>100 (?)</td>
+<td>-</td>
+<td>3xUSB2, 1xOTG</td>
+<td>3.5mm</td>
+<td>3.5mm</td>
+<td>-</td>
+<td>3 x 20pin</td>
+<td>-</td>
+<td>+</td>
+<td>LCD,VGA</td>
+<td>5.5/2.1mm (?)</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td><a href="Category:Sinovoip.html" title="Category:Sinovoip"> Sinovoip</a></td>
+<td><a href="Banana_Pro.html#Variants" class="mw-redirect" title="Banana Pro"> Banana Pi M1+</a></td>
+<td><a href="A20.html" title="A20">A20</a></td>
+<td>4.8</td>
+<td><a href="AXP209.html" title="AXP209">AXP209</a></td>
+<td>92x60</td>
+<td>1GB (432)</td>
+<td>µSD, SATA</td>
+<td>-</td>
+<td>1000 (RTL8211E)</td>
+<td>b/g/n (AP6181)</td>
+<td>2xUSB2, 1xOTG</td>
+<td>3.5mm, HDMI</td>
+<td>+</td>
+<td>RX</td>
+<td>40pin</td>
+<td>+</td>
+<td>+</td>
+<td>HDMI, DSI, 3.5mm</td>
+<td>µUSB</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td><a href="Category:Sinovoip.html" title="Category:Sinovoip"> Sinovoip</a></td>
+<td><a href="Sinovoip_Banana_Pi_M2.html" title="Sinovoip Banana Pi M2"> Banana Pi M2</a></td>
+<td><a href="A31s.html" class="mw-redirect" title="A31s">A31s</a></td>
+<td>4.4</td>
+<td><a href="AXP221.html" title="AXP221">AXP221s</a></td>
+<td>92x60</td>
+<td>1GB (432)</td>
+<td>µSD</td>
+<td>-</td>
+<td>1000 (RTL8211E)</td>
+<td>b/g/n (AP6181)</td>
+<td>4xUSB2*, 1xOTG</td>
+<td>3.5mm, HDMI</td>
+<td>+</td>
+<td>RX</td>
+<td>40pin</td>
+<td>+</td>
+<td>+</td>
+<td>HDMI, DSI</td>
+<td>4.0/1.7mm</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td><a href="Category:Sinovoip.html" title="Category:Sinovoip"> Sinovoip</a></td>
+<td><a href="Sinovoip_Banana_Pi_M2.html#Variants" title="Sinovoip Banana Pi M2"> Banana Pi M2 Magic</a></td>
+<td><a href="A33.html" title="A33">A33</a></td>
+<td>4.14</td>
+<td>?</td>
+<td>51x51</td>
+<td>512MB</td>
+<td>µSD</td>
+<td>8G (/16/32/64G)</td>
+<td>-</td>
+<td>b/g/n (AP6212)</td>
+<td>1xUSB2, 1xOTG</td>
+<td>-</td>
+<td>+</td>
+<td>-</td>
+<td>40pin</td>
+<td>+</td>
+<td>+</td>
+<td>DSI</td>
+<td>4.0/1.7mm, Li battery</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td><a href="Category:Sinovoip.html" title="Category:Sinovoip"> Sinovoip</a></td>
+<td><a href="Sinovoip_Banana_Pi_M2+.html" title="Sinovoip Banana Pi M2+"> Banana Pi M2+</a></td>
+<td><a href="H3.html" title="H3">H3</a></td>
+<td>4.20</td>
+<td>?</td>
+<td>65x65</td>
+<td>1GB (432)</td>
+<td>µSD</td>
+<td>8GB</td>
+<td>1000 (RTL8211E)</td>
+<td>b/g/n (AP6181)</td>
+<td>2xUSB2, 1xOTG</td>
+<td>3.5mm, HDMI</td>
+<td>-</td>
+<td>RX</td>
+<td>40pin</td>
+<td>+</td>
+<td>-</td>
+<td>HDMI</td>
+<td>4.0/1.7mm</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td><a href="Category:Sinovoip.html" title="Category:Sinovoip"> Sinovoip</a></td>
+<td><a href="Sinovoip_Banana_Pi_M2+.html#Variants" title="Sinovoip Banana Pi M2+"> Banana Pi M2+ H2+</a></td>
+<td><a href="H2+.html" class="mw-redirect" title="H2+">H2+</a></td>
+<td>WiP</td>
+<td>?</td>
+<td>65x65</td>
+<td>1GB (432)</td>
+<td>µSD</td>
+<td>8GB</td>
+<td>1000 (RTL8211E)</td>
+<td>b/g/n (AP6181)</td>
+<td>2xUSB2, 1xOTG</td>
+<td>3.5mm, HDMI</td>
+<td>-</td>
+<td>RX</td>
+<td>40pin</td>
+<td>+</td>
+<td>-</td>
+<td>HDMI</td>
+<td>4.0/1.7mm</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td><a href="Category:Sinovoip.html" title="Category:Sinovoip"> Sinovoip</a></td>
+<td><a href="Sinovoip_Banana_Pi_M2+.html#Variants" title="Sinovoip Banana Pi M2+"> Banana Pi M2+ H5</a></td>
+<td><a href="H5.html" title="H5">H5</a></td>
+<td>4.20</td>
+<td>?</td>
+<td>65x65</td>
+<td>1GB (432)</td>
+<td>µSD</td>
+<td>8GB</td>
+<td>1000 (RTL8211E)</td>
+<td>b/g/n (AP6181)</td>
+<td>2xUSB2, 1xOTG</td>
+<td>3.5mm, HDMI</td>
+<td>-</td>
+<td>RX</td>
+<td>40pin</td>
+<td>+</td>
+<td>-</td>
+<td>HDMI</td>
+<td>4.0/1.7mm</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td><a href="Category:Sinovoip.html" title="Category:Sinovoip"> Sinovoip</a></td>
+<td><a href="Sinovoip_Banana_Pi_M2+.html#Variants" title="Sinovoip Banana Pi M2+"> Banana Pi M2+ EDU</a></td>
+<td><a href="H3.html" title="H3">H3</a></td>
+<td>WiP</td>
+<td>?</td>
+<td>65x65</td>
+<td>512MB</td>
+<td>µSD</td>
+<td>-</td>
+<td>1000 (RTL8211E)</td>
+<td>-</td>
+<td>2xUSB2, 1xOTG</td>
+<td>3.5mm, HDMI</td>
+<td>-</td>
+<td>RX</td>
+<td>40pin</td>
+<td>+</td>
+<td>-</td>
+<td>HDMI</td>
+<td>4.0/1.7mm</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td><a href="Category:Sinovoip.html" title="Category:Sinovoip"> Sinovoip</a></td>
+<td><a href="Sinovoip_Banana_Pi_M2_Ultra.html" title="Sinovoip Banana Pi M2 Ultra"> Banana Pi M2 Ultra</a></td>
+<td><a href="R40.html" title="R40">R40</a></td>
+<td>4.15</td>
+<td>?</td>
+<td>92x60</td>
+<td>2GB (576)</td>
+<td>µSD, SATA</td>
+<td>8GB</td>
+<td>1000 (RTL8211E)</td>
+<td>b/g/n (AP6212)</td>
+<td>2xUSB2, 1xOTG</td>
+<td>3.5mm, HDMI</td>
+<td>+</td>
+<td>RX</td>
+<td>40 + 3 pin</td>
+<td>+</td>
+<td>-</td>
+<td>HDMI</td>
+<td>4.0/1.7mm+ Li battery</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td><a href="Category:Sinovoip.html" title="Category:Sinovoip"> Sinovoip</a></td>
+<td><a href="Sinovoip_Banana_Pi_M2_Berry.html" title="Sinovoip Banana Pi M2 Berry"> Banana Pi M2 Berry</a></td>
+<td><a href="V40.html" class="mw-redirect" title="V40">V40</a></td>
+<td>4.15</td>
+<td><a href="AXP221.html" title="AXP221">AXP221s</a></td>
+<td>85x56</td>
+<td>1GB</td>
+<td>µSD, SATA</td>
+<td>8GB</td>
+<td>1000 (RTL8211E)</td>
+<td>b/g/n (AP6212)</td>
+<td>4xUSB2, 1xOTG</td>
+<td>3.5mm, HDMI</td>
+<td>+</td>
+<td>gpio</td>
+<td>40 + 3 pin</td>
+<td>+</td>
+<td>-</td>
+<td>HDMI</td>
+<td>µUSB</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td><a href="Category:Sinovoip.html" title="Category:Sinovoip"> Sinovoip</a></td>
+<td><a href="Sinovoip_Banana_Pi_M2_Zero.html" title="Sinovoip Banana Pi M2 Zero"> Banana Pi M2 Zero</a></td>
+<td><a href="H2+.html" class="mw-redirect" title="H2+">H2+</a></td>
+<td>4.17</td>
+<td>?</td>
+<td>60x30</td>
+<td>512MB</td>
+<td>µSD</td>
+<td>-</td>
+<td>-</td>
+<td>b/g/n (AP6212)</td>
+<td>1xOTG</td>
+<td>HDMI</td>
+<td>-</td>
+<td>-</td>
+<td>40 + 3 pin</td>
+<td>+</td>
+<td>-</td>
+<td>HDMI</td>
+<td>µUSB</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td><a href="Category:Sinovoip.html" title="Category:Sinovoip"> Sinovoip</a></td>
+<td><a href="Sinovoip_Banana_Pi_M3.html" title="Sinovoip Banana Pi M3"> Banana Pi M3</a></td>
+<td><a href="A83T.html" title="A83T">A83T</a></td>
+<td>4.14</td>
+<td><a href="AXP813.html" title="AXP813">AXP813</a></td>
+<td>92x60</td>
+<td>2GB ()</td>
+<td>µSD, SATA*</td>
+<td>8GB</td>
+<td>1000 (RTL8211E)</td>
+<td>b/g/n (AP6212)</td>
+<td>2xUSB2*, 1xOTG</td>
+<td>3.5mm, HDMI</td>
+<td>+</td>
+<td>RX</td>
+<td>40pin</td>
+<td>+</td>
+<td>+</td>
+<td>HDMI</td>
+<td>µUSB</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td><a href="Category:Sinovoip.html" title="Category:Sinovoip"> Sinovoip</a></td>
+<td><a href="Sinovoip_Banana_Pi_M64.html" title="Sinovoip Banana Pi M64"> Banana Pi M64</a></td>
+<td><a href="A64.html" title="A64">A64</a></td>
+<td>4.11</td>
+<td><a href="AXP803.html" title="AXP803">AXP803</a></td>
+<td>92x60</td>
+<td>2GB (672)</td>
+<td>µSD</td>
+<td>8GB</td>
+<td>1000 (RTL8211E)</td>
+<td>b/g/n (AP6212)</td>
+<td>4xUSB2*, 1xOTG</td>
+<td>3.5mm, HDMI</td>
+<td>+</td>
+<td>IRDA</td>
+<td>40pin</td>
+<td>+</td>
+<td>+</td>
+<td>HDMI</td>
+<td>4.0/1.7 mm, Li battery</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<th><a href="Category:Maker.html" title="Category:Maker">Maker</a></th>
+<th>Model</th>
+<th><a href="Allwinner_SoC_Family.html" title="Allwinner SoC Family">SoC</a></th>
+<th><a href="Linux_mainlining_effort.html" title="Linux mainlining effort"> Mainline</a></th>
+<th><a href="Category:Power.html" title="Category:Power">PMU/Vreg</a></th>
+<th>Board size (mm)</th>
+<th>RAM (MHz)</th>
+<th><a href="Storage.html" title="Storage">Storage</a></th>
+<th><a href="EMMC.html" title="EMMC">eMMC</a>/<a href="Bootable_SPI_flash.html" title="Bootable SPI flash">SPI Flash</a></th>
+<th><a href="Ethernet.html" title="Ethernet">Ethernet</a> speed (chip)</th>
+<th><a href="Wifi.html" title="Wifi">Wifi</a></th>
+<th><a href="USB.html" title="USB">USB</a></th>
+<th><a href="Audio_Codec.html" title="Audio Codec">Audio</a></th>
+<th>Mic</th>
+<th><a href="IR.html" title="IR">IR</a></th>
+<th><a href="GPIO.html" title="GPIO">GPIO</a></th>
+<th><a href="CSI.html" title="CSI">CSI</a></th>
+<th><a href="https://linux-sunxi.org/index.php?title=DSI&amp;action=edit&amp;redlink=1" class="new" title="DSI (page does not exist)">DSI</a></th>
+<th>Video out</th>
+<th><a href="Powering_the_boards_and_accessories.html#Power_connectors" title="Powering the boards and accessories">Power src</a></th>
+<th>Power req
+</th></tr>
+<tr>
+<td><a href="Xunlong.html" class="mw-redirect" title="Xunlong">Xunlong</a></td>
+<td><a href="Xunlong_Orange_Pi.html" title="Xunlong Orange Pi"> Orange Pi</a></td>
+<td><a href="A20.html" title="A20">A20</a></td>
+<td>4.2</td>
+<td><a href="AXP209.html" title="AXP209">AXP209</a></td>
+<td>112x60</td>
+<td>1GB (432)</td>
+<td>µSD, SATA</td>
+<td>8GB (optional)</td>
+<td>1000 (RTL8211E)</td>
+<td>b/g/n ()</td>
+<td>4xUSB2*, 1xOTG</td>
+<td>3.5mm, HDMI</td>
+<td>-</td>
+<td>RX</td>
+<td>26pin + 18pin</td>
+<td>+</td>
+<td>+</td>
+<td>HDMI, VGA</td>
+<td>4.0/1.7 mm</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td><a href="Xunlong.html" class="mw-redirect" title="Xunlong">Xunlong</a></td>
+<td><a href="Xunlong_Orange_Pi_2.html" title="Xunlong Orange Pi 2"> Orange Pi 2</a></td>
+<td><a href="H3.html" title="H3">H3</a></td>
+<td>4.7</td>
+<td><a href="SY8106A.html" title="SY8106A">SY8106A</a></td>
+<td>93x60</td>
+<td>1GB</td>
+<td>µSD</td>
+<td>-</td>
+<td>100 (EPHY)</td>
+<td>b/g/n (RTL8189ETV)</td>
+<td>4xUSB2*, 1xOTG</td>
+<td>3.5mm, HDMI</td>
+<td>-</td>
+<td>RX</td>
+<td>40pin</td>
+<td>+</td>
+<td>+</td>
+<td>HDMI, CVBS</td>
+<td>4.0/1.7 mm</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td><a href="Xunlong.html" class="mw-redirect" title="Xunlong">Xunlong</a></td>
+<td><a href="Xunlong_Orange_Pi_3.html" title="Xunlong Orange Pi 3"> Orange Pi 3</a></td>
+<td><a href="H6.html" title="H6">H6</a></td>
+<td>5.2**</td>
+<td><a href="https://linux-sunxi.org/index.php?title=AXP805&amp;action=edit&amp;redlink=1" class="new" title="AXP805 (page does not exist)">AXP805</a></td>
+<td>90x64</td>
+<td>1/2GB</td>
+<td>µSD</td>
+<td>8GB (optional)</td>
+<td>1000 (RTL8211E)</td>
+<td>b/g/n/ac (AP6256)</td>
+<td>4xUSB3*, 1xUSB2, 1xOTG</td>
+<td>HDMI</td>
+<td>+</td>
+<td>RX</td>
+<td>26pin</td>
+<td>-</td>
+<td>-</td>
+<td>HDMI</td>
+<td>4.0/1.7 mm, µUSB</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td><a href="Xunlong.html" class="mw-redirect" title="Xunlong">Xunlong</a></td>
+<td><a href="Xunlong_Orange_Pi_Lite.html" class="mw-redirect" title="Xunlong Orange Pi Lite"> Orange Pi Lite</a></td>
+<td><a href="H3.html" title="H3">H3</a></td>
+<td>4.9</td>
+<td><a href="SY8113B.html" title="SY8113B">SY8113B</a></td>
+<td>69x48</td>
+<td>0.5GB</td>
+<td>µSD</td>
+<td>-</td>
+<td>-</td>
+<td>b/g/n (RTL8189FTV)</td>
+<td>2xUSB2, 1xOTG</td>
+<td>HDMI</td>
+<td>+</td>
+<td>RX</td>
+<td>40pin</td>
+<td>+</td>
+<td>-</td>
+<td>HDMI</td>
+<td>4.0/1.7 mm</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td><a href="Xunlong.html" class="mw-redirect" title="Xunlong">Xunlong</a></td>
+<td><a href="Xunlong_Orange_Pi_Lite_2.html" title="Xunlong Orange Pi Lite 2"> Orange Pi Lite 2</a></td>
+<td><a href="H6.html" title="H6">H6</a></td>
+<td>5.0**</td>
+<td><a href="https://linux-sunxi.org/index.php?title=AXP805&amp;action=edit&amp;redlink=1" class="new" title="AXP805 (page does not exist)">AXP805</a></td>
+<td>69x48</td>
+<td>1GB</td>
+<td>µSD</td>
+<td>-</td>
+<td>-</td>
+<td>b/g/n/ac (AP6255)</td>
+<td>1xUSB3, 1xUSB2, 1xOTG</td>
+<td>HDMI</td>
+<td>+</td>
+<td>RX</td>
+<td>26pin</td>
+<td>+</td>
+<td>-</td>
+<td>HDMI</td>
+<td>4.0/1.7 mm</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td><a href="Xunlong.html" class="mw-redirect" title="Xunlong">Xunlong</a></td>
+<td><a href="Xunlong_Orange_Pi_Mini.html" title="Xunlong Orange Pi Mini"> Orange Pi Mini</a></td>
+<td><a href="A20.html" title="A20">A20</a></td>
+<td>4.2</td>
+<td><a href="AXP209.html" title="AXP209">AXP209</a></td>
+<td>94x59</td>
+<td>1GB ()</td>
+<td>µSD, SATA</td>
+<td>-</td>
+<td>1000 (RTL8211E)</td>
+<td>b/g/n ()</td>
+<td>2xUSB2, 1xOTG</td>
+<td>3.5mm</td>
+<td>-</td>
+<td>RX</td>
+<td>40pin</td>
+<td>-</td>
+<td>+</td>
+<td>HDMI, CVBS</td>
+<td>4.0/1.7 mm</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td><a href="Xunlong.html" class="mw-redirect" title="Xunlong">Xunlong</a></td>
+<td><a href="Xunlong_Orange_Pi_Mini_2.html" title="Xunlong Orange Pi Mini 2"> Orange Pi Mini 2</a></td>
+<td><a href="H3.html" title="H3">H3</a></td>
+<td>4.7**</td>
+<td><a href="SY8106A.html" title="SY8106A">SY8106A</a></td>
+<td>93x60</td>
+<td>1GB</td>
+<td>µSD</td>
+<td>-</td>
+<td>100 (EPHY)</td>
+<td>-</td>
+<td>4xUSB2*, 1xOTG</td>
+<td>3.5mm, HDMI</td>
+<td>-</td>
+<td>-</td>
+<td>40pin</td>
+<td>+</td>
+<td>+</td>
+<td>HDMI, DSI</td>
+<td>4.0/1.7 mm</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td><a href="Xunlong.html" class="mw-redirect" title="Xunlong">Xunlong</a></td>
+<td><a href="Xunlong_Orange_Pi_One.html" class="mw-redirect" title="Xunlong Orange Pi One"> Orange Pi One</a></td>
+<td><a href="H3.html" title="H3">H3</a></td>
+<td>4.7</td>
+<td><a href="SY8113B.html" title="SY8113B">SY8113B</a></td>
+<td>69x48</td>
+<td>0.5GB</td>
+<td>µSD</td>
+<td>-</td>
+<td>100 (EPHY)</td>
+<td>-</td>
+<td>1xUSB2, 1xOTG</td>
+<td>HDMI</td>
+<td>-</td>
+<td>-</td>
+<td>40pin</td>
+<td>-</td>
+<td>-</td>
+<td>HDMI</td>
+<td>4.0/1.7 mm</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td><a href="Xunlong.html" class="mw-redirect" title="Xunlong">Xunlong</a></td>
+<td><a href="Xunlong_Orange_Pi_One_Plus.html" title="Xunlong Orange Pi One Plus"> Orange Pi One Plus</a></td>
+<td><a href="H6.html" title="H6">H6</a></td>
+<td>4.20</td>
+<td><a href="https://linux-sunxi.org/index.php?title=AXP805&amp;action=edit&amp;redlink=1" class="new" title="AXP805 (page does not exist)">AXP805</a></td>
+<td>68x48</td>
+<td>1GB</td>
+<td>µSD</td>
+<td>-</td>
+<td>1000 (RTL8211E)</td>
+<td>-</td>
+<td>1xUSB2, 1xOTG</td>
+<td>HDMI</td>
+<td>-</td>
+<td>RX</td>
+<td>26pin</td>
+<td>-</td>
+<td>-</td>
+<td>HDMI</td>
+<td>4.0/1.7 mm, µUSB</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td><a href="Xunlong.html" class="mw-redirect" title="Xunlong">Xunlong</a></td>
+<td><a href="Xunlong_Orange_Pi_PC.html" title="Xunlong Orange Pi PC"> Orange Pi PC</a></td>
+<td><a href="H3.html" title="H3">H3</a></td>
+<td>4.7</td>
+<td><a href="SY8106A.html" title="SY8106A">SY8106A</a></td>
+<td>85x55</td>
+<td>1GB (624)</td>
+<td>µSD</td>
+<td>-</td>
+<td>100 (EPHY)</td>
+<td>-</td>
+<td>3xUSB2, 1xOTG</td>
+<td>3.5mm, HDMI</td>
+<td>+</td>
+<td>RX</td>
+<td>40pin</td>
+<td>+</td>
+<td>-</td>
+<td>HDMI, CVBS</td>
+<td>4.0/1.7 mm</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td><a href="Xunlong.html" class="mw-redirect" title="Xunlong">Xunlong</a></td>
+<td><a href="Xunlong_Orange_Pi_PC.html#Variants" title="Xunlong Orange Pi PC"> Orange Pi PC Plus</a></td>
+<td><a href="H3.html" title="H3">H3</a></td>
+<td>4.9</td>
+<td><a href="SY8106A.html" title="SY8106A">SY8106A</a></td>
+<td>85x55</td>
+<td>1GB</td>
+<td>µSD</td>
+<td>8GB</td>
+<td>100 (EPHY)</td>
+<td>b/g/n (RTL8189FTV)</td>
+<td>3xUSB2, 1xOTG</td>
+<td>3.5mm, HDMI</td>
+<td>+</td>
+<td>RX</td>
+<td>40pin</td>
+<td>+</td>
+<td>-</td>
+<td>HDMI</td>
+<td>4.0/1.7 mm</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td><a href="Xunlong.html" class="mw-redirect" title="Xunlong">Xunlong</a></td>
+<td><a href="Xunlong_Orange_Pi_PC_2.html" title="Xunlong Orange Pi PC 2"> Orange Pi PC 2</a></td>
+<td><a href="H5.html" title="H5">H5</a></td>
+<td>4.12</td>
+<td><a href="SY8106A.html" title="SY8106A">SY8106A</a></td>
+<td>85x55</td>
+<td>1GB</td>
+<td>µSD</td>
+<td>16Mbit</td>
+<td>1000 (RTL8211E)</td>
+<td>-</td>
+<td>3xUSB2, 1xOTG</td>
+<td>3.5mm, HDMI</td>
+<td>+</td>
+<td>RX</td>
+<td>40pin</td>
+<td>+</td>
+<td>-</td>
+<td>HDMI, CVBS</td>
+<td>4.0/1.7 mm</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td><a href="Xunlong.html" class="mw-redirect" title="Xunlong">Xunlong</a></td>
+<td><a href="Xunlong_Orange_Pi_Plus.html" title="Xunlong Orange Pi Plus"> Orange Pi Plus</a></td>
+<td><a href="H3.html" title="H3">H3</a></td>
+<td>4.5</td>
+<td><a href="SY8106A.html" title="SY8106A">SY8106A</a></td>
+<td>108x60</td>
+<td>1GB</td>
+<td>µSD, SATA*</td>
+<td>8GB</td>
+<td>1000 (RTL8211E)</td>
+<td>b/g/n (RTL8189ETV)</td>
+<td>4xUSB2*, 1xOTG</td>
+<td>3.5mm, HDMI</td>
+<td>+</td>
+<td>RX</td>
+<td>40pin</td>
+<td>+</td>
+<td>-</td>
+<td>HDMI, CVBS</td>
+<td>4.0/1.7 mm</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td><a href="Xunlong.html" class="mw-redirect" title="Xunlong">Xunlong</a></td>
+<td><a href="Xunlong_Orange_Pi_Plus_2.html" title="Xunlong Orange Pi Plus 2"> Orange Pi Plus 2</a></td>
+<td><a href="H3.html" title="H3">H3</a></td>
+<td>4.9**</td>
+<td><a href="SY8106A.html" title="SY8106A">SY8106A</a></td>
+<td>108x67</td>
+<td>2GB</td>
+<td>µSD, SATA*</td>
+<td>16GB</td>
+<td>1000 (RTL8211E)</td>
+<td>b/g/n (RTL8189ETV)</td>
+<td>4xUSB2*, 1xOTG</td>
+<td>3.5mm, HDMI</td>
+<td>+</td>
+<td>RX</td>
+<td>40pin</td>
+<td>+</td>
+<td>-</td>
+<td>HDMI, CVBS</td>
+<td>4.0/1.7 mm</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td><a href="Xunlong.html" class="mw-redirect" title="Xunlong">Xunlong</a></td>
+<td><a href="Xunlong_Orange_Pi_Plus_2E.html" title="Xunlong Orange Pi Plus 2E"> Orange Pi Plus 2E</a></td>
+<td><a href="H3.html" title="H3">H3</a></td>
+<td>4.9</td>
+<td><a href="SY8106A.html" title="SY8106A">SY8106A</a></td>
+<td>108x67</td>
+<td>2GB</td>
+<td>µSD</td>
+<td>16GB</td>
+<td>1000 (RTL8211E)</td>
+<td>b/g/n (RTL8189FTV)</td>
+<td>3xUSB2, 1xOTG</td>
+<td>3.5mm, HDMI</td>
+<td>+</td>
+<td>RX</td>
+<td>40pin</td>
+<td>+</td>
+<td>-</td>
+<td>HDMI, CVBS</td>
+<td>4.0/1.7 mm</td>
+<td>3A, 5V
+</td></tr>
+<tr>
+<td><a href="Xunlong.html" class="mw-redirect" title="Xunlong">Xunlong</a></td>
+<td><a href="Xunlong_Orange_Pi_Prime.html" title="Xunlong Orange Pi Prime"> Orange Pi Prime</a></td>
+<td><a href="H5.html" title="H5">H5</a></td>
+<td>4.13</td>
+<td><a href="SY8106A.html" title="SY8106A">SY8106A</a></td>
+<td>98x60</td>
+<td>2GB</td>
+<td>µSD</td>
+<td>8Mbit (optional)</td>
+<td>1000 (RTL8211E)</td>
+<td>b/g/n (RTL8723BS)</td>
+<td>3xUSB2, 1xOTG</td>
+<td>3.5mm, HDMI</td>
+<td>+</td>
+<td>RX</td>
+<td>40 + 3pin</td>
+<td>+</td>
+<td>-</td>
+<td>HDMI, CVBS</td>
+<td>µUSB &amp; 4.0/1.7 mm</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td><a href="Xunlong.html" class="mw-redirect" title="Xunlong">Xunlong</a></td>
+<td><a href="Xunlong_Orange_Pi_Zero.html#Variants" title="Xunlong Orange Pi Zero"> Orange Pi R1</a></td>
+<td><a href="H2+.html" class="mw-redirect" title="H2+">H2+</a></td>
+<td>4.16</td>
+<td>?</td>
+<td>45x60</td>
+<td>0.25</td>
+<td>µSD</td>
+<td>128Mbit</td>
+<td>100 (EPHY) + 100 (RTL8152B)</td>
+<td>b/g/n (RTL8189ETV)</td>
+<td>2xUSB2#, 1xOTG</td>
+<td>gpio</td>
+<td>gpio</td>
+<td>gpio</td>
+<td>26 + 13pin</td>
+<td>-</td>
+<td>-</td>
+<td>CVBS</td>
+<td>µUSB</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td><a href="Xunlong.html" class="mw-redirect" title="Xunlong">Xunlong</a></td>
+<td><a href="Xunlong_Orange_Pi_Win.html" title="Xunlong Orange Pi Win"> Orange Pi Win</a></td>
+<td><a href="A64.html" title="A64">A64</a></td>
+<td>4.13</td>
+<td><a href="AXP803.html" title="AXP803">AXP803</a></td>
+<td>93x60</td>
+<td>1GB</td>
+<td>µSD</td>
+<td>16Mbit, optional NAND</td>
+<td>1000 (RTL8211E)</td>
+<td>b/g/n (AP6212A)</td>
+<td>4xUSB2*, 1xOTG</td>
+<td>3.5mm, HDMI</td>
+<td>+</td>
+<td>RX</td>
+<td>40 + 3pin</td>
+<td>+</td>
+<td>-</td>
+<td>HDMI, CVBS</td>
+<td>µUSB &amp; 4.0/1.7 mm, Li-battery</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td><a href="Xunlong.html" class="mw-redirect" title="Xunlong">Xunlong</a></td>
+<td><a href="Xunlong_Orange_Pi_Win.html#Variants" title="Xunlong Orange Pi Win"> Orange Pi Win Plus</a></td>
+<td><a href="A64.html" title="A64">A64</a></td>
+<td>4.13</td>
+<td><a href="AXP803.html" title="AXP803">AXP803</a></td>
+<td>93x60</td>
+<td>2GB</td>
+<td>µSD</td>
+<td>16Mbit, optional NAND</td>
+<td>1000 (RTL8211E)</td>
+<td>b/g/n (AP6212A)</td>
+<td>4xUSB2*, 1xOTG</td>
+<td>3.5mm, HDMI</td>
+<td>+</td>
+<td>RX</td>
+<td>40 + 3pin</td>
+<td>+</td>
+<td>-</td>
+<td>HDMI, CVBS</td>
+<td>µUSB &amp; 4.0/1.7 mm, Li-battery</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td><a href="Xunlong.html" class="mw-redirect" title="Xunlong">Xunlong</a></td>
+<td><a href="Xunlong_Orange_Pi_Zero.html" title="Xunlong Orange Pi Zero"> Orange Pi Zero</a></td>
+<td><a href="H2+.html" class="mw-redirect" title="H2+">H2+</a></td>
+<td>4.11</td>
+<td><a href="SY8113B.html" title="SY8113B">SY8113B</a></td>
+<td>46x48</td>
+<td>0.25/0.5GB</td>
+<td>µSD</td>
+<td>(optional)</td>
+<td>100 (EPHY)</td>
+<td>b/g/n (XR819)</td>
+<td>2xUSB2#, 1xUSB2, 1xOTG</td>
+<td>gpio</td>
+<td>gpio</td>
+<td>gpio</td>
+<td>26 + 13 + 3pin</td>
+<td>-</td>
+<td>-</td>
+<td>CVBS</td>
+<td>µUSB</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td><a href="Xunlong.html" class="mw-redirect" title="Xunlong">Xunlong</a></td>
+<td><a href="Xunlong_Orange_Pi_Zero_Plus.html" title="Xunlong Orange Pi Zero Plus"> Orange Pi Zero Plus</a></td>
+<td><a href="H5.html" title="H5">H5</a></td>
+<td>4.17</td>
+<td><a href="SY8113B.html" title="SY8113B">SY8113B</a></td>
+<td>45x48</td>
+<td>0.5GB</td>
+<td>µSD</td>
+<td>16Mbit</td>
+<td>1000 (RTL8211E)</td>
+<td>b/g/n (RTL8189FTV)</td>
+<td>2xUSB2#, 1xUSB2, 1xOTG</td>
+<td>gpio</td>
+<td>gpio</td>
+<td>gpio</td>
+<td>26 + 13 + 3pin</td>
+<td>-</td>
+<td>-</td>
+<td>CVBS</td>
+<td>µUSB</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td><a href="Xunlong.html" class="mw-redirect" title="Xunlong">Xunlong</a></td>
+<td><a href="Xunlong_Orange_Pi_Zero_Plus_2.html" title="Xunlong Orange Pi Zero Plus 2"> Orange Pi Zero Plus 2</a></td>
+<td><a href="H3.html" title="H3">H3</a></td>
+<td>4.20</td>
+<td><a href="SY8113B.html" title="SY8113B">SY8113B</a></td>
+<td>46x48</td>
+<td>0.5GB</td>
+<td>µSD</td>
+<td>8GB</td>
+<td>-</td>
+<td>b/g/n (AP6212A)</td>
+<td>2xUSB2#, 1xOTG</td>
+<td>gpio</td>
+<td>gpio</td>
+<td>gpio</td>
+<td>26 + 13pin</td>
+<td>+</td>
+<td>-</td>
+<td>HDMI, CVBS</td>
+<td>µUSB</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<td><a href="Xunlong.html" class="mw-redirect" title="Xunlong">Xunlong</a></td>
+<td><a href="Xunlong_Orange_Pi_Zero_Plus_2.html#Variants" title="Xunlong Orange Pi Zero Plus 2"> Orange Pi Zero Plus 2 H5</a></td>
+<td><a href="H5.html" title="H5">H5</a></td>
+<td>4.13</td>
+<td><a href="SY8113B.html" title="SY8113B">SY8113B</a></td>
+<td>46x48</td>
+<td>0.5GB</td>
+<td>µSD</td>
+<td>8GB</td>
+<td>-</td>
+<td>b/g/n (AP6212A)</td>
+<td>2xUSB2#, 1xOTG</td>
+<td>gpio</td>
+<td>gpio</td>
+<td>gpio</td>
+<td>26 + 13pin</td>
+<td>+</td>
+<td>-</td>
+<td>HDMI, CVBS</td>
+<td>µUSB</td>
+<td>2A, 5V
+</td></tr>
+<tr>
+<th><a href="Category:Maker.html" title="Category:Maker">Maker</a></th>
+<th>Model</th>
+<th><a href="Allwinner_SoC_Family.html" title="Allwinner SoC Family">SoC</a></th>
+<th><a href="Linux_mainlining_effort.html" title="Linux mainlining effort"> Mainline</a></th>
+<th><a href="Category:Power.html" title="Category:Power">PMU/Vreg</a></th>
+<th>Board size (mm)</th>
+<th>RAM (MHz)</th>
+<th><a href="Storage.html" title="Storage">Storage</a></th>
+<th><a href="EMMC.html" title="EMMC">eMMC</a>/<a href="Bootable_SPI_flash.html" title="Bootable SPI flash">SPI Flash</a></th>
+<th><a href="Ethernet.html" title="Ethernet">Ethernet</a> speed (chip)</th>
+<th><a href="Wifi.html" title="Wifi">Wifi</a></th>
+<th><a href="USB.html" title="USB">USB</a></th>
+<th><a href="Audio_Codec.html" title="Audio Codec">Audio</a></th>
+<th>Mic</th>
+<th><a href="IR.html" title="IR">IR</a></th>
+<th><a href="GPIO.html" title="GPIO">GPIO</a></th>
+<th><a href="CSI.html" title="CSI">CSI</a></th>
+<th><a href="https://linux-sunxi.org/index.php?title=DSI&amp;action=edit&amp;redlink=1" class="new" title="DSI (page does not exist)">DSI</a></th>
+<th>Video out</th>
+<th><a href="Powering_the_boards_and_accessories.html#Power_connectors" title="Powering the boards and accessories">Power src</a></th>
+<th>Power req
+</th></tr>
+<tr>
+<td>Zepan</td>
+<td><a href="LicheePi_Zero.html" title="LicheePi Zero"> LicheePi Zero</a></td>
+<td><a href="V3s.html" title="V3s">V3s</a></td>
+<td>4.11</td>
+<td>?</td>
+<td>44x26</td>
+<td>64MB (360)</td>
+<td>µSD</td>
+<td>(?) NOR</td>
+<td>100 (add-on board)</td>
+<td>-</td>
+<td>1xOTG</td>
+<td>add-on board</td>
+<td>-</td>
+<td>-</td>
+<td>15 + 2 + 2 + 15pin</td>
+<td>-</td>
+<td>-</td>
+<td>LCD</td>
+<td>µUSB</td>
+<td>?, 5V
+</td></tr>
+<tr>
+<td>Zepan</td>
+<td><a href="LicheePi_One.html" title="LicheePi One"> LicheePi One</a></td>
+<td><a href="A13.html" title="A13">A13</a></td>
+<td>4.11</td>
+<td>?</td>
+<td>72x54</td>
+<td>0.25/0.5GB (408)</td>
+<td>2 x µSD</td>
+<td>-</td>
+<td>-</td>
+<td>b/g/n (RTL8723BU) (optional)</td>
+<td>1xUSB2, 1xOTG</td>
+<td>3.5mm</td>
+<td>+</td>
+<td>-</td>
+<td>20 + 20pin</td>
+<td>-</td>
+<td>-</td>
+<td>LCD, CVBS</td>
+<td>µUSB</td>
+<td>?, 5V
+</td></tr>
+<tr>
+<th><a href="Category:Maker.html" title="Category:Maker">Maker</a></th>
+<th>Model</th>
+<th><a href="Allwinner_SoC_Family.html" title="Allwinner SoC Family">SoC</a></th>
+<th><a href="Linux_mainlining_effort.html" title="Linux mainlining effort"> Mainline</a></th>
+<th><a href="Category:Power.html" title="Category:Power">PMU/Vreg</a></th>
+<th>Board size (mm)</th>
+<th>RAM (MHz)</th>
+<th><a href="Storage.html" title="Storage">Storage</a></th>
+<th><a href="EMMC.html" title="EMMC">eMMC</a>/<a href="Bootable_SPI_flash.html" title="Bootable SPI flash">SPI Flash</a></th>
+<th><a href="Ethernet.html" title="Ethernet">Ethernet</a> speed (chip)</th>
+<th><a href="Wifi.html" title="Wifi">Wifi</a></th>
+<th><a href="USB.html" title="USB">USB</a></th>
+<th><a href="Audio_Codec.html" title="Audio Codec">Audio</a></th>
+<th>Mic</th>
+<th><a href="IR.html" title="IR">IR</a></th>
+<th><a href="GPIO.html" title="GPIO">GPIO</a></th>
+<th><a href="CSI.html" title="CSI">CSI</a></th>
+<th><a href="https://linux-sunxi.org/index.php?title=DSI&amp;action=edit&amp;redlink=1" class="new" title="DSI (page does not exist)">DSI</a></th>
+<th>Video out</th>
+<th><a href="Powering_the_boards_and_accessories.html#Power_connectors" title="Powering the boards and accessories">Power src</a></th>
+<th>Power req
+</th></tr></tbody></table>
+<!-- 
+NewPP limit report
+Cached time: 20251029035616
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.261 seconds
+Real time usage: 0.304 seconds
+Preprocessor visited node count: 8/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:2726-0!canonical and timestamp 20251029035616 and revision id 24006
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=Table_of_Allwinner_based_boards&amp;oldid=24006">https://linux-sunxi.org/index.php?title=Table_of_Allwinner_based_boards&amp;oldid=24006</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Category</a>: <ul><li><a href="Category:Hardware.html" title="Category:Hardware">Hardware</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=Table+of+Allwinner+based+boards" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=Table+of+Allwinner+based+boards" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="Table_of_Allwinner_based_boards.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:Table_of_Allwinner_based_boards&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="Table_of_Allwinner_based_boards.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Table_of_Allwinner_based_boards&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Table_of_Allwinner_based_boards&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/Table_of_Allwinner_based_boards.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/Table_of_Allwinner_based_boards" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=Table_of_Allwinner_based_boards&amp;oldid=24006" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=Table_of_Allwinner_based_boards&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 17 February 2021, at 22:52.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.261","walltime":"0.304","ppvisitednodes":{"value":8,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":0,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20251029035616","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":343});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

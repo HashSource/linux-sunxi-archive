@@ -1,0 +1,602 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Cubieboard/ExpansionPorts - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"8994e1d5019cd350d3923517","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Cubieboard/ExpansionPorts","wgTitle":"Cubieboard/ExpansionPorts","wgCurRevisionId":7499,"wgRevisionId":7499,"wgArticleId":634,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Cubieboard"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Cubieboard/ExpansionPorts","wgRelevantArticleId":634,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready",
+"noscript":"ready","user.styles":"ready","user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=skins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="ExpansionPorts.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-Cubieboard_ExpansionPorts rootpage-Cubieboard skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">Cubieboard/ExpansionPorts</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"><span class="subpages">&lt; <a href="../Cubieboard.html" class="mw-redirect" title="Cubieboard">Cubieboard</a></span></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><h2><span class="mw-headline" id="Expansion_ports">Expansion ports</span></h2>
+<p>These tables shows the available expansion ports, their pin assignments and available functions. We have tried to only list those functions which makes sense, omitting details on functions where not all needed signals are exposed in the pin headers.
+</p><p>Note: Each Pxnn pin is also GPIO capable even if not explicitly mentioned in the tables.
+</p><p><br />
+</p>
+<h3><span class="mw-headline" id="rev_2012-08-08_and_2012-09-09">rev 2012-08-08 and 2012-09-09</span></h3>
+<p>Two 2x24 2.0mm male headers.
+</p>
+<table class="wikitable" style="width:40%;">
+<tbody><tr>
+<th colspan="4">U14 <small>(Next to SATA connector)</small>
+</th></tr>
+<tr>
+<th colspan="4">LCD
+</th></tr>
+<tr>
+<td>1</td>
+<td><a href="../A10/PIO.html#PD0" title="A10/PIO">PD0</a> <small>(LCDD0/LVDSP0)</small>
+</td>
+<td>2</td>
+<td><i>Ground</i>
+</td></tr>
+<tr>
+<td>3</td>
+<td><a href="../A10/PIO.html#PD2" title="A10/PIO">PD2</a> <small>(LCDD2/LVDS0P1)</small>
+</td>
+<td>4</td>
+<td><a href="../A10/PIO.html#PD1" title="A10/PIO">PD1</a> <small>(LCDD1/LVDS0N0)</small>
+</td></tr>
+<tr>
+<td>5</td>
+<td><a href="../A10/PIO.html#PD4" title="A10/PIO">PD4</a> <small>(LCDD4/LNVS0P2)</small>
+</td>
+<td>6</td>
+<td><a href="../A10/PIO.html#PD3" title="A10/PIO">PD3</a> <small>(LCDD3/LVDS0N1)</small>
+</td></tr>
+<tr>
+<td>7</td>
+<td><a href="../A10/PIO.html#PD6" title="A10/PIO">PD6</a> <small>(LCDD6/LVDS0PC)</small>
+</td>
+<td>8</td>
+<td><a href="../A10/PIO.html#PD5" title="A10/PIO">PD5</a> <small>(LCDD5/LVDS0N2)</small>
+</td></tr>
+<tr>
+<td>9</td>
+<td><i>Ground</i>
+</td>
+<td>10</td>
+<td><a href="../A10/PIO.html#PD7" title="A10/PIO">PD7</a> <small>(LCDD7/LVDS0NC)</small>
+</td></tr>
+<tr>
+<td>11</td>
+<td><a href="../A10/PIO.html#PD9" title="A10/PIO">PD9</a> <small>(LCDD9/LVDS0N3)</small>
+</td>
+<td>12</td>
+<td><a href="../A10/PIO.html#PD8" title="A10/PIO">PD8</a> <small>(LCDD8/LVDS0P3)</small>
+</td></tr>
+<tr>
+<td>13</td>
+<td><a href="../A10/PIO.html#PD11" title="A10/PIO">PD11</a> <small>(LCDD11/LVDS1N0)</small>
+</td>
+<td>14</td>
+<td><a href="../A10/PIO.html#PD10" title="A10/PIO">PD10</a> <small>(LCDD10/LVDS1P0)</small>
+</td></tr>
+<tr>
+<td>15</td>
+<td><a href="../A10/PIO.html#PD13" title="A10/PIO">PD13</a> <small>(LCDD13/LVDS1N1)</small>
+</td>
+<td>16</td>
+<td><a href="../A10/PIO.html#PD12" title="A10/PIO">PD12</a> <small>(LCDD12/LVDS1P1)</small>
+</td></tr>
+<tr>
+<td>17</td>
+<td><a href="../A10/PIO.html#PD15" title="A10/PIO">PD15</a> <small>(LCDD15/LVDS1N2)</small>
+</td>
+<td>18</td>
+<td><a href="../A10/PIO.html#PD14" title="A10/PIO">PD14</a> <small>(LCDD14/LVDS1P2)</small>
+</td></tr>
+<tr>
+<td>19</td>
+<td><a href="../A10/PIO.html#PD16" title="A10/PIO">PD16</a> <small>(LCDD16/LVDS1PC)</small>
+</td>
+<td>20</td>
+<td><i>Ground</i>
+</td></tr>
+<tr>
+<td>21</td>
+<td><a href="../A10/PIO.html#PD18" title="A10/PIO">PD18</a> <small>(LCDD18/LVDS1P3)</small>
+</td>
+<td>22</td>
+<td><a href="../A10/PIO.html#PD17" title="A10/PIO">PD17</a> <small>(LCDD17/LVDS1NC)</small>
+</td></tr>
+<tr>
+<td>23</td>
+<td><a href="../A10/PIO.html#PD20" title="A10/PIO">PD20</a> <small>(LCDD20)</small>
+</td>
+<td>24</td>
+<td><a href="../A10/PIO.html#PD19" title="A10/PIO">PD19</a> <small>(LCDD19/LVDS1N3)</small>
+</td></tr>
+<tr>
+<td>25</td>
+<td><a href="../A10/PIO.html#PD22" title="A10/PIO">PD22</a> <small>(LCDD22)</small>
+</td>
+<td>26</td>
+<td><a href="../A10/PIO.html#PD21" title="A10/PIO">PD21</a> <small>(LCDD21)</small>
+</td></tr>
+<tr>
+<td>27</td>
+<td><a href="../A10/PIO.html#PD27" title="A10/PIO">PD27</a> <small>(LCDVSYNC)-VGA-VSYNC</small>
+</td>
+<td>28</td>
+<td><a href="../A10/PIO.html#PD23" title="A10/PIO">PD23</a> <small>(LCDD23)</small>
+</td></tr>
+<tr>
+<td>29</td>
+<td><a href="../A10/PIO.html#PD24" title="A10/PIO">PD24</a> <small>(LCDCLK)</small>
+</td>
+<td>30</td>
+<td><a href="../A10/PIO.html#PD26" title="A10/PIO">PD26</a> <small>(LCDHSYNC)-VGA-HSYNC</small>
+</td></tr>
+<tr>
+<td>31</td>
+<td><a href="../A10/PIO.html#PB2" title="A10/PIO">PB2</a> <small>(PWM0)</small>
+</td>
+<td>32</td>
+<td><a href="../A10/PIO.html#PD25" title="A10/PIO">PD25</a> <small>(LCDDE)</small>
+</td></tr>
+<tr>
+<td>33</td>
+<td><a href="../A10/PIO.html#YP_TP" title="A10/PIO">YP_TP</a> <small>(TP-Y1)</small>
+</td>
+<td>34</td>
+<td><a href="../A10/PIO.html#XP_TP" title="A10/PIO">XP_TP</a> <small>(TP-X1)</small>
+</td></tr>
+<tr>
+<td>35</td>
+<td><a href="../A10/PIO.html#YN_TP" title="A10/PIO">YN_TP</a> <small>(TP-Y2)</small>
+</td>
+<td>36</td>
+<td><a href="../A10/PIO.html#XN_TP" title="A10/PIO">XN_TP</a> <small>(TP-X2)</small>
+</td></tr>
+<tr>
+<td>37</td>
+<td><a href="../A10/PIO.html#PH7" title="A10/PIO">PH7</a> <small>(LCD0-BL-EN/LCD-PIO0/UART5-RX/EINT7)</small>
+</td>
+<td>38</td>
+<td><i>Ground</i>
+</td></tr>
+<tr>
+<td>39</td>
+<td><a href="../A10/PIO.html#PB11" title="A10/PIO">PB11</a> <small>(LCD0-SDA/LCD-PIO2)</small>
+</td>
+<td>40</td>
+<td><a href="../A10/PIO.html#PB10" title="A10/PIO">PB10</a> <small>(LCD0-SCK/LCD-PIO1)</small>
+</td></tr>
+<tr>
+<td>41</td>
+<td>SPDIF
+</td>
+<td>42</td>
+<td><i>Ground</i>
+</td></tr>
+<tr>
+<td>43</td>
+<td>VCC-5V
+</td>
+<td>44</td>
+<td>3.3V <small>(<i>nc</i> in 2012-08-08)</small>
+</td></tr>
+<tr>
+<th colspan="4">SPI0
+</th></tr>
+<tr>
+<td>45</td>
+<td><a href="../A10/PIO.html#PI10" title="A10/PIO">PI10</a> <small>(SPI0-CS/UART5-TX/EINT22)</small>
+</td>
+<td>46</td>
+<td><a href="../A10/PIO.html#PI12" title="A10/PIO">PI12</a> <small>(SPI0-MOSI/UART6-TX/EINT24)</small>
+</td></tr>
+<tr>
+<td>47</td>
+<td><a href="../A10/PIO.html#PI11" title="A10/PIO">PI11</a> <small>(SPI0-CLK/UART5-RX/EINT23)</small>
+</td>
+<td>48</td>
+<td><a href="../A10/PIO.html#PI13" title="A10/PIO">PI13</a> <small>(SPI0-MISO/UART6-RX/EINT25)</small>
+</td></tr></tbody></table>
+<table class="wikitable" style="width:40%;">
+<tbody><tr>
+<th colspan="4">U15 <small>(Between Ethernet port and USB ports)</small>
+</th></tr>
+<tr>
+<th colspan="4">CSI1/TS
+</th></tr>
+<tr>
+<td>1</td>
+<td>VCC-5V
+</td>
+<td>2</td>
+<td><a href="../A10/PIO.html#PH15" title="A10/PIO">PH15</a> <small>(CSI1-PWR/EINT15)</small>
+</td></tr>
+<tr>
+<td>3</td>
+<td>CSI1-IO-2V8
+</td>
+<td>4</td>
+<td><a href="../A10/PIO.html#PH14" title="A10/PIO">PH14</a> <small>(CSI1-RST#/EINT14)</small>
+</td></tr>
+<tr>
+<td>5</td>
+<td><a href="../A10/PIO.html#PG0" title="A10/PIO">PG0</a> <small>(CSI1-PCLK/SDC1-CMD)</small>
+</td>
+<td>6</td>
+<td><a href="../A10/PIO.html#PB18" title="A10/PIO">PB18</a> <small>(TWI1-SCK)</small>
+</td></tr>
+<tr>
+<td>7</td>
+<td><a href="../A10/PIO.html#PB19" title="A10/PIO">PB19</a> <small>(TWI1-SDA)</small>
+</td>
+<td>8</td>
+<td><a href="../A10/PIO.html#PG3" title="A10/PIO">PG3</a> <small>(CSI1-VSYNC/SDC1-D1)</small>
+</td></tr>
+<tr>
+<td>9</td>
+<td><a href="../A10/PIO.html#PG2" title="A10/PIO">PG2</a> <small>(CSI1-HSYNC/SDC1-D0)</small>
+</td>
+<td>10</td>
+<td><a href="../A10/PIO.html#PG1" title="A10/PIO">PG1</a> <small>(CSI1-MCLK/SDC1-CLK)</small>
+</td></tr>
+<tr>
+<td>11</td>
+<td><a href="../A10/PIO.html#PG4" title="A10/PIO">PG4</a> <small>(CSI1-D0/SDC1-D2)</small>
+</td>
+<td>12</td>
+<td><a href="../A10/PIO.html#PG5" title="A10/PIO">PG5</a> <small>(CSI1-D1/SDC1-D3)</small>
+</td></tr>
+<tr>
+<td>13</td>
+<td><a href="../A10/PIO.html#PG6" title="A10/PIO">PG6</a> <small>(CSI1-D2/UART3-TX)</small>
+</td>
+<td>14</td>
+<td><a href="../A10/PIO.html#PG7" title="A10/PIO">PG7</a> <small>(CSI1-D3/UART3-RX)</small>
+</td></tr>
+<tr>
+<td>15</td>
+<td><a href="../A10/PIO.html#PG8" title="A10/PIO">PG8</a> <small>(CSI1-D4/UART3-RTS)</small>
+</td>
+<td>16</td>
+<td><a href="../A10/PIO.html#PG9" title="A10/PIO">PG9</a> <small>(CSI1-D5/UART3-CTS)</small>
+</td></tr>
+<tr>
+<td>17</td>
+<td><a href="../A10/PIO.html#PG10" title="A10/PIO">PG10</a> <small>(CSI1-D6/UART4-TX)</small>
+</td>
+<td>18</td>
+<td><a href="../A10/PIO.html#PG11" title="A10/PIO">PG11</a> <small>(CSI1-D7/UART4-RX)</small>
+</td></tr>
+<tr>
+<td>19</td>
+<td><i>Ground</i>
+</td>
+<td>20</td>
+<td><i>Ground</i>
+</td></tr>
+<tr>
+<th colspan="2">Analog
+</th>
+<th colspan="2">SDIO3
+</th></tr>
+<tr>
+<td>21</td>
+<td>FMINL
+</td>
+<td>22</td>
+<td><a href="../A10/PIO.html#PI4" title="A10/PIO">PI4</a> <small>(SDC3-CMD)</small>
+</td></tr>
+<tr>
+<td>23</td>
+<td>FMINR
+</td>
+<td>24</td>
+<td><a href="../A10/PIO.html#PI5" title="A10/PIO">PI5</a> <small>(SDC3-CLK)</small>
+</td></tr>
+<tr>
+<td>25</td>
+<td><i>Ground</i>
+</td>
+<td>26</td>
+<td><a href="../A10/PIO.html#PI6" title="A10/PIO">PI6</a> <small>(SDC3-D0)</small>
+</td></tr>
+<tr>
+<td>27</td>
+<td>VGA-R
+</td>
+<td>28</td>
+<td><a href="../A10/PIO.html#PI7" title="A10/PIO">PI7</a> <small>(SDC3-D1)</small>
+</td></tr>
+<tr>
+<td>29</td>
+<td>VGA-G
+</td>
+<td>30</td>
+<td><a href="../A10/PIO.html#PI8" title="A10/PIO">PI8</a> <small>(SDC3-D2)</small>
+</td></tr>
+<tr>
+<td>31</td>
+<td>VGA-B
+</td>
+<td>32</td>
+<td><a href="../A10/PIO.html#PI9" title="A10/PIO">PI9</a> <small>(SDC3-D3)</small>
+</td></tr>
+<tr>
+<td colspan="2">
+</td>
+<th colspan="2">CSI0/TS
+</th></tr>
+<tr>
+<td>33</td>
+<td>LCD1-VSYNC
+</td>
+<td>34</td>
+<td><a href="../A10/PIO.html#PE4" title="A10/PIO">PE4</a> <small>(CSI0-D0)</small>
+</td></tr>
+<tr>
+<td>35</td>
+<td>LCD1-HSYNC
+</td>
+<td>36</td>
+<td><a href="../A10/PIO.html#PE5" title="A10/PIO">PE5</a> <small>(CSI0-D1)</small>
+</td></tr>
+<tr>
+<td>37</td>
+<td><i>Ground</i>
+</td>
+<td>38</td>
+<td><a href="../A10/PIO.html#PE6" title="A10/PIO">PE6</a> <small>(CSI0-D2)</small>
+</td></tr>
+<tr>
+<td>39</td>
+<td>AVCC
+</td>
+<td>40</td>
+<td><a href="../A10/PIO.html#PE7" title="A10/PIO">PE7</a> <small>(CSI0-D3)</small>
+</td></tr>
+<tr>
+<td>41</td>
+<td>LRADC0
+</td>
+<td>42</td>
+<td><a href="../A10/PIO.html#PE8" title="A10/PIO">PE8</a> <small>(CSI0-D4)</small>
+</td></tr>
+<tr>
+<td>43</td>
+<td>CVBS
+</td>
+<td>44</td>
+<td><a href="../A10/PIO.html#PE9" title="A10/PIO">PE9</a> <small>(CSI0-D5)</small>
+</td></tr>
+<tr>
+<td>45</td>
+<td>HPL
+</td>
+<td>46</td>
+<td><a href="../A10/PIO.html#PE10" title="A10/PIO">PE10</a> <small>(CSI0-D6)</small>
+</td></tr>
+<tr>
+<td>47</td>
+<td>HPR
+</td>
+<td>48</td>
+<td><a href="../A10/PIO.html#PE11" title="A10/PIO">PE11</a> <small>(CSI0-D7)</small>
+</td></tr></tbody></table>
+<!-- 
+NewPP limit report
+Cached time: 20251029042530
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.121 seconds
+Real time usage: 0.215 seconds
+Preprocessor visited node count: 5/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:634-0!canonical and timestamp 20251029042530 and revision id 7499
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=Cubieboard/ExpansionPorts&amp;oldid=7499">https://linux-sunxi.org/index.php?title=Cubieboard/ExpansionPorts&amp;oldid=7499</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="../Special:Categories.html" title="Special:Categories">Category</a>: <ul><li><a href="../Category:Cubieboard.html" title="Category:Cubieboard">Cubieboard</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=Cubieboard%2FExpansionPorts" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=Cubieboard%2FExpansionPorts" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="ExpansionPorts.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:Cubieboard/ExpansionPorts&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="ExpansionPorts.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Cubieboard/ExpansionPorts&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Cubieboard/ExpansionPorts&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="../index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="../index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="../sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="../Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="../Special:WhatLinksHere/Cubieboard/ExpansionPorts.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/Cubieboard/ExpansionPorts" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="../Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=Cubieboard/ExpansionPorts&amp;oldid=7499" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=Cubieboard/ExpansionPorts&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 26 March 2014, at 16:40.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.121","walltime":"0.215","ppvisitednodes":{"value":5,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":0,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20251029042530","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":370});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

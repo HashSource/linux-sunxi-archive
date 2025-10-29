@@ -1,0 +1,2288 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>A80/Clock Control Module - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"3875bffec309e5eb8f652062","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"A80/Clock_Control_Module","wgTitle":"A80/Clock Control Module","wgCurRevisionId":11746,"wgRevisionId":11746,"wgArticleId":1802,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["A80 Register guide"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"A80/Clock_Control_Module","wgRelevantArticleId":1802,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":
+"ready","noscript":"ready","user.styles":"ready","user":"ready","user.options":"loading","ext.math.styles":"ready","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","ext.math.scripts","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=ext.math.styles%7Cmediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="Clock_Control_Module.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-A80_Clock_Control_Module rootpage-A80 skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">A80/Clock Control Module</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"><span class="subpages">&lt; <a href="../A80.html" title="A80">A80</a></span></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Clock_Control_Module"><span class="tocnumber">1</span> <span class="toctext">Clock Control Module</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Overview"><span class="tocnumber">1.1</span> <span class="toctext">Overview</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Clock_generation"><span class="tocnumber">1.2</span> <span class="toctext">Clock generation</span></a>
+<ul>
+<li class="toclevel-3 tocsection-4"><a href="#PLL"><span class="tocnumber">1.2.1</span> <span class="toctext">PLL</span></a></li>
+<li class="toclevel-3 tocsection-5"><a href="#Bus_clock_generation"><span class="tocnumber">1.2.2</span> <span class="toctext">Bus clock generation</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-6"><a href="#Clock_Control_Module_Registers"><span class="tocnumber">1.3</span> <span class="toctext">Clock Control Module Registers</span></a>
+<ul>
+<li class="toclevel-3 tocsection-7"><a href="#CCM_PLL1_CFG"><span class="tocnumber">1.3.1</span> <span class="toctext">CCM_PLL1_CFG</span></a></li>
+<li class="toclevel-3 tocsection-8"><a href="#CCM_PLL2_CFG"><span class="tocnumber">1.3.2</span> <span class="toctext">CCM_PLL2_CFG</span></a></li>
+<li class="toclevel-3 tocsection-9"><a href="#CCM_PLL4_CFG"><span class="tocnumber">1.3.3</span> <span class="toctext">CCM_PLL4_CFG</span></a></li>
+<li class="toclevel-3 tocsection-10"><a href="#CCM_PLL12_CFG"><span class="tocnumber">1.3.4</span> <span class="toctext">CCM_PLL12_CFG</span></a></li>
+<li class="toclevel-3 tocsection-11"><a href="#CCM_APB0_GATE"><span class="tocnumber">1.3.5</span> <span class="toctext">CCM_APB0_GATE</span></a></li>
+<li class="toclevel-3 tocsection-12"><a href="#CCM_APB1_GATE"><span class="tocnumber">1.3.6</span> <span class="toctext">CCM_APB1_GATE</span></a></li>
+<li class="toclevel-3 tocsection-13"><a href="#CCM_APB0_RST"><span class="tocnumber">1.3.7</span> <span class="toctext">CCM_APB0_RST</span></a></li>
+<li class="toclevel-3 tocsection-14"><a href="#CCM_APB1_RST"><span class="tocnumber">1.3.8</span> <span class="toctext">CCM_APB1_RST</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Clock_Control_Module">Clock Control Module</span></h1>
+<h2><span class="mw-headline" id="Overview">Overview</span></h2>
+<p>Allwinner's A80 has 12 <a class="external text" href="http://en.wikipedia.org/wiki/Phase-locked_loop">Phase Locking Loop's (PLL's)</a>, and a 24MHz main crystal oscillator.
+A low power 32.768 KHz clock is supplied externally, by the AC100 chip.
+</p><p>The 24MHz crystal oscillator is mandatory and is responsible for supplying a clock source for the PLL.
+The 32kHz clock is only used by a few devices.
+</p><p>Many devices being driving by any of these clocks have often 2 clocks connected to them.
+One of the clocks drives the module itself, the other clock matches the bus to whatever it is connected (usually the CPU).
+</p>
+<h2><span class="mw-headline" id="Clock_generation">Clock generation</span></h2>
+<p>All PLL's are fed from the 24 MHz reference clock.
+</p>
+<h3><span class="mw-headline" id="PLL">PLL</span></h3>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Input
+</th>
+<th>Speed range
+</th>
+<th>Output
+</th>
+<th>Defines
+</th></tr>
+<tr>
+<td>PLL1
+</td>
+<td>24 MHz
+</td>
+<td><tt>?? MHz -&#160;?? GHz</tt>
+</td>
+<td><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle 24\,\mathrm {MHz} \times {\frac {N}{P}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mn>24</mn>
+        <mspace width="thinmathspace" />
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">M</mi>
+          <mi mathvariant="normal">H</mi>
+          <mi mathvariant="normal">z</mi>
+        </mrow>
+        <mo>&#x00D7;<!-- × --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mi>N</mi>
+            <mi>P</mi>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle 24\,\mathrm {MHz} \times {\frac {N}{P}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/65ba9b67bed31af6d9f6714b81f8d455348bd742" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.838ex; width:13.359ex; height:5.176ex;" alt="{\displaystyle 24\,\mathrm {MHz} \times {\frac {N}{P}}}"/></span>
+</td>
+<td><tt>
+</tt><p><tt>N = {0, 1 ... 255}<br />
+P = {1, 4}<br />
+</tt>
+</p>
+</td></tr>
+<tr>
+<td>PLL2
+</td>
+<td>24 MHz
+</td>
+<td><tt>?? MHz -&#160;?? GHz</tt>
+</td>
+<td><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle 24\,\mathrm {MHz} \times {\frac {N}{P}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mn>24</mn>
+        <mspace width="thinmathspace" />
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">M</mi>
+          <mi mathvariant="normal">H</mi>
+          <mi mathvariant="normal">z</mi>
+        </mrow>
+        <mo>&#x00D7;<!-- × --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mi>N</mi>
+            <mi>P</mi>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle 24\,\mathrm {MHz} \times {\frac {N}{P}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/65ba9b67bed31af6d9f6714b81f8d455348bd742" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.838ex; width:13.359ex; height:5.176ex;" alt="{\displaystyle 24\,\mathrm {MHz} \times {\frac {N}{P}}}"/></span>
+</td>
+<td><tt>
+</tt><p><tt>N = {0, 1 ... 255}<br />
+P = {1, 4}<br />
+</tt>
+</p>
+</td></tr>
+<tr>
+<td>PLL4
+</td>
+<td>24 MHz
+</td>
+<td><tt>?? MHz -&#160;?? GHz</tt>
+</td>
+<td><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle 24\,\mathrm {MHz} \times {\frac {N}{D_{1}\times D_{2}}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mn>24</mn>
+        <mspace width="thinmathspace" />
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">M</mi>
+          <mi mathvariant="normal">H</mi>
+          <mi mathvariant="normal">z</mi>
+        </mrow>
+        <mo>&#x00D7;<!-- × --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mi>N</mi>
+            <mrow>
+              <msub>
+                <mi>D</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>1</mn>
+                </mrow>
+              </msub>
+              <mo>&#x00D7;<!-- × --></mo>
+              <msub>
+                <mi>D</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msub>
+            </mrow>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle 24\,\mathrm {MHz} \times {\frac {N}{D_{1}\times D_{2}}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/6ea6d66439a74109cdb833dc787f6fddb4f21383" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.171ex; width:20.092ex; height:5.509ex;" alt="{\displaystyle 24\,\mathrm {MHz} \times {\frac {N}{D_{1}\times D_{2}}}}"/></span><br /><br />
+</td>
+<td><tt>
+</tt><p><tt>N = {0, 1 ... 255}<br />
+D<sub>1</sub> = {1, 2}<br />
+D<sub>2</sub> = {1, 2}<br />
+</tt>
+</p>
+</td></tr>
+<tr>
+<td>PLL12
+</td>
+<td>24 MHz
+</td>
+<td><tt>?? MHz -&#160;?? GHz</tt>
+</td>
+<td><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle 24\,\mathrm {MHz} \times {\frac {N}{D_{1}\times D_{2}}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mn>24</mn>
+        <mspace width="thinmathspace" />
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">M</mi>
+          <mi mathvariant="normal">H</mi>
+          <mi mathvariant="normal">z</mi>
+        </mrow>
+        <mo>&#x00D7;<!-- × --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mi>N</mi>
+            <mrow>
+              <msub>
+                <mi>D</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>1</mn>
+                </mrow>
+              </msub>
+              <mo>&#x00D7;<!-- × --></mo>
+              <msub>
+                <mi>D</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msub>
+            </mrow>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle 24\,\mathrm {MHz} \times {\frac {N}{D_{1}\times D_{2}}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/6ea6d66439a74109cdb833dc787f6fddb4f21383" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.171ex; width:20.092ex; height:5.509ex;" alt="{\displaystyle 24\,\mathrm {MHz} \times {\frac {N}{D_{1}\times D_{2}}}}"/></span><br /><br />
+</td>
+<td><tt>
+</tt><p><tt>N = {0, 1 ... 255}<br />
+D<sub>1</sub> = {1, 2}<br />
+D<sub>2</sub> = {1, 2}<br />
+</tt>
+</p>
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="Bus_clock_generation">Bus clock generation</span></h3>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Input
+</th>
+<th>Output
+</th>
+<th>Defines
+</th></tr>
+<tr>
+<td>CLUSTER0
+</td>
+<td>{24MHZ, PLL1}
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td>CLUSTER1
+</td>
+<td>{24MHZ, PLL2}
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td>AXI0
+</td>
+<td>CLUSTER0
+</td>
+<td><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\frac {\mathrm {Input} }{M}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi mathvariant="normal">I</mi>
+              <mi mathvariant="normal">n</mi>
+              <mi mathvariant="normal">p</mi>
+              <mi mathvariant="normal">u</mi>
+              <mi mathvariant="normal">t</mi>
+            </mrow>
+            <mi>M</mi>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\frac {\mathrm {Input} }{M}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/12f1d5e3aa52861e6eeb41cd397138e7b4e4f170" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.838ex; width:6.458ex; height:5.343ex;" alt="{\displaystyle {\frac {\mathrm {Input} }{M}}}"/></span>
+</td>
+<td><tt>M = {1, 2, 3, 4}</tt>
+</td></tr>
+<tr>
+<td>AXI1
+</td>
+<td>CLUSTER1
+</td>
+<td><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\frac {\mathrm {Input} }{M}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi mathvariant="normal">I</mi>
+              <mi mathvariant="normal">n</mi>
+              <mi mathvariant="normal">p</mi>
+              <mi mathvariant="normal">u</mi>
+              <mi mathvariant="normal">t</mi>
+            </mrow>
+            <mi>M</mi>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\frac {\mathrm {Input} }{M}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/12f1d5e3aa52861e6eeb41cd397138e7b4e4f170" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.838ex; width:6.458ex; height:5.343ex;" alt="{\displaystyle {\frac {\mathrm {Input} }{M}}}"/></span>
+</td>
+<td><tt>M = {1, 2, 3, 4}</tt>
+</td></tr>
+<tr>
+<td>GT
+</td>
+<td>{24MHZ, PLL4, PLL12, PLL12}
+</td>
+<td><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\frac {\mathrm {Input} }{M}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi mathvariant="normal">I</mi>
+              <mi mathvariant="normal">n</mi>
+              <mi mathvariant="normal">p</mi>
+              <mi mathvariant="normal">u</mi>
+              <mi mathvariant="normal">t</mi>
+            </mrow>
+            <mi>M</mi>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\frac {\mathrm {Input} }{M}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/12f1d5e3aa52861e6eeb41cd397138e7b4e4f170" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.838ex; width:6.458ex; height:5.343ex;" alt="{\displaystyle {\frac {\mathrm {Input} }{M}}}"/></span>
+</td>
+<td><tt>M = {1, 2, 3, 4}</tt>
+</td></tr>
+<tr>
+<td>AHB0
+</td>
+<td>{GT, PLL4, PLL12, PLL12}
+</td>
+<td><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\frac {\mathrm {Input} }{P}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi mathvariant="normal">I</mi>
+              <mi mathvariant="normal">n</mi>
+              <mi mathvariant="normal">p</mi>
+              <mi mathvariant="normal">u</mi>
+              <mi mathvariant="normal">t</mi>
+            </mrow>
+            <mi>P</mi>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\frac {\mathrm {Input} }{P}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/50f06149e4639ec01f8b3850d826cf4f61d5d8ff" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.838ex; width:6.458ex; height:5.343ex;" alt="{\displaystyle {\frac {\mathrm {Input} }{P}}}"/></span>
+</td>
+<td><tt>P = {1, 2, 4, 8}</tt>
+</td></tr>
+<tr>
+<td>AHB1
+</td>
+<td>{GT, PLL4, PLL12, PLL12}
+</td>
+<td><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\frac {\mathrm {Input} }{P}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi mathvariant="normal">I</mi>
+              <mi mathvariant="normal">n</mi>
+              <mi mathvariant="normal">p</mi>
+              <mi mathvariant="normal">u</mi>
+              <mi mathvariant="normal">t</mi>
+            </mrow>
+            <mi>P</mi>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\frac {\mathrm {Input} }{P}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/50f06149e4639ec01f8b3850d826cf4f61d5d8ff" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.838ex; width:6.458ex; height:5.343ex;" alt="{\displaystyle {\frac {\mathrm {Input} }{P}}}"/></span>
+</td>
+<td><tt>P = {1, 2, 4, 8}</tt>
+</td></tr>
+<tr>
+<td>AHB2
+</td>
+<td>{GT, PLL4, PLL12, PLL12}
+</td>
+<td><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\frac {\mathrm {Input} }{P}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi mathvariant="normal">I</mi>
+              <mi mathvariant="normal">n</mi>
+              <mi mathvariant="normal">p</mi>
+              <mi mathvariant="normal">u</mi>
+              <mi mathvariant="normal">t</mi>
+            </mrow>
+            <mi>P</mi>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\frac {\mathrm {Input} }{P}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/50f06149e4639ec01f8b3850d826cf4f61d5d8ff" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.838ex; width:6.458ex; height:5.343ex;" alt="{\displaystyle {\frac {\mathrm {Input} }{P}}}"/></span>
+</td>
+<td><tt>P = {1, 2, 4, 8}</tt>
+</td></tr>
+<tr>
+<td>APB0
+</td>
+<td>{24MHZ, PLL4}
+</td>
+<td><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\frac {\mathrm {Input} }{P}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi mathvariant="normal">I</mi>
+              <mi mathvariant="normal">n</mi>
+              <mi mathvariant="normal">p</mi>
+              <mi mathvariant="normal">u</mi>
+              <mi mathvariant="normal">t</mi>
+            </mrow>
+            <mi>P</mi>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\frac {\mathrm {Input} }{P}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/50f06149e4639ec01f8b3850d826cf4f61d5d8ff" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.838ex; width:6.458ex; height:5.343ex;" alt="{\displaystyle {\frac {\mathrm {Input} }{P}}}"/></span>
+</td>
+<td><tt>P = {1, 2, 4, 8}</tt>
+</td></tr>
+<tr>
+<td>APB1
+</td>
+<td>{24MHZ, PLL4}
+</td>
+<td><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\frac {\mathrm {Input} }{M\times P}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi mathvariant="normal">I</mi>
+              <mi mathvariant="normal">n</mi>
+              <mi mathvariant="normal">p</mi>
+              <mi mathvariant="normal">u</mi>
+              <mi mathvariant="normal">t</mi>
+            </mrow>
+            <mrow>
+              <mi>M</mi>
+              <mo>&#x00D7;<!-- × --></mo>
+              <mi>P</mi>
+            </mrow>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\frac {\mathrm {Input} }{M\times P}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d5bff13be2603b3b00f00d0ef6e5a0a20c2a7a09" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.838ex; width:7.864ex; height:5.343ex;" alt="{\displaystyle {\frac {\mathrm {Input} }{M\times P}}}"/></span>
+</td>
+<td><tt>
+</tt><p><tt>M = {1, 2 ... 32}<br />
+P = {1, 2, 4, 8}
+</tt>
+</p>
+</td></tr>
+<tr>
+<td>CCI400
+</td>
+<td>{24MHZ, PLL4, PLL12, PLL12}
+</td>
+<td><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\frac {\mathrm {Input} }{M}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi mathvariant="normal">I</mi>
+              <mi mathvariant="normal">n</mi>
+              <mi mathvariant="normal">p</mi>
+              <mi mathvariant="normal">u</mi>
+              <mi mathvariant="normal">t</mi>
+            </mrow>
+            <mi>M</mi>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\frac {\mathrm {Input} }{M}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/12f1d5e3aa52861e6eeb41cd397138e7b4e4f170" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.838ex; width:6.458ex; height:5.343ex;" alt="{\displaystyle {\frac {\mathrm {Input} }{M}}}"/></span>
+</td>
+<td><tt>M = {1, 2, 3, 4}</tt>
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="Clock_Control_Module_Registers">Clock Control Module Registers</span></h2>
+<p>Clock Control Module Base address: 0x06000000
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Register Name
+</th>
+<th>Offset
+</th>
+<th>Size
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>CCM_PLL1_CFG</tt>
+</td>
+<td><tt>0x0000</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt>PLL1 Control (Cluster 0 CPU)</tt>
+</td></tr>
+<tr>
+<td><tt>CCM_PLL2_CFG</tt>
+</td>
+<td><tt>0x0004</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt>PLL2 Control (Cluster 1 CPU)</tt>
+</td></tr>
+<tr>
+<td><tt>CCM_PLL3_CFG</tt>
+</td>
+<td><tt>0x0008</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt>PLL3 Control (Audio)</tt>
+</td></tr>
+<tr>
+<td><tt>CCM_PLL4_CFG</tt>
+</td>
+<td><tt>0x000c</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt>PLL4 Control (Peripheral 0)</tt>
+</td></tr>
+<tr>
+<td><tt>CCM_PLL5_CFG</tt>
+</td>
+<td><tt>0x0010</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt>PLL5 Control (Video Engine)</tt>
+</td></tr>
+<tr>
+<td><tt>CCM_PLL6_CFG</tt>
+</td>
+<td><tt>0x0014</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt>PLL6 Control (DDR)</tt>
+</td></tr>
+<tr>
+<td><tt>CCM_PLL7_CFG</tt>
+</td>
+<td><tt>0x0018</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt>PLL7 Control (Video 0)</tt>
+</td></tr>
+<tr>
+<td><tt>CCM_PLL8_CFG</tt>
+</td>
+<td><tt>0x001c</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt>PLL8 Control (Video 1)</tt>
+</td></tr>
+<tr>
+<td><tt>CCM_PLL9_CFG</tt>
+</td>
+<td><tt>0x0020</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt>PLL9 Control (GPU)</tt>
+</td></tr>
+<tr>
+<td><tt>CCM_PLL10_CFG</tt>
+</td>
+<td><tt>0x0024</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt>PLL10 Control (Display Engine)</tt>
+</td></tr>
+<tr>
+<td><tt>CCM_PLL11_CFG</tt>
+</td>
+<td><tt>0x0028</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt>PLL11 Control (Image Signal Processor)</tt>
+</td></tr>
+<tr>
+<td><tt>CCM_PLL12_CFG</tt>
+</td>
+<td><tt>0x002c</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt>PLL12 Control (Peripheral 1)</tt>
+</td></tr>
+<tr>
+<td><tt>CCM_CPU_CFG</tt>
+</td>
+<td><tt>0x0050</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt>CPU Cluster clock mux</tt>
+</td></tr>
+<tr>
+<td><tt>CCM_AXI0_CFG</tt>
+</td>
+<td><tt>0x0054</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt>AXI0 bus clock division ratio</tt>
+</td></tr>
+<tr>
+<td><tt>CCM_AXI1_CFG</tt>
+</td>
+<td><tt>0x0058</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt>AXI1 bus clock division ratio</tt>
+</td></tr>
+<tr>
+<td><tt>CCM_GT_CFG</tt>
+</td>
+<td><tt>0x005c</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt>GT bus clock mux and division ratio</tt>
+</td></tr>
+<tr>
+<td><tt>CCM_AHB0_CFG</tt>
+</td>
+<td><tt>0x0060</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt>AHB0 bus clock mux and division ratio</tt>
+</td></tr>
+<tr>
+<td><tt>CCM_AHB1_CFG</tt>
+</td>
+<td><tt>0x0064</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt>AHB1 bus clock mux and division ratio</tt>
+</td></tr>
+<tr>
+<td><tt>CCM_AHB2_CFG</tt>
+</td>
+<td><tt>0x0068</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt>AHB2 bus clock mux and division ratio</tt>
+</td></tr>
+<tr>
+<td><tt>CCM_APB0_CFG</tt>
+</td>
+<td><tt>0x0070</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt>APB0 bus clock mux and division ratio</tt>
+</td></tr>
+<tr>
+<td><tt>CCM_APB1_CFG</tt>
+</td>
+<td><tt>0x0074</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt>APB1 bus clock mux and division ratio</tt>
+</td></tr>
+<tr>
+<td><tt>CCM_CCI_CFG</tt>
+</td>
+<td><tt>0x0078</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt>CCI clock mux and division ratio</tt>
+</td></tr>
+<tr>
+<td><tt>CCM_AHB0_GATE</tt>
+</td>
+<td><tt>0x0580</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt>AHB0 module clock gating</tt>
+</td></tr>
+<tr>
+<td><tt>CCM_AHB1_GATE</tt>
+</td>
+<td><tt>0x0584</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt>AHB1 module clock gating</tt>
+</td></tr>
+<tr>
+<td><tt>CCM_AHB2_GATE</tt>
+</td>
+<td><tt>0x0588</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt>AHB2 module clock gating</tt>
+</td></tr>
+<tr>
+<td><tt>CCM_APB0_GATE</tt>
+</td>
+<td><tt>0x0590</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt>APB0 module clock gating</tt>
+</td></tr>
+<tr>
+<td><tt>CCM_APB1_GATE</tt>
+</td>
+<td><tt>0x0594</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt>APB1 module clock gating</tt>
+</td></tr>
+<tr>
+<td><tt>CCM_AHB0_RST</tt>
+</td>
+<td><tt>0x05a0</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt>AHB0 module reset control</tt>
+</td></tr>
+<tr>
+<td><tt>CCM_AHB1_RST</tt>
+</td>
+<td><tt>0x05a4</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt>AHB1 module reset control</tt>
+</td></tr>
+<tr>
+<td><tt>CCM_AHB2_RST</tt>
+</td>
+<td><tt>0x05a8</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt>AHB2 module reset control</tt>
+</td></tr>
+<tr>
+<td><tt>CCM_APB0_RST</tt>
+</td>
+<td><tt>0x05b0</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt>APB0 module reset control</tt>
+</td></tr>
+<tr>
+<td><tt>CCM_APB1_RST</tt>
+</td>
+<td><tt>0x05b4</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt>APB1 module reset control</tt>
+</td></tr>
+</tbody></table>
+<h3><span class="mw-headline" id="CCM_PLL1_CFG">CCM_PLL1_CFG</span></h3>
+<p>Default value:&#160;??<br />
+Offset: 0x0000
+</p>
+<table class="wikitable">
+
+<tbody><tr>
+<td style="text-align: center" colspan="6">Reserved
+</td></tr>
+<tr>
+<td><tt>CCM_PLL1_N</tt>
+</td>
+<td><tt>8:15</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>??</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0x00 = 0
+    0x01 = 1
+    ...
+    0xff = 255
+  </tt>
+</pre>
+</td>
+<td>PLL1 factor N
+</td></tr>
+<tr>
+<td><tt>CCM_PLL1_P</tt>
+</td>
+<td><tt>16</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = 1
+    1 = 4
+  </tt>
+</pre>
+</td>
+<td>External factor P
+</td></tr>
+<tr>
+<td style="text-align: center" colspan="6">Reserved
+</td></tr>
+<tr>
+<td><tt>??</tt>
+</td>
+<td><tt>25</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td>
+</td>
+<td>Set but Unknown
+</td></tr>
+<tr>
+<td style="text-align: center" colspan="6">Reserved
+</td></tr>
+<tr>
+<td><tt>CCM_PLL1_EN</tt>
+</td>
+<td><tt>31</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = disable
+    1 = enable
+  </tt>
+</pre>
+</td>
+<td><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle 24\,\mathrm {MHz} \times {\frac {N}{P}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mn>24</mn>
+        <mspace width="thinmathspace" />
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">M</mi>
+          <mi mathvariant="normal">H</mi>
+          <mi mathvariant="normal">z</mi>
+        </mrow>
+        <mo>&#x00D7;<!-- × --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mi>N</mi>
+            <mi>P</mi>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle 24\,\mathrm {MHz} \times {\frac {N}{P}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/65ba9b67bed31af6d9f6714b81f8d455348bd742" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.838ex; width:13.359ex; height:5.176ex;" alt="{\displaystyle 24\,\mathrm {MHz} \times {\frac {N}{P}}}"/></span><br />
+<p>The default value for the output is&#160;?? MHz.<br />
+If bypass is disabled, the result must be <tt>?? MHz -&#160;?? GHz</tt>
+</p>
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="CCM_PLL2_CFG">CCM_PLL2_CFG</span></h3>
+<p>Default value:&#160;??<br />
+Offset: 0x0004
+</p>
+<table class="wikitable">
+
+<tbody><tr>
+<td style="text-align: center" colspan="6">Reserved
+</td></tr>
+<tr>
+<td><tt>CCM_PLL2_N</tt>
+</td>
+<td><tt>8:15</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>??</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0x00 = 0
+    0x01 = 1
+    ...
+    0xff = 255
+  </tt>
+</pre>
+</td>
+<td>PLL2 factor N
+</td></tr>
+<tr>
+<td><tt>CCM_PLL2_P</tt>
+</td>
+<td><tt>16</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = 1
+    1 = 4
+  </tt>
+</pre>
+</td>
+<td>External factor P
+</td></tr>
+<tr>
+<td style="text-align: center" colspan="6">Reserved
+</td></tr>
+<tr>
+<td><tt>??</tt>
+</td>
+<td><tt>25</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td>
+</td>
+<td>Set but Unknown
+</td></tr>
+<tr>
+<td style="text-align: center" colspan="6">Reserved
+</td></tr>
+<tr>
+<td><tt>CCM_PLL2_EN</tt>
+</td>
+<td><tt>31</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = disable
+    1 = enable
+  </tt>
+</pre>
+</td>
+<td><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle 24\,\mathrm {MHz} \times {\frac {N}{P}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mn>24</mn>
+        <mspace width="thinmathspace" />
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">M</mi>
+          <mi mathvariant="normal">H</mi>
+          <mi mathvariant="normal">z</mi>
+        </mrow>
+        <mo>&#x00D7;<!-- × --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mi>N</mi>
+            <mi>P</mi>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle 24\,\mathrm {MHz} \times {\frac {N}{P}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/65ba9b67bed31af6d9f6714b81f8d455348bd742" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.838ex; width:13.359ex; height:5.176ex;" alt="{\displaystyle 24\,\mathrm {MHz} \times {\frac {N}{P}}}"/></span><br />
+<p>The default value for the output is&#160;?? MHz.<br />
+If bypass is disabled, the result must be <tt>?? MHz -&#160;?? GHz</tt>
+</p>
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="CCM_PLL4_CFG">CCM_PLL4_CFG</span></h3>
+<p>Default value:&#160;??<br />
+Offset: 0x000c
+</p>
+<table class="wikitable">
+
+<tbody><tr>
+<td style="text-align: center" colspan="6">Reserved
+</td></tr>
+<tr>
+<td><tt>CCM_PLL4_N</tt>
+</td>
+<td><tt>8:15</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>??</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0x00 = 0
+    0x01 = 1
+    ...
+    0xff = 255
+  </tt>
+</pre>
+</td>
+<td>PLL4 factor N
+</td></tr>
+<tr>
+<td><tt>CCM_PLL4_D_1</tt>
+</td>
+<td><tt>16</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = 1
+    1 = 2
+  </tt>
+</pre>
+</td>
+<td>PLL4 Divider 1
+</td></tr>
+<tr>
+<td style="text-align: center" colspan="6">Reserved
+</td></tr>
+<tr>
+<td><tt>CCM_PLL4_D_2</tt>
+</td>
+<td><tt>18</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = 1
+    1 = 2
+  </tt>
+</pre>
+</td>
+<td>PLL4 Divider 2
+</td></tr>
+<tr>
+<td style="text-align: center" colspan="6">Reserved
+</td></tr>
+<tr>
+<td><tt>CCM_PLL4_EN</tt>
+</td>
+<td><tt>31</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = disable
+    1 = enable
+  </tt>
+</pre>
+</td>
+<td><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle 24\,\mathrm {MHz} \times {\frac {N}{D_{1}\times D_{2}}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mn>24</mn>
+        <mspace width="thinmathspace" />
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">M</mi>
+          <mi mathvariant="normal">H</mi>
+          <mi mathvariant="normal">z</mi>
+        </mrow>
+        <mo>&#x00D7;<!-- × --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mi>N</mi>
+            <mrow>
+              <msub>
+                <mi>D</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>1</mn>
+                </mrow>
+              </msub>
+              <mo>&#x00D7;<!-- × --></mo>
+              <msub>
+                <mi>D</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msub>
+            </mrow>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle 24\,\mathrm {MHz} \times {\frac {N}{D_{1}\times D_{2}}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/6ea6d66439a74109cdb833dc787f6fddb4f21383" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.171ex; width:20.092ex; height:5.509ex;" alt="{\displaystyle 24\,\mathrm {MHz} \times {\frac {N}{D_{1}\times D_{2}}}}"/></span><br />
+<p>The default value for the output is&#160;?? MHz.<br />
+If bypass is disabled, the result must be <tt>?? MHz -&#160;?? GHz</tt>
+</p>
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="CCM_PLL12_CFG">CCM_PLL12_CFG</span></h3>
+<p>Default value:&#160;??<br />
+Offset: 0x002c
+</p>
+<table class="wikitable">
+
+<tbody><tr>
+<td style="text-align: center" colspan="6">Reserved
+</td></tr>
+<tr>
+<td><tt>CCM_PLL12_N</tt>
+</td>
+<td><tt>8:15</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>??</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0x00 = 0
+    0x01 = 1
+    ...
+    0xff = 255
+  </tt>
+</pre>
+</td>
+<td>PLL12 factor N
+</td></tr>
+<tr>
+<td><tt>CCM_PLL12_D_1</tt>
+</td>
+<td><tt>16</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = 1
+    1 = 2
+  </tt>
+</pre>
+</td>
+<td>PLL12 Divider 1
+</td></tr>
+<tr>
+<td style="text-align: center" colspan="6">Reserved
+</td></tr>
+<tr>
+<td><tt>CCM_PLL12_D_2</tt>
+</td>
+<td><tt>18</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = 1
+    1 = 2
+  </tt>
+</pre>
+</td>
+<td>PLL12 Divider 2
+</td></tr>
+<tr>
+<td style="text-align: center" colspan="6">Reserved
+</td></tr>
+<tr>
+<td><tt>CCM_PLL12_EN</tt>
+</td>
+<td><tt>31</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = disable
+    1 = enable
+  </tt>
+</pre>
+</td>
+<td><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle 24\,\mathrm {MHz} \times {\frac {N}{D_{1}\times D_{2}}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mn>24</mn>
+        <mspace width="thinmathspace" />
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">M</mi>
+          <mi mathvariant="normal">H</mi>
+          <mi mathvariant="normal">z</mi>
+        </mrow>
+        <mo>&#x00D7;<!-- × --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mi>N</mi>
+            <mrow>
+              <msub>
+                <mi>D</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>1</mn>
+                </mrow>
+              </msub>
+              <mo>&#x00D7;<!-- × --></mo>
+              <msub>
+                <mi>D</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msub>
+            </mrow>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle 24\,\mathrm {MHz} \times {\frac {N}{D_{1}\times D_{2}}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/6ea6d66439a74109cdb833dc787f6fddb4f21383" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.171ex; width:20.092ex; height:5.509ex;" alt="{\displaystyle 24\,\mathrm {MHz} \times {\frac {N}{D_{1}\times D_{2}}}}"/></span><br />
+<p>The default value for the output is&#160;?? MHz.<br />
+If bypass is disabled, the result must be <tt>?? MHz -&#160;?? GHz</tt>
+</p>
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="CCM_APB0_GATE">CCM_APB0_GATE</span></h3>
+<p>Default value: 0x00000000<br />
+Offset: 0x0590
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default (Hex)
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td style="text-align: center" colspan="6">Reserved
+</td></tr>
+<tr>
+<td><tt>CCM_APB0_SPDIF</tt>
+</td>
+<td><tt>1</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = mask
+    1 = pass
+  </tt>
+</pre>
+</td>
+<td>APB0 SPDIF clock gate
+</td></tr>
+<tr>
+<td style="text-align: center" colspan="6">Reserved
+</td></tr>
+<tr>
+<td><tt>CCM_APB0_GATE_PIO</tt>
+</td>
+<td><tt>5</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = mask
+    1 = pass
+  </tt>
+</pre>
+</td>
+<td>APB0 PIO clock gate
+</td></tr>
+<tr>
+<td style="text-align: center" colspan="6">Reserved
+</td></tr>
+<tr>
+<td><tt>CCM_APB0_GATE_AC97</tt>
+</td>
+<td><tt>11</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = mask
+    1 = pass
+  </tt>
+</pre>
+</td>
+<td>APB0 AC97 clock gate
+</td></tr>
+<tr>
+<td><tt>CCM_APB0_GATE_I2S0</tt>
+</td>
+<td><tt>12</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = mask
+    1 = pass
+  </tt>
+</pre>
+</td>
+<td>APB0 I2S0 clock gate
+</td></tr>
+<tr>
+<td><tt>CCM_APB0_GATE_I2S1</tt>
+</td>
+<td><tt>13</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = mask
+    1 = pass
+  </tt>
+</pre>
+</td>
+<td>APB0 I2S1 clock gate
+</td></tr>
+<tr>
+<td style="text-align: center" colspan="6">Reserved
+</td></tr>
+<tr>
+<td><tt>CCM_APB0_GATE_LRADC</tt>
+</td>
+<td><tt>15</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = mask
+    1 = pass
+  </tt>
+</pre>
+</td>
+<td>APB0 LRADC clock gate
+</td></tr>
+<tr>
+<td style="text-align: center" colspan="6">Reserved
+</td></tr>
+<tr>
+<td><tt>CCM_APB0_GATE_GPADC</tt>
+</td>
+<td><tt>17</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = mask
+    1 = pass
+  </tt>
+</pre>
+</td>
+<td>APB0 GPADC clock gate
+</td></tr>
+<tr>
+<td><tt>CCM_APB0_GATE_TWD</tt>
+</td>
+<td><tt>18</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = mask
+    1 = pass
+  </tt>
+</pre>
+</td>
+<td>APB0 TWD clock gate
+</td></tr>
+<tr>
+<td><tt>CCM_APB_GATE_CIR_TX</tt>
+</td>
+<td><tt>19</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = mask
+    1 = pass
+  </tt>
+</pre>
+</td>
+<td>APB0 CIR_TX clock gate
+</td></tr>
+<tr>
+<td style="text-align: center" colspan="6">Reserved
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="CCM_APB1_GATE">CCM_APB1_GATE</span></h3>
+<p>Default value: 0x00000000<br />
+Offset: 0x0594
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default (Hex)
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>CCM_APB1_GATE_TWI0</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = mask
+    1 = pass
+  </tt>
+</pre>
+</td>
+<td>APB1 TWI0 clock gate pass- or masking
+</td></tr>
+<tr>
+<td><tt>CCM_APB1_GATE_TWI1</tt>
+</td>
+<td><tt>1</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = mask
+    1 = pass
+  </tt>
+</pre>
+</td>
+<td>APB1 TWI1 clock gate pass- or masking
+</td></tr>
+<tr>
+<td><tt>CCM_APB_GATE_TWI2</tt>
+</td>
+<td><tt>2</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = mask
+    1 = pass
+  </tt>
+</pre>
+</td>
+<td>APB1 TWI2 clock gate pass- or masking
+</td></tr>
+<tr>
+<td><tt>CCM_APB_GATE_TWI3</tt>
+</td>
+<td><tt>3</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = mask
+    1 = pass
+  </tt>
+</pre>
+</td>
+<td>APB1 TWI3 clock gate pass- or masking
+</td></tr>
+<tr>
+<td><tt>CCM_APB_GATE_TWI4</tt>
+</td>
+<td><tt>4</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = mask
+    1 = pass
+  </tt>
+</pre>
+</td>
+<td>APB1 TWI4 clock gate pass- or masking
+</td></tr>
+<tr>
+<td style="text-align: center" colspan="6">Reserved
+</td></tr>
+<tr>
+<td><tt>CCM_APB1_GATE_UART0</tt>
+</td>
+<td><tt>16</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = mask
+    1 = pass
+  </tt>
+</pre>
+</td>
+<td>APB1 UART0 clock gate pass- or masking
+</td></tr>
+<tr>
+<td><tt>CCM_APB1_GATE_UART1</tt>
+</td>
+<td><tt>17</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = mask
+    1 = pass
+  </tt>
+</pre>
+</td>
+<td>APB1 UART1 clock gate pass- or masking
+</td></tr>
+<tr>
+<td><tt>CCM_APB1_GATE_UART2</tt>
+</td>
+<td><tt>18</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = mask
+    1 = pass
+  </tt>
+</pre>
+</td>
+<td>APB1 UART2 clock gate pass- or masking
+</td></tr>
+<tr>
+<td><tt>CCM_APB1_GATE_UART3</tt>
+</td>
+<td><tt>19</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = mask
+    1 = pass
+  </tt>
+</pre>
+</td>
+<td>APB1 UART3 clock gate pass- or masking
+</td></tr>
+<tr>
+<td><tt>CCM_APB1_GATE_UART4</tt>
+</td>
+<td><tt>20</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = mask
+    1 = pass
+  </tt>
+</pre>
+</td>
+<td>APB1 UART4 clock gate pass- or masking
+</td></tr>
+<tr>
+<td><tt>CCM_APB_GATE_UART5</tt>
+</td>
+<td><tt>21</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = mask
+    1 = pass
+  </tt>
+</pre>
+</td>
+<td>APB1 UART5 clock gate pass- or masking
+</td></tr>
+<tr>
+<td style="text-align: center" colspan="6">Reserved
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="CCM_APB0_RST">CCM_APB0_RST</span></h3>
+<p>Default value: 0x00000000<br />
+Offset: 0x0590
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default (Hex)
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td style="text-align: center" colspan="6">Reserved
+</td></tr>
+<tr>
+<td><tt>CCM_APB0_SPDIF</tt>
+</td>
+<td><tt>1</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = assert
+    1 = de-assert
+  </tt>
+</pre>
+</td>
+<td>APB0 SPDIF reset control
+</td></tr>
+<tr>
+<td style="text-align: center" colspan="6">Reserved
+</td></tr>
+<tr>
+<td><tt>CCM_APB0_RST_AC97</tt>
+</td>
+<td><tt>11</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = assert
+    1 = de-assert
+  </tt>
+</pre>
+</td>
+<td>APB0 AC97 reset control
+</td></tr>
+<tr>
+<td><tt>CCM_APB0_RST_I2S0</tt>
+</td>
+<td><tt>12</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = assert
+    1 = de-assert
+  </tt>
+</pre>
+</td>
+<td>APB0 I2S0 reset control
+</td></tr>
+<tr>
+<td><tt>CCM_APB0_RST_I2S1</tt>
+</td>
+<td><tt>13</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = assert
+    1 = de-assert
+  </tt>
+</pre>
+</td>
+<td>APB0 I2S1 reset control
+</td></tr>
+<tr>
+<td style="text-align: center" colspan="6">Reserved
+</td></tr>
+<tr>
+<td><tt>CCM_APB0_RST_LRADC</tt>
+</td>
+<td><tt>15</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = assert
+    1 = de-assert
+  </tt>
+</pre>
+</td>
+<td>APB0 LRADC reset control
+</td></tr>
+<tr>
+<td style="text-align: center" colspan="6">Reserved
+</td></tr>
+<tr>
+<td><tt>CCM_APB0_RST_GPADC</tt>
+</td>
+<td><tt>17</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = assert
+    1 = de-assert
+  </tt>
+</pre>
+</td>
+<td>APB0 GPADC reset control
+</td></tr>
+<tr>
+<td style="text-align: center" colspan="6">Reserved
+</td></tr>
+<tr>
+<td><tt>CCM_APB_RST_CIR_TX</tt>
+</td>
+<td><tt>19</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = assert
+    1 = de-assert
+  </tt>
+</pre>
+</td>
+<td>APB0 CIR_TX reset control
+</td></tr>
+<tr>
+<td style="text-align: center" colspan="6">Reserved
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="CCM_APB1_RST">CCM_APB1_RST</span></h3>
+<p>Default value: 0x00000000<br />
+Offset: 0x05b4
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default (Hex)
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>CCM_APB1_RST_TWI0</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = assert
+    1 = de-assert
+  </tt>
+</pre>
+</td>
+<td>APB1 TWI0 reset control
+</td></tr>
+<tr>
+<td><tt>CCM_APB1_RST_TWI1</tt>
+</td>
+<td><tt>1</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = assert
+    1 = de-assert
+  </tt>
+</pre>
+</td>
+<td>APB1 TWI1 reset control
+</td></tr>
+<tr>
+<td><tt>CCM_APB_RST_TWI2</tt>
+</td>
+<td><tt>2</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = assert
+    1 = de-assert
+  </tt>
+</pre>
+</td>
+<td>APB1 TWI2 reset control
+</td></tr>
+<tr>
+<td><tt>CCM_APB_RST_TWI3</tt>
+</td>
+<td><tt>3</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = assert
+    1 = de-assert
+  </tt>
+</pre>
+</td>
+<td>APB1 TWI3 reset control
+</td></tr>
+<tr>
+<td><tt>CCM_APB_RST_TWI4</tt>
+</td>
+<td><tt>4</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = assert
+    1 = de-assert
+  </tt>
+</pre>
+</td>
+<td>APB1 TWI4 reset control
+</td></tr>
+<tr>
+<td style="text-align: center" colspan="6">Reserved
+</td></tr>
+<tr>
+<td><tt>CCM_APB1_RST_UART0</tt>
+</td>
+<td><tt>16</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = assert
+    1 = de-assert
+  </tt>
+</pre>
+</td>
+<td>APB1 UART0 reset control
+</td></tr>
+<tr>
+<td><tt>CCM_APB1_RST_UART1</tt>
+</td>
+<td><tt>17</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = assert
+    1 = de-assert
+  </tt>
+</pre>
+</td>
+<td>APB1 UART1 reset control
+</td></tr>
+<tr>
+<td><tt>CCM_APB1_RST_UART2</tt>
+</td>
+<td><tt>18</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = assert
+    1 = de-assert
+  </tt>
+</pre>
+</td>
+<td>APB1 UART2 reset control
+</td></tr>
+<tr>
+<td><tt>CCM_APB1_RST_UART3</tt>
+</td>
+<td><tt>19</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = assert
+    1 = de-assert
+  </tt>
+</pre>
+</td>
+<td>APB1 UART3 reset control
+</td></tr>
+<tr>
+<td><tt>CCM_APB1_RST_UART4</tt>
+</td>
+<td><tt>20</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = assert
+    1 = de-assert
+  </tt>
+</pre>
+</td>
+<td>APB1 UART4 reset control
+</td></tr>
+<tr>
+<td><tt>CCM_APB_RST_UART5</tt>
+</td>
+<td><tt>21</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = assert
+    1 = de-assert
+  </tt>
+</pre>
+</td>
+<td>APB1 UART5 reset control
+</td></tr>
+<tr>
+<td style="text-align: center" colspan="6">Reserved
+</td></tr></tbody></table>
+<!-- 
+NewPP limit report
+Cached time: 20251029050411
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.573 seconds
+Real time usage: 1.161 seconds
+Preprocessor visited node count: 157/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 612/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:1802-0!canonical!math=5 and timestamp 20251029050410 and revision id 11746
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=A80/Clock_Control_Module&amp;oldid=11746">https://linux-sunxi.org/index.php?title=A80/Clock_Control_Module&amp;oldid=11746</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="../Special:Categories.html" title="Special:Categories">Category</a>: <ul><li><a href="../Category:A80_Register_guide.html" title="Category:A80 Register guide">A80 Register guide</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=A80%2FClock+Control+Module" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=A80%2FClock+Control+Module" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="Clock_Control_Module.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:A80/Clock_Control_Module&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="Clock_Control_Module.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=A80/Clock_Control_Module&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=A80/Clock_Control_Module&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="../index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="../index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="../sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="../Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="https://linux-sunxi.org/Special:WhatLinksHere/A80/Clock_Control_Module" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/A80/Clock_Control_Module" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="../Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=A80/Clock_Control_Module&amp;oldid=11746" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=A80/Clock_Control_Module&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 14 October 2014, at 00:05.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.573","walltime":"1.161","ppvisitednodes":{"value":157,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":612,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20251029050411","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":376});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

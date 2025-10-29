@@ -1,0 +1,318 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Cpufreq - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"a9ba84d177069d5d1f8c086c","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Cpufreq","wgTitle":"Cpufreq","wgCurRevisionId":24296,"wgRevisionId":24296,"wgArticleId":186,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Software","Tutorial","Power"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Cpufreq","wgRelevantArticleId":186,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":
+"ready","user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=mediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="Cpufreq.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-Cpufreq rootpage-Cpufreq skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">Cpufreq</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Basics"><span class="tocnumber">1</span> <span class="toctext">Basics</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Possible_adjustments"><span class="tocnumber">2</span> <span class="toctext">Possible adjustments</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Performance.2Ffunctionality_impacts"><span class="tocnumber">3</span> <span class="toctext">Performance/functionality impacts</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#The_.22performance.22_governor"><span class="tocnumber">3.1</span> <span class="toctext">The "performance" governor</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#The_.22ondemand.22_governor"><span class="tocnumber">3.2</span> <span class="toctext">The "ondemand" governor</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="#Practical_impact_on_temperature.2Fconsumption"><span class="tocnumber">4</span> <span class="toctext">Practical impact on temperature/consumption</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#.22Overclocking.22"><span class="tocnumber">5</span> <span class="toctext">"Overclocking"</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#Troubleshooting"><span class="tocnumber">6</span> <span class="toctext">Troubleshooting</span></a>
+<ul>
+<li class="toclevel-2 tocsection-9"><a href="#No_.2Fsys.2Fdevices.2Fsystem.2Fcpu.2Fcpu0.2Fcpufreq"><span class="tocnumber">6.1</span> <span class="toctext">No /sys/devices/system/cpu/cpu0/cpufreq</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Basics">Basics</span></h2>
+<p>Since the main market for Allwinner are mobile devices it is one of the design goals of their SoCs (System on chip) to be able to operate both performant as well as energy efficient. An important role plays 'cpu frequency scaling'. The lower the clock speed, the slower the device and the less energy it consumes (and vice versa). Even the voltage available to the ARM core(s) will be adjusted depending on the clock speed. This is done inside the kernel by defining <i>operating-points</i>, which provide mapping between clock speeds and voltages (the higher the CPU is clocked the more voltage it needs to still operate reliable). Depending on the kernel version, the operating points can be hardcoded in the kernel sources (the sunxi-3.4 kernel on <a href="A10.html" title="A10">A10</a>), defined in the FEX file (the sunxi-3.4 kernel on <a href="A20.html" title="A20">A20</a>) or stored in the device tree blob (the mainline kernel).
+</p><p>It's not enough to define a set of CPU frequency/voltage mappings and upper/lower limits but also strategies to switch between them are needed. These so called <a rel="nofollow" class="external text" href="https://www.kernel.org/doc/Documentation/cpu-freq/governors.txt">cpufreq governors</a> are responsible for that. If your kernel supports cpu frequency scaling you can get the list of available governors and dvfs_table-mappings/operating-points by:
+</p>
+<pre>cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_governors
+cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_frequencies</pre>
+<h2><span class="mw-headline" id="Possible_adjustments">Possible adjustments</span></h2>
+<p>Out of the available governors the most interesting seem to be <i>ondemand</i> and <i>interactive</i> since they dynamically switch cpufreq settings based on load. The <i>interactive</i> governor is only available in the sunxi-3.4 kernel, because it is a simple pragmatic enhancement of the <i>ondemand</i> governor, tailored for Android and shipped on millions of devices. It was <a rel="nofollow" class="external text" href="https://lkml.org/lkml/2012/2/7/483">submitted to the mainline kernel</a> but never accepted, because the <i>ondemand</i> governor itself is <a rel="nofollow" class="external text" href="https://lkml.org/lkml/2012/2/8/306">considered to be broken</a> <a rel="nofollow" class="external text" href="https://plus.google.com/+TheodoreTso/posts/2vEekAsG2QT">by design</a> (the "waking up to decide whether the CPU is idle" concept) and polishing a turd was not welcome. So the default with mainline kernel is now <i>ondemand</i> (you can adjust that by writing to <i>scaling_governor</i>) and the lower/upper limits are 144000 and 960000 on sun7i (144MHz-960MHz). Since the default lower limit might be responsible for a laggy system (it takes quite a bit of time for the governor to realize that the frequency needs to be increased) it's advisable to define the lower limit yourself adjusting <i>/sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq</i> eg.
+</p>
+<pre>echo 408000 &gt;/sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq</pre>
+<p>You can also lower the maximum value by adjusting <i>scaling_max_freq</i>. Please be aware that adjusting these values works in 48MHz steps and is not limited to the few operating-points/dvfs_table-entries. You can use any value in between min/max but have to keep in mind that the values supplied will be rounded down: you will end up with just 864MHz if you set <i>scaling_max_freq</i> to 911999 instead of 912000 -- always compare with <i>cpuinfo_cur_freq</i> if in doubt.
+</p>
+<h2><span id="Performance/functionality_impacts"></span><span class="mw-headline" id="Performance.2Ffunctionality_impacts">Performance/functionality impacts</span></h2>
+<p>Both the chosen governor as well as the cpufreq limits can have a huge impact on power consumption, performance and even functionality. For example in the past on sun7i (A20), the default <i>fantasy</i> governor led to really strange behaviour (and single-threaded benchmark results for A20 devices as well) since it increased the clock speed to the max value only under certain circumstances and remained most of the time at the minimum.
+</p>
+<h3><span id="The_&quot;performance&quot;_governor"></span><span class="mw-headline" id="The_.22performance.22_governor">The "performance" governor</span></h3>
+<p>If the lowest possible power consumption no matter the cost is not a priority, then the <i>performance</i> governor is a very good option. The practical <a rel="nofollow" class="external text" href="https://www.mail-archive.com/linux-sunxi@googlegroups.com/msg00347.html">tests</a> <a rel="nofollow" class="external text" href="https://www.mail-archive.com/linux-sunxi@googlegroups.com/msg00678.html">show</a> that there is not much power consumption difference between idling at 60MHz and idling at 1008MHz (a ~1.5x difference on Cortex-A8, almost no difference on Cortex-A7). Modern processors implement advanced clock gating for power saving purposes and if the processor is sitting on a <a rel="nofollow" class="external text" href="http://infocenter.arm.com/help/topic/com.arm.doc.ddi0464f/CACJFAJC.html">WFI instruction</a>, then the power consumption is already significantly reduced regardless of the CPU clock speed. 
+</p><p>Please note that voltage/frequency scaling is still relevant even for the <i>performance</i> governor. Just because we need to be able to do emergency throttling in the case of overheating. Peak power consumption of CPU, GPU and other peripherals all working at the same time may be rather high and it's best to be prepared for the worst case scenario.
+</p><p>To sum it up. Idle power consumption with the <i>performance</i> governor is almost as good as when using other governors. And if there is work to do, then finishing it quickly is not a bad option either (the "race to idle" concept). If you are unsure and the device is not battery powered, then save yourself from a lot of troubles and just use the <i>performance</i> governor. If you are running benchmarks and want to have reproducible results without any unexpected glitches or pathological slowdowns, then the <i>performance</i> governor is also a good choice.
+</p>
+<h3><span id="The_&quot;ondemand&quot;_governor"></span><span class="mw-headline" id="The_.22ondemand.22_governor">The "ondemand" governor</span></h3>
+<p>If you allow very low <i>scaling_min_freq</i> values with ondemand/interactive the system might behave laggy and some timing critical stuff (eg. reading out Dallas DS18b20 temperature sensors via 1-wire below 600MHz) won't work. Same applies to other sort of GPIO stuff when reaching the upper frequency limits (eg. reading out DHT11/DHT22 with <i>scaling_max_freq</i> above 1008MHz). So you've to carefully adjust the cpufreq settings to your application.
+</p><p>If you need maximum performance then using the governor with this name might be a good idea. But since then the CPU core(s) will always be clocked at the upper limit (speed/voltage) it's better to use ondemand with reasonable settings if you only need peak performance from time to time. A good compromise between power consumption and a responsive system being able to operate at full performance when needed is
+</p>
+<pre class="brush: bash">#!/bin/sh
+
+echo ondemand &gt; /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+
+echo 1008000 &gt; /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+echo 408000 &gt; /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+
+echo 25 &gt; /sys/devices/system/cpu/cpufreq/ondemand/up_threshold
+echo 10 &gt; /sys/devices/system/cpu/cpufreq/ondemand/sampling_down_factor
+echo 1 &gt; /sys/devices/system/cpu/cpufreq/ondemand/io_is_busy
+</pre>
+<p>(can also be used with kernel 4.0 and above. And especially <i>io_is_busy</i> is essential if you want to use your sunxi device as file server). The other parameters are explained in the governor link above. Adjust them only carefully and with a full understanding of what you're doing.
+</p>
+<h2><span id="Practical_impact_on_temperature/consumption"></span><span class="mw-headline" id="Practical_impact_on_temperature.2Fconsumption">Practical impact on temperature/consumption</span></h2>
+<p>In the following 2 graphs you see the results of an experiment increasing <i>scaling_max_freq</i> in steps of 96 MHz on an <a href="Olimex_A20-OLinuXino-Lime2.html" title="Olimex A20-OLinuXino-Lime2">A20-OLinuXino-Lime2</a> with an adhesive heatsink on the A20 SoC, vertical orientation of the board, appropriate heat dissipation possible and an SSD connected via SATA: Tests were done with 816 MHz, 912 MHz, 1008 MHz, 1104 MHz and 1200 MHz (the Lime2 crashed at 1.2 GHz maybe due to insufficient voltage -- we used an unadjusted fex file from Olimex):
+</p>
+<pre>for i in 816000 912000 1008000 1104000 1200000&#160;; do
+        echo $i &gt;/sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+        cd /mnt/ssd &amp;&amp; stress -t 900 -c 2 -m 2 -i 2 -d 2
+        sleep 900
+done</pre>
+<p>Each <i>stress</i> task ran 15 minutes, after that we idled 15 min. Temperatures have been read out internally from the thermal sensors inside the A20's touchscreen controller and the <a href="AXP209.html" title="AXP209">AXP209 power management unit (PMU</a>) and verified roughly using two external DHT22 sensors measuring ambient temperature (green graph) and above SoC (purple graph). No external devices were connected to the board except network.
+</p><p><br />
+<a href="File:Cpufreq_experiment_temperatures.png.html" class="image"><img alt="Cpufreq experiment temperatures.png" src="https://linux-sunxi.org/images/e/e6/Cpufreq_experiment_temperatures.png" decoding="async" width="752" height="302" /></a>
+</p><p>Being idle (then the <i>ondemand</i> governor decreased the CPU clock speed down to 408 MHz) SoC/PMU temperature were 13°/11° above ambient temperature, under load the temperature of the SoC raised 19°C (816 MHz) to 22°C (1104 MHz) above ambient temp. The PMU was also or even more affected (since it has to provide more voltage when the SoC is clocked higher): 19°C at 816 MHz but 24°C above surrounding temperature with the CPU running at 1104 MHz.
+</p><p>Please keep in mind that these thermal values will increase considerably when your device is in a small enclosure preventing airflow and/or the PMU has to power other stuff (external USB peripherals, onboard Wi-Fi or even a SATA disk like on <a href="Lamobo_R1.html" title="Lamobo R1">Lamobo R1</a>).
+</p><p><br />
+<a href="File:Cpufreq_experiment_consumption.png.html" class="image"><img alt="Cpufreq experiment consumption.png" src="https://linux-sunxi.org/images/2/20/Cpufreq_experiment_consumption.png" decoding="async" width="756" height="305" /></a>
+</p><p>The board consumed between 270mA (idle, 408 MHz, ~1.35W), 400mA (816 MHz, ~2W) and 500mA (1104 MHz, ~2.5W). Please note that the Olimex boards like nearly all other A20 boards do not power a connected SATA disk through the PMU so the SSD's consumption doesn't show up in the graph at all and the whole system's consumption was 0.8W higher (an energy efficient SSD was used for the tests)
+</p><p>Note that the <a href="Hardware_Reliability_Tests.html#Overheating" title="Hardware Reliability Tests">'cpuburn-a7' and 'cpuburn-a8' tools</a> are a lot more effective for heating the CPU than the 'stress' tool.
+</p>
+<h2><span id="&quot;Overclocking&quot;"></span><span class="mw-headline" id=".22Overclocking.22">"Overclocking"</span></h2>
+<p>As per the definition of the word "overclocking" is not possible since that would mean "frequency scaling beyond the specs". The problem with cheap ARM SoCs is that they're not subject to an expensive QA/selection process where each SoC will be tested extensively and then labeled/sold in different categories depending on the upper limits it's able to achieve (this is standard with x86 for example: chips from the same wafer will be tested individually and be sold for a few hundred bucks more or less depending on how many CPU/GPU cores work reliable at which clock speeds).
+</p><p>One A20 SoC from a specific production batch might work reliable with 1.2GHz (which is rather unrealistic) while another starts to throw errors with 1.0GHz. The default cpufreq upper limits take that into account and can be considered sane/safe defaults. And while it's possible to adjust or define additional operating-points in the kernel sources to gain some more speed (with increased voltage) this should be considered experimental and is only advisable when you the user also <a href="Hardware_Reliability_Tests.html" title="Hardware Reliability Tests">does QA/selection on your own</a>: Stresstesting the device over many hours to simulate worst case conditions while keeping an eye on heat dissipation: Without appropriate airflow increasing cpufreq settings above defaults won't work.
+</p>
+<h2><span class="mw-headline" id="Troubleshooting">Troubleshooting</span></h2>
+<h3><span id="No_/sys/devices/system/cpu/cpu0/cpufreq"></span><span class="mw-headline" id="No_.2Fsys.2Fdevices.2Fsystem.2Fcpu.2Fcpu0.2Fcpufreq">No /sys/devices/system/cpu/cpu0/cpufreq</span></h3>
+<p>While running test images, I noticed that I was missing cpufreq on an A20 cubietruck.<br />
+There was no directory <i>cpufreq</i> and the tools didn't work.
+</p><p>The solution to this problem was the driver <b>axp20x-i2c</b>.
+It wasn't loaded, and in my case I had not build the module at all.
+</p><p>See also: <a rel="nofollow" class="external free" href="http://forum.armbian.com/index.php/topic/108-no-cpufreq-support-in-cubietruck-debian-39-wheezy-405/">http://forum.armbian.com/index.php/topic/108-no-cpufreq-support-in-cubietruck-debian-39-wheezy-405/</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20251029034321
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.025 seconds
+Real time usage: 0.029 seconds
+Preprocessor visited node count: 55/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 913/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:186-0!canonical and timestamp 20251029034321 and revision id 24296
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=Cpufreq&amp;oldid=24296">https://linux-sunxi.org/index.php?title=Cpufreq&amp;oldid=24296</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Categories</a>: <ul><li><a href="Category:Software.html" title="Category:Software">Software</a></li><li><a href="Category:Tutorial.html" title="Category:Tutorial">Tutorial</a></li><li><a href="Category:Power.html" title="Category:Power">Power</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=Cpufreq" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=Cpufreq" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="Cpufreq.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:Cpufreq&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="Cpufreq.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Cpufreq&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Cpufreq&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/Cpufreq.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/Cpufreq" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=Cpufreq&amp;oldid=24296" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=Cpufreq&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 27 June 2021, at 19:31.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.025","walltime":"0.029","ppvisitednodes":{"value":55,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":913,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20251029034321","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":227});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

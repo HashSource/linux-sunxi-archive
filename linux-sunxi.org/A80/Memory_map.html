@@ -1,0 +1,1772 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>A80/Memory map - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"08a3f112a54f315eb572b22f","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"A80/Memory_map","wgTitle":"A80/Memory map","wgCurRevisionId":17107,"wgRevisionId":17107,"wgArticleId":1675,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["A80 Register guide"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"A80/Memory_map","wgRelevantArticleId":1675,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready",
+"user.styles":"ready","user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=skins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="Memory_map.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-A80_Memory_map rootpage-A80 skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">A80/Memory map</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"><span class="subpages">&lt; <a href="../A80.html" title="A80">A80</a></span></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>ARM Core can access to control registers and physical memories over global memory space described here:
+</p>
+<h1><span class="mw-headline" id="Memory_Map">Memory Map</span></h1>
+<h2><span class="mw-headline" id="CPU_Memory_space">CPU Memory space</span></h2>
+<table class="wikitable">
+<tbody><tr>
+<th>Start
+</th>
+<th>End
+</th>
+<th>Size
+</th>
+<th>Name
+</th>
+<th>Short description
+</th>
+<th>sun9i
+</th></tr>
+<tr>
+<td><tt>0x00000000</tt>
+</td>
+<td><tt>0x00007fff</tt>
+</td>
+<td><tt>32KiB</tt>
+</td>
+<td><a href="../BROM.html" title="BROM">BROM</a>
+</td>
+<td>Boot Read Only Memory
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x00008000</tt>
+</td>
+<td><tt>0x0000ffff</tt>
+</td>
+<td><tt>32KiB</tt>
+</td>
+<td><a href="../BROM.html" title="BROM">BROM</a>
+</td>
+<td>Boot Read Only Memory
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x00010000</tt>
+</td>
+<td><tt>0x00019fff</tt>
+</td>
+<td><tt>40KiB</tt>
+</td>
+<td><a href="../SRAM_Controller.html" class="mw-redirect" title="SRAM Controller">SRAM A1</a>
+</td>
+<td>Fast onchip Static Ram, Bank A1
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x08100000</tt>
+</td>
+<td><tt>0x08127fff</tt>
+</td>
+<td><tt>160KiB</tt>
+</td>
+<td><a href="../SRAM_Controller.html" class="mw-redirect" title="SRAM Controller">SRAM A2</a>
+</td>
+<td>Fast onchip Static Ram, Bank A2 (shared with embedded processor)
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x00020000</tt>
+</td>
+<td><tt>0x0005ffff</tt>
+</td>
+<td><tt>256KiB</tt>
+</td>
+<td><a href="../SRAM_Controller.html" class="mw-redirect" title="SRAM Controller">SRAM B</a>
+</td>
+<td>Fast onchip Static Ram, Bank B (stated as 'secure' on the datasheet)
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x01d00000</tt>
+</td>
+<td><tt>0x01dfffff</tt>
+</td>
+<td><tt>1MiB</tt>
+</td>
+<td><a href="../SRAM_Controller.html" class="mw-redirect" title="SRAM Controller">SRAM A4</a>
+</td>
+<td>Fast onchip Static Ram, Bank C
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x01400000</tt>
+</td>
+<td><tt>0x0141ffff</tt>
+</td>
+<td><tt>64kiB</tt>
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A10/CSDM&amp;action=edit&amp;redlink=1" class="new" title="A10/CSDM (page does not exist)">CoreSight Config registers</a>
+</td>
+<td>CoreSight Debug Module
+</td>
+<td>Y
+</td></tr>
+
+<tr>
+<th colspan="6" style="text-align: center">AHB0 devices
+</th></tr>
+<tr>
+<td><tt>0x01c02000</tt>
+</td>
+<td><tt>0x01c02fff</tt>
+</td>
+<td><tt>4 KiB</tt>
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A10/SS&amp;action=edit&amp;redlink=1" class="new" title="A10/SS (page does not exist)">SS Config registers</a>
+</td>
+<td>Security System
+</td></tr>
+<tr>
+<td><tt>0x01c03000</tt>
+</td>
+<td><tt>0x01c03fff</tt>
+</td>
+<td><tt>4KiB</tt>
+</td>
+<td><a href="https://linux-sunxi.org/A10/NFC" class="mw-redirect" title="A10/NFC">NFC0 Config registers</a>
+</td>
+<td>Nand Flash Controller 0
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x01c04000</tt>
+</td>
+<td><tt>0x01c04fff</tt>
+</td>
+<td><tt>4KiB</tt>
+</td>
+<td><a href="https://linux-sunxi.org/A10/NFC" class="mw-redirect" title="A10/NFC">NFC1 Config registers</a>
+</td>
+<td>Nand Flash Controller 1
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x01c06000</tt>
+</td>
+<td><tt>0x01c06fff</tt>
+</td>
+<td><tt>4KiB</tt>
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A10/TS&amp;action=edit&amp;redlink=1" class="new" title="A10/TS (page does not exist)">TS Config registers</a>
+</td>
+<td>Transport Stream controller (DVB)
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x01c08000</tt>
+</td>
+<td><tt>0x01c08fff</tt>
+</td>
+<td><tt>4KiB</tt>
+</td>
+<td>GPU Control registers
+</td>
+<td>GPU Control
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x01c09000</tt>
+</td>
+<td><tt>0x01c09fff</tt>
+</td>
+<td><tt>4KiB</tt>
+</td>
+<td>GTBUS Config registers
+</td>
+<td>GTBUS
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x01c0a000</tt>
+</td>
+<td><tt>0x01c0afff</tt>
+</td>
+<td><tt>4KiB</tt>
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A10/SATA&amp;action=edit&amp;redlink=1" class="new" title="A10/SATA (page does not exist)">SATA Config registers</a>
+</td>
+<td>Serial AT Attachment
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x01c0e000</tt>
+</td>
+<td><tt>0x01c0efff</tt>
+</td>
+<td><tt>4KiB</tt>
+</td>
+<td><a href="../A10/SID.html" class="mw-redirect" title="A10/SID">SID Config registers</a>
+</td>
+<td>Secure ID
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x01c0f000</tt>
+</td>
+<td><tt>0x01c0ffff</tt>
+</td>
+<td><tt>4KiB</tt>
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A10/MMC&amp;action=edit&amp;redlink=1" class="new" title="A10/MMC (page does not exist)">MMC0 Config registers</a>
+</td>
+<td>MultiMedia Controller 0 (SD Card)
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x01c10000</tt>
+</td>
+<td><tt>0x01c10fff</tt>
+</td>
+<td><tt>4KiB</tt>
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A10/MMC&amp;action=edit&amp;redlink=1" class="new" title="A10/MMC (page does not exist)">MMC1 Config registers</a>
+</td>
+<td>MultiMedia Controller 1 (SD Card)
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x01c11000</tt>
+</td>
+<td><tt>0x01c11fff</tt>
+</td>
+<td><tt>4KiB</tt>
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A10/MMC&amp;action=edit&amp;redlink=1" class="new" title="A10/MMC (page does not exist)">MMC2 Config registers</a>
+</td>
+<td>MultiMedia Controller 2 (SD Card)
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x01c12000</tt>
+</td>
+<td><tt>0x01c12fff</tt>
+</td>
+<td><tt>4KiB</tt>
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A10/MMC&amp;action=edit&amp;redlink=1" class="new" title="A10/MMC (page does not exist)">MMC3 Config registers</a>
+</td>
+<td>MultiMedia Controller 3 (SD Card)
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x01c1a000</tt>
+</td>
+<td><tt>0x01c1afff</tt>
+</td>
+<td><tt>4KiB</tt>
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A10/SPI&amp;action=edit&amp;redlink=1" class="new" title="A10/SPI (page does not exist)">SPI0 Config registers</a>
+</td>
+<td>Serial Peripheral Interface Bus 0
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x01c1b000</tt>
+</td>
+<td><tt>0x01c1bfff</tt>
+</td>
+<td><tt>4KiB</tt>
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A10/SPI&amp;action=edit&amp;redlink=1" class="new" title="A10/SPI (page does not exist)">SPI1 Config registers</a>
+</td>
+<td>Serial Peripheral Interface Bus 1
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x01c1c000</tt>
+</td>
+<td><tt>0x01c1cfff</tt>
+</td>
+<td><tt>4KiB</tt>
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A10/SPI&amp;action=edit&amp;redlink=1" class="new" title="A10/SPI (page does not exist)">SPI2 Config registers</a>
+</td>
+<td>Serial Peripheral Interface Bus 2
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x01c1d000</tt>
+</td>
+<td><tt>0x01c1dfff</tt>
+</td>
+<td><tt>4KiB</tt>
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A10/SPI&amp;action=edit&amp;redlink=1" class="new" title="A10/SPI (page does not exist)">SPI3 Config registers</a>
+</td>
+<td>Serial Peripheral Interface Bus 3
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x01c1f000</tt>
+</td>
+<td><tt>0x01c1ffff</tt>
+</td>
+<td><tt>4KiB</tt>
+</td>
+<td>MIPI HSI Config registers
+</td>
+<td>MIPI HSI
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x01c40000</tt>
+</td>
+<td><tt>0x01c47fff</tt>
+</td>
+<td><tt>32KiB</tt>
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A20/GIC/GIC&amp;action=edit&amp;redlink=1" class="new" title="A20/GIC/GIC (page does not exist)">A20/GIC/GIC</a>
+</td>
+<td>ARM Generic Interrupt Controller
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x01c62000</tt>
+</td>
+<td><tt>0x01c62fff</tt>
+</td>
+<td><tt>4KiB</tt>
+</td>
+<td>DRAMCOM
+</td>
+<td>DRAMCOM
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x01c63000</tt>
+</td>
+<td><tt>0x01c63fff</tt>
+</td>
+<td><tt>4KiB</tt>
+</td>
+<td>DRAMCTRL0
+</td>
+<td>DRAMCTRL0
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x01c64000</tt>
+</td>
+<td><tt>0x01c64fff</tt>
+</td>
+<td><tt>4KiB</tt>
+</td>
+<td>DRAMCTRL1
+</td>
+<td>DRAMCTRL1
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x01c65000</tt>
+</td>
+<td><tt>0x01c65fff</tt>
+</td>
+<td><tt>4KiB</tt>
+</td>
+<td>DRAMPHY0
+</td>
+<td>DRAMPHY0
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x01c66000</tt>
+</td>
+<td><tt>0x01c66fff</tt>
+</td>
+<td><tt>4KiB</tt>
+</td>
+<td>DRAMPHY1
+</td>
+<td>DRAMPHY1
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x01c90000</tt>
+</td>
+<td><tt>0x01c90fff</tt>
+</td>
+<td><tt>4KiB</tt>
+</td>
+<td>CCI400
+</td>
+<td>CCI400
+</td>
+<td>Y
+</td></tr>
+
+<tr>
+<th colspan="6" style="text-align: center">AHB1 Devices
+</th></tr>
+<tr>
+<td><tt>0x00800000</tt>
+</td>
+<td><tt>0x00800fff</tt>
+</td>
+<td><tt>4KiB</tt>
+</td>
+<td><a href="../SRAM_Controller.html" class="mw-redirect" title="SRAM Controller">SRAM Config registers</a>
+</td>
+<td>Fast onchip Static Ram Controller
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x00801000</tt>
+</td>
+<td><tt>0x00801fff</tt>
+</td>
+<td><tt>4KiB</tt>
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A20/HSTIMER&amp;action=edit&amp;redlink=1" class="new" title="A20/HSTIMER (page does not exist)">HSTimer</a>
+</td>
+<td>High-Speed Timer
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x00802000</tt>
+</td>
+<td><tt>0x00802fff</tt>
+</td>
+<td><tt>4KiB</tt>
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A31/DMA&amp;action=edit&amp;redlink=1" class="new" title="A31/DMA (page does not exist)">DMA Config registers</a>
+</td>
+<td>DMA
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x00803000</tt>
+</td>
+<td><tt>0x00803fff</tt>
+</td>
+<td><tt>4KiB</tt>
+</td>
+<td>MSGBOX Config registers
+</td>
+<td>Message box interface to embedded core
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x00804000</tt>
+</td>
+<td><tt>0x00804fff</tt>
+</td>
+<td><tt>4KiB</tt>
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A31/HWSPINLOCK&amp;action=edit&amp;redlink=1" class="new" title="A31/HWSPINLOCK (page does not exist)">SPINLOCK Config registers</a>
+</td>
+<td>Hardware spinlock shared with embedded core
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x00805000</tt>
+</td>
+<td><tt>0x00805fff</tt>
+</td>
+<td><tt>4KiB</tt>
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A10/TZASC&amp;action=edit&amp;redlink=1" class="new" title="A10/TZASC (page does not exist)">TZASC Config registers</a>
+</td>
+<td>TrustZone Address Space Controller
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x00830000</tt>
+</td>
+<td><tt>0x00830fff</tt>
+</td>
+<td><tt>4KiB</tt>
+</td>
+<td><a href="../A20/GMAC.html" title="A20/GMAC">GMAC</a>
+</td>
+<td>Gigabit Media Access Control
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x00900000</tt>
+</td>
+<td><tt>0x009fffff</tt>
+</td>
+<td><tt>?KiB</tt>
+</td>
+<td>USB 3.0 OTG
+</td>
+<td>USB 3.0 OTG controller (likely dwc3)
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x00a00000</tt>
+</td>
+<td><tt>0x00a00fff</tt>
+</td>
+<td><tt>4KiB</tt>
+</td>
+<td>USB0 Config registers
+</td>
+<td>Universal Serial Bus 0 (HCI)
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x00a01000</tt>
+</td>
+<td><tt>0x00a01fff</tt>
+</td>
+<td><tt>4KiB</tt>
+</td>
+<td>USB1 Config registers
+</td>
+<td>Universal Serial Bus 1 (HCI)
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x00a02000</tt>
+</td>
+<td><tt>0x00a02fff</tt>
+</td>
+<td><tt>4KiB</tt>
+</td>
+<td>USB2 Config registers
+</td>
+<td>Universal Serial Bus 2 (HCI)
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x00a08000</tt>
+</td>
+<td><tt>0x00a08fff</tt>
+</td>
+<td><tt>4KiB</tt>
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A80/USB_Control_registers&amp;action=edit&amp;redlink=1" class="new" title="A80/USB Control registers (page does not exist)">USB Control registers</a>
+</td>
+<td>Universal Serial Bus SIE/PHY clocks, resets, and controls
+</td>
+<td>Y
+</td></tr>
+
+<tr>
+<th colspan="6" style="text-align: center">AHB2 Devices
+</th></tr>
+<tr>
+<td><tt>0x03000000</tt>
+</td>
+<td><tt>0x03000fff</tt>
+</td>
+<td><tt>4KiB</tt>
+</td>
+<td>DE SYS
+</td>
+<td>Display Engine SYS
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x03000000</tt>
+</td>
+<td><tt>0x03000fff</tt>
+</td>
+<td><tt>4KiB</tt>
+</td>
+<td>DISP SYS
+</td>
+<td>Display SYS
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x03100000</tt>
+</td>
+<td><tt>0x0311ffff</tt>
+</td>
+<td><tt>128KiB</tt>
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A10/DE_FE&amp;action=edit&amp;redlink=1" class="new" title="A10/DE FE (page does not exist)">DE_FE 0 Config registers</a>
+</td>
+<td>Display Engine FrontEnd 0
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x03140000</tt>
+</td>
+<td><tt>0x0315ffff</tt>
+</td>
+<td><tt>128KiB</tt>
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A10/DE_FE&amp;action=edit&amp;redlink=1" class="new" title="A10/DE FE (page does not exist)">DE_FE 1 Config registers</a>
+</td>
+<td>Display Engine FrontEnd 1
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x03180000</tt>
+</td>
+<td><tt>0x0319ffff</tt>
+</td>
+<td><tt>128KiB</tt>
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A10/DE_FE&amp;action=edit&amp;redlink=1" class="new" title="A10/DE FE (page does not exist)">DE_FE 2 Config registers</a>
+</td>
+<td>Display Engine FrontEnd 2
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x03200000</tt>
+</td>
+<td><tt>0x0321ffff</tt>
+</td>
+<td><tt>128KiB</tt>
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A10/DE_BE&amp;action=edit&amp;redlink=1" class="new" title="A10/DE BE (page does not exist)">DE_BE 0 Config registers</a>
+</td>
+<td>Display Engine BackEnd 0
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x03240000</tt>
+</td>
+<td><tt>0x0325ffff</tt>
+</td>
+<td><tt>128KiB</tt>
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A10/DE_BE&amp;action=edit&amp;redlink=1" class="new" title="A10/DE BE (page does not exist)">DE_BE 1 Config registers</a>
+</td>
+<td>Display Engine BackEnd 1
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x03280000</tt>
+</td>
+<td><tt>0x0329ffff</tt>
+</td>
+<td><tt>128KiB</tt>
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A10/DE_BE&amp;action=edit&amp;redlink=1" class="new" title="A10/DE BE (page does not exist)">DE_BE 2 Config registers</a>
+</td>
+<td>Display Engine BackEnd 2
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x03300000</tt>
+</td>
+<td><tt>0x0331ffff</tt>
+</td>
+<td><tt>128KiB</tt>
+</td>
+<td>DEU 0 Config registers
+</td>
+<td>DEU 0
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x03340000</tt>
+</td>
+<td><tt>0x0335ffff</tt>
+</td>
+<td><tt>128KiB</tt>
+</td>
+<td>DEU 1 Config registers
+</td>
+<td>DEU 1
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x03400000</tt>
+</td>
+<td><tt>0x0341ffff</tt>
+</td>
+<td><tt>128KiB</tt>
+</td>
+<td>DRC 0 Config registers
+</td>
+<td>DRC 0
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x03440000</tt>
+</td>
+<td><tt>0x0345ffff</tt>
+</td>
+<td><tt>128KiB</tt>
+</td>
+<td>DRC 1 Config registers
+</td>
+<td>DRC 1
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x03800000</tt>
+</td>
+<td><tt>0x03800fff</tt>
+</td>
+<td><tt>4KiB</tt>
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A10/CSI&amp;action=edit&amp;redlink=1" class="new" title="A10/CSI (page does not exist)">CSI0 Config registers</a>
+</td>
+<td>Camera Sensor Interface 0
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x03801000</tt>
+</td>
+<td><tt>0x03801fff</tt>
+</td>
+<td><tt>4KiB</tt>
+</td>
+<td>MIPI CSI0 Config registers
+</td>
+<td>MIPI Camera Sensor Interface 0
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x03802000</tt>
+</td>
+<td><tt>0x03802fff</tt>
+</td>
+<td><tt>4KiB</tt>
+</td>
+<td>MIPI CSI0 PHY Config registers
+</td>
+<td>MIPI Camera Sensor Interface 0 PHY
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x03803000</tt>
+</td>
+<td><tt>0x03803fff</tt>
+</td>
+<td><tt>4KiB</tt>
+</td>
+<td>CSI0 CCI registers
+</td>
+<td>CSI0 CCI
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x03808000</tt>
+</td>
+<td><tt>0x03808fff</tt>
+</td>
+<td><tt>4KiB</tt>
+</td>
+<td>ISP Config registers
+</td>
+<td>HawkView ISP (Camera Image Signal Processor)
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x03900000</tt>
+</td>
+<td><tt>0x03900fff</tt>
+</td>
+<td><tt>4KiB</tt>
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A10/CSI&amp;action=edit&amp;redlink=1" class="new" title="A10/CSI (page does not exist)">CSI1 Config registers</a>
+</td>
+<td>Camera Sensor Interface 1
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x03903000</tt>
+</td>
+<td><tt>0x03903fff</tt>
+</td>
+<td><tt>4KiB</tt>
+</td>
+<td>CSI0 CCI registers
+</td>
+<td>CSI0 CCI
+</td>
+<td>Y
+</td></tr>
+
+<tr>
+<td><tt>0x03a00000</tt>
+</td>
+<td><tt>0x03a00fff</tt>
+</td>
+<td><tt>4KiB</tt>
+</td>
+<td>FD IO registers
+</td>
+<td>FD
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x03a01000</tt>
+</td>
+<td><tt>0x03a01fff</tt>
+</td>
+<td><tt>4KiB</tt>
+</td>
+<td>FD memory
+</td>
+<td>FD
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x03a4e000</tt>
+</td>
+<td><tt>0x03a4efff</tt>
+</td>
+<td><tt>4KiB</tt>
+</td>
+<td><a href="../VE_Register_guide.html" title="VE Register guide">VE Config registers</a>
+</td>
+<td>Video Engine
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x03c00000</tt>
+</td>
+<td><tt>0x03c00fff</tt>
+</td>
+<td><tt>4KiB</tt>
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A10/LCD&amp;action=edit&amp;redlink=1" class="new" title="A10/LCD (page does not exist)">LCD0 Config registers</a>
+</td>
+<td>Liquid Crystal Display controller 0
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x03c10000</tt>
+</td>
+<td><tt>0x03c10fff</tt>
+</td>
+<td><tt>4KiB</tt>
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A10/LCD&amp;action=edit&amp;redlink=1" class="new" title="A10/LCD (page does not exist)">LCD1 Config registers</a>
+</td>
+<td>Liquid Crystal Display controller 1
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x03c20000</tt>
+</td>
+<td><tt>0x03c20fff</tt>
+</td>
+<td><tt>4KiB</tt>
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A10/LCD&amp;action=edit&amp;redlink=1" class="new" title="A10/LCD (page does not exist)">LCD1 Config registers</a>
+</td>
+<td>Liquid Crystal Display controller 2
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x03c40000</tt>
+</td>
+<td><tt>0x03c400ff</tt>
+</td>
+<td><tt>4KiB</tt>
+</td>
+<td>MIPI DSI0 Config registers
+</td>
+<td>MIPI Display Serial Interface 0
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x03c40100</tt>
+</td>
+<td><tt>0x03c401ff</tt>
+</td>
+<td><tt>4KiB</tt>
+</td>
+<td>MIPI DSI0 PHY Config registers
+</td>
+<td>MIPI Display Serial Interface 0 PHY
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x03d00000</tt>
+</td>
+<td><tt>0x03d00fff</tt>
+</td>
+<td><tt>4KiB</tt>
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A10/HDMI&amp;action=edit&amp;redlink=1" class="new" title="A10/HDMI (page does not exist)">HDMI Config registers</a>
+</td>
+<td>High-Definition Multimedia Interface
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x03f00000</tt>
+</td>
+<td><tt>0x03f1ffff</tt>
+</td>
+<td><tt>128KiB</tt>
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A10/MP&amp;action=edit&amp;redlink=1" class="new" title="A10/MP (page does not exist)">MP Config registers</a>
+</td>
+<td>Mixer Processor
+</td>
+<td>Y
+</td></tr>
+
+<tr>
+<th colspan="6" style="text-align: center">APB0 Devices
+</th></tr>
+<tr>
+<td><tt>0x06000000</tt>
+</td>
+<td><tt>0x060007ff</tt>
+</td>
+<td><tt>2KiB</tt>
+</td>
+<td><a href="Clock_Control_Module.html" title="A80/Clock Control Module">CCM Config registers</a>
+</td>
+<td>Clock Control Module
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x06000800</tt>
+</td>
+<td><tt>0x06000bff</tt>
+</td>
+<td><tt>1KiB</tt>
+</td>
+<td><a href="../A10/PIO.html" title="A10/PIO">PIO Config registers</a>
+</td>
+<td>Programmable Input Output
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x06000c00</tt>
+</td>
+<td><tt>0x06000dff</tt>
+</td>
+<td><tt>512B</tt>
+</td>
+<td>Timer Config registers
+</td>
+<td>Timers
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x06001000</tt>
+</td>
+<td><tt>0x060013ff</tt>
+</td>
+<td><tt>1KiB</tt>
+</td>
+<td><a href="../A10/SPDIF.html" class="mw-redirect" title="A10/SPDIF">SPDIF Config registers</a>
+</td>
+<td>Sony Philips Digital InterFace
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x06001400</tt>
+</td>
+<td><tt>0x060015ff</tt>
+</td>
+<td><tt>512B</tt>
+</td>
+<td><a href="../A10/PWM.html" class="mw-redirect" title="A10/PWM">PWM Config registers</a>
+</td>
+<td>Pulse Width Modulation
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x06001800</tt>
+</td>
+<td><tt>0x06001bff</tt>
+</td>
+<td><tt>1KiB</tt>
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A10/LRADC&amp;action=edit&amp;redlink=1" class="new" title="A10/LRADC (page does not exist)">LRADC Config registers</a>
+</td>
+<td>Low Resolution Analog Digital Converter 0 and 1
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x06001c00</tt>
+</td>
+<td><tt>0x06001fff</tt>
+</td>
+<td><tt>1KiB</tt>
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A10/AC97&amp;action=edit&amp;redlink=1" class="new" title="A10/AC97 (page does not exist)">AC97 Config registers</a>
+</td>
+<td>Audio Codec 1997
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x06002000</tt>
+</td>
+<td><tt>0x060023ff</tt>
+</td>
+<td><tt>1KiB</tt>
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A10/IIS&amp;action=edit&amp;redlink=1" class="new" title="A10/IIS (page does not exist)">IIS0 Config registers</a>
+</td>
+<td>Integrated Interchip Sound 0 (I<sup>2</sup>S)
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x06002400</tt>
+</td>
+<td><tt>0x060027ff</tt>
+</td>
+<td><tt>1KiB</tt>
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A10/IIS&amp;action=edit&amp;redlink=1" class="new" title="A10/IIS (page does not exist)">IIS1 Config registers</a>
+</td>
+<td>Integrated Interchip Sound 1 (I<sup>2</sup>S)
+</td>
+<td>Y
+</td></tr>
+
+<tr>
+<td><tt>0x06003000</tt>
+</td>
+<td><tt>0x060033ff</tt>
+</td>
+<td><tt>1KiB</tt>
+</td>
+<td>Timer Watchdog Config registers
+</td>
+<td>Timer Watchdog
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x06003400</tt>
+</td>
+<td><tt>0x060037ff</tt>
+</td>
+<td><tt>1KiB</tt>
+</td>
+<td><a href="../A10/TZPC.html" class="mw-redirect" title="A10/TZPC">TZPC Config registers</a>
+</td>
+<td>TrustZone Protection Controller
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x06003c00</tt>
+</td>
+<td><tt>0x06003fff</tt>
+</td>
+<td><tt>1KiB</tt>
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A10/SJTAG&amp;action=edit&amp;redlink=1" class="new" title="A10/SJTAG (page does not exist)">SJTAG Config registers</a>
+</td>
+<td>Secure JTAG
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x06004400</tt>
+</td>
+<td><tt>0x060047ff</tt>
+</td>
+<td><tt>1KiB</tt>
+</td>
+<td>Consumer InfraRed TX Config registers
+</td>
+<td>Consumer InfraRed TX
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x06004c00</tt>
+</td>
+<td><tt>0x06004fff</tt>
+</td>
+<td><tt>1KiB</tt>
+</td>
+<td>GPADC Config registers
+</td>
+<td>General Purpose ADC
+</td>
+<td>Y
+</td></tr>
+
+<tr>
+<th colspan="6" style="text-align: center">APB1 Devices
+</th></tr>
+<tr>
+<td><tt>0x07000000</tt>
+</td>
+<td><tt>0x070003ff</tt>
+</td>
+<td><tt>1KiB</tt>
+</td>
+<td><a href="../A10/UART.html" class="mw-redirect" title="A10/UART">UART0 Config registers</a>
+</td>
+<td>Universal Asynchronous Receiver/Transmitter 0
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x07000400</tt>
+</td>
+<td><tt>0x070007ff</tt>
+</td>
+<td><tt>1KiB</tt>
+</td>
+<td><a href="../A10/UART.html" class="mw-redirect" title="A10/UART">UART1 Config registers</a>
+</td>
+<td>Universal Asynchronous Receiver/Transmitter 1
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x07000800</tt>
+</td>
+<td><tt>0x07000bff</tt>
+</td>
+<td><tt>1KiB</tt>
+</td>
+<td><a href="../A10/UART.html" class="mw-redirect" title="A10/UART">UART2 Config registers</a>
+</td>
+<td>Universal Asynchronous Receiver/Transmitter 2
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x07000c00</tt>
+</td>
+<td><tt>0x07000fff</tt>
+</td>
+<td><tt>1KiB</tt>
+</td>
+<td><a href="../A10/UART.html" class="mw-redirect" title="A10/UART">UART3 Config registers</a>
+</td>
+<td>Universal Asynchronous Receiver/Transmitter 3
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x07001000</tt>
+</td>
+<td><tt>0x070013ff</tt>
+</td>
+<td><tt>1KiB</tt>
+</td>
+<td><a href="../A10/UART.html" class="mw-redirect" title="A10/UART">UART4 Config registers</a>
+</td>
+<td>Universal Asynchronous Receiver/Transmitter 4
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x07001000</tt>
+</td>
+<td><tt>0x070017ff</tt>
+</td>
+<td><tt>1KiB</tt>
+</td>
+<td><a href="../A10/UART.html" class="mw-redirect" title="A10/UART">UART5 Config registers</a>
+</td>
+<td>Universal Asynchronous Receiver/Transmitter 5
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x07002800</tt>
+</td>
+<td><tt>0x07002bff</tt>
+</td>
+<td><tt>1KiB</tt>
+</td>
+<td><a href="../A10/TWI.html" class="mw-redirect" title="A10/TWI">TWI0 Config registers</a>
+</td>
+<td>Two Wire Interface 0
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x07002c00</tt>
+</td>
+<td><tt>0x07002fff</tt>
+</td>
+<td><tt>1KiB</tt>
+</td>
+<td><a href="../A10/TWI.html" class="mw-redirect" title="A10/TWI">TWI1 Config registers</a>
+</td>
+<td>Two Wire Interface 1
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x07003000</tt>
+</td>
+<td><tt>0x070033ff</tt>
+</td>
+<td><tt>1KiB</tt>
+</td>
+<td><a href="../A10/TWI.html" class="mw-redirect" title="A10/TWI">TWI2 Config registers</a>
+</td>
+<td>Two Wire Interface 2
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x07003400</tt>
+</td>
+<td><tt>0x070037ff</tt>
+</td>
+<td><tt>1KiB</tt>
+</td>
+<td><a href="../A10/TWI.html" class="mw-redirect" title="A10/TWI">TWI3 Config registers</a>
+</td>
+<td>Two Wire Interface 3
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x07003800</tt>
+</td>
+<td><tt>0x07003bff</tt>
+</td>
+<td><tt>1KiB</tt>
+</td>
+<td><a href="../A10/TWI.html" class="mw-redirect" title="A10/TWI">TWI4 Config registers</a>
+</td>
+<td>Two Wire Interface 4
+</td>
+<td>Y
+</td></tr>
+
+<tr>
+<th colspan="6" style="text-align: center">CPUS (R block) Devices
+</th></tr>
+<tr>
+<td><tt>0x08000800</tt>
+</td>
+<td><tt>0x08000bff</tt>
+</td>
+<td><tt>1KiB</tt>
+</td>
+<td>R_Timer Config registers
+</td>
+<td>R block Timer
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x08000c00</tt>
+</td>
+<td><tt>0x08000fff</tt>
+</td>
+<td><tt>1KiB</tt>
+</td>
+<td>R_NVIC Config registers
+</td>
+<td>R_NVIC
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x08001000</tt>
+</td>
+<td><tt>0x080013ff</tt>
+</td>
+<td><tt>1KiB</tt>
+</td>
+<td>R_Watchdog Config registers
+</td>
+<td>R block Watchdog
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x08001400</tt>
+</td>
+<td><tt>0x080017ff</tt>
+</td>
+<td><tt>1KiB</tt>
+</td>
+<td>R_PRCM Config registers
+</td>
+<td>Power, Reset, Clock management
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x08001c00</tt>
+</td>
+<td><tt>0x08001fff</tt>
+</td>
+<td><tt>1KiB</tt>
+</td>
+<td>R_CNT Config registers
+</td>
+<td>R_CNT
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x08002000</tt>
+</td>
+<td><tt>0x080023ff</tt>
+</td>
+<td><tt>1KiB</tt>
+</td>
+<td>R_CIR_RX Config registers
+</td>
+<td>R block Consumer IR receiver
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x08002400</tt>
+</td>
+<td><tt>0x080027ff</tt>
+</td>
+<td><tt>1KiB</tt>
+</td>
+<td><a href="../A10/TWI.html" class="mw-redirect" title="A10/TWI">R_TWI0 Config registers</a>
+</td>
+<td>R block Two Wire Interface 0
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x08002800</tt>
+</td>
+<td><tt>0x08002bff</tt>
+</td>
+<td><tt>1KiB</tt>
+</td>
+<td>R_UART Config registers
+</td>
+<td>R_UART
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x08002c00</tt>
+</td>
+<td><tt>0x08002fff</tt>
+</td>
+<td><tt>1KiB</tt>
+</td>
+<td><a href="PIO.html#R_PIO" title="A80/PIO">R_PIO Config registers</a>
+</td>
+<td>R block Pin Controller
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x08003000</tt>
+</td>
+<td><tt>0x080033ff</tt>
+</td>
+<td><tt>1KiB</tt>
+</td>
+<td>R_ONE_WIRE Config registers
+</td>
+<td>R block One Wire interface
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x08003400</tt>
+</td>
+<td><tt>0x080037ff</tt>
+</td>
+<td><tt>1KiB</tt>
+</td>
+<td>R_RSB Config registers
+</td>
+<td>R block Reduced Serial Bus
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x08003800</tt>
+</td>
+<td><tt>0x08003bff</tt>
+</td>
+<td><tt>1KiB</tt>
+</td>
+<td><a href="../A10/TWI.html" class="mw-redirect" title="A10/TWI">R_TWI1 Config registers</a>
+</td>
+<td>R block Two Wire Interface 1
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x08004000</tt>
+</td>
+<td><tt>0x080043ff</tt>
+</td>
+<td><tt>1KiB</tt>
+</td>
+<td>R_PS2_0 Config registers
+</td>
+<td>R block PS/2 interface 0
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x08004400</tt>
+</td>
+<td><tt>0x080047ff</tt>
+</td>
+<td><tt>1KiB</tt>
+</td>
+<td>R_PS2_1 Config registers
+</td>
+<td>R block PS/2 interface 1
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x08006000</tt>
+</td>
+<td><tt>0x08006fff</tt>
+</td>
+<td><tt>4KiB</tt>
+</td>
+<td>R_DAUDIO_0 Config registers
+</td>
+<td>R block Integrated Interchip Sound 2 (I2S) / PCM interface 0
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x08007000</tt>
+</td>
+<td><tt>0x08007fff</tt>
+</td>
+<td><tt>4KiB</tt>
+</td>
+<td>R_DAUDIO_1 Config registers
+</td>
+<td>R block Integrated Interchip Sound 2 (I2S) / PCM interface 1
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>0x08008000</tt>
+</td>
+<td><tt>0x08008fff</tt>
+</td>
+<td><tt>4KiB</tt>
+</td>
+<td>R_DMA Config registers
+</td>
+<td>R block DMA controller
+</td>
+<td>Y
+</td></tr>
+
+<tr>
+<th colspan="6" style="text-align: center">Memory
+</th></tr>
+<tr>
+<td><tt>0x20000000</tt>
+</td>
+<td><tt>0x21fffffff</tt>
+</td>
+<td><tt>4GiB</tt>
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A10/DDR&amp;action=edit&amp;redlink=1" class="new" title="A10/DDR (page does not exist)">DDR-II/DDR-III</a>
+</td>
+<td>General memory space
+</td>
+<td>Y
+</td></tr></tbody></table>
+<!-- 
+NewPP limit report
+Cached time: 20251029050410
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.171 seconds
+Real time usage: 0.203 seconds
+Preprocessor visited node count: 6/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:1675-0!canonical and timestamp 20251029050410 and revision id 17107
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=A80/Memory_map&amp;oldid=17107">https://linux-sunxi.org/index.php?title=A80/Memory_map&amp;oldid=17107</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="../Special:Categories.html" title="Special:Categories">Category</a>: <ul><li><a href="../Category:A80_Register_guide.html" title="Category:A80 Register guide">A80 Register guide</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=A80%2FMemory+map" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=A80%2FMemory+map" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="Memory_map.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:A80/Memory_map&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="Memory_map.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=A80/Memory_map&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=A80/Memory_map&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="../index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="../index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="../sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="../Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="https://linux-sunxi.org/Special:WhatLinksHere/A80/Memory_map" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/A80/Memory_map" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="../Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=A80/Memory_map&amp;oldid=17107" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=A80/Memory_map&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 5 May 2016, at 14:28.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.171","walltime":"0.203","ppvisitednodes":{"value":6,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":0,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20251029050410","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":369});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

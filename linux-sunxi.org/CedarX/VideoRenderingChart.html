@@ -1,0 +1,483 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>CedarX/VideoRenderingChart - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"11e5247a418526c655136e9f","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"CedarX/VideoRenderingChart","wgTitle":"CedarX/VideoRenderingChart","wgCurRevisionId":21824,"wgRevisionId":21824,"wgArticleId":284,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["CedarX"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"CedarX/VideoRenderingChart","wgRelevantArticleId":284,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready",
+"noscript":"ready","user.styles":"ready","user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=mediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="VideoRenderingChart.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-CedarX_VideoRenderingChart rootpage-CedarX skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">CedarX/VideoRenderingChart</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"><span class="subpages">&lt; <a href="../CedarX" title="CedarX">CedarX</a></span></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>This site should grow to an overview chart, to see which codecs/files work with <a href="../CedarX" title="CedarX">CedarX</a>, A10 VPU (Video Processor Unit) hardware accelerated video decoding. 
+</p><p>Tests can be done with <a href="XBMC.html" title="CedarX/XBMC">XBMC Media Center</a> and <a href="VLC.html" title="CedarX/VLC">VLC (VideoLAN Client)</a> media player software or other software supporting <a href="../CedarX" title="CedarX">CedarX</a> off-loading.
+</p><p>This information should help programmers to improve usage of CedarX. Please also note that software decoding on CPU should not be discussed in this article.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Overview"><span class="tocnumber">1</span> <span class="toctext">Overview</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Overview_of_cedarX_video_rendering_issues_on_A10"><span class="tocnumber">1.1</span> <span class="toctext">Overview of cedarX video rendering issues on A10</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-3"><a href="#Known_issues"><span class="tocnumber">2</span> <span class="toctext">Known issues</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Samples_for_testing"><span class="tocnumber">3</span> <span class="toctext">Samples for testing</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#See_also"><span class="tocnumber">4</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Overview">Overview</span></h1>
+<p>Feel free to add and edit with your issues and files or mark files working. File analyses could be done with <a rel="nofollow" class="external text" href="http://mediainfo.sourceforge.net">Mediainfo</a>. Exported HTML-Info should be linked.
+</p>
+<h3><span class="mw-headline" id="Overview_of_cedarX_video_rendering_issues_on_A10">Overview of cedarX video rendering issues on A10</span></h3>
+<table class="wikitable">
+
+<tbody><tr>
+<th>Works (VLC)</th>
+<th>Works (XBMC)</th>
+<th>Container</th>
+<th>Video/Format</th>
+<th>Video/CodecID (FourCC/IFF/OSType)</th>
+<th>Resolution/Framerate</th>
+<th>Audio/Format</th>
+<th>Bitrate/Samplerate</th>
+<th>Audio/Codec_ID (FourCC/IFF/OSType)</th>
+<th>SampleFile</th>
+<th>issues (XBMC native)</th>
+<th>issues (VLC native)</th>
+<th>issues (XBMC libhybris)</th>
+<th>issues (VLC libhybris)</th>
+<th>issues (mplayer <a class="external text" href="https://github.com/linux-sunxi/libvdpau-sunxi">libvdpau-sunxi</a>)
+</th></tr>
+<tr>
+<td>Yes</td>
+<td>Yes</td>
+<td>MPEG-4</td>
+<td>AVC <a href="https://linux-sunxi.org/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="84c6e5f7e1e8edeae1c4c8b5aab7">[email&#160;protected]</a></td>
+<td>avc1</td>
+<td>1920x1080@25fps</td>
+<td>AAC LC</td>
+<td>VBR <a href="https://linux-sunxi.org/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ecd5daa78e9c9facd8d8c2dd">[email&#160;protected]</a> kHz</td>
+<td>AAC</td>
+<td><a rel="nofollow" class="external autonumber" href="http://samplemedia.linaro.org/H264/big_buck_bunny_1080p_H264_AAC_25fps_7200K.MP4">[1]</a></td>
+<td>None</td>
+<td>None</td>
+<td></td>
+<td></td>
+<td>unknown video format
+</td></tr>
+<tr>
+<td>Yes</td>
+<td>Yes</td>
+<td>Matroska</td>
+<td>AVC <a href="https://linux-sunxi.org/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="fab89b899f9693949fbab6c9d4cb">[email&#160;protected]</a></td>
+<td>V_MPEG4/ISO/AVC</td>
+<td>1280x720@25fps</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td><a rel="nofollow" class="external autonumber" href="http://samplemedia.linaro.org/H264/SVT/baseline/park_joy_420_720p25.mkv">[2]</a></td>
+<td>None</td>
+<td>None</td>
+<td></td>
+<td></td>
+<td>None
+</td></tr>
+<tr>
+<td>Yes</td>
+<td>Yes</td>
+<td>AVI</td>
+<td>MPEG-4 Visual Simple@L1</td>
+<td>MP4V</td>
+<td>1920x1080@25fps</td>
+<td>MPEG1 Layer 3</td>
+<td>CBR <a href="https://linux-sunxi.org/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="102121225b7260635024243e21">[email&#160;protected]</a> kHz</td>
+<td>MP3</td>
+<td><a rel="nofollow" class="external autonumber" href="http://samplemedia.linaro.org/MPEG4/big_buck_bunny_1080p_MPEG4_MP3_25fps_7600K.AVI">[3]</a></td>
+<td>None</td>
+<td>None</td>
+<td></td>
+<td></td>
+<td>None
+</td></tr>
+<tr>
+<td>Yes</td>
+<td>Yes</td>
+<td>MPEG-4</td>
+<td>MPEG-4 Visual Advanced Simple@L1</td>
+<td></td>
+<td>1280x720@25fps</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td><a rel="nofollow" class="external autonumber" href="http://samplemedia.linaro.org/MPEG4/SVT/park_joy_420_720p25.mp4">[4]</a></td>
+<td>Jerky / Rubberbanding playback</td>
+<td>None</td>
+<td></td>
+<td></td>
+<td>None
+</td></tr>
+<tr>
+<td>Yes</td>
+<td>Yes</td>
+<td>MPEG-PS</td>
+<td>MPEG-2 Main@High</td>
+<td></td>
+<td>1920x1080@25fps</td>
+<td>MPEG1 Layer 2</td>
+<td>CBR <a href="https://linux-sunxi.org/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="83b2b5b3c8e1f3f0c3b7b7adb2e8cbf9">[email&#160;protected]</a></td>
+<td>MP2</td>
+<td><a rel="nofollow" class="external autonumber" href="http://samplemedia.linaro.org/MPEG2/big_buck_bunny_1080p_MPEG2_MP2_25fps_6600K.MPG">[5]</a></td>
+<td>None</td>
+<td>None</td>
+<td></td>
+<td></td>
+<td>None
+</td></tr>
+<tr>
+<td>Yes</td>
+<td>Yes</td>
+<td>MPEG-PS</td>
+<td>MPEG-2 Main@High 1440</td>
+<td>HDV 720p</td>
+<td>1280x720@25fps</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td><a rel="nofollow" class="external autonumber" href="http://samplemedia.linaro.org/MPEG2/SVT/park_joy_420_720p25.mpg">[6]</a></td>
+<td>None</td>
+<td>None</td>
+<td></td>
+<td></td>
+<td>None
+</td></tr>
+<tr>
+<td>Yes</td>
+<td>Yes</td>
+<td>MPEG-4</td>
+<td>AVC <a href="https://linux-sunxi.org/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="226a4b454a626e170c12">[email&#160;protected]</a>, weightp=2</td>
+<td>avc1</td>
+<td>1920x1080@24fps</td>
+<td>AAC LC</td>
+<td>VBR 127Kbps@48 kHz</td>
+<td>AAC</td>
+<td><a rel="nofollow" class="external autonumber" href="http://ftp.nluug.nl/ftp/graphics/blender/apricot/trailer/sintel_trailer-1080p.mp4">[7]</a></td>
+<td>Lots of artifacts</td>
+<td>Lots of artifacts</td>
+<td></td>
+<td></td>
+<td>None
+</td></tr>
+<tr>
+<td>Yes</td>
+<td>Yes</td>
+<td>WEBM</td>
+<td>VP8</td>
+<td>webm</td>
+<td>1920x1080@25fps</td>
+<td>vorbis</td>
+<td>996kbps  @48/48/24 kHz</td>
+<td>VORBIS</td>
+<td><a rel="nofollow" class="external autonumber" href="http://samplemedia.linaro.org/VP8/big_buck_bunny_1080p_VP8_VORBIS_25fps_7800K.WebM">[8]</a></td>
+<td>None</td>
+<td>None</td>
+<td></td>
+<td></td>
+<td>unknown video format
+</td></tr>
+<tr>
+<td></td>
+<td></td>
+<td>MPEG-TS (1080i)</td>
+<td>AVC <a href="https://linux-sunxi.org/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="773f1e101f373b435947">[email&#160;protected]</a></td>
+<td></td>
+<td>1920x1080@25fps</td>
+<td>AC3</td>
+<td>CBR 384Kbps@48 kHz</td>
+<td></td>
+<td><a rel="nofollow" class="external autonumber" href="http://www15.zippyshare.com/v/79616758/file.html">[9]</a></td>
+<td></td>
+<td></td>
+<td>Lag video and sound</td>
+<td>None</td>
+<td>None
+</td></tr>
+<tr>
+<td></td>
+<td></td>
+<td>MPEG-4</td>
+<td>AVC <a href="https://linux-sunxi.org/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e8a0818f80a8a4dbc6d9">[email&#160;protected]</a></td>
+<td></td>
+<td><a href="https://linux-sunxi.org/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1223202a226a2520225220213c2b2524746261">[email&#160;protected]</a></td>
+<td>AC3</td>
+<td>CBR 320Kbps@48 kHz</td>
+<td></td>
+<td><a rel="nofollow" class="external autonumber" href="https://dl.dropboxusercontent.com/u/1664131/Laggy_2-001.mkv">[10]</a></td>
+<td>Artifacts and lag video</td>
+<td>Only artifacts</td>
+<td>Only lag video</td>
+<td>None</td>
+<td>None
+</td></tr>
+<tr>
+<td></td>
+<td></td>
+<td>MPEG-4</td>
+<td>AVC <a href="https://linux-sunxi.org/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="9fd7f6f8f7dfd3abb1ae">[email&#160;protected]</a></td>
+<td></td>
+<td>1280x720@24fps</td>
+<td>DTS</td>
+<td>CBR 2 046 Kbps / 1 509 Kbps@48 kHz</td>
+<td></td>
+<td><a rel="nofollow" class="external autonumber" href="https://dl.dropboxusercontent.com/u/1664131/Laggy_1-001.mkv">[11]</a></td>
+<td>Artifacts and lag video</td>
+<td>Only artifacts</td>
+<td>Only lag video</td>
+<td>None</td>
+<td>None
+</td></tr></tbody></table>
+<h1><span class="mw-headline" id="Known_issues">Known issues</span></h1>
+<p>The use of <a rel="nofollow" class="external text" href="http://x264dev.multimedia.cx/archives/212">weighted P-frame prediction</a> in H.264/AVC encoded files results in blocky artifacts when using the cedarx blobs compiled for linux. There is also a discussion thread at doom10.org forum <a rel="nofollow" class="external autonumber" href="http://doom10.org/index.php?topic=941.0">[12]</a>
+</p><p>For example, adding '--weightp 0' option to x264 encoder command line produces a good file from the <a rel="nofollow" class="external text" href="http://ftp.nluug.nl/ftp/graphics/blender/apricot/trailer/sintel_trailer-1080p.mp4">Sintel movie trailer</a>
+</p>
+<pre> x264 --weightp 0 -o testfile-good.mkv sintel_trailer-1080p.mp4
+</pre>
+<p>While using the defaults produces a broken file
+</p>
+<pre> x264 -o testfile-bad.mkv sintel_trailer-1080p.mp4
+</pre>
+<p>Note: the media player from Android ICS firmware for Mele A2000 does not seem to have any problems with weighted P-frame prediction.
+</p><p>Also see <a class="external autonumber" href="https://github.com/linux-sunxi/cedarx-libs/issues/1">[13]</a>
+</p><p>A <b>workaround</b> for this issue is to use the Android libs via libhybris: <a href="libve.html" title="CedarX/libve">CedarX/libve</a>
+</p>
+<h1><span class="mw-headline" id="Samples_for_testing">Samples for testing</span></h1>
+<ul><li><a rel="nofollow" class="external text" href="http://samplemedia.linaro.org">http://samplemedia.linaro.org</a> - Linaro samplemedia server</li>
+<li><a rel="nofollow" class="external text" href="http://samples.mplayerhq.hu">http://samples.mplayerhq.hu</a> MPlayer has a very large collection of samples.</li>
+<li><a rel="nofollow" class="external text" href="http://www.demo-world.eu/trailers/">http://www.demo-world.eu/trailers/</a> - Demo World Trailers (DTS THX Dolby WMV Movie Distributor VOB Trailers)</li></ul>
+<h1><span class="mw-headline" id="See_also">See also</span></h1>
+<ul><li><a href="../CedarX" title="CedarX">CedarX</a> - Library for Allwinner A10 VPU (Video Processor Unit) used for audio and video decoding and encoding hardware off-loading.</li>
+<li><a href="libve.html" title="CedarX/libve">CedarX/libve</a> - Using the Android blob on linux via libhybris</li>
+<li><a href="XBMC.html" title="CedarX/XBMC">CedarX/XBMC</a> - XBMC Media Center</li>
+<li><a href="VLC.html" title="CedarX/VLC">CedarX/VLC</a> - VideoLAN Client</li>
+<li><a rel="nofollow" class="external text" href="http://mediainfo.sourceforge.net">Mediainfo</a> - Analysis tool for Video Files</li>
+<li><a rel="nofollow" class="external text" href="http://samplemedia.linaro.org/README">Sample Media on linaro.org</a></li></ul>
+<!-- 
+NewPP limit report
+Cached time: 20251029052726
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.027 seconds
+Real time usage: 0.030 seconds
+Preprocessor visited node count: 20/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:284-0!canonical and timestamp 20251029052726 and revision id 21824
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=CedarX/VideoRenderingChart&amp;oldid=21824">https://linux-sunxi.org/index.php?title=CedarX/VideoRenderingChart&amp;oldid=21824</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="../Special:Categories.html" title="Special:Categories">Category</a>: <ul><li><a href="../Category:CedarX.html" title="Category:CedarX">CedarX</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=CedarX%2FVideoRenderingChart" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=CedarX%2FVideoRenderingChart" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="VideoRenderingChart.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:CedarX/VideoRenderingChart&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="VideoRenderingChart.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=CedarX/VideoRenderingChart&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=CedarX/VideoRenderingChart&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="../index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="../index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="../sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="../Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="https://linux-sunxi.org/Special:WhatLinksHere/CedarX/VideoRenderingChart" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/CedarX/VideoRenderingChart" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="../Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=CedarX/VideoRenderingChart&amp;oldid=21824" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=CedarX/VideoRenderingChart&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 3 December 2018, at 15:53.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script data-cfasync="false" src="https://linux-sunxi.org/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.027","walltime":"0.030","ppvisitednodes":{"value":20,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":0,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20251029052726","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":357});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

@@ -1,0 +1,373 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Bootable OS images - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"cf7f78043e06a93c218d9c81","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Bootable_OS_images","wgTitle":"Bootable OS images","wgCurRevisionId":25047,"wgRevisionId":25047,"wgArticleId":424,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Software","Images"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Bootable_OS_images","wgRelevantArticleId":424,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":
+"ready","user.styles":"ready","user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=mediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="Bootable_OS_images.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-Bootable_OS_images rootpage-Bootable_OS_images skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">Bootable OS images</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#GNU.2FLinux"><span class="tocnumber">1</span> <span class="toctext">GNU/Linux</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Alpine_Linux"><span class="tocnumber">1.1</span> <span class="toctext">Alpine Linux</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Arch"><span class="tocnumber">1.2</span> <span class="toctext">Arch</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Berryboot"><span class="tocnumber">1.3</span> <span class="toctext">Berryboot</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Debian"><span class="tocnumber">1.4</span> <span class="toctext">Debian</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Fedora"><span class="tocnumber">1.5</span> <span class="toctext">Fedora</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Gentoo"><span class="tocnumber">1.6</span> <span class="toctext">Gentoo</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Kali"><span class="tocnumber">1.7</span> <span class="toctext">Kali</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Linaro"><span class="tocnumber">1.8</span> <span class="toctext">Linaro</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#Mer"><span class="tocnumber">1.9</span> <span class="toctext">Mer</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="#openSUSE"><span class="tocnumber">1.10</span> <span class="toctext">openSUSE</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="#OpenWrt"><span class="tocnumber">1.11</span> <span class="toctext">OpenWrt</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="#Parabola_GNU.2FLinux-libre"><span class="tocnumber">1.12</span> <span class="toctext">Parabola GNU/Linux-libre</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="#Slackware"><span class="tocnumber">1.13</span> <span class="toctext">Slackware</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="#Tiny_Core"><span class="tocnumber">1.14</span> <span class="toctext">Tiny Core</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="#Tizen"><span class="tocnumber">1.15</span> <span class="toctext">Tizen</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="#Ubuntu"><span class="tocnumber">1.16</span> <span class="toctext">Ubuntu</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-18"><a href="#Android"><span class="tocnumber">2</span> <span class="toctext">Android</span></a>
+<ul>
+<li class="toclevel-2 tocsection-19"><a href="#Cubieboard"><span class="tocnumber">2.1</span> <span class="toctext">Cubieboard</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="#Generic_H2.2B.2FH3_based_device"><span class="tocnumber">2.2</span> <span class="toctext">Generic H2+/H3 based device</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-21"><a href="#BSD_derivatives"><span class="tocnumber">3</span> <span class="toctext">BSD derivatives</span></a>
+<ul>
+<li class="toclevel-2 tocsection-22"><a href="#FreeBSD"><span class="tocnumber">3.1</span> <span class="toctext">FreeBSD</span></a></li>
+<li class="toclevel-2 tocsection-23"><a href="#NetBSD"><span class="tocnumber">3.2</span> <span class="toctext">NetBSD</span></a></li>
+<li class="toclevel-2 tocsection-24"><a href="#OpenBSD"><span class="tocnumber">3.3</span> <span class="toctext">OpenBSD</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h1><span id="GNU/Linux"></span><span class="mw-headline" id="GNU.2FLinux">GNU/Linux</span></h1>
+<p>When the image you download is made for a different type of device (eg. <a href="Cubieboard.html" class="mw-redirect" title="Cubieboard">Cubieboard</a> vs MK802) but using the same CPU (eg. <a href="A10.html" title="A10">A10</a>) you should be able to use it after updating u-boot and script.bin from your particular <a href="Hwpack.html" title="Hwpack">hwpack</a>. 
+</p><p>Some images that use very little hardware like the headless server images might work without changes on many devices.
+</p>
+<h2><span class="mw-headline" id="Alpine_Linux">Alpine Linux</span></h2>
+<p>experimental "Generic ARM" image (armhf): <a rel="nofollow" class="external text" href="http://alpinelinux.org/downloads/">http://alpinelinux.org/downloads/</a>
+</p>
+<h2><span class="mw-headline" id="Arch"><a href="Arch.html" title="Arch">Arch</a></span></h2>
+<ul><li><a rel="nofollow" class="external text" href="http://archlinuxarm.org/platforms/armv7/cubieboard#qt-platform_tabs-ui-tabs2#qt-platform_tabs-ui-tabs2">ArchLinuxARM Official</a> - link down</li>
+<li><a rel="nofollow" class="external text" href="https://groups.google.com/d/msg/cubieboard/SQVD3sCoWTg/eRxZl82at0UJ">ArchLinuxARM</a></li></ul>
+<h2><span class="mw-headline" id="Berryboot"><a href="Berryboot.html" title="Berryboot">Berryboot</a></span></h2>
+<ul><li><a rel="nofollow" class="external text" href="http://www.berryterminal.com/doku.php/berryboot_a10">Berryboot</a></li></ul>
+<p><i><a href="File:Exclamation.png.html" class="image"><img alt="Exclamation.png" src="https://linux-sunxi.org/images/c/c0/Exclamation.png" decoding="async" width="16" height="16" /></a>  Keep in mind berryboot is not a recommended boot image for A10 devices.</i>
+</p>
+<h2><span class="mw-headline" id="Debian"><a href="Debian.html" title="Debian">Debian</a></span></h2>
+<ul><li><a rel="nofollow" class="external text" href="https://wiki.debian.org/InstallingDebianOn/Allwinner">Debian</a> Unmodified Debian installation Wiki. <a rel="nofollow" class="external text" href="https://deb.debian.org/debian/dists/stable/main/installer-armhf/current/images/netboot/SD-card-images/">Stable</a> <a rel="nofollow" class="external text" href="https://deb.debian.org/debian/dists/unstable/main/installer-armhf/current/images/netboot/SD-card-images/">Unstable</a> <a rel="nofollow" class="external text" href="https://deb.debian.org/debian/dists/testing/main/installer-armhf/current/images/netboot/SD-card-images/">Testing</a> Images. You need a firmware.*.img.gz and the partition.img.gz. zcat firmware.&lt;x&gt;.img.gz partition.img.gz &gt;/dev/sdn (if sdn is your µSD Reader)</li>
+<li><a rel="nofollow" class="external text" href="http://www.armbian.com/">Armbian</a> (build system and OS images for +30 different sunxi SBC)</li>
+<li><a rel="nofollow" class="external text" href="http://bananian.org">Bananian</a> for Banana Pi/Pro</li>
+<li><a href="Cubian.html" title="Cubian">Cubian</a> for Cubieboard</li>
+<li><a rel="nofollow" class="external text" href="https://www.miniand.com/forums/forums/development/topics/debian-wheezy-lxde-armhf-build">Debian Wheezy with LXDE</a> - link down</li>
+<li><a rel="nofollow" class="external text" href="http://www.igorpecovnik.com/2013/12/24/cubietruck-debian-wheezy-sd-card-image/">Cubieboard / Cubietruck Debian Wheezy SD card image</a> by <b>Igor Pečovnik</b></li>
+<li><a rel="nofollow" class="external text" href="http://jas-hacks.blogspot.co.uk/2012/10/hackberry-a10-debian-whezzy-headless.html">Hackberry Debian Wheezy (Headless) image</a> (<a rel="nofollow" class="external text" href="https://www.miniand.com/forums/forums/development--3/topics/debian-wheezy-headless">discussion</a>)</li>
+<li><a rel="nofollow" class="external text" href="http://guillaumeplayground.net/mele-a2000-headless-debian-wheezy-armhf-with-nand-install-v1/">Mele headless: Debian wheezy (aka testing) armhf with nand install</a></li>
+<li><a rel="nofollow" class="external text" href="https://romanrm.net/a10/debian">Minimal Debian Wheezy "Server" images for the A10 and A20</a> by <b><a rel="nofollow" class="external text" href="http://linux-sunxi.org/User:Roman_Mamedov">rm</a></b></li>
+<li><a href="More-images.html" title="More-images">Unmodified Debian Wheezy and (headless) LAMP-Server-Wheezy with prebuild XBMC</a> by <b>Martin Wild</b></li>
+<li><a rel="nofollow" class="external text" href="http://www.cubieforums.com/index.php/topic,442.0.html">Cubieez (Debian 7.5 ARMHF with Mali400 + G2D) for A10/A20/CT</a> by <b>Manel Alonso</b></li>
+<li><a rel="nofollow" class="external text" href="http://arcadenea.com.ar/arcadenea/noticias/708-debianallwinner">Debian Wheezy for A10 Tablets (with sun4i-ts support)</a> by <b>Guaripolo</b></li>
+<li><a rel="nofollow" class="external text" href="http://www.igorpecovnik.com/2014/11/18/olimex-lime-debian-sd-image/">Olimex Lime/Lime2/Micro Debian Wheezy or Jessie SD card image</a> by <b>Igor Pečovnik</b></li>
+<li><a rel="nofollow" class="external text" href="http://box.redpill.dk/">Olimex Lime/Lime2/Micro/Teres-I Debian Buster SD card image</a> by <b>Jonas Smedegaard</b></li>
+<li><a class="external text" href="https://github.com/ssvb/sunxi-bootsetup/releases/tag/20141215-sunxi-bootsetup-prototype">The standard Debian installer</a> running on top of <a href="SD_card_based_installer.html" title="SD card based installer">SD card based installer</a></li>
+<li><a rel="nofollow" class="external text" href="http://karme.de/prisirah/">special purpose debian image to build digital photo frames for family and friends using open-source hardware (A20-OLinuXino-{MICRO,LIME2}+LCD‑OLinuXino‑{7,10}TS)</a></li></ul>
+<p>Most of above Debian derivatives have been customized, and strive to support specific boards / device families.
+</p><p>See also: <a href="Mainline_Debian_HowTo.html" title="Mainline Debian HowTo">Mainline Debian HowTo</a>
+</p>
+<h2><span class="mw-headline" id="Fedora"><a href="Fedora.html" title="Fedora">Fedora</a></span></h2>
+<p>See the <a href="Fedora.html" title="Fedora">Fedora</a> page for a list of available images.
+</p>
+<h2><span class="mw-headline" id="Gentoo"><a href="Gentoo.html" title="Gentoo">Gentoo</a></span></h2>
+<p>Allwinner SoC support is part of the <a rel="nofollow" class="external text" href="https://wiki.gentoo.org/wiki/Project:ARM">Gentoo ARM Project</a>. Various native stage3 tarballs are available from <a rel="nofollow" class="external text" href="http://distfiles.gentoo.org/releases/arm/">here</a>; you might also check out the <a rel="nofollow" class="external text" href="http://distfiles.gentoo.org/experimental/">experimental</a> directories (<i>arm</i> and <i>arm64</i>) for "bleeding edge" builds.
+</p>
+<h2><span class="mw-headline" id="Kali">Kali</span></h2>
+<ul><li><a rel="nofollow" class="external text" href="http://dustin.li/2013/05/getting-kali-linux-on-a-cubieboard/">Kali Linux on Cubieboard</a></li>
+<li><a rel="nofollow" class="external text" href="https://www.offensive-security.com/kali-linux-vmware-arm-image-download/">Prebuild images for Cubieboard2 and other devices  </a></li></ul>
+<h2><span class="mw-headline" id="Linaro"><a href="Linaro.html" title="Linaro">Linaro</a></span></h2>
+<ul><li><a href="More-images.html" title="More-images">Ubuntu and Linaro images</a> by <b>Martin Wild</b></li>
+<li><a rel="nofollow" class="external text" href="http://www.gplsquared.com/eoma_boot/eoma_boot.html#linaro_boot_uSD_image#linaro_boot_uSD_image">Linaro desktop with 3.4 kernel for A20 EOMA68</a> by <b>jm</b></li>
+<li><a rel="nofollow" class="external autonumber" href="http://goo.gl/Re03UQ">[1]</a> by <b>Ahrovan</b></li></ul>
+<p><b>Some boot images by FurryFox and 4pda team</b>
+</p>
+<ul><li><a rel="nofollow" class="external autonumber" href="https://yadi.sk/d/QX_OTJyRrZXrX">[2]</a> Lubuntu 12.04 Desktop 720p</li></ul>
+<h2><span class="mw-headline" id="Mer"><a href="Mer.html" title="Mer">Mer</a></span></h2>
+<ul><li><a rel="nofollow" class="external text" href="http://pengpod.com/dl/images/">mer-test images</a></li>
+<li><a rel="nofollow" class="external text" href="http://makeplaylive.com/files/improv-images">Mer images for Improv</a></li></ul>
+<h2><span class="mw-headline" id="openSUSE">openSUSE</span></h2>
+<ul><li>openSUSE supports a variety of ARMv6/ARMv7/AArch64 targets, including some <i>sunxi</i> devices. See <a rel="nofollow" class="external text" href="https://en.opensuse.org/Portal:ARM">openSUSE ARM Portal</a> and <a rel="nofollow" class="external text" href="https://en.opensuse.org/openSUSE:Supported_ARM_boards">Supported ARM boards</a>.</li></ul>
+<h2><span class="mw-headline" id="OpenWrt"><a href="OpenWrt.html" title="OpenWrt">OpenWrt</a></span></h2>
+<p>See the <a href="OpenWrt.html" title="OpenWrt">OpenWrt</a> page.
+</p>
+<h2><span id="Parabola_GNU/Linux-libre"></span><span class="mw-headline" id="Parabola_GNU.2FLinux-libre"><a href="Parabola_GNU/Linux-libre.html" title="Parabola GNU/Linux-libre">Parabola GNU/Linux-libre</a></span></h2>
+<p>See the <a href="Parabola_GNU/Linux-libre.html" title="Parabola GNU/Linux-libre">Parabola GNU/Linux-libre</a> page.
+</p>
+<h2><span class="mw-headline" id="Slackware">Slackware</span></h2>
+<ul><li><a rel="nofollow" class="external text" href="http://arm.slackware.com/">ARM on Slackware</a> supports at least one A20 device</li></ul>
+<h2><span class="mw-headline" id="Tiny_Core"><a href="Tiny_Core.html" title="Tiny Core">Tiny Core</a></span></h2>
+<ul><li><a rel="nofollow" class="external text" href="http://tinycorelinux.net/ports.html">ARMv7 Allwinner A10 official port</a></li></ul>
+<h2><span class="mw-headline" id="Tizen"><a href="Tizen.html" title="Tizen">Tizen</a></span></h2>
+<ul><li>Tizen:Common with Wayland and Linux-sunxi kernel 3.4 for A20-OLinuXino-MICRO: <a rel="nofollow" class="external free" href="http://bit.ly/1D8rLKe">http://bit.ly/1D8rLKe</a></li></ul>
+<ul><li><a rel="nofollow" class="external free" href="https://wiki.tizen.org/wiki/ARM#SUNXI_.28AllWinner.29#SUNXI_.28AllWinner.29">https://wiki.tizen.org/wiki/ARM#SUNXI_.28AllWinner.29</a>
+<ul><li>file:tizen-common-wayland-arm-sunxi-20140527rzr.raw.gz</li>
+<li>video: <a rel="nofollow" class="external free" href="https://www.youtube.com/watch?v=6JDy9uUqH4Y&amp;list=UUHVSal7ifvk6Juar-FaddTQ">https://www.youtube.com/watch?v=6JDy9uUqH4Y&amp;list=UUHVSal7ifvk6Juar-FaddTQ</a></li></ul></li></ul>
+<p>Related: <a href="Tizen.html" title="Tizen">Tizen</a>-Sunxi
+</p>
+<h2><span class="mw-headline" id="Ubuntu"><a href="Ubuntu.html" title="Ubuntu">Ubuntu</a></span></h2>
+<ul><li><a rel="nofollow" class="external text" href="http://www.armbian.com/">Armbian</a> (build system and OS images for +30 different sunxi SBC)</li>
+<li><a rel="nofollow" class="external text" href="http://guillaumeplayground.net/mele-a2000-ubuntu-12-10-armhf-base-with-nand-install-v1/">Mele: Ubuntu 12.10 armhf base with nand install</a></li>
+<li><a rel="nofollow" class="external text" href="http://olimex.wordpress.com/2013/03/20/minimal-ubuntu-12-04-2-lts-with-3-4-29-kernel-image-for-a13-olinuxino/">Minimal Ubuntu 12.04.2 LTS with 3.4.29 kernel image for A13-OLinuXino</a></li>
+<li><a rel="nofollow" class="external text" href="https://www.miniand.com/forums/forums/2/topics/1">MK802 Ubuntu Images</a> by <b><a rel="nofollow" class="external text" href="https://www.miniand.com/">Miniand</a></b></li>
+<li><a href="More-images.html" title="More-images">Ubuntu and Linaro images</a> by <b>Martin Wild</b></li>
+<li><a rel="nofollow" class="external text" href="http://www.gplsquared.com/eoma_boot/eoma_boot.html#Ubuntu_13_04#Ubuntu_13_04">Ubuntu 13.04 Desktop Linux with 3.4 kernel for A20 EOMA68 and Cubieboard2</a> by <b>jm</b></li>
+<li><a rel="nofollow" class="external text" href="http://www.gplsquared.com/eoma_boot/eoma_boot.html#Ubuntu_13_04_3D#Ubuntu_13_04_3D">Ubuntu 13.04 Desktop Linux with 3D acceleration with stage 3.4 kernel for A20 EOMA68 and Cubieboard2</a> by <b>jm</b></li>
+<li><a rel="nofollow" class="external text" href="http://www.igorpecovnik.com/2014/11/18/olimex-lime-debian-sd-image/">Olimex Lime/Lime2/Micro Ubuntu Trusty SD card image</a> by <b>Igor Pečovnik</b></li>
+<li><a rel="nofollow" class="external text" href="https://ubuntu-mate.org/armhf-rootfs/">Ubuntu MATE (based on 15.04) armhf-rootfs</a></li></ul>
+<p><b>Some boot images by FurryFox and 4pda team</b>
+</p>
+<ul><li><a rel="nofollow" class="external autonumber" href="https://yadi.sk/d/QX_OTJyRrZXrX">[3]</a> Lubuntu 12.04 Desktop 720p</li></ul>
+<h1><span class="mw-headline" id="Android">Android</span></h1>
+<p>Android is typically installed to the internal nand flash using LiveSuit or PhoenixCard. 
+</p><p>It is not easily possible to update the script.bin in LiveSuit images so you need an image for your particular device. Old android images would let the bootloader present on the nand set up memory controller so there is better chance of compatibility.
+</p>
+<h2><span class="mw-headline" id="Cubieboard">Cubieboard</span></h2>
+<ul><li><a rel="nofollow" class="external text" href="http://cubieboard.org/download/">Cubieboard download page</a> <a href="Android.html" title="Android">Android</a> TV box and testing images for LiveSuit (bottom of page) - HDMI TV output</li></ul>
+<h2><span id="Generic_H2+/H3_based_device"></span><span class="mw-headline" id="Generic_H2.2B.2FH3_based_device">Generic H2+/H3 based device</span></h2>
+<ul><li><a rel="nofollow" class="external text" href="http://h3droid.com">H3Droid</a> is universal android 4.4.2 based on xunlong's bsp dump and tuned to work with most H2+/H3 based devices. with added bugfixes and features and normal installer. slim, fast and no need for livesuit.</li></ul>
+<h1><span class="mw-headline" id="BSD_derivatives">BSD derivatives</span></h1>
+<h2><span class="mw-headline" id="FreeBSD"><a href="FreeBSD.html" title="FreeBSD">FreeBSD</a></span></h2>
+<p>FreeBSD for Allwinner SoCs is work in progress (currently in its early stages). Check the <a rel="nofollow" class="external text" href="https://wiki.freebsd.org/FreeBSD/arm">FreeBSD/arm wiki page</a>.
+</p>
+<h2><span class="mw-headline" id="NetBSD"><a href="NetBSD.html" title="NetBSD">NetBSD</a></span></h2>
+<p>The <a rel="nofollow" class="external text" href="http://wiki.netbsd.org/ports/evbarm/">NetBsd/evbarm</a> port supports evaluation and prototyping boards based on the ARM architecture, including various <a rel="nofollow" class="external text" href="http://wiki.netbsd.org/ports/evbarm/allwinner/">Allwinner</a> CPUs.
+</p>
+<h2><span class="mw-headline" id="OpenBSD">OpenBSD</span></h2>
+<p><a rel="nofollow" class="external text" href="http://www.openbsd.org/armv7.html">OpenBSD/armv7</a> targets various ARMv7 based systems, including A1x/A20 SoCs. As of 04/2015, Cubieboard 1+2 and pcDuino are listed as supported hardware platforms. However, this release is in development and not officially supported by OpenBSD. Some users report not being able to boot OpenBSD 5.8 release in Cubieboard 2. <a rel="nofollow" class="external free" href="http://openbsd-archive.7691.n7.nabble.com/pcDuino3-Nano-mount-root-problems-on-boot-td279382.html">http://openbsd-archive.7691.n7.nabble.com/pcDuino3-Nano-mount-root-problems-on-boot-td279382.html</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20251029034409
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.072 seconds
+Real time usage: 0.104 seconds
+Preprocessor visited node count: 87/1000000
+Post‐expand include size: 96/2097152 bytes
+Template argument size: 70/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    4.197      1 Template:Warn
+100.00%    4.197      1 -total
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:424-0!canonical and timestamp 20251029034409 and revision id 25047
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=Bootable_OS_images&amp;oldid=25047">https://linux-sunxi.org/index.php?title=Bootable_OS_images&amp;oldid=25047</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Categories</a>: <ul><li><a href="Category:Software.html" title="Category:Software">Software</a></li><li><a href="Category:Images.html" title="Category:Images">Images</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=Bootable+OS+images" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=Bootable+OS+images" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="Bootable_OS_images.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:Bootable_OS_images&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="Bootable_OS_images.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Bootable_OS_images&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Bootable_OS_images&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/Bootable_OS_images.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/Bootable_OS_images" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=Bootable_OS_images&amp;oldid=25047" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=Bootable_OS_images&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 23 September 2022, at 11:03.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.072","walltime":"0.104","ppvisitednodes":{"value":87,"limit":1000000},"postexpandincludesize":{"value":96,"limit":2097152},"templateargumentsize":{"value":70,"limit":2097152},"expansiondepth":{"value":3,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":0,"limit":5000000},"timingprofile":["100.00%    4.197      1 Template:Warn","100.00%    4.197      1 -total"]},"cachereport":{"timestamp":"20251029034409","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":180});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

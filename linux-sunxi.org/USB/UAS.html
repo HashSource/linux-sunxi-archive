@@ -1,0 +1,413 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>USB/UAS - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"e94509bcd51385b5a446a335","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"USB/UAS","wgTitle":"USB/UAS","wgCurRevisionId":23698,"wgRevisionId":23698,"wgArticleId":2291,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"USB/UAS","wgRelevantArticleId":2291,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":"ready","user":"ready",
+"user.options":"loading","ext.cite.styles":"ready","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","ext.cite.ux-enhancements","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=ext.cite.styles%7Cmediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="UAS.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-USB_UAS rootpage-USB skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">USB/UAS</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"><span class="subpages">&lt; <a href="../USB.html" title="USB">USB</a></span></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>The <a class="external text" href="http://en.wikipedia.org/wiki/USB_Attached_SCSI">USB Attached SCSI</a> protocol (UASP) is the younger/faster sibling of USB's <a class="external text" href="http://en.wikipedia.org/wiki/USB_mass_storage_device_class">Bulk-Only Transport</a> (BOT) used to access HDDs/SSDs. It was introduced as an optional part of the USB 3.0 specs but can also be used with USB 2.0 host controllers when hardware/drivers are compatible.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#UAS_capable_Allwinner_SoCs"><span class="tocnumber">1</span> <span class="toctext">UAS capable Allwinner SoCs</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Benefits"><span class="tocnumber">2</span> <span class="toctext">Benefits</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Testing_3_different_external_enclosures"><span class="tocnumber">2.1</span> <span class="toctext">Testing 3 different external enclosures</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#RAID_0_benchmark"><span class="tocnumber">2.2</span> <span class="toctext">RAID 0 benchmark</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="#Requirements"><span class="tocnumber">3</span> <span class="toctext">Requirements</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#UASP_capable_chipsets_in_disk_enclosures"><span class="tocnumber">4</span> <span class="toctext">UASP capable chipsets in disk enclosures</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="#OK"><span class="tocnumber">4.1</span> <span class="toctext">OK</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Blacklisted_.2F_UAS_disabled"><span class="tocnumber">4.2</span> <span class="toctext">Blacklisted / UAS disabled</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Status_unknown"><span class="tocnumber">4.3</span> <span class="toctext">Status unknown</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-10"><a href="#References"><span class="tocnumber">5</span> <span class="toctext">References</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="UAS_capable_Allwinner_SoCs">UAS capable Allwinner SoCs</span></h2>
+<p><span style="color:#ba0000">This section is work in progress, adding devices known to work is welcome</span>
+</p>
+<ul><li>A20</li>
+<li>A64 (tested on Pine64+ with kernel 4.9, ASM1153 and JMS567)</li>
+<li>H2+ (tested on Orange Pi Zero with kernel 4.9, ASM1153 and JMS567)</li>
+<li>H3 (tested on Orange Pi PC with kernel 4.4.0-rc4 and JMS567)</li>
+<li>H5 (tested on Orange Pi Zero 2 Plus H5 with kernel 4.13 and JMS578)</li></ul>
+<h2><span class="mw-headline" id="Benefits">Benefits</span></h2>
+<p>UASP implements more efficient disk accesses over USB compared to the older BOT mode. Regarding sequential transfers you will stay below 35 MB/s with most enclosures in BOT mode while UAS enabled enclosures get close to 40 MB/s. When accessing disks concurrently UASP should easily outperform BOT mode.
+</p>
+<h3><span class="mw-headline" id="Testing_3_different_external_enclosures">Testing 3 different external enclosures</span></h3>
+<p>The following USB-to-SATA bridges were used:
+</p>
+<ul><li>ASMedia ASM1051 (USB 3.0, UASP capable but due to problems blacklisted in mainline kernel)</li>
+<li>Initio INIC-1608 (USB 2.0, BOT)</li>
+<li>JMicron JMS567 (USB 3.0, UASP capable)</li></ul>
+<p>Tests done on a Banana Pi using an "APPLE HDD HTS727550A9E362" (Hitachi 2.5" 500 GB) with kernel 4.1.2, btrfs' defaults and disabled ASM1051 blacklisting (please keep that in mind since normally UAS will be automatically disabled for ASM1051/ASM1053 devices and a fallback to BOT will happen). The following iozone settings<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup> were used (4 GB test size to ensure that disks and not buffers/caches were tested. Only for the IOPS tests I used 2 GB since otherwise it would've took ages and the results didn't vary between 2 and 4 GB):
+</p>
+<pre>iozone -a -g 4000m -s 4000m -i 0 -i 1 -r 4K
+iozone -a -g 4000m -s 4000m -i 0 -i 1 -r 1024K
+iozone -O -i 0 -i 1 -i 2 -e -+n -r 4K -s 2000m</pre>
+<p>Cpufreq setting as follows:
+</p>
+<pre>echo performance &gt;/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+echo 960000 &gt;/sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq</pre>
+<p>(Sidenote: All three controllers support SAT so you can query S.M.A.R.T. values and trigger selftests: "smartctl -d sat")
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th scope="row"></th>
+<th>ASM1051 BOT</th>
+<th>JMS567 BOT</th>
+<th>INIC-1608 BOT</th>
+<th>ASM1051 UASP</th>
+<th>JMS567 UASP
+</th></tr>
+<tr>
+<th scope="row">Seq. Write
+</th>
+<td>33.1 MB/s</td>
+<td>34 MB/s</td>
+<td>33.5 MB/s</td>
+<td>37.1 MB/s</td>
+<td>38.1 MB/s
+</td></tr>
+<tr>
+<th scope="row">Seq. Read
+</th>
+<td>34.8 MB/s</td>
+<td>34.8 MB/s</td>
+<td>37.1 MB/s</td>
+<td>39.8 MB/s</td>
+<td>40.5 MB/s
+</td></tr>
+<tr>
+<th scope="row">Seq. write IOPS
+</th>
+<td>8225</td>
+<td>8301</td>
+<td>8220</td>
+<td>9062</td>
+<td>9284
+</td></tr>
+<tr>
+<th scope="row">Seq. read IOPS
+</th>
+<td>8844</td>
+<td>8816</td>
+<td>8684</td>
+<td>9932</td>
+<td>10227
+</td></tr>
+<tr>
+<th scope="row">Random write IOPS
+</th>
+<td>176</td>
+<td>178</td>
+<td>125</td>
+<td>157</td>
+<td>166
+</td></tr>
+<tr>
+<th scope="row">Random read IOPS
+</th>
+<td>3433</td>
+<td>3479</td>
+<td>4106</td>
+<td>4818</td>
+<td>4956
+</td></tr></tbody></table>
+<p><b>Update Nov 2016:</b> Quick test with kernel 4.9, the JMS567 enclosure, a Samsung EVO 750 and btrfs:
+</p>
+<ul><li>A20 (same Banana Pi as above): 38.4 MB/s write, 40.8 MB/s read</li>
+<li>A64 (Pine64+): 41.7 MB/s write, 42.1 MB/s read</li>
+<li>H3 (Orange Pi Plus 2E): 38.9 MB/s write, 41.3 MB/s read</li></ul>
+<h3><span class="mw-headline" id="RAID_0_benchmark">RAID 0 benchmark</span></h3>
+<p>Just a quick test with a <a href="../LinkSprite_pcDuino3_Nano.html" title="LinkSprite pcDuino3 Nano">pcDuino3 Nano</a> with kernel 4.1.1 without UASP support and 4.1.2 with CONFIG_USB_UAS=m (<a rel="nofollow" class="external text" href="http://pastebin.com/yU0NaWqr">details</a>). Two RAID-0 implementations were tested: btrfs' own implementation and mdraid+ext4. Obviously performance depends heavily on disk access patterns since btrfs' RAID-0 mode shows a whopping 17 MB/sec less without UAS while mdraid+ext4 are nearly unaffected:
+</p><p><b>With UASP enabled (write/read in MB/sec):</b> btrfs: 73/75 MB/s, mdraid+ext4: 69/72 MB/s
+</p><p><b>Without UASP (write/read in MB/sec):</b> btrfs: 56/58 MB/s, mdraid+ext4: 66/67 MB/s
+</p>
+<h2><span class="mw-headline" id="Requirements">Requirements</span></h2>
+<p>For reliable operation it's recommended to use UASP only with mainline kernel. You've to set <i>CONFIG_USB_UAS=m</i> or <i>CONFIG_USB_UAS=y</i> in your kernel config and you need an USB-to-SATA bridge in your disk enclosure that implements UAS correctly (and therefore isn't blacklisted -- in the latter case an automatic fallback to BOT should happen).
+</p><p>How to check whether UAS is enabled? Always check dmesg output for 'uas' vs. 'USB Mass Storage device detected' since many USB-to-SATA bridges won't be accessed using UASP (even some that would work flawlessly since it's not possible to differentiate them from their broken siblings – that applies eg. to the <a rel="nofollow" class="external text" href="http://www.spinics.net/lists/linux-usb/msg113617.html">widely used ASM1053</a>). You can also check the device with 'lsusb -t'. If it shows Class=Human Interface Device for the device, UAS is not enabled.
+</p><p><b>Important:</b> if you stumble accross USB errors with UAS and see 'Ring expansion failed' messages in dmesg output check/increase the kernel's <a rel="nofollow" class="external text" href="https://forum.armbian.com/index.php?/topic/4811-uas-mainline-kernel-coherent-pool-memory-size/">coherent-pool memory size</a>.
+</p>
+<h2><span class="mw-headline" id="UASP_capable_chipsets_in_disk_enclosures">UASP capable chipsets in disk enclosures</span></h2>
+<p><span style="color:#ba0000">This section is work in progress, please add/correct</span>
+</p><p>Even if the SoC in question is only USB 2.0 capable disk enclosures that are USB 3.0 ready are worth a try since UAS capable USB-to-SATA bridge chips appeared only after the release of the USB 3.0 specs therefore you will get UASP only together with USB 3.0. Please keep in mind that USB 3.0 allows USB peripherals to demand 900 mA instead of 500 mA as with USB 2.0. Therefore 2.5" disks in an USB 3.0 enclosure might not even spin-up when used with a sunxi device plugged into an USB 2.0 port when they're bus-powered only and do not feature a second power source.
+</p><p>The following list tries to sum up the UAS support state in mainline kernel for different chipsets commonly used in HDD/SSD enclosures:
+</p>
+<h3><span class="mw-headline" id="OK">OK</span></h3>
+<ul><li>ASMedia ASM1053-s <sup id="cite_ref-ASMedia_2-0" class="reference"><a href="#cite_note-ASMedia-2">&#91;2&#93;</a></sup></li>
+<li>ASMedia  ASM1153 <sup id="cite_ref-ASMedia_2-1" class="reference"><a href="#cite_note-ASMedia-2">&#91;2&#93;</a></sup> <sup id="cite_ref-3" class="reference"><a href="#cite_note-3">&#91;3&#93;</a></sup> (most Seagate USB3 disks based on ASM1153 with branded firmware need various quirks)</li>
+<li>Genesys Logic GL3310 <sup id="cite_ref-4" class="reference"><a href="#cite_note-4">&#91;4&#93;</a></sup></li>
+<li>JMicron JMS561 <sup id="cite_ref-5" class="reference"><a href="#cite_note-5">&#91;5&#93;</a></sup></li>
+<li>JMicron JMS567 <sup id="cite_ref-6" class="reference"><a href="#cite_note-6">&#91;6&#93;</a></sup></li>
+<li>JMicron JMS568 <sup id="cite_ref-7" class="reference"><a href="#cite_note-7">&#91;7&#93;</a></sup></li>
+<li>JMicron JMS578 <sup id="cite_ref-8" class="reference"><a href="#cite_note-8">&#91;8&#93;</a></sup></li>
+<li>VIA VL711 <sup id="cite_ref-9" class="reference"><a href="#cite_note-9">&#91;9&#93;</a></sup></li>
+<li>VIA VL715 <sup id="cite_ref-10" class="reference"><a href="#cite_note-10">&#91;10&#93;</a></sup> / VL716 <sup id="cite_ref-11" class="reference"><a href="#cite_note-11">&#91;11&#93;</a></sup> (VL716 shares product ID with VL715 since the same just with USB-C capabilities added)</li></ul>
+<h3><span id="Blacklisted_/_UAS_disabled"></span><span class="mw-headline" id="Blacklisted_.2F_UAS_disabled">Blacklisted / UAS disabled</span></h3>
+<ul><li>ASMedia ASM1051/ASM1051E (no or broken UASP support<sup id="cite_ref-ASMedia_2-2" class="reference"><a href="#cite_note-ASMedia-2">&#91;2&#93;</a></sup>)</li>
+<li>ASMedia ASM1053 (might work but it's impossible to differentiate between ASM1051 and ASM1053 when connected over USB2.0<sup id="cite_ref-ASMedia_2-3" class="reference"><a href="#cite_note-ASMedia-2">&#91;2&#93;</a></sup>)</li></ul>
+<h3><span class="mw-headline" id="Status_unknown">Status unknown</span></h3>
+<ul><li>Fujitsu MB86C311</li>
+<li>Renesas µPD720231</li>
+<li>Texas Instruments TUSB9261 <sup id="cite_ref-12" class="reference"><a href="#cite_note-12">&#91;12&#93;</a></sup></li>
+<li>NS1068X 0x2537:0x1068 (<a rel="nofollow" class="external text" href="https://forum.odroid.com/viewtopic.php?f=146&amp;t=26016&amp;p=188587#p188580#p188580">should be blacklisted</a>)</li>
+<li>Newer Seagate USB3 enclosures relying on ASM1153 with branded firmware (most probably they need quirks too as those already listed in **unusual_uas.h**)</li></ul>
+<h1><span class="mw-headline" id="References">References</span></h1>
+<div class="mw-references-wrap mw-references-columns"><ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">All test results in detail <a rel="nofollow" class="external text" href="http://pastebin.com/aGZyeryT">here</a></span>
+</li>
+<li id="cite_note-ASMedia-2"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-ASMedia_2-0">2.0</a></sup> <sup><a href="#cite_ref-ASMedia_2-1">2.1</a></sup> <sup><a href="#cite_ref-ASMedia_2-2">2.2</a></sup> <sup><a href="#cite_ref-ASMedia_2-3">2.3</a></sup></span> <span class="reference-text">See this <a rel="nofollow" class="external text" href="http://www.spinics.net/lists/linux-usb/msg119432.html">patch description</a> regarding different ASMedia chipsets</span>
+</li>
+<li id="cite_note-3"><span class="mw-cite-backlink"><a href="#cite_ref-3">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.asmedia.com.tw/eng/e_show_products.php?item=132&amp;cate_index=97">http://www.asmedia.com.tw/eng/e_show_products.php?item=132&amp;cate_index=97</a></span>
+</li>
+<li id="cite_note-4"><span class="mw-cite-backlink"><a href="#cite_ref-4">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.genesyslogic.com/en/product_view.php?show=4">http://www.genesyslogic.com/en/product_view.php?show=4</a></span>
+</li>
+<li id="cite_note-5"><span class="mw-cite-backlink"><a href="#cite_ref-5">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.jmicron.com/PDF/brief/jms561.pdf">http://www.jmicron.com/PDF/brief/jms561.pdf</a></span>
+</li>
+<li id="cite_note-6"><span class="mw-cite-backlink"><a href="#cite_ref-6">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.jmicron.com/PDF/brief/jms567.pdf">http://www.jmicron.com/PDF/brief/jms567.pdf</a></span>
+</li>
+<li id="cite_note-7"><span class="mw-cite-backlink"><a href="#cite_ref-7">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.jmicron.com/PDF/brief/jms568.pdf">http://www.jmicron.com/PDF/brief/jms568.pdf</a></span>
+</li>
+<li id="cite_note-8"><span class="mw-cite-backlink"><a href="#cite_ref-8">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.jmicron.com/PDF/brief/jms578.pdf">http://www.jmicron.com/PDF/brief/jms578.pdf</a></span>
+</li>
+<li id="cite_note-9"><span class="mw-cite-backlink"><a href="#cite_ref-9">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.via-labs.com/product_show.php?id=44">http://www.via-labs.com/product_show.php?id=44</a></span>
+</li>
+<li id="cite_note-10"><span class="mw-cite-backlink"><a href="#cite_ref-10">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.via-labs.com/product_show.php?id=49">http://www.via-labs.com/product_show.php?id=49</a></span>
+</li>
+<li id="cite_note-11"><span class="mw-cite-backlink"><a href="#cite_ref-11">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.via-labs.com/product_show.php?id=68">http://www.via-labs.com/product_show.php?id=68</a></span>
+</li>
+<li id="cite_note-12"><span class="mw-cite-backlink"><a href="#cite_ref-12">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.ti.com/product/tusb9261">http://www.ti.com/product/tusb9261</a></span>
+</li>
+</ol></div>
+<!-- 
+NewPP limit report
+Cached time: 20251029052616
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.277 seconds
+Real time usage: 0.335 seconds
+Preprocessor visited node count: 205/1000000
+Post‐expand include size: 390/2097152 bytes
+Template argument size: 250/2097152 bytes
+Highest expansion depth: 5/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 5241/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   46.280      1 -total
+ 78.18%   36.183      2 Template:Remove
+  7.66%    3.543      2 Template:Red
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:2291-0!canonical and timestamp 20251029052616 and revision id 23698
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=USB/UAS&amp;oldid=23698">https://linux-sunxi.org/index.php?title=USB/UAS&amp;oldid=23698</a>"</div>
+		<div id="catlinks" class="catlinks catlinks-allhidden" data-mw="interface"></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=USB%2FUAS" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=USB%2FUAS" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="UAS.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk"><a href="https://linux-sunxi.org/Talk:USB/UAS" rel="discussion" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="UAS.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=USB/UAS&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=USB/UAS&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="../index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="../index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="../sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="../Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="https://linux-sunxi.org/Special:WhatLinksHere/USB/UAS" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/USB/UAS" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="../Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=USB/UAS&amp;oldid=23698" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=USB/UAS&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 19 November 2020, at 22:16.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.277","walltime":"0.335","ppvisitednodes":{"value":205,"limit":1000000},"postexpandincludesize":{"value":390,"limit":2097152},"templateargumentsize":{"value":250,"limit":2097152},"expansiondepth":{"value":5,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":5241,"limit":5000000},"timingprofile":["100.00%   46.280      1 -total"," 78.18%   36.183      2 Template:Remove","  7.66%    3.543      2 Template:Red"]},"cachereport":{"timestamp":"20251029052616","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":231});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

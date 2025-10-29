@@ -1,0 +1,2965 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>A10 DRAM Controller Register Guide - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"dfea9c70d894977da131b02f","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"A10_DRAM_Controller_Register_Guide","wgTitle":"A10 DRAM Controller Register Guide","wgCurRevisionId":22619,"wgRevisionId":22619,"wgArticleId":629,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["A10 Register guide","A20 Register guide","A13 Register guide","Hardware"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"A10_DRAM_Controller_Register_Guide","wgRelevantArticleId":629,"wgIsProbablyEditable":!1,
+"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":"ready","user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=skins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="A10_DRAM_Controller_Register_Guide.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-A10_DRAM_Controller_Register_Guide rootpage-A10_DRAM_Controller_Register_Guide skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">A10 DRAM Controller Register Guide</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p><br />
+Note: slightly different revisions of the same DRAM controller are used in sun4i (Allwinner <a href="A10.html" title="A10">A10</a>), sun5i (Allwinner <a href="A13.html" title="A13">A13</a>) and sun7i (Allwinner <a href="A20.html" title="A20">A20</a>). This register guide covers them all. And the differences are explained in the register descriptions where appropriate.
+</p><p><br />
+DRAMC Base Address: 0x01c01000
+</p>
+<h1><span class="mw-headline" id="DRAM_Controller_registers">DRAM Controller registers</span></h1>
+<table class="wikitable">
+<tbody><tr>
+<th>Register Name
+</th>
+<th>Offset
+</th>
+<th>Size
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt><a href="#SDR_CCR">SDR_CCR</a></tt>
+</td>
+<td><tt>0x0000</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt> </tt>
+</td></tr>
+<tr>
+<td><tt><a href="#SDR_DCR">SDR_DCR</a></tt>
+</td>
+<td><tt>0x0004</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt> </tt>
+</td></tr>
+<tr>
+<td><tt><a href="#SDR_IOCR">SDR_IOCR</a></tt>
+</td>
+<td><tt>0x0008</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt> </tt>
+</td></tr>
+<tr>
+<td><tt><a href="#SDR_CSR">SDR_CSR</a></tt>
+</td>
+<td><tt>0x000c</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt> Data Training Status register</tt>
+</td></tr>
+<tr>
+<td><tt><a href="#SDR_DRR">SDR_DRR</a></tt>
+</td>
+<td><tt>0x0010</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt> Refresh Ratio</tt>
+</td></tr>
+<tr>
+<td><tt><a href="#SDR_TPR0">SDR_TPR0</a></tt>
+</td>
+<td><tt>0x0014</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt> Timing parameters 0</tt>
+</td></tr>
+<tr>
+<td><tt><a href="#SDR_TPR1">SDR_TPR1</a></tt>
+</td>
+<td><tt>0x0018</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt> Timing parameters 1</tt>
+</td></tr>
+<tr>
+<td><tt><a href="#SDR_TPR2">SDR_TPR2</a></tt>
+</td>
+<td><tt>0x001c</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt> Timing parameteres 2</tt>
+</td></tr>
+<tr>
+<td><tt><a href="#SDR_RSLRn">SDR_RSLR0</a></tt>
+</td>
+<td><tt>0x004c</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt> DQS Gating System Latency for Rank 0</tt>
+</td></tr>
+<tr>
+<td><tt><a href="#SDR_RSLRn">SDR_RSLR1</a></tt>
+</td>
+<td><tt>0x0050</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt> DQS Gating System Latency for Rank 1</tt>
+</td></tr>
+<tr>
+<td><tt><a href="#SDR_RDGRn">SDR_RDGR0</a></tt>
+</td>
+<td><tt>0x005c</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt> DQS Gating Phase Select for Rank 0</tt>
+</td></tr>
+<tr>
+<td><tt><a href="#SDR_RDGRn">SDR_RDGR1</a></tt>
+</td>
+<td><tt>0x0060</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt> DQS Gating Phase Select for Rank 1</tt>
+</td></tr>
+<tr>
+<td><tt><a href="#SDR_ODTCR">SDR_ODTCR</a></tt>
+</td>
+<td><tt>0x0098</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt>ODT Configuration Register </tt>
+</td></tr>
+<tr>
+<td><tt><a href="#SDR_DTR0">SDR_DTR0</a></tt>
+</td>
+<td><tt>0x009c</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt> Data Training  Data  register 0 </tt>
+</td></tr>
+<tr>
+<td><tt><a href="#SDR_DTR1">SDR_DTR1</a></tt>
+</td>
+<td><tt>0x00a0</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt> Data Training  Data  register 1</tt>
+</td></tr>
+<tr>
+<td><tt><a href="#SDR_DTAR">SDR_DTAR</a></tt>
+</td>
+<td><tt>0x00a4</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt> Data Training Addres Register</tt>
+</td></tr>
+<tr>
+<td><tt><a href="#SDR_ZQCR0">SDR_ZQCR0</a></tt>
+</td>
+<td><tt>0x00a8</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt> ZQ impedance control register</tt>
+</td></tr>
+<tr>
+<td><tt><a href="#SDR_ZQCR1">SDR_ZQCR1</a></tt>
+</td>
+<td><tt>0x00ac</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt> </tt>
+</td></tr>
+<tr>
+<td><tt><a href="#SDR_ZQSR">SDR_ZQSR</a></tt>
+</td>
+<td><tt>0x00b0</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt> ZQ impedance status register</tt>
+</td></tr>
+<tr>
+<td><tt><a href="#SDR_IDCR">SDR_IDCR</a></tt>
+</td>
+<td><tt>0x00b4</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt> Initialization Delay Configuration Register</tt>
+</td></tr>
+<tr>
+<td><tt><a href="#SDR_MR">SDR_MR</a></tt>
+</td>
+<td><tt>0x01f0</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt> Mode Register</tt>
+</td></tr>
+<tr>
+<td><tt><a href="#SDR_EMR">SDR_EMR</a></tt>
+</td>
+<td><tt>0x01f4</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt> Extended mode register</tt>
+</td></tr>
+<tr>
+<td><tt><a href="#SDR_EMR2">SDR_EMR2</a></tt>
+</td>
+<td><tt>0x01f8</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt> Extended mode register 2</tt>
+</td></tr>
+<tr>
+<td><tt><a href="#SDR_EMR3">SDR_EMR3</a></tt>
+</td>
+<td><tt>0x01fc</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt> Extended mode register 3 </tt>
+</td></tr>
+<tr>
+<td><tt><a href="#SDR_DLLGCR">SDR_DLLGCR</a></tt>
+</td>
+<td><tt>0x0200</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt> DLL General Control Register</tt>
+</td></tr>
+<tr>
+<td><tt><a href="#SDR_DLLCRn">SDR_DLLCR0</a></tt>
+</td>
+<td><tt>0x0204</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt> DLL Control Register (Command lane)</tt>
+</td></tr>
+<tr>
+<td><tt><a href="#SDR_DLLCRn">SDR_DLLCR1</a></tt>
+</td>
+<td><tt>0x0208</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt> DLL Control Register (Byte lane 0)</tt>
+</td></tr>
+<tr>
+<td><tt><a href="#SDR_DLLCRn">SDR_DLLCR2</a></tt>
+</td>
+<td><tt>0x020c</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt> DLL Control Register (Byte lane 1)</tt>
+</td></tr>
+<tr>
+<td><tt><a href="#SDR_DLLCRn">SDR_DLLCR3</a></tt>
+</td>
+<td><tt>0x0210</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt> DLL Control Register (Byte lane 2)</tt>
+</td></tr>
+<tr>
+<td><tt><a href="#SDR_DLLCRn">SDR_DLLCR4</a></tt>
+</td>
+<td><tt>0x0214</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt> DLL Control Register (Byte lane 3)</tt>
+</td></tr>
+<tr>
+<td><tt><a href="#SDR_DQTR0">SDR_DQTR0</a></tt>
+</td>
+<td><tt>0x0218</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt> DQ Timing Register 0</tt>
+</td></tr>
+<tr>
+<td><tt><a href="#SDR_DQTR1">SDR_DQTR1</a></tt>
+</td>
+<td><tt>0x021c</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt>  DQ Timing Register 1</tt>
+</td></tr>
+<tr>
+<td><tt><a href="#SDR_DQTR2">SDR_DQTR2</a></tt>
+</td>
+<td><tt>0x0220</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt>  DQ Timing Register 2</tt>
+</td></tr>
+<tr>
+<td><tt><a href="#SDR_DQTR3">SDR_DQTR3</a></tt>
+</td>
+<td><tt>0x0224</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt>  DQ Timing Register 3</tt>
+</td></tr>
+<tr>
+<td><tt><a href="#SDR_DQSTR0">SDR_DQSTR0</a></tt>
+</td>
+<td><tt>0x0228</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt> </tt>
+</td></tr>
+<tr>
+<td><tt><a href="#SDR_DQSTR1">SDR_DQSTR1</a></tt>
+</td>
+<td><tt>0x022c</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt> </tt>
+</td></tr>
+<tr>
+<td><tt><a href="#SDR_CR">SDR_CR</a></tt>
+</td>
+<td><tt>0x0230</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt> </tt>
+</td></tr>
+<tr>
+<td><tt><a href="#SDR_CFSR">SDR_CFSR</a></tt>
+</td>
+<td><tt>0x0234</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt> </tt>
+</td></tr>
+<tr>
+<td><tt><a href="#SDR_DPCR">SDR_DPCR</a></tt>
+</td>
+<td><tt>0x023c</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt> Power Save Control Register </tt>
+</td></tr>
+<tr>
+<td><tt><a href="#SDR_APR">SDR_APR</a></tt>
+</td>
+<td><tt>0x0240</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt> Arbiter Period Register</tt>
+</td></tr>
+<tr>
+<td><tt><a href="#SDR_LTR">SDR_TLR</a></tt>
+</td>
+<td><tt>0x0244</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt> Priority Level Data Threshold Register</tt>
+</td></tr>
+<tr>
+<td><tt><a href="#SDR_HPCR">SDR_HPCR</a></tt>
+</td>
+<td><tt>0x0250</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt> Host port configuration register </tt>
+</td></tr>
+<tr>
+<td><tt><a href="#SDR_SCSR">SDR_SCSR</a></tt>
+</td>
+<td><tt>0x02e0</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td><tt> Controller select magic </tt>
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="SDR_CCR">SDR_CCR</span></h2>
+<p>Default value: 0x80020000(A10) / 0x90020000(A20)<br />
+Offset: 0x0000
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default (Hex)
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>CCR_DRAM_INIT</tt>
+</td>
+<td><tt>31</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt></tt>
+</td>
+<td><tt>0/1</tt>
+</td>
+<td>Set to 1 to init DRAM chip; cleared on completion
+</td></tr>
+<tr>
+<td><tt>CCR_DATA_TRAINING</tt>
+</td>
+<td><tt>30</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt></tt>
+</td>
+<td><tt></tt>
+</td>
+<td>Set to 1 to start data traning; cleared on completion
+</td></tr>
+<tr>
+<td><tt>CCR_IB</tt>
+</td>
+<td><tt>29</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt></tt>
+</td>
+<td><i>unknown, fixed at 0</i>
+</td></tr>
+<tr>
+<td><tt>CCR_ITM_DISABLE</tt>
+</td>
+<td><tt>28</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt></tt>
+</td>
+<td><tt>0/1</tt>
+</td>
+<td>Set to 1 to disable Interface Timing Module
+</td></tr>
+<tr>
+<td><tt>CCR_FLUSH</tt>
+</td>
+<td><tt>27</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt></tt>
+</td>
+<td><tt>0/1</tt>
+</td>
+<td>Flush controller; cleared on completion
+</td></tr>
+<tr>
+<td><tt></tt>
+</td>
+<td><tt>26:18</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt></tt>
+</td>
+<td><tt>0/1</tt>
+</td>
+<td><i>reserved</i>
+</td></tr>
+<tr>
+<td><tt>CCR_DQS_DRIFT_COMP</tt>
+</td>
+<td><tt>17</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x1</tt>
+</td>
+<td><tt></tt>
+</td>
+<td>DQS Drift Compensation
+</td></tr>
+<tr>
+<td><tt>CCR_DQS_DRIFT_LIMIT</tt>
+</td>
+<td><tt>16:15</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>0x0 = no limit
+0x1 = 90°
+0x2 = 180°
+0x3 = 270°</tt>
+</pre>
+</td>
+<td>DQS Drift limit, only sets error flag
+</td></tr>
+<tr>
+<td><tt>CCR_DQS_GATE</tt>
+</td>
+<td><tt>14</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>0x0 = active window mode
+0x1 = passive window mode</tt>
+</pre>
+</td>
+<td>DQS gate window mode
+</td></tr>
+<tr>
+<td><tt>CCR_RBB</tt>
+</td>
+<td><tt>13</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt></tt>
+</td>
+<td><i>unknown, rk29</i>
+</td></tr>
+<tr>
+<td><tt></tt>
+</td>
+<td><tt>12:6</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt></tt>
+</td>
+<td><i>reserved/unknown</i>
+</td></tr>
+<tr>
+<td><tt>CCR_CMD_RATE</tt>
+</td>
+<td><tt>5</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>
+<pre>0x0 = 2T
+0x1 = 1T
+</pre>
+</tt></td>
+<td>Command rate. Setting 1T is only supported on sun7i hardware and slightly reduces latency. Has no effect on sun4i/sun5i.
+</td></tr>
+<tr>
+<td><tt></tt>
+</td>
+<td><tt>4:0</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt></tt>
+</td>
+<td><i>unknown, rk29 has ECC and hostport enable there</i>
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="SDR_DCR">SDR_DCR</span></h2>
+<p>Default value: 0x000004d4(A10) / 0x00000454(A20)<br />
+Offset: 0x0004
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default (Hex)
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>DCR_CMD_EXEC</tt>
+</td>
+<td><tt>31</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt></tt>
+</td>
+<td>Write 0x1 to execute command, cleared on finish
+</td></tr>
+<tr>
+<td><tt>DCR_CMD</tt>
+</td>
+<td><tt>30:27</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>0x0 = NOP
+0x1 = Clock stop (???)
+0x2 = Self Refresh
+0x3 = Refresh
+0x4 = DDR3 reset (???)
+0x5 = Precharge all
+0x6 = Deep power down (???)
+0x7 = SDRAM mode exit
+0x8-0xa = <i>reserved</i>
+0xb = SDRAM ZQ calibration short
+0xc = SDRAM ZQ calibration long
+0xd = <i>reserved</i>
+0xe = Power down
+0xf = SDRAM NOP</tt>
+</pre>
+</td>
+<td>Command (list not verified!)
+</td></tr>
+<tr>
+<td><tt>DCR_CUR_RANK</tt>
+</td>
+<td><tt>26:25</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt></tt>
+</td>
+<td>Current rank for command
+</td></tr>
+<tr>
+<td><tt></tt>
+</td>
+<td><tt>24:19</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt></tt>
+</td>
+<td><i>reserved</i> (MVAR, RDIMM, DO_INIT on rk29)?
+</td></tr>
+<tr>
+<td><tt></tt>
+</td>
+<td><tt>18</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt></tt>
+</td>
+<td><i>unknown</i> MPRDQ?
+</td></tr>
+<tr>
+<td><tt></tt>
+</td>
+<td><tt>17:15</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt></tt>
+</td>
+<td><i>unknown</i> PDQ?
+</td></tr>
+<tr>
+<td><tt>DCR_INTERLEAVE</tt>
+</td>
+<td><tt>14:13</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>0x0 = sequential
+0x1 = bank interleaving
+0x2 = rank interleaving
+0x3 = fixed address (???)</tt>
+</pre>
+</td>
+<td>Interleaving mode
+</td></tr>
+<tr>
+<td><tt>DCR_RANK_ALL</tt>
+</td>
+<td><tt>12</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>0x0 = only rank DCR_CUR_RANK
+0x1 = all ranks</tt>
+</pre>
+</td>
+<td>Send command to all ranks
+</td></tr>
+<tr>
+<td><tt>DCR_RANK_NUM</tt>
+</td>
+<td><tt>11:10</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x1</tt>
+</td>
+<td><tt>
+</tt><pre><tt>rank num = this value + 1</tt>
+</pre>
+</td>
+<td>Number of Ranks
+</td></tr>
+<tr>
+<td><tt></tt>
+</td>
+<td><tt>9</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt></tt>
+</td>
+<td><i>unknown</i> PIO?
+</td></tr>
+<tr>
+<td><tt>DCR_BUS_WIDTH</tt>
+</td>
+<td><tt>8:6</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x1/0x3</tt>
+</td>
+<td><tt>
+<pre>0x0 = <i>unknown</i>
+0x1 = 16 bit
+0x2 = <i>unknown</i>
+0x3 = 32 bit
+... = <i>reserved&#160;???</i>
+</pre>
+</tt><p><tt></tt>
+</p>
+</td>
+<td>Bus width (also called SIO in some sources)
+</td></tr>
+<tr>
+<td><tt>DCR_DENSITY</tt>
+</td>
+<td><tt>5:3</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x2</tt>
+</td>
+<td><tt>
+</tt><pre><tt>0x0 = 256M
+0x1 = 512M
+0x2 = 1G
+0x3 = 2G
+0x4 = 4G
+0x5 = 8G
+... = <i>reserved</i></tt>
+</pre>
+</td>
+<td>DRAM chip density
+</td></tr>
+<tr>
+<td><tt>DCR_IO_WIDTH</tt>
+</td>
+<td><tt>2:1</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x2</tt>
+</td>
+<td><tt>
+</tt><pre><tt>0x0 = x4 (???)
+0x1 = x8
+0x2 = x16
+0x3 = <i>reserved</i></tt>
+</pre>
+</td>
+<td>DRAM chip IO width
+</td></tr>
+<tr>
+<td><tt>DCR_TYPE</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>0x0 = DDR2
+0x1 = DDR3</tt>
+</pre>
+</td>
+<td>DRAM type
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="SDR_IOCR">SDR_IOCR</span></h2>
+<p>Default value: 0x00000000<br />
+Offset: 0x0008
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default (Hex)
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>IOCR_DQS_RTT</tt>
+</td>
+<td><tt>31</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>0x0 = always
+0x1 = dynamic</tt>
+</pre>
+</td>
+<td>DQS dynamic RTT control
+</td></tr>
+<tr>
+<td><tt>IOCR_DQ_RTT</tt>
+</td>
+<td><tt>30</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>0x0 = always
+0x1 = dynamic</tt>
+</pre>
+</td>
+<td>DQ dynamic RTT control
+</td></tr>
+<tr>
+<td><tt>IOCR_RTTOE</tt>
+</td>
+<td><tt>29</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>0x0 = 2 + max(RSLR)
+0x1 = 2 + max(RSLR) + CL + AL</tt>
+</pre>
+</td>
+<td>RTT output enable cycles before read <i>(unverified)</i>
+</td></tr>
+<tr>
+<td><tt>IOCR_RTTOH</tt>
+</td>
+<td><tt>28:26</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>RTTOH cycles = this value + 1</tt>
+</pre>
+</td>
+<td>RTT output hold cycles after read <i>(unverified)</i>
+</td></tr>
+<tr>
+<td><tt></tt>
+</td>
+<td><tt>25:24</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt></tt>
+</td>
+<td><i>reserved</i>
+</td></tr>
+<tr>
+<td><tt>IOCR_AUTO_DATA_IOPD</tt>
+</td>
+<td><tt>23:22</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>0x0 = disabled
+0x1 = only in self-refresh state
+0x2 = only in power-down state
+0x3 = in self-refresh and power-down state</tt>
+</pre>
+</td>
+<td>Automatic data channel IO power-down
+</td></tr>
+<tr>
+<td><tt>IOCR_AUTO_DATA_OE</tt>
+</td>
+<td><tt>21:20</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>0x0 = disabled
+0x1 = only in self-refresh state
+0x2 = only in power-down state
+0x3 = in self-refresh and power-down state</tt>
+</pre>
+</td>
+<td>Automatic data channel output enable <i>(unverified)</i>
+</td></tr>
+<tr>
+<td><tt>IOCR_AUTO_CMD_IOPD</tt>
+</td>
+<td><tt>19:18</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>0x0 = disabled
+0x1 = only in self-refresh state
+0x2 = only in power-down state
+0x3 = in self-refresh and power-down state</tt>
+</pre>
+</td>
+<td>Automatic command channel IO power-down
+</td></tr>
+<tr>
+<td><tt>IOCR_AUTO_CMD_OE</tt>
+</td>
+<td><tt>17:16</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>0x0 = disabled
+0x1 = only in self-refresh state
+0x2 = only in power-down state
+0x3 = in self-refresh and power-down state</tt>
+</pre>
+</td>
+<td>Automatic command channel output enable <i>(unverified)</i>
+</td></tr>
+<tr>
+<td><tt></tt>
+</td>
+<td><tt>15:11</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt></tt>
+</td>
+<td><i>reserved/unknown</i>
+</td></tr>
+<tr>
+<td><tt>IOCR_CK_DS</tt>
+</td>
+<td><tt>10</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>0x0 = reduced
+0x1 = full</tt>
+</pre>
+</td>
+<td>Clock drive strength <i>(unverified, taken from rk29)</i>
+</td></tr>
+<tr>
+<td><tt>IOCR_ADD_DS</tt>
+</td>
+<td><tt>9</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>0x0 = reduced
+0x1 = full</tt>
+</pre>
+</td>
+<td>Address drive strength <i>(unverified, taken from rk29)</i>
+</td></tr>
+<tr>
+<td><tt>IOCR_DQS_DS</tt>
+</td>
+<td><tt>8</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>0x0 = reduced
+0x1 = full</tt>
+</pre>
+</td>
+<td>DQS drive strength <i>(unverified, taken from rk29)</i>
+</td></tr>
+<tr>
+<td><tt>IOCR_DQ_DS</tt>
+</td>
+<td><tt>7</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>0x0 = reduced
+0x1 = full</tt>
+</pre>
+</td>
+<td>DQ drive strength <i>(unverified, taken from rk29)</i>
+</td></tr>
+<tr>
+<td><tt>IOCR_DQS_RTT</tt>
+</td>
+<td><tt>6:5</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>0x0 = disabled
+0x1 = 150
+0x2 = 75
+0x3 = 50</tt>
+</pre>
+</td>
+<td>DQS RTT value <i>(unverified, taken from rk29)</i>
+</td></tr>
+<tr>
+<td><tt>IOCR_DQ_RTT</tt>
+</td>
+<td><tt>4:3</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>0x0 = disabled
+0x1 = 150
+0x2 = 75
+0x3 = 50</tt>
+</pre>
+</td>
+<td>DQ RTT value <i>(unverified, taken from rk29)</i>
+</td></tr>
+<tr>
+<td><tt>IOCR_TEST_EN</tt>
+</td>
+<td><tt>2</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>0x0 = disabled
+0x1 = enabled</tt>
+</pre>
+</td>
+<td>Enable test signal output (???)
+</td></tr>
+<tr>
+<td><tt>IOCR_DQS_ODT</tt>
+</td>
+<td><tt>1</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>0x0 = DQS ODT disabled
+0x1 = DQS ODT enabled</tt>
+</pre>
+</td>
+<td>Enable DQS on-die termination
+</td></tr>
+<tr>
+<td><tt>IOCR_DQ_ODT</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>0x0 = DQ ODT disabled
+0x1 = DQ ODT enabled</tt>
+</pre>
+</td>
+<td>Enable DQ on-die termination
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="SDR_CSR">SDR_CSR</span></h2>
+<p>Default value: 0x00000000<br />
+Offset: 0x000C
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default (Hex)
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>CSR_DTIERR</tt>
+</td>
+<td><tt>21</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt></tt>
+</td>
+<td>An indicator of a DQS gate training failure. This bit is set to 1 if more than one possible gating delay has been found (which is abnormal)
+</td></tr>
+<tr>
+<td><tt>CSR_DTERR</tt>
+</td>
+<td><tt>20</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt></tt>
+</td>
+<td>An indicator of a DQS gate training failure. This bit is set to 1 if no gating delay could be found
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="SDR_DRR">SDR_DRR</span></h2>
+<p>Default value: 0x086c9883<br />
+Offset: 0x0010
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default (Hex)
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>RD</tt>
+</td>
+<td><tt>31</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>0x0 = enabled
+0x1 = disabled</tt>
+</pre>
+</td>
+<td>Disable auto-refresh
+</td></tr>
+<tr>
+<td><tt></tt>
+</td>
+<td><tt>30:28</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt></tt>
+</td>
+<td><i>reserved</i>
+</td></tr>
+<tr>
+<td><tt>RFBURST</tt>
+</td>
+<td><tt>27:24</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x8</tt>
+</td>
+<td><tt>
+</tt><pre><tt>burst length = this value + 1</tt>
+</pre>
+</td>
+<td>Refresh burst length
+</td></tr>
+<tr>
+<td><tt>tRFPRD</tt>
+</td>
+<td><tt>23:8</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x6c98</tt>
+</td>
+<td><tt>
+</tt><pre><tt>tRFPRD = (tREFI * dram_clock) * RFBURST - 200</tt>
+</pre>
+<p><i>- 200 looks like some safety margin and might not be necessary</i>
+</p>
+</td>
+<td>Refresh period
+</td></tr>
+<tr>
+<td><tt>tRFC</tt>
+</td>
+<td><tt>7:0</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x83</tt>
+</td>
+<td><tt></tt>
+</td>
+<td>Refresh cycle time
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="SDR_TPR0">SDR_TPR0</span></h2>
+<p>Default value: 0x30926692<br />
+Offset: 0x0014
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default (Hex)
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>tCCD</tt>
+</td>
+<td><tt>31</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt> 0</tt>
+</td>
+<td><tt>
+<p>For DDR2:
+</p>
+<pre>0x0 = BL/2
+0x1 = BL/2 + 1
+</pre>
+<p>For DDR3:
+</p>
+<pre>0x0 = 4 cycles
+0x1 = 5 cycles
+</pre>
+</tt><p><tt></tt>
+</p>
+</td>
+<td>READ to READ and WRITE to WRITE command delay
+</td></tr>
+<tr>
+<td><tt>tRC</tt>
+</td>
+<td><tt>30:25</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt> 0x18</tt>
+</td>
+<td><tt> 2-42 valid</tt>
+</td>
+<td>ACTIVATE to ACTIVATE command delay (in the same bank)
+</td></tr>
+<tr>
+<td><tt>tRRD</tt>
+</td>
+<td><tt>24:21</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt> 0x4</tt>
+</td>
+<td><tt> 1-8 valid</tt>
+</td>
+<td>ACTIVATE to ACTIVATE command delay (in a different bank)
+</td></tr>
+<tr>
+<td><tt>tRAS</tt>
+</td>
+<td><tt>20:16</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt> 0x12</tt>
+</td>
+<td><tt> 2-31 valid</tt>
+</td>
+<td>ACTIVATE to PRECHARGE command delay
+</td></tr>
+<tr>
+<td><tt>tRCD</tt>
+</td>
+<td><tt>15:12</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt> 0x6</tt>
+</td>
+<td><tt> </tt>
+</td>
+<td>ACTIVATE to READ/WRITE command delay
+</td></tr>
+<tr>
+<td><tt>tRP</tt>
+</td>
+<td><tt>11:8</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt> 0x6</tt>
+</td>
+<td><tt> </tt>
+</td>
+<td>PRECHARGE to ACTIVATE/REFRESH command delay
+</td></tr>
+<tr>
+<td><tt>tWTR</tt>
+</td>
+<td><tt>7:5</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt> 0x3</tt>
+</td>
+<td><tt> 1-6 valid</tt>
+</td>
+<td>WRITE to READ command delay
+</td></tr>
+<tr>
+<td><tt>tRTP</tt>
+</td>
+<td><tt>4:2</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt> 0x3</tt>
+</td>
+<td><tt> 2-6 valid</tt>
+</td>
+<td>READ to PRECHARGE command delay
+</td></tr>
+<tr>
+<td><tt>tMRD</tt>
+</td>
+<td><tt>1:0</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt> 0x2</tt>
+</td>
+<td><tt>
+<p>For DDR3:
+</p>
+<pre>0x0 = 4 cycles
+0x1 = 5 cycles
+0x2 = 6 cycles
+0x3 = 7 cycles
+</pre>
+</tt><p><tt></tt>
+</p>
+</td>
+<td>MODE REGISTER SET to MODE REGISTER SET command delay
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="SDR_TPR1">SDR_TPR1</span></h2>
+<p>Default value: 0x00001090<br />
+Offset: 0x0018
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default (Hex)
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>TP</tt>
+</td>
+<td><tt>31</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt></tt>
+</td>
+<td><i>unknown</i> (the bitfield name originates from the Chinese BWDSP100 manual)
+</td></tr>
+<tr>
+<td><tt>XWR</tt>
+</td>
+<td><tt>30:27</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt></tt>
+</td>
+<td><i>unknown</i> (the bitfield name originates from the Chinese BWDSP100 manual)
+</td></tr>
+<tr>
+<td><tt>XCL</tt>
+</td>
+<td><tt>24:23</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt></tt>
+</td>
+<td><i>unknown</i> (the bitfield name originates from the Chinese BWDSP100 manual)
+</td></tr>
+<tr>
+<td><tt></tt>
+</td>
+<td><tt>22:16</tt>
+</td>
+<td><tt>Read only</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt></tt>
+</td>
+<td><i>reserved</i>
+</td></tr>
+<tr>
+<td><tt>tRNKWTW</tt>
+</td>
+<td><tt>15:14</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt></tt>
+</td>
+<td><i>unknown</i> (maybe WRITE to WRITE delay in different ranks?)
+</td></tr>
+<tr>
+<td><tt>tRNKRTR</tt>
+</td>
+<td><tt>13:12</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x1</tt>
+</td>
+<td><tt></tt>
+</td>
+<td><i>unknown</i> (maybe READ to READ delay in different ranks?)
+</td></tr>
+<tr>
+<td><tt>tRTODT</tt>
+</td>
+<td><tt>11</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt>
+<pre>0x0 = default
+0x1 = extra cycle
+</pre>
+</tt><p><tt></tt>
+</p>
+</td>
+<td>READ to ODT delay
+</td></tr>
+<tr>
+<td><tt>tMOD</tt>
+</td>
+<td><tt>10:9</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt>
+<p>For DDR3:
+</p>
+<pre>0x0 = 12 cycles
+0x1 = 13 cycles
+0x2 = 14 cycles
+0x3 = 15 cycles
+</pre>
+</tt><p><tt></tt>
+</p>
+</td>
+<td>MODE REGISTER SET to any other command delay
+</td></tr>
+<tr>
+<td><tt>tFAW</tt>
+</td>
+<td><tt>8:3</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x12</tt>
+</td>
+<td><tt> 2-31 valid</tt>
+</td>
+<td>Four ACTIVATE commands period. No more than four ACTIVATE commands can be issued in a window of this duration.
+</td></tr>
+<tr>
+<td><tt>tRTW</tt>
+</td>
+<td><tt>2</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt>
+<pre>0x0 = default
+0x1 = extra cycle
+</pre>
+</tt><p><tt></tt>
+</p>
+</td>
+<td>READ to WRITE command delay. The TI Keystone2 manual hints that it might be only used during initialization/leveling (but not for normal operations). And recommends to set it to 1.
+</td></tr>
+<tr>
+<td><tt>tAOND_tAOFD</tt>
+</td>
+<td><tt>1:0</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt></tt>
+</td>
+<td><i>DDR2 only</i>
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="SDR_TPR2">SDR_TPR2</span></h2>
+<p>Default value: 0x0001a0c8<br />
+Offset: 0x001c
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default (Hex)
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt></tt>
+</td>
+<td><tt>31:19</tt>
+</td>
+<td><tt>Read only</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt></tt>
+</td>
+<td><i>reserved</i>
+</td></tr>
+<tr>
+<td><tt>tCKE</tt>
+</td>
+<td><tt>18:15</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x3</tt>
+</td>
+<td><tt>tCKE(min) + 1nCK</tt>
+</td>
+<td>Minimum CKE low width for Self Refresh entry to exit timing
+</td></tr>
+<tr>
+<td><tt>tXP</tt>
+</td>
+<td><tt>14:10</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x8</tt>
+</td>
+<td><tt>max(tXP, tXPDLL)</tt>
+</td>
+<td>Exit Power Down timing
+</td></tr>
+<tr>
+<td><tt>tXS</tt>
+</td>
+<td><tt>9:0</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0xC8</tt>
+</td>
+<td><tt>max(tXS, tXSDLL)</tt>
+</td>
+<td>Exit Self Refresh timing
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="SDR_RSLRn">SDR_RSLRn</span></h2>
+<p>Default value: 0x00000000<br />
+Offset: 0x004c (SDR_RSLR0) / 0x0050 (SDR_RSLR1)
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default (Hex)
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt></tt>
+</td>
+<td><tt>11:9</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt></tt>
+</td>
+<td>Lane 3 DQS gating system latency, cycles
+</td></tr>
+<tr>
+<td><tt></tt>
+</td>
+<td><tt>8:6</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt></tt>
+</td>
+<td>Lane 2 DQS gating system latency, cycles
+</td></tr>
+<tr>
+<td><tt></tt>
+</td>
+<td><tt>5:3</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt></tt>
+</td>
+<td>Lane 1 DQS gating system latency, cycles
+</td></tr>
+<tr>
+<td><tt></tt>
+</td>
+<td><tt>2:0</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt></tt>
+</td>
+<td>Lane 0 DQS gating system latency, cycles
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="SDR_RDGRn">SDR_RDGRn</span></h2>
+<p>Default value: 0x00000055<br />
+Offset: 0x005c (SDR_RDGR0) / 0x0060 (SDR_RDGR1)
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default (Hex)
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt></tt>
+</td>
+<td><tt>7:6</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>1</tt>
+</td>
+<td><tt>
+<pre>0 = 90 degrees
+1 = 180 degrees
+2 = 270 degrees
+3 = 360 degrees
+</pre>
+</tt><p><tt></tt>
+</p>
+</td>
+<td>Lane 3 DQS gating phase select
+</td></tr>
+<tr>
+<td><tt></tt>
+</td>
+<td><tt>5:4</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>1</tt>
+</td>
+<td><tt>
+<pre>0 = 90 degrees
+1 = 180 degrees
+2 = 270 degrees
+3 = 360 degrees
+</pre>
+</tt><p><tt></tt>
+</p>
+</td>
+<td>Lane 2 DQS gating phase select
+</td></tr>
+<tr>
+<td><tt></tt>
+</td>
+<td><tt>3:2</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>1</tt>
+</td>
+<td><tt>
+<pre>0 = 90 degrees
+1 = 180 degrees
+2 = 270 degrees
+3 = 360 degrees
+</pre>
+</tt><p><tt></tt>
+</p>
+</td>
+<td>Lane 1 DQS gating phase select
+</td></tr>
+<tr>
+<td><tt></tt>
+</td>
+<td><tt>1:0</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>1</tt>
+</td>
+<td><tt>
+<pre>0 = 90 degrees
+1 = 180 degrees
+2 = 270 degrees
+3 = 360 degrees
+</pre>
+</tt><p><tt></tt>
+</p>
+</td>
+<td>Lane 0 DQS gating phase select
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="SDR_ZQCR0">SDR_ZQCR0</span></h2>
+<p>Default value: 0x07b00000<br />
+Offset: 0x00a8
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default (Hex)
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>ZCAL</tt>
+</td>
+<td><tt>31</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt></tt>
+</td>
+<td>ZQ calibration trigger. Writing 1 to this bit initiates the ZQ calibration. This bit is self clearing on sun7i, but not on sun5i. The calibration makes use of the two divisors from ZPROG bits and the external high precision 240 ohm resistor to find the matching correct ZCTRL/ZDATA settings for the internal on-die resistors.
+</td></tr>
+<tr>
+<td><tt>ZDEN</tt>
+</td>
+<td><tt>28</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt></tt>
+</td>
+<td>If this bit is set to 1, then the user supplied data from the ZDATA bits is used instead of doing actual calibration.
+</td></tr>
+<tr>
+<td><tt>ZPROG</tt>
+</td>
+<td><tt>27-20</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x7b</tt>
+</td>
+<td><tt>
+<pre>bits 27:24 = On-die termination divisor
+bits 23:20 = Output impedance divisor
+</pre>
+</tt><p><tt></tt>
+</p>
+</td>
+<td>Divisors for the external 240 ohm high precision reference resistor connected to the SoC.
+</td></tr>
+<tr>
+<td><tt>ZDATA</tt>
+</td>
+<td><tt>19:0</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>bits 19:15 = pull-up on-die termination impedance
+bits 14:10 = pull-down on-die termination impedance
+bits 9:5   = pull-up output impedance
+bits 4:0   = pull-down output impedance</tt>
+</pre>
+</td>
+<td>The user supplied impedance settings, which are taken into use and copied to ZCTRL if the ZDEN bit is set
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="SDR_ZQCR1">SDR_ZQCR1</span></h2>
+<p>Default value: 0x00000000<br />
+Offset: 0x00ac
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default (Hex)
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>unknown</tt>
+</td>
+<td><tt>31:28</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt></tt>
+</td>
+<td>unknown
+</td></tr>
+<tr>
+<td><tt>unknown</tt>
+</td>
+<td><tt>27:24</tt>
+</td>
+<td><tt>Write only?</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt></tt>
+</td>
+<td>Unless bit 24 is set, the sun7i hardware fails to boot with ZQ calibration and ODT enabled. These bits always read back as 0, so this looks like some sort of a write-only register part.
+</td></tr>
+<tr>
+<td><tt>CALPRD?</tt>
+</td>
+<td><tt>23:0</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt></tt>
+</td>
+<td>unknown
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="SDR_ZQSR">SDR_ZQSR</span></h2>
+<p>Default value:&#160;?<br />
+Offset: 0x00b0
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default (Hex)
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>ZDONE</tt>
+</td>
+<td><tt>31</tt>
+</td>
+<td><tt>Read only</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>0 = ZQ calibration is still in progress or has never run
+1 = ZQ calibration has completed</tt>
+</pre>
+</td>
+<td>ZQ calibration progress status
+</td></tr>
+<tr>
+<td><tt>ZCTRL</tt>
+</td>
+<td><tt>19:0</tt>
+</td>
+<td><tt>Read only</tt>
+</td>
+<td><tt>?</tt>
+</td>
+<td><tt>
+</tt><pre><tt>bits 19:15 = pull-up on-die termination impedance
+bits 14:10 = pull-down on-die termination impedance
+bits 9:5   = pull-up output impedance
+bits 4:0   = pull-down output impedance</tt>
+</pre>
+</td>
+<td>The current impedance settings
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="SDR_IDCR">SDR_IDCR</span></h2>
+<p>Example of <a class="external text" href="https://github.com/hno/allwinner-boot/blob/lichee-a20-dev/boot0/drv/init_dram/dram_init.c#L330#L330">use in boot0</a><br />
+Default value: 0x00c80064<br />
+Offset: 0x00b4
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default (Hex)
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt></tt>
+</td>
+<td><tt>31:30</tt>
+</td>
+<td><tt>Read only</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt></tt>
+</td>
+<td><i>reserved</i>
+</td></tr>
+<tr>
+<td><tt>tDINIT1?</tt>
+</td>
+<td><tt>29:17</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x64</tt>
+</td>
+<td><tt></tt>
+</td>
+<td>unknown
+</td></tr>
+<tr>
+<td><tt>tDINIT0</tt>
+</td>
+<td><tt>16:0</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x64</tt>
+</td>
+<td><tt></tt>
+</td>
+<td>CKE low time during DRAM initialization. Is measured in DRAM clock cycles, which are additionally multiplied by 2 for sun4i/sun5i or 3 for sun7i to get the actual delay. The DDR3 spec requires to wait for at least 500 us
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="SDR_DLLCRn">SDR_DLLCRn</span></h2>
+<p>Default value: 0xc0000000<br />
+Offset: 0x0204 (SDR_DLLCR0) / 0x0208 (SDR_DLLCR1) / 0x020C (SDR_DLLCR2) / 0x0210 (SDR_DLLCR3) / 0x0214 (SDR_DLLCR4)
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default (Hex)
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>DLLCR_DISABLE</tt>
+</td>
+<td><tt>31</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>1</tt>
+</td>
+<td><tt></tt>
+</td>
+<td>DLL disable
+</td></tr>
+<tr>
+<td><tt>DLLCR_NRESET</tt>
+</td>
+<td><tt>30</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>1</tt>
+</td>
+<td><tt></tt>
+</td>
+<td>DLL reset
+</td></tr>
+<tr>
+<td><tt>DLLCR_SDPHASE</tt>
+</td>
+<td><tt>17:14</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>0x0 =  90 degrees
+0x1 =  72 degrees
+0x2 =  54 degrees
+0x3 =  36 degrees
+0x4 = 108 degrees
+0x5 =  90 degrees
+0x6 =  72 degrees
+0x7 =  54 degrees
+0x8 = 126 degrees
+0x9 = 108 degrees
+0xa =  90 degrees
+0xb =  72 degrees
+0xc = 144 degrees
+0xd = 126 degrees
+0xe = 108 degrees
+0xf =  90 degrees</tt>
+</pre>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>DLLCR_MFWDLY</tt>
+</td>
+<td><tt>11:9</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt></tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>DLLCR_MFBDLY</tt>
+</td>
+<td><tt>8:6</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt></tt>
+</td>
+<td>
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="SDR_DPCR">SDR_DPCR</span></h2>
+<p>Default value: 0x00000000<br />
+Offset: 0x023c
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default (Hex)
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>DPCR_MAGIC</tt>
+</td>
+<td><tt>31:16</tt>
+</td>
+<td><tt>Write-only</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt></tt>
+</td>
+<td>Any attempts to write to the SDR_DPCR register are ignored unless these high 16 bites are set to the 0x1651 magic value on sun7i. Writes to SDR_DPCR are always allowed on sun5i and it has no special magic value. These bits always read back as 0.
+</td></tr>
+<tr>
+<td><tt></tt>
+</td>
+<td><tt>15:1</tt>
+</td>
+<td><tt>Read-only?</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt></tt>
+</td>
+<td>reserved?
+</td></tr>
+<tr>
+<td><tt></tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>0 - Normal mode
+1 - DRAM pad is on hold and the SoC is ready to power down,
+    while DRAM may remain in self-refresh mode and retain data</tt>
+</pre>
+</td>
+<td>On sun5i and sun7i hardware this bit can (or must?) be set to 1 after putting DRAM in self-refresh mode. Likewise, it needs to be set back to 0 when returning from the self-refresh mode. The value of this register is apparently backed by the battery and survives reboots.
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="SDR_HPCR">SDR_HPCR</span></h2>
+<p>Default value:&#160;??<br />
+Offset: 0x250+4*port
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default (Hex)
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>RdCntEn</tt>
+</td>
+<td><tt>31</tt>
+</td>
+<td><tt>Read/Write?</tt>
+</td>
+<td><tt>?</tt>
+</td>
+<td><tt></tt>
+</td>
+<td>Host port read counter enable
+</td></tr>
+<tr>
+<td><tt>WrCntEn</tt>
+</td>
+<td><tt>30</tt>
+</td>
+<td><tt>Read/Write?</tt>
+</td>
+<td><tt></tt>
+</td>
+<td><tt></tt>
+</td>
+<td>Host port write counter enable
+</td></tr>
+<tr>
+<td><tt></tt>
+</td>
+<td><tt>29:16</tt>
+</td>
+<td><tt>Read only?</tt>
+</td>
+<td><tt></tt>
+</td>
+<td><tt></tt>
+</td>
+<td><i>reserved</i>
+</td></tr>
+<tr>
+<td><tt>CmdNum</tt>
+</td>
+<td><tt>15:8</tt>
+</td>
+<td><tt>Read/Write?</tt>
+</td>
+<td><tt></tt>
+</td>
+<td><tt></tt>
+</td>
+<td>Host port command number
+</td></tr>
+<tr>
+<td><tt>WaitState</tt>
+</td>
+<td><tt>7:4</tt>
+</td>
+<td><tt>Read/Write?</tt>
+</td>
+<td><tt></tt>
+</td>
+<td><tt></tt>
+</td>
+<td>Host port wait state
+</td></tr>
+<tr>
+<td><tt>PrioLevel</tt>
+</td>
+<td><tt>3:2</tt>
+</td>
+<td><tt>Read/Write?</tt>
+</td>
+<td><tt></tt>
+</td>
+<td><tt></tt>
+</td>
+<td>Host port priority level
+</td></tr>
+<tr>
+<td><tt></tt>
+</td>
+<td><tt>1</tt>
+</td>
+<td><tt>Read only?</tt>
+</td>
+<td><tt></tt>
+</td>
+<td><tt></tt>
+</td>
+<td><i>reserved</i> - setting this bit seems to raise priority on sun5i
+</td></tr>
+<tr>
+<td><tt>AcsEn</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>Read/Write?</tt>
+</td>
+<td><tt></tt>
+</td>
+<td><tt></tt>
+</td>
+<td>Host port access enabled
+</td></tr></tbody></table>
+<p>Ports (verify me!):
+</p>
+<ul><li>04 (0x260): usb0 host port</li>
+<li>05 (0x264): usb1 host port</li>
+<li>16 (0x290): cpu host port</li>
+<li>20 (0x2a0): csi0 host port</li>
+<li>27 (0x2bc): csi1 host port (verified)</li></ul>
+<h1><span class="mw-headline" id="Register_dumps">Register dumps</span></h1>
+<h2><span class="mw-headline" id="A10">A10</span></h2>
+<h3><span class="mw-headline" id="Reset">Reset</span></h3>
+<table>
+<tbody><tr>
+<th>before controller select magic
+</th>
+<th>after controller select magic
+</th></tr>
+<tr>
+<td>
+<pre>0000: 000329c4 33058a69 14140f54 07103065 
+0010: 372c0c30 000000c7 00000000 88442211 
+0020: 00000000 00000000 00001111 00001111 
+0030: 00000000 00000000 00000000 00000000 
+0040: 00000000 00000000 00000000 00000000 
+0050: 00000000 00000000 00000000 00000000 
+0060: 00330012 00000300 00000000 07b00000 
+0070: 00000000 00000000 00000210 00000000 
+0080: 00000000 00000000 00000000 00000000 
+0090: 00000000 00000000 00000000 00000000 
+00a0: 00000000 00000000 00000000 00000000 
+00b0: 00000000 00000000 00000000 00000000 
+00c0: 00000000 00000000 00000000 00000000 
+00d0: 00000000 00000000 00000000 00000000 
+00e0: 00000000 00000000 00000000 00000000 
+00f0: 00000000 00000000 00000000 00000000 
+0100: 00000000 00000000 00000000 00000000 
+0110: 00000000 00000000 00000000 00000000 
+0120: 00000000 00000000 00000000 00000000 
+0130: 00000000 00000000 00000000 00000000 
+0140: 00000000 00000000 00000000 00000000 
+0150: 00000000 00000000 00000000 00000000 
+0160: 00000000 00000000 00000000 00000000 
+0170: 00000000 00000000 00000000 00000000 
+0180: 00000000 00000000 00000000 00000000 
+0190: 00000000 00000000 00000000 00000000 
+01a0: 00000000 00000000 00000000 00000000 
+01b0: 00000000 00000000 00000000 00000000 
+01c0: 00000000 00000000 00000000 00000000 
+01d0: 00000000 00000000 00000000 00000000 
+01e0: 00000000 00000000 00000000 00000000 
+01f0: 00000000 00000000 00000000 00000000 
+0200: 03737000 c0000000 c0000000 c0000000 
+0210: c0000000 c0000000 ffffffff ffffffff 
+0220: ffffffff ffffffff 00003333 00003333 
+0230: 00000000 000000ff 00000000 00000000 
+0240: 00008000 00010400 00000000 00000000 
+0250: 00000001 00000001 00000001 00000001 
+0260: 00000001 00000001 00000000 00000000 
+0270: 00000000 00000000 00000000 00000000 
+0280: 00000000 00000000 00000000 00000000 
+0290: 00000001 00000001 00000001 00000001 
+02a0: 00000001 00000001 00000001 00000001 
+02b0: 00000001 00000001 00000001 00000001 
+02c0: 00000001 00000001 00000000 00000001 
+02d0: 00000000 00000000 00000000 00000000 
+02e0: 00000000 00000000 00000000 00000000 
+02f0: 00000000 00000000 00000000 00000000 
+</pre>
+</td>
+<td>
+<pre>0000: 80020000 000004d4 00000000 00000000 
+0010: 086c9883 3092666e 00001090 0001a0c8 
+0020: 00000000 00000000 00000000 00000000 
+0030: 00000000 00000000 00000000 00000000 
+0040: 00000000 00000000 00000000 00000000 
+0050: 00000000 00000000 00000000 00000055 
+0060: 00000055 00000000 00000000 00000000 
+0070: 00000000 00000000 00000000 00000000 
+0080: 00000000 00000000 00000000 00000000 
+0090: 00000000 00000000 00210000 dd22ee11 
+00a0: 7788bb44 00000000 07b00000 00000000 
+00b0: 00000000 00c80064 00000000 00000000 
+00c0: 00000000 00000000 00000000 00000000 
+00d0: 00000000 00000000 00000000 00000000 
+00e0: 00000000 00000000 00000000 00000000 
+00f0: 00000000 00000000 00000000 00000000 
+0100: 00000000 00000000 00000000 00000000 
+0110: 00000000 00000000 00000000 00000000 
+0120: 00000000 00000000 00000000 00000000 
+0130: 00000000 00000000 00000000 00000000 
+0140: 00000000 00000000 00000000 00000000 
+0150: 00000000 00000000 00000000 00000000 
+0160: 00000000 00000000 00000000 00000000 
+0170: 00000000 00000000 00000000 00000000 
+0180: 00000000 00000000 00000000 00000000 
+0190: 00000000 00000000 00000000 00000000 
+01a0: 00000000 00000000 00000000 00000000 
+01b0: 00000000 00000000 00000000 00000000 
+01c0: 00000000 00000000 00000000 00000000 
+01d0: 00000000 00000000 00000000 00000000 
+01e0: 00000000 00000000 00000000 00000000 
+01f0: 00000a52 00000000 00000000 00000000 
+0200: 03737000 c0000000 c0000000 c0000000 
+0210: c0000000 c0000000 ffffffff ffffffff 
+0220: ffffffff ffffffff 00003333 00003333 
+0230: 00000000 000000ff 00000000 00000000 
+0240: 00008000 00010400 00000000 00000000 
+0250: 00000001 00000001 00000001 00000001 
+0260: 00000001 00000001 00000000 00000000 
+0270: 00000000 00000000 00000000 00000000 
+0280: 00000000 00000000 00000000 00000000 
+0290: 00000001 00000001 00000001 00000001 
+02a0: 00000001 00000001 00000001 00000001 
+02b0: 00000001 00000001 00000001 00000001 
+02c0: 00000001 00000001 00000000 00000001 
+02d0: 00000000 00000000 00000000 00000000 
+02e0: 00000000 00000000 00000000 00000000 
+02f0: 00000000 00000000 00000000 00000000 
+</pre>
+</td></tr></tbody></table>
+<h3><span id="CB1_after_boot0/1"></span><span class="mw-headline" id="CB1_after_boot0.2F1">CB1 after boot0/1</span></h3>
+<pre>01c01000: 00004000 000030e5 00cc0000 00000000    <a href="https://linux-sunxi.org/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="95bbd5bbbbbba5">[email&#160;protected]</a>..........
+01c01010: 0882cf9d 30926692 00001090 0001a0c8    .....f.0........
+01c01020: 00000000 00000000 00000000 00000000    ................
+01c01030: 00000000 00000000 00000000 00000000    ................
+01c01040: 00000000 00000000 00000000 00000249    ............I...
+01c01050: 00000000 00000000 00000000 00000056    ............V...
+01c01060: 00000055 00000000 00000000 00000000    U...............
+01c01070: 00000000 00000000 00000000 00000000    ................
+01c01080: 00000000 00000000 00000000 00000000    ................
+01c01090: 00000000 00000000 00210000 dd22ee11    ..........!...".
+01c010a0: 7788bb44 00000000 07b00000 00000000    D..w............
+01c010b0: 8006b948 00c9ffff 00000000 00000000    H...............
+01c010c0: 00000000 00000000 00000000 00000000    ................
+01c010d0: 00000000 00000000 00000000 00000000    ................
+01c010e0: 00000000 00000000 00000000 00000000    ................
+01c010f0: 00000000 00000000 00000000 00000000    ................
+01c01100: 00000000 00000000 00000000 00000000    ................
+01c01110: 00000000 00000000 00000000 00000000    ................
+01c01120: 00000000 00000000 00000000 00000000    ................
+01c01130: 00000000 00000000 00000000 00000000    ................
+01c01140: 00000000 00000000 00000000 00000000    ................
+01c01150: 00000000 00000000 00000000 00000000    ................
+01c01160: 00000000 00000000 00000000 00000000    ................
+01c01170: 00000000 00000000 00000000 00000000    ................
+01c01180: 00000000 00000000 00000000 00000000    ................
+01c01190: 00000000 00000000 00000000 00000000    ................
+01c011a0: 00000000 00000000 00000000 00000000    ................
+01c011b0: 00000000 00000000 00000000 00000000    ................
+01c011c0: 00000000 00000000 00000000 00000000    ................
+01c011d0: 00000000 00000000 00000000 00000000    ................
+01c011e0: 00000000 00000000 00000000 00000000    ................
+01c011f0: 00001a20 00000000 00000000 00000000     ...............
+01c01200: 03737000 40000000 40000000 40000000    .ps....@...@...@
+01c01210: 40000000 40000000 ffffffff ffffffff    ...@...@........
+01c01220: ffffffff ffffffff 00003333 00003333    ........33..33..
+01c01230: 00006ffc 000000ff 00000000 00000000    .o..............
+01c01240: 00008000 00010400 00000000 00000000    ................
+01c01250: 00000301 00000301 00000301 00000301    ................
+01c01260: 00000301 00000301 00000000 00000000    ................
+01c01270: 00000000 00000000 00000000 00000000    ................
+01c01280: 00000000 00000000 00000000 00000000    ................
+01c01290: 00001031 00001031 00000735 00001035    1...1...5...5...
+01c012a0: 00001035 00000731 00001031 00000735    5...1...1...5...
+01c012b0: 00001035 00001031 00000731 00001035    5...1...1...5...
+01c012c0: 00001031 00000301 00000301 00000731    1...........1...
+01c012d0: 00000000 00000000 00000000 00000000    ................
+01c012e0: 00000000 00000000 00000000 00000000    ................
+</pre>
+<h2><span class="mw-headline" id="A20">A20</span></h2>
+<h3><span class="mw-headline" id="Reset_2">Reset</span></h3>
+<pre>0000: 90020000 00000454 00000000 00000000 
+0010: 086c9883 3092666e 00001090 0001a0c8 
+0020: 00000000 00000000 00000000 00000000 
+0030: 00000000 00000000 00000000 00000000 
+0040: 00000000 00000000 00000000 00000000 
+0050: 00000000 00000000 00000000 00000055 
+0060: 00000055 00000000 00000000 00000000 
+0070: 00000000 00000000 00000000 00000000 
+0080: 00000000 00000000 00000000 00000000 
+0090: 00000000 00000000 00210000 dd22ee11 
+00a0: 7788bb44 00000000 07b00000 00000000 
+00b0: 0005294a 00c80064 00000000 00000000 
+00c0: 00000000 00000000 00000000 00000000 
+00d0: 00000000 00000000 00000000 00000000 
+00e0: 00000000 00000000 00000000 00000000 
+00f0: 00000000 00000000 00000000 00000000 
+0100: 00000000 00000000 00000000 00000000 
+0110: 00000000 00000000 00000000 00000000 
+0120: 00000000 00000000 00000000 00000000 
+0130: 00000000 00000000 00000000 00000000 
+0140: 00000000 00000000 00000000 00000000 
+0150: 00000000 00000000 00000000 00000000 
+0160: 00000000 00000000 00000000 00000000 
+0170: 00000000 00000000 00000000 00000000 
+0180: 00000000 00000000 00000000 00000000 
+0190: 00000000 00000000 00000000 00000000 
+01a0: 00000000 00000000 00000000 00000000 
+01b0: 00000000 00000000 00000000 00000000 
+01c0: 00000000 00000000 00000000 00000000 
+01d0: 00000000 00000000 00000000 00000000 
+01e0: 00000000 00000000 00000000 00000000 
+01f0: 00000a52 00000000 00000000 00000000 
+0200: 03737000 c0000000 c0000000 c0000000 
+0210: c0000000 c0000000 ffffffff ffffffff 
+0220: ffffffff ffffffff 00003333 00003333 
+0230: c7000000 000003ff 00000000 00000000 
+0240: 00008000 01010400 00000000 00000000 
+0250: 00000001 00000001 00000001 00000001 
+0260: 00000001 00000001 00000001 00000001 
+0270: 00000000 00000000 00000000 00000000 
+0280: 00000000 00000000 00000000 00000000 
+0290: 00000001 00000001 00000001 00000001 
+02a0: 00000001 00000001 00000001 00000001 
+02b0: 00000001 00000001 00000001 00000001 
+02c0: 00000001 00000001 00000000 00000001 
+02d0: 00000000 00000000 00000000 00000000 
+02e0: 00000000 00000000 00000000 00000000 
+02f0: 00000000 00000000 00000000 00000000 
+</pre>
+<h3><span id="CB2_after_boot0/1"></span><span class="mw-headline" id="CB2_after_boot0.2F1">CB2 after boot0/1</span></h3>
+<pre>01c01000: 00004020 000030e5 00000000 00000000     @...0..........
+01c01010: 0875a983 42d899b7 0000a090 00022a00    ..u....B.....*..
+01c01020: 00000000 00000000 00000000 00000000    ................
+01c01030: 00000000 00000000 00000000 00000000    ................
+01c01040: 00000000 00000000 00000000 00000249    ............I...
+01c01050: 00000000 00000000 00000000 00000065    ............e...
+01c01060: 00000055 00000000 00000000 00000000    U...............
+01c01070: 00000000 00000000 00000000 00000000    ................
+01c01080: 00000000 00000000 00000000 00000000    ................
+01c01090: 00000000 00000000 00210000 dd22ee11    ..........!...".
+01c010a0: 7788bb44 00000000 07f00000 00000002    D..w............
+01c010b0: 8002b75e 00c9ffff 00000000 00000000    ^...............
+01c010c0: 00000000 00000000 00000000 00000000    ................
+01c010d0: 00000000 00000000 00000000 00000000    ................
+01c010e0: 00000000 00000000 00000000 00000000    ................
+01c010f0: 00000000 00000000 00000000 00000000    ................
+01c01100: 00000000 00000000 00000000 00000000    ................
+01c01110: 00000000 00000000 00000000 00000000    ................
+01c01120: 00000000 00000000 00000000 00000000    ................
+01c01130: 00000000 00000000 00000000 00000000    ................
+01c01140: 00000000 00000000 00000000 00000000    ................
+01c01150: 00000000 00000000 00000000 00000000    ................
+01c01160: 00000000 00000000 00000000 00000000    ................
+01c01170: 00000000 00000000 00000000 00000000    ................
+01c01180: 00000000 00000000 00000000 00000000    ................
+01c01190: 00000000 00000000 00000000 00000000    ................
+01c011a0: 00000000 00000000 00000000 00000000    ................
+01c011b0: 00000000 00000000 00000000 00000000    ................
+01c011c0: 00000000 00000000 00000000 00000000    ................
+01c011d0: 00000000 00000000 00000000 00000000    ................
+01c011e0: 00000000 00000000 00000000 00000000    ................
+01c011f0: 00001a50 00000004 00000010 00000000    P...............
+01c01200: 03737000 40000000 40000000 40000000    .ps....@...@...@
+01c01210: 40000000 40000000 ffffffff ffffffff    ...@...@........
+01c01220: ffffffff ffffffff 00003333 00003333    ........33..33..
+01c01230: c7017ffc 000003ff 00000000 00000000    ................
+01c01240: 00008000 01010400 00000000 00000000    ................
+01c01250: 00000301 00000301 00000301 00000301    ................
+01c01260: 00000301 00000301 00000301 00000301    ................
+01c01270: 00000000 00000000 00000000 00000000    ................
+01c01280: 00000000 00000000 00000000 00000000    ................
+01c01290: 00001031 00001031 00000735 00001035    1...1...5...5...
+01c012a0: 00001035 00000731 00001031 00000735    5...1...1...5...
+01c012b0: 00001035 00001031 00000731 00001035    5...1...1...5...
+01c012c0: 00000001 00001031 00000000 00001031    ....1.......1...
+01c012d0: 00000000 00000000 00000000 00000000    ................
+01c012e0: 00000000 00000000 00000000 00000000    ................
+</pre>
+<h3><span id="CB2_after_u-boot-spl_(wip/a20)"></span><span class="mw-headline" id="CB2_after_u-boot-spl_.28wip.2Fa20.29">CB2 after u-boot-spl (wip/a20)</span></h3>
+<pre>01c01000: 00004020 000030e5 00000000 00000055     @...0......U...
+01c01010: 0882cf83 42d899b7 0000a090 00022a00    .......B.....*..
+01c01020: 00000000 00000000 00000000 00000000    ................
+01c01030: 00000000 00000000 00000000 00000000    ................
+01c01040: 00000000 00000000 00000000 00000249    ............I...
+01c01050: 00000000 00000000 00000000 00000055    ............U...
+01c01060: 00000055 00000000 00000000 00000000    U...............
+01c01070: 00000000 00000000 00000000 00000000    ................
+01c01080: 00000000 00000000 00000000 00000000    ................
+01c01090: 00000000 00000000 00210000 dd22ee11    ..........!...".
+01c010a0: 7788bb44 00000000 07f00000 00000002    D..w............
+01c010b0: 0005294a 00c9ffff 00000000 00000000    J)..............
+01c010c0: 00000000 00000000 00000000 00000000    ................
+01c010d0: 00000000 00000000 00000000 00000000    ................
+01c010e0: 00000000 00000000 00000000 00000000    ................
+01c010f0: 00000000 00000000 00000000 00000000    ................
+01c01100: 00000000 00000000 00000000 00000000    ................
+01c01110: 00000000 00000000 00000000 00000000    ................
+01c01120: 00000000 00000000 00000000 00000000    ................
+01c01130: 00000000 00000000 00000000 00000000    ................
+01c01140: 00000000 00000000 00000000 00000000    ................
+01c01150: 00000000 00000000 00000000 00000000    ................
+01c01160: 00000000 00000000 00000000 00000000    ................
+01c01170: 00000000 00000000 00000000 00000000    ................
+01c01180: 00000000 00000000 00000000 00000000    ................
+01c01190: 00000000 00000000 00000000 00000000    ................
+01c011a0: 00000000 00000000 00000000 00000000    ................
+01c011b0: 00000000 00000000 00000000 00000000    ................
+01c011c0: 00000000 00000000 00000000 00000000    ................
+01c011d0: 00000000 00000000 00000000 00000000    ................
+01c011e0: 00000000 00000000 00000000 00000000    ................
+01c011f0: 00001a50 00000004 00000010 00000000    P...............
+01c01200: 03737000 40000000 40000000 40000000    .ps....@...@...@
+01c01210: 40000000 40000000 ffffffff ffffffff    ...@...@........
+01c01220: ffffffff ffffffff 00003333 00003333    ........33..33..
+01c01230: c7017ffc 000003ff 00000000 00000000    ................
+01c01240: 00008000 01010400 00000000 00000000    ................
+01c01250: 00000301 00000301 00000301 00000301    ................
+01c01260: 00000301 00000301 00000301 00000301    ................
+01c01270: 00000000 00000000 00000000 00000000    ................
+01c01280: 00000000 00000000 00000000 00000000    ................
+01c01290: 00001031 00001031 00000735 00001035    1...1...5...5...
+01c012a0: 00001035 00000731 00001031 00000735    5...1...1...5...
+01c012b0: 00001035 00001031 00000731 00001035    5...1...1...5...
+01c012c0: 00000001 00001031 00000000 00000731    ....1.......1...
+01c012d0: 00000000 00000000 00000000 00000000    ................
+01c012e0: 00000000 00000000 00000000 00000000    ................
+</pre>
+<!-- 
+NewPP limit report
+Cached time: 20251029040241
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.143 seconds
+Real time usage: 0.151 seconds
+Preprocessor visited node count: 170/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 15570/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:629-0!canonical and timestamp 20251029040241 and revision id 22619
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=A10_DRAM_Controller_Register_Guide&amp;oldid=22619">https://linux-sunxi.org/index.php?title=A10_DRAM_Controller_Register_Guide&amp;oldid=22619</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Categories</a>: <ul><li><a href="Category:A10_Register_guide.html" title="Category:A10 Register guide">A10 Register guide</a></li><li><a href="Category:A20_Register_guide.html" title="Category:A20 Register guide">A20 Register guide</a></li><li><a href="Category:A13_Register_guide.html" title="Category:A13 Register guide">A13 Register guide</a></li><li><a href="Category:Hardware.html" title="Category:Hardware">Hardware</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=A10+DRAM+Controller+Register+Guide" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=A10+DRAM+Controller+Register+Guide" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="A10_DRAM_Controller_Register_Guide.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk"><a href="Talk:A10_DRAM_Controller_Register_Guide.html" rel="discussion" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="A10_DRAM_Controller_Register_Guide.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=A10_DRAM_Controller_Register_Guide&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=A10_DRAM_Controller_Register_Guide&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/A10_DRAM_Controller_Register_Guide.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/A10_DRAM_Controller_Register_Guide" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=A10_DRAM_Controller_Register_Guide&amp;oldid=22619" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=A10_DRAM_Controller_Register_Guide&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 7 August 2019, at 09:14.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script data-cfasync="false" src="https://linux-sunxi.org/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.143","walltime":"0.151","ppvisitednodes":{"value":170,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":15570,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20251029040241","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":276});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

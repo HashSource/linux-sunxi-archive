@@ -1,0 +1,367 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Tvheadend TV Tuner Server and PVR backend - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"d3f2919b535d4f23633a9e0d","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Tvheadend_TV_Tuner_Server_and_PVR_backend","wgTitle":"Tvheadend TV Tuner Server and PVR backend","wgCurRevisionId":21822,"wgRevisionId":21822,"wgArticleId":264,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Software"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Tvheadend_TV_Tuner_Server_and_PVR_backend","wgRelevantArticleId":264,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],
+"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":"ready","user":"ready","user.options":"loading","ext.cite.styles":"ready","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","ext.cite.ux-enhancements","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=ext.cite.styles%7Cmediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="Tvheadend_TV_Tuner_Server_and_PVR_backend.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-Tvheadend_TV_Tuner_Server_and_PVR_backend rootpage-Tvheadend_TV_Tuner_Server_and_PVR_backend skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">Tvheadend TV Tuner Server and PVR backend</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p><b>Tvheadend</b> is a TV tuner server (also known as a PVR backend) and video streaming software for Linux supporting television signal tuning of DVB-S, DVB-S2, DVB-C, DVB-T, ATSC, DTMB, ISDB, IPTV, and Analog video (V4L) as TV tuner input sources.
+</p><p>Tvheadend TV server / PVR backend can be used as a PVR backend for <a href="CedarX/XBMC.html" title="CedarX/XBMC">XBMC Media Center</a> software, and while <a href="CedarX/XBMC.html" title="CedarX/XBMC">CedarX/XBMC</a> has already been ported to A10 based SoC, 
+Tvheadend have not yet officially been ported but can still be used remotely over the network while testing XBMC.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Overview"><span class="tocnumber">1</span> <span class="toctext">Overview</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Usage_and_Support_once_TVheadend_is_installed"><span class="tocnumber">2</span> <span class="toctext">Usage and Support once TVheadend is installed</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#TVheadend_Web_GUI_.28Web_User_Interface.29"><span class="tocnumber">2.1</span> <span class="toctext">TVheadend Web GUI (Web User Interface)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-4"><a href="#Using_the_TVheadend_PVR_Client_in_XBMC"><span class="tocnumber">3</span> <span class="toctext">Using the TVheadend PVR Client in XBMC</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="#Manually_adding_TVheadend_as_a_source_in_XBMC"><span class="tocnumber">3.1</span> <span class="toctext">Manually adding TVheadend as a source in XBMC</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="#Compiling_Tvheadend_on_Ubuntu_for_A10_based_media_players"><span class="tocnumber">4</span> <span class="toctext">Compiling Tvheadend on Ubuntu for A10 based media players</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Compiling_Tvheadend_on_Debian_for_A10_based_media_players"><span class="tocnumber">5</span> <span class="toctext">Compiling Tvheadend on Debian for A10 based media players</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#Linux_Media_Infrastructure_APIs_supported"><span class="tocnumber">6</span> <span class="toctext">Linux Media Infrastructure APIs supported</span></a>
+<ul>
+<li class="toclevel-2 tocsection-9"><a href="#Linux_DVB_API_summary"><span class="tocnumber">6.1</span> <span class="toctext">Linux DVB API summary</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#V4L2_API_summary"><span class="tocnumber">6.2</span> <span class="toctext">V4L2 API summary</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="#V4L1_API_summary"><span class="tocnumber">6.3</span> <span class="toctext">V4L1 API summary</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-12"><a href="#References"><span class="tocnumber">7</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1 tocsection-13"><a href="#See_also"><span class="tocnumber">8</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-14"><a href="#External_links"><span class="tocnumber">9</span> <span class="toctext">External links</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Overview">Overview</span></h1>
+<p>Tvheadend (formerly HTS TVheadend) comes with a powerful and easy to use web interface both used for configuration and day-to-day operations, such as searching the EPG and scheduling recordings, and it even has integrated softcam support for those using card-sharing of their CAM on their local network at home.
+</p><p>Even so, the most notable feature of Tvheadend is how easy it is to set up: Install it, navigate to the web user interface, drill into the TV adapters tab, select your current location and Tvheadend will start scanning channels and present them to you in just a few minutes.
+</p>
+<ul><li><a rel="nofollow" class="external text" href="http://www.lonelycoder.com/tvheadend/">http://www.lonelycoder.com/tvheadend/</a> - Tvheadend official website</li></ul>
+<h1><span class="mw-headline" id="Usage_and_Support_once_TVheadend_is_installed">Usage and Support once TVheadend is installed</span></h1>
+<ul><li><a rel="nofollow" class="external text" href="https://www.lonelycoder.com/redmine/projects/tvheadend/wiki/Faq">TVHeadend FAQ</a></li>
+<li><a rel="nofollow" class="external text" href="https://www.lonelycoder.com/redmine/projects/tvheadend/boards">TVheadend Forum</a></li>
+<li>Visit #hts channel at irc.freenode.net on IRC</li></ul>
+<h2><span id="TVheadend_Web_GUI_(Web_User_Interface)"></span><span class="mw-headline" id="TVheadend_Web_GUI_.28Web_User_Interface.29">TVheadend Web GUI (Web User Interface)</span></h2>
+<p>You can access TVeadend's PVR backend/server WebGUI (Web User-Interface) by accessing <a rel="nofollow" class="external free" href="http://ipaddress:9981">http://ipaddress:9981</a> and setup your DVB TV-adapter and probe channels. 
+</p>
+<h1><span class="mw-headline" id="Using_the_TVheadend_PVR_Client_in_XBMC">Using the TVheadend PVR Client in XBMC</span></h1>
+<p>Once all is set on the the PVR backend/server-side, go to XBMC, and Add source "htsp://ipaddress:9982". If tvheadend's WebGUI found any channels, you should now be able to access those and enjoy Live TV function in XBMC.
+</p><p>Note! You can use the WebGUI to schedule recordings, at the moment, however you can not yet record from within XBMC itself, but that feature will be coming to future versions of XBMC for sure.
+</p>
+<h4><span class="mw-headline" id="Manually_adding_TVheadend_as_a_source_in_XBMC">Manually adding TVheadend as a source in XBMC</span></h4>
+<p>This type of media source will contact to a HTS Tvheadend backend and allows you to watch Live TV.
+</p>
+<pre> &lt;xml&gt;
+ &lt;name&gt;HTS Tvheadend&lt;/name&gt;
+ &lt;path&gt;htsp://ipaddress:9982&lt;/path&gt;
+ &lt;/xml&gt;
+</pre>
+<p>If you have authentication enabled on your TVheadend backend (which is the default if, say, you've installed it using a .deb package) then you can specify the authentication credentials in the source as follows
+</p>
+<pre> &lt;xml&gt;
+ &lt;name&gt;HTS Tvheadend&lt;/name&gt;
+ &lt;path&gt;htsp://username:password@ipaddress:9982&lt;/path&gt;
+ &lt;/xml&gt;
+</pre>
+<h1><span class="mw-headline" id="Compiling_Tvheadend_on_Ubuntu_for_A10_based_media_players">Compiling Tvheadend on Ubuntu for A10 based media players</span></h1>
+<p>This should work in theory:
+</p>
+<pre>apt-get install git-core build-essential libssl-dev libssl0.9.8 pkg-config avahi-daemon
+git clone <a class="external free" href="https://github.com/tvheadend/tvheadend.git">https://github.com/tvheadend/tvheadend.git</a>
+cd tvheadend
+./configure --disable-avahi
+make install
+</pre>
+<p>To start it:
+</p>
+<pre>tvheadend -C -f
+</pre>
+<p>With this the grabbers weren't working
+</p>
+<h1><span class="mw-headline" id="Compiling_Tvheadend_on_Debian_for_A10_based_media_players">Compiling Tvheadend on Debian for A10 based media players</span></h1>
+<p>Insert the tvheadend repository in your sources.list an import the public key:
+</p>
+<pre>echo "deb-src <a rel="nofollow" class="external free" href="http://www.lonelycoder.com/debian/">http://www.lonelycoder.com/debian/</a> hts main" &gt;&gt; /etc/apt/sources.list
+wget -q --no-check-certificate <a class="external free" href="https://github.com/downloads/andoma/hts/public.key">https://github.com/downloads/andoma/hts/public.key</a>  -O- | apt-key add -
+apt-get update
+</pre>
+<p>Build the package:
+</p>
+<pre>cd /usr/local/src
+apt-get source hts-tvheadend
+apt-get build-dep hts-tvheadend
+apt-get install dh-make fakeroot pkg-config libavahi-client3 libavahi-client-dev
+cd hts-tvheadend-*
+sed "s/CFLAGS  = -Wall -Werror -Wwrite-strings -Wno-deprecated-declarations/CFLAGS  = -Wall -Wwrite-strings -Wno-deprecated-declarations/g" -i Makefile
+dpkg-buildpackage -uc -us -rfakeroot
+cd ..
+</pre>
+<p>Install the package:
+</p>
+<pre>dpkg -i hts-tvheadend_*.deb
+</pre>
+<p>Administrator Username and Password
+</p><p>To restart you can do this:
+</p>
+<pre>/etc/init.d/tvheadend restart
+</pre>
+<h1><span class="mw-headline" id="Linux_Media_Infrastructure_APIs_supported">Linux Media Infrastructure APIs supported</span></h1>
+<p>The Linux Media Infrastructure API provides a common body of knowledge for kernel to userspace application programming interfaces used by media drivers. It converges two historically separate API, namely the Video for Linux (V4L) API, (available as a newer V4L2 API and older V4L1 API versions), and the latest Linux DVB API (Linux Digital Video Broadcasting API), plus adds the IR input event mapping API as well.<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup><sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;2&#93;</a></sup><sup id="cite_ref-3" class="reference"><a href="#cite_note-3">&#91;3&#93;</a></sup>
+</p><p>See more information about the <a rel="nofollow" class="external text" href="http://linuxtv.org/wiki/index.php/Development:_Linux_Media_Infrastructure_API">Linux Media Infrastructure API</a> here! You can also download the <a rel="nofollow" class="external text" href="http://www.elinux.org/images/4/4a/Video4Linux_Current_Status_and_Future_Work.pdf">slides for the ELCE 2012 presentation</a>. For further details about development, subscribe to linux-media mailing lists or chat on #v4l IRC channel on freenode.
+</p>
+<h3><span class="mw-headline" id="Linux_DVB_API_summary">Linux DVB API summary</span></h3>
+<p>The Linux DVB API (application programming interface) is essentially a kernel interface for <a rel="nofollow" class="external text" href="http://linuxtv.org/wiki/index.php/DVB">Digital Video Broadcasting</a> device drivers.
+</p><p>Digital Video Broadcasting is an evolving field that continuously sees new chipsets, STBs and software being developed and becoming available. As demands and requirements change, even the best-established APIs have to evolve too in order to keep pace with the technological advancements. Past development of the DVB API has proceeded in a very conservative way such that application developers see only a minimum impact on their already-written code. Today available as Linux DVB API version 5 with support for Linux kernel 3.3 and later Linux kernels.
+</p>
+<h3><span class="mw-headline" id="V4L2_API_summary">V4L2 API summary</span></h3>
+<p>V4L2 API (Video for Linux (V4l) API). Upon release of the forthcoming 2.6.38 kernel, all but a very few vestiges of the antiquated V4L1 API will have been removed forever in favor of its successor, the V4L2 API (which, itself, now resides within the larger <a rel="nofollow" class="external text" href="http://linuxtv.org/wiki/index.php/Development:_Linux_Media_Infrastructure_API">Linux Media Infrastructure API</a>). 
+</p>
+<h3><span class="mw-headline" id="V4L1_API_summary">V4L1 API summary</span></h3>
+<p>The LinuxTV project develops and maintains the media driver Linux Kernel Subsystems, which consists of devices for webcams, analog TV, digital TV and remote controllers. The video4linux subsystem was included on Kernel 2.2, and the dvb and remote controller subsystems was included in the 2.6 Kernel. The Linux kernel and the LinuxTV git tree include a fair number of drivers for commonly available PCI cards and USB devices, but the subsystems are also targeted towards Linux based set-top-boxes and embedded devices, like mobile phones. 
+</p><p>The original V4L and DVB API specs are still available as separate documents.
+</p>
+<h1><span class="mw-headline" id="References">References</span></h1>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://linuxtv.org/wiki/index.php/Development:_Linux_Media_Infrastructure_API">http://linuxtv.org/wiki/index.php/Development:_Linux_Media_Infrastructure_API</a> Linux Media Infrastructure API</span>
+</li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.cnx-software.com/2013/01/17/video4linux-current-status-and-future-work-elce-2012">http://www.cnx-software.com/2013/01/17/video4linux-current-status-and-future-work-elce-2012</a> Video4Linux: Current Status and Future Work – ELCE 2012</span>
+</li>
+<li id="cite_note-3"><span class="mw-cite-backlink"><a href="#cite_ref-3">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.elinux.org/images/4/4a/Video4Linux_Current_Status_and_Future_Work.pdf">http://www.elinux.org/images/4/4a/Video4Linux_Current_Status_and_Future_Work.pdf</a> slides for the ELCE 2012 presentation</span>
+</li>
+</ol></div>
+<h1><span class="mw-headline" id="See_also">See also</span></h1>
+<ul><li><a href="CedarX/XBMC.html" title="CedarX/XBMC">CedarX/XBMC</a></li></ul>
+<h1><span class="mw-headline" id="External_links">External links</span></h1>
+<ul><li><a rel="nofollow" class="external text" href="http://www.lonelycoder.com/tvheadend/">Tvheadend official website</a>
+<ul><li><a rel="nofollow" class="external text" href="https://www.lonelycoder.com/tvheadend/documentation">Tvheadend detailed documentation</a></li></ul></li>
+<li><a rel="nofollow" class="external text" href="http://linuxtv.org">LinuxTV.org - Television with Linux</a>
+<ul><li><a rel="nofollow" class="external text" href="http://linuxtv.org/wiki/index.php/Main_Page">LinuxTV.org V4L-DVB Wiki</a></li></ul></li></ul>
+<!-- 
+NewPP limit report
+Cached time: 20251029040340
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.033 seconds
+Real time usage: 0.038 seconds
+Preprocessor visited node count: 79/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 1491/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:264-0!canonical and timestamp 20251029040340 and revision id 21822
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=Tvheadend_TV_Tuner_Server_and_PVR_backend&amp;oldid=21822">https://linux-sunxi.org/index.php?title=Tvheadend_TV_Tuner_Server_and_PVR_backend&amp;oldid=21822</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Category</a>: <ul><li><a href="Category:Software.html" title="Category:Software">Software</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=Tvheadend+TV+Tuner+Server+and+PVR+backend" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=Tvheadend+TV+Tuner+Server+and+PVR+backend" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="Tvheadend_TV_Tuner_Server_and_PVR_backend.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:Tvheadend_TV_Tuner_Server_and_PVR_backend&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="Tvheadend_TV_Tuner_Server_and_PVR_backend.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Tvheadend_TV_Tuner_Server_and_PVR_backend&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Tvheadend_TV_Tuner_Server_and_PVR_backend&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/Tvheadend_TV_Tuner_Server_and_PVR_backend.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/Tvheadend_TV_Tuner_Server_and_PVR_backend" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=Tvheadend_TV_Tuner_Server_and_PVR_backend&amp;oldid=21822" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=Tvheadend_TV_Tuner_Server_and_PVR_backend&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 3 December 2018, at 15:51.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.033","walltime":"0.038","ppvisitednodes":{"value":79,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":1491,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20251029040340","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":205});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

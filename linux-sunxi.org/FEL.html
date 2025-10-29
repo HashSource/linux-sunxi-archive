@@ -1,0 +1,381 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>FEL - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"30e45978afbeeb8ef54cf3f3","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"FEL","wgTitle":"FEL","wgCurRevisionId":24514,"wgRevisionId":24514,"wgArticleId":131,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["USB OTG","Boot","Software"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"FEL","wgRelevantArticleId":131,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":"ready","user":
+"ready","user.options":"loading","ext.cite.styles":"ready","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","ext.cite.ux-enhancements","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=ext.cite.styles%7Cmediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="FEL.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-FEL rootpage-FEL skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">FEL</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>FEL is a low-level subroutine contained in the <a href="BROM.html" title="BROM">BootROM</a> on Allwinner devices. It is used for initial programming and recovery of devices using USB.
+</p><p><a href="File:Sticky-note-pin.png.html" class="image"><img alt="Sticky-note-pin.png" src="https://linux-sunxi.org/images/f/f0/Sticky-note-pin.png" decoding="async" width="16" height="16" /></a> Your device therefore needs to be attached to a host (your PC) by means of a <b>USB cable</b>, connected to a port where the sunxi device will present itself as a USB 'slave' (i.e. in device mode). Usually that means the "OTG" connector.<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup> 
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Tools_for_talking_FEL_mode"><span class="tocnumber">1</span> <span class="toctext">Tools for talking FEL mode</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Entering_FEL_mode"><span class="tocnumber">2</span> <span class="toctext">Entering FEL mode</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Power_off_your_device"><span class="tocnumber">2.1</span> <span class="toctext">Power off your device</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Triggering_FEL_mode"><span class="tocnumber">2.2</span> <span class="toctext">Triggering FEL mode</span></a>
+<ul>
+<li class="toclevel-3 tocsection-5"><a href="#Through_a_special_FEL_button"><span class="tocnumber">2.2.1</span> <span class="toctext">Through a special FEL button</span></a></li>
+<li class="toclevel-3 tocsection-6"><a href="#By_holding_a_standard_button"><span class="tocnumber">2.2.2</span> <span class="toctext">By holding a standard button</span></a></li>
+<li class="toclevel-3 tocsection-7"><a href="#Through_serial_console"><span class="tocnumber">2.2.3</span> <span class="toctext">Through serial console</span></a></li>
+<li class="toclevel-3 tocsection-8"><a href="#Through_a_special_SD_card_image"><span class="tocnumber">2.2.4</span> <span class="toctext">Through a special SD card image</span></a></li>
+<li class="toclevel-3 tocsection-9"><a href="#By_having_no_valid_boot_image"><span class="tocnumber">2.2.5</span> <span class="toctext">By having no valid boot image</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-10"><a href="#Verifying_FEL_mode"><span class="tocnumber">2.3</span> <span class="toctext">Verifying FEL mode</span></a>
+<ul>
+<li class="toclevel-3 tocsection-11"><a href="#A_new_USB_device_appears"><span class="tocnumber">2.3.1</span> <span class="toctext">A new USB device appears</span></a></li>
+<li class="toclevel-3 tocsection-12"><a href="#Running_the_sunxi-fel_tool"><span class="tocnumber">2.3.2</span> <span class="toctext">Running the sunxi-fel tool</span></a></li>
+<li class="toclevel-3 tocsection-13"><a href="#Serial_output"><span class="tocnumber">2.3.3</span> <span class="toctext">Serial output</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-14"><a href="#Common_Pitfalls"><span class="tocnumber">2.4</span> <span class="toctext">Common Pitfalls</span></a>
+<ul>
+<li class="toclevel-3 tocsection-15"><a href="#It_failed.21"><span class="tocnumber">2.4.1</span> <span class="toctext">It failed!</span></a></li>
+<li class="toclevel-3 tocsection-16"><a href="#Reading_over_USB_fails"><span class="tocnumber">2.4.2</span> <span class="toctext">Reading over USB fails</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-17"><a href="#FEL_Protocol"><span class="tocnumber">3</span> <span class="toctext">FEL Protocol</span></a></li>
+<li class="toclevel-1 tocsection-18"><a href="#Tips_and_tricks"><span class="tocnumber">4</span> <span class="toctext">Tips and tricks</span></a></li>
+<li class="toclevel-1 tocsection-19"><a href="#See_also"><span class="tocnumber">5</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-20"><a href="#References"><span class="tocnumber">6</span> <span class="toctext">References</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Tools_for_talking_FEL_mode">Tools for talking FEL mode</span></h1>
+<p>Our <a href="Sunxi-tools.html" title="Sunxi-tools">tools</a> repository has some tools for dealing with FEL mode. If you haven't done so already, <a href="Sunxi-tools.html#Building_from_Source" title="Sunxi-tools">retrieve the repository and build it</a>.
+</p>
+<h1><span class="mw-headline" id="Entering_FEL_mode">Entering FEL mode</span></h1>
+<p>While there are a few different ways to trigger FEL mode, they are not always equal. Some do low-level initialization (load Boot0 and Boot1), and some don't.
+</p><p>If you are going to use FEL mode to retrieve device information, you need a to pick a method of entering FEL mode that initializes Boot1.
+</p>
+<h2><span class="mw-headline" id="Power_off_your_device">Power off your device</span></h2>
+<p>Before you try to enter FEL mode, make sure that your device is <b>truly powered off</b>. Do not leave any cables attached.
+</p><p><a href="File:Exclamation.png.html" class="image"><img alt="Exclamation.png" src="https://linux-sunxi.org/images/c/c0/Exclamation.png" decoding="async" width="16" height="16" /></a>  Due to a common design flaw, <a href="UART.html#Board_won.27t_shut_down_completely" title="UART">(current leaking from) the UART</a> will often keep the device in a slightly working state. So before you power up your device again: disconnect your UART, and re-attach it.
+</p>
+<h2><span class="mw-headline" id="Triggering_FEL_mode">Triggering FEL mode</span></h2>
+<h3><span class="mw-headline" id="Through_a_special_FEL_button">Through a special FEL button</span></h3>
+<p>This is either called <b>recovery</b> or <b>uboot</b> or <b>fel</b>. If your device features such a button, you just need to hold it during power-up, and the device should have entered FEL mode just fine.
+</p>
+<h3><span class="mw-headline" id="By_holding_a_standard_button">By holding a standard button</span></h3>
+<p>This is usually one of the standard tablet buttons, like the <b>VOL+</b> key or something.
+</p><p>The following seems to work:
+</p>
+<ul><li>Press and hold the suspected or reported FEL key.</li>
+<li>Press and hold the power key for about 2 seconds.</li>
+<li>Release the power key, and press it at least 3 times immediately.</li></ul>
+<p>Boot1 is initialized using this method.
+</p>
+<h3><span class="mw-headline" id="Through_serial_console">Through serial console</span></h3>
+<p>If you have access to the <a href="UART.html" title="UART">UART</a> already, you can send the character '1' ('2' on some devices) to the device during power-up.
+</p><p>Boot1 is initialized using this method.
+</p><p>With later SoCs, Allwinner's U-boot supports the "efex" command.
+</p><p>If "efex" is not available in your U-boot, you can use the simple uboot "go" command with arguments pointing to the return FEL address:<br />
+<a rel="nofollow" class="external free" href="http://linux-sunxi.org/BROM#Other_booting_methods#Other_booting_methods">http://linux-sunxi.org/BROM#Other_booting_methods</a><br />
+=&gt; go 0xffff0020                                                                
+<br />Starting application at 0xFFFF0020 ...                                       
+</p><p><br />
+Entering this command at the u-boot prompt will enter into FEL mode.
+</p><p><a href="File:Sticky-note-pin.png.html" class="image"><img alt="Sticky-note-pin.png" src="https://linux-sunxi.org/images/f/f0/Sticky-note-pin.png" decoding="async" width="16" height="16" /></a> <i>Note:</i> This is just an <i>alternative way of entering FEL mode</i>. FEL itself can/will <u>not</u> talk over the serial connection! In other words: You still have to connect a USB cable to make actual use of FEL and associated tools.
+</p>
+<h3><span class="mw-headline" id="Through_a_special_SD_card_image">Through a special SD card image</span></h3>
+<p>Included in our <a href="Sunxi-tools.html" title="Sunxi-tools">sunxi-tools repository</a>, there is a small SDCARD boot image that does nothing more than jump to FEL.
+</p><p>Just install it on an sdcard as you would with the u-boot SPL (<b>be sure to change <code>/dev/sdX</code> to where your sdcard is</b>):
+</p>
+<pre>wget https://github.com/linux-sunxi/sunxi-tools/raw/master/bin/fel-sdboot.sunxi
+dd if=fel-sdboot.sunxi of=/dev/sdX bs=1024 seek=8
+</pre>
+<h3><span class="mw-headline" id="By_having_no_valid_boot_image">By having no valid boot image</span></h3>
+<p>If the <a href="BROM.html" title="BROM">BROM</a> doesn't find any valid boot image, it will automatically enter FEL mode.
+</p><p>Thus for most devices that don't feature onboard NAND or eMMC, this should apply when you simply remove the SD/µSD card.
+</p>
+<h2><span class="mw-headline" id="Verifying_FEL_mode">Verifying FEL mode</span></h2>
+<h3><span class="mw-headline" id="A_new_USB_device_appears">A new USB device appears</span></h3>
+<p>When you run lsusb, you should see the following in it:
+</p>
+<pre>Bus 001 Device 074: ID 1f3a:efe8</pre>
+<h3><span class="mw-headline" id="Running_the_sunxi-fel_tool">Running the sunxi-fel tool</span></h3>
+<pre>&gt; ./sunxi-fel version
+AWUSBFEX soc=00162500(A13) 00000001 ver=0001 44 08 scratchpad=00007e00 00000000 00000000</pre>
+<h3><span class="mw-headline" id="Serial_output">Serial output</span></h3>
+<p>If the method you chose initialized boot1, then you should see something like this over serial:
+</p>
+<pre>HELLO! BOOT0 is starting!
+boot0 version&#160;: .3.0
+dram size =1024
+Succeed in opening nand flash.
+Succeed in reading Boot1 file head.
+The size of Boot1 is 0x00036000.
+The file stored in 0X00000000 of block 2 is perfect.
+Check is correct.
+Ready to disable icache.
+Succeed in loading Boot1.
+Jump to Boot1.
+[       0.145] boot1 version&#160;: 1.3.1a
+[       0.145] pmu type = 3
+[       0.145] bat vol = 4117
+[       0.176] axi:ahb:apb=3:2:2
+[       0.176] set dcdc2=1400, clock=1008 successed
+[       0.178] key
+[       2.486] you can unclench the key to update now
+[       2.486] key found, jump to fel</pre>
+<h2><span class="mw-headline" id="Common_Pitfalls">Common Pitfalls</span></h2>
+<h3><span id="It_failed!"></span><span class="mw-headline" id="It_failed.21">It failed!</span></h3>
+<p>Try again, make sure you fully power down the device and make sure you get the order of events right. You'll get there.
+</p>
+<h3><span class="mw-headline" id="Reading_over_USB_fails">Reading over USB fails</span></h3>
+<p>If the following happens:
+</p>
+<pre>&gt; ./sunxi-fel read 0x43000000 0x20000 script.bin
+libusb usb_bulk_send error -7</pre>
+<p>Then you probably are trying to read things that only get initialized when boot0 and boot1 have been loaded. Try another method of entering FEL mode, one that does initialize to boot1.
+</p>
+<h1><span class="mw-headline" id="FEL_Protocol">FEL Protocol</span></h1>
+<p>The FEL is actually a tiny usb stack implementing <a href="FEL/Protocol.html" title="FEL/Protocol">a special USB protocol</a>.
+</p><p>Part of it is implemented in our <a class="external text" href="https://github.com/linux-sunxi/sunxi-tools/blob/master/fel_lib.c">tools repository</a> and can be used as reference code.
+</p>
+<h1><span class="mw-headline" id="Tips_and_tricks">Tips and tricks</span></h1>
+<ul><li>if you get usb_bulk_send error -7 after some command it means soc/fel stack left fel mode or crashed. you either booted something or hung the device</li>
+<li>you can reset via fel by enabling watchdog:
+<ul><li>For A10 compatible ./sunxi-fel writel 0x01c20c94 3</li>
+<li>For H3/H5 compatible ./sunxi-fel writel 0x01c20cb8 1</li></ul></li>
+<li>Or, if in u-boot, use: mw 0x01c20c94 3&#160;;&#160;;&#160;;&#160;;</li></ul>
+<p>This will go back to FEL mode regardless if the device's FEL mode jumper/button is in place. Note that a couple of blank lines are needed after the mw for some reason.
+</p>
+<h1><span class="mw-headline" id="See_also">See also</span></h1>
+<ul><li><a href="FEL/USBBoot.html" title="FEL/USBBoot"> Booting using FEL</a></li></ul>
+<h1><span class="mw-headline" id="References">References</span></h1>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">
+There are exceptions to this rule, where boards might require you to connect to specific ports and/or use non-standard cables. Most notably is the <a href="Pine64.html#FEL_mode" title="Pine64">Pine64</a>.</span>
+</li>
+</ol></div>
+<!-- 
+NewPP limit report
+Cached time: 20251029040326
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.106 seconds
+Real time usage: 0.137 seconds
+Preprocessor visited node count: 133/1000000
+Post‐expand include size: 827/2097152 bytes
+Template argument size: 732/2097152 bytes
+Highest expansion depth: 4/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 1451/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   22.528      1 -total
+ 87.40%   19.690      2 Template:Note
+ 10.28%    2.316      1 Template:Warn
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:131-0!canonical and timestamp 20251029040326 and revision id 24514
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=FEL&amp;oldid=24514">https://linux-sunxi.org/index.php?title=FEL&amp;oldid=24514</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Categories</a>: <ul><li><a href="Category:USB_OTG.html" title="Category:USB OTG">USB OTG</a></li><li><a href="Category:Boot.html" title="Category:Boot">Boot</a></li><li><a href="Category:Software.html" title="Category:Software">Software</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=FEL" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=FEL" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="FEL.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:FEL&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="FEL.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=FEL&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=FEL&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/FEL.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/FEL" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=FEL&amp;oldid=24514" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=FEL&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 20 November 2021, at 05:35.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.106","walltime":"0.137","ppvisitednodes":{"value":133,"limit":1000000},"postexpandincludesize":{"value":827,"limit":2097152},"templateargumentsize":{"value":732,"limit":2097152},"expansiondepth":{"value":4,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":1451,"limit":5000000},"timingprofile":["100.00%   22.528      1 -total"," 87.40%   19.690      2 Template:Note"," 10.28%    2.316      1 Template:Warn"]},"cachereport":{"timestamp":"20251029040326","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":203});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

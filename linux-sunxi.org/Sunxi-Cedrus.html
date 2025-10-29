@@ -1,0 +1,761 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Sunxi-Cedrus - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"22e46f008cad91872cf1c629","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Sunxi-Cedrus","wgTitle":"Sunxi-Cedrus","wgCurRevisionId":26226,"wgRevisionId":26226,"wgArticleId":2894,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Cedrus","Software"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Sunxi-Cedrus","wgRelevantArticleId":2894,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready",
+"user.styles":"ready","user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=mediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="Sunxi-Cedrus.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-Sunxi-Cedrus rootpage-Sunxi-Cedrus skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">Sunxi-Cedrus</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>Sunxi-Cedrus is an effort to bring hardware-accelerated video decoding and encoding support for Allwinner SoCs to the <b>mainline</b> Linux kernel. Additional userspace components that interface with the kernel driver are also provided, for typical GNU/Linux-based systems.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Components"><span class="tocnumber">1</span> <span class="toctext">Components</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Status"><span class="tocnumber">2</span> <span class="toctext">Status</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Codec_Support"><span class="tocnumber">2.1</span> <span class="toctext">Codec Support</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#SoC_Support"><span class="tocnumber">2.2</span> <span class="toctext">SoC Support</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Player_Support"><span class="tocnumber">2.3</span> <span class="toctext">Player Support</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="#Installation"><span class="tocnumber">3</span> <span class="toctext">Installation</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="#Linux"><span class="tocnumber">3.1</span> <span class="toctext">Linux</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#libva-v4l2-request"><span class="tocnumber">3.2</span> <span class="toctext">libva-v4l2-request</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#libdrm-sun4i"><span class="tocnumber">3.3</span> <span class="toctext">libdrm-sun4i</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#v4l2-request-test"><span class="tocnumber">3.4</span> <span class="toctext">v4l2-request-test</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="#libva-dump"><span class="tocnumber">3.5</span> <span class="toctext">libva-dump</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-12"><a href="#Usage_and_Configuration"><span class="tocnumber">4</span> <span class="toctext">Usage and Configuration</span></a>
+<ul>
+<li class="toclevel-2 tocsection-13"><a href="#System"><span class="tocnumber">4.1</span> <span class="toctext">System</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="#VLC"><span class="tocnumber">4.2</span> <span class="toctext">VLC</span></a>
+<ul>
+<li class="toclevel-3 tocsection-15"><a href="#Examples"><span class="tocnumber">4.2.1</span> <span class="toctext">Examples</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-16"><a href="#v4l2-request-test_2"><span class="tocnumber">4.3</span> <span class="toctext">v4l2-request-test</span></a>
+<ul>
+<li class="toclevel-3 tocsection-17"><a href="#Examples_2"><span class="tocnumber">4.3.1</span> <span class="toctext">Examples</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-18"><a href="#Current_Development"><span class="tocnumber">5</span> <span class="toctext">Current Development</span></a>
+<ul>
+<li class="toclevel-2 tocsection-19"><a href="#2019.03_Release"><span class="tocnumber">5.1</span> <span class="toctext">2019.03 Release</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="#2018.07_Release"><span class="tocnumber">5.2</span> <span class="toctext">2018.07 Release</span></a>
+<ul>
+<li class="toclevel-3 tocsection-21"><a href="#Known_Limitations"><span class="tocnumber">5.2.1</span> <span class="toctext">Known Limitations</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-22"><a href="#Weekly_Reports"><span class="tocnumber">5.3</span> <span class="toctext">Weekly Reports</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-23"><a href="#Community"><span class="tocnumber">6</span> <span class="toctext">Community</span></a></li>
+<li class="toclevel-1 tocsection-24"><a href="#Past_Development"><span class="tocnumber">7</span> <span class="toctext">Past Development</span></a>
+<ul>
+<li class="toclevel-2 tocsection-25"><a href="#Installation_2"><span class="tocnumber">7.1</span> <span class="toctext">Installation</span></a></li>
+<li class="toclevel-2 tocsection-26"><a href="#Supported_features"><span class="tocnumber">7.2</span> <span class="toctext">Supported features</span></a></li>
+<li class="toclevel-2 tocsection-27"><a href="#Known_bugs_and_limitations"><span class="tocnumber">7.3</span> <span class="toctext">Known bugs and limitations</span></a></li>
+<li class="toclevel-2 tocsection-28"><a href="#Technical_details_and_implementation"><span class="tocnumber">7.4</span> <span class="toctext">Technical details and implementation</span></a></li>
+<li class="toclevel-2 tocsection-29"><a href="#More_info"><span class="tocnumber">7.5</span> <span class="toctext">More info</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Components">Components</span></h2>
+<p>Support for Sunxi-Cedrus is implemented through various components, either in kernel space or userspace:
+</p>
+<ul><li>the <b>Cedrus V4L2 M2M kernel driver</b></li>
+<li>the <b>v4l2-request VAAPI backend</b></li></ul>
+<p>Additional userspace components are also available, for development purposes:
+</p>
+<ul><li>the <b>v4l2-request-test</b> standalone tool, that allows testing the -Cedrus VPU driver</li>
+<li>the <b>sun4i-specific libdrm</b>, with support for allocating buffers in the MB32-tiled NV12 format used by the VPU</li>
+<li>the <b>dump libVA backend</b>, that allows dumping metadata and slices from videos</li></ul>
+<p>Video players that support libVA should be compatible with the v4l2-request libVA backend. However, details in implementations might result in incompatibility with certain players. See <a href="#Player_Support">Player Support</a> for the status of tested players.
+</p>
+<h2><span class="mw-headline" id="Status">Status</span></h2>
+<h3><span class="mw-headline" id="Codec_Support">Codec Support</span></h3>
+<p>Support status for specific codecs in the v4l2-request <b>libVA backend</b> is presented in the following table:
+</p>
+<table class="wikitable" border="1">
+
+<tbody><tr>
+<th>Codec
+</th>
+<th>Decoding
+</th>
+<th>Encoding
+</th></tr>
+<tr>
+<td><b>MJPEG</b>
+</td>
+<td style="background: tomato; color: white;">Missing
+</td>
+<td style="background: tomato; color: white;">Missing
+</td></tr>
+<tr>
+<td><b>MPEG2</b>
+</td>
+<td style="background: mediumseagreen; color: white;">Supported
+</td>
+<td style="background: lightgray; color: black;">N/A
+</td></tr>
+<tr>
+<td><b>MPEG4</b>
+</td>
+<td style="background: tomato; color: white;">Missing
+</td>
+<td style="background: lightgray; color: black;">N/A
+</td></tr>
+<tr>
+<td><b>VP6</b>
+</td>
+<td style="background: tomato; color: white;">Missing
+</td>
+<td style="background: lightgray; color: black;">N/A
+</td></tr>
+<tr>
+<td><b>H264</b>
+</td>
+<td style="background: mediumseagreen; color: white;">Supported (early high profile)
+</td>
+<td style="background: tomato; color: white;">Missing
+</td></tr>
+<tr>
+<td><b>VP8</b>
+</td>
+<td style="background: mediumseagreen; color: white;">Supported (since Linux 5.11)
+</td>
+<td style="background: lightgray; color: black;">N/A
+</td></tr>
+<tr>
+<td><b>H265</b>
+</td>
+<td style="background: mediumseagreen; color: white;">Supported (early)
+</td>
+<td style="background: lightgray; color: black;">N/A
+</td></tr>
+<tr>
+<td><b>VP9</b>
+</td>
+<td style="background: tomato; color: white;">Missing
+</td>
+<td style="background: lightgray; color: black;">N/A
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="SoC_Support">SoC Support</span></h3>
+<p>Support for specific SoCs in the <b>V4L2 M2M kernel driver</b> is presented in the following table:
+</p>
+<table class="wikitable" border="1">
+
+<tbody><tr>
+<th>Platform
+</th>
+<th>Cedrus Driver Status
+</th>
+<th>DRM Planes Status
+</th></tr>
+<tr>
+<td><b>A10</b>
+</td>
+<td style="background: mediumseagreen; color: white;">Supported (5.1)
+</td>
+<td style="background: mediumseagreen; color: white;">Supported (5.1)
+</td></tr>
+<tr>
+<td><b>A13/A10s</b>
+</td>
+<td style="background: mediumseagreen; color: white;">Supported (4.20)
+</td>
+<td style="background: tomato; color: white;">Missing (broken)
+</td></tr>
+<tr>
+<td><b>A20</b>
+</td>
+<td style="background: mediumseagreen; color: white;">Supported (4.20)
+</td>
+<td style="background: mediumseagreen; color: white;">Supported (5.1)
+</td></tr>
+<tr>
+<td><b>A23</b>
+</td>
+<td style="background: dodgerblue; color: white;">Untested
+</td>
+<td style="background: dodgerblue; color: white;">Untested
+</td></tr>
+<tr>
+<td><b>A33</b>
+</td>
+<td style="background: mediumseagreen; color: white;">Supported (4.20)
+</td>
+<td style="background: mediumseagreen; color: white;">Supported
+</td></tr>
+<tr>
+<td><b>A64</b>
+</td>
+<td style="background: mediumseagreen; color: white;">Supported (5.0)
+</td>
+<td style="background: mediumseagreen; color: white;">Supported
+</td></tr>
+<tr>
+<td><b>H3</b>
+</td>
+<td style="background: mediumseagreen; color: white;">Supported (4.20)
+</td>
+<td style="background: mediumseagreen; color: white;">Supported
+</td></tr>
+<tr>
+<td><b>H5</b>
+</td>
+<td style="background: mediumseagreen; color: white;">Supported (5.0)
+</td>
+<td style="background: mediumseagreen; color: white;">Supported
+</td></tr>
+<tr>
+<td><b>H6</b>
+</td>
+<td style="background: mediumseagreen; color: white;">Supported (5.1)
+</td>
+<td style="background: mediumseagreen; color: white;">Supported (5.0)
+</td></tr>
+<tr>
+<td><b>H616</b>
+</td>
+<td style="background: dodgerblue; color: white;">Untested
+</td>
+<td style="background: dodgerblue; color: white;">Untested
+</td></tr>
+<tr>
+<td><b>R40</b>
+</td>
+<td style="background: mediumseagreen; color: white;">Supported (5.10)
+</td>
+<td style="background: dodgerblue; color: white;">Untested
+</td></tr>
+<tr>
+<td><b>V3/V3s</b>
+</td>
+<td style="background: dodgerblue; color: white;">Untested
+</td>
+<td style="background: dodgerblue; color: white;">Untested
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="Player_Support">Player Support</span></h3>
+<p>The following players were tested with the v4l2-request <b>libVA backend</b>:
+</p>
+<table class="wikitable" border="1">
+
+<tbody><tr>
+<th>Player
+</th>
+<th>X11 Status
+</th>
+<th>EGL/GLES Status
+</th>
+<th>DRM Hardware Plane Status
+</th>
+<th>X11/Xv Hardware Plane Status
+</th></tr>
+<tr>
+<td><b>VLC</b>
+</td>
+<td style="background: mediumseagreen; color: white;">Supported
+</td>
+<td style="background: tomato; color: white;">Missing (broken)
+</td>
+<td style="background: tomato; color: white;">N/A
+</td>
+<td style="background: tomato; color: white;">Missing
+</td></tr>
+<tr>
+<td><b>GStreamer</b>
+</td>
+<td style="background: tomato; color: white;">Missing (broken)
+</td>
+<td style="background: dodgerblue; color: white;">Untested
+</td>
+<td style="background: dodgerblue; color: white;">Untested
+</td>
+<td style="background: dodgerblue; color: white;">Untested
+</td></tr>
+<tr>
+<td><b>MPV</b>
+</td>
+<td style="background: tomato; color: white;">Missing (broken)
+</td>
+<td style="background: tomato; color: white;">Missing
+</td>
+<td style="background: tomato; color: white;">Missing
+</td>
+<td style="background: tomato; color: white;">Missing
+</td></tr>
+<tr>
+<td><b>Kodi (downstream)</b>
+</td>
+<td style="background: dodgerblue; color: white;">Untested
+</td>
+<td style="background: tomato; color: white;">Missing (broken)
+</td>
+<td style="background: mediumseagreen; color: white;">Supported
+</td>
+<td style="background: tomato; color: white;">N/A
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="Installation">Installation</span></h2>
+<h3><span class="mw-headline" id="Linux">Linux</span></h3>
+<p>The first step to installing Cedrus support is to build a Linux kernel with the latest patch series for the driver. A tree with all the required patches is available at:
+</p>
+<ul><li>Repository: <a class="external text" href="https://github.com/bootlin/linux-cedrus">https://github.com/bootlin/linux-cedrus</a></li>
+<li>Tag: <b>release-2019.03 </b></li></ul>
+<p>The following kernel configuration options must be selected:
+</p>
+<pre>CONFIG_MEDIA_SUPPORT
+CONFIG_MEDIA_CONTROLLER
+CONFIG_MEDIA_CONTROLLER_REQUEST_API
+CONFIG_V4L_MEM2MEM_DRIVERS
+CONFIG_VIDEO_SUNXI_CEDRUS
+</pre>
+<p>In addition, the target device must contain the proper description for <b>display engine support in its device-tree source</b>.
+</p><p>Details about building a mainline Linux kernel are available on the <a href="Mainline_Kernel_Howto.html" title="Mainline Kernel Howto">Mainline Kernel Howto</a> page.
+</p><p>Note that the <b>associated kernel headers must be installed to the target device</b> for the userspace components to build.
+</p><p>Decoding H.264/H.265 videos can require a large amount of CMA memory, so it is recommended to set a large CMA pool, e.g. using the <code>cma</code> kernel command line parameter. For instance, 256 MiB should be enough to decode 1080p H.264 videos: <code>cma=256M</code>.
+</p><p>The first mainline kernel release containing Cedrus support is 4.20 (scheduled for release December 2018 or Jan 2019).  Newer Cedrus code is available in the bootlin git repository linked above.
+</p>
+<h3><span class="mw-headline" id="libva-v4l2-request">libva-v4l2-request</span></h3>
+<p>The main userspace component that supports the Cedrus VPU driver is the libva-v4l2-request VAAPI backend. It is available at:
+</p>
+<ul><li>Repository: <a class="external text" href="https://github.com/bootlin/libva-v4l2-request">https://github.com/bootlin/libva-v4l2-request</a></li>
+<li>Tag: <b>release-2019.03</b></li></ul>
+<p>The backend can be <b>built and installed on the target device</b> by following these steps:
+</p>
+<pre>git clone https://github.com/bootlin/libva-v4l2-request -b release-2019.03
+cd libva-v4l2-request
+./autogen.sh &amp;&amp; make &amp;&amp; sudo make install
+</pre>
+<p><b>Note:</b> release-2019.03 of libva-v4l2-request may not build with newer kernel i.e. Linux 6.x. But LibreELEC supports sunxi VPU hardware decoding (i.e. LibreELEC 12.0), with v4l2-request patches in ffmpeg and kernel.
+</p><p>Hardware decoding in Kodi can be checked by pressing key O during video playing to activate Player Process Information OSD. See <a rel="nofollow" class="external free" href="https://kodi.wiki/view/Player_process_info#Player_Process_Info#Player_Process_Info">https://kodi.wiki/view/Player_process_info#Player_Process_Info</a>
+</p>
+<h3><span class="mw-headline" id="libdrm-sun4i">libdrm-sun4i</span></h3>
+<p><b>This is deprecated and no longer needed for other components to build.</b>
+</p><p>libdrm-sun4i imports the updated sun4i-drm Linux kernel driver definitions for installation in userspace and is available at:
+</p>
+<ul><li>Repository: <a class="external text" href="https://github.com/bootlin/libdrm-sun4i.git">https://github.com/bootlin/libdrm-sun4i.git</a></li>
+<li>Branch: <b>master</b></li></ul>
+<p>It can be <b>built and installed on the target device</b> through the following steps:
+</p>
+<pre>git clone https://github.com/bootlin/libdrm-sun4i
+cd libdrm-sun4i
+./autogen.sh --prefix=/usr &amp;&amp; make &amp;&amp; sudo make install
+</pre>
+<p>Alternatively to building libdrm-sun4i, the <code>sun4i_drm.h</code> file can be placed into <code>/usr/include/drm</code> directly.
+</p>
+<h3><span class="mw-headline" id="v4l2-request-test">v4l2-request-test</span></h3>
+<p>The v4l2-request-test tool is available at:
+</p>
+<ul><li>Repository: <a class="external text" href="https://github.com/bootlin/v4l2-request-test.git">https://github.com/bootlin/v4l2-request-test.git</a></li>
+<li>Tag: <b>release-2019.03</b></li></ul>
+<p>It can be <b>built on the target device</b> through the following steps:
+</p>
+<pre>git clone https://github.com/bootlin/v4l2-request-test.git -b release-2019.03
+cd v4l2-request-test
+make
+</pre>
+<h3><span class="mw-headline" id="libva-dump">libva-dump</span></h3>
+<p>The libva-dump VAAPI backend is available at:
+</p>
+<ul><li>Repository: <a class="external text" href="https://github.com/bootlin/libva-dump.git">https://github.com/bootlin/libva-dump.git</a></li>
+<li>Branch: <b>master</b></li></ul>
+<p>It can be <b>built on the host or the target device</b> through the following steps:
+</p>
+<pre>git clone https://github.com/bootlin/libva-dump.git
+cd libva-dump
+./autogen.sh &amp;&amp; make &amp;&amp; sudo make install
+</pre>
+<h2><span class="mw-headline" id="Usage_and_Configuration">Usage and Configuration</span></h2>
+<h3><span class="mw-headline" id="System">System</span></h3>
+<p>In order to access the device nodes created by the Cedrus kernel driver, the user that will be decoding videos needs to be added to the <code>video</code> group.
+</p><p>Alternatively, the permissions of the <code>/dev/video0</code> and <code>/dev/media0</code> nodes can be changed to allow access by this user.
+</p>
+<h3><span class="mw-headline" id="VLC">VLC</span></h3>
+<p>In order to use VLC with Cedrus, the libva-v4l2-request VAAPI backend must be installed on the system. VLC must also be configured to use VAAPI for video decoding, through the following menus:
+</p>
+<ul><li><code>Tools &gt; Preferences &gt; Input / Codecs &gt; Codecs &gt; Hardware-accelerated decoding &gt; VA-API video decoder</code></li>
+<li><code>Tools &gt; Preferences &gt; Video &gt; Display &gt; Output &gt; X11 video output (XCB)</code></li></ul>
+<p>While OpenGL video output might be supported (with GPU support installed), it was not tested at this point.
+</p><p>Although VLC has been configured to use VAAPI for video decoding, libVA must be instructed to use libva-v4l2-request through the <code>LIBVA_DRIVER_NAME</code> environment variable&#160;:
+</p>
+<pre>export LIBVA_DRIVER_NAME=v4l2_request
+vlc path/to/video.mpeg
+</pre>
+<h4><span class="mw-headline" id="Examples">Examples</span></h4>
+<p>Here are some examples of VLC usage for specific use cases:
+</p>
+<ul><li>Remote testing without audio, scaling and OSD:</li></ul>
+<pre>export LIBVA_DRIVER_NAME=v4l2_request
+export DISPLAY=:0
+vlc --no-audio --no-autoscale --no-osd --play-and-exit path/to/video.mpeg
+</pre>
+<h3><span class="mw-headline" id="v4l2-request-test_2">v4l2-request-test</span></h3>
+<p>v4l2-request-test is preferably used from its repository directory: the default path to the video slices is relative from the root of the repository. Since the tool uses the DRM KMS device directly, no graphical session (not even a login manager) must be running concurrently.
+</p><p>The tool currently contains a single preset with slices that allow decoding the first 25 frames of the sample MPEG2 Big Buck Bunny video. More presets can be added from the data dumped with libva-dump.
+v4l2-request-test usage is displayed when the tool is called with the <code>-h</code> argument.
+</p>
+<h4><span class="mw-headline" id="Examples_2">Examples</span></h4>
+<p>Examples of v4l2-request-test use include:
+</p>
+<ul><li>Decoding frames at 25 fps in a loop, with information:</li></ul>
+<pre>./v4l2-request-test -f 25 -l
+</pre>
+<ul><li>Decoding frames as fast as possible in a loop:</li></ul>
+<pre>./v4l2-request-test -ql
+</pre>
+<ul><li>Specifying the right nodes when another V4L2 driver is loaded:</li></ul>
+<pre>./v4l2-request-test -v /dev/video1 -m /dev/media1
+</pre>
+<h2><span class="mw-headline" id="Current_Development">Current Development</span></h2>
+<p>From March to August 2018, the development of both the Cedrus V4L2 kernel driver and the Cedrus libVA backend was undertaken by:
+</p>
+<ul><li><b>Paul Kocialkowski</b>, intern at Bootlin</li>
+<li><b>Maxime Ripard</b>, engineer at Bootlin</li></ul>
+<p>This effort was funded by the <a rel="nofollow" class="external text" href="https://bootlin.com/blog/allwinner-vpu-crowdfunding/">related crowdfunding</a> started by Bootlin in February 2018.
+</p>
+<h3><span class="mw-headline" id="2019.03_Release">2019.03 Release</span></h3>
+<p>A second release of Cedrus was packed in March 2019, following up on numerous interface changes and new platforms support.
+</p><p>The source code for the required components of the release are available on Bootlin's GitHub space, with the <code>release-2019.03</code> tag:
+</p>
+<ul><li><a class="external text" href="https://github.com/bootlin/linux-cedrus/releases/tag/release-2019.03">linux-cedrus</a></li>
+<li><a class="external text" href="https://github.com/bootlin/v4l2-request-test/releases/tag/release-2019.03">v4l2-request-test</a></li>
+<li><a class="external text" href="https://github.com/bootlin/libva-v4l2-request/releases/tag/release-2019.03">libva-v4l2-request</a></li></ul>
+<h3><span class="mw-headline" id="2018.07_Release">2018.07 Release</span></h3>
+<p>A first release of Cedrus was presented in July 2018, with an <a rel="nofollow" class="external text" href="https://bootlin.com/blog/main-goals-delivery-of-the-allwinner-vpu-crowdfunding">associated blog post on the Bootlin blog</a>.
+</p><p>The source code for the required components of the release are available on Bootlin's GitHub space, with the <code>release-2018.07</code> tag:
+</p>
+<ul><li><a class="external text" href="https://github.com/bootlin/linux-cedrus/releases/tag/release-2018.07">linux-cedrus</a></li>
+<li><a class="external text" href="https://github.com/bootlin/v4l2-request-test/releases/tag/release-2018.07">v4l2-request-test</a></li>
+<li><a class="external text" href="https://github.com/bootlin/libva-v4l2-request/releases/tag/release-2018.07">libva-v4l2-request</a></li>
+<li><a class="external text" href="https://github.com/bootlin/xbmc/releases/tag/release-2018.07">Kodi</a></li>
+<li><a class="external text" href="https://github.com/bootlin/LibreELEC.tv/releases/tag/release-2018.07">LibreELEC</a></li></ul>
+<p>A root filesystem tarball built from the LibreELEC release, which includes Kodi and libva-v4l2-request, is also available (with a checksum and a detached GPG signature):
+</p>
+<ul><li><a rel="nofollow" class="external text" href="https://bootlin.com/~paul/pub/LibreELEC-cedrus-release-2018.07.tar.gz">LibreELEC-cedrus-release-2018.07.tar.gz</a>, (<a rel="nofollow" class="external text" href="https://bootlin.com/~paul/pub/LibreELEC-cedrus-release-2018.07.tar.gz.sha512sum">LibreELEC-cedrus-release-2018.07.tar.gz.sha512sum</a>, <a rel="nofollow" class="external text" href="https://bootlin.com/~paul/pub/LibreELEC-cedrus-release-2018.07.tar.gz.asc">LibreELEC-cedrus-release-2018.07.tar.gz.asc</a>)</li></ul>
+<p>The root filesystem includes neither boot software nor kernel support: both have to be installed in addition to extracting the filesystem on the target medium. Instructions to build the kernel are available at: <a href="#Linux">#Linux</a>
+</p>
+<h4><span class="mw-headline" id="Known_Limitations">Known Limitations</span></h4>
+<p>Some limitations in the software present in the release are known and listed as follows:
+</p>
+<ul><li>Decoding H264 videos (especially in high resolutions) may consume more memory than there is available in the dedicated pool. This is because Kodi does not yet interact properly with VAAPI when freeing buffers. The result is that Kodi will hang or display a fully black video.</li></ul>
+<h3><span class="mw-headline" id="Weekly_Reports">Weekly Reports</span></h3>
+<p>Reports on the advancement of the development of Sunxi-Cedrus are posted regularly on the <a rel="nofollow" class="external text" href="https://bootlin.com/">Bootlin Blog</a>, starting week 10 of 2018:
+</p>
+<ul><li><a rel="nofollow" class="external text" href="https://bootlin.com/blog/final-weekly-status-update-allwinner-vpu-support/">Week 35 Final Status Update</a></li>
+<li><a rel="nofollow" class="external text" href="https://bootlin.com/blog/allwinner-vpu-support-in-mainline-linux-status-update-week-34/">Week 34 Status Update</a></li>
+<li><a rel="nofollow" class="external text" href="https://bootlin.com/blog/allwinner-vpu-support-in-mainline-linux-status-update-week-33/">Week 33 Status Update</a></li>
+<li><a rel="nofollow" class="external text" href="https://bootlin.com/blog/allwinner-vpu-support-in-mainline-linux-status-update-week-32/">Week 32 Status Update</a></li>
+<li><a rel="nofollow" class="external text" href="https://bootlin.com/blog/allwinner-vpu-support-in-mainline-linux-status-update-week-31/">Week 31 Status Update</a></li>
+<li><a rel="nofollow" class="external text" href="https://bootlin.com/blog/allwinner-vpu-support-in-mainline-linux-status-update-week-30/">Week 30 Status Update</a></li>
+<li><a rel="nofollow" class="external text" href="https://bootlin.com/blog/allwinner-vpu-main-goals-delivery/">Delivery of Allwinner VPU driver main goals</a></li>
+<li><a rel="nofollow" class="external text" href="https://bootlin.com/blog/allwinner-vpu-support-in-mainline-linux-status-update-week-28/">Week 28 Status Update</a></li>
+<li><a rel="nofollow" class="external text" href="https://bootlin.com/blog/allwinner-vpu-support-in-mainline-linux-status-update-week-27/">Week 27 Status Update</a></li>
+<li><a rel="nofollow" class="external text" href="https://bootlin.com/blog/allwinner-vpu-support-in-mainline-linux-status-update-week-26/">Week 26 Status Update</a></li>
+<li><a rel="nofollow" class="external text" href="https://bootlin.com/blog/allwinner-vpu-support-in-mainline-linux-status-update-week-25/">Week 25 Status Update</a></li>
+<li><a rel="nofollow" class="external text" href="https://bootlin.com/blog/allwinner-vpu-support-in-mainline-linux-status-update-week-24/">Week 24 Status Update</a></li>
+<li><a rel="nofollow" class="external text" href="https://bootlin.com/blog/allwinner-vpu-support-in-mainline-linux-status-update-week-23/">Week 23 Status Update</a></li>
+<li><a rel="nofollow" class="external text" href="https://bootlin.com/blog/allwinner-vpu-support-in-mainline-linux-status-update-week-22/">Week 22 Status Update</a></li>
+<li><a rel="nofollow" class="external text" href="https://bootlin.com/blog/allwinner-vpu-support-in-mainline-linux-status-update-week-21/">Week 21 Status Update</a></li>
+<li><a rel="nofollow" class="external text" href="https://bootlin.com/blog/allwinner-vpu-support-in-mainline-linux-status-update-week-20/">Week 20 Status Update</a></li>
+<li><a rel="nofollow" class="external text" href="https://bootlin.com/blog/allwinner-vpu-support-in-mainline-linux-status-update-week-19/">Week 19 Status Update</a></li>
+<li><a rel="nofollow" class="external text" href="https://bootlin.com/blog/allwinner-vpu-support-in-mainline-linux-status-update-week-18/">Week 18 Status Update</a></li>
+<li><a rel="nofollow" class="external text" href="https://bootlin.com/blog/allwinner-vpu-support-in-mainline-linux-status-update-week-17/">Week 17 Status Update</a></li>
+<li><a rel="nofollow" class="external text" href="https://bootlin.com/blog/allwinner-vpu-support-in-mainline-linux-status-update-week-16/">Week 16 Status Update</a></li>
+<li><a rel="nofollow" class="external text" href="https://bootlin.com/blog/allwinner-vpu-support-in-mainline-linux-status-update-week-15/">Week 15 Status Update</a></li>
+<li><a rel="nofollow" class="external text" href="https://bootlin.com/blog/allwinner-vpu-support-in-mainline-linux-status-update-week-14/">Week 14 Status Update</a></li>
+<li><a rel="nofollow" class="external text" href="https://bootlin.com/blog/allwinner-vpu-support-in-mainline-linux-status-update-week-13/">Week 13 Status Update</a></li>
+<li><a rel="nofollow" class="external text" href="https://bootlin.com/blog/allwinner-vpu-support-in-mainline-linux-status-update-week-12/">Week 12 Status Update</a></li>
+<li><a rel="nofollow" class="external text" href="https://bootlin.com/blog/allwinner-vpu-support-in-mainline-linux-status-update-week-11/">Week 11 Status Update</a></li>
+<li><a rel="nofollow" class="external text" href="https://bootlin.com/blog/allwinner-vpu-support-in-mainline-linux-status-update-week-10/">Week 10 Status Update</a></li></ul>
+<h2><span class="mw-headline" id="Community">Community</span></h2>
+<p>The community revolving around Sunxi-Cedrus can be contacted through different means:
+</p>
+<ul><li>The <a href="Mailing_list.html" title="Mailing list">linux-sunxi mailing list</a>, with the developers involved in carbon copy</li>
+<li>The <b>#cedrus</b> channel on the <a rel="nofollow" class="external text" href="http://freenode.net/">freenode</a> IRC network</li></ul>
+<h2><span class="mw-headline" id="Past_Development">Past Development</span></h2>
+<p>Initial work on the Sunxi-Cedrus V4l2 kernel driver and libVA backend was carried out by <b>Florent Revest</b> (kido) during an internship at Bootlin (formerly Free Electrons), resulting in a proof-of-concept driver and associated backend with MPEG2 and partial MPEG4 support for the A13 SoC.
+</p><p>If you want to try it, you need a board with an A13 SoC, this page will try to guide you from your first steps with the driver to the details of its implementation. Make sure you've checked the known bugs and limitations before using it.
+</p>
+<h3><span class="mw-headline" id="Installation_2">Installation</span></h3>
+<p>This procedure has been tested on the NextThingCo's CHIP board but should be adaptable to other A13 boards supported by the 4.8 mainline kernel. The first thing you need to do is to recompile a kernel with the sunxi-cedrus v4l driver and the corresponding device tree entry. You can follow the <a href="Mainline_Kernel_Howto.html" title="Mainline Kernel Howto">Mainline Kernel Howto</a> but using the following repository:
+</p>
+<pre>https://github.com/FlorentRevest/linux-sunxi-cedrus</pre>
+<p>Use menuconfig to enable the VPU driver in Device Drivers -&gt; Multimedia support -&gt; Memory-to-memory multimedia devices -&gt; Sunxi CEDRUS VPU driver.  The driver should be compiled into the kernel and not as a module.
+</p><p>Your kernel will be located in arch/arm/boot/zImage and device tree in arch/arm/boot/dts/sun5i-r8-chip.dtb Don't forget to install kernel headers to your distribution if you want to be able to compile sunxi-cedrus-drv-video.
+</p><p>On a standard debian jessie system you will need to install the following build dependencies:
+</p>
+<pre>apt install git autoconf automake libtool pkg-config gcc libdrm-dev libva-dev libx11-dev make g++ vlc xorg</pre>
+<p>You will be able to compile and install a newer version of libVA supporting the LIBVA_DRIVER_NAME environment variable and then the sunxi-cedrus libVA backend:
+</p>
+<pre>git clone https://github.com/01org/libva
+cd libva
+git checkout 695f99ef0405cf4255e7767b44effb0da2fe706e
+./autogen.sh --prefix=/usr --libdir=/usr/lib/arm-linux-gnueabihf/
+make
+sudo make install</pre>
+<pre>git clone https://github.com/FlorentRevest/sunxi-cedrus-drv-video
+cd sunxi-cedrus-drv-video
+./autogen.sh
+make # DRM_CFLAGS=-I/path/to/your/linux/headers
+sudo make install</pre>
+<p>Once installed, make sure you've exported the environment variable telling VA to use the sunxi_cedrus backend, activate the VA X11 decoding in VLC settings (Tools -&gt; Preferences -&gt; Input / Codecs -&gt; set 'Hardware-accelerated decoding' to 'VA-API video decoder via X11') and then run one of the sample media file you can find <a rel="nofollow" class="external text" href="http://samplemedia.linaro.org/MPEG2">here</a> and <a rel="nofollow" class="external text" href="http://samplemedia.linaro.org/MPEG4/SVT/">here</a>
+</p>
+<pre>xinit&amp;
+export DISPLAY=:0.0
+export LIBVA_DRIVER_NAME=sunxi_cedrus
+vlc big_buck_bunny_480p_MPEG2_MP2_25fps_1800K.MPG
+vlc ducks_take_off_420_720p25.mp4</pre>
+<h3><span class="mw-headline" id="Supported_features">Supported features</span></h3>
+<ul><li>MPEG2 Decoding</li>
+<li>Partial MPEG4 Decoding</li></ul>
+<h3><span class="mw-headline" id="Known_bugs_and_limitations">Known bugs and limitations</span></h3>
+<ul><li>H264 and H265 are not supported (some of the underlying problems include: allocating 19 surfaces at once and queueing several slices by frames)</li>
+<li>MPEG4 decoding has some glitches. When something moves in a video it usualy draws some kind of trace behind it, this behavior is believed to come from an inconsistency in movement prediction. (VLC also tries to SyncSurface more often than needed which results in error when dequeuing the capture buffers)</li>
+<li>No encoding: this can be added later on but hasn't been tried yet</li>
+<li>Direct rendering: currently, buffers coming out of the v4l driver in a tiled pixel format are converted to a standard YUV pixel format and then rendered on screen by ffmpeg/vlc. As soon as the support for YUV DRM planes will be added to the kernel, this behavior can be replaced and the performances will be much better.</li>
+<li>Currently the video can only be played at a zoom of 1:1, otherwise the scaling is done by ffmpeg in full CPU and it is too slow. Having that in the DRM driver would also allow for hardware accelerated frames scaling.</li>
+<li>We currently can't play a MPEG2 file and then a MPEG4 file (or vice versa) or the output will be full of garbage pixels. This is probably due to some registers of the MPEG engine being kept between the two decoding and "polluting" the MPEG4 decoding with older values from MPEG2 decoding. We should find a way to clear those registers when receiving a S_FMT ioctl in the kernel driver or when closing the video device.</li></ul>
+<h3><span class="mw-headline" id="Technical_details_and_implementation">Technical details and implementation</span></h3>
+<p>The Cedrus project has provided reverse engineering of the Allwinner's proprietary <a href="CedarX" title="CedarX">CedarX</a> blob for a couple of years. This work has been done on the Allwinner's 3.4 kernel and led to the creation of a libVDPAU backend interfacing with the "cedar_dev" and "disp" kernel drivers available in the vendor's kernel. The "cedar_dev" kernel driver directly mapped registers and memory from the <a href="Video_Engine.html" title="Video Engine"> VE</a> to the userspace and could potentially be a security risk. Those two drivers couldn't be upstreamed because they don't use any standard API or framework.
+</p><p>In order to use the <a href="Video_Engine.html" title="Video Engine"> VE</a> on a mainline kernel, a new proper kernel driver had to be written from scratch with mainlinable methods in mind. The correct way to implement a codec device is to use the "video4linux" framework, referenced as v4l2. v4l2 handles many kind of video devices, some of them are cameras and sends data to a CAPTURE queue, others are screens and use data from an OUTPUT queue. Codec devices require a flow of data from OUTPUT to CAPTURE, they are "memory-to-memory" devices.
+</p><p>Until now, most of the codec devices were able to handle raw bitstream via a firmware, which means that the OUTPUT queue (containing the compressed input data) could directly contain a MPEG file and the CAPTURE queue was filled with video frames. But the inner working of Allwinner's VPU is different, indeed it requires prior bitstream parsing into smaller frames/slices alongside headers' data. This parsing can not be done in the kernel side since it would be a complex codebase to maintain so it requires a new user-space usecase, hence a new API.
+</p><p>The "Frame API" described <a rel="nofollow" class="external text" href="https://blogs.s-osg.org/planning-future-media-linux-linux-kernel-summit-media-workshop-seoul-south-korea/">here</a> has been designed for the Rockchip's VP8 decoding support and is implemented <a rel="nofollow" class="external text" href="https://lwn.net/Articles/678113/">here</a> and <a rel="nofollow" class="external text" href="https://code.google.com/p/chromium/codesearch#chromium/src/content/common/gpu/media/v4l2_slice_video_decode_accelerator.cc#chromium/src/content/common/gpu/media/v4l2_slice_video_decode_accelerator.cc">here</a> The "Frame API" aims to standardize the way VPU drivers should communicate frame by frame with the userspace. The advocated method is to bind "buffers" containing slice data from the OUTPUT queue to "extended controls" containing frame's header. The extended controls mechanism allows to send complex data structures to the kernel and program device's registers accordingly. However, the userspace might want to queue several frames in a row and set the corresponding extended controls at the same time. If the registers are programmed at the time an extended control is received, this means that at the time of processing a buffer, the registers might be programmed for another frame. This scenario is to be fixed by the "Request API".
+</p><p>The idea behind this API is to allow atomic operations like a QBUF and a S_EXT_CTRLS. As of August 2016, the "Request API" is still at the state of RFC, it has had quite a few proposals for the past few years but none of them got accepted into the kernel. <a rel="nofollow" class="external text" href="https://openiotelc2016.sched.org/event/6DAG/v4l2-on-steroids-the-request-api-laurent-pinchart">The latest RFCs</a>, related to the Media API are not able to handle controls so sunxi-cedrus had to use an <a rel="nofollow" class="external text" href="https://lwn.net/Articles/641204/">older RFC.</a>
+</p><p>The "sunxi-cedrus" kernel driver is hence made of a m2m v4l2 driver handling requests of MPEG2 or MPEG4 frames data with a standard header extended control. At the time of processing the m2m queue, it programs the VPU's registers depending on the used codec. Currently <a rel="nofollow" class="external text" href="https://lkml.org/lkml/2016/8/25/251">MPEG2</a> and <a rel="nofollow" class="external text" href="https://lkml.org/lkml/2016/8/25/248">MPEG4</a> are the only supported formats but H264 and H265 would be the next step.
+</p><p>A second limitation of the Allwinner's VPU is the need for buffers in the lower 256M of RAM. In order to allocate large sets of data in this area, "sunxi-cedrus" <a rel="nofollow" class="external text" href="https://lkml.org/lkml/2016/8/25/249">reserves a DMA pool</a> that is then used by videobuf's dma-contig backend() to allocate input and output buffers easily and integrate that with the v4l QBUF/DQBUF APIs.
+</p><p>From the userspace side of things, all the prior bitstream parsing is done by VA users(such as ffmpeg). Standard VA-API headers are given to the VA backend "sunxi-cedrus-drv-video" which is just in charge of ensuring a correspondence between v4l2 buffers and controls and VA structures. We can compare a VAPicture to a buffer plus an extended control in the OUTPUT queue and a VASurface to a multiplanar buffer in the CAPTURE queue. An Image is then "derived" from a Surface to produce a standard set of NV12 buffers that can be shown on screen by VLC for example. VA-API was an extremely appropriate choice compared to VDPAU since the data it provides are often very similar to the ones the VPU expects.
+</p>
+<h3><span class="mw-headline" id="More_info">More info</span></h3>
+<p>You can HL Florent Revest (kido) on #cedrus on irc.freenode.net for in depth questions
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20251029040337
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.060 seconds
+Real time usage: 0.067 seconds
+Preprocessor visited node count: 170/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 1743/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:2894-0!canonical and timestamp 20251029040337 and revision id 26226
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=Sunxi-Cedrus&amp;oldid=26226">https://linux-sunxi.org/index.php?title=Sunxi-Cedrus&amp;oldid=26226</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Categories</a>: <ul><li><a href="Category:Cedrus.html" title="Category:Cedrus">Cedrus</a></li><li><a href="Category:Software.html" title="Category:Software">Software</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=Sunxi-Cedrus" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=Sunxi-Cedrus" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="Sunxi-Cedrus.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:Sunxi-Cedrus&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="Sunxi-Cedrus.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Sunxi-Cedrus&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Sunxi-Cedrus&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/Sunxi-Cedrus.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/Sunxi-Cedrus" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=Sunxi-Cedrus&amp;oldid=26226" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=Sunxi-Cedrus&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 28 January 2025, at 15:47.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.060","walltime":"0.067","ppvisitednodes":{"value":170,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":1743,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20251029040337","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":285});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

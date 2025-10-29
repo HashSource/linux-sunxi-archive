@@ -1,0 +1,400 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>U-Boot/Legacy U-Boot - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"2c8e050aae5c66b875c3a167","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"U-Boot/Legacy_U-Boot","wgTitle":"U-Boot/Legacy U-Boot","wgCurRevisionId":22878,"wgRevisionId":22878,"wgArticleId":90,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Tutorial","Software","Boot"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"U-Boot/Legacy_U-Boot","wgRelevantArticleId":90,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready",
+"noscript":"ready","user.styles":"ready","user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=mediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="Legacy_U-Boot.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-U-Boot_Legacy_U-Boot rootpage-U-Boot skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">U-Boot/Legacy U-Boot</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"><span class="subpages">&lt; <a href="../U-Boot.html" title="U-Boot">U-Boot</a></span></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><table style="margin: 0.7em; border-width: 1px 1px 1px 10px; border-style: solid; border-color: #EE8822; background-color: #FFEEDD">
+<tbody><tr>
+<td style="padding: 0.2em; vertical-align: baseline;"><a href="../File:MBOX_icon_important.png.html" class="image"><img alt="MBOX icon important.png" src="https://linux-sunxi.org/images/f/f0/MBOX_icon_important.png" decoding="async" width="40" height="40" /></a>
+</td>
+<td style="width:100%; padding-left: 0.2em; padding-right: 0.2em; vertical-align: baseline;">This page provides installation instructions for the legacy unmaintained u-boot-sunxi fork. It is only useful for the devices, which are still not supported by the <a href="../Mainline_U-Boot.html" class="mw-redirect" title="Mainline U-Boot">Mainline U-Boot</a>.
+</td></tr></tbody></table>
+<p>U-Boot is the bootloader commonly used on our allwinner SoCs. Amongst others, it provides the basic infrastructure to bring up a board to a point where it can load a linux kernel and start booting your operating system.
+</p><p>This page covers the sunxi branch of U-Boot. Increasingly sunxi devices are available from upstream U-Boot, and we have a separate page for <a href="../Mainline_U-Boot.html" class="mw-redirect" title="Mainline U-Boot">Mainline U-Boot</a>.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Compile_U-Boot"><span class="tocnumber">1</span> <span class="toctext">Compile U-Boot</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Get_a_toolchain"><span class="tocnumber">1.1</span> <span class="toctext">Get a toolchain</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Clone_the_repository"><span class="tocnumber">1.2</span> <span class="toctext">Clone the repository</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Determine_build_target"><span class="tocnumber">1.3</span> <span class="toctext">Determine build target</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Build"><span class="tocnumber">1.4</span> <span class="toctext">Build</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="#Configure_U-Boot"><span class="tocnumber">2</span> <span class="toctext">Configure U-Boot</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Adding_a_new_device_to_U-Boot"><span class="tocnumber">3</span> <span class="toctext">Adding a new device to U-Boot</span></a>
+<ul>
+<li class="toclevel-2 tocsection-8"><a href="#System_on_Chip_.28SoC.29"><span class="tocnumber">3.1</span> <span class="toctext">System on Chip (SoC)</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#DRAM_Settings"><span class="tocnumber">3.2</span> <span class="toctext">DRAM Settings</span></a>
+<ul>
+<li class="toclevel-3 tocsection-10"><a href="#Generate_a_settings_C_file"><span class="tocnumber">3.2.1</span> <span class="toctext">Generate a settings C file</span></a></li>
+<li class="toclevel-3 tocsection-11"><a href="#Verify_the_settings_are_unique"><span class="tocnumber">3.2.2</span> <span class="toctext">Verify the settings are unique</span></a></li>
+<li class="toclevel-3 tocsection-12"><a href="#Update_the_build_system"><span class="tocnumber">3.2.3</span> <span class="toctext">Update the build system</span></a></li>
+<li class="toclevel-3 tocsection-13"><a href="#Stress_test"><span class="tocnumber">3.2.4</span> <span class="toctext">Stress test</span></a></li>
+<li class="toclevel-3 tocsection-14"><a href="#A_note_on_optimization_research"><span class="tocnumber">3.2.5</span> <span class="toctext">A note on optimization research</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-15"><a href="#Power_Management_Unit_.28PMU.29"><span class="tocnumber">3.3</span> <span class="toctext">Power Management Unit (PMU)</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="#Extra_options"><span class="tocnumber">3.4</span> <span class="toctext">Extra options</span></a>
+<ul>
+<li class="toclevel-3 tocsection-17"><a href="#UART"><span class="tocnumber">3.4.1</span> <span class="toctext">UART</span></a></li>
+<li class="toclevel-3 tocsection-18"><a href="#Ethernet"><span class="tocnumber">3.4.2</span> <span class="toctext">Ethernet</span></a></li>
+<li class="toclevel-3 tocsection-19"><a href="#LEDs"><span class="tocnumber">3.4.3</span> <span class="toctext">LEDs</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-20"><a href="#Build_and_run_the_new_u-boot"><span class="tocnumber">3.5</span> <span class="toctext">Build and run the new u-boot</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="#Commit_your_work_to_the_git_tree_and_send_in_the_patch"><span class="tocnumber">3.6</span> <span class="toctext">Commit your work to the git tree and send in the patch</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-22"><a href="#External_links"><span class="tocnumber">4</span> <span class="toctext">External links</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Compile_U-Boot">Compile U-Boot</span></h1>
+<table style="margin: 0.7em; border-width: 1px 1px 1px 10px; border-style: solid; border-color: #EE8822; background-color: #FFEEDD">
+<tbody><tr>
+<td style="padding: 0.2em; vertical-align: baseline;"><a href="../File:MBOX_icon_important.png.html" class="image"><img alt="MBOX icon important.png" src="https://linux-sunxi.org/images/f/f0/MBOX_icon_important.png" decoding="async" width="40" height="40" /></a>
+</td>
+<td style="width:100%; padding-left: 0.2em; padding-right: 0.2em; vertical-align: baseline;">This page provides installation instructions for the legacy unmaintained u-boot-sunxi fork. It is only useful for the devices, which are still not supported by the <a href="../Mainline_U-Boot.html" class="mw-redirect" title="Mainline U-Boot">Mainline U-Boot</a>.
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="Get_a_toolchain">Get a toolchain</span></h2>
+<p>If you haven't done so before, get a suitable <a href="../Toolchain.html" title="Toolchain">toolchain</a> installed and added to your PATH.
+</p>
+<h2><span class="mw-headline" id="Clone_the_repository">Clone the repository</span></h2>
+<p>You can clone our U-Boot repository by running:
+</p>
+<pre>git clone -b sunxi https://github.com/linux-sunxi/u-boot-sunxi.git</pre>
+<p>This should checkout the <i>sunxi</i> branch, which allows booting from <a href="../Bootable_SD_card.html" title="Bootable SD card"> SD</a>, over <a href="../FEL/USBBoot.html" title="FEL/USBBoot"> USB</a> and over <a href="../How_to_boot_the_A10_or_A20_over_the_network.html" title="How to boot the A10 or A20 over the network"> ethernet</a>, but it still lacks support for booting off the <a href="../NAND.html" title="NAND">NAND</a>. For more information about booting from NAND, check the <a href="../Installing_to_NAND.html" title="Installing to NAND"> NAND howto</a>.
+</p><p><a href="../File:Sticky-note-pin.png.html" class="image"><img alt="Sticky-note-pin.png" src="https://linux-sunxi.org/images/f/f0/Sticky-note-pin.png" decoding="async" width="16" height="16" /></a> <span style="color:#ba0000"><b>Note:</b></span> the 'sunxi' branch in the <i>u-boot-sunxi</i> repository is currently under active development and also frequently merges in the changes from the upstream U-Boot. Expect it to be occasionally broken. There is no stable branch or tag at the moment. If something does not work correctly, please consider trying older revisions from the 'sunxi' branch or look for any possible not-yet-applied fixes in the linux-sunxi and U-Boot mailing lists.
+</p>
+<h2><span class="mw-headline" id="Determine_build_target">Determine build target</span></h2>
+<p>You can list the available U-Boot targets by running:
+</p>
+<pre>sunxi/tools/genboardscfg.py</pre>
+<pre>grep sunxi boards.cfg | awk '{print $7}'</pre>
+<p>You will notice that some board names are duplicates, but with <i>_FEL</i> attached. These are for use with <a href="../FEL/USBBoot.html" title="FEL/USBBoot"> USBBoot</a>, while the standard ones will boot from SD.
+</p>
+<h2><span class="mw-headline" id="Build">Build</span></h2>
+<p>When you have determined what target you want to build, configure:
+</p>
+<pre>make CROSS_COMPILE=arm-linux-gnueabihf- {TARGET}_config </pre>
+<p>Then just build it:
+</p>
+<pre>make CROSS_COMPILE=arm-linux-gnueabihf- </pre>
+<p>You might want to add '-j4' to make use of 4 processors (or any number that matches your system), to speed up the build.
+</p><p>When the build has completed, there will be <i>spl/sunxi-spl.bin</i> and <i>u-boot.img</i> available in your u-boot tree.
+</p>
+<h1><span class="mw-headline" id="Configure_U-Boot">Configure U-Boot</span></h1>
+<p>To be able to create the <i>boot.scr</i> file from a <i>boot.cmd</i> file, you need to have the <i><a href="Tools.html#mkimage" title="U-Boot/Tools">mkimage</a></i> tool. Various U-Boot scenarios are covered in the <a href="Configuration.html" title="U-Boot/Configuration">configuration article</a>.
+</p>
+<h1><span class="mw-headline" id="Adding_a_new_device_to_U-Boot">Adding a new device to U-Boot</span></h1>
+<table style="margin: 0.7em; border-width: 1px 1px 1px 10px; border-style: solid; border-color: #EE8822; background-color: #FFEEDD">
+<tbody><tr>
+<td style="padding: 0.2em; vertical-align: baseline;"><a href="../File:MBOX_icon_important.png.html" class="image"><img alt="MBOX icon important.png" src="https://linux-sunxi.org/images/f/f0/MBOX_icon_important.png" decoding="async" width="40" height="40" /></a>
+</td>
+<td style="width:100%; padding-left: 0.2em; padding-right: 0.2em; vertical-align: baseline;">This page provides installation instructions for the legacy unmaintained u-boot-sunxi fork. It is only useful for the devices, which are still not supported by the <a href="../Mainline_U-Boot.html" class="mw-redirect" title="Mainline U-Boot">Mainline U-Boot</a>.
+</td></tr></tbody></table>
+<p>Please see <a rel="nofollow" class="external text" href="http://lists.denx.de/pipermail/u-boot/2014-December/199351.html">following email</a> on how to add support for new devices to u-boot. 
+</p><p><span style="color:#ba0000">Warning! Information below is a somewhat outdated as <i>u-boot-sunxi</i> is not used anymore.</span>
+The <i>boards.cfg</i> file in the top level of your U-Boot tree holds all board configurations.
+</p><p>Scroll down until you find the sunxi devices and create an entry for your device, in alphabetical order under device_name. The <code>device_name</code> field should follow the Manufacturer_Device format used for naming your device wiki page. The <code>device_name</code> field will be the target name used when building U-Boot. Note that this is case sensitive.
+</p>
+<pre>Active  arm       armv7        sunxi     -             sunxi             device_name                sunXi:DEVICE_NAME,SPL                                                                                                             -</pre>
+<p>If you wish to copy the above, then make sure that you make your browser wide enough so that even the <i>-</i> at the end is shown. It is probably easier to copy another entry from <i>boards.cfg</i> directly though.
+</p><p>The next stage is to set the build options. In the example before these are <kbd>sunXi:DEVICE_NAME,SPL</kbd>, which sets the system on chip, DRAM settings and builds the secondary program loader. Each option after the colon should be capitalized and separated by a comma. The sections below give more details on the best options for your device.
+</p>
+<h2><span id="System_on_Chip_(SoC)"></span><span class="mw-headline" id="System_on_Chip_.28SoC.29">System on Chip (SoC)</span></h2>
+<p>The first part of the build options, before the colon, identifies the sunxi generation your device's SoC belongs to. This with be either sun4i, sun5i, sun6i, sun7i or sun8i. See <a href="../Allwinner_SoC_Family.html" title="Allwinner SoC Family">Allwinner SoC Family</a> to find the generation a chip belongs to.
+</p><p>This option is used by the build system to identify a header file in <kbd>include/configs</kbd>. If you need to read the U-Boot source code for more details on build options then it is useful to know the SoC generation header files also include the <kbd>include/configs/sunxi-common.h</kbd> file. That file uses most of the build options given after the colon in boards.cfg and can be a useful source when investigating a build option.
+</p>
+<h2><span class="mw-headline" id="DRAM_Settings">DRAM Settings</span></h2>
+<p>Settings should aim to provide a stable system under heavy workloads, such as manipulating graphics, while giving maximum performance.
+</p><p>There are three sources for DRAM settings: settings used by the device manufacturer; existing files from the sunxi U-Boot; and research of optimal settings. The recommended approach is to read the settings used by the device manufacturer and then check a similar file does not already exist in sunxi U-Boot.
+</p>
+<h3><span class="mw-headline" id="Generate_a_settings_C_file">Generate a settings C file</span></h3>
+<p>The device manufacturer is likely to have stored stable settings in the device and <a href="../Sunxi-tools.html" title="Sunxi-tools">sunxi tools</a> can be used to <a href="../Retrieving_device_information.html" title="Retrieving device information">retrieve the device information</a>.
+</p><p>Execute <a href="../Retrieving_device_information.html#Reading_memory_information_from_registers" title="Retrieving device information"><code>meminfo -u</code></a> from within the original OS to read the memory registers and output a dram configuration C file for use with U-Boot. The output from <a href="../Retrieving_device_information.html#Retrieving_data_over_USB_in_FEL_mode" title="Retrieving device information"> bootinfo</a> reads the settings from <a href="../FEL.html#Reading_over_USB_fails" title="FEL">boot1</a> and could also be used to create a dram C file.   
+</p><p>Alternatively <code><a href="../Sunxi-tools.html#fexc" title="Sunxi-tools">fexc</a></code> will translate values from a fex file into a C file (<a href="../File:Sticky-note-pin.png.html" class="image"><img alt="Sticky-note-pin.png" src="https://linux-sunxi.org/images/f/f0/Sticky-note-pin.png" decoding="async" width="16" height="16" /></a> <i>Note:</i> using a fex file derived from a <a href="../Script.bin.html" title="Script.bin">script.bin</a> will likely be missing important values).
+</p>
+<h3><span class="mw-headline" id="Verify_the_settings_are_unique">Verify the settings are unique</span></h3>
+<p>The C file should be placed in the <kbd>board/sunxi</kbd> directory of your local copy of sunxi U-Boot. Run the bash script <kbd>./scripts/sunxi_dram_duplicates_find.sh</kbd> from the top level of your U-Boot directory and any files with the same settings should be shown.
+</p><p>There are a lot of generic dram files available and if one of those matches your settings then refer to the generic file when adding your device to the build system and delete your created file. If an existing board config for another device matches yours, then please consider turning this into a generic dram file.
+</p><p>If nothing matches, then <kbd>git add</kbd> your new file.
+</p>
+<h3><span class="mw-headline" id="Update_the_build_system">Update the build system</span></h3>
+<p>After you have a DRAM settings C file, edit board/sunxi/Makefile to add a line, in alphabetical order, for your device that links with the right dram_ object.
+</p>
+<pre>obj-$(CONFIG_DEVICE_NAME)	+= dram_something.o</pre>
+<p>Make sure that the <i>+=</i> is preceded by just tabs, and not by spaces.
+</p><p>The build option is DEVICE_NAME and can now be added to your devices's build options in boards.cfg.
+</p>
+<h3><span class="mw-headline" id="Stress_test">Stress test</span></h3>
+<p>And as the final step, be sure to verify the reliability of the resulting dram settings using the <a class="external text" href="https://github.com/ssvb/lima-memtester/">lima-memtester</a> tool once you have built and run the new U-Boot. It has been discovered on more <a rel="nofollow" class="external text" href="http://irclog.whitequark.org/linux-sunxi/2013-11-26#5690482#5690482">than</a> <a rel="nofollow" class="external text" href="http://irclog.whitequark.org/linux-sunxi/2014-09-12#10161434#10161434">one</a> occasion that the dram settings from the vendors are not always perfectly reliable. So, let's say, in 90% of cases you are going to be fine by trusting the device manufacturers. But if you are out of luck, then you may get a system with mysterious application crashes or some very rare occasional deadlocks, preventing the system from having long uptime. These problems are very difficult to track, unless using dedicated stress testing tools. In other words, if you want to just save time by skipping a few minutes of downloading/compiling lima-memtester and a few hours of running it unattended, then you are essentially playing a <a class="external text" href="http://en.wikipedia.org/wiki/Russian_roulette">russian roulette</a>.
+</p>
+<h3><span class="mw-headline" id="A_note_on_optimization_research">A note on optimization research</span></h3>
+<p>You may have found reference to DRAM optimization on the Wiki, but this research should be done at a later stage as it can lead to unstable settings for different instances of the device. The <a href="../DRAM_Controller.html" title="DRAM Controller">DRAM Controller page</a> provides links to start researching this topic. Note that the 'zq' settings in 'dram_para' are not properly supported in the legacy <i>u-boot-sunxi</i>, so these dram performance optimization experiments only make sense with the <a href="../Mainline_U-Boot.html" class="mw-redirect" title="Mainline U-Boot">Mainline U-Boot</a>.
+</p>
+<h2><span id="Power_Management_Unit_(PMU)"></span><span class="mw-headline" id="Power_Management_Unit_.28PMU.29">Power Management Unit (PMU)</span></h2>
+<p>There are three main PMUs used with Allwinner SoCs: <a href="../AXP152.html" title="AXP152">AXP152</a>, <a href="../AXP209.html" title="AXP209">AXP209</a> and <a href="../AXP221.html" title="AXP221">AXP221</a>
+</p><p>The default build option is for the AXP209. So if your device uses this PMU no build option should be given in <i>boards.cfg</i>.
+</p><p>For AXP152 the build option is <code>AXP152_POWER</code> and for AXP221 it is <code>AXP221_POWER</code>.
+</p><p>If there is no PMU then the build option is <code>NO_AXP</code>.
+</p>
+<h2><span class="mw-headline" id="Extra_options">Extra options</span></h2>
+<h3><span class="mw-headline" id="UART">UART</span></h3>
+<p>Before building, you should check <a href="../UART.html#U-Boot" title="UART"> the U-Boot section in our UART howto</a> and verify that you are using the standard UART IO pins. Failure to catch this will not give you any UART output, but might also prevent your device from booting (or worse).
+</p>
+<h3><span class="mw-headline" id="Ethernet">Ethernet</span></h3>
+<p><span style="color:#ba0000">TODO: Someone who has done this or is doing this, should describe how to add this.</span>
+</p>
+<h3><span class="mw-headline" id="LEDs">LEDs</span></h3>
+<p>U-Boot can be built to light up an LED when it runs. This will indicate that the boot process has passed beyond the secondary program loader (SPL) stage and started to run U-Boot.
+</p><p>This build option is <code>STATUSLED=<i>n</i></code>. 
+</p><p><code><i>n</i></code> is the LED's GPIO pin identifier converted to an integer. For example PH25 would be 249. In schematics for Allwinner SoC based devices the pin identifier is written P<em>x</em><em>n</em>. Where <em>x</em> is the port identifier (A through to S) and <em>n</em> is the pin number. So in the example, H is the port identifier and 24 is the pin number. Each port can have up to 32 pins. So in the example, the numeric base value for port H is 224, because H is the 8th letter of the alphabet. That is (8-1)*32 = 224. Note that the base value for port A is 0. The numeric value for PH25 then is 224 plus pin number 25 = 249.
+</p>
+<h2><span class="mw-headline" id="Build_and_run_the_new_u-boot">Build and run the new u-boot</span></h2>
+<p>That's it. You should now be able to <a href="../U-Boot.html#Compile_U-Boot" title="U-Boot"> compile</a> and <a href="../Manual_build_howto.html" title="Manual build howto"> test U-Boot</a>. It makes sense to also get a kernel and operating system running to more completely test the U-Boot dram settings before committing code.
+</p>
+<h2><span class="mw-headline" id="Commit_your_work_to_the_git_tree_and_send_in_the_patch">Commit your work to the git tree and send in the patch</span></h2>
+<p>You can now commit your changes, and with:
+</p>
+<pre>git format-patch -M -C HEAD^</pre>
+<p>You will create a git mbox patch file which you can mail to <a href="../Mailing_list.html" title="Mailing list"> our mailinglist</a>. If you have <a href="../Mailing_list.html#Configuring_git_for_send-email" title="Mailing list"> set up git correctly</a>, you can just run:
+</p>
+<pre>git send-email 0001-*.patch</pre>
+<h1><span class="mw-headline" id="External_links">External links</span></h1>
+<ul><li><a class="external text" href="https://github.com/linux-sunxi/u-boot-sunxi/">git repository</a></li>
+<li><a class="external text" href="http://github.com/linux-sunxi/u-boot-sunxi/wiki">official wiki</a></li></ul>
+<!-- 
+NewPP limit report
+Cached time: 20251029040341
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.078 seconds
+Real time usage: 0.129 seconds
+Preprocessor visited node count: 239/1000000
+Post‐expand include size: 5455/2097152 bytes
+Template argument size: 2735/2097152 bytes
+Highest expansion depth: 7/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 659/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   39.429      1 -total
+ 40.96%   16.150      3 Template:Alert
+ 33.67%   13.274      3 Template:MBOX_NOTE
+ 28.78%   11.349      2 Template:Note
+ 27.51%   10.846      3 Template:MBOX
+ 25.48%   10.047      1 Template:Todo
+  7.81%    3.078      3 Template:Red
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:90-0!canonical and timestamp 20251029040341 and revision id 22878
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=U-Boot/Legacy_U-Boot&amp;oldid=22878">https://linux-sunxi.org/index.php?title=U-Boot/Legacy_U-Boot&amp;oldid=22878</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="../Special:Categories.html" title="Special:Categories">Categories</a>: <ul><li><a href="../Category:Tutorial.html" title="Category:Tutorial">Tutorial</a></li><li><a href="../Category:Software.html" title="Category:Software">Software</a></li><li><a href="../Category:Boot.html" title="Category:Boot">Boot</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=U-Boot%2FLegacy+U-Boot" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=U-Boot%2FLegacy+U-Boot" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="Legacy_U-Boot.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk"><a href="../Talk:U-Boot/Legacy_U-Boot.html" rel="discussion" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="Legacy_U-Boot.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=U-Boot/Legacy_U-Boot&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=U-Boot/Legacy_U-Boot&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="../index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="../index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="../sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="../Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="../Special:WhatLinksHere/U-Boot/Legacy_U-Boot.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/U-Boot/Legacy_U-Boot" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="../Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=U-Boot/Legacy_U-Boot&amp;oldid=22878" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=U-Boot/Legacy_U-Boot&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 17 November 2019, at 08:54.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.078","walltime":"0.129","ppvisitednodes":{"value":239,"limit":1000000},"postexpandincludesize":{"value":5455,"limit":2097152},"templateargumentsize":{"value":2735,"limit":2097152},"expansiondepth":{"value":7,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":659,"limit":5000000},"timingprofile":["100.00%   39.429      1 -total"," 40.96%   16.150      3 Template:Alert"," 33.67%   13.274      3 Template:MBOX_NOTE"," 28.78%   11.349      2 Template:Note"," 27.51%   10.846      3 Template:MBOX"," 25.48%   10.047      1 Template:Todo","  7.81%    3.078      3 Template:Red"]},"cachereport":{"timestamp":"20251029040341","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":381});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

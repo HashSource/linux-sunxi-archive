@@ -1,0 +1,595 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>CedarX/MPEG4 trace 1 analysis - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"68f6aa9b52276e65a550a711","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"CedarX/MPEG4_trace_1_analysis","wgTitle":"CedarX/MPEG4 trace 1 analysis","wgCurRevisionId":4345,"wgRevisionId":4345,"wgArticleId":592,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["CedarX"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"CedarX/MPEG4_trace_1_analysis","wgRelevantArticleId":592,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":
+"ready","noscript":"ready","user.styles":"ready","user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=skins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="MPEG4_trace_1_analysis.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-CedarX_MPEG4_trace_1_analysis rootpage-CedarX skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">CedarX/MPEG4 trace 1 analysis</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"><span class="subpages">&lt; <a href="../CedarX" title="CedarX">CedarX</a></span></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><h1><span class="mw-headline" id="One_working_cycle">One working cycle</span></h1>
+<pre>==31443== A| 0|   L 0401d0f2[  f2]  2:     1625 // read chip id (A13)
+==31443== A| 0|   S 0401d144[ 144]  4: 04009000 // config buffer 1 ncf address&#160;????
+//setting VBV video income stream parametrs
+==31443== A| 0|   S 0401d138[ 138]  4: 04000000 // config buffer 2 address(vbv)
+==31443== A| 0|   S 0401d13c[ 13c]  4: 04008000 // config buffer 3 address(vbv len) end of vbv?
+//setting ROT videobuff
+==31443== A| 0|   S 0401d1cc[ 1cc]  4: 0480a000 // config buffer 4 address (rotf_c croma)YCbCr
+==31443== A| 0|   S 0401d1d0[ 1d0]  4: 0481e000 // config buffer 5 address (rotf_y luma)YCbCr
+==31443== A| 0|   S 0401d104[ 104]  4: 00000000 // here must be header
+==31443== A| 0|   S 0401d108[ 108]  4: 0014140f // video file size 320x240
+==31443== A| 0|   S 0401d110[ 110]  4: 00000000 //nukn
+==31443== A| 0|   S 0401d114[ 114]  4: 80084198 // do control
+==31443== A| 0|   S 0401d118[ 118]  4: 04000000 // set MPEG4 input format
+==31443== A| 0|   S 0401d10c[ 10c]  4: 014000f0 // set size 240x320
+==31443== A| 0|   S 0401d184[ 184]  4: 0000000d // set IQ level
+==31443== A| 0|   S 0401d188[ 188]  4: 00000000 //no ms-mpeg header
+//setting REC video buffer
+==31443== A| 0|   S 0401d148[ 148]  4: 0480a000 //rec_y luma YCbCr
+==31443== A| 0|   S 0401d14c[ 14c]  4: 0481e000 //rec_c croma YCbCr
+//setting FOR video buffer
+==31443== A| 0|   S 0401d150[ 150]  4: 00000000 //for_y "for" vbuff
+==31443== A| 0|   S 0401d154[ 154]  4: 00000000 //foc_c same crome
+//setting BACK video buffer
+==31443== A| 0|   S 0401d158[ 158]  4: 00000000 //back_y "back buff"
+==31443== A| 0|   S 0401d15c[ 15c]  4: 00000000 //back_c
+==31443== A| 0|   S 0401d11c[ 11c]  4: ffffffff 0000c000 //reset statues
+==31443== A| 0|   S 0401d1c8[ 1c8]  4: 00000000 //ctrmb
+==31443== A| 0|   S 0401d1c4[ 1c4]  4: 00000000 //err flag
+// SET video buffer offset (data begin)
+==31443== A| 0|   S 0401d12c[ 12c]  4: 00000038 00000000 //VBV offset
+==31443== A| 0|   S 0401d130[ 130]  4: 0001b8a0 //Video size
+==31443== A| 0|   S 0401d134[ 134]  4: 04809fff //config buffer 8 (last addr?)
+//SET VLD buffer
+==31443== A| 0|   S 0401d128[ 128]  4: 7400a000
+==31443== A| 0|   S 0401d118[ 118]  4: 8400300d 0400300d //touch trigger
+==31443== A| 0|   L 0401d000[   0]  4: 00130000 // read clock status (is ready?)
+==31443== A| 0|   L 0401d11c[ 11c]  4: 0000c001 //is ready?
+==31443== A| 0|   S 0401d11c[ 11c]  4: 0000c00f 0000c000  //clean status 
+==31443== A| 0|   L 0401d000[   0]  4: 00130000 // check VE clocks
+==31443== A| 0|   L 0401d114[ 114]  4: 80084180 // read MPEG control reg
+==31443== A| 0|   S 0401d114[ 114]  4: 800841fc 800841f8 // do control (4th bit) 
+==31443== A| 0|   L 0401d12c[ 12c]  4: 0000234e // video offset changed we moved forward  
+==31443== A| 0|   L 0401d110[ 110]  4: 00000802//get macroblock offset in steam
+==31443== A| 0|   L 0401d11c[ 11c]  4: 0000c000 // is ready?
+==31443== A| 0|   S 0401d104[ 104]  4: 00000000 //set video plane header 
+
+==31443== A| 0|   S 0401d184[ 184]  4: 00000002 //set new IQ level
+==31443== A| 0|   S 0401d110[ 110]  4: 00000802 //set macroblock offest (same was)
+//
+==31443== A| 0|   S 0401d11c[ 11c]  4: ffffffff 0000c000//clean all statuses
+==31443== A| 0|   S 0401d1c8[ 1c8]  4: 00000000 //ctrmb
+==31443== A| 0|   S 0401d1c4[ 1c4]  4: 00000000 //err flag
+==31443== A| 0|   S 0401d12c[ 12c]  4: 00002370 0000234e //set VBV offset&#160;??????
+==31443== A| 0|   S 0401d130[ 130]  4: 00019560 //video block remaining
+==31443== A| 0|   S 0401d134[ 134]  4: 04809fff //video block size (same for whole file)
+==31443== A| 0|   S 0401d128[ 128]  4: 7400a000 // VLD address
+==31443== A| 0|   S 0401d118[ 118]  4: 8400200d 0400200d //touch trigger
+==31443== A| 0|   L 0401d000[   0]  4: 00130000 //check clocks
+==31443== A| 0|   L 0401d11c[ 11c]  4: 0000c001 //check staus
+==31443== A| 0|   S 0401d11c[ 11c]  4: 0000c00f 0000c000 //reset statuse
+==31443== A| 0|   L 0401d000[   0]  4: 00130000 // check clocks
+==31443== A| 0|   L 0401d114[ 114]  4: 80084180 //read control
+==31443== A| 0|   S 0401d114[ 114]  4: 800841fc 800841f8 //do control
+==31443== A| 0|   L 0401d12c[ 12c]  4: 000049a0 //set vbv offset
+==31443== A| 0|   L 0401d110[ 110]  4: 00000004 //unkn(frm? mc?)
+==31443== A| 0|   L 0401d11c[ 11c]  4: 0000c000 //read status
+==31443== A| 0|   S 0401d104[ 104]  4: 00000000 //set hdr
+==31443== A| 0|   S 0401d184[ 184]  4: 00000003 // set IQ 
+==31443== A| 0|   S 0401d110[ 110]  4: 00000004 //set macro block offset
+==31443== A| 0|   S 0401d11c[ 11c]  4: ffffffff 0000c000 // reset all statuses
+==31443== A| 0|   S 0401d1c8[ 1c8]  4: 00000000 //ctrmb
+==31443== A| 0|   S 0401d1c4[ 1c4]  4: 00000000 //errflag
+==31443== A| 0|   S 0401d12c[ 12c]  4: 000049c8 000049a0 //zig-zag coding set mb begin
+==31443== A| 0|   S 0401d130[ 130]  4: 00016f00 //lengs
+==31443== A| 0|   S 0401d134[ 134]  4: 04809fff // (may be end of memblock)
+==31443== A| 0|   S 0401d128[ 128]  4: 7400a000
+==31443== A| 0|   S 0401d118[ 118]  4: 84001a0d 04001a0d
+==31443== A| 0|   L 0401d000[   0]  4: 00130000
+==31443== A| 0|   L 0401d11c[ 11c]  4: 0000c001
+==31443== A| 0|   S 0401d11c[ 11c]  4: 0000c00f 0000c000
+==31443== A| 0|   L 0401d000[   0]  4: 00130000
+==31443== A| 0|   L 0401d114[ 114]  4: 80084180
+==31443== A| 0|   S 0401d114[ 114]  4: 800841fc 800841f8 // do control
+==31443== A| 0|   L 0401d12c[ 12c]  4: 00006f45
+==31443== A| 0|   L 0401d110[ 110]  4: 00000605
+==31443== A| 0|   L 0401d11c[ 11c]  4: 0000c000
+==31443== A| 0|   S 0401d104[ 104]  4: 00000000
+==31443== A| 0|   S 0401d184[ 184]  4: 00000002
+==31443== A| 0|   S 0401d110[ 110]  4: 00000605
+==31443== A| 0|   S 0401d11c[ 11c]  4: ffffffff 0000c000
+==31443== A| 0|   S 0401d1c8[ 1c8]  4: 00000000
+==31443== A| 0|   S 0401d1c4[ 1c4]  4: 00000000
+==31443== A| 0|   S 0401d12c[ 12c]  4: 00006f68 00006f45
+==31443== A| 0|   S 0401d130[ 130]  4: 00014960
+==31443== A| 0|   S 0401d134[ 134]  4: 04809fff
+==31443== A| 0|   S 0401d128[ 128]  4: 7400a000
+==31443== A| 0|   S 0401d118[ 118]  4: 8400170d 0400170d
+==31443== A| 0|   L 0401d000[   0]  4: 00130000
+==31443== A| 0|   L 0401d11c[ 11c]  4: 0000c001
+==31443== A| 0|   S 0401d11c[ 11c]  4: 0000c00f 0000c000
+==31443== A| 0|   L 0401d000[   0]  4: 00130000
+==31443== A| 0|   L 0401d114[ 114]  4: 80084180
+==31443== A| 0|   S 0401d114[ 114]  4: 800841fc 800841f8 // do control
+==31443== A| 0|   L 0401d12c[ 12c]  4: 00009555
+==31443== A| 0|   L 0401d110[ 110]  4: 00000906
+==31443== A| 0|   L 0401d11c[ 11c]  4: 0000c000
+==31443== A| 0|   S 0401d104[ 104]  4: 00000000
+==31443== A| 0|   S 0401d184[ 184]  4: 00000003
+==31443== A| 0|   S 0401d110[ 110]  4: 00000906
+==31443== A| 0|   S 0401d11c[ 11c]  4: ffffffff 0000c000
+==31443== A| 0|   S 0401d1c8[ 1c8]  4: 00000000
+==31443== A| 0|   S 0401d1c4[ 1c4]  4: 00000000
+==31443== A| 0|   S 0401d12c[ 12c]  4: 00009578 00009555
+==31443== A| 0|   S 0401d130[ 130]  4: 00012360
+==31443== A| 0|   S 0401d134[ 134]  4: 04809fff
+==31443== A| 0|   S 0401d128[ 128]  4: 7400a000
+==31443== A| 0|   S 0401d118[ 118]  4: 8400160d 0400160d
+==31443== A| 0|   L 0401d000[   0]  4: 00130000
+==31443== A| 0|   L 0401d11c[ 11c]  4: 0000c001
+==31443== A| 0|   S 0401d11c[ 11c]  4: 0000c00f 0000c000
+==31443== A| 0|   L 0401d000[   0]  4: 00130000
+==31443== A| 0|   L 0401d114[ 114]  4: 80084180
+==31443== A| 0|   S 0401d114[ 114]  4: 800841fc 800841f8 // do control
+==31443== A| 0|   L 0401d12c[ 12c]  4: 0000ba6a
+==31443== A| 0|   L 0401d110[ 110]  4: 00000b07
+==31443== A| 0|   L 0401d11c[ 11c]  4: 0000c000
+==31443== A| 0|   S 0401d104[ 104]  4: 00000000
+==31443== A| 0|   S 0401d184[ 184]  4: 00000003
+==31443== A| 0|   S 0401d110[ 110]  4: 00000b07
+==31443== A| 0|   S 0401d11c[ 11c]  4: ffffffff 0000c000
+==31443== A| 0|   S 0401d1c8[ 1c8]  4: 00000000
+==31443== A| 0|   S 0401d1c4[ 1c4]  4: 00000000
+==31443== A| 0|   S 0401d12c[ 12c]  4: 0000ba90 0000ba6a
+==31443== A| 0|   S 0401d130[ 130]  4: 0000fe40
+==31443== A| 0|   S 0401d134[ 134]  4: 04809fff
+==31443== A| 0|   S 0401d128[ 128]  4: 7400a000
+==31443== A| 0|   S 0401d118[ 118]  4: 8400140d 0400140d
+==31443== A| 0|   L 0401d000[   0]  4: 00130000
+==31443== A| 0|   L 0401d11c[ 11c]  4: 0000c001
+==31443== A| 0|   S 0401d11c[ 11c]  4: 0000c00f 0000c000
+==31443== A| 0|   L 0401d000[   0]  4: 00130000
+==31443== A| 0|   L 0401d114[ 114]  4: 80084180
+==31443== A| 0|   S 0401d114[ 114]  4: 800841fc 800841f8 // do control
+==31443== A| 0|   L 0401d12c[ 12c]  4: 0000df62
+==31443== A| 0|   L 0401d110[ 110]  4: 00000b08
+==31443== A| 0|   L 0401d11c[ 11c]  4: 0000c000
+==31443== A| 0|   S 0401d104[ 104]  4: 00000000
+==31443== A| 0|   S 0401d184[ 184]  4: 00000003
+==31443== A| 0|   S 0401d110[ 110]  4: 00000b08
+==31443== A| 0|   S 0401d11c[ 11c]  4: ffffffff 0000c000
+==31443== A| 0|   S 0401d1c8[ 1c8]  4: 00000000
+==31443== A| 0|   S 0401d1c4[ 1c4]  4: 00000000
+==31443== A| 0|   S 0401d12c[ 12c]  4: 0000df88 0000df62
+==31443== A| 0|   S 0401d130[ 130]  4: 0000d940
+==31443== A| 0|   S 0401d134[ 134]  4: 04809fff
+==31443== A| 0|   S 0401d128[ 128]  4: 7400a000
+==31443== A| 0|   S 0401d118[ 118]  4: 8400170d 0400170d
+==31443== A| 0|   L 0401d000[   0]  4: 00130000
+==31443== A| 0|   L 0401d11c[ 11c]  4: 0000c001
+==31443== A| 0|   S 0401d11c[ 11c]  4: 0000c00f 0000c000
+==31443== A| 0|   L 0401d000[   0]  4: 00130000
+==31443== A| 0|   L 0401d114[ 114]  4: 80084180
+==31443== A| 0|   S 0401d114[ 114]  4: 800841fc 800841f8 // do control
+==31443== A| 0|   L 0401d12c[ 12c]  4: 00010518
+==31443== A| 0|   L 0401d110[ 110]  4: 00000e09
+==31443== A| 0|   L 0401d11c[ 11c]  4: 0000c000
+==31443== A| 0|   S 0401d104[ 104]  4: 00000000
+==31443== A| 0|   S 0401d184[ 184]  4: 00000003
+==31443== A| 0|   S 0401d110[ 110]  4: 00000e09
+==31443== A| 0|   S 0401d11c[ 11c]  4: ffffffff 0000c000
+==31443== A| 0|   S 0401d1c8[ 1c8]  4: 00000000
+==31443== A| 0|   S 0401d1c4[ 1c4]  4: 00000000
+==31443== A| 0|   S 0401d12c[ 12c]  4: 00010540 00010518
+==31443== A| 0|   S 0401d130[ 130]  4: 0000b380
+==31443== A| 0|   S 0401d134[ 134]  4: 04809fff
+==31443== A| 0|   S 0401d128[ 128]  4: 7400a000
+==31443== A| 0|   S 0401d118[ 118]  4: 8400160d 0400160d
+==31443== A| 0|   L 0401d000[   0]  4: 00130000
+==31443== A| 0|   L 0401d11c[ 11c]  4: 0000c001
+==31443== A| 0|   S 0401d11c[ 11c]  4: 0000c00f 0000c000
+==31443== A| 0|   L 0401d000[   0]  4: 00130000
+==31443== A| 0|   L 0401d114[ 114]  4: 80084180
+==31443== A| 0|   S 0401d114[ 114]  4: 800841fc 800841f8 // do control
+==31443== A| 0|   L 0401d12c[ 12c]  4: 000129d0
+==31443== A| 0|   L 0401d110[ 110]  4: 0000100a
+==31443== A| 0|   L 0401d11c[ 11c]  4: 0000c000
+==31443== A| 0|   S 0401d104[ 104]  4: 00000000
+==31443== A| 0|   S 0401d184[ 184]  4: 00000003
+==31443== A| 0|   S 0401d110[ 110]  4: 0000100a
+==31443== A| 0|   S 0401d11c[ 11c]  4: ffffffff 0000c000
+==31443== A| 0|   S 0401d1c8[ 1c8]  4: 00000000
+==31443== A| 0|   S 0401d1c4[ 1c4]  4: 00000000
+==31443== A| 0|   S 0401d12c[ 12c]  4: 000129f8 000129d0
+==31443== A| 0|   S 0401d130[ 130]  4: 00008ee0
+==31443== A| 0|   S 0401d134[ 134]  4: 04809fff
+==31443== A| 0|   S 0401d128[ 128]  4: 7400a000
+==31443== A| 0|   S 0401d118[ 118]  4: 8400150d 0400150d
+==31443== A| 0|   L 0401d000[   0]  4: 00130000
+==31443== A| 0|   L 0401d11c[ 11c]  4: 0000c001
+==31443== A| 0|   S 0401d11c[ 11c]  4: 0000c00f 0000c000
+==31443== A| 0|   L 0401d000[   0]  4: 00130000
+==31443== A| 0|   L 0401d114[ 114]  4: 80084180
+==31443== A| 0|   S 0401d114[ 114]  4: 800841fc 800841f8 // do control
+==31443== A| 0|   L 0401d12c[ 12c]  4: 00014ea8
+==31443== A| 0|   L 0401d110[ 110]  4: 0000110b
+==31443== A| 0|   L 0401d11c[ 11c]  4: 0000c000
+==31443== A| 0|   S 0401d104[ 104]  4: 00000000
+==31443== A| 0|   S 0401d184[ 184]  4: 00000002
+==31443== A| 0|   S 0401d110[ 110]  4: 0000110b
+==31443== A| 0|   S 0401d11c[ 11c]  4: ffffffff 0000c000
+==31443== A| 0|   S 0401d1c8[ 1c8]  4: 00000000
+==31443== A| 0|   S 0401d1c4[ 1c4]  4: 00000000
+==31443== A| 0|   S 0401d12c[ 12c]  4: 00014ed0 00014ea8
+==31443== A| 0|   S 0401d130[ 130]  4: 00006a00
+==31443== A| 0|   S 0401d134[ 134]  4: 04809fff
+==31443== A| 0|   S 0401d128[ 128]  4: 7400a000
+==31443== A| 0|   S 0401d118[ 118]  4: 8400160d 0400160d
+==31443== A| 0|   L 0401d000[   0]  4: 00130000
+==31443== A| 0|   L 0401d11c[ 11c]  4: 0000c001
+==31443== A| 0|   S 0401d11c[ 11c]  4: 0000c00f 0000c000
+==31443== A| 0|   L 0401d000[   0]  4: 00130000
+==31443== A| 0|   L 0401d114[ 114]  4: 80084180
+==31443== A| 0|   S 0401d114[ 114]  4: 800841fc 800841f8
+==31443== A| 0|   L 0401d12c[ 12c]  4: 0001746a
+==31443== A| 0|   L 0401d110[ 110]  4: 0000130c
+==31443== A| 0|   L 0401d11c[ 11c]  4: 0000c000
+==31443== A| 0|   S 0401d104[ 104]  4: 00000000
+==31443== A| 0|   S 0401d184[ 184]  4: 00000002
+==31443== A| 0|   S 0401d110[ 110]  4: 0000130c
+==31443== A| 0|   S 0401d11c[ 11c]  4: ffffffff 0000c000
+==31443== A| 0|   S 0401d1c8[ 1c8]  4: 00000000
+==31443== A| 0|   S 0401d1c4[ 1c4]  4: 00000000
+==31443== A| 0|   S 0401d12c[ 12c]  4: 00017490 0001746a
+==31443== A| 0|   S 0401d130[ 130]  4: 00004440
+==31443== A| 0|   S 0401d134[ 134]  4: 04809fff
+==31443== A| 0|   S 0401d128[ 128]  4: 7400a000
+==31443== A| 0|   S 0401d118[ 118]  4: 8400140d 0400140d
+==31443== A| 0|   L 0401d000[   0]  4: 00130000
+==31443== A| 0|   L 0401d11c[ 11c]  4: 0000c001
+==31443== A| 0|   S 0401d11c[ 11c]  4: 0000c00f 0000c000
+==31443== A| 0|   L 0401d000[   0]  4: 00130000
+==31443== A| 0|   L 0401d114[ 114]  4: 80084180
+==31443== A| 0|   S 0401d114[ 114]  4: 800841fc 800841f8// do control
+==31443== A| 0|   L 0401d12c[ 12c]  4: 00019951
+==31443== A| 0|   L 0401d110[ 110]  4: 0000130d
+==31443== A| 0|   L 0401d11c[ 11c]  4: 0000c000
+==31443== A| 0|   S 0401d104[ 104]  4: 00000000
+==31443== A| 0|   S 0401d184[ 184]  4: 00000001
+==31443== A| 0|   S 0401d110[ 110]  4: 0000130d
+==31443== A| 0|   S 0401d11c[ 11c]  4: ffffffff 0000c000
+==31443== A| 0|   S 0401d1c8[ 1c8]  4: 00000000
+==31443== A| 0|   S 0401d1c4[ 1c4]  4: 00000000
+==31443== A| 0|   S 0401d12c[ 12c]  4: 00019978 00019951
+==31443== A| 0|   S 0401d130[ 130]  4: 00001f60
+==31443== A| 0|   S 0401d134[ 134]  4: 04809fff
+==31443== A| 0|   S 0401d128[ 128]  4: 7400a000
+==31443== A| 0|   S 0401d118[ 118]  4: 8400150d 0400150d
+==31443== A| 0|   L 0401d000[   0]  4: 00130000
+==31443== A| 0|   L 0401d11c[ 11c]  4: 0000c001
+==31443== A| 0|   S 0401d11c[ 11c]  4: 0000c00f 0000c000
+==31443== A| 0|   L 0401d000[   0]  4: 00130000
+==31443== A| 0|   L 0401d114[ 114]  4: 80084180
+==31443== A| 0|   S 0401d114[ 114]  4: 800841fc 800841f8 // do control
+==31443== A| 0|   L 0401d12c[ 12c]  4: 0001b8bc
+==31443== A| 0|   L 0401d110[ 110]  4: 0000000f
+==31443== A| 0|   L 0401d000[   0]  4: 00130000 // reset VE
+==31443== A| 0|   S 0401d000[   0]  4: 00130007 // do reset
+==31443== A| 0|   L 0401d000[   0]  4: 00130007 // do reset
+==31443== A| 0|   S 0401d000[   0]  4: 00130000 // do reset
+==31443== A| 0|   L 0401d01c[  1c]  4: 00000000 // do reset
+==31443== A| 0|   S 0401d01c[  1c]  4: 00000000 // do reset
+==31443== A| 0|   L 0401d000[   0]  4: 00130000 // do reset
+</pre>
+<h1><span class="mw-headline" id="Frame_1-st_type">Frame 1-st type</span></h1>
+<p>There 2 scenario
+</p>
+<pre>89== A| 0|   S 0401d104[ 104]  4: 00000008          I|054a41bc F| mp4_set_packet_info+159 //set header
+==2789== A| 0|   S 0401d184[ 184]  4: 00000002          I|054a41c8 F| mp4_set_packet_info+171 //set iq settings
+==2789== A| 0|   S 0401d110[ 110]  4: 00000402          I|054a41d0 F| mp4_set_packet_info+179 //macroblock offset
+==2789== A| 0|   S 0401d11c[ 11c]  4: ffffffff 0000c000 I|054a3fa4 F| mp4_set_vbv_info+31 // clean status bits
+==2789== A| 0|   S 0401d1c8[ 1c8]  4: 00000000          I|054a3fac F| mp4_set_vbv_info+39 // ctrmb&#160;??
+==2789== A| 0|   S 0401d1c4[ 1c4]  4: 00000000          I|054a3fba F| mp4_set_vbv_info+53 // clean err code
+==2789== A| 0|   S 0401d12c[ 12c]  4: 002e83f8 002e83d3 I|054a4020 F| mp4_set_vbv_info+155 // memory address to VLD-ed data
+==2789== A| 0|   S 0401d130[ 130]  4: 0001c7c0          I|054a402a F| mp4_set_vbv_info+165 // VLD data length (frame size???)
+==2789== A| 0|   S 0401d134[ 134]  4: 04809fff          I|054a4038 F| mp4_set_vbv_info+179 //VBV verifer - look like limit that must trow error if beyond
+==2789== A| 0|   S 0401d128[ 128]  4: 7400a000          I|054a4042 F| mp4_set_vbv_info+189 // must be address but not... VLD address (???)
+==2789== A| 0|   S 0401d118[ 118]  4: 84001a0d 04001a0d I|054a404c F| mp4_set_vbv_info+199 //set MPEG4 - data input 
+==2789== A| 0|   L 0401d11c[ 11c]  4: 0000c001          I|054a14ba F| clear_status_reg+25 //check and 
+==2789== A| 0|   S 0401d11c[ 11c]  4: 0000c00f 0000c000 I|054a14c2 F| clear_status_reg+33 // clear statuses
+==2789== A| 0|   L 0401d114[ 114]  4: 80084180          I|054a1472 F| set_internal_intr_enable_bits+25 //enable IRQ
+==2789== A| 0|   S 0401d114[ 114]  4: 800841fc 800841f8 I|054a147a F| set_internal_intr_enable_bits+33 //-//-
+==2789== A| 0|   L 0401d12c[ 12c]  4: 002ea7fb          I|054a4228 F| mp4_get_bitoffset+19
+==2789== A| 0|   L 0401d110[ 110]  4: 00000a03          I|054a4200 F| mp4_get_mba+19 
+==2789== A| 0|   L 0401d11c[ 11c]  4: 0000c000          I|054a2c64 F| mp4_CheckVEBusy+15 // check VE status
+
+</pre>
+<h1><span class="mw-headline" id="Frame_2-nd_type">Frame 2-nd type</span></h1>
+<pre>==2789== A| 0|   S 0401d104[ 104]  4: 00000008          I|054a41bc F| mp4_set_packet_info+159
+==2789== A| 0|   S 0401d184[ 184]  4: 00000002          I|054a41c8 F| mp4_set_packet_info+171
+==2789== A| 0|   S 0401d110[ 110]  4: 00000b0e          I|054a41d0 F| mp4_set_packet_info+179
+==2789== A| 0|   S 0401d11c[ 11c]  4: ffffffff 0000c000 I|054a3fa4 F| mp4_set_vbv_info+31
+==2789== A| 0|   S 0401d1c8[ 1c8]  4: 00000000          I|054a3fac F| mp4_set_vbv_info+39
+==2789== A| 0|   S 0401d1c4[ 1c4]  4: 00000000          I|054a3fba F| mp4_set_vbv_info+53
+==2789== A| 0|   S 0401d12c[ 12c]  4: 00303ee0 00303ebc I|054a4020 F| mp4_set_vbv_info+155
+==2789== A| 0|   S 0401d130[ 130]  4: 00000ce0          I|054a402a F| mp4_set_vbv_info+165
+==2789== A| 0|   S 0401d134[ 134]  4: 04809fff          I|054a4038 F| mp4_set_vbv_info+179
+==2789== A| 0|   S 0401d128[ 128]  4: 7400a000          I|054a4042 F| mp4_set_vbv_info+189
+==2789== A| 0|   S 0401d118[ 118]  4: 8400090d 0400090d I|054a404c F| mp4_set_vbv_info+199
+==2789== A| 0|   L 0401d11c[ 11c]  4: 0000c001          I|054a14ba F| clear_status_reg+25
+==2789== A| 0|   S 0401d11c[ 11c]  4: 0000c00f 0000c000 I|054a14c2 F| clear_status_reg+33
+==2789== A| 0|   L 0401d114[ 114]  4: 80084180          I|054a1472 F| set_internal_intr_enable_bits+25
+==2789== A| 0|   S 0401d114[ 114]  4: 800841fc 800841f8 I|054a147a F| set_internal_intr_enable_bits+33
+==2789== A| 0|   L 0401d12c[ 12c]  4: 00304ba7          I|054a4228 F| mp4_get_bitoffset+19
+==2789== A| 0|   L 0401d110[ 110]  4: 0000000f          I|054a4200 F| mp4_get_mba+19
+==2789== A| 0|   S 0401d144[ 144]  4: 04009000          I|054a2e02 F| mpeg_set_buffer+57
+==2789== A| 0|   S 0401d138[ 138]  4: 04000000          I|054a2e28 F| mpeg_set_buffer+95
+==2789== A| 0|   S 0401d13c[ 13c]  4: 04008000          I|054a2e44 F| mpeg_set_buffer+123
+==2789== A| 0|   S 0401d108[ 108]  4: 0014140f          I|054a2d26 F| mp4_set_pic_size+57
+==2789== A| 0|   S 0401d10c[ 10c]  4: 014000f0          I|054a2d98 F| mp4_set_pic_size+171
+==2789== A| 0|   L 0401d114[ 114]  4: 800841f8          I|054a1472 F| set_internal_intr_enable_bits+25
+==2789== A| 0|   S 0401d114[ 114]  4: 800841fc 800841f8 I|054a147a F| set_internal_intr_enable_bits+33
+==2789== A| 0|   S 0401d1d4[ 1d4]  4: 40620000          I|054a2fe4 F| mpeg_set_rotated_info+139
+==2789== A| 0|   S 0401d1cc[ 1cc]  4: 00000000          I|054a3018 F| mpeg_set_rotated_info+191
+==2789== A| 0|   S 0401d1d0[ 1d0]  4: 00000000          I|054a303c F| mpeg_set_rotated_info+227
+==2789== A| 0|   S 0401d1d4[ 1d4]  4: 40620000          I|054a304e F| mpeg_set_rotated_info+245
+==2789== A| 0|   S 0401d1cc[ 1cc]  4: 00000000          I|054a305a F| mpeg_set_rotated_info+257
+==2789== A| 0|   S 0401d1d0[ 1d0]  4: 00000000          I|054a3062 F| mpeg_set_rotated_info+265
+==2789== A| 0|   S 0401d144[ 144]  4: 04009000          I|054a2e02 F| mpeg_set_buffer+57
+==2789== A| 0|   S 0401d138[ 138]  4: 04000000          I|054a2e28 F| mpeg_set_buffer+95
+==2789== A| 0|   S 0401d13c[ 13c]  4: 04008000          I|054a2e44 F| mpeg_set_buffer+123
+==2789== A| 0|   S 0401d1cc[ 1cc]  4: 04828000          I|054a3ca4 F| mp4_set_vop_info+2927
+==2789== A| 0|   S 0401d1d0[ 1d0]  4: 0483c000          I|054a3cae F| mp4_set_vop_info+2937
+==2789== A| 0|   S 0401d104[ 104]  4: 00060008          I|054a378e F| mp4_set_vop_info+1625
+==2789== A| 0|   S 0401d108[ 108]  4: 0014140f          I|054a37ae F| mp4_set_vop_info+1657
+==2789== A| 0|   S 0401d110[ 110]  4: 00000000          I|054a37c0 F| mp4_set_vop_info+1675
+==2789== A| 0|   S 0401d114[ 114]  4: 80085198          I|054a37ca F| mp4_set_vop_info+1685
+==2789== A| 0|   S 0401d118[ 118]  4: 04000000          I|054a37e4 F| mp4_set_vop_info+1711
+==2789== A| 0|   S 0401d10c[ 10c]  4: 014000f0          I|054a37f2 F| mp4_set_vop_info+1725
+==2789== A| 0|   S 0401d184[ 184]  4: 00000007          I|054a3804 F| mp4_set_vop_info+1743
+==2789== A| 0|   S 0401d188[ 188]  4: 00000000          I|054a3812 F| mp4_set_vop_info+1757
+==2789== A| 0|   S 0401d148[ 148]  4: 04828000          I|054a3820 F| mp4_set_vop_info+1771
+==2789== A| 0|   S 0401d14c[ 14c]  4: 0483c000          I|054a3832 F| mp4_set_vop_info+1789
+==2789== A| 0|   S 0401d150[ 150]  4: 04882000          I|054a3840 F| mp4_set_vop_info+1803
+==2789== A| 0|   S 0401d154[ 154]  4: 04896000          I|054a3852 F| mp4_set_vop_info+1821
+==2789== A| 0|   S 0401d158[ 158]  4: 00000000          I|054a3864 F| mp4_set_vop_info+1839
+==2789== A| 0|   S 0401d15c[ 15c]  4: 00000000          I|054a3874 F| mp4_set_vop_info+1855
+==2789== A| 0|   S 0401d11c[ 11c]  4: ffffffff 0000c000 I|054a3fa4 F| mp4_set_vbv_info+31
+==2789== A| 0|   S 0401d1c8[ 1c8]  4: 00000000          I|054a3fac F| mp4_set_vbv_info+39
+==2789== A| 0|   S 0401d1c4[ 1c4]  4: 00000000          I|054a3fba F| mp4_set_vbv_info+53
+==2789== A| 0|   S 0401d12c[ 12c]  4: 00304be4 00304ba7 I|054a4020 F| mp4_set_vbv_info+155
+==2789== A| 0|   S 0401d130[ 130]  4: 00003ac0          I|054a402a F| mp4_set_vbv_info+165
+==2789== A| 0|   S 0401d134[ 134]  4: 04809fff          I|054a4038 F| mp4_set_vbv_info+179
+==2789== A| 0|   S 0401d128[ 128]  4: 7400a000          I|054a4042 F| mp4_set_vbv_info+189
+==2789== A| 0|   S 0401d118[ 118]  4: 8400ac0d 0400ac0d I|054a404c F| mp4_set_vbv_info+199
+==2789== A| 0|   L 0401d11c[ 11c]  4: 0000c001          I|054a14ba F| clear_status_reg+25
+==2789== A| 0|   S 0401d11c[ 11c]  4: 0000c00f 0000c000 I|054a14c2 F| clear_status_reg+33
+==2789== A| 0|   L 0401d114[ 114]  4: 80085180          I|054a1472 F| set_internal_intr_enable_bits+25
+==2789== A| 0|   S 0401d114[ 114]  4: 800851fc 800851f8 I|054a147a F| set_internal_intr_enable_bits+33
+==2789== A| 0|   L 0401d12c[ 12c]  4: 00306eea          I|054a4228 F| mp4_get_bitoffset+19
+==2789== A| 0|   L 0401d110[ 110]  4: 00000c08          I|054a4200 F| mp4_get_mba+19
+==2789== A| 0|   L 0401d11c[ 11c]  4: 0000c000          I|054a2c64 F| mp4_CheckVEBusy+15
+
+</pre>
+<!-- 
+NewPP limit report
+Cached time: 20251029053329
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.011 seconds
+Real time usage: 0.018 seconds
+Preprocessor visited node count: 21/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 22917/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:592-0!canonical and timestamp 20251029053329 and revision id 4345
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=CedarX/MPEG4_trace_1_analysis&amp;oldid=4345">https://linux-sunxi.org/index.php?title=CedarX/MPEG4_trace_1_analysis&amp;oldid=4345</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="../Special:Categories.html" title="Special:Categories">Category</a>: <ul><li><a href="../Category:CedarX.html" title="Category:CedarX">CedarX</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=CedarX%2FMPEG4+trace+1+analysis" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=CedarX%2FMPEG4+trace+1+analysis" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="MPEG4_trace_1_analysis.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:CedarX/MPEG4_trace_1_analysis&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="MPEG4_trace_1_analysis.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=CedarX/MPEG4_trace_1_analysis&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=CedarX/MPEG4_trace_1_analysis&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="../index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="../index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="../sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="../Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="https://linux-sunxi.org/Special:WhatLinksHere/CedarX/MPEG4_trace_1_analysis" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/CedarX/MPEG4_trace_1_analysis" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="../Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=CedarX/MPEG4_trace_1_analysis&amp;oldid=4345" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=CedarX/MPEG4_trace_1_analysis&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 5 July 2013, at 19:31.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.011","walltime":"0.018","ppvisitednodes":{"value":21,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":22917,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20251029053329","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":464});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

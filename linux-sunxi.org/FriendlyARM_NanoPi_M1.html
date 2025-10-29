@@ -1,0 +1,582 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>FriendlyARM NanoPi M1 - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"2c2e687fca6d2a0efc5506fc","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"FriendlyARM_NanoPi_M1","wgTitle":"FriendlyARM NanoPi M1","wgCurRevisionId":26133,"wgRevisionId":26133,"wgArticleId":2926,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Devices","H3 Boards","FriendlyARM","Devices with Ethernet port","Devices with HDMI port","Devices with SPDIF port","Mainline U-Boot","Mainline Kernel"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"FriendlyARM_NanoPi_M1","wgRelevantArticleId":2926,
+"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":"ready","user":"ready","user.options":"loading","mediawiki.page.gallery.styles":"ready","skins.vector.styles.legacy":"ready","jquery.makeCollapsible.styles":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","jquery.makeCollapsible","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=jquery.makeCollapsible.styles%7Cmediawiki.page.gallery.styles%7Cmediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="FriendlyARM_NanoPi_M1.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-FriendlyARM_NanoPi_M1 rootpage-FriendlyARM_NanoPi_M1 skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">FriendlyARM NanoPi M1</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><table class="infobox" cellspacing="5" style="width:22em;">
+<tbody><tr><th colspan="2" class="" style="text-align:center; font-size:125%; font-weight:bold; background: #dedede;">FriendlyARM NanoPi M1</th></tr>
+<tr class=""><td colspan="2" class="" style="text-align:center;"><a href="File:NanoPi_M1_3.jpg.html" class="image"><img alt="NanoPi M1 3.jpg" src="https://linux-sunxi.org/images/thumb/6/6d/NanoPi_M1_3.jpg/250px-NanoPi_M1_3.jpg" decoding="async" width="250" height="188" srcset="https://linux-sunxi.org/images/thumb/6/6d/NanoPi_M1_3.jpg/375px-NanoPi_M1_3.jpg 1.5x, https://linux-sunxi.org/images/thumb/6/6d/NanoPi_M1_3.jpg/500px-NanoPi_M1_3.jpg 2x" /></a></td></tr>
+<tr class="">
+  <th scope="row" style="text-align:left;"> Manufacturer </th><td> <a rel="nofollow" class="external text" href="http://www.friendlyarm.net/">FriendlyARM</a>
+</td></tr><tr class="">
+  <th scope="row" style="text-align:left;"> Dimensions </th><td> 64<i>mm</i> x 56<i>mm</i>
+</td></tr><tr class="">
+  <th scope="row" style="text-align:left;"> Release Date </th><td> March 2016
+</td></tr><tr class="">
+  <th scope="row" style="text-align:left;"> Website </th><td> <a rel="nofollow" class="external text" href="http://nanopi.io/nanopi-m1.html">NanoPi M1 Product Page</a>
+</td></tr><tr><th colspan="2" style="text-align:center;background:#dedede;"> Specifications
+</th></tr><tr class="">
+  <th scope="row" style="text-align:left;"> SoC </th><td> <a href="H3.html" title="H3">H3</a> @ 1.2Ghz
+</td></tr><tr class="">
+  <th scope="row" style="text-align:left;"> DRAM </th><td> 512MiB (K4B2G1646D-BCK0) or 1GiB (K4B4G1646D-BCK0) DDR3
+</td></tr><tr class="">
+  <th scope="row" style="text-align:left;"> Power </th><td> DC 5V @ 2A via microUSB or pin headers
+</td></tr><tr><th colspan="2" style="text-align:center;background:#dedede;"> Features
+</th></tr><tr class="">
+  <th scope="row" style="text-align:left;"> Audio </th><td> microphone, stereo line-out, I²S and <a href="SPDIF.html" title="SPDIF">S/PDIF</a> on pin headers
+</td></tr><tr class="">
+  <th scope="row" style="text-align:left;"> Network </th><td> 10/100Mbps Ethernet (<a href="Sun8i_emac.html" title="Sun8i emac">H3 built-in PHY</a>)
+</td></tr><tr class="">
+  <th scope="row" style="text-align:left;"> Storage </th><td> µSD
+</td></tr><tr class="">
+  <th scope="row" style="text-align:left;"> USB </th><td> 3 USB2.0 Host, 1 USB2.0 OTG
+</td></tr><tr class="">
+  <th scope="row" style="text-align:left;"> Headers </th><td> UART, SPI, I²C, 2x USB2.0 Host, analog audio, microphone
+</td></tr>
+</tbody></table>
+<p>NanoPi M1 is <a href="H3.html" title="H3">H3</a> based development board produced by <a href="Category:FriendlyARM.html" title="Category:FriendlyARM">FriendlyARM</a>. Feature-wise it is very similar to <a href="Orange_Pi_PC.html" class="mw-redirect" title="Orange Pi PC">Orange Pi PC</a>.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Identification"><span class="tocnumber">1</span> <span class="toctext">Identification</span></a></li>
+<li class="toclevel-1"><a href="#Sunxi_support"><span class="tocnumber">2</span> <span class="toctext">Sunxi support</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Current_status"><span class="tocnumber">2.1</span> <span class="toctext">Current status</span></a></li>
+<li class="toclevel-2"><a href="#Images"><span class="tocnumber">2.2</span> <span class="toctext">Images</span></a></li>
+<li class="toclevel-2"><a href="#BSP"><span class="tocnumber">2.3</span> <span class="toctext">BSP</span></a></li>
+<li class="toclevel-2"><a href="#Manual_build"><span class="tocnumber">2.4</span> <span class="toctext">Manual build</span></a>
+<ul>
+<li class="toclevel-3"><a href="#U-Boot"><span class="tocnumber">2.4.1</span> <span class="toctext">U-Boot</span></a>
+<ul>
+<li class="toclevel-4"><a href="#Mainline_U-Boot"><span class="tocnumber">2.4.1.1</span> <span class="toctext">Mainline U-Boot</span></a></li>
+</ul>
+</li>
+<li class="toclevel-3"><a href="#Linux_Kernel"><span class="tocnumber">2.4.2</span> <span class="toctext">Linux Kernel</span></a>
+<ul>
+<li class="toclevel-4"><a href="#Sunxi.2FLegacy_Kernel"><span class="tocnumber">2.4.2.1</span> <span class="toctext">Sunxi/Legacy Kernel</span></a></li>
+<li class="toclevel-4"><a href="#Mainline_kernel"><span class="tocnumber">2.4.2.2</span> <span class="toctext">Mainline kernel</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-4"><a href="#Tips.2C_Tricks.2C_Caveats"><span class="tocnumber">3</span> <span class="toctext">Tips, Tricks, Caveats</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="#FEL_mode"><span class="tocnumber">3.1</span> <span class="toctext">FEL mode</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#LEDs"><span class="tocnumber">3.2</span> <span class="toctext">LEDs</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#JTAG"><span class="tocnumber">3.3</span> <span class="toctext">JTAG</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Voltage_regulators_.2F_heat"><span class="tocnumber">3.4</span> <span class="toctext">Voltage regulators / heat</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-9"><a href="#Adding_a_serial_port"><span class="tocnumber">4</span> <span class="toctext">Adding a serial port</span></a>
+<ul>
+<li class="toclevel-2 tocsection-10"><a href="#Locating_the_UART"><span class="tocnumber">4.1</span> <span class="toctext">Locating the UART</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-11"><a href="#Pictures"><span class="tocnumber">5</span> <span class="toctext">Pictures</span></a></li>
+<li class="toclevel-1 tocsection-12"><a href="#Variants"><span class="tocnumber">6</span> <span class="toctext">Variants</span></a>
+<ul>
+<li class="toclevel-2 tocsection-13"><a href="#NanoPi_M1.2B"><span class="tocnumber">6.1</span> <span class="toctext">NanoPi M1+</span></a>
+<ul>
+<li class="toclevel-3 tocsection-14"><a href="#ESD_.26_over-current_protections"><span class="tocnumber">6.1.1</span> <span class="toctext">ESD &amp; over-current protections</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-15"><a href="#See_also"><span class="tocnumber">7</span> <span class="toctext">See also</span></a>
+<ul>
+<li class="toclevel-2 tocsection-16"><a href="#Manufacturer_images"><span class="tocnumber">7.1</span> <span class="toctext">Manufacturer images</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Identification">Identification</span></h1>
+<p>Almost square board, blue soldermask, ⌀3mm mounting holes in the corners. 3 x USB type-A, Ethernet jack (with integrated magnetics) and four-pin header for UART/power near one of the edges. Sticker indicating amount of RAM is placed on the lower PCB side.
+</p><p>On the top side of the board, next to H3 SoC, the following is silkscreened:
+</p>
+<pre>FRIENDLYARM
+NanoPi-M1</pre>
+<p>(on LinkSprite's OEM variant 'pcDuino4 nano' can be read instead)
+</p>
+<h1><span class="mw-headline" id="Sunxi_support">Sunxi support</span></h1>
+<h2><span class="mw-headline" id="Current_status">Current status</span></h2>
+<p>The H3 SoC support has matured since its introduction in kernel 4.2. Most of the board functionality for boards such as NanoPi M1 are available with current mainline kernels. Some features (hw accelerated crypto, hw spinlocks, and thermal) are still being worked on. For a more comprehensive list of supported features, see the <a href="Mainlining_Effort.html#Status_Matrix" class="mw-redirect" title="Mainlining Effort">status matrix for mainline kernels</a>. In addition, legacy 3.4 kernels are available in various work-in-progress git branches.
+</p><p>See the <a href="#Manual_build">Manual build</a> section for more details.
+</p><p>NanoPi M1 shares nearly all hardware details with <a href="Orange_Pi_PC.html" class="mw-redirect" title="Orange Pi PC">Orange Pi PC</a> (same number of USB ports) and <a href="Orange_Pi_One.html" class="mw-redirect" title="Orange Pi One">Orange Pi One</a> (same voltage regulator). Besides the differences regarding camera connector and pins available on the GPIO header pretty similar to <a href="Orange_Pi_PC.html" class="mw-redirect" title="Orange Pi PC">Orange Pi PC</a>. Detailed device information can be found on <a rel="nofollow" class="external text" href="http://wiki.friendlyarm.com/wiki/index.php/NanoPi_M1#Introduction#Introduction">FriendlyArm wiki</a>.
+</p>
+<h2><span class="mw-headline" id="Images">Images</span></h2>
+<p>FriendlyARM's and 3rd partie's OS images can be found <a rel="nofollow" class="external text" href="https://www.mediafire.com/folder/3q2911p1qp33p/NanoPi-M1Board">here</a>. Armbian images with more recent u-boot and kernel versions can be found <a rel="nofollow" class="external text" href="http://www.armbian.com/nanopi-m1/">here</a>.
+</p>
+<h2><span class="mw-headline" id="BSP">BSP</span></h2>
+<p>FriendlyARM provides a <a class="external text" href="https://github.com/friendlyarm/h3_lichee">BSP based on a newer Allwinner 3.4.39 variant</a> on Github.
+</p>
+<h2><span class="mw-headline" id="Manual_build">Manual build</span></h2>
+<p>You can build things for yourself by following our <a href="Manual_build_howto.html" title="Manual build howto">Manual build howto</a> and by choosing from the configurations available below.
+</p>
+<h3><span class="mw-headline" id="U-Boot">U-Boot</span></h3>
+<h4><span class="mw-headline" id="Mainline_U-Boot">Mainline U-Boot</span></h4>
+<p>Use the <b>nanopi_m1_defconfig</b> build target (supported since v2017.07) build target. The U-Boot repository and toolchain is described in the <a href="Mainline_U-Boot.html" class="mw-redirect" title="Mainline U-Boot">Mainline U-Boot howto</a>.
+</p><p>The H3 boards can boot from <a href="Bootable_SD_card.html" title="Bootable SD card">SD cards</a>, <a href="EMMC.html" title="EMMC">eMMC</a>, <a href="MTD_Driver.html" title="MTD Driver">NAND</a> or <a href="Bootable_SPI_flash.html" title="Bootable SPI flash">SPI NOR</a> flash (if available), and via <a href="FEL/USBBoot.html" title="FEL/USBBoot">FEL</a> using the OTG USB port. In U-Boot, loading the kernel is also supported from USB or ethernet (netboot). HDMI support in U-Boot is still WIP.
+</p>
+<h3><span class="mw-headline" id="Linux_Kernel">Linux Kernel</span></h3>
+<h4><span id="Sunxi/Legacy_Kernel"></span><span class="mw-headline" id="Sunxi.2FLegacy_Kernel">Sunxi/Legacy Kernel</span></h4>
+<p>The 3.4 kernel from the official <a class="external text" href="https://github.com/allwinner-zh/linux-3.4-sunxi">Allwinner's git repository</a> <a class="external text" href="https://github.com/allwinner-zh/linux-3.4-sunxi/issues/14">does not support H3</a> yet. But it is possible to use one of the kernel forks, based on the <a rel="nofollow" class="external text" href="http://www.cnx-software.com/2015/05/12/orange-pi-plus-allwinner-h3-firmware-images-and-linux-sdk-released/">lichee H3 SDK tarball</a>:
+</p>
+<ul><li><a class="external text" href="https://github.com/ssvb/linux-sunxi/tree/20151207-embedded-lima-memtester-h3">Siarhei Siamashka's branch '20151207-embedded-lima-memtester-h3'</a></li>
+<li><a class="external text" href="https://github.com/O-Computers/linux-sunxi/commits/h3-wip">Yann Dirson's fork</a> added a few more fixes and adopted most of</li>
+<li><a class="external text" href="https://github.com/loboris/OrangePI-Kernel">Boris Lovosevic' great initial work</a> on Allwinner's H3 kernel</li></ul>
+<p>Configure this kernel using <b>sun8i_h3_defconfig</b>, the rest is explained in the <a href="Linux_Kernel.html#Compilation" title="Linux Kernel">kernel compilation guide</a>.
+</p><p>Use the .fex file for generating <a href="Script.bin.html" title="Script.bin">script.bin</a>.
+The .fex file is available from <a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/h3/xunlong_orange_pi_pc.fex">xunlong_orange_pi_pc.fex</a>.
+</p><p>When booting the legacy 3.4 kernel with the mainline U-Boot, add the following line to boot.cmd:
+</p>
+<pre>  setenv machid 1029
+  setenv bootm_boot_mode sec
+</pre>
+<p>Some other legacy kernel repositories:
+</p>
+<ul><li><a class="external text" href="https://github.com/O-Computers/linux-sunxi">3.4-lichee-based kernel</a>, based on work by <a class="external text" href="https://github.com/ssvb/linux-sunxi">ssvb</a> and <a class="external text" href="https://github.com/loboris/OrangePI-Kernel/">loboris</a></li>
+<li><a class="external text" href="https://github.com/O-Computers/meta-sunxi">Yocto support here</a> glues together all the required parts to get this kernel to work with mainline u-boot, as well as accelerated X11/GLES support</li>
+<li><a class="external text" href="https://github.com/friendlyarm/h3_lichee">A newer H3 BSP variant</a> appeared with tons of fixes which has been made available by FriendlyARM.</li>
+<li><a class="external text" href="https://github.com/igorpecovnik/linux/tree/sun8i">A cleaned up fork</a> has been adopted by Armbian project. On top of that Armbian maintains a bunch of <a class="external text" href="https://github.com/igorpecovnik/lib/tree/master/patch/kernel/sun8i-default">3.4.x patches for H3 devices</a>.</li></ul>
+<h4><span class="mw-headline" id="Mainline_kernel">Mainline kernel</span></h4>
+<p>The mainline kernel has good support for the H3 SoC. Please refer to the <a href="Linux_mainlining_effort.html#Status_Matrix" title="Linux mainlining effort">status matrix</a> for a more detailed list of the development process, links to patches and links to kernel fork repositories. Minor drivers that are currently work-in-progress may require a) <a href="Linux_mainlining_effort.html#Work_In_Progress" title="Linux mainlining effort">third party patches</a> (see also arm-linux mailing list) or b) a pre-patched distro (e.g. <a href="Armbian.html" title="Armbian">Armbian</a>).
+</p><p>Repositories with H3 patches:
+</p>
+<ul><li><a class="external text" href="https://github.com/megous/linux/tree/orange-pi-4.19">Ondřej Jirman's branch for H3 based orange Pi (kernel 4.19)</a> (work-in-progress DVFS)
+<ul><li>Thermal regulation (if CPU heats above certain temperature, it will try to cool itself down by reducing CPU frequency)</li>
+<li>HDMI audio support (from Jernej Skrabec)</li>
+<li>Configure on-board micro-switches to perform system power off function</li>
+<li>Wireguard (<a rel="nofollow" class="external free" href="https://www.wireguard.com/">https://www.wireguard.com/</a>)</li></ul></li>
+<li><a class="external text" href="https://github.com/embed-3d/linux/branches">Philipp Rossak's THS patches (in the sunxi-ths- branches)</a></li>
+<li><a class="external text" href="https://github.com/montjoie/linux/branches">Corentin Labbe's HW Crypto and spinlock patches (in respective branches)</a></li></ul>
+<p><br />
+Use the <b>sun8i-h3-nanopi-m1.dtb</b> device-tree binary.
+</p>
+<h1><span id="Tips,_Tricks,_Caveats"></span><span class="mw-headline" id="Tips.2C_Tricks.2C_Caveats">Tips, Tricks, Caveats</span></h1>
+<h2><span class="mw-headline" id="FEL_mode">FEL mode</span></h2>
+<p>No <a href="FEL.html" title="FEL">FEL</a> button. The device falls into FEL mode when no SD card is inserted.
+</p>
+<h2><span class="mw-headline" id="LEDs">LEDs</span></h2>
+<p>The board has two LEDs, mounted on the top side next to the audio jack:
+</p>
+<ul><li>A red LED, labelled "PWR", connected to the PL10 pin and to 3.3V via weak pull-up, thus being able to represent three states:
+<ul><li>full brightness when GPIO is set to output high</li>
+<li>reduced brightness when GPIO is set to high impedance state</li>
+<li>turned off when GPIO is set to output low.</li></ul></li>
+<li>A blue LED, labelled "STAT", connected to the PA10 pin.</li></ul>
+<h2><span class="mw-headline" id="JTAG">JTAG</span></h2>
+<p>Connect gnd and target voltage to any of the gnd and vcc3v3-ext pins on the 2x20 expansion connector.
+Pin 22 (uart2_rx) is TCK, pin 11 (uart2_tx) is TMS, pin 15 (uart2_cts) is TDI and pin 13 (uart2_rts) is TDO.
+</p><p>The JTAG sel pins that seem to be used to enable JTAG at chip power on aren't broken out but you can enable JTAG on the expansion connector once uboot has started with this command (add it to <i>boot script</i> and compile <code>boot.scr</code> again to make it permanent):
+</p><p><code>
+mw.l 0x01c20800 0x77223333 1
+</code>
+</p>
+<div class="mw-collapsible mw-collapsed">
+<p>OpenOCD configuration should look something like this (based on the config from <a rel="nofollow" class="external text" href="https://www.fsij.org/monthly-meetings/2015/Nov.html">this page</a> in Japanese): 
+</p>
+<div class="mw-collapsible-content">
+<pre>source [find interface/ftdi/dp_busblaster_kt-link.cfg]
+adapter_khz 300
+transport select jtag
+reset_config none
+gdb_breakpoint_override hard
+
+if { [info exists CHIPNAME] } {
+   set  _CHIPNAME $CHIPNAME
+} else {
+   set  _CHIPNAME sun8iw7
+}
+
+if { [info exists DAP_TAPID] } {
+    set _DAP_TAPID $DAP_TAPID
+} else {
+    set _DAP_TAPID 0x5ba00477
+}
+
+jtag newtap $_CHIPNAME dap -expected-id $_DAP_TAPID -irlen 4 -ircapture 0x01 -irmask 0x0f
+
+set _TARGETNAME0 $_CHIPNAME.cpu0
+set _TARGETNAME1 $_CHIPNAME.cpu1
+set _TARGETNAME2 $_CHIPNAME.cpu2
+set _TARGETNAME3 $_CHIPNAME.cpu3
+
+target create $_TARGETNAME0 cortex_a -chain-position $_CHIPNAME.dap -coreid 0
+target create $_TARGETNAME1 cortex_a -chain-position $_CHIPNAME.dap -coreid 1
+target create $_TARGETNAME2 cortex_a -chain-position $_CHIPNAME.dap -coreid 2
+target create $_TARGETNAME3 cortex_a -chain-position $_CHIPNAME.dap -coreid 3
+target smp $_TARGETNAME0 $_TARGETNAME1 $_TARGETNAME2 $_TARGETNAME3
+
+$_TARGETNAME0 configure -event gdb-attach {
+    cortex_a dbginit
+}
+$_TARGETNAME1 configure -event gdb-attach {
+    cortex_a dbginit
+}
+$_TARGETNAME2 configure -event gdb-attach {
+    cortex_a dbginit
+}
+$_TARGETNAME3 configure -event gdb-attach {
+    cortex_a dbginit
+}
+</pre>
+</div></div>
+<p>This is a little bit fragile but it works well enough to set breakpoints in the kernel with GDB so should be useful when debugging drivers etc.
+</p>
+<h2><span id="Voltage_regulators_/_heat"></span><span class="mw-headline" id="Voltage_regulators_.2F_heat">Voltage regulators / heat</span></h2>
+<p>NanoPi M1 uses the same voltage regulator as Orange Pi One/Lite switching between 1.1V and 1.3V (SY8113B <a rel="nofollow" class="external text" href="https://www.olimex.com/Products/Breadboarding/BB-PWR-8113/resources/SY8113.pdf">datasheet</a>). Unlike the Xunlong boards which contain a thick copper layer inside the PCB to spread heat away from the SoC FriendlyARM chose a different design. This and maybe the smaller PCB size lead to higher temperatures compared to Orange Pis and in case you want to operate the M1 under constant high load think about adding a heatsink
+</p>
+<h1><span class="mw-headline" id="Adding_a_serial_port">Adding a serial port</span></h1>
+<h2><span class="mw-headline" id="Locating_the_UART">Locating the UART</span></h2>
+<div class="thumb tright"><div class="thumbinner" style="width:242px;"><a href="File:NanoPi_M1_UART.jpg.html" class="image"><img alt="" src="https://linux-sunxi.org/images/thumb/3/35/NanoPi_M1_UART.jpg/240px-NanoPi_M1_UART.jpg" decoding="async" width="240" height="180" class="thumbimage" srcset="https://linux-sunxi.org/images/thumb/3/35/NanoPi_M1_UART.jpg/360px-NanoPi_M1_UART.jpg 1.5x, https://linux-sunxi.org/images/thumb/3/35/NanoPi_M1_UART.jpg/480px-NanoPi_M1_UART.jpg 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="File:NanoPi_M1_UART.jpg.html" class="internal" title="Enlarge"></a></div>NanoPi NEO UART pins</div></div></div>
+<p>Four-pin UART0 header is placed next to 40 pin GPIO header. Pinout: GND, 5V, TX, RX. Pin 1 (GND) is the one next to Micro USB connector. Logic voltage is 3.3V.
+For more instructions refer to our <a href="UART.html" title="UART">UART Howto</a>.
+</p>
+<h1><span class="mw-headline" id="Pictures">Pictures</span></h1>
+<ul class="gallery mw-gallery-traditional">
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:30px auto;"><a href="File:NanoPi_M1_Top.jpg.html" class="image"><img alt="NanoPi M1 Top.jpg" src="https://linux-sunxi.org/images/thumb/0/00/NanoPi_M1_Top.jpg/120px-NanoPi_M1_Top.jpg" decoding="async" width="120" height="90" srcset="https://linux-sunxi.org/images/thumb/0/00/NanoPi_M1_Top.jpg/180px-NanoPi_M1_Top.jpg 1.5x, https://linux-sunxi.org/images/thumb/0/00/NanoPi_M1_Top.jpg/240px-NanoPi_M1_Top.jpg 2x" /></a></div></div>
+			<div class="gallerytext">
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:30px auto;"><a href="File:NanoPi_M1_Bottom.jpg.html" class="image"><img alt="NanoPi M1 Bottom.jpg" src="https://linux-sunxi.org/images/thumb/4/43/NanoPi_M1_Bottom.jpg/120px-NanoPi_M1_Bottom.jpg" decoding="async" width="120" height="90" srcset="https://linux-sunxi.org/images/thumb/4/43/NanoPi_M1_Bottom.jpg/180px-NanoPi_M1_Bottom.jpg 1.5x, https://linux-sunxi.org/images/thumb/4/43/NanoPi_M1_Bottom.jpg/240px-NanoPi_M1_Bottom.jpg 2x" /></a></div></div>
+			<div class="gallerytext">
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:30px auto;"><a href="File:NanoPi_M1_1.jpg.html" class="image"><img alt="NanoPi M1 1.jpg" src="https://linux-sunxi.org/images/thumb/e/ee/NanoPi_M1_1.jpg/120px-NanoPi_M1_1.jpg" decoding="async" width="120" height="90" srcset="https://linux-sunxi.org/images/thumb/e/ee/NanoPi_M1_1.jpg/180px-NanoPi_M1_1.jpg 1.5x, https://linux-sunxi.org/images/thumb/e/ee/NanoPi_M1_1.jpg/240px-NanoPi_M1_1.jpg 2x" /></a></div></div>
+			<div class="gallerytext">
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:30px auto;"><a href="File:NanoPi_M1_2.jpg.html" class="image"><img alt="NanoPi M1 2.jpg" src="https://linux-sunxi.org/images/thumb/3/33/NanoPi_M1_2.jpg/120px-NanoPi_M1_2.jpg" decoding="async" width="120" height="90" srcset="https://linux-sunxi.org/images/thumb/3/33/NanoPi_M1_2.jpg/180px-NanoPi_M1_2.jpg 1.5x, https://linux-sunxi.org/images/thumb/3/33/NanoPi_M1_2.jpg/240px-NanoPi_M1_2.jpg 2x" /></a></div></div>
+			<div class="gallerytext">
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:30px auto;"><a href="File:NanoPi_M1_3.jpg.html" class="image"><img alt="NanoPi M1 3.jpg" src="https://linux-sunxi.org/images/thumb/6/6d/NanoPi_M1_3.jpg/120px-NanoPi_M1_3.jpg" decoding="async" width="120" height="90" srcset="https://linux-sunxi.org/images/thumb/6/6d/NanoPi_M1_3.jpg/180px-NanoPi_M1_3.jpg 1.5x, https://linux-sunxi.org/images/thumb/6/6d/NanoPi_M1_3.jpg/240px-NanoPi_M1_3.jpg 2x" /></a></div></div>
+			<div class="gallerytext">
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:30px auto;"><a href="File:NanoPi_M1_4.jpg.html" class="image"><img alt="NanoPi M1 4.jpg" src="https://linux-sunxi.org/images/thumb/8/8b/NanoPi_M1_4.jpg/120px-NanoPi_M1_4.jpg" decoding="async" width="120" height="90" srcset="https://linux-sunxi.org/images/thumb/8/8b/NanoPi_M1_4.jpg/180px-NanoPi_M1_4.jpg 1.5x, https://linux-sunxi.org/images/thumb/8/8b/NanoPi_M1_4.jpg/240px-NanoPi_M1_4.jpg 2x" /></a></div></div>
+			<div class="gallerytext">
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:30px auto;"><a href="File:NanoPi_M1_PSU_ONECOM.jpg.html" class="image"><img alt="NanoPi M1 PSU ONECOM.jpg" src="https://linux-sunxi.org/images/thumb/f/f8/NanoPi_M1_PSU_ONECOM.jpg/120px-NanoPi_M1_PSU_ONECOM.jpg" decoding="async" width="120" height="90" srcset="https://linux-sunxi.org/images/thumb/f/f8/NanoPi_M1_PSU_ONECOM.jpg/180px-NanoPi_M1_PSU_ONECOM.jpg 1.5x, https://linux-sunxi.org/images/thumb/f/f8/NanoPi_M1_PSU_ONECOM.jpg/240px-NanoPi_M1_PSU_ONECOM.jpg 2x" /></a></div></div>
+			<div class="gallerytext">
+			</div>
+		</div></li>
+</ul>
+<h1><span class="mw-headline" id="Variants">Variants</span></h1>
+<ul><li>FriendlyARM did the pcDuino4 nano as OEM for Linksprite which will be sold starting in September 2016. <a rel="nofollow" class="external text" href="http://www.cnx-software.com/2016/09/13/20-pcduino4-nano-is-yet-another-allwinner-h3-development-board-sort-of/#comment-531770#comment-531770">According to cnxsoft</a> both models are compatible.</li></ul>
+<h2><span id="NanoPi_M1+"></span><span class="mw-headline" id="NanoPi_M1.2B">NanoPi M1+</span></h2>
+<p>FriendlyARM introduced an improved version, the NanoPi M1+ in March 2017. This variant adds with 802.11n WiFi, Bluetooth, and integrated eMMC. All the connectors except for the micro USB OTG and camera ports are also on one side for easier access. The third USB port is provided via additional header pins. The positions of the HDMI and Ethernet ports have also been switched.
+</p>
+<h3><span id="ESD_&amp;_over-current_protections"></span><span class="mw-headline" id="ESD_.26_over-current_protections">ESD &amp; over-current protections</span></h3>
+<p>Based on the schematic Rev 1702 (May 18, 2017) the board incorporates the following protections:
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th colspan="4">Protections
+<p>x - no protection, ESD - Electrostatic Discharge, OC - Over-current
+</p>
+</th>
+<td>Comments
+</td></tr>
+<tr>
+<td>1</td>
+<td>USB micro (power)</td>
+<td>ESD</td>
+<td>x</td>
+<td>Uses a combination of ideal diode and TVS
+</td></tr>
+<tr>
+<td>2</td>
+<td>Micro SD</td>
+<td>ESD</td>
+<td>x</td>
+<td>
+</td></tr>
+<tr>
+<td>5</td>
+<td>Dual USB</td>
+<td>ESD</td>
+<td>x</td>
+<td>Power supply bypass
+</td></tr>
+<tr>
+<td>7</td>
+<td>HDMI</td>
+<td>ESD</td>
+<td>x</td>
+<td>
+</td></tr>
+<tr>
+<td>8</td>
+<td>Ethernet</td>
+<td>x</td>
+<td>N/A</td>
+<td>Over-current protection is not applicable
+</td></tr>
+<tr>
+<td>9</td>
+<td>GPIO</td>
+<td>x</td>
+<td>x</td>
+<td>
+</td></tr>
+<tr>
+<td>10</td>
+<td>Debug UART</td>
+<td>x</td>
+<td>OC</td>
+<td>Uses resistors to limit the current
+</td></tr>
+<tr>
+<td>11</td>
+<td>Audio jack</td>
+<td>ESD</td>
+<td>N/A</td>
+<td>Output current is internally limited by SoC
+</td></tr></tbody></table>
+<h1><span class="mw-headline" id="See_also">See also</span></h1>
+<ul><li><a rel="nofollow" class="external text" href="http://wiki.friendlyarm.com/wiki/index.php/NanoPi_M1">device page on FriendlyARM wiki page</a></li>
+<li><a rel="nofollow" class="external text" href="http://wiki.friendlyarm.com/wiki/images/6/68/NanoPi-M1-1603B-Schematic.pdf">Schematic for PCB rev 1.0</a></li></ul>
+<h2><span class="mw-headline" id="Manufacturer_images">Manufacturer images</span></h2>
+<ul><li>Linux and Android images: <a rel="nofollow" class="external free" href="https://www.mediafire.com/folder/3q2911p1qp33p/NanoPi-M1Board">https://www.mediafire.com/folder/3q2911p1qp33p/NanoPi-M1Board</a></li></ul>
+<!-- 
+NewPP limit report
+Cached time: 20251029035822
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.132 seconds
+Real time usage: 0.180 seconds
+Preprocessor visited node count: 351/1000000
+Post‐expand include size: 10783/2097152 bytes
+Template argument size: 2595/2097152 bytes
+Highest expansion depth: 6/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 5147/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   27.261      1 -total
+ 78.11%   21.294      1 Template:Infobox_Board
+ 33.40%    9.105     20 Template:Infobox/entry
+ 19.27%    5.253      1 Template:H3_Support_status
+  8.96%    2.443      2 Template:Infobox/header
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:2926-0!canonical and timestamp 20251029035822 and revision id 26133
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=FriendlyARM_NanoPi_M1&amp;oldid=26133">https://linux-sunxi.org/index.php?title=FriendlyARM_NanoPi_M1&amp;oldid=26133</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Categories</a>: <ul><li><a href="Category:Devices.html" title="Category:Devices">Devices</a></li><li><a href="Category:H3_Boards.html" title="Category:H3 Boards">H3 Boards</a></li><li><a href="Category:FriendlyARM.html" title="Category:FriendlyARM">FriendlyARM</a></li><li><a href="Category:Devices_with_Ethernet_port.html" title="Category:Devices with Ethernet port">Devices with Ethernet port</a></li><li><a href="Category:Devices_with_HDMI_port.html" title="Category:Devices with HDMI port">Devices with HDMI port</a></li><li><a href="Category:Devices_with_SPDIF_port.html" title="Category:Devices with SPDIF port">Devices with SPDIF port</a></li><li><a href="Category:Mainline_U-Boot.html" title="Category:Mainline U-Boot">Mainline U-Boot</a></li><li><a href="Category:Mainline_Kernel.html" title="Category:Mainline Kernel">Mainline Kernel</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=FriendlyARM+NanoPi+M1" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=FriendlyARM+NanoPi+M1" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="FriendlyARM_NanoPi_M1.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:FriendlyARM_NanoPi_M1&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="FriendlyARM_NanoPi_M1.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=FriendlyARM_NanoPi_M1&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=FriendlyARM_NanoPi_M1&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/FriendlyARM_NanoPi_M1.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/FriendlyARM_NanoPi_M1" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=FriendlyARM_NanoPi_M1&amp;oldid=26133" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=FriendlyARM_NanoPi_M1&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 21 December 2024, at 18:03.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.132","walltime":"0.180","ppvisitednodes":{"value":351,"limit":1000000},"postexpandincludesize":{"value":10783,"limit":2097152},"templateargumentsize":{"value":2595,"limit":2097152},"expansiondepth":{"value":6,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":5147,"limit":5000000},"timingprofile":["100.00%   27.261      1 -total"," 78.11%   21.294      1 Template:Infobox_Board"," 33.40%    9.105     20 Template:Infobox/entry"," 19.27%    5.253      1 Template:H3_Support_status","  8.96%    2.443      2 Template:Infobox/header"]},"cachereport":{"timestamp":"20251029035822","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":153});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

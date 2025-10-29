@@ -1,0 +1,2236 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>SPDIF - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"1b513d56c595ee687c74675f","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"SPDIF","wgTitle":"SPDIF","wgCurRevisionId":13452,"wgRevisionId":13452,"wgArticleId":1224,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["A10 Register guide","A20 Register guide"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"SPDIF","wgRelevantArticleId":1224,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready",
+"user.styles":"ready","user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=mediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="SPDIF.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-SPDIF rootpage-SPDIF skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">SPDIF</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Info"><span class="tocnumber">1</span> <span class="toctext">Info</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#SUNXI-SPDIF_Registers"><span class="tocnumber">1.1</span> <span class="toctext">SUNXI-SPDIF Registers</span></a>
+<ul>
+<li class="toclevel-3 tocsection-3"><a href="#SUNXI_SPDIF_CTL"><span class="tocnumber">1.1.1</span> <span class="toctext">SUNXI_SPDIF_CTL</span></a></li>
+<li class="toclevel-3 tocsection-4"><a href="#SUNXI_SPDIF_TXCFG"><span class="tocnumber">1.1.2</span> <span class="toctext">SUNXI_SPDIF_TXCFG</span></a></li>
+<li class="toclevel-3 tocsection-5"><a href="#SUNXI_SPDIF_RXCFG"><span class="tocnumber">1.1.3</span> <span class="toctext">SUNXI_SPDIF_RXCFG</span></a></li>
+<li class="toclevel-3 tocsection-6"><a href="#SUNXI_SPDIF_TXFIFO"><span class="tocnumber">1.1.4</span> <span class="toctext">SUNXI_SPDIF_TXFIFO</span></a></li>
+<li class="toclevel-3 tocsection-7"><a href="#SUNXI_SPDIF_RXFIFO"><span class="tocnumber">1.1.5</span> <span class="toctext">SUNXI_SPDIF_RXFIFO</span></a></li>
+<li class="toclevel-3 tocsection-8"><a href="#SUNXI_SPDIF_FCTL"><span class="tocnumber">1.1.6</span> <span class="toctext">SUNXI_SPDIF_FCTL</span></a></li>
+<li class="toclevel-3 tocsection-9"><a href="#SUNXI_SPDIF_FSTA"><span class="tocnumber">1.1.7</span> <span class="toctext">SUNXI_SPDIF_FSTA</span></a></li>
+<li class="toclevel-3 tocsection-10"><a href="#SUNXI_SPDIF_INT"><span class="tocnumber">1.1.8</span> <span class="toctext">SUNXI_SPDIF_INT</span></a></li>
+<li class="toclevel-3 tocsection-11"><a href="#SUNXI_SPDIF_ISTA"><span class="tocnumber">1.1.9</span> <span class="toctext">SUNXI_SPDIF_ISTA</span></a></li>
+<li class="toclevel-3 tocsection-12"><a href="#SUNXI_SPDIF_TXCNT"><span class="tocnumber">1.1.10</span> <span class="toctext">SUNXI_SPDIF_TXCNT</span></a></li>
+<li class="toclevel-3 tocsection-13"><a href="#SUNXI_SPDIF_RXCNT"><span class="tocnumber">1.1.11</span> <span class="toctext">SUNXI_SPDIF_RXCNT</span></a></li>
+<li class="toclevel-3 tocsection-14"><a href="#SUNXI_SPDIF_TXCHSTA0"><span class="tocnumber">1.1.12</span> <span class="toctext">SUNXI_SPDIF_TXCHSTA0</span></a></li>
+<li class="toclevel-3 tocsection-15"><a href="#SUNXI_SPDIF_TXCHSTA1"><span class="tocnumber">1.1.13</span> <span class="toctext">SUNXI_SPDIF_TXCHSTA1</span></a></li>
+<li class="toclevel-3 tocsection-16"><a href="#SUNXI_SPDIF_RXCHSTA0"><span class="tocnumber">1.1.14</span> <span class="toctext">SUNXI_SPDIF_RXCHSTA0</span></a></li>
+<li class="toclevel-3 tocsection-17"><a href="#SUNXI_SPDIF_RXCHSTA1"><span class="tocnumber">1.1.15</span> <span class="toctext">SUNXI_SPDIF_RXCHSTA1</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-18"><a href="#SUNXI_SPDIF_DEFAULT_VALUES"><span class="tocnumber">1.2</span> <span class="toctext">SUNXI SPDIF DEFAULT VALUES</span></a>
+<ul>
+<li class="toclevel-3 tocsection-19"><a href="#default_a20_registers"><span class="tocnumber">1.2.1</span> <span class="toctext">default a20 registers</span></a></li>
+<li class="toclevel-3 tocsection-20"><a href="#default_a10_registers"><span class="tocnumber">1.2.2</span> <span class="toctext">default a10 registers</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Info">Info</span></h2>
+<p>The SUNXI SPDIF Controller was not documented in the user manual until the release of the H3 specification. So some of the following values and descriptions are taken from the code.
+The base address of the block is 0x01C21000.
+</p>
+<h4><span class="mw-headline" id="SUNXI-SPDIF_Registers">SUNXI-SPDIF Registers</span></h4>
+<table class="wikitable">
+<tbody><tr>
+<th>Register Name
+</th>
+<th>Offset
+</th>
+<th>Size
+</th>
+<th>Description
+</th>
+<th>Notes
+</th></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_CTL</tt>
+</td>
+<td><tt>0x0000</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SUNXI SPDIF CONTROLLER Register
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_TXCFG</tt>
+</td>
+<td><tt>0x0004</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SUNXI SPDIF TX CONTROLLER Register
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_RXCFG</tt>
+</td>
+<td><tt>0x0008</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SUNXI SPDIF RX CONTROLLER Register
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_TXFIFO</tt>
+</td>
+<td><tt>0x000c</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SUNXI SPDIF TX FIFO Write Register
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_RXFIFO</tt>
+</td>
+<td><tt>0x0010</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SUNXI SPDIF RX FIFO Read Register
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_FCTL</tt>
+</td>
+<td><tt>0x0014</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SUNXI SPDIF FIFO CONTROLLER Register
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_FSTA</tt>
+</td>
+<td><tt>0x0018</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SUNXI SPDIF FIFO STATUS Register
+</td>
+<td>Not Used in linux-sunxi kernel
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_INT</tt>
+</td>
+<td><tt>0x001c</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SUNXI SPDIF INTERRUPT CONTROLLER Register
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_ISTA</tt>
+</td>
+<td><tt>0x0020</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SUNXI SPDIF INTERRUPT STATUS Register
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_TXCNT</tt>
+</td>
+<td><tt>0x0024</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SUNXI SPDIF TX FIFO COUNT Register
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_RXCNT</tt>
+</td>
+<td><tt>0x0028</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SUNXI SPDIF RX FIFO COUNT Register
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_TXCHSTA0</tt>
+</td>
+<td><tt>0x002c</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SUNXI SPDIF TX CHANNEL STATUS Register 0
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_TXCHSTA1</tt>
+</td>
+<td><tt>0x0030</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SUNXI SPDIF TX CHANNEL STATUS Register 1
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_RXCHSTA0</tt>
+</td>
+<td><tt>0x0034</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SUNXI SPDIF RX CHANNEL STATUS Register 0
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_RXCHSTA1</tt>
+</td>
+<td><tt>0x0038</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SUNXI SPDIF RX CHANNEL STATUS Register 1
+</td></tr></tbody></table>
+<h5><span class="mw-headline" id="SUNXI_SPDIF_CTL">SUNXI_SPDIF_CTL</span></h5>
+<p>Default value: 0x00000000<br />
+Offset: 0x00
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_CTL_RESET</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>   0 = normal
+   1 = reset
+  </tt>
+</pre>
+</td>
+<td>Reset the SPDIF block. Self clear to 0
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_CTL_GEN</tt>
+</td>
+<td><tt>1</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = disable
+    1 = enable
+   </tt>
+</pre>
+</td>
+<td>Enable or disable the SPDIF block
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_CTL_MCLKOUTEN</tt>
+</td>
+<td><tt>2</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = disable
+    1 = enable
+   </tt>
+</pre>
+</td>
+<td>Enable or disable the MCLK Output
+</td></tr>
+<tr>
+<td><tt>no operation</tt>
+</td>
+<td><tt>3</tt>
+</td>
+<td><tt>0x00</tt>
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_CTL_MCLKDIV</tt>
+</td>
+<td><tt>4:9</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    MCLK divide ratio.
+   </tt>
+</pre>
+</td>
+<td>Mclk divide Ratio. Note: only support 2n divide ratio(n=1~31). This is documented in the header but isn't seemed to be used in the code.
+</td></tr>
+<tr>
+<td><tt>no operation</tt>
+</td>
+<td><tt>10:31</tt>
+</td>
+<td><tt>0x00</tt>
+</td></tr></tbody></table>
+<h5><span class="mw-headline" id="SUNXI_SPDIF_TXCFG">SUNXI_SPDIF_TXCFG</span></h5>
+<p>Default value(A20): 0x00001000<br />
+Default value(A10): 0x00000f00<br />
+Offset: 0x04
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_TXCFG_TXEN</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0xb0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = disable
+    1 = enable
+   </tt>
+</pre>
+</td>
+<td>Enable the Transmission FIFO.
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_TXCFG_CHSTMODE</tt>
+</td>
+<td><tt>1</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0xb0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = Channel status A&amp;B set to 0
+    1 = Channel status A&amp;B generated from TX_CHSTA
+   </tt>
+</pre>
+</td>
+<td>Channel stereo mode
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_TXCFG_FMTRVD</tt>
+</td>
+<td><tt>2:3</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0xb0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = 16 bits audio resolution
+    1 = 20 bits audio resolution
+    2 = 24 bits audio resolution
+    3 = reserved
+   </tt>
+</pre>
+</td>
+<td>Format of the audio data resolution.
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_TXCFG_TXRATIO</tt>
+</td>
+<td><tt>4:8</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x01(A10)/0x00(A20)</tt>
+</td>
+<td><tt></tt>
+</td>
+<td>TX clock divide Ratio. Note: clock divide ratio = TX RATIO + 1. This seems to be related to the sample rate based on the division of 192KHz minus 1. If you are setting the bit rate to 48KHz then 192/48 = 4. Therefore you will need to set the TX ratio to 3. It seems that it is possible to drop the sample rate down to 6KHz but this would be unsupported by SPDIF receivers.
+</td></tr>
+<tr>
+<td><tt>no operation</tt>
+</td>
+<td><tt>9:15</tt>
+</td>
+<td><tt>0xb0</tt>
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_TXCFG_NONAUDIO</tt>
+</td>
+<td><tt>16</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0xb0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = disable
+    1 = enable
+   </tt>
+</pre>
+</td>
+<td>Enable the sending of compressed audio data over the connection. When disabled Linear PCM (Valid bit of both sub­frame set to 0 ), when enabled Non-audio(Valid bit of both sub­frame set to 1)
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_TXCFG_ASS</tt>
+</td>
+<td><tt>17</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0xb0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = Sending Zeros
+    1 = Sending last audio sample.
+   </tt>
+</pre>
+</td>
+<td>Audio Sample Select when TX FIFO under run. This bit is only valid in PCM mode.
+</td></tr>
+<tr>
+<td><tt>no operation</tt>
+</td>
+<td><tt>18:30</tt>
+</td>
+<td><tt>0xb0</tt>
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_TXCFG_SINGLEMOD</tt>
+</td>
+<td><tt>31</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0xb0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = disable
+    1 = enable
+   </tt>
+</pre>
+</td>
+<td>TX Single Channel mode.
+</td></tr></tbody></table>
+<h5><span class="mw-headline" id="SUNXI_SPDIF_RXCFG">SUNXI_SPDIF_RXCFG</span></h5>
+<p>Default value: 0x00808000<br />
+Offset: 0x08
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_RXCFG_RXEN</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0xb0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = disable
+    1 = enable
+   </tt>
+</pre>
+</td>
+<td>Enable the Receiver FIFO.
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_RXCFG_CHSTCP</tt>
+</td>
+<td><tt>1</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0xb0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = Idle or capture end
+    1 = Capture Channel status start
+   </tt>
+</pre>
+</td>
+<td>Channel status Capture. When set to ‘1’, the channel status information is capturing, the bit
+<p>will clear to ‘0’ after captured.
+</p>
+</td></tr>
+<tr>
+<td><tt>no operation</tt>
+</td>
+<td><tt>2</tt>
+</td>
+<td><tt>0x00</tt>
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_RXCFG_CHSTSRC</tt>
+</td>
+<td><tt>3</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0xb0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = RX_CH_STA Register holds status from Channel A
+    1 = RX_CH_STA Register holds status from Channel B
+   </tt>
+</pre>
+</td>
+<td>Not used in code.
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_RXCFG_LOCKFLAG</tt>
+</td>
+<td><tt>4</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0xb0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = unlock
+    1 = lock
+   </tt>
+</pre>
+</td>
+<td>Not used in code.
+</td></tr>
+<tr>
+<td><tt>no operation</tt>
+</td>
+<td><tt>5:31</tt>
+</td>
+<td><tt>0x00</tt>
+</td></tr></tbody></table>
+<h5><span class="mw-headline" id="SUNXI_SPDIF_TXFIFO">SUNXI_SPDIF_TXFIFO</span></h5>
+<p>Default value: 0x00000000<br />
+Offset: 0x0c
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_TXFIFO</tt>
+</td>
+<td><tt>0:31</tt>
+</td>
+<td><tt>Write</tt>
+</td>
+<td><tt>0x00000000</tt>
+</td>
+<td><tt>0xXXXXXXXX</tt>
+</td>
+<td>Write register for the transmitted data
+</td></tr></tbody></table>
+<h5><span class="mw-headline" id="SUNXI_SPDIF_RXFIFO">SUNXI_SPDIF_RXFIFO</span></h5>
+<p>Default value: 0x05b00000<br />
+Offset: 0x10
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_RXFIFO</tt>
+</td>
+<td><tt>0:31</tt>
+</td>
+<td><tt>Read</tt>
+</td>
+<td><tt>0x00000000</tt>
+</td>
+<td><tt>0xXXXXXXXX</tt>
+</td>
+<td>Read register for the received data. Host can get one sample by reading this register, the A channel data is first and then the B channel data.
+</td></tr></tbody></table>
+<h5><span class="mw-headline" id="SUNXI_SPDIF_FCTL">SUNXI_SPDIF_FCTL</span></h5>
+<p>Default value(A20): 0x10709555<br />
+Default value(A10): 0x15f09555<br />
+Offset: 0x14
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_FCTL_RXOM</tt>
+</td>
+<td><tt>0:1</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00000000</tt>
+</td>
+<td><tt>
+</tt><pre><tt>   00 - Expanding “0” at LSB of SPDIP_RXFIFO register
+   01 - Expanding received sample sign bit at MSB of OWA_RXFIFO register
+   10 - Truncating received samples at high half­word of OWA_RXFIFO register and low half­word of AC_FIFO register is filled by “0”
+   11 - Truncating received samples at low half­word of OWA_RXFIFO register and high half­word of AC_FIFO register is expanded by its sign bit
+ </tt>
+</pre>
+</td>
+<td>Reciever Fifo Control Receiver Output Mode(Mode 0,1,2,3).
+<p>Set to 3 in code.
+</p>
+<pre>   Mode0: RXFIFO[31:0] = {FIFO_O[23:0], 8’h0}
+   Mode 1: RXFIFO[31:0] = {8’FIFO_O[23], FIFO_O[23:0]}
+   Mode 2: RXFIFO[31:0] = {FIFO_O[23:8], 16’h0}
+   Mode 3: RXFIFO[31:0] = {16’FIFO_O[23], FIFO_O[23:8]}
+</pre>
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_FCTL_TXIM</tt>
+</td>
+<td><tt>2</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00000000</tt>
+</td>
+<td><tt></tt>
+</td>
+<td>Transmitter Fifo Control Input Mode(Mode 0,1).
+<p>Set to 1 in code.
+</p>
+<pre>   0: Valid data at the MSB of OWA_TXFIFO register
+   1: Valid data at the LSB of OWA_TXFIFO register
+</pre>
+<p>Example for 20­bits transmitted audio sample:
+</p>
+<pre>   Mode 0: FIFO_I[23:0] = {TXFIFO[31:12], 4’h0}
+   Mode 1: FIFO_I[23:0] = {TXFIFO[19:0], 4’h0}
+</pre>
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_FCTL_RXTL</tt>
+</td>
+<td><tt>3:7</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x0000000F</tt>
+</td>
+<td><tt></tt>
+</td>
+<td>Fifo Control Receive FIFO Trigger Level.
+<p>Set to 15 in code.
+Interrupt and DMA request trigger level for RX FIFO normal condition.
+Trigger Level = RXTL + 1
+</p>
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_FCTL_TXTL</tt>
+</td>
+<td><tt>8:12</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00000010</tt>
+</td>
+<td><tt></tt>
+</td>
+<td>Interrupt and DMA request trigger level for TX FIFO normal condition. Set to 16 in code.
+</td></tr>
+<tr>
+<td><tt>no operation</tt>
+</td>
+<td><tt>13:15</tt>
+</td>
+<td><tt>0x00</tt>
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_FCTL_FRX</tt>
+</td>
+<td><tt>16</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0xb0</tt>
+</td>
+<td><tt></tt>
+</td>
+<td>Fifo Control Flush Reciever FIFO. Write “1” to flush RX FIFO, self clear to “0”
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_FCTL_FTX</tt>
+</td>
+<td><tt>17</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0xb0</tt>
+</td>
+<td><tt></tt>
+</td>
+<td>Fifo Control Flush Transmittion FIFO. Write “1” to flush TX FIFO, self clear to “0”
+</td></tr>
+<tr>
+<td><tt>no operation</tt>
+</td>
+<td><tt>18:30</tt>
+</td>
+<td><tt>0x00</tt>
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_FCTL_FIFOSRC</tt>
+</td>
+<td><tt>31</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0xb0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = disable
+    1 = enable
+   </tt>
+</pre>
+</td>
+<td>Not sure what this does. Isn't really used by driver. In the H3 documentation it is described as a enabler for the Audio Hub.
+</td></tr></tbody></table>
+<h5><span class="mw-headline" id="SUNXI_SPDIF_FSTA">SUNXI_SPDIF_FSTA</span></h5>
+<p>Default value: 0x00000600<br />
+Offset: 0x18
+</p><p>This register doesn't seem to be used by the driver so it's difficult to judge what it does.
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_RXA_CNT</tt>
+</td>
+<td><tt>0:5</tt>
+</td>
+<td><tt>Read</tt>
+</td>
+<td><tt>0xb0</tt>
+</td>
+<td><tt></tt>
+</td>
+<td>RX FIFO Available Sample Word Counter.
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_FSTA_RXA</tt>
+</td>
+<td><tt>6</tt>
+</td>
+<td><tt>Read</tt>
+</td>
+<td><tt>0xb0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = No available data in RX FIFO
+    1 = More than one sample in RX FIFO ( &gt;=1 word )
+   </tt>
+</pre>
+</td>
+<td>RX FIFO Available. Not used by driver.
+</td></tr>
+<tr>
+<td><tt>no operation</tt>
+</td>
+<td><tt>7</tt>
+</td>
+<td><tt>0x00</tt>
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_TXE_CNT</tt>
+</td>
+<td><tt>8:13</tt>
+</td>
+<td><tt>Read</tt>
+</td>
+<td><tt>0xb0</tt>
+</td>
+<td><tt></tt>
+</td>
+<td>TX FIFO Empty Space Word Counter.
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_FSTA_TXA</tt>
+</td>
+<td><tt>14</tt>
+</td>
+<td><tt>Read</tt>
+</td>
+<td><tt>0xb0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = No room for new sample in TX FIFO
+    1 = More than one room for new sample in TX FIFO ( &gt;=1 word )
+   </tt>
+</pre>
+</td>
+<td>TX FIFO Empty (indicate FIFO is not full)
+</td></tr>
+<tr>
+<td><tt>no operation</tt>
+</td>
+<td><tt>15:31</tt>
+</td>
+<td><tt>0x00</tt>
+</td></tr></tbody></table>
+<h5><span class="mw-headline" id="SUNXI_SPDIF_INT">SUNXI_SPDIF_INT</span></h5>
+<p>Default value: 0x00000f00<br />
+Offset: 0x1C
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_INT_RXAIEN</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0xb0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = disable
+    1 = enable
+   </tt>
+</pre>
+</td>
+<td>RX FIFO Data Available Interrupt Enable. Not used by driver.
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_INT_RXOIEN</tt>
+</td>
+<td><tt>1</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0xb0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = disable
+    1 = enable
+   </tt>
+</pre>
+</td>
+<td>RX FIFO Overrun Interrupt Enable. Not used by driver.
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_INT_RXDRQEN</tt>
+</td>
+<td><tt>2</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0xb0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = disable
+    1 = enable
+   </tt>
+</pre>
+</td>
+<td>RX FIFO Data Available DMA Request Interrupt Enable for reciever. When set to “1”, RX FIFO DMA Request is asserted if Data is available in RX FIFO.
+</td></tr>
+<tr>
+<td><tt>no operation</tt>
+</td>
+<td><tt>3</tt>
+</td>
+<td><tt>0x00</tt>
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_INT_TXEIEN</tt>
+</td>
+<td><tt>4</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0xb0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = disable
+    1 = enable
+   </tt>
+</pre>
+</td>
+<td>TX FIFO Empty Interrupt Enable. Not used by driver.
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_INT_TXOIEN</tt>
+</td>
+<td><tt>5</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0xb0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = disable
+    1 = enable
+   </tt>
+</pre>
+</td>
+<td>TX FIFO Overrun Interrupt Enable. Not used by driver.
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_INT_TXUIEN</tt>
+</td>
+<td><tt>6</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0xb0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = disable
+    1 = enable
+   </tt>
+</pre>
+</td>
+<td>TX FIFO Underrun Interrupt Enable. Not used by driver.
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_INT_TXDRQEN</tt>
+</td>
+<td><tt>7</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0xb0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = disable
+    1 = enable
+   </tt>
+</pre>
+</td>
+<td>DMA Request Interrupt Enable for transmitter.
+</td></tr>
+<tr>
+<td><tt>no operation</tt>
+</td>
+<td><tt>8:15</tt>
+</td>
+<td><tt>0xb0</tt>
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_INT_RXPARERREN</tt>
+</td>
+<td><tt>16</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0xb0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = disable
+    1 = enable
+   </tt>
+</pre>
+</td>
+<td>Receiver Parity Error Enabled Interrupt. Not used by driver.
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_INT_RXUNLOCKEN</tt>
+</td>
+<td><tt>17/tt&gt;
+</tt></td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0xb0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = disable
+    1 = enable
+   </tt>
+</pre>
+</td>
+<td>Receiver Unlocked Enabled Interrupt. Not used by driver.
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_INT_RXLOCKEN</tt>
+</td>
+<td><tt>18</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0xb0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = disable
+    1 = enable
+  </tt>
+</pre>
+</td>
+<td>Receiver Locked Enabled Interrupt. Not used by driver.
+</td></tr>
+<tr>
+<td><tt>no operation</tt>
+</td>
+<td><tt>19:31</tt>
+</td>
+<td><tt>0x00</tt>
+</td></tr></tbody></table>
+<h5><span class="mw-headline" id="SUNXI_SPDIF_ISTA">SUNXI_SPDIF_ISTA</span></h5>
+<p>Default value: 0x00000000<br />
+Offset: 0x20
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_ISTA_RXASTA</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0xb0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = No Pending IRQ
+    1 = Data Available Pending IRQ
+  </tt>
+</pre>
+</td>
+<td>SPDIF Receiver FIFO Available Pending Interrupt. Write “1” to clear this interrupt or automatically clear if interrupt condition fails. Not used by driver.
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_ISTA_RXOSTA</tt>
+</td>
+<td><tt>1</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0xb0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = No Pending IRQ
+    1 = FIFO Overrun Pending IRQ
+  </tt>
+</pre>
+</td>
+<td>SPDIF Receiver FIFO Overflow Pending Interrupt. Write 1 to clear. Not used by driver.
+</td></tr>
+<tr>
+<td><tt>no operation</tt>
+</td>
+<td><tt>2:3</tt>
+</td>
+<td><tt>0x00</tt>
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_ISTA_TXESTA</tt>
+</td>
+<td><tt>4</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0xb0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = No Pending IRQ
+    1 = FIFO Empty Pending IRQ
+  </tt>
+</pre>
+</td>
+<td>SPDIF Transmission FIFO Empty Pending Interrupt. Write 1 to clear or automatically clear if interrupt condition fails. Not used by driver.
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_ISTA_TXOSTA</tt>
+</td>
+<td><tt>5</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0xb0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = No Pending IRQ
+    1 = FIFO Overrun Pending IRQ
+  </tt>
+</pre>
+</td>
+<td>SPDIF Transmission FIFO Overrun Pending Interrupt. Write 1 to clear. Not used by driver.
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_ISTA_TXUSTA</tt>
+</td>
+<td><tt>6</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0xb0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = No Pending IRQ
+    1 = FIFO Underrun Pending IRQ
+  </tt>
+</pre>
+</td>
+<td>SPDIF Transmission FIFO Underrun Pending Interrupt. Write 1 to clear. Not used by driver.
+</td></tr>
+<tr>
+<td><tt>no operation</tt>
+</td>
+<td><tt>7:15</tt>
+</td>
+<td><tt>0x00</tt>
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_ISTA_RXPARERRSTA</tt>
+</td>
+<td><tt>16</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0xb0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = No Pending IRQ
+    1 = RX Parity Error Underrun Pending IRQ
+  </tt>
+</pre>
+</td>
+<td>SPDIF Receiver Parity Error Pending Interrupt. Write 1 to clear. Not used by driver.
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_ISTA_RXUNLOCKSTA</tt>
+</td>
+<td><tt>17</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0xb0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = No Pending IRQ
+    1 = RX Unlocked Pending IRQ
+  </tt>
+</pre>
+</td>
+<td>SPDIF Receiver Unlocked Pending Interrupt(RX_LOCK_FLAG 1→0). Write 1 to clear. Not used by driver.
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_ISTA_RXLOCKSTA</tt>
+</td>
+<td><tt>18</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0xb0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = No Pending IRQ
+    1 = RX Locked Pending IRQ
+  </tt>
+</pre>
+</td>
+<td>SPDIF Receiver Locked Pending Interrupt(RX_LOCK_FLAG 0→1) Write 1 to clear. Not used by driver.
+</td></tr>
+<tr>
+<td><tt>no operation</tt>
+</td>
+<td><tt>19:31</tt>
+</td>
+<td><tt>0x00</tt>
+</td></tr></tbody></table>
+<h5><span class="mw-headline" id="SUNXI_SPDIF_TXCNT">SUNXI_SPDIF_TXCNT</span></h5>
+<p>Default value(A20): 0x0034814c?<br />
+Default value(A10): 0x0534816c?<br />
+Offset: 0x24
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_TXCNT</tt>
+</td>
+<td><tt>0:31</tt>
+</td>
+<td><tt>Read</tt>
+</td>
+<td><tt>0x00000000</tt>
+</td>
+<td><tt></tt>
+</td>
+<td>Count of the level for the Transmit FIFO
+<p>The  audio sample number of  writing into TX FIFO.  When  one sample is
+written by DMA or by host IO, the TX sample counter register increases by
+one.  The  TX Counter register can be  set to any  initial  value at any time.
+After been updated by the initial value, the counter register should count
+on base of this value.
+</p>
+</td></tr></tbody></table>
+<h5><span class="mw-headline" id="SUNXI_SPDIF_RXCNT">SUNXI_SPDIF_RXCNT</span></h5>
+<p>Default value: 0x00000000<br />
+Offset: 0x28
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_TXCNT</tt>
+</td>
+<td><tt>0:31</tt>
+</td>
+<td><tt>Read</tt>
+</td>
+<td><tt>0x00000000</tt>
+</td>
+<td><tt></tt>
+</td>
+<td>Count of the level for the Receive FIFO
+<p>The audio sample  number of  writing into RX FIFO.  When  one  sample  is
+written by Codec, the RX sample counter register increases by one. The RX
+Counter register can be  set to any  initial  value  at any  time.  After been
+updated by the initial value, the counter register should count on base of
+this value.
+</p>
+</td></tr></tbody></table>
+<h5><span class="mw-headline" id="SUNXI_SPDIF_TXCHSTA0">SUNXI_SPDIF_TXCHSTA0</span></h5>
+<p>Default value: 0x00000000<br />
+Offset: 0x30
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_TXCHSTA0_PRO</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0xb0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = Consumer Application
+    1 = Professional Application
+  </tt>
+</pre>
+</td>
+<td>PRO. Application type.Note: This bit must be fixed to “0”. Not used by driver.
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_TXCHSTA0_AUDIO</tt>
+</td>
+<td><tt>1</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0xb0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = Linear PCM Samples
+    1 = For none­linear PCM audio such as AC3, DTS, MPEG audio
+  </tt>
+</pre>
+</td>
+<td>Audio Data Type. Not used by driver.
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_TXCHSTA0_CP</tt>
+</td>
+<td><tt>2</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0xb0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = copyright is asserted
+    1 = no copyright is asserted
+  </tt>
+</pre>
+</td>
+<td>Copyright. Not used by driver.
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_TXCHSTA0_EMPHASIS</tt>
+</td>
+<td><tt>3:5</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00</tt>
+</td>
+<td><tt></tt>
+</td>
+<td>Emphasis
+<p>For bit 1 = “0”, Linear PCM audio mode:
+</p>
+<pre> 000: 2 audio channels without pre­emphasis
+ 001: 2 audio channels with 50 μs / 15 μs pre­emphasis
+ 010: Reserved (for 2 audio channels with pre­emphasis)
+ 011: Reserved (for 2 audio channels with pre­emphasis)
+ 100~111: Reserved
+</pre>
+<p>For bit 1 = “1”, other than Linear PCM applications:
+</p>
+<pre> 000: Default state
+ 001~111: Reserved
+</pre>
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_TXCHSTA0_MODE</tt>
+</td>
+<td><tt>6:7</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = Default Mode
+    01~11 = Reserved
+  </tt>
+</pre>
+</td>
+<td>Mode. Not used by driver.
+</td></tr>
+<tr>
+<td><tt>SSUNXI_SPDIF_TXCHSTA0_CATACOD</tt>
+</td>
+<td><tt>8:15</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00</tt>
+</td>
+<td><tt></tt>
+</td>
+<td>Category code
+<p>Indicates the kind of equipment that generates the  digital audio interface signal.
+</p>
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_TXCHSTA0_SRCNUM</tt>
+</td>
+<td><tt>16:19</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00</tt>
+</td>
+<td><tt></tt>
+</td>
+<td>Source Number. Not used by driver.
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_TXCHSTA0_CHNUM</tt>
+</td>
+<td><tt>20:23</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00</tt>
+</td>
+<td><tt></tt>
+</td>
+<td>Channel Number. Driver always uses channel number 2.
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_TXCHSTA0_SAMFREQ</tt>
+</td>
+<td><tt>24:27</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0000: 44.1kHz
+    0001: not indicated 
+    0010: 48kHz 
+    0011: 32kHz 
+    0100: 22.05kHz
+    0101: Reserved 
+    0110: 24kHz 
+    0111: Reserved
+    1000: Reserved
+    1001: 768kHz
+    1010: 96kHz
+    1011: Reserved
+    1100:176.4kHz
+    1101: Reserved
+    1110: 192kHz
+    1111: Reserved
+  </tt>
+</pre>
+</td>
+<td>Sampling frequency
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_TXCHSTA0_CLK</tt>
+</td>
+<td><tt>28:29</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00</tt>
+</td>
+<td><tt>
+<pre>    00: Level 2
+    01: Level 1
+    10: Level 3
+    11: not matched
+</pre>
+</tt><p><tt></tt>
+</p>
+</td>
+<td>Clock Accuracy. Not used by driver.
+</td></tr>
+<tr>
+<td><tt>no operation</tt>
+</td>
+<td><tt>30:31</tt>
+</td>
+<td><tt>0x00</tt>
+</td></tr></tbody></table>
+<h5><span class="mw-headline" id="SUNXI_SPDIF_TXCHSTA1">SUNXI_SPDIF_TXCHSTA1</span></h5>
+<p>Default value: 0x00000000<br />
+Offset: 0x34
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_TXCHSTA1_MAXWORDLEN</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0xb0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = Maximum audio sample word length is 20 bits
+    1 = Maximum audio sample word length is 24 bits
+  </tt>
+</pre>
+</td>
+<td>Max Word length. Not used by driver.
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_TXCHSTA1_SAMWORDLEN</tt>
+</td>
+<td><tt>1:3</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0xb0</tt>
+</td>
+<td><tt></tt>
+</td>
+<td>Sample word length. Set to 1 in driver.
+<p>For bit 0 = “0”:
+</p>
+<pre> 000: not indicated
+ 001: 16 bits
+ 010: 18 bits
+ 100: 19 bits
+ 101: 20 bits
+ 111: Reserved
+</pre>
+<p>For bit 0 = “1”:
+</p>
+<pre> 000: not indicated
+ 001: 20 bits
+ 010: 22 bits
+ 100: 23 bits
+ 101: 24 bits
+ 110: 21 bits
+ 111: Reserved
+</pre>
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_TXCHSTA1_ORISAMFREQ</tt>
+</td>
+<td><tt>4:7</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0xb0</tt>
+</td>
+<td><tt>
+<pre>    0000: not indicated
+    0001: 192kHz
+    0010: 12kHz
+    0011: 176.4kHz
+    0100: Reserved
+    0101: 96kHz
+    0110: 8kHz
+    0111: 88.2kHz
+    1000: 16kHz
+    1001: 24kHz
+    1010: 11.025kHz
+    1011: 22.05kHz
+    1100: 32kHz
+    1101: 48kHz
+    1110: Reserved
+    1111: 44.1kHz
+</pre>
+</tt><p><tt></tt>
+</p>
+</td>
+<td>Original Sampling frequency.
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_TXCHSTA1_CGMSA</tt>
+</td>
+<td><tt>8:11</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00</tt>
+</td>
+<td><tt>
+<pre>    00: Copying is permitted without restriction
+    01: One generation of copies may be made
+    10: Condition not be used
+    11: No copying is permitted
+</pre>
+</tt><p><tt></tt>
+</p>
+</td>
+<td>Copying Manager?. Not used by driver.
+</td></tr>
+<tr>
+<td><tt>no operation</tt>
+</td>
+<td><tt>12:31</tt>
+</td>
+<td><tt>0x00</tt>
+</td></tr></tbody></table>
+<h5><span class="mw-headline" id="SUNXI_SPDIF_RXCHSTA0">SUNXI_SPDIF_RXCHSTA0</span></h5>
+<p>Default value(A20): 0x0034814c<br />
+Default value(A10): 0x0040c20a<br />
+Offset: 0x38
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_RXCHSTA0_PRO</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0xb0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = Consumer Application
+    1 = Professional Application
+  </tt>
+</pre>
+</td>
+<td>PRO. Application type.
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_RXCHSTA0_AUDIO</tt>
+</td>
+<td><tt>1</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0xb0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = Linear PCM Samples
+    1 = For none­linear PCM audio such as AC3, DTS, MPEG audio
+  </tt>
+</pre>
+</td>
+<td>Audio Data Type. Not used by driver.
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_RXCHSTA0_CP</tt>
+</td>
+<td><tt>2</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0xb0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = copyright is asserted
+    1 = no copyright is asserted
+  </tt>
+</pre>
+</td>
+<td>Copyright. Not used by driver.
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_RXCHSTA0_EMPHASIS</tt>
+</td>
+<td><tt>3:5</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00</tt>
+</td>
+<td><tt></tt>
+</td>
+<td>Emphasis
+<p>For bit 1 = “0”, Linear PCM audio mode:
+</p>
+<pre> 000: 2 audio channels without pre­emphasis
+ 001: 2 audio channels with 50 μs / 15 μs pre­emphasis
+ 010: Reserved (for 2 audio channels with pre­emphasis)
+ 011: Reserved (for 2 audio channels with pre­emphasis)
+ 100~111: Reserved
+</pre>
+<p>For bit 1 = “1”, other than Linear PCM applications:
+</p>
+<pre> 000: Default state
+ 001~111: Reserved
+</pre>
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_RXCHSTA0_MODE</tt>
+</td>
+<td><tt>6:7</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = Default Mode
+    01~11 = Reserved
+  </tt>
+</pre>
+</td>
+<td>Mode. Not used by driver.
+</td></tr>
+<tr>
+<td><tt>SSUNXI_SPDIF_RXCHSTA0_CATACOD</tt>
+</td>
+<td><tt>8:15</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00</tt>
+</td>
+<td><tt></tt>
+</td>
+<td>Category code
+<p>Indicates the kind of equipment that generates the  digital audio interface signal.
+</p>
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_RXCHSTA0_SRCNUM</tt>
+</td>
+<td><tt>16:19</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00</tt>
+</td>
+<td><tt></tt>
+</td>
+<td>Source Number. Not used by driver.
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_RXCHSTA0_CHNUM</tt>
+</td>
+<td><tt>20:23</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00</tt>
+</td>
+<td><tt></tt>
+</td>
+<td>Channel Number. Not used by driver.
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_RXCHSTA0_SAMFREQ</tt>
+</td>
+<td><tt>24:27</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0000: 44.1kHz
+    0001: not indicated 
+    0010: 48kHz 
+    0011: 32kHz 
+    0100: 22.05kHz
+    0101: Reserved 
+    0110: 24kHz 
+    0111: Reserved
+    1000: Reserved
+    1001: 768kHz
+    1010: 96kHz
+    1011: Reserved
+    1100:176.4kHz
+    1101: Reserved
+    1110: 192kHz
+    1111: Reserved
+  </tt>
+</pre>
+</td>
+<td>Sampling frequency
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_RXCHSTA0_CLK</tt>
+</td>
+<td><tt>28:29</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    00: Level 2
+    01: Level 1
+    10: Level 3
+    11: not matched
+   </tt>
+</pre>
+</td>
+<td>Clock Accuracy. Not used by driver.
+</td></tr>
+<tr>
+<td><tt>no operation</tt>
+</td>
+<td><tt>30:31</tt>
+</td>
+<td><tt>0x00</tt>
+</td>
+<td>
+</td>
+<td>
+</td></tr></tbody></table>
+<h5><span class="mw-headline" id="SUNXI_SPDIF_RXCHSTA1">SUNXI_SPDIF_RXCHSTA1</span></h5>
+<p>Default value(A20): 0x90000060<br />
+Default value(A10): 0x00000000<br />
+Offset: 0x3c
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_RXCHSTA1_MAXWORDLEN</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0xb0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = Maximum audio sample word length is 20 bits
+    1 = Maximum audio sample word length is 24 bits
+  </tt>
+</pre>
+</td>
+<td>Max Word length. Not used by driver.
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_RXCHSTA1_SAMWORDLEN</tt>
+</td>
+<td><tt>1:3</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0xb0</tt>
+</td>
+<td><tt></tt>
+</td>
+<td>Sample word length. Set to 1 in driver.
+<p>For bit 0 = “0”:
+</p>
+<pre> 000: not indicated
+ 001: 16 bits
+ 010: 18 bits
+ 100: 19 bits
+ 101: 20 bits
+ 110: 17 bits
+ 111: Reserved
+</pre>
+<p>For bit 0 = “1”:
+</p>
+<pre> 000: not indicated
+ 001: 20 bits
+ 010: 22 bits
+ 100: 23 bits
+ 101: 24 bits
+ 110: 21 bits
+ 111: Reserved
+</pre>
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_RXCHSTA1_ORISAMFREQ</tt>
+</td>
+<td><tt>4:7</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0xb0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0000: not indicated
+    0001: 192kHz
+    0010: 12kHz
+    0011: 176.4kHz
+    0100: Reserved
+    0101: 96kHz
+    0110: 8kHz
+    0111: 88.2kHz
+    1000: 16kHz
+    1001: 24kHz
+    1010: 11.025kHz
+    1011: 22.05kHz
+    1100: 32kHz
+    1101: 48kHz
+    1110: Reserved
+    1111: 44.1kHz
+  </tt>
+</pre>
+</td>
+<td>Original Sampling frequency.
+</td></tr>
+<tr>
+<td><tt>SUNXI_SPDIF_RXCHSTA1_CGMSA</tt>
+</td>
+<td><tt>8:11</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    00: Copying is permitted without restriction
+    01: One generation of copies may be made
+    10: Condition not be used
+    11: No copying is permitted
+  </tt>
+</pre>
+</td>
+<td>Copying Manager?. Not used by driver.
+</td></tr>
+<tr>
+<td><tt>no operation</tt>
+</td>
+<td><tt>12?:31</tt>
+</td>
+<td><tt>0x00</tt>
+</td>
+<td>
+</td>
+<td>
+</td></tr></tbody></table>
+<h4><span class="mw-headline" id="SUNXI_SPDIF_DEFAULT_VALUES">SUNXI SPDIF DEFAULT VALUES</span></h4>
+<p>To be confirmed!
+</p>
+<h5><span class="mw-headline" id="default_a20_registers">default a20 registers</span></h5>
+<pre>01c22c00: 00000000 00001000 00808000 00000000    ................
+01c22c10: 05b00000 10709555 00000600 00000f00    ....U.p.........
+01c22c20: 00000000 00000000 0034814c 00000000    ........L.4.....
+01c22c30: 00000000 00000000 0040c20a 90000060    ..........@.`...
+</pre>
+<h5><span class="mw-headline" id="default_a10_registers">default a10 registers</span></h5>
+<pre>01c22c00: 00000000 00000f00 00808000 00000000    ................
+01c22c10: 05b00000 15f09555 00000600 00000f00    ....U...........
+01c22c20: 00000000 00000000 0534816c 00000000    ........l.4.....
+01c22c30: 00000000 00000000 00409200 00000000    ..........@.....
+</pre>
+<!-- 
+NewPP limit report
+Cached time: 20251029040755
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.142 seconds
+Real time usage: 0.146 seconds
+Preprocessor visited node count: 87/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 552/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:1224-0!canonical and timestamp 20251029040755 and revision id 13452
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=SPDIF&amp;oldid=13452">https://linux-sunxi.org/index.php?title=SPDIF&amp;oldid=13452</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Categories</a>: <ul><li><a href="Category:A10_Register_guide.html" title="Category:A10 Register guide">A10 Register guide</a></li><li><a href="Category:A20_Register_guide.html" title="Category:A20 Register guide">A20 Register guide</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=SPDIF" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=SPDIF" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="SPDIF.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:SPDIF&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="SPDIF.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=SPDIF&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=SPDIF&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/SPDIF.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/SPDIF" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=SPDIF&amp;oldid=13452" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=SPDIF&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 31 March 2015, at 09:47.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.142","walltime":"0.146","ppvisitednodes":{"value":87,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":552,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20251029040755","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":263});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

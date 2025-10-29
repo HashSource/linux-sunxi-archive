@@ -1,0 +1,331 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>IR - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"d956ec031d19ef55e1d1da4e","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"IR","wgTitle":"IR","wgCurRevisionId":19909,"wgRevisionId":19909,"wgArticleId":213,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Software","Tutorial"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"IR","wgRelevantArticleId":213,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgRedirectedFrom":"CIR","wgInternalRedirectTargetUrl":"/IR"};RLSTATE={"site.styles":"ready",
+"noscript":"ready","user.styles":"ready","user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","mediawiki.action.view.redirect","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=mediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="IR.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-IR rootpage-IR skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">IR</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"><span class="mw-redirectedfrom">(Redirected from <a href="https://linux-sunxi.org/index.php?title=CIR&amp;redirect=no" class="mw-redirect" title="CIR">CIR</a>)</span></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Infra_Red"><span class="tocnumber">1</span> <span class="toctext">Infra Red</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#sunxi-3.4_.28.22legacy.22_kernel.29"><span class="tocnumber">2</span> <span class="toctext">sunxi-3.4 ("legacy" kernel)</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#remapping"><span class="tocnumber">2.1</span> <span class="toctext">remapping</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-4"><a href="#mainline_kernel_.284.x.29_and_sunxi-cir"><span class="tocnumber">3</span> <span class="toctext">mainline kernel (4.x) and sunxi-cir</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#See_also"><span class="tocnumber">4</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Infra_Red">Infra Red</span></h1>
+<p>IR (Infra Red) light is used in many consumer applications to transmit small amounts of data such as key presses on remotes and keyboards.  These devices are refered to as CIR (<a class="external text" href="https://en.wikipedia.org/wiki/Consumer_IR">Consumer Infra Red</a>).  Receivers for this signal are available on many common boards.
+</p><p><br />
+</p>
+<h1><span id="sunxi-3.4_(&quot;legacy&quot;_kernel)"></span><span class="mw-headline" id="sunxi-3.4_.28.22legacy.22_kernel.29">sunxi-3.4 ("legacy" kernel)</span></h1>
+<p>The sunxi-3.4 IR is exposed as a a keyboard on the Linux input device interface if built into kernel or after modprobe sunxi-cir (previously sunxi_ir_rx). For example, the following simple <i>keybinder</i> application might be used to run arbitrary commands when receiving a specific keycode via IR. You can install it by
+</p>
+<pre>$ git clone https://github.com/elopez/keybinder.git
+$ cd keybinder
+$ sudo make install
+</pre>
+<p>Configuration is handled on <i>/etc/keybinder.conf</i>, as a "keycode,command" pair per line. The application prints every keycode received, so you may as well use it to figure out the keycodes you want to use.
+</p><p>To execute the application, run
+</p>
+<pre>$ sudo keybinder /dev/input/event0
+</pre>
+<h2><span class="mw-headline" id="remapping">remapping</span></h2>
+<p>in 3.4 kernel i haven't found any easy way to remap ir scancodes coming from particular remote. it's possible by editing drivers/input/keyboard/ir-keymap.h though:
+</p>
+<ol><li>find out what scancodes you get for your remote by running evtest, pressing keys and making notes of key--code</li>
+<li>edit header file. start in the secpond half of the file. possible key aliases are in include/linux/input.h</li>
+<li>recompile the kernel (make modules will do if you selected suni-ir as module)</li>
+<li>reinsert the module or update kernel and reboot</li></ol>
+<h1><span id="mainline_kernel_(4.x)_and_sunxi-cir"></span><span class="mw-headline" id="mainline_kernel_.284.x.29_and_sunxi-cir">mainline kernel (4.x) and sunxi-cir</span></h1>
+<p>For devices that feature a standard (38&#160;kHz) CIR receiver, the mainline kernel can be configured with <code>CONFIG_IR_SUNXI</code>. The kernel option is located under "Device drivers", "Multimedia support", "Remote Controller devices", "SUNXI IR remote control"; the driver is named <b>sunxi-cir</b>.
+</p><p><a href="File:Sticky-note-pin.png.html" class="image"><img alt="Sticky-note-pin.png" src="https://linux-sunxi.org/images/f/f0/Sticky-note-pin.png" decoding="async" width="16" height="16" /></a> <i>Note:</i> You do not need LIRC installed to follow the steps below. The input subsystem of recent Linux kernels can handle RC devices and associated keymaps just fine without it.
+</p><p>If you compiled the driver as a module, the first step is to make sure that module gets loaded - either by adding it to the autoloaded modules (depends on your distribution), or manually: <code>modprobe sunxi-cir</code>.
+</p><p>Once the driver is initialized, your kernel log (<code>dmesg</code>) should show something similar to
+</p>
+<pre>[  110.032464] Registered IR keymap rc-empty
+[  110.033667] input: sunxi-ir as /devices/platform/soc@01c00000/1c21800.ir/rc/rc0/input1
+[  110.033729] rc0: sunxi-ir as /devices/platform/soc@01c00000/1c21800.ir/rc/rc0
+[  110.066201] IR NEC protocol handler initialized
+[  110.083973] IR RC5(x/sz) protocol handler initialized
+[  110.101950] IR Sony protocol handler initialized
+[  110.103835] IR JVC protocol handler initialized
+[  110.107900] IR RC6 protocol handler initialized
+[  110.114389] IR SANYO protocol handler initialized
+[  110.116697] IR MCE Keyboard/mouse protocol handler initialized
+[  110.119481] input: MCE IR Keyboard/Mouse (sunxi-ir) as /devices/virtual/input/input2
+[  110.119720] sunxi-ir 1c21800.ir: initialized sunXi IR driver
+[  110.120865] IR Sharp protocol handler initialized
+[  110.130851] IR XMP protocol handler initialized
+</pre>
+<p>Check that the sunxi IR shows up in <code>cat /proc/bus/input/devices</code>&#160;:
+</p>
+<pre>I: Bus=0019 Vendor=0001 Product=0001 Version=0100
+N: Name="sunxi-ir"
+P: Phys=sunxi-ir/input0
+S: Sysfs=/devices/platform/soc@01c00000/1c21800.ir/rc/rc0/input1
+U: Uniq=
+H: Handlers=kbd event1
+B: PROP=0
+B: EV=100013
+B: KEY=1000000 0 0 0 0
+B: MSC=10
+
+I: Bus=0000 Vendor=0000 Product=0000 Version=0000
+N: Name="MCE IR Keyboard/Mouse (sunxi-ir)"
+P: Phys=/input0
+S: Sysfs=/devices/virtual/input/input2
+U: Uniq=
+H: Handlers=kbd event2
+B: PROP=0
+B: EV=100017
+B: KEY=30000 0 7 ff87207a c14057ff febeffdf ffefffff ffffffff fffffffe
+B: REL=3
+B: MSC=10
+</pre>
+<dl><dd><a href="File:Sticky-note-pin.png.html" class="image"><img alt="Sticky-note-pin.png" src="https://linux-sunxi.org/images/f/f0/Sticky-note-pin.png" decoding="async" width="16" height="16" /></a> <i>Note:</i>  Make sure those "H: Handlers=" lines list the event nodes associated with the devices. In case they are missing, there's a chance your kernel may be misconfigured - check that <b>CONFIG_INPUT_EVDEV=y</b> is set! The following commands can be used to find the actual /dev/input/eventX device:</dd></dl>
+<pre>EVT=`awk '/^[N|H]/{if(f){for(i=2;i&lt;=NF;i++){ if(match($i,/event/)){ print $i; exit 0;} }}; if(match($2, /sunxi-ir/)){ f=1 } }'&lt;/proc/bus/input/devices`
+ln -s /dev/input/$EVT /dev/shm/ir
+</pre>
+<p>The device should also be available in <i>/sys/class/rc/</i>, usually as <i>rc0</i>:
+</p>
+<pre>~ # cat /sys/class/rc/rc0/protocols
+other [unknown] rc-5 nec rc-6 jvc sony rc-5-sz sanyo sharp mce_kbd [lirc] xmp
+</pre>
+<p>The above command lists the available IR protocols. At this point it may be necessary to <b>select a specific protocol</b> that corresponds to the remote you intend to use. You do so by writing to the <i>sysfs</i> node. For example, I have a universal remote control that works with the "nec" protocol - so to configure it, I use: <code>echo nec &gt; /sys/class/rc/rc0/protocols</code>
+</p><p>When you're set, run the <code>evtest</code> program to check if everything works. Either start it without arguments to get prompted, or pass the input (event) node that corresponds to the <i>Name="sunxi-ir"</i> device. In the above example, that would be <code>evtest /dev/input/event1</code>.
+</p><p>If all goes well, <i>evtest</i> will now report events for key presses that you do on your infrared remote.
+</p>
+<h1><span class="mw-headline" id="See_also">See also</span></h1>
+<ul><li><a href="LIRC.html" title="LIRC">LIRC</a></li>
+<li><a href="IR_Controller_Register_Guide.html" title="IR Controller Register Guide">IR Controller Register Guide</a></li>
+<li><a class="external text" href="https://en.wikipedia.org/wiki/Consumer_IR">CIR</a></li></ul>
+<!-- 
+NewPP limit report
+Cached time: 20251029045001
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.026 seconds
+Real time usage: 0.031 seconds
+Preprocessor visited node count: 58/1000000
+Post‐expand include size: 246/2097152 bytes
+Template argument size: 168/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 1892/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    3.182      1 -total
+ 90.57%    2.882      2 Template:Note
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:213-0!canonical and timestamp 20251029045001 and revision id 19909
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=IR&amp;oldid=19909">https://linux-sunxi.org/index.php?title=IR&amp;oldid=19909</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Categories</a>: <ul><li><a href="Category:Software.html" title="Category:Software">Software</a></li><li><a href="Category:Tutorial.html" title="Category:Tutorial">Tutorial</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=IR" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=IR" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="IR.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:IR&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="IR.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=IR&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=IR&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/IR.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/IR" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=IR&amp;oldid=19909" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=IR&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 2 May 2017, at 12:25.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.026","walltime":"0.031","ppvisitednodes":{"value":58,"limit":1000000},"postexpandincludesize":{"value":246,"limit":2097152},"templateargumentsize":{"value":168,"limit":2097152},"expansiondepth":{"value":3,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":1892,"limit":5000000},"timingprofile":["100.00%    3.182      1 -total"," 90.57%    2.882      2 Template:Note"]},"cachereport":{"timestamp":"20251029045001","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":618});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

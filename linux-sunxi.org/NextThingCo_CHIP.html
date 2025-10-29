@@ -1,0 +1,627 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>NextThingCo CHIP - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"1df90370e6fceee2a56973e9","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"NextThingCo_CHIP","wgTitle":"NextThingCo CHIP","wgCurRevisionId":23347,"wgRevisionId":23347,"wgArticleId":2635,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["NDH TODO","Devices","R8 Boards","Devices with Wifi","Mainline U-Boot","Mainline Kernel"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"NextThingCo_CHIP","wgRelevantArticleId":2635,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],
+"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":"ready","user":"ready","user.options":"loading","mediawiki.page.gallery.styles":"ready","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=mediawiki.page.gallery.styles%7Cmediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="NextThingCo_CHIP.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-NextThingCo_CHIP rootpage-NextThingCo_CHIP skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">NextThingCo CHIP</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><table class="infobox" cellspacing="5" style="width:22em;">
+<tbody><tr><th colspan="2" class="" style="text-align:center; font-size:125%; font-weight:bold; background: #dedede;">NextThingCo CHIP</th></tr>
+<tr class=""><td colspan="2" class="" style="text-align:center;"><a href="File:C-H-I-P_SBC.JPG.html" class="image"><img alt="C-H-I-P SBC.JPG" src="https://linux-sunxi.org/images/thumb/9/9a/C-H-I-P_SBC.JPG/250px-C-H-I-P_SBC.JPG" decoding="async" width="250" height="167" srcset="https://linux-sunxi.org/images/thumb/9/9a/C-H-I-P_SBC.JPG/375px-C-H-I-P_SBC.JPG 1.5x, https://linux-sunxi.org/images/thumb/9/9a/C-H-I-P_SBC.JPG/500px-C-H-I-P_SBC.JPG 2x" /></a></td></tr>
+<tr class="">
+  <th scope="row" style="text-align:left;"> Manufacturer </th><td> <a rel="nofollow" class="external text" href="https://nextthing.co/">Next Thing Co.</a>
+</td></tr><tr class="">
+  <th scope="row" style="text-align:left;"> Dimensions </th><td> 62<i>mm</i> x 41<i>mm</i> x 11/15<i>mm</i>
+</td></tr><tr class="">
+  <th scope="row" style="text-align:left;"> Release Date </th><td> December 2015
+</td></tr><tr class="">
+  <th scope="row" style="text-align:left;"> Website </th><td> <a rel="nofollow" class="external text" href="https://getchip.com/">Chip Product Page</a>
+</td></tr><tr><th colspan="2" style="text-align:center;background:#dedede;"> Specifications
+</th></tr><tr class="">
+  <th scope="row" style="text-align:left;"> SoC </th><td> <a href="R8.html" class="mw-redirect" title="R8">R8</a> @ 1Ghz
+</td></tr><tr class="">
+  <th scope="row" style="text-align:left;"> DRAM </th><td> 512MiB DDR3-800E @ 360MHz, timings: 6-6-6-14 (uboot timings) (K4B4G1646Q-HYK0)
+</td></tr><tr class="">
+  <th scope="row" style="text-align:left;"> NAND </th><td> 4GB
+</td></tr><tr class="">
+  <th scope="row" style="text-align:left;"> Power </th><td> DC 5V @ ~1A, 3.7V Li-Ion battery (Not included)
+</td></tr><tr><th colspan="2" style="text-align:center;background:#dedede;"> Features
+</th></tr><tr class="">
+  <th scope="row" style="text-align:left;"> Video </th><td> Composite with 3.5mm to RCA A/V adapter
+</td></tr><tr class="">
+  <th scope="row" style="text-align:left;"> Audio </th><td> 3.5mm to RCA A/V adapter
+</td></tr><tr class="">
+  <th scope="row" style="text-align:left;"> Network </th><td> WiFi 802.11 b/g/n d/e/h/i Bluetooth v4 (rtl8723bs)
+</td></tr><tr class="">
+  <th scope="row" style="text-align:left;"> USB </th><td> 1 USB2.0 Host, 1 USB2.0 OTG
+</td></tr><tr class="">
+  <th scope="row" style="text-align:left;"> Other </th><td> <span style="color:#ba0000">...</span>
+</td></tr><tr class="">
+  <th scope="row" style="text-align:left;"> Headers </th><td> <span style="color:#ba0000">...</span>
+</td></tr>
+</tbody></table>
+<p><span style="color:#ba0000">This page needs to be properly filled according to the <a href="New_Device_howto.html" title="New Device howto">New Device Howto</a> and the <a href="New_Device_page.html" title="New Device page">New Device Page guide</a>.</span>
+</p><p>CHIP (C.H.I.P.) was a single-board computer crowdfunded by now-defunct Next Thing Co. (NTC), released as open-source hardware running open-source software. CHIP and related products are discontinued.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Identification"><span class="tocnumber">1</span> <span class="toctext">Identification</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Sunxi_support"><span class="tocnumber">2</span> <span class="toctext">Sunxi support</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Current_status"><span class="tocnumber">2.1</span> <span class="toctext">Current status</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Manual_build"><span class="tocnumber">2.2</span> <span class="toctext">Manual build</span></a>
+<ul>
+<li class="toclevel-3 tocsection-5"><a href="#U-Boot"><span class="tocnumber">2.2.1</span> <span class="toctext">U-Boot</span></a>
+<ul>
+<li class="toclevel-4 tocsection-6"><a href="#Sunxi.2FLegacy_U-Boot"><span class="tocnumber">2.2.1.1</span> <span class="toctext">Sunxi/Legacy U-Boot</span></a></li>
+<li class="toclevel-4 tocsection-7"><a href="#Mainline_U-Boot"><span class="tocnumber">2.2.1.2</span> <span class="toctext">Mainline U-Boot</span></a></li>
+<li class="toclevel-4 tocsection-8"><a href="#NextThingCo_U-Boot"><span class="tocnumber">2.2.1.3</span> <span class="toctext">NextThingCo U-Boot</span></a></li>
+</ul>
+</li>
+<li class="toclevel-3 tocsection-9"><a href="#Linux_Kernel"><span class="tocnumber">2.2.2</span> <span class="toctext">Linux Kernel</span></a>
+<ul>
+<li class="toclevel-4 tocsection-10"><a href="#Sunxi.2FLegacy_Kernel"><span class="tocnumber">2.2.2.1</span> <span class="toctext">Sunxi/Legacy Kernel</span></a></li>
+<li class="toclevel-4 tocsection-11"><a href="#Mainline_kernel"><span class="tocnumber">2.2.2.2</span> <span class="toctext">Mainline kernel</span></a></li>
+<li class="toclevel-4 tocsection-12"><a href="#NextThingCo_kernel"><span class="tocnumber">2.2.2.3</span> <span class="toctext">NextThingCo kernel</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-13"><a href="#Locating_the_UART"><span class="tocnumber">2.3</span> <span class="toctext">Locating the UART</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="#FEL_mode"><span class="tocnumber">2.4</span> <span class="toctext">FEL mode</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="#Pinout"><span class="tocnumber">2.5</span> <span class="toctext">Pinout</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-16"><a href="#Tips.2C_Tricks.2C_Caveats"><span class="tocnumber">3</span> <span class="toctext">Tips, Tricks, Caveats</span></a>
+<ul>
+<li class="toclevel-2 tocsection-17"><a href="#Device_specific_topic"><span class="tocnumber">3.1</span> <span class="toctext">Device specific topic</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="#Flashing_CHIP_OS_with_CHIP-tools_.28host_computer_on_Debian.2FUbuntu.29"><span class="tocnumber">3.2</span> <span class="toctext">Flashing CHIP OS with CHIP-tools (host computer on Debian/Ubuntu)</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="#Flashing_CHIP_OS_.28host_computer_on_MacOS.29"><span class="tocnumber">3.3</span> <span class="toctext">Flashing CHIP OS (host computer on MacOS)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-20"><a href="#Dips"><span class="tocnumber">4</span> <span class="toctext">Dips</span></a></li>
+<li class="toclevel-1 tocsection-21"><a href="#Pictures"><span class="tocnumber">5</span> <span class="toctext">Pictures</span></a></li>
+<li class="toclevel-1 tocsection-22"><a href="#Variants"><span class="tocnumber">6</span> <span class="toctext">Variants</span></a></li>
+<li class="toclevel-1 tocsection-23"><a href="#Also_known_as"><span class="tocnumber">7</span> <span class="toctext">Also known as</span></a></li>
+<li class="toclevel-1 tocsection-24"><a href="#See_also"><span class="tocnumber">8</span> <span class="toctext">See also</span></a>
+<ul>
+<li class="toclevel-2 tocsection-25"><a href="#Manufacturer_images"><span class="tocnumber">8.1</span> <span class="toctext">Manufacturer images</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Identification">Identification</span></h1>
+<p>On the back of the device, the following is printed:
+</p>
+<pre>CHIP v1.0</pre>
+<h1><span class="mw-headline" id="Sunxi_support">Sunxi support</span></h1>
+<h2><span class="mw-headline" id="Current_status">Current status</span></h2>
+<p>CHIP has some support in mainline U-Boot and kernel (defconfig and device tree). Mainline U-boot can boot an OS via USB. CHIP's builtin SLC NAND is not supported by Mainline U-Boot. NextThings version of U-boot supports the builtin NAND.
+</p>
+<h2><span class="mw-headline" id="Manual_build">Manual build</span></h2>
+<p>You can build things for yourself by following our <a href="Manual_build_howto.html" title="Manual build howto"> Manual build howto</a> and by choosing from the configurations available below.
+</p>
+<h3><span class="mw-headline" id="U-Boot">U-Boot</span></h3>
+<h4><span id="Sunxi/Legacy_U-Boot"></span><span class="mw-headline" id="Sunxi.2FLegacy_U-Boot">Sunxi/Legacy U-Boot</span></h4>
+<p>Chip is not supported by Sunxi/Legacy U-Boot
+</p>
+<h4><span class="mw-headline" id="Mainline_U-Boot">Mainline U-Boot</span></h4>
+<p>Use the <b>CHIP_defconfig</b> build target. Follow these <a href="Mainline_U-Boot.html#Compile_U-Boot" class="mw-redirect" title="Mainline U-Boot">instructions</a> to build Mainline U-Boot.
+You can now use <i>u-boot-sunxi-with-spl.bin</i> via <a href="Sunxi-tools.html#sunxi-fel" title="Sunxi-tools">sunxi-fel</a> or write Mainline U-Boot to the builtin NAND with the help of NextThingCo's custom U-Boot version.
+</p>
+<h4><span class="mw-headline" id="NextThingCo_U-Boot">NextThingCo U-Boot</span></h4>
+<p>Chip was shipped with a custom version of U-Boot supporting the SLC NAND. An archived version of the git-repo can be found <a rel="nofollow" class="external text" href="http://chip.jfpossibilities.com/gits/CHIP-u-boot.git/">here</a>
+</p>
+<h3><span class="mw-headline" id="Linux_Kernel">Linux Kernel</span></h3>
+<h4><span id="Sunxi/Legacy_Kernel"></span><span class="mw-headline" id="Sunxi.2FLegacy_Kernel">Sunxi/Legacy Kernel</span></h4>
+<p>Not supported.
+</p>
+<h4><span class="mw-headline" id="Mainline_kernel">Mainline kernel</span></h4>
+<p>Use the <b>sun5i-r8-chip.dtb</b> device-tree binary. Mainline kernel can not interact with the builtin NAND.
+</p>
+<h4><span class="mw-headline" id="NextThingCo_kernel">NextThingCo kernel</span></h4>
+<p>Archived version of NextThingCo's git-repo <a rel="nofollow" class="external text" href="http://chip.jfpossibilities.com/gits/CHIP-linux.git/">here</a>. NextThingCo's patched linux kernel supports the builtin NAND.
+</p>
+<h2><span class="mw-headline" id="Locating_the_UART">Locating the UART</span></h2>
+<p>The UART located is on the header named U14. On this header Pin 1 is Ground (GND), Pin 3 is TX (Transmit) and Pin 5 is RX (Recieve). To establish a connection the TX of the Chip must be connected to the RX of USB-UART Converter and the RX of the Adapter to the TX of the Chip, Ground is connected to Ground. Do <b>NOT</b> Connect 5V or 3V to the Chip. Please note that the UART of the Chip uses <b>3.3V</b> ( RX of the Chip is 5V tolerant ).
+</p><p><br /> 
+</p>
+<pre>   GND -&gt; GND on the CHIP
+   TX -&gt; UART1-RX on the CHIP
+   RX -&gt; UART1-TX on the CHIP
+</pre>
+<p><br />
+</p>
+<h2><span class="mw-headline" id="FEL_mode">FEL mode</span></h2>
+<p>Shorting out the FEL and GND pins before connecting power will cause the device to boot in <a href="FEL.html" title="FEL"> FEL mode</a>.
+</p>
+<h2><span class="mw-headline" id="Pinout">Pinout</span></h2>
+<table class="wikitable">
+
+<tbody><tr>
+<th>Header U13L</th>
+<th>Header U13R</th>
+<th>Header U14L</th>
+<th>Header U14R
+</th></tr>
+<tr>
+<td>Ground</td>
+<td>Charge (5V)</td>
+<td>Ground</td>
+<td>VCC 5V
+</td></tr>
+<tr>
+<td>VCC 5V</td>
+<td>Ground</td>
+<td>UART1 TX</td>
+<td>Audio out left
+</td></tr>
+<tr>
+<td>VCC 3V</td>
+<td>Temperature sensor input</td>
+<td>UART1 RX</td>
+<td>Audio out ground
+</td></tr>
+<tr>
+<td>VCC 1.8V</td>
+<td>LIPO battery</td>
+<td>FEL</td>
+<td>Audio out right
+</td></tr>
+<tr>
+<td>two wire SDA</td>
+<td>power on</td>
+<td>VCC 3V</td>
+<td>mic mute
+</td></tr>
+<tr>
+<td>two wire SCK</td>
+<td>Ground</td>
+<td>ADC</td>
+<td>audio in
+</td></tr>
+<tr>
+<td>X1 touch input</td>
+<td>X2 touch input</td>
+<td>XIO-P0 GPIO</td>
+<td>XIO-P1 GPIO
+</td></tr>
+<tr>
+<td>Y1 touch input</td>
+<td>Y2 touch input</td>
+<td>XIO-P2 GPIO</td>
+<td>XIO-P3 GPIO
+</td></tr>
+<tr>
+<td>LCD-D2</td>
+<td>PWM0</td>
+<td>XIO-P4 GPIO</td>
+<td>XIO-P5 GPIO
+</td></tr>
+<tr>
+<td>LCD-D4</td>
+<td>LCD-D3</td>
+<td>XIO-P6 GPIO</td>
+<td>XIO-P7 GPIO
+</td></tr>
+<tr>
+<td>LCD-D6</td>
+<td>LCD-D5</td>
+<td>Ground</td>
+<td>Ground
+</td></tr>
+<tr>
+<td>LCD-D10</td>
+<td>LCD-D7</td>
+<td>AP-EINT1</td>
+<td>AP-EINT3
+</td></tr>
+<tr>
+<td>LCD-D12</td>
+<td>LCD-D11</td>
+<td>TWI2-SDA</td>
+<td>TWI2-SCK
+</td></tr>
+<tr>
+<td>LCD-D14</td>
+<td>LCD-D13</td>
+<td>CSIPCK:CMOS</td>
+<td>CSICK:CMOS
+</td></tr>
+<tr>
+<td>LCD-D18</td>
+<td>LCD-D15</td>
+<td>CSIHSYNC:CMOS</td>
+<td>CSIVSYNC&#160;: CMOS
+</td></tr>
+<tr>
+<td>LCD-D20</td>
+<td>LCD-19</td>
+<td>CSID0:CMOS</td>
+<td>CSID1:CMOS
+</td></tr>
+<tr>
+<td>LCD-D22</td>
+<td>LCD-21</td>
+<td>CSID2:CMOS</td>
+<td>CSID3:CMOS
+</td></tr>
+<tr>
+<td>LCD-CLK</td>
+<td>LCD-D23</td>
+<td>CSID4:CMOS</td>
+<td>CSID5:CMOS
+</td></tr>
+<tr>
+<td>LCD-VSYNC</td>
+<td>LCD-HSYNC</td>
+<td>CSID6:CMOS</td>
+<td>CSID7:CMOS
+</td></tr>
+<tr>
+<td>Ground</td>
+<td>LCD-DE</td>
+<td>Ground</td>
+<td>Ground
+</td></tr>
+</tbody></table>
+<p><br />
+</p>
+<h1><span id="Tips,_Tricks,_Caveats"></span><span class="mw-headline" id="Tips.2C_Tricks.2C_Caveats">Tips, Tricks, Caveats</span></h1>
+<p>The Chip requires 2A to run without issues if less Power is provided a brownout may occure. 
+</p><p>If USB Devices attached to the Chip require more then 500mA the <b>No Limit</b> version needs to be Flashed.
+</p><p>A single Cell Lithium battery can be attached to the Chip. 
+</p><p>If a external Antenna is required a<a class="external text" href="https://en.wikipedia.org/wiki/Hirose_U.FL">UFL</a> connector can be soldered on the back. 
+</p><p><br />
+</p>
+<h2><span class="mw-headline" id="Device_specific_topic">Device specific topic</span></h2>
+<p>Other than most Single Board Computers, the Chip needs to be flashed with an Operating System (OS).
+</p><p>The Vendor provided a custom OS called <a rel="nofollow" class="external text" href="http://chip.jfpossibilities.com/docs/chip.html#welcome-to-the-chip-operating-system#welcome-to-the-chip-operating-system">CHIP OS</a> based on <a class="external text" href="https://en.wikipedia.org/wiki/Debian">Debian</a> Jessie. CHIP OS uses the Debian package repositories. Images of CHIP OS come in different Flavours (Desktop, Server, Pocketchip).
+</p><p>Those Images were provided in proprietary and undocumented format with the Filetype .chp. 
+</p><p>These files were designed to be used with a (now offline) Website and Chrome addon. 
+</p><p><b>Fortunately several Open Source alternatives exist. </b>
+</p><p>NexThingCo provided a collection of bash scripts called CHIP-tools to update and flash images via sunxi-fel and fastboot.
+Archived/forked versions can be found <a rel="nofollow" class="external text" href="http://chip.jfpossibilities.com/gits/CHIP-tools.git/">here</a> and <a class="external text" href="https://github.com/Project-chip-crumbs/CHIP-tools">here</a>. For the image files an <a rel="nofollow" class="external text" href="http://chip.jfpossibilities.com/chip/images">archived version</a> of the original images is used.
+</p>
+<h2><span id="Flashing_CHIP_OS_with_CHIP-tools_(host_computer_on_Debian/Ubuntu)"></span><span class="mw-headline" id="Flashing_CHIP_OS_with_CHIP-tools_.28host_computer_on_Debian.2FUbuntu.29">Flashing CHIP OS with CHIP-tools (host computer on Debian/Ubuntu)</span></h2>
+<p>Clone the Repo from Github.
+</p>
+<pre>git clone <a class="external free" href="https://github.com/Thore-Krug/Flash-CHIP.git">https://github.com/Thore-Krug/Flash-CHIP.git</a>
+</pre>
+<p>Change into the Directory. 
+</p>
+<pre>cd Flash-CHIP
+</pre>
+<p>Make the Script executable
+</p>
+<pre>sudo chmod +x Flash.sh
+</pre>
+<p>Execute the script
+</p>
+<pre>sudo ./Flash.sh
+</pre>
+<p>Select the version you want to install.
+Wait until the installation finishes.
+</p><p><b>Troubleshooting</b>
+</p><p>Use USB 2
+</p><p>Refresh Apt Repos
+</p>
+<pre>sudo apt update
+</pre>
+<h2><span id="Flashing_CHIP_OS_(host_computer_on_MacOS)"></span><span class="mw-headline" id="Flashing_CHIP_OS_.28host_computer_on_MacOS.29">Flashing CHIP OS (host computer on MacOS)</span></h2>
+<p>Clone the Repo 
+</p>
+<pre>git clone <a class="external free" href="https://github.com/Thore-Krug/Install-Flash-Chip-Mac">https://github.com/Thore-Krug/Install-Flash-Chip-Mac</a>
+</pre>
+<p>Change into the Directory 
+</p>
+<pre>cd Install-Flash-Chip-Mac
+</pre>
+<p>Make the Script executable
+</p>
+<pre> sudo chmod +x Flasher.sh
+</pre>
+<p>Install all necessary Dependencies. 
+</p>
+<pre>./Flash.sh install-all
+</pre>
+<p>Flash your Chip
+</p>
+<pre>./Flash.sh flash
+</pre>
+<p>Select the version you want to install.
+Wait until the installation finishes.
+</p><p><br />
+</p><p>Or read the Help
+</p>
+<pre>./Flash.sh help
+</pre>
+<p><br />
+</p><p><b>Troubleshooting</b>
+</p><p><br />
+Kill the Script with ctrl + C
+</p><p>Read the output if something is not installed or Permissions are missing
+</p><p>Just restart the Script (fixes most of the Problem with FEL and Fastboot )
+</p><p>If this does not help reboot, retry
+</p><p>Open an Issue on the Git Repo.
+</p><p>Use USB 2
+</p>
+<h1><span class="mw-headline" id="Dips">Dips</span></h1>
+<p>Like on other Single Board Computers, Hardware Addons which add more functionality to the Board can be used. These Addon Boards are called <b>Dips</b>, the Vendor NTC (Next Thing Company) provided HDMI and VGA Dips. But other User created other Dips too, like a USB Hub or a SD Card addon.
+</p>
+ <ul class="gallery mw-gallery-traditional">
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:35px auto;"><a href="File:C-H-I-P-HDMI.JPG.html" class="image"><img alt="C-H-I-P-HDMI.JPG" src="https://linux-sunxi.org/images/thumb/8/86/C-H-I-P-HDMI.JPG/120px-C-H-I-P-HDMI.JPG" decoding="async" width="120" height="80" srcset="https://linux-sunxi.org/images/thumb/8/86/C-H-I-P-HDMI.JPG/180px-C-H-I-P-HDMI.JPG 1.5x, https://linux-sunxi.org/images/thumb/8/86/C-H-I-P-HDMI.JPG/240px-C-H-I-P-HDMI.JPG 2x" /></a></div></div>
+			<div class="gallerytext">
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:35px auto;"><a href="File:C-H-I-P-VGA.JPG.html" class="image"><img alt="C-H-I-P-VGA.JPG" src="https://linux-sunxi.org/images/thumb/9/9a/C-H-I-P-VGA.JPG/120px-C-H-I-P-VGA.JPG" decoding="async" width="120" height="80" srcset="https://linux-sunxi.org/images/thumb/9/9a/C-H-I-P-VGA.JPG/180px-C-H-I-P-VGA.JPG 1.5x, https://linux-sunxi.org/images/thumb/9/9a/C-H-I-P-VGA.JPG/240px-C-H-I-P-VGA.JPG 2x" /></a></div></div>
+			<div class="gallerytext">
+			</div>
+		</div></li>
+</ul>
+<h1><span class="mw-headline" id="Pictures">Pictures</span></h1>
+<ul class="gallery mw-gallery-traditional">
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:35px auto;"><a href="File:C-H-I-P_SBC.JPG.html" class="image"><img alt="C-H-I-P SBC.JPG" src="https://linux-sunxi.org/images/thumb/9/9a/C-H-I-P_SBC.JPG/120px-C-H-I-P_SBC.JPG" decoding="async" width="120" height="80" srcset="https://linux-sunxi.org/images/thumb/9/9a/C-H-I-P_SBC.JPG/180px-C-H-I-P_SBC.JPG 1.5x, https://linux-sunxi.org/images/thumb/9/9a/C-H-I-P_SBC.JPG/240px-C-H-I-P_SBC.JPG 2x" /></a></div></div>
+			<div class="gallerytext">
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:35px auto;"><a href="File:C-H-I-P-BACK.JPG.html" class="image"><img alt="C-H-I-P-BACK.JPG" src="https://linux-sunxi.org/images/thumb/9/9c/C-H-I-P-BACK.JPG/120px-C-H-I-P-BACK.JPG" decoding="async" width="120" height="80" srcset="https://linux-sunxi.org/images/thumb/9/9c/C-H-I-P-BACK.JPG/180px-C-H-I-P-BACK.JPG 1.5x, https://linux-sunxi.org/images/thumb/9/9c/C-H-I-P-BACK.JPG/240px-C-H-I-P-BACK.JPG 2x" /></a></div></div>
+			<div class="gallerytext">
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:35px auto;"><a href="File:C-H-I-P-BACK-Cover.JPG.html" class="image"><img alt="C-H-I-P-BACK-Cover.JPG" src="https://linux-sunxi.org/images/thumb/b/bd/C-H-I-P-BACK-Cover.JPG/120px-C-H-I-P-BACK-Cover.JPG" decoding="async" width="120" height="80" srcset="https://linux-sunxi.org/images/thumb/b/bd/C-H-I-P-BACK-Cover.JPG/180px-C-H-I-P-BACK-Cover.JPG 1.5x, https://linux-sunxi.org/images/thumb/b/bd/C-H-I-P-BACK-Cover.JPG/240px-C-H-I-P-BACK-Cover.JPG 2x" /></a></div></div>
+			<div class="gallerytext">
+			</div>
+		</div></li>
+</ul>
+<h1><span class="mw-headline" id="Variants">Variants</span></h1>
+<ul><li>Alpha CHIP</li>
+<li>CHIP Pro</li></ul>
+<h1><span class="mw-headline" id="Also_known_as">Also known as</span></h1>
+<ul><li>C.H.I.P.</li></ul>
+<h1><span class="mw-headline" id="See_also">See also</span></h1>
+<ul><li><s><a rel="nofollow" class="external text" href="https://getchip.com/pages/chippro">NextThingCo Chip Pro</a></s></li>
+<li><s><a rel="nofollow" class="external text" href="https://getchip.com/pages/pocketchip">PocketChip</a></s></li>
+<li><a rel="nofollow" class="external text" href="http://www.chip-community.org/">C.H.I.P. Single-Board Computer Wiki</a></li>
+<li><a class="external text" href="https://en.wikipedia.org/wiki/CHIP_(computer)">C.H.I.P. (Wikipedia)</a></li>
+<li><a rel="nofollow" class="external text" href="https://www.kickstarter.com/projects/1598272670/chip-the-worlds-first-9-computer/">Kickstarter project page</a></li></ul>
+<h2><span class="mw-headline" id="Manufacturer_images">Manufacturer images</span></h2>
+<p><span style="color:#ba0000">Optional. Add non-sunxi images in this section.</span>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20251029040043
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.236 seconds
+Real time usage: 0.319 seconds
+Preprocessor visited node count: 406/1000000
+Post‐expand include size: 6453/2097152 bytes
+Template argument size: 2078/2097152 bytes
+Highest expansion depth: 10/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 2840/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  157.626      1 -total
+ 50.44%   79.500      1 Template:Infobox_Board
+ 13.95%   21.993     20 Template:Infobox/entry
+  9.71%   15.305      2 Template:Edit
+  4.05%    6.380      2 Template:Infobox/header
+  4.03%    6.352      1 Template:Remove_only_when_finished
+  2.57%    4.057      1 Template:Remove
+  1.82%    2.861      4 Template:Red
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:2635-0!canonical and timestamp 20251029040043 and revision id 23347
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=NextThingCo_CHIP&amp;oldid=23347">https://linux-sunxi.org/index.php?title=NextThingCo_CHIP&amp;oldid=23347</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Categories</a>: <ul><li><a href="Category:NDH_TODO.html" title="Category:NDH TODO">NDH TODO</a></li><li><a href="Category:Devices.html" title="Category:Devices">Devices</a></li><li><a href="Category:R8_Boards.html" title="Category:R8 Boards">R8 Boards</a></li><li><a href="Category:Devices_with_Wifi.html" title="Category:Devices with Wifi">Devices with Wifi</a></li><li><a href="Category:Mainline_U-Boot.html" title="Category:Mainline U-Boot">Mainline U-Boot</a></li><li><a href="Category:Mainline_Kernel.html" title="Category:Mainline Kernel">Mainline Kernel</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=NextThingCo+CHIP" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=NextThingCo+CHIP" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="NextThingCo_CHIP.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk"><a href="Talk:NextThingCo_CHIP.html" rel="discussion" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="NextThingCo_CHIP.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=NextThingCo_CHIP&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=NextThingCo_CHIP&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/NextThingCo_CHIP.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/NextThingCo_CHIP" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=NextThingCo_CHIP&amp;oldid=23347" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=NextThingCo_CHIP&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 26 May 2020, at 08:59.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.236","walltime":"0.319","ppvisitednodes":{"value":406,"limit":1000000},"postexpandincludesize":{"value":6453,"limit":2097152},"templateargumentsize":{"value":2078,"limit":2097152},"expansiondepth":{"value":10,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":2840,"limit":5000000},"timingprofile":["100.00%  157.626      1 -total"," 50.44%   79.500      1 Template:Infobox_Board"," 13.95%   21.993     20 Template:Infobox/entry","  9.71%   15.305      2 Template:Edit","  4.05%    6.380      2 Template:Infobox/header","  4.03%    6.352      1 Template:Remove_only_when_finished","  2.57%    4.057      1 Template:Remove","  1.82%    2.861      4 Template:Red"]},"cachereport":{"timestamp":"20251029040043","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":278});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

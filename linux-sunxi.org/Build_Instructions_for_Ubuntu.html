@@ -1,0 +1,488 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Build Instructions for Ubuntu - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"c07200170ad9bfa432d030a9","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Build_Instructions_for_Ubuntu","wgTitle":"Build Instructions for Ubuntu","wgCurRevisionId":13966,"wgRevisionId":13966,"wgArticleId":2121,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Build_Instructions_for_Ubuntu","wgRelevantArticleId":2121,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready"
+,"noscript":"ready","user.styles":"ready","user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=mediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="Build_Instructions_for_Ubuntu.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-Build_Instructions_for_Ubuntu rootpage-Build_Instructions_for_Ubuntu skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">Build Instructions for Ubuntu</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Build_Instructions_for_Ubuntu"><span class="tocnumber">1</span> <span class="toctext">Build Instructions for Ubuntu</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Build_Pre-requisites"><span class="tocnumber">2</span> <span class="toctext">Build Pre-requisites</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Getting_the_Cross-Toolchain"><span class="tocnumber">3</span> <span class="toctext">Getting the Cross-Toolchain</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Building_u-boot"><span class="tocnumber">4</span> <span class="toctext">Building u-boot</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Setting_up_the_sd_card"><span class="tocnumber">5</span> <span class="toctext">Setting up the sd card</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Ubuntu_Core"><span class="tocnumber">6</span> <span class="toctext">Ubuntu Core</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Ubuntu_Core_for_Offline_instalation"><span class="tocnumber">7</span> <span class="toctext">Ubuntu Core for Offline instalation</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#Configuring_the_system"><span class="tocnumber">8</span> <span class="toctext">Configuring the system</span></a>
+<ul>
+<li class="toclevel-2 tocsection-9"><a href="#flash-kernel"><span class="tocnumber">8.1</span> <span class="toctext">flash-kernel</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#Kernel_modules"><span class="tocnumber">8.2</span> <span class="toctext">Kernel modules</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="#Base_configuration_files"><span class="tocnumber">8.3</span> <span class="toctext">Base configuration files</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="#Prepare_Login"><span class="tocnumber">8.4</span> <span class="toctext">Prepare Login</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="#chroot_and_setup"><span class="tocnumber">8.5</span> <span class="toctext">chroot and setup</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Build_Instructions_for_Ubuntu">Build Instructions for Ubuntu</span></h1>
+<p><b>Reference: Ubuntu 15.04 Vivid Vervet</b>
+</p>
+<h1><span class="mw-headline" id="Build_Pre-requisites">Build Pre-requisites</span></h1>
+<pre>sudo apt-get install build-essential git
+</pre>
+<p>Useful for building or troubleshooting older builds:
+</p>
+<pre>sudo apt-get install u-boot-tools sunxi-tools
+</pre>
+<h1><span class="mw-headline" id="Getting_the_Cross-Toolchain">Getting the Cross-Toolchain</span></h1>
+<p>See also: <a href="Toolchain.html" title="Toolchain">Toolchain</a>
+</p>
+<ul><li>Add the ArmHF architecture</li></ul>
+<pre>sudo dpkg --add-architecture armhf
+</pre>
+<ul><li>Modify existing sources, restricting to appropriate architectures (i.e. all i386 and amd64 package sources are prefixed as "deb [arch=i386,amd64]")</li></ul>
+<pre>sudo sed 's~\(\(deb\(-src\)*\) \([^\[]\)\)~\2 [arch=i386,amd64] \4~' /etc/apt/sources.list | sudo tee /etc/apt/sources.list
+#Manually configure third party sources
+sudo sed 's~\(\(deb\(-src\)*\) \([^\[]\)\)~\2 [arch=i386,amd64] \4~' /etc/apt/sources.list.d/*.list
+</pre>
+<ul><li>Create source list for the port architecture(s) (this adds the armhf port sources to apt)</li></ul>
+<pre>sudo bash -c 'cat &gt; /etc/apt/sources.list.d/armhf-ports.list &lt;&lt;EOT
+deb [arch=armhf] http://ports.ubuntu.com/ `lsb_release -cs` main universe multiverse restricted
+deb [arch=armhf] http://ports.ubuntu.com/ `lsb_release -cs`-updates main universe multiverse restricted
+deb [arch=armhf] http://ports.ubuntu.com/ `lsb_release -cs`-security main universe multiverse restricted
+EOT'
+</pre>
+<ul><li>Update apt and install crossbuild tools for armhf</li></ul>
+<pre>sudo apt-get update
+sudo apt-get install crossbuild-essential-armhf
+</pre>
+<h1><span class="mw-headline" id="Building_u-boot">Building u-boot</span></h1>
+<p>Mainline u-boot works fine:
+</p>
+<pre> git clone -b v2015.04 <a rel="nofollow" class="external free" href="git://git.denx.de/u-boot.git">git://git.denx.de/u-boot.git</a>
+ cd u-boot
+ make CROSS_COMPILE=arm-linux-gnueabihf- Mele_A1000_defconfig
+ make -j4 CROSS_COMPILE=arm-linux-gnueabihf-
+</pre>
+<p><i>search in the directory configs/ for your board, the file name looks like &lt;board_name&gt;_defconfig</i>
+</p><p>(Also refer to <a href="Mainline_U-boot.html#Compile_U-Boot" class="mw-redirect" title="Mainline U-boot">Mainline_U-boot#Compile U-Boot</a>)
+</p>
+<h1><span class="mw-headline" id="Setting_up_the_sd_card">Setting up the sd card</span></h1>
+<p>Enter an interactive superuser sudo shell
+</p>
+<pre> sudo su -
+</pre>
+<p>${card} is the SD device (ie <i>/dev/sdc</i>). ${partition} is the partition number (ie. <i>1</i>).
+Warning: This will delete the content. 
+</p>
+<pre> dd if=/dev/zero of=${card} bs=1M count=1
+ dd if=u-boot-sunxi-with-spl.bin of=${card} bs=1024 seek=8
+</pre>
+<p>Create partition(s). ie one big partition beginning with sector 2048, type 83 (Linux)
+</p>
+<pre> fdisk ${card}
+</pre>
+<pre> mkfs.ext4 ${card}${partition}
+ mount ${card}${partition} /mnt
+</pre>
+<p>This will first clean the card (at least the first 1M), install the u-boot bootloader you compiled in the step before,
+and then you can create -for example- one partition, format it, and mount it to <i>/mnt/</i> for use in the next steps.
+</p><p>(Also refer to <a href="Bootable_SD_card.html" title="Bootable SD card">Bootable_SD_card</a>)
+</p>
+<h1><span class="mw-headline" id="Ubuntu_Core">Ubuntu Core</span></h1>
+<p><a rel="nofollow" class="external free" href="https://wiki.ubuntu.com/Core">https://wiki.ubuntu.com/Core</a>
+</p>
+<ul><li>Download Ubuntu Core filesystem <br /></li></ul>
+<p>Link to Ubuntu Core download: <br />
+Ubuntu 15.04 (Vivid Vervet) - <a rel="nofollow" class="external free" href="http://cdimage.ubuntu.com/ubuntu-core/releases/vivid/release/">http://cdimage.ubuntu.com/ubuntu-core/releases/vivid/release/</a>
+</p>
+<ul><li>Extract Ubuntu Core filesystem to the mounted SD card</li></ul>
+<pre>cd /mnt
+sudo tar zxvf $path_to_root_fs
+</pre>
+<ul><li>Install qemu-arm-static</li></ul>
+<pre> sudo apt-get install qemu-user-static
+</pre>
+<ul><li>Prepare chroot environment</li></ul>
+<pre> cp /usr/bin/qemu-arm-static /mnt/usr/bin/
+ mount chproc /mnt/proc -t proc
+ mount chsys /mnt/sys -t sysfs
+</pre>
+<pre> cp /etc/resolv.conf /mnt/etc/resolv.conf
+</pre>
+<p>will allow network access after chroot-ing (in step 7) by copying the DNS resolver configuration
+</p>
+<ul><li>Open a chroot session into the target root filesystem. This will allow you to install packages and configure the target system before it is bootable.</li></ul>
+<pre> sudo LC_ALL=C LANGUAGE=C LANG=C chroot /mnt
+</pre>
+<pre> for f in /sys /proc /dev&#160;; do mount --rbind $f /mnt/$f&#160;; done&#160;; chroot /mnt\
+</pre>
+<p>will go to a chroot, see <a rel="nofollow" class="external text" href="http://askubuntu.com/questions/32418/is-there-an-easier-way-to-chroot-than-bind-mounting">Is there an easier way to chroot than bind-mounting?</a> for details about mount rbind
+</p>
+<pre> apt-get update &amp;&amp; apt-get install linux-{headers,image}-generic
+</pre>
+<p>will install kernel ("linux")
+</p><p>Note: it's possible that apt-get update will not work because no network is present.
+</p>
+<h1><span class="mw-headline" id="Ubuntu_Core_for_Offline_instalation">Ubuntu Core for Offline instalation</span></h1>
+<ul><li>Download the Linux Kernel</li></ul>
+<pre>apt-get download linux-generic:armhf flash-kernel:armhf linux-base linux-image-generic:armhf linux-headers-generic:armhf devio:armhf
+</pre>
+<ul><li>Install flash-kernel</li></ul>
+<pre>dpkg -i devio_1.2-1build2_armhf.deb
+</pre>
+<ul><li>Install the kernel:</li></ul>
+<pre> # dpkg -i /tmp/$dependencies
+ # dpkg -i /tmp/$kernel
+</pre>
+<ul><li>Copy the kernel and any dependencies to the target root filesystem, e.g.</li></ul>
+<pre>cp $path_to_kernel/*deb /mnt/tmp
+</pre>
+<p><br />
+</p>
+<h1><span class="mw-headline" id="Configuring_the_system">Configuring the system</span></h1>
+<h2><span class="mw-headline" id="flash-kernel">flash-kernel</span></h2>
+<p>We are going to use flash-kernel to generate the <i>boot.src</i>. Tell it which hardware we're aiming for. (Devices listed in: <i>/usr/share/flash-kernel/db/all.db</i>)
+</p>
+<pre> mkdir /mnt/etc/flash-kernel/
+ echo "Cubietech Cubietruck" &gt;&gt; /mnt/etc/flash-kernel/machine
+</pre>
+<p>Kernel arguments:
+</p>
+<pre>echo 'LINUX_KERNEL_CMDLINE="console=ttyS0,115200 hdmi.audio=EDID:0 disp.screen0_output_mode=EDID:1280x1024p60 root=/dev/mmcblk0p1 rootwait panic=10 ${extra}"' &gt;&gt; /mnt/etc/default/flash-kernel
+</pre>
+<h2><span class="mw-headline" id="Kernel_modules">Kernel modules</span></h2>
+<p>Write extra modules that should be loaded at boot time to <i>/mnt/etc/modules</i>.
+</p>
+<pre> echo "rtc_sunxi" &gt;&gt; /etc/initramfs-tools/modules
+</pre>
+<h2><span class="mw-headline" id="Base_configuration_files">Base configuration files</span></h2>
+<pre> echo "/dev/mmcblk0p1  /           ext4    relatime,errors=remount-ro        0       1" &gt; /mnt/etc/fstab
+ echo "HOSTNAME" &gt; /mnt/etc/hostname
+</pre>
+<p>Hint: Please consider using your favorite debian-mirror instead of <i>ftp.debian.org</i>.
+</p>
+<pre>cat &lt;&lt;EOF &gt; /mnt/etc/apt/sources.list
+# 
+
+deb http://ftp.debian.org/debian/ testing main non-free contrib
+deb-src http://ftp.debian.org/debian/ testing main non-free contrib
+
+deb http://security.debian.org/ testing/updates main contrib non-free
+deb-src http://security.debian.org/ testing/updates main contrib non-free
+
+# testing-updates, previously known as 'volatile'
+deb http://ftp.debian.org/debian/ testing-updates main contrib non-free
+deb-src http://ftp.debian.org/debian/ testing-updates main contrib non-free
+EOF</pre>
+<pre>cat &lt;&lt;EOF &gt; /mnt/etc/apt/sources.list.d/experimental.list
+deb http://ftp.debian.org/debian/ unstable main non-free contrib
+deb-src http://ftp.debian.org/debian/ unstable main non-free contrib
+
+deb http://ftp.debian.org/debian/ experimental main non-free contrib
+deb-src http://ftp.debian.org/debian/ experimental main non-free contrib
+EOF</pre>
+<pre>cat &lt;&lt;EOF &gt; /mnt/etc/apt/preferences.d/experimental
+Package: *
+Pin: release o=Debian,a=unstable
+Pin-Priority: 150
+
+Package: *
+Pin: release a=experimental
+Pin-Priority: -10
+EOF</pre>
+<pre>cat &lt;&lt;EOF &gt; /mnt/etc/network/interfaces
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# The primary network interface
+allow-hotplug eth0
+iface eth0 inet dhcp
+EOF</pre>
+<h2><span class="mw-headline" id="Prepare_Login">Prepare Login</span></h2>
+<p>Remember: We won't have any display output, so we can eiter:
+spawn a login on the serial console:
+</p>
+<pre> echo "T0:23:respawn:/sbin/getty -L ttyS0 115200 vt100" &gt;&gt; /mnt/etc/inittab
+</pre>
+<p>and/or use ssh. Since debian disabled root password-login in jessie, re-enable it: 
+</p>
+<pre> sed -i "s/^PermitRootLogin without-password/PermitRootLogin yes/" /mnt/etc/ssh/sshd_config
+</pre>
+<p>or copy your key:
+</p>
+<pre> umask 077; mkdir /mnt/root/.ssh/ cat ~/.ssh/id_rsa.pub &gt;&gt; /mnt/root/.ssh/authorized_keys
+</pre>
+<h2><span class="mw-headline" id="chroot_and_setup">chroot and setup</span></h2>
+<p>Now <i>chroot</i> in to the new system, install kernel and set everything up.
+</p>
+<pre> mount -t proc chproc /mnt/proc
+ mount chsys /mnt/sys -t sysfs
+ mount -t devtmpfs chdev /mnt/dev || mount --bind /dev /mnt/dev
+ mount -t devpts chpts /mnt/dev/pts
+ echo -e '#!/bin/sh\nexit 101' &gt; /mnt/usr/sbin/policy-rc.d
+ chmod 755 /mnt/usr/sbin/policy-rc.d
+ DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true LC_ALL=C LANGUAGE=C LANG=C chroot /mnt dpkg --configure -a
+</pre>
+<pre> LC_ALL=C LANGUAGE=C LANG=C chroot /mnt
+</pre>
+<p>The next steps are executed inside the chroot:
+</p>
+<pre>   apt-get update
+   apt-get install locales &amp;&amp; dpkg-reconfigure locales
+   dpkg-reconfigure tzdata
+</pre>
+<p>Install the kernel and u-boot (u-boot from debian is not used, but it does no harm and i'll include it for future reference)
+</p>
+<pre>   apt-get -t experimental install linux-image-3.16-rc6-armmp-lpae u-boot u-boot-tools
+</pre>
+<p>Or, if you want simple frame-buffer support (on some cards) go with kernel &gt;3.19:
+</p>
+<pre>   apt-get -t experimental install linux-image-3.19.0-trunk-armmp-lpae u-boot u-boot-tools
+</pre>
+<p>Install non-free firmware and add one currently missing file to the wifi-firmware:
+</p>
+<pre>   apt-get install firmware-linux firmware-brcm80211 sunxi-tools flash-kernel
+   wget -O /lib/firmware/brcm/brcmfmac43362-sdio.txt <a rel="nofollow" class="external free" href="http://dl.cubieboard.org/public/Cubieboard/benn/firmware/ap6210/nvram_ap6210.txt">http://dl.cubieboard.org/public/Cubieboard/benn/firmware/ap6210/nvram_ap6210.txt</a>
+</pre>
+<p>Install a few other things:
+</p>
+<pre>   apt-get install console-setup keyboard-configuration systemd systemd-sysv openssh-server ntp
+</pre>
+<p>At this point, debian should have generated a kernel image <i>/boot/vmlinuz-???</i> and an initrd <i>/boot/initrd.img-???</i> for you.
+Generate the <i>/boot/boot.scr</i>, set a password and after a little cleanup you're set:
+</p>
+<pre>   flash-kernel
+   passwd root
+   exit
+</pre>
+<!-- 
+NewPP limit report
+Cached time: 20251029055600
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.037 seconds
+Real time usage: 0.101 seconds
+Preprocessor visited node count: 112/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 2635/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:2121-0!canonical and timestamp 20251029055600 and revision id 13966
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=Build_Instructions_for_Ubuntu&amp;oldid=13966">https://linux-sunxi.org/index.php?title=Build_Instructions_for_Ubuntu&amp;oldid=13966</a>"</div>
+		<div id="catlinks" class="catlinks catlinks-allhidden" data-mw="interface"></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=Build+Instructions+for+Ubuntu" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=Build+Instructions+for+Ubuntu" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="Build_Instructions_for_Ubuntu.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:Build_Instructions_for_Ubuntu&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="Build_Instructions_for_Ubuntu.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Build_Instructions_for_Ubuntu&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Build_Instructions_for_Ubuntu&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="https://linux-sunxi.org/Special:WhatLinksHere/Build_Instructions_for_Ubuntu" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/Build_Instructions_for_Ubuntu" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=Build_Instructions_for_Ubuntu&amp;oldid=13966" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=Build_Instructions_for_Ubuntu&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 9 May 2015, at 15:41.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.037","walltime":"0.101","ppvisitednodes":{"value":112,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":2635,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20251029055600","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":487});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

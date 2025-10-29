@@ -1,0 +1,301 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Cubieboard/HDD - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"1656da79d3d7e2eed74a9e9a","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Cubieboard/HDD","wgTitle":"Cubieboard/HDD","wgCurRevisionId":7239,"wgRevisionId":7239,"wgArticleId":559,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Cubieboard"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Cubieboard/HDD","wgRelevantArticleId":559,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":
+"ready","user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=mediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="HDD.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-Cubieboard_HDD rootpage-Cubieboard skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">Cubieboard/HDD</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"><span class="subpages">&lt; <a href="../Cubieboard.html" class="mw-redirect" title="Cubieboard">Cubieboard</a></span></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p><br />
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#2.5.22_HDD"><span class="tocnumber">1</span> <span class="toctext">2.5" HDD</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#3.5.22_HDD"><span class="tocnumber">2</span> <span class="toctext">3.5" HDD</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Addon_design"><span class="tocnumber">2.1</span> <span class="toctext">Addon design</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Power_brick_.26_Molex_design"><span class="tocnumber">2.2</span> <span class="toctext">Power brick &amp; Molex design</span></a>
+<ul>
+<li class="toclevel-3 tocsection-5"><a href="#Power_bricks_comparison"><span class="tocnumber">2.2.1</span> <span class="toctext">Power bricks comparison</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-6"><a href="#PC_PSU_.26_Molex_design"><span class="tocnumber">2.3</span> <span class="toctext">PC PSU &amp; Molex design</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#External_HDD_enclosure_design"><span class="tocnumber">2.4</span> <span class="toctext">External HDD enclosure design</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><span id="2.5&quot;_HDD"></span><span class="mw-headline" id="2.5.22_HDD">2.5" HDD</span></h2>
+<p>The Cubieboard comes with data and power SATA cable and will provide enough power if your PSU's current rating is sufficient. The <b>peak</b> current draw of HDDs from this category may be as high as 0.9A - 1.75A. For this reason make sure to use PSU with 2A or 2.5A or use separate PSU for the disk.
+</p>
+<h2><span id="3.5&quot;_HDD"></span><span class="mw-headline" id="3.5.22_HDD">3.5" HDD</span></h2>
+<p>Unlike 2.5" disks the desktop HDDs requires both 5V and 12V. They peak 1.7A - 2.8A on the 12V voltage branch (not the 5V branch as 2.5" HDDs). Using desktop HDD with Cubieboard is just matter of how you wire it up.
+</p>
+<h3><span class="mw-headline" id="Addon_design">Addon design</span></h3>
+<p>Cubietech has released an addon package that will allow you to hook up the drive. More information can be found in their <a rel="nofollow" class="external text" href="http://cubieboard.org/2013/09/24/how-to-support-3-5-inch-hdd-on-cubieboard/">blog post</a>.
+</p><p>The answers for a couple of comments on the post:
+</p><p>Is it possible to power the cubieboard directly from this addon?
+Yes, you only need one 12V power adapter for that, the cubieboard can be powered by 12V-5V Subboard.
+</p><p>How much Amperage is recommended for the 12V to power one HDD and the Cubietruck&#160;?
+2.5 Amperage is ok
+</p>
+<h3><span id="Power_brick_&amp;_Molex_design"></span><span class="mw-headline" id="Power_brick_.26_Molex_design">Power brick &amp; Molex design</span></h3>
+<div class="thumb tright"><div class="thumbinner" style="width:302px;"><a href="../File:PSU_molex.jpg.html" class="image"><img alt="" src="https://linux-sunxi.org/images/thumb/5/59/PSU_molex.jpg/300px-PSU_molex.jpg" decoding="async" width="300" height="265" class="thumbimage" srcset="https://linux-sunxi.org/images/thumb/5/59/PSU_molex.jpg/450px-PSU_molex.jpg 1.5x, https://linux-sunxi.org/images/5/59/PSU_molex.jpg 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="../File:PSU_molex.jpg.html" class="internal" title="Enlarge"></a></div>PSU with Molex output</div></div></div>
+<div class="thumb tright"><div class="thumbinner" style="width:302px;"><a href="https://linux-sunxi.org/File:Molex-SATA-splitter.jpg" class="image"><img alt="" src="https://linux-sunxi.org/images/thumb/e/ea/Molex-SATA-splitter.jpg/300px-Molex-SATA-splitter.jpg" decoding="async" width="300" height="300" class="thumbimage" srcset="https://linux-sunxi.org/images/thumb/e/ea/Molex-SATA-splitter.jpg/450px-Molex-SATA-splitter.jpg 1.5x, https://linux-sunxi.org/images/thumb/e/ea/Molex-SATA-splitter.jpg/600px-Molex-SATA-splitter.jpg 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://linux-sunxi.org/File:Molex-SATA-splitter.jpg" class="internal" title="Enlarge"></a></div>Molex-to-SATA power splitter</div></div></div>
+<p>There is a few <i>power bricks</i> (aka laptop's PSU) on the market with Molex power connector (precisely Molex 8981 Series Power Connector). Such a PSU will certainly provide 5V and 12V voltage branches. Then you can use <a rel="nofollow" class="external text" href="http://www.coolerguys.com/840556096177.html">Molex to USB splitter</a> or create your own from one of the many available Molex-to-SATA power splitters. If you choose to create your own splitter, you will cut down one of the two connectors on your splitter which will give you four cables (5V red + ground and 12V yellow + ground). Then you will use the 5V pair to create USB, miniUSB or 4.0mm/1.0mm barrel plug connector. The barrel plug is probably the easiest to solder (the 5V/positive/red cable goes in the center and ground/black cable goes to sleeve). The second unmodified connector will be used to directly supply power for the 3.5" HDD. The HDD and Cubieboard will be connect with only one cable - SATA data.
+</p>
+<h4><span class="mw-headline" id="Power_bricks_comparison">Power bricks comparison</span></h4>
+<table class="wikitable">
+
+<tbody><tr>
+<th>Brick</th>
+<th>Current</th>
+<th>Price
+</th></tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="http://www.coolerguys.com/840556029977.html">Coolerguys Power Adapter</a></td>
+<td>2.0 A</td>
+<td>$15
+</td></tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="http://www.gmb.nl/egmb/default.aspx?op=products&amp;op2=item&amp;id=6525">Gembird USB 3.0 to SATA adapter</a></td>
+<td>1.5 A<sup>1)</sup></td>
+<td>$15
+</td></tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="http://www.ab-com.cz/podle-vyrobce/premiumcord/premiumcord-napajeci-adapter-pro-3-5i-hdd-230v-5v-1-5a-12v-1-5a.html?utm_source=zbozi&amp;utm_medium=placene&amp;utm_campaign=placene_zbozi">PremiumCord Power Adapter for 3.5" HDD</a></td>
+<td>1.5 A</td>
+<td>$19
+</td></tr></tbody></table>
+<p><sup>1)</sup> <i>Gembird claims 2.5 A on the box, but power brick itself 1.5 A.</i>
+</p>
+<h3><span id="PC_PSU_&amp;_Molex_design"></span><span class="mw-headline" id="PC_PSU_.26_Molex_design">PC PSU &amp; Molex design</span></h3>
+<p>This design is pretty much the same as the one above, however you won't use power brick but your PC's own PSU. I won't go in details here, but this design requires to short two cables to ensure the PSU will stay on even if you switch off your computer. The upside is you won't need to buy extra PSU (the brick). The downside is your PSU's fan will be generating noise and the power efficiency may be questionable.
+</p>
+<h3><span class="mw-headline" id="External_HDD_enclosure_design">External HDD enclosure design</span></h3>
+<p>I don't know details on this one, but basically you gonna use external HDD enclosure to power your HDD and with some soldering to power the Cubieboard. The upside is you get enclosure for both your HDD and Cubieboard (if you select one that is big enough).
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20251029052046
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.100 seconds
+Real time usage: 0.194 seconds
+Preprocessor visited node count: 23/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:559-0!canonical and timestamp 20251029052046 and revision id 7239
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=Cubieboard/HDD&amp;oldid=7239">https://linux-sunxi.org/index.php?title=Cubieboard/HDD&amp;oldid=7239</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="../Special:Categories.html" title="Special:Categories">Category</a>: <ul><li><a href="../Category:Cubieboard.html" title="Category:Cubieboard">Cubieboard</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=Cubieboard%2FHDD" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=Cubieboard%2FHDD" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="HDD.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:Cubieboard/HDD&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="HDD.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Cubieboard/HDD&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Cubieboard/HDD&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="../index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="../index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="../sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="../Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="https://linux-sunxi.org/Special:WhatLinksHere/Cubieboard/HDD" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/Cubieboard/HDD" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="../Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=Cubieboard/HDD&amp;oldid=7239" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=Cubieboard/HDD&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 11 March 2014, at 17:30.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.100","walltime":"0.194","ppvisitednodes":{"value":23,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":0,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20251029052046","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":434});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

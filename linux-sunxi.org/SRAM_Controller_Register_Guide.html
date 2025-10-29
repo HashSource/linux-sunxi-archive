@@ -1,0 +1,1418 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>SRAM Controller Register Guide - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"3dbfe0475a4ee6d1ff2d4b57","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"SRAM_Controller_Register_Guide","wgTitle":"SRAM Controller Register Guide","wgCurRevisionId":19812,"wgRevisionId":19812,"wgArticleId":306,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["A10 Register guide","A13 Register guide","A20 Register guide"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"SRAM_Controller_Register_Guide","wgRelevantArticleId":306,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,
+"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":"ready","user":"ready","user.options":"loading","ext.cite.styles":"ready","skins.vector.styles.legacy":"ready"};RLPAGEMODULES=["ext.RegularTooltips","ext.cite.ux-enhancements","site","mediawiki.page.startup","mediawiki.page.ready","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=ext.cite.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="SRAM_Controller_Register_Guide.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-SRAM_Controller_Register_Guide rootpage-SRAM_Controller_Register_Guide skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">SRAM Controller Register Guide</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><h1><span class="mw-headline" id="SRAM_Controller">SRAM Controller</span></h1>
+<h2><span class="mw-headline" id="Overview">Overview</span></h2>
+<p>Static Random Access Memory <a class="external text" href="http://en.wikipedia.org/wiki/Static_random-access_memory">SRAM</a> is used by devices, such as the CPU, for extra fast memory or as cache.
+</p><p>On the the SRAM is split up into segments, A, B, C, D, NAND and CPU, A - is generally usable ram 48kB 
+CPU caches not mapped to address space and can't be used by any other purpose C,D sections can be mapped over SRAM config
+but it required for internal hardware caches for VE, NAND, ISP
+</p>
+<h2><span class="mw-headline" id="SRAM_Sections">SRAM Sections</span></h2>
+<table class="wikitable">
+<tbody><tr>
+<th>Section
+</th>
+<th>Subsection
+</th>
+<th>Address
+</th>
+<th>Size
+</th>
+<th>Description
+</th>
+<th>Usable
+</th>
+<th>A10
+</th>
+<th>A13
+</th>
+<th>A20
+</th>
+<th>A31
+</th>
+<th>A23
+</th></tr>
+<tr>
+<td><b>A</b>
+</td>
+<td>A1
+</td>
+<td><tt>0x00000000 - 0x00003fff</tt>
+</td>
+<td>16 kiB / 32kiB on A31
+</td>
+<td>
+</td>
+<td>Y
+</td>
+<td>Y
+</td>
+<td>Y
+</td>
+<td>Y
+</td>
+<td>Y
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td>
+</td>
+<td>A2
+</td>
+<td><tt>0x00004000 - 0x00007fff</tt>
+</td>
+<td>16 kiB
+</td>
+<td>
+</td>
+<td>Y
+</td>
+<td>Y
+</td>
+<td>Y
+</td>
+<td>Y
+</td>
+<td>N
+</td>
+<td>N
+</td></tr>
+<tr>
+<td>
+</td>
+<td>A3
+</td>
+<td><tt>0x00008000 - 0x0000b3ff</tt>
+</td>
+<td>13 kiB
+</td>
+<td>EMAC
+</td>
+<td>Y
+</td>
+<td>Y
+</td>
+<td>Y
+</td>
+<td>Y<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup>
+</td>
+<td>N
+</td>
+<td>N
+</td></tr>
+<tr>
+<td>
+</td>
+<td>A4
+</td>
+<td><tt>0x0000b400 - 0x0000bfff</tt>
+</td>
+<td>3 kiB
+</td>
+<td>EMAC
+</td>
+<td>Y
+</td>
+<td>Y
+</td>
+<td>?
+</td>
+<td>Y<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;2&#93;</a></sup>
+</td>
+<td>N
+</td>
+<td>N
+</td></tr>
+<tr>
+<td>
+</td>
+<td>A2
+</td>
+<td><tt>0x00044000 - 0x00053fff</tt>
+</td>
+<td>64 kiB
+</td>
+<td>Shared with <a href="AR100.html" title="AR100">AR100</a> OpenRISC core
+</td>
+<td>N
+</td>
+<td>N
+</td>
+<td>N
+</td>
+<td>N
+</td>
+<td>Y
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td>
+</td>
+<td>VE SRAM
+</td>
+<td><tt>0x00004000 - 0x0000ffff</tt>
+</td>
+<td>64 kiB
+</td>
+<td>
+</td>
+<td>N
+</td>
+<td>N
+</td>
+<td>N
+</td>
+<td>N
+</td>
+<td>?
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><b>B</b>
+</td>
+<td>B
+</td>
+<td><tt>0x00020000 - 0x0002ffff</tt>
+</td>
+<td>64 kiB
+</td>
+<td>Secure RAM
+</td>
+<td>Y
+</td>
+<td>Y
+</td>
+<td>N
+</td>
+<td>Y
+</td>
+<td>Y
+</td>
+<td>N
+</td></tr>
+<tr>
+<td><b>C</b>
+</td>
+<td>C1
+</td>
+<td><tt>0x01d00000 - 0x01d7ffff</tt>
+</td>
+<td>512 kiB {first 62 kiB work on A10, rest is partly read only, wraps around after 0x01d40000}
+</td>
+<td>CedarV
+</td>
+<td>Y<sup id="cite_ref-3" class="reference"><a href="#cite_note-3">&#91;3&#93;</a></sup>
+</td>
+<td>Y
+</td>
+<td>Y
+</td>
+<td>Y
+</td>
+<td>N
+</td>
+<td>N
+</td></tr>
+<tr>
+<td>
+</td>
+<td>C2
+</td>
+<td><tt>0x01d80000 - 0x01d9ffff</tt>
+</td>
+<td>128 kiB {first 6912 B work on A10, rest is partly forced zero}
+</td>
+<td>CedarA
+</td>
+<td>Y<sup id="cite_ref-4" class="reference"><a href="#cite_note-4">&#91;4&#93;</a></sup>
+</td>
+<td>Y
+</td>
+<td>?
+</td>
+<td>Y
+</td>
+<td>N
+</td>
+<td>N
+</td></tr>
+<tr>
+<td>
+</td>
+<td>C3
+</td>
+<td><tt>0x01dc0000 - 0x01dcffff</tt>
+</td>
+<td>64 kiB {unconfirmed}
+</td>
+<td>ISP/BIST
+</td>
+<td>N<sup id="cite_ref-5" class="reference"><a href="#cite_note-5">&#91;5&#93;</a></sup>
+</td>
+<td>Y
+</td>
+<td>Y
+</td>
+<td>Y
+</td>
+<td>N
+</td>
+<td>N
+</td></tr>
+<tr>
+<td><b>D</b>
+</td>
+<td>D
+</td>
+<td><tt>0x00010000 - 0x00010fff</tt>
+</td>
+<td>4 kiB {unconfirmed}
+</td>
+<td>USB FIFOs
+</td>
+<td>Y<sup id="cite_ref-6" class="reference"><a href="#cite_note-6">&#91;6&#93;</a></sup>
+</td>
+<td>Y
+</td>
+<td>Y
+</td>
+<td>Y
+</td>
+<td>Y
+</td>
+<td>N
+</td></tr>
+<tr>
+<td><b>NAND</b>
+</td>
+<td>NAND
+</td>
+<td><tt>0x01c03400 - 0x01c03c00</tt> {unconfirmed}
+</td>
+<td>2 kiB
+</td>
+<td>NAND flash controller
+</td>
+<td>Y
+</td>
+<td>Y
+</td>
+<td>Y
+</td>
+<td>?
+</td></tr>
+<tr>
+<td><b>CPU</b>
+</td>
+<td>CPU I-cache
+</td>
+<td>Not mapped
+</td>
+<td>32 kiB
+</td>
+<td>
+</td>
+<td>N
+</td>
+<td>Y
+</td>
+<td>Y
+</td>
+<td>Y
+</td>
+<td>Y
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td>
+</td>
+<td>CPU D-Cache
+</td>
+<td>Not mapped
+</td>
+<td>32 kiB
+</td>
+<td>
+</td>
+<td>N
+</td>
+<td>Y
+</td>
+<td>Y
+</td>
+<td>Y
+</td>
+<td>Y
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td>
+</td>
+<td>CPU L2 Cache
+</td>
+<td>Not mapped
+</td>
+<td>256/128 kiB
+</td>
+<td>
+</td>
+<td>N
+</td>
+<td>Y
+</td>
+<td>Y
+</td>
+<td>Y
+</td>
+<td>Y
+</td>
+<td>Y
+</td></tr></tbody></table>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">For A20 SRAM_A3_A4_MAP set up for emac by default, so you should change it for make it usable</span>
+</li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">For A20 SRAM_A3_A4_MAP set up for emac by default, so you should change it for make it usable</span>
+</li>
+<li id="cite_note-3"><span class="mw-cite-backlink"><a href="#cite_ref-3">↑</a></span> <span class="reference-text">VE must be enabled (AHB gate and VE SCLK)</span>
+</li>
+<li id="cite_note-4"><span class="mw-cite-backlink"><a href="#cite_ref-4">↑</a></span> <span class="reference-text">ACE must be enabled (AHB gate and ACE SCLK)</span>
+</li>
+<li id="cite_note-5"><span class="mw-cite-backlink"><a href="#cite_ref-5">↑</a></span> <span class="reference-text">Changing bit SRAM_C3_MAP doesn't allow writing to SRAM_C3( as like others there should be need enable ISP/BIST gate and clock but uncheked)</span>
+</li>
+<li id="cite_note-6"><span class="mw-cite-backlink"><a href="#cite_ref-6">↑</a></span> <span class="reference-text">Register SRAM_CTL1_CFG needs SRAM_D_MAP set to 0 to allow access</span>
+</li>
+</ol></div>
+<p>It should be noted, that all accessability tests where done using the u-boot console. It is possible that some secret combination (like emac) needs to be set to actually allow writing.
+</p>
+<h2><span class="mw-headline" id="SRAM_Registers">SRAM Registers</span></h2>
+<p>SRAM Base address: 0x01c00000
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Register Name
+</th>
+<th>Offset
+</th>
+<th>Size
+</th>
+<th>Description
+</th>
+<th>A31
+</th>
+<th>A20
+</th></tr>
+<tr>
+<td><tt>SRAM_CTL0_CFG</tt>
+</td>
+<td><tt>0x0000</tt>
+</td>
+<td><tt>DWORD</tt>
+</td>
+<td>SRAM Control register 0
+</td>
+<td>Y
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>SRAM_CTL1_CFG</tt>
+</td>
+<td><tt>0x0004</tt>
+</td>
+<td><tt>DWORD</tt>
+</td>
+<td>SRAM Control register 1
+</td>
+<td>Y
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>SRAM_TIMING_CTRL</tt>
+</td>
+<td><tt>0x0008</tt>
+</td>
+<td><tt>DWORD</tt>
+</td>
+<td>{unconfirmed} 000000ff on a20 set possible
+</td>
+<td>?
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>SRAM_BIST_CTRL</tt>
+</td>
+<td><tt>0x0014</tt>
+</td>
+<td><tt>DWORD</tt>
+</td>
+<td>{looks present but don't know how it works}
+</td>
+<td>?
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>SRAM_BIST_??</tt>
+</td>
+<td><tt>0x0018</tt>
+</td>
+<td><tt>DWORD</tt>
+</td>
+<td>{looks present but don't know how it works}
+</td>
+<td>?
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>SRAM_BIST_START_ADDR</tt>
+</td>
+<td><tt>0x001c</tt>
+</td>
+<td><tt>DWORD</tt>
+</td>
+<td>{looks present but don't know how it works}
+</td>
+<td>?
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>SRAM_BIST_END_ADDR</tt>
+</td>
+<td><tt>0x0020</tt>
+</td>
+<td><tt>DWORD</tt>
+</td>
+<td>{looks present but don't know how it works}
+</td>
+<td>?
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>SRAM_VER_REG</tt>
+</td>
+<td><tt>0x0024</tt>
+</td>
+<td><tt>DWORD</tt>
+</td>
+<td>Version Register
+</td>
+<td>Y
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>SRAM_NMI_CTRL</tt>
+</td>
+<td><tt>0x0030</tt>
+</td>
+<td><tt>DWORD</tt>
+</td>
+<td>see A20 manual {others unconfirmed}
+</td>
+<td>N
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>SRAM_NMI_PEND</tt>
+</td>
+<td><tt>0x0034</tt>
+</td>
+<td><tt>DWORD</tt>
+</td>
+<td>see A20 manual {others unconfirmed}
+</td>
+<td>N
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>SRAM_NMI_EN</tt>
+</td>
+<td><tt>0x0038</tt>
+</td>
+<td><tt>DWORD</tt>
+</td>
+<td>see A20 manual
+</td>
+<td>N
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt>SRAM_EMA</tt>
+</td>
+<td><tt>0x0044</tt>
+</td>
+<td><tt>DWORD</tt>
+</td>
+<td>Undocumented magic in boot0.
+</td>
+<td>N
+</td>
+<td>Y
+</td></tr>
+<tr>
+<td><tt> SRAM_GPU_DXT_BC_EN</tt>
+</td>
+<td><tt>0x0050</tt>
+</td>
+<td><tt>DWORD</tt>
+</td>
+<td>GPU DXT BC Enable (A31 only)
+</td>
+<td>Y
+</td>
+<td>N
+</td></tr>
+<tr>
+<td><tt> SRAM_GPU_SW_GATE</tt>
+</td>
+<td><tt>0x0054</tt>
+</td>
+<td><tt>DWORD</tt>
+</td>
+<td>GPU SW Gathing (A31 only)
+</td>
+<td>Y
+</td>
+<td>N
+</td></tr>
+<tr>
+<td><tt> SRAM_GPU_POWER_STATUS</tt>
+</td>
+<td><tt>0x0060</tt>
+</td>
+<td><tt>DWORD</tt>
+</td>
+<td>GPU Power Status(A31 only)
+</td>
+<td>Y
+</td>
+<td>N
+</td></tr>
+
+</tbody></table>
+<h3><span class="mw-headline" id="SRAM_CTL0_CFG">SRAM_CTL0_CFG</span></h3>
+<p>Default value: 0x7fffffff<br />
+Offset: 0x0000
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default (Hex)
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>SRAM_C1_MAP</tt>
+</td>
+<td><tt>0:30</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x7fffffff</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = CPU/DMA
+    1 = VE
+  </tt>
+</pre>
+</td>
+<td>Each bit represents a page to be mapped to the CPU/DMA unit or to the VE. Each bit (combination) may represent a byte/page of sram C1
+</td></tr>
+<tr>
+<td>
+</td>
+<td><tt>31</tt>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td><tt>reserved</tt>
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="SRAM_CTL1_CFG">SRAM_CTL1_CFG</span></h3>
+<p>Default value A10: 0x1300<br />
+Default value A20: 0x1314
+Default value A13: 0x1000<br />
+</p><p>Offset: 0x0004
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default (Binary)
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>SRAM_D_MAP</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = CPU/DMA
+    1 = USB0
+  </tt>
+</pre>
+</td>
+<td>Map SRAM D to either the CPU/DMA unit or to USB0
+</td></tr>
+<tr>
+<td><tt>reserved</tt>
+</td>
+<td><tt>1</tt>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>SRAM_</tt>
+</td>
+<td><tt>2</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 =&#160;?
+    1 =&#160;?
+  </tt>
+</pre>
+</td>
+<td><a class="external text" href="https://github.com/amery/linux-allwinner/blob/import/lichee-3.3/a20-dev/drivers/net/ethernet/sun7i/sun7i_wemac.c#L478#L478">EMAC</a> at the least changes this.A20 have this set by default
+</td></tr>
+<tr>
+<td><tt>reserved</tt>
+</td>
+<td><tt>3</tt>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>SRAM_A3_A4_MAP</tt>
+</td>
+<td><tt>4:5</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b00</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    00 = CPU/DMA
+    01 = EMAC
+    10 = no operation
+    11 = no operation
+  </tt>
+</pre>
+</td>
+<td>Map SRAM A3 and A4 to either the CPU/DMA unit or to EMAC
+</td></tr>
+<tr>
+<td><tt>reserved</tt>
+</td>
+<td><tt>6:7</tt>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>SRAM_C2_MAP</tt>
+</td>
+<td><tt>8:9</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b11</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    00 = CPU/BIST
+    01 = AE
+    10 = CE
+    11 = ACE
+  </tt>
+</pre>
+</td>
+<td>Map SRAM C2 to either the CPU/BIST unit or to the AE or to the CE or to the ACE
+</td></tr>
+<tr>
+<td><tt>reserved</tt>
+</td>
+<td><tt>10:11</tt>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>SRAM_C3_MAP</tt>
+</td>
+<td><tt>12</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b1</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = CPU/BIST
+    1 = ISP
+  </tt>
+</pre>
+</td>
+<td>Map SRAM C3 to either the CPU/BIST unit or to ISP
+</td></tr>
+<tr>
+<td><tt>reserved?</tt>
+</td>
+<td><tt>13:22</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+
+<tr>
+<td><tt>reserved</tt>
+</td>
+<td><tt>22:30</tt>
+</td>
+<td><tt>Read Only</tt>
+</td>
+<td><tt>0b0</tt>
+</td>
+<td>Reserved
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>SRAM_BIST_DMA_CTL</tt>
+</td>
+<td><tt>31</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = DMA
+    1 = BIST
+  </tt>
+</pre>
+</td>
+<td>Normal DMA or BIST control (build in self test)
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="SRAM_VER_REG">SRAM_VER_REG</span></h3>
+<p>Default value: 0x0000100 <br />
+Offset: 0x0024 <br />
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td>VER_CHIP_ID
+</td>
+<td>31:16
+</td>
+<td>Readonly
+</td>
+<td>0x0000
+</td>
+<td><tt>
+</tt><pre><tt>   if VER_R_EN is set:
+    0x1623 = A10
+    0x1625 = A13/A10s/R8
+    0x1633 = A31/A31s
+    0x1639 = A80
+    0x1650 = A23
+    0x1651 = A20
+    0x1667 = A33
+    0x1680 = H3
+    0x1689 = A64/H64
+    0x1701 = R40
+    0x1718 = H5
+   otherwise
+    0
+  </tt>
+</pre>
+</td>
+<td>Chip ID. Requires  VER_R_EN to be set.
+</td></tr>
+<tr>
+<td>VER_R_EN
+</td>
+<td>15
+</td>
+<td>Read/Write
+</td>
+<td>0
+</td>
+<td><tt>
+</tt><pre><tt>   0 = Disabled
+   1 = Enabled
+  </tt>
+</pre>
+</td>
+<td>Enable VER_CHIP_ID reading in upper bits
+</td></tr>
+<tr>
+<td>BOOT_SEL_PAD_STA
+</td>
+<td>6:8
+</td>
+<td>Read
+</td>
+<td>-
+</td>
+<td>For A10
+<pre>0b000 = U-BOOT button pressed
+0b001 = U-BOOT button released
+</pre>
+<p>For A31
+</p>
+<pre>0b000 = All buttons pressed
+0b100 = U-BOOT button released
+0b111 = Boot from NAND
+0b110 = Boot from SD2
+0b101 = Boot from eMMC2
+0b100 = Boot from SPI-NOR
+0b111 = All buttons released
+</pre>
+</td>
+<td>Current status of BootSelect pin(s), should be sampled by APB clock, no hardware debounce
+<p><sup id="cite_ref-7" class="reference"><a href="#cite_note-7">&#91;1&#93;</a></sup>
+</p>
+</td></tr>
+<tr>
+<td>VER_BITS
+</td>
+<td>7:0
+</td>
+<td>Read
+</td>
+<td>0b001
+</td>
+<td>
+</td>
+<td>Mask revision level of SoC
+</td></tr>
+</tbody></table>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-7"><span class="mw-cite-backlink"><a href="#cite_ref-7">↑</a></span> <span class="reference-text"><a class="external free" href="https://github.com/hno/Allwinner-Info/blob/master/BROM/ffff4000.s#L2402#L2402">https://github.com/hno/Allwinner-Info/blob/master/BROM/ffff4000.s#L2402</a></span>
+</li>
+</ol></div>
+<h3><span class="mw-headline" id="SRAM_BIST_CTRL">SRAM_BIST_CTRL</span></h3>
+<p>Default value: 0x0000100 <br />
+Offset: 0x0024 <br />
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td>SRAM_BIST_EN
+</td>
+<td>0
+</td>
+<td>Read/Write
+</td>
+<td>0
+</td>
+<td><tt>
+</tt><pre><tt> </tt>
+</pre>
+</td>
+<td>looks like enable bit
+</td></tr>
+<tr>
+<td>SRAM_BIST_START
+</td>
+<td>1
+</td>
+<td>Read/Write
+</td>
+<td>0
+</td>
+<td><tt>
+</tt><pre><tt> </tt>
+</pre>
+</td>
+<td>looks like start, toggle it to 0 than to 1 when enable bit set will change RO register part
+</td></tr>
+<tr>
+<td>SRAM_BIST_TOGGLE_?
+</td>
+<td>7
+</td>
+<td>Read/Write
+</td>
+<td>0
+</td>
+<td><tt>
+</tt><pre><tt> </tt>
+</pre>
+</td>
+<td>enable crc like value on RO part
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="SRAM_EMA">SRAM_EMA</span></h3>
+<p>Default value: 0x00<br />
+Offset: 0x0044
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default (Hex)
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>SRAM_EMA_EN</tt>
+</td>
+<td><tt>0:31</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x0000</tt>
+</td>
+<td><tt>
+</tt><pre><tt>  </tt>
+</pre>
+</td>
+<td>Some caching related DRAM setup; boot0 sources describe this as "config ema for cache sram". It is initialized to 0x1800 very early in u-boot.
+</td></tr>
+<tr>
+<td>
+</td>
+<td><tt>31</tt>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td><tt>reserved</tt>
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="Initial_values">Initial values</span></h2>
+<p>In the 0x01c00000 - 0x01c00fff region, designated as SRAM Register, only a small section here is documented. It can be found using the u-boot console, some other default values.
+0x01c00016 = 0x0200
+0x01c00026 = 0x0100
+0x01c00030 - 0x01c000f0 appears to be 0. 0x01c000100 - 0x1c00fff appears to 'wrap around' and display the same section again, so higher address lines seem to be unmapped.
+</p>
+<h3><span class="mw-headline" id="Default_map">Default map</span></h3>
+<h4><span class="mw-headline" id="A20">A20</span></h4>
+<pre>01c00000: 7fffffff 00001314 00000000 00000000    ................
+01c00010: 00000000 00000200 00000000 00000000    ................
+01c00020: 00000000 00000100 00000000 00000000    ................
+01c00030: 00000000 00000001 00000000 00000000    ................
+01c00040: 00000000 00000000 00000000 00000000    ................
+01c00050: 00000000 00000000 00000000 00000000    ................
+01c00060: 00000000 00000000 00000000 00000000    ................
+01c00070: 00000000 00000000 00000000 00000000    ................
+01c00080: 00000000 00000000 00000000 00000000    ................
+01c00090: 00000000 00000000 00000000 00000000    ................
+01c000a0: 00000000 00000000 00000000 00000000    ................
+01c000b0: 00000000 00000000 00000000 00000000    ................
+01c000c0: 00000000 00000000 00000000 00000000    ................
+01c000d0: 00000000 00000000 00000000 00000000    ................
+01c000e0: 00000000 00000000 00000000 00000000    ................
+01c000f0: 00000000 00000000 00000000 00000000    ................
+</pre>
+<p>All to 1
+</p>
+<pre>01c00000: ffffffff 80ff13ff 000000ff 00000000    ................
+01c00010: 00000000 000001ff ffffffff ffffffff    ................
+01c00020: ffffffff 16518100 00000000 00000000    ......Q.........
+01c00030: 00000003 00000000 00000001 00000000    ................
+01c00040: 00000000 00000000 00000000 00000000    ................
+01c00050: 00000000 00000000 00000000 00000000    ................
+01c00060: 00000000 00000000 00000000 00000000    ................
+01c00070: 00000000 00000000 00000000 00000000    ................
+01c00080: 00000000 00000000 00000000 00000000    ................
+01c00090: ffffffff 00ffffff 0000ffff 00000000    ................
+01c000a0: 00000000 00000000 00000000 00000000    ................
+01c000b0: 00000000 00000000 00000000 00000000    ................
+01c000c0: 00000000 00000000 00000000 00000000    ................
+01c000d0: 00000000 00000000 00000000 00000000    ................
+01c000e0: 00000000 00000000 00000000 00000000    ................
+01c000f0: 00000000 00000000 00000000 00000000    ................
+
+</pre>
+<h4><span class="mw-headline" id="A10">A10</span></h4>
+<pre>md 0x01c00000 0x40
+01c00000: 7fffffff 00001300 00000000 00000000    ................
+01c00010: 00000000 00000200 00000000 00000000    ................
+01c00020: 00000000 00000100 00000000 00000000    ................
+01c00030: 00000000 00000000 00000000 00000000    ................
+01c00040: 00000000 00000000 00000000 00000000    ................
+01c00050: 00000000 00000000 00000000 00000000    ................
+01c00060: 00000000 00000000 00000000 00000000    ................
+01c00070: 00000000 00000000 00000000 00000000    ................
+01c00080: 00000000 00000000 00000000 00000000    ................
+01c00090: 00000000 00000000 00000000 00000000    ................
+01c000a0: 00000000 00000000 00000000 00000000    ................
+01c000b0: 00000000 00000000 00000000 00000000    ................
+01c000c0: 00000000 00000000 00000000 00000000    ................
+01c000d0: 00000000 00000000 00000000 00000000    ................
+01c000e0: 00000000 00000000 00000000 00000000    ................
+01c000f0: 00000000 00000000 00000000 00000000    ................
+</pre>
+<h4><span class="mw-headline" id="A31">A31</span></h4>
+<pre>01c00000: 7fffffff 00001300 00000000 00000000    ................
+01c00010: 00000000 00000200 00000000 00000000    ................
+01c00020: 00000000 16338700 00000000 00000000    ......3.........
+01c00030: 00000000 00000000 00000000 00000000    ................
+01c00040: 22222222 22223a22 00000000 00000000    """"":""........
+01c00050: 00000000 00000001 00000001 00000000    ................
+01c00060: 00000000 00000000 00000000 00000000    ................
+01c00070: 00000200 00000000 00000000 00000000    ................
+</pre>
+<h3><span class="mw-headline" id="All_to_1">All to 1</span></h3>
+<p>mw 0x01c00000 0xffffffff 0x40<br />
+md 0x01c00000 0x40
+</p>
+<pre>01c00000: ffffffff 800f13ff ffffffff 00000000    ................
+01c00010: 00000000 000002ff ffffffff ffffffff    ................
+01c00020: ffffffff 16238100 000f0007 00000000    ......#.........
+01c00030: 00000000 00000000 00000000 00000000    ................
+01c00040: 00000000 00000000 00000000 00000000    ................
+01c00050: 00000000 00000000 00000000 00000000    ................
+01c00060: 00000000 00000000 00000000 00000000    ................
+01c00070: 00000000 00000000 00000000 00000000    ................
+01c00080: 00000000 00000000 00000000 00000000    ................
+01c00090: ffffffff 00ffffff 0000ffff 00000000    ................
+01c000a0: 00000000 00000000 00000000 00000000    ................
+01c000b0: 00000000 00000000 00000000 00000000    ................
+01c000c0: 00000000 00000000 00000000 00000000    ................
+01c000d0: 00000000 00000000 00000000 00000000    ................
+01c000e0: 00000000 00000000 00000000 00000000    ................
+01c000f0: 00000000 00000000 00000000 00000000    ................
+</pre>
+<h3><span class="mw-headline" id="All_to_0">All to 0</span></h3>
+<p>mw 0x01c00000 0x00 0x40<br />
+md 0x01c00000 0x40
+</p>
+<pre>01c00000: 00000000 00000000 00000000 00000000    ................
+01c00010: 00000000 00000200 00000000 00000000    ................
+01c00020: 00000000 00000100 00000000 00000000    ................
+01c00030: 00000000 00000000 00000000 00000000    ................
+01c00040: 00000000 00000000 00000000 00000000    ................
+01c00050: 00000000 00000000 00000000 00000000    ................
+01c00060: 00000000 00000000 00000000 00000000    ................
+01c00070: 00000000 00000000 00000000 00000000    ................
+01c00080: 00000000 00000000 00000000 00000000    ................
+01c00090: 00000000 00000000 00000000 00000000    ................
+01c000a0: 00000000 00000000 00000000 00000000    ................
+01c000b0: 00000000 00000000 00000000 00000000    ................
+01c000c0: 00000000 00000000 00000000 00000000    ................
+01c000d0: 00000000 00000000 00000000 00000000    ................
+01c000e0: 00000000 00000000 00000000 00000000    ................
+01c000f0: 00000000 00000000 00000000 00000000    ................
+</pre>
+<!-- 
+NewPP limit report
+Cached time: 20251029045935
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.095 seconds
+Real time usage: 0.103 seconds
+Preprocessor visited node count: 179/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 8459/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:306-0!canonical and timestamp 20251029045935 and revision id 19812
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=SRAM_Controller_Register_Guide&amp;oldid=19812">https://linux-sunxi.org/index.php?title=SRAM_Controller_Register_Guide&amp;oldid=19812</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Categories</a>: <ul><li><a href="Category:A10_Register_guide.html" title="Category:A10 Register guide">A10 Register guide</a></li><li><a href="Category:A13_Register_guide.html" title="Category:A13 Register guide">A13 Register guide</a></li><li><a href="Category:A20_Register_guide.html" title="Category:A20 Register guide">A20 Register guide</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=SRAM+Controller+Register+Guide" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=SRAM+Controller+Register+Guide" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="SRAM_Controller_Register_Guide.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:SRAM_Controller_Register_Guide&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="SRAM_Controller_Register_Guide.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=SRAM_Controller_Register_Guide&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=SRAM_Controller_Register_Guide&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/SRAM_Controller_Register_Guide.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/SRAM_Controller_Register_Guide" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=SRAM_Controller_Register_Guide&amp;oldid=19812" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=SRAM_Controller_Register_Guide&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 4 April 2017, at 12:19.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.095","walltime":"0.103","ppvisitednodes":{"value":179,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":8459,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20251029045935","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":295});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

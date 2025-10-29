@@ -1,0 +1,301 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Bootable eMMC - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"0b5f1c0dc2e9faea5e43a534","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Bootable_eMMC","wgTitle":"Bootable eMMC","wgCurRevisionId":23629,"wgRevisionId":23629,"wgArticleId":2935,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Hardware"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Bootable_eMMC","wgRelevantArticleId":2935,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":
+"ready","user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=mediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="Bootable_eMMC.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-Bootable_eMMC rootpage-Bootable_eMMC skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">Bootable eMMC</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Information_for_devboard_designers"><span class="tocnumber">2</span> <span class="toctext">Information for devboard designers</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#The_BROM_implementation_details"><span class="tocnumber">3</span> <span class="toctext">The BROM implementation details</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Installing_mainline_U-Boot_in_a_boot_partition"><span class="tocnumber">4</span> <span class="toctext">Installing mainline U-Boot in a boot partition</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="#Installation_from_Linux"><span class="tocnumber">4.1</span> <span class="toctext">Installation from Linux</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Installation_from_U-Boot"><span class="tocnumber">4.2</span> <span class="toctext">Installation from U-Boot</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="#See_also"><span class="tocnumber">5</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Introduction">Introduction</span></h2>
+<p>First of all, any eMMC can be also used as a regular SD card. Which means that it can be treated as a single large block device representing its full capacity. And the first stage bootloader (U-Boot SPL or Allwinner's boot0) is expected to be stored in a special hardcoded place between the MBR and the first partition, which does not play very nice with GPT partitioning. But if you are happy with this particular setup, then just go to the <a href="Bootable_SD_card.html" title="Bootable SD card">Bootable SD card</a> page for further information and instructions.
+</p><p>eMMC supports separate boot partitions for storing the bootloader. They are not sharing the same block device with the data.
+</p><p>At least Allwinner <a href="H3.html" title="H3">H3</a> is expected to support eMMC boot paritions because the manual says "Supports eMMC boot operation and alternative boot operation". The JEDEC eMMC spec mentions "boot operation" and "alternative boot operation".
+</p>
+<h2><span class="mw-headline" id="Information_for_devboard_designers">Information for devboard designers</span></h2>
+<p>TBD
+</p>
+<h2><span class="mw-headline" id="The_BROM_implementation_details">The BROM implementation details</span></h2>
+<p>The following information has been gained by experimentation and observation (on the A64) and has not been yet verified by examining BROM code. The BROM seems to follow the eMMC boot specification, the only restriction is the limited set of supported eMMC boot timing/width configurations.
+</p><p>After checking for valid boot signatures on the SD card (SDC0), the BROM will check the eMMC boot partition configuration in EXT_CSD[179] (if it finds an eMMC device on SDC2). If it finds a boot partition to be enabled in bits [5:3] (either a 1 or a 2 in there, selecting one of the two boot partitions), it will try to boot from the first sectors of that selected boot partition, following the usual eGON boot protocol. BOOT_ACK (EXT_CSD[179], bit 6) must be set in the device, or the BROM will not boot from the partition. The BOOTBUS configuration must have been set to 4-bit SDR, with or without high-speed timings. If booting from the eMMC boot partition fails, the BROM will try to find valid boot signatures on the eMMC user partition, at offsets 8k and 128k.
+</p><p>The BROM will mark the boot source in SRAM_A1[0x28] with the EMMC tag (0x02), the same used when booting from offset 8k of the normal eMMC user data partition. This prevents the SPL from easily telling the normal eMMC boot apart from loading from the eMMC boot partition.
+</p>
+<h2><span class="mw-headline" id="Installing_mainline_U-Boot_in_a_boot_partition">Installing mainline U-Boot in a boot partition</span></h2>
+<p>Examination of <a class="external text" href="https://github.com/BPI-SINOVOIP/BPI-M64-bsp-4.4/blob/2fdec8847bbf916bb1006ab725921621e7cffb50/u-boot-sunxi/drivers/mmc/sunxi_mmc_interface.c#L1085#L1085"><code>mmc_burn_boot</code></a> function in the A64's BSP u-boot code and experimentation confirm that booting from a eMMC boot partition is indeed supported and that BootROM expects the <code>boot0</code> code located at the first sector of such partition. At least for the A64 chip, this has been proven to be correct: when a boot partition is properly activated (as specified by the eMMC standard, JESD84-B51), the <code>boot0</code> gets loaded and the boot goes as usual.
+</p><p>For the BROM to find and load the SPL from a boot partition, some eMMC registers have to be configured (once). This can be done from Linux or from mainline U-Boot. The combined U-Boot image can then be written to the boot partition.
+</p><p>The U-Boot SPL itself needs to know that it has to load the rest of U-Boot proper (plus TF-A and DTB) from the boot partition. For current mainline U-Boot this requires enabling <code>CONFIG_SUPPORT_EMMC_BOOT</code>, and also setting <code>CONFIG_SYS_MMCSD_RAW_MODE_U_BOOT_SECTOR</code> to 0x40. This will hardcode the boot partition as the U-Boot proper eMMC location.
+</p>
+<h3><span class="mw-headline" id="Installation_from_Linux">Installation from Linux</span></h3>
+<p>First we need to disable eMMC boot partitions write protection in Linux (for more details, check <a rel="nofollow" class="external free" href="https://www.kernel.org/doc/Documentation/mmc/mmc-dev-parts.txt">https://www.kernel.org/doc/Documentation/mmc/mmc-dev-parts.txt</a>):
+</p>
+<pre>   echo 0 &gt; /sys/block/mmcblk1boot0/force_ro
+   echo 0 &gt; /sys/block/mmcblk1boot1/force_ro
+</pre>
+<p>Then we can use the <code>mmc-utils</code> package to setup the eMMC boot configuration registers (this needs to be done only once, the settings are persistent, but can be changed again):
+</p>
+<pre>   sudo apt-get install mmc-utils
+   mmc bootbus set single_hs x1 x4 /dev/mmcblk1
+   mmc bootpart enable 1 1 /dev/mmcblk1    # enable partition 1, enable BOOT_ACK bits
+</pre>
+<p>The U-Boot image can then be written to the boot partition:
+</p>
+<pre>   dd if=u-boot-sunxi-with-spl.bin of=/dev/mmcblk1boot0 bs=4k
+</pre>
+<p>On the next reboot, U-Boot should be loaded from the boot partition.
+</p>
+<h3><span class="mw-headline" id="Installation_from_U-Boot">Installation from U-Boot</span></h3>
+<p>The proper eMMC configuration allowing to boot from these partitions can be easily setup inside mainline u-boot with <code>SUPPORT_EMMC_BOOT</code> option enabled. Executing these <a rel="nofollow" class="external text" href="https://gitlab.denx.de/u-boot/u-boot/blob/83d290c56fab2d38cd1ab4c4cc7099559c1d5046/drivers/mmc/mmc_boot.c#L85#L85">two commands</a> in the u-boot's shell activates booting from the first boot partition (this needs to be done only once, the settings are persistent, but can be changed again):
+</p>
+<pre>   # mmc bootbus &lt;dev&gt; &lt;bus_width&gt; &lt;reset_boot_bus_width&gt; &lt;boot_mode&gt;
+   mmc bootbus 1 1 0 0
+   # mmc partconf &lt;dev&gt; &lt;boot_ack&gt; &lt;boot_partition&gt; &lt;partition_acces&gt;
+   mmc partconf 1 1 1 0
+</pre>
+<p>The U-Boot image file should then be transferred into memory, via any desired method (SD card/eMMC FAT/ext4, USB drives, TFTP). It can then be written to the boot partition:
+</p>
+<pre>   tftpboot 0x50000000 u-boot-sunxi-with-spl.bin   # or load from some ext4 or FAT partition
+   mmc dev 1                                       # select the eMMC device
+   mmc partconf 1 1 1 1                            # switch to boot partition 1 (the last "1" specifies the partition number)
+   mmc write 0x50000000 0 0x7f0                    # generous upper limit for the size of the U-Boot image    
+</pre>
+<p>As an alternative, use the <a href="Fastboot.html" title="Fastboot">Fastboot</a> approach.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<ul><li><a rel="nofollow" class="external free" href="http://www.jedec.org/standards-documents/results/jesd84-b51">http://www.jedec.org/standards-documents/results/jesd84-b51</a></li></ul>
+<!-- 
+NewPP limit report
+Cached time: 20251029040247
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.018 seconds
+Real time usage: 0.025 seconds
+Preprocessor visited node count: 23/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:2935-0!canonical and timestamp 20251029040247 and revision id 23629
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=Bootable_eMMC&amp;oldid=23629">https://linux-sunxi.org/index.php?title=Bootable_eMMC&amp;oldid=23629</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Category</a>: <ul><li><a href="Category:Hardware.html" title="Category:Hardware">Hardware</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=Bootable+eMMC" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=Bootable+eMMC" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="Bootable_eMMC.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:Bootable_eMMC&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="Bootable_eMMC.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Bootable_eMMC&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Bootable_eMMC&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/Bootable_eMMC.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/Bootable_eMMC" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=Bootable_eMMC&amp;oldid=23629" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=Bootable_eMMC&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 7 November 2020, at 02:04.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.018","walltime":"0.025","ppvisitednodes":{"value":23,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":0,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20251029040247","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":184});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

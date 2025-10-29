@@ -1,0 +1,416 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Mali - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"b5f871de08e4c80cd9194882","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Mali","wgTitle":"Mali","wgCurRevisionId":26019,"wgRevisionId":26019,"wgArticleId":51,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Hardware"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Mali","wgRelevantArticleId":51,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":"ready","user":"ready",
+"user.options":"loading","ext.cite.styles":"ready","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","ext.cite.ux-enhancements","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=ext.cite.styles%7Cmediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="Mali.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-Mali rootpage-Mali skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">Mali</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>The <b>Mali</b> series is a GPU (Graphics Processor Unit) from ARM Ltd. (ARM Holdings plc), designed for embedded systems.<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup><sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;2&#93;</a></sup>
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Overview"><span class="tocnumber">1</span> <span class="toctext">Overview</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Variants:"><span class="tocnumber">1.1</span> <span class="toctext">Variants:</span></a>
+<ul>
+<li class="toclevel-3 tocsection-3"><a href="#Utgard"><span class="tocnumber">1.1.1</span> <span class="toctext">Utgard</span></a></li>
+<li class="toclevel-3 tocsection-4"><a href="#Midgard"><span class="tocnumber">1.1.2</span> <span class="toctext">Midgard</span></a></li>
+<li class="toclevel-3 tocsection-5"><a href="#Bifrost"><span class="tocnumber">1.1.3</span> <span class="toctext">Bifrost</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="#Driver"><span class="tocnumber">2</span> <span class="toctext">Driver</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="#Utgard_.28Mali-400_and_Mali-450.29"><span class="tocnumber">2.1</span> <span class="toctext">Utgard (Mali-400 and Mali-450)</span></a>
+<ul>
+<li class="toclevel-3 tocsection-8"><a href="#Lima_driver_.28Open_Source.29"><span class="tocnumber">2.1.1</span> <span class="toctext">Lima driver (Open Source)</span></a></li>
+<li class="toclevel-3 tocsection-9"><a href="#Binary_driver"><span class="tocnumber">2.1.2</span> <span class="toctext">Binary driver</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-10"><a href="#Midgard_.28Mali_T6xx.2C_T7xx.2C_T8xx.29_and_Bifrost_.28G3x.2C_G5x.2C_G6x.2C_G7x.29"><span class="tocnumber">2.2</span> <span class="toctext">Midgard (Mali T6xx, T7xx, T8xx) and Bifrost (G3x, G5x, G6x, G7x)</span></a>
+<ul>
+<li class="toclevel-3 tocsection-11"><a href="#Panfrost_driver_.28Open_Source.29"><span class="tocnumber">2.2.1</span> <span class="toctext">Panfrost driver (Open Source)</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-12"><a href="#See_also"><span class="tocnumber">3</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-13"><a href="#References"><span class="tocnumber">4</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1 tocsection-14"><a href="#External_Links"><span class="tocnumber">5</span> <span class="toctext">External Links</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Overview">Overview</span></h1>
+<div class="thumb tright"><div class="thumbinner" style="width:302px;"><a href="File:Mali-400-screenshot.png.html" class="image"><img alt="" src="https://linux-sunxi.org/images/thumb/0/02/Mali-400-screenshot.png/300px-Mali-400-screenshot.png" decoding="async" width="300" height="169" class="thumbimage" srcset="https://linux-sunxi.org/images/thumb/0/02/Mali-400-screenshot.png/450px-Mali-400-screenshot.png 1.5x, https://linux-sunxi.org/images/thumb/0/02/Mali-400-screenshot.png/600px-Mali-400-screenshot.png 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="File:Mali-400-screenshot.png.html" class="internal" title="Enlarge"></a></div>es2gears running on Mali-400</div></div></div>
+<div class="thumb tright"><div class="thumbinner" style="width:302px;"><a href="File:XBMC_running_on_Mali-400.jpeg.html" class="image"><img alt="" src="https://linux-sunxi.org/images/thumb/b/bc/XBMC_running_on_Mali-400.jpeg/300px-XBMC_running_on_Mali-400.jpeg" decoding="async" width="300" height="169" class="thumbimage" srcset="https://linux-sunxi.org/images/thumb/b/bc/XBMC_running_on_Mali-400.jpeg/450px-XBMC_running_on_Mali-400.jpeg 1.5x, https://linux-sunxi.org/images/thumb/b/bc/XBMC_running_on_Mali-400.jpeg/600px-XBMC_running_on_Mali-400.jpeg 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="File:XBMC_running_on_Mali-400.jpeg.html" class="internal" title="Enlarge"></a></div>XBMC running on Mali-400</div></div></div>
+<p>The <b>Mali</b> series of Graphics Processing Units (GPUs) are semiconductor intellectual property cores produced by ARM Holdings for licensing in various ASIC (Application-specific integrated circuit) designs by ARM partners. The core is mainly developed by ARM Norway, at the former <i>Falanx</i> company site.
+</p><p>Like other embedded IP cores for 3D support, the Mali GPU does not feature display controllers driving monitors (such as the combination often found in common video cards). Instead it is a pure 3D engine that renders graphics into memory and hands the rendered image over to another core that handles the display.
+</p><p>ARM supplies tools to help in authoring OpenGL ES shaders named <i>Mali GPU Shader Development Studio</i> and <i>Mali GPU User Interface Engine</i>.
+</p><p>All Mali4XX GPU Variants conform to OpenGL ES 1.1 &amp; 2.0 as well as OpenVG 1.1.<br />
+All Mali-TXXX GPU Variants conform to OpenGL ES up to 3.1 as well as OpenVG 1.1.<br />
+All Mali-GXX GPU Variants conform to OpenGL ES up to 3.2 as well as OpenVG 1.1 and Vulkan 1.2 (panvk Vulkan driver not yet fully conformant).
+</p>
+<h2><span class="mw-headline" id="Variants:">Variants:</span></h2>
+<p>There are several generations of which two are currently used by Allwinner.
+</p>
+<h3><span class="mw-headline" id="Utgard">Utgard</span></h3>
+<table class="wikitable">
+
+<tbody><tr>
+<th>Name</th>
+<th>GP (Geometry Processor) <br /> / vertex shader</th>
+<th>PP (Pixel Processor) <br /> / fragment shader</th>
+<th>CPU Level 2 cache size</th>
+<th>Allwinner implementations
+</th></tr>
+<tr>
+<td>Mali-400 MP
+</td>
+<td>1
+</td>
+<td>1
+</td>
+<td>256 KiB
+</td>
+<td><a href="A10.html" title="A10">A10</a> (sun4i), <a href="A10s.html" title="A10s">A10s</a> (sun5i), and <a href="A13.html" title="A13">A13</a> (sun5i)
+</td></tr>
+<tr>
+<td>Mali-400 MP2
+</td>
+<td>1
+</td>
+<td>2
+</td>
+<td>256/512 KiB
+</td>
+<td><a href="A20.html" title="A20">A20</a> (sun7i), <a href="A23.html" title="A23">A23</a> (sun8i), <a href="A33.html" title="A33">A33</a>, <a href="H3.html" title="H3">H3</a>, <a href="R40.html" title="R40">R40</a> (sun8i), <a href="A64.html" title="A64">A64</a> (sun50i)
+</td></tr>
+<tr>
+<td>Mali-450 MP4
+</td>
+<td>1
+</td>
+<td>4
+</td>
+<td>512 KiB
+</td>
+<td><a href="H5.html" title="H5">H5</a> (sun50i)
+</td></tr>
+</tbody></table>
+<h3><span class="mw-headline" id="Midgard">Midgard</span></h3>
+<table class="wikitable">
+
+<tbody><tr>
+<th>Name</th>
+<th>unified shader cores</th>
+<th>CPU Level 2 cache size</th>
+<th>Allwinner implementations
+</th></tr>
+<tr>
+<td>Mali-T720 MP2
+</td>
+<td>2
+</td>
+<td>512 KiB
+</td>
+<td><a href="H6.html" title="H6">H6</a> (sun50i)
+</td></tr>
+<tr>
+<td>Mali-T760 MP2
+</td>
+<td>2
+</td>
+<td>512 KiB
+</td>
+<td><a href="A63.html" title="A63">A63</a> (sun50i)
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="Bifrost">Bifrost</span></h3>
+<table class="wikitable">
+
+<tbody><tr>
+<th>Name</th>
+<th>unified shader cores</th>
+<th>CPU Level 2 cache size</th>
+<th>Allwinner implementations
+</th></tr>
+<tr>
+<td>Mali-G31 MP2
+</td>
+<td>2
+</td>
+<td>??? KiB
+</td>
+<td><a href="H616.html" title="H616">H616</a>, <a href="H313.html" class="mw-redirect" title="H313">H313</a> (sun50i)
+</td></tr>
+</tbody></table>
+<p>More information can be found on the <a rel="nofollow" class="external text" href="https://developer.arm.com/products/graphics-and-multimedia/mali-gpus">ARM website</a>.
+</p>
+<h1><span class="mw-headline" id="Driver">Driver</span></h1>
+<h2><span id="Utgard_(Mali-400_and_Mali-450)"></span><span class="mw-headline" id="Utgard_.28Mali-400_and_Mali-450.29">Utgard (Mali-400 and Mali-450)</span></h2>
+<h3><span id="Lima_driver_(Open_Source)"></span><span class="mw-headline" id="Lima_driver_.28Open_Source.29">Lima driver (Open Source)</span></h3>
+<p>Lima is a project to develop a completely open source graphics driver which supports ARM's Mali-400 and Mali-450 GPUs.
+</p><p>It consists of two main parts:
+</p>
+<ul><li><a rel="nofollow" class="external text" href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/gpu/drm/lima">Kernel parts</a> have been included in mainline kernel since v5.2</li>
+<li><a rel="nofollow" class="external text" href="https://gitlab.freedesktop.org/mesa/mesa">Mesa</a> (userspace) parts have been part of upstream project since April 2019.</li></ul>
+<p>Historical links:
+</p>
+<ul><li>Pre-merge development of <a rel="nofollow" class="external text" href="https://gitlab.freedesktop.org/lima/linux">Lima kernel driver</a></li>
+<li>Pre-merge development of <a rel="nofollow" class="external text" href="https://gitlab.freedesktop.org/lima/mesa">mesa-lima userspace driver</a></li>
+<li>based on re-engineering efforts from <a rel="nofollow" class="external text" href="http://web.archive.org/web/20180106112822/http://limadriver.org/">Archive of http://limadriver.org/</a></li></ul>
+<h3><span class="mw-headline" id="Binary_driver">Binary driver</span></h3>
+<ul><li><b>Mainline Linux:</b> Maxime Ripard (Bootlin) worked on Mali OpenGL support with mainline Linux, please refer <a rel="nofollow" class="external text" href="https://bootlin.com/blog/mali-opengl-support-on-allwinner-platforms-with-mainline-linux/">these instructions</a></li>
+<li><b>Legacy Kernel (Outdated):</b> For information on the binary driver, please refer to the <a href="Mali_binary_driver.html" title="Mali binary driver"> binary driver installation guide</a>.</li></ul>
+<h2><span id="Midgard_(Mali_T6xx,_T7xx,_T8xx)_and_Bifrost_(G3x,_G5x,_G6x,_G7x)"></span><span class="mw-headline" id="Midgard_.28Mali_T6xx.2C_T7xx.2C_T8xx.29_and_Bifrost_.28G3x.2C_G5x.2C_G6x.2C_G7x.29">Midgard (Mali T6xx, T7xx, T8xx) and Bifrost (G3x, G5x, G6x, G7x)</span></h2>
+<h3><span id="Panfrost_driver_(Open_Source)"></span><span class="mw-headline" id="Panfrost_driver_.28Open_Source.29">Panfrost driver (Open Source)</span></h3>
+<p><a rel="nofollow" class="external text" href="https://gitlab.freedesktop.org/panfrost/">Panfrost</a> is a project to develop a completely open source graphics driver which supports ARM's Mali-T6xx, Mali-T7xx, Mali-T800 and Mali-G7x GPUs. This is a <b>work in progress and not yet ready</b> for general use.<br />
+<a rel="nofollow" class="external text" href="https://gitlab.freedesktop.org/panfrost/">Panfrost</a> results from a merge of 2 driver reverse engineering projects: chai - for Midgard GPUs (by Alyssa Rosenzweig) and BiOpenly - for Bifrost GPUs (by Lyude Paul). The merge was done due to identical command streams of the ARM Midgard and Bifrost GPUs (but different shader cores).
+</p>
+<ul><li>WIP: <a rel="nofollow" class="external text" href="https://gitlab.freedesktop.org/panfrost/">Panfrost git repository</a></li>
+<li>Alyssa Rosenzweig's Blog: <a rel="nofollow" class="external text" href="https://rosenzweig.io/blog/midgard-shaders-with-the-free-nir-compiler.html">NIR shader compiler announce</a></li></ul>
+<p><br />
+</p><p>The aim of this drivers and others such as freedreno is to finally bring all the advantages of open source software to ARM SoC graphics drivers. Currently, the sole availability of binary drivers is increasing development and maintenance overhead, while also reducing portability, compatibility and limiting choice. Anyone who has dealt with GPU support on ARM, be it for a linux with a GNU stack, or for an android, knows the pain of dealing with these binaries.
+</p>
+<ul><li><a class="external text" href="http://en.wikipedia.org/wiki/Graphics_hardware_and_FOSS#ARM#ARM">Graphics hardware and FOSS</a></li></ul>
+<h1><span class="mw-headline" id="See_also">See also</span></h1>
+<ul><li><a href="Display.html" title="Display">Display driver setup.</a></li>
+<li><a href="Mali_binary_driver.html" title="Mali binary driver"> Mali binary driver installation</a>.</li></ul>
+<h1><span class="mw-headline" id="References">References</span></h1>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.cnx-software.com/2013/01/19/gpus-comparison-arm-mali-vs-vivante-gcxxx-vs-powervr-sgx-vs-nvidia-geforce-ulp/">http://www.cnx-software.com/2013/01/19/gpus-comparison-arm-mali-vs-vivante-gcxxx-vs-powervr-sgx-vs-nvidia-geforce-ulp/</a> GPUs Comparison: ARM Mali vs Vivante GCxxx vs PowerVR SGX vs Nvidia Geforce ULP</span>
+</li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://blog.thinkteletronics.com/all-mobile-socsolutions/">http://blog.thinkteletronics.com/all-mobile-socsolutions/</a> All Mobile Soc/Solutions.</span>
+</li>
+</ol></div>
+<h1><span class="mw-headline" id="External_Links">External Links</span></h1>
+<ul><li><a rel="nofollow" class="external text" href="http://www.arm.com/products/multimedia/mali-graphics-hardware/mali-400-mp.php">Mali-400 MP website</a></li>
+<li><a rel="nofollow" class="external text" href="http://www.cnx-software.com/2013/01/19/gpus-comparison-arm-mali-vs-vivante-gcxxx-vs-powervr-sgx-vs-nvidia-geforce-ulp/">GPUs Comparison: ARM Mali vs Vivante GCxxx vs PowerVR SGX vs Nvidia Geforce ULP</a></li>
+<li><a rel="nofollow" class="external text" href="http://www.arm.com/products/multimedia/mali-graphics-hardware/">MALI graphics hardware series webpage at ARM Holdings</a></li>
+<li><a rel="nofollow" class="external text" href="http://www.malideveloper.com/">Mali developer</a> a developer site run by ARM</li>
+<li><a rel="nofollow" class="external text" href="http://malideveloper.arm.com/develop-for-mali/drivers/open-source-mali-gpus-linux-exadri2-and-x11-display-drivers/">Open Source Mali GPUs Linux EXA/DRI2 and X11 Display Drivers</a></li>
+<li><a rel="nofollow" class="external text" href="http://web.archive.org/web/20180106112822/http://limadriver.org/">Lima driver (Web Archive)</a></li></ul>
+<!-- 
+NewPP limit report
+Cached time: 20251029040111
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.056 seconds
+Real time usage: 0.064 seconds
+Preprocessor visited node count: 87/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 1057/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:51-0!canonical and timestamp 20251029040111 and revision id 26019
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=Mali&amp;oldid=26019">https://linux-sunxi.org/index.php?title=Mali&amp;oldid=26019</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Category</a>: <ul><li><a href="Category:Hardware.html" title="Category:Hardware">Hardware</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=Mali" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=Mali" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="Mali.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:Mali&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="Mali.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Mali&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Mali&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/Mali.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/Mali" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=Mali&amp;oldid=26019" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=Mali&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 15 October 2024, at 05:57.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.056","walltime":"0.064","ppvisitednodes":{"value":87,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":1057,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20251029040111","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":356});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

@@ -1,0 +1,309 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Mer and Plasma Active - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"451a4af02d89f0d7f07d7525","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Mer_and_Plasma_Active","wgTitle":"Mer and Plasma Active","wgCurRevisionId":6586,"wgRevisionId":6586,"wgArticleId":830,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Linux Distributions","Mer"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Mer_and_Plasma_Active","wgRelevantArticleId":830,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready",
+"noscript":"ready","user.styles":"ready","user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=mediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="Mer_and_Plasma_Active.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-Mer_and_Plasma_Active rootpage-Mer_and_Plasma_Active skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">Mer and Plasma Active</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>This tutorial helps on creating an image based on Mer and Plasma Active, the reference hardware for this tutorial is an <a href="https://linux-sunxi.org/index.php?title=EOMA68-A20&amp;action=edit&amp;redlink=1" class="new" title="EOMA68-A20 (page does not exist)">Eoma68</a> plugged into an <a rel="nofollow" class="external text" href="http://makeplaylive.com/#/open-hardware/improv/discover#/open-hardware/improv/discover">Improv</a>, but should be easy to adapt it to other Allwinner based devices.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Install_the_SDK"><span class="tocnumber">1</span> <span class="toctext">Install the SDK</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Create_an_image_from_the_Kickstart"><span class="tocnumber">2</span> <span class="toctext">Create an image from the Kickstart</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Install_the_OS_on_the_nand"><span class="tocnumber">3</span> <span class="toctext">Install the OS on the nand</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Ready_to_use_images"><span class="tocnumber">4</span> <span class="toctext">Ready to use images</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Install_the_SDK">Install the SDK</span></h1>
+<p>To create an image, you need a working MER SDK, you can find instructions on how to do so on the <a rel="nofollow" class="external text" href="https://wiki.merproject.org/wiki/Platform_SDK">Mer wiki</a>.
+</p>
+<h1><span class="mw-headline" id="Create_an_image_from_the_Kickstart">Create an image from the Kickstart</span></h1>
+<p>Kickstarts for Mer and Plasma Active are maintained on this <a rel="nofollow" class="external text" href="https://projects.kde.org/projects/playground/base/plasma-active-kickstart">Git project</a>. to clone it ype:
+</p>
+<pre>   git clone <a rel="nofollow" class="external free" href="git://anongit.kde.org/plasma-active-kickstart">git://anongit.kde.org/plasma-active-kickstart</a>
+</pre>
+<p>Now, enter in the MER sdk, and from within it move into the git repo.
+The kickstarter are created from a bunch of modular YAML files, so to obtain the final kickstart file type from the plasma-active-kickstart folder:
+</p>
+<pre>   mer-kickstarter -e . -c releases/plasma-active-4.yaml -o plasma-active-latest-ks/
+</pre>
+<p>plasma-active-4.yaml takes the RPMS from repos of a stable release, the other yaml files in the releases folder takes the packages from varying degrees of experimental stages.
+</p><p>Once mer-kickstarter ran, it will generate kickstart files in the plasma-active-latest-ks/ folder, for every hardware adaptation available, the one we need is plasma-active-armv7hl-sunxi-eoma68-improv.ks
+</p><p>Let's move in the plasma-active-latest-ks and launch mic to create the image:
+</p>
+<pre>  cd plasma-active-latest-ks/
+  sudo mic create raw plasma-active-armv7hl-sunxi-eoma68-improv.ks -o . --pkgmgr=yum --arch=armv7hl --logfile=plasma-active-build.log
+</pre>
+<p>The file plasma-active-armv7hl-sunxi-eoma68-improv-mmcblk0p.raw is the image we need, we can put it on a microsd:
+</p>
+<pre>  sudo dd if=plasma-active-armv7hl-sunxi-eoma68-improv-mmcblk0p.raw of=/dev/sdb
+</pre>
+<p>That microsd will already be capable of booting via FEL on USB. If instead you configured your on board u-boot to boot from microSD, you have to put U-boot on the first 1024KB of the card.
+</p><p>Since the MER kickstarter is not able to create an image with the first 1024KB empty, you'll have to resize the partition with Parted or Gparted (pay attention that GParted can only wotk with MiB, so you need to make at least 2Mib of empty space at the beginning of the SD)
+Then, you may put spl and uboot at the beginning of the card:
+</p>
+<pre>  dd if=spl/sunxi-spl.bin of=$card bs=1024 seek=8
+  dd if=u-boot.img of=$card bs=1024 seek=40
+</pre>
+<p>To do that, you need u-boot-sunxi cross compiled from your pc (see <a class="external free" href="http://rhombus-tech.net/allwinner/a20/boot/">http://rhombus-tech.net/allwinner/a20/boot/</a>)
+At this point you SD card will be able to boot MER.
+</p>
+<h1><span class="mw-headline" id="Install_the_OS_on_the_nand">Install the OS on the nand</span></h1>
+<p>After you have a system that works correctly from the microSD, you can install it on the nand, with the following steps:
+</p>
+<ul><li>partition the nand following <a href="Installing_to_NAND.html" title="Installing to NAND">this tutorial</a></li>
+<li>alternatively, you can dd on the nand <a rel="nofollow" class="external text" href="http://makeplaylive.com/~notmart/Improv/eoma68-A20-nand-bare-latest.raw.bz2">this</a> previously partitioned empty image, with</li></ul>
+<pre>  dd if=/mnt/sda1/eoma68-A20-nand-bare-latest.raw of=/dev/nand
+</pre>
+<p>(provided /mnt/sda1 is an USB stick mounted from the Eoma device.)
+</p>
+<ul><li>copy the root filesystem on the nand:</li></ul>
+<pre>  mkdir /mnt/nandb
+  mount -t auto /dev/nandb /mnt/nandb
+  rsync -a -h --progress /bin /etc /home /lib /media /opt /root /run /sbin /srv /tmp /usr /var /mnt/nandb
+</pre>
+<ul><li>correct /mnt/nandb/etc/fstab for / to use /dev/nandb and /boot to use /dev/nanda</li></ul>
+<h1><span class="mw-headline" id="Ready_to_use_images">Ready to use images</span></h1>
+<p>Alternatively, you can find some ready to use images <a rel="nofollow" class="external text" href="http://makeplaylive.com/~notmart/Improv/">here</a>, most notably:
+</p>
+<ul><li><a rel="nofollow" class="external text" href="http://makeplaylive.com/files/improv-images/eoma68-A20-nand-bare-latest.raw.bz2">eoma68-A20-nand-bare-latest.raw.bz2</a>: an empty image: use this if you want a partitioned nand on which you want to put a root filesystem of a distribution of your choice.</li>
+<li><a rel="nofollow" class="external text" href="http://makeplaylive.com/files/improv-images/mer-essentials-armv7hl-sunxi-eoma68-improv-mmcblk0p-latest.raw.bz2">mer-essentials-armv7hl-sunxi-eoma68-improv-mmcblk0p-latest.raw.bz2</a>: a Mer image with a quite minimal installation, ready to be written on a miniSD card.</li>
+<li><a rel="nofollow" class="external text" href="http://makeplaylive.com/files/improv-images/plasma-active-armv7hl-sunxi-eoma68-improv-mmcblk0p-latest.raw.bz2">plasma-active-armv7hl-sunxi-eoma68-improv-mmcblk0p-latest.raw.bz2</a>: an image of Mer with Plasma Active and Plasma Desktop installed and ready to go, ready to be written on a miniSD card.</li>
+<li><a rel="nofollow" class="external text" href="http://makeplaylive.com/files/improv-images/mer-essentials-armv7hl-sunxi-eoma68-improv-nand-latest.raw.bz2">mer-essentials-armv7hl-sunxi-eoma68-improv-nand-latest.raw.bz2</a>: an installed Mer image with a quite minimal installation, ready to be written on the internal NAND</li>
+<li><a rel="nofollow" class="external text" href="http://makeplaylive.com/files/improv-images/plasma-active-armv7hl-sunxi-eoma68-improv-nand-latest.raw.bz2">plasma-active-armv7hl-sunxi-eoma68-improv-nand-latest.raw.bz2</a>: an image of Mer with Plasma Active and Plasma Desktop installed and ready to go, ready to be written on the internal NAND.</li></ul>
+<p>To write an image on the nand, boot from an SD card, in which you previously put the image file of the nand, or alternatively put it on an USB stick and then with an USB hub mount it within the system running on the Eoma68, then you can dd it on the nand.
+</p><p><span style="color:red">Warning: this will destroy all the data you previously had in the internal storage of your system, it is advised to backup /dev/nand with dd beforehand</span>
+</p><p>Backup:
+</p>
+<pre>  dd if=/dev/nand of=/mnt/sda1/nand-backup.raw
+</pre>
+<p>Write the new image:
+</p>
+<pre>  dd if=/mnt/sda1/plasma-active-armv7hl-sunxi-eoma68-improv-nand-latest.raw of=/dev/nand
+</pre>
+<!-- 
+NewPP limit report
+Cached time: 20251029040839
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.034 seconds
+Real time usage: 0.044 seconds
+Preprocessor visited node count: 15/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:830-0!canonical and timestamp 20251029040839 and revision id 6586
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=Mer_and_Plasma_Active&amp;oldid=6586">https://linux-sunxi.org/index.php?title=Mer_and_Plasma_Active&amp;oldid=6586</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Categories</a>: <ul><li><a href="Category:Linux_Distributions.html" title="Category:Linux Distributions">Linux Distributions</a></li><li><a href="https://linux-sunxi.org/index.php?title=Category:Mer&amp;action=edit&amp;redlink=1" class="new" title="Category:Mer (page does not exist)">Mer</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=Mer+and+Plasma+Active" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=Mer+and+Plasma+Active" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="Mer_and_Plasma_Active.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:Mer_and_Plasma_Active&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="Mer_and_Plasma_Active.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Mer_and_Plasma_Active&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Mer_and_Plasma_Active&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/Mer_and_Plasma_Active.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/Mer_and_Plasma_Active" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=Mer_and_Plasma_Active&amp;oldid=6586" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=Mer_and_Plasma_Active&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 12 January 2014, at 04:06.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.034","walltime":"0.044","ppvisitednodes":{"value":15,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":0,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20251029040839","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":178});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

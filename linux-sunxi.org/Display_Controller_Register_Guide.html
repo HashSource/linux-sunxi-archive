@@ -1,0 +1,3237 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Display Controller Register Guide - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"be75fd984d1e643cb0d73584","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Display_Controller_Register_Guide","wgTitle":"Display Controller Register Guide","wgCurRevisionId":24300,"wgRevisionId":24300,"wgArticleId":358,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["A10 Register guide","A13 Register guide","A20 Register guide","A31 Register guide"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Display_Controller_Register_Guide","wgRelevantArticleId":358,"wgIsProbablyEditable":!1,
+"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":"ready","user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=mediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="Display_Controller_Register_Guide.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-Display_Controller_Register_Guide rootpage-Display_Controller_Register_Guide skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">Display Controller Register Guide</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Display_register_guide"><span class="tocnumber">1</span> <span class="toctext">Display register guide</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Overview"><span class="tocnumber">1.1</span> <span class="toctext">Overview</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Sections"><span class="tocnumber">1.2</span> <span class="toctext">Sections</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#FE_Registers.28Video_FrontEnd.29"><span class="tocnumber">1.3</span> <span class="toctext">FE Registers(Video FrontEnd)</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#BE_Registers.28Video_BackEnd.29"><span class="tocnumber">1.4</span> <span class="toctext">BE Registers(Video BackEnd)</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#LCD_Registers"><span class="tocnumber">1.5</span> <span class="toctext">LCD Registers</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#TVEC_Registers"><span class="tocnumber">1.6</span> <span class="toctext">TVEC Registers</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#HDMI_Registers"><span class="tocnumber">1.7</span> <span class="toctext">HDMI Registers</span></a>
+<ul>
+<li class="toclevel-3 tocsection-9"><a href="#HDMI_INT_CTRL"><span class="tocnumber">1.7.1</span> <span class="toctext">HDMI_INT_CTRL</span></a></li>
+<li class="toclevel-3 tocsection-10"><a href="#HDMI_CEC"><span class="tocnumber">1.7.2</span> <span class="toctext">HDMI_CEC</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-11"><a href="#IEP_Registers"><span class="tocnumber">1.8</span> <span class="toctext">IEP Registers</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Display_register_guide">Display register guide</span></h1>
+<h2><span class="mw-headline" id="Overview">Overview</span></h2>
+<p>Sunxi display registers are formed from 8-10 different register sets: BE0, BE1, FE0, FE1, LCD0, LCD1, TVEC0, TVEC1, HDMI and IEP.
+Display module also has dependencies to [CCMU], [SDRAM], [PIOC] and [PWM] registers
+</p>
+<h2><span class="mw-headline" id="Sections">Sections</span></h2>
+<table class="wikitable">
+<tbody><tr>
+<th>Section
+</th>
+<th>Subsection
+</th>
+<th>Address
+</th>
+<th>Size
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><b>FE</b>
+</td>
+<td>FE0
+</td>
+<td><tt>0x01e00000 - 0x01e0077f</tt>
+</td>
+<td>?kiB
+</td>
+<td>Display Frontend0(Scaler layer)
+</td></tr>
+<tr>
+<td>
+</td>
+<td>FE1
+</td>
+<td><tt>0x01e20000 - 0x01e2077f</tt>
+</td>
+<td>?kiB
+</td>
+<td>Display Frontend1
+</td></tr>
+<tr>
+<td><b>BE</b>
+</td>
+<td>BE0
+</td>
+<td><tt>0x01e60000 - 0x01e657ff</tt>
+</td>
+<td>?kiB
+</td>
+<td>Display Backend0(Color space converter layer)
+</td></tr>
+<tr>
+<td>
+</td>
+<td>BE1
+</td>
+<td><tt>0x01e40000 - 0x01e457ff</tt>
+</td>
+<td>?kiB
+</td>
+<td>Display Backend1
+</td></tr>
+<tr>
+<td><b>LCD</b>
+</td>
+<td>LCD0
+</td>
+<td><tt>0x01c0c000 - 0x01c0cfff</tt>
+</td>
+<td>?kiB
+</td>
+<td>
+</td></tr>
+<tr>
+<td>
+</td>
+<td>LCD1
+</td>
+<td><tt>0x01c0d000 - 0x01c0dfff</tt>
+</td>
+<td>?kiB
+</td>
+<td>
+</td></tr>
+<tr>
+<td><b>TVEC</b>
+</td>
+<td>TVEC0
+</td>
+<td><tt>0x01c0a000 - 0x01c0afff</tt>
+</td>
+<td>?kiB
+</td>
+<td>
+</td></tr>
+<tr>
+<td>
+</td>
+<td>TVEC1
+</td>
+<td><tt>0x01c1b000 - 0x01c1bfff</tt>
+</td>
+<td>?kiB
+</td>
+<td>
+</td></tr>
+<tr>
+<td><b>HDMI</b>
+</td>
+<td>HDMI
+</td>
+<td><tt>0x01c16000 - 0x01c165ff</tt>
+</td>
+<td>?kiB
+</td>
+<td>
+</td></tr>
+<tr>
+<td><b>IEP</b>
+</td>
+<td>IEP
+</td>
+<td><tt>0x01e70000 - 0x01e703ff</tt>
+</td>
+<td>?kiB
+</td>
+<td>Only sun5i?
+</td></tr></tbody></table>
+<h2><span id="FE_Registers(Video_FrontEnd)"></span><span class="mw-headline" id="FE_Registers.28Video_FrontEnd.29">FE Registers(Video FrontEnd)</span></h2>
+<p>Base address: 0x01e00000 or 0x01e20000
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Register Name
+</th>
+<th>Offset
+</th>
+<th>Size
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>modl_en</tt>
+</td>
+<td><tt>0x0000</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_EN_REG
+</td></tr>
+<tr>
+<td><tt>frm_ctrl</tt>
+</td>
+<td><tt>0x0004</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_FRM_CTRL_REG
+</td></tr>
+<tr>
+<td><tt>bypass</tt>
+</td>
+<td><tt>0x0008</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_BYPASS_REG
+</td></tr>
+<tr>
+<td><tt>agth_sel</tt>
+</td>
+<td><tt>0x000C</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_AGTH_SEL_REG
+</td></tr>
+<tr>
+<td><tt>lint_ctrl</tt>
+</td>
+<td><tt>0x0010</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_LINT_CTRL_REG
+</td></tr>
+<tr>
+<td><tt>reserved</tt>
+</td>
+<td><tt>0x0014</tt>
+</td>
+<td><tt>12 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>buf_addr0</tt>
+</td>
+<td><tt>0x0020</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_BUF_ADDR0_REG
+</td></tr>
+<tr>
+<td><tt>buf_addr1</tt>
+</td>
+<td><tt>0x0024</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_BUF_ADDR1_REG
+</td></tr>
+<tr>
+<td><tt>buf_addr2</tt>
+</td>
+<td><tt>0x0028</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_BUF_ADDR2_REG
+</td></tr>
+<tr>
+<td><tt>field_ctrl</tt>
+</td>
+<td><tt>0x002C</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_FIELD_CTRL_REG
+</td></tr>
+<tr>
+<td><tt>mb_off0</tt>
+</td>
+<td><tt>0x0030</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_MB_OFF0_REG
+</td></tr>
+<tr>
+<td><tt>mb_off1</tt>
+</td>
+<td><tt>0x0034</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_MB_OFF1_REG
+</td></tr>
+<tr>
+<td><tt>mb_off2</tt>
+</td>
+<td><tt>0x0038</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_MB_OFF2_REG
+</td></tr>
+<tr>
+<td><tt>reserved</tt>
+</td>
+<td><tt>0x003C</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>linestrd0</tt>
+</td>
+<td><tt>0x0040</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_LINESTRD0_REG
+</td></tr>
+<tr>
+<td><tt>linestrd1</tt>
+</td>
+<td><tt>0x0044</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_LINESTRD1_REG
+</td></tr>
+<tr>
+<td><tt>linestrd2</tt>
+</td>
+<td><tt>0x0048</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_LINESTRD2_REG
+</td></tr>
+<tr>
+<td><tt>input_fmt</tt>
+</td>
+<td><tt>0x004C</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_INPUT_FMT_REG
+</td></tr>
+<tr>
+<td><tt>wb_addr0</tt>
+</td>
+<td><tt>0x0050</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_WB_ADDR0_REG
+</td></tr>
+<tr>
+<td><tt>wb_addr1</tt>
+</td>
+<td><tt>0x0054</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_WB_ADDR1_REG
+</td></tr>
+<tr>
+<td><tt>wb_addr2</tt>
+</td>
+<td><tt>0x0058</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_WB_ADDR2_REG
+</td></tr>
+<tr>
+<td><tt>output_fmt</tt>
+</td>
+<td><tt>0x005c</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_OUTPUT_FMT_REG
+</td></tr>
+<tr>
+<td><tt>int_en</tt>
+</td>
+<td><tt>0x0060</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_INT_EN_REG
+</td></tr>
+<tr>
+<td><tt>int_status</tt>
+</td>
+<td><tt>0x0064</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_INT_STATUS_REG
+</td></tr>
+<tr>
+<td><tt>status</tt>
+</td>
+<td><tt>0x0068</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_STATUS_REG
+</td></tr>
+<tr>
+<td><tt>reserved</tt>
+</td>
+<td><tt>0x006c</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>csc_coef</tt>
+</td>
+<td><tt>0x0070</tt>
+</td>
+<td><tt>48 B</tt>
+</td>
+<td>SCAL_CSC_COEF03_REG
+</td></tr>
+<tr>
+<td><tt>di_ctrl</tt>
+</td>
+<td><tt>0x00a0</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_DI_CTRL_REG
+</td></tr>
+<tr>
+<td><tt>di_diagintp</tt>
+</td>
+<td><tt>0x00a4</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_DI_DIAGINTP_REG
+</td></tr>
+<tr>
+<td><tt>di_tempdiff</tt>
+</td>
+<td><tt>0x00a8</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_DI_TEMPDIFF_REG
+</td></tr>
+<tr>
+<td><tt>di_sawtooth</tt>
+</td>
+<td><tt>0x00ac</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_DI_SAWTOOTH_REG
+</td></tr>
+<tr>
+<td><tt>di_spatcomp</tt>
+</td>
+<td><tt>0x00b0</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_DI_SPATCOMP_REG
+</td></tr>
+<tr>
+<td><tt>di_burstlen</tt>
+</td>
+<td><tt>0x00b4</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_DI_BURSTLEN_REG
+</td></tr>
+<tr>
+<td><tt>di_preluma</tt>
+</td>
+<td><tt>0x00b8</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_DI_PRELUMA_REG
+</td></tr>
+<tr>
+<td><tt>di_blkflag</tt>
+</td>
+<td><tt>0x00bc</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_DI_BLKFLAG_REG
+</td></tr>
+<tr>
+<td><tt>di_flaglinestrd</tt>
+</td>
+<td><tt>0x00c0</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_DI_FLAGLINESTRD_REG
+</td></tr>
+<tr>
+<td><tt>reserved</tt>
+</td>
+<td><tt>0x00c4</tt>
+</td>
+<td><tt>12 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>wb_linestrd_en</tt>
+</td>
+<td><tt>0x00d0</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_WB_LINESTRD_EN_REG
+</td></tr>
+<tr>
+<td><tt>wb_linestrd0</tt>
+</td>
+<td><tt>0x00d4</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_WB_LINESTRD0_REG
+</td></tr>
+<tr>
+<td><tt>wb_linestrd1</tt>
+</td>
+<td><tt>0x00d8</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_WB_LINESTRD1_REG
+</td></tr>
+<tr>
+<td><tt>wb_linestrd2</tt>
+</td>
+<td><tt>0x00dc</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_WB_LINESTRD2_REG
+</td></tr>
+<tr>
+<td><tt>trd_ctrl</tt>
+</td>
+<td><tt>0x00e0</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_3D_CTRL_REG
+</td></tr>
+<tr>
+<td><tt>trd_buf_addr0</tt>
+</td>
+<td><tt>0x00e4</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_3D_BUF_ADDR0_REG
+</td></tr>
+<tr>
+<td><tt>trd_buf_addr1</tt>
+</td>
+<td><tt>0x00e8</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_3D_BUF_ADDR1_REG
+</td></tr>
+<tr>
+<td><tt>trd_buf_addr2</tt>
+</td>
+<td><tt>0x00ec</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_3D_BUF_ADDR2_REG
+</td></tr>
+<tr>
+<td><tt>trd_mb_off0</tt>
+</td>
+<td><tt>0x00f0</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_3D_MB_OFF0_REG
+</td></tr>
+<tr>
+<td><tt>trd_mb_off1</tt>
+</td>
+<td><tt>0x00f4</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_3D_MB_OFF1_REG
+</td></tr>
+<tr>
+<td><tt>trd_mb_off2</tt>
+</td>
+<td><tt>0x00f8</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_3D_MB_OFF2_REG
+</td></tr>
+<tr>
+<td><tt>reserved</tt>
+</td>
+<td><tt>0x00fc</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>ch0_insize</tt>
+</td>
+<td><tt>0x0100</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_CH0_INSIZE_REG
+</td></tr>
+<tr>
+<td><tt>ch0_outsize</tt>
+</td>
+<td><tt>0x0104</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_CH0_OUTSIZE_REG
+</td></tr>
+<tr>
+<td><tt>ch0_horzfact</tt>
+</td>
+<td><tt>0x0108</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_CH0_HORZFACT_REG
+</td></tr>
+<tr>
+<td><tt>ch0_vertfact</tt>
+</td>
+<td><tt>0x010c</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_CH0_VERTFACT_REG
+</td></tr>
+<tr>
+<td><tt>ch0_horzphase</tt>
+</td>
+<td><tt>0x0110</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_CH0_HORZPHASE_REG
+</td></tr>
+<tr>
+<td><tt>ch0_vertphase0</tt>
+</td>
+<td><tt>0x0114</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_CH0_VERTPHASE0_REG
+</td></tr>
+<tr>
+<td><tt>ch0_vertphase1</tt>
+</td>
+<td><tt>0x0118</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_CH0_VERTPHASE1_REG
+</td></tr>
+<tr>
+<td><tt>reserved</tt>
+</td>
+<td><tt>0x011c</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>ch0_horztap0</tt>
+</td>
+<td><tt>0x0120</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_CH0_HORZTAP0_REG
+</td></tr>
+<tr>
+<td><tt>ch0_horztap1</tt>
+</td>
+<td><tt>0x0124</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_CH0_HORZTAP1_REG
+</td></tr>
+<tr>
+<td><tt>ch0_verttap</tt>
+</td>
+<td><tt>0x0128</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_CH0_VERTTAP_REG
+</td></tr>
+<tr>
+<td><tt>reserved</tt>
+</td>
+<td><tt>0x012c</tt>
+</td>
+<td><tt>212 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>ch1_insize</tt>
+</td>
+<td><tt>0x0200</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_CH1_INSIZE_REG
+</td></tr>
+<tr>
+<td><tt>ch1_outsize</tt>
+</td>
+<td><tt>0x0204</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_CH1_OUTSIZE_REG
+</td></tr>
+<tr>
+<td><tt>ch1_horzfact</tt>
+</td>
+<td><tt>0x0208</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_CH1_HORZFACT_REG
+</td></tr>
+<tr>
+<td><tt>ch1_vertfact</tt>
+</td>
+<td><tt>0x020c</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_CH1_VERTFACT_REG
+</td></tr>
+<tr>
+<td><tt>ch1_horzphase</tt>
+</td>
+<td><tt>0x0210</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_CH1_HORZPHASE_REG
+</td></tr>
+<tr>
+<td><tt>ch1_vertphase0</tt>
+</td>
+<td><tt>0x0214</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_CH1_VERTPHASE0_REG
+</td></tr>
+<tr>
+<td><tt>ch1_vertphase1</tt>
+</td>
+<td><tt>0x0218</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_CH1_VERTPHASE1_REG
+</td></tr>
+<tr>
+<td><tt>reserved</tt>
+</td>
+<td><tt>0x021c</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>ch1_horztap0</tt>
+</td>
+<td><tt>0x0220</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_CH1_HORZTAP0_REG
+</td></tr>
+<tr>
+<td><tt>ch1_horztap1</tt>
+</td>
+<td><tt>0x0224</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_CH1_HORZTAP1_REG
+</td></tr>
+<tr>
+<td><tt>ch1_verttap</tt>
+</td>
+<td><tt>0x0228</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_CH1_VERTTAP_REG
+</td></tr>
+<tr>
+<td><tt>reserved</tt>
+</td>
+<td><tt>0x0228</tt>
+</td>
+<td><tt>468 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>ch0_horzcoef0</tt>
+</td>
+<td><tt>0x0400</tt>
+</td>
+<td><tt>128 B</tt>
+</td>
+<td>SCAL_CH0_HORZCOEF0_REGN
+</td></tr>
+<tr>
+<td><tt>ch0_horzcoef1</tt>
+</td>
+<td><tt>0x0480</tt>
+</td>
+<td><tt>128 B</tt>
+</td>
+<td>SCAL_CH0_HORZCOEF1_REGN
+</td></tr>
+<tr>
+<td><tt>ch0_vertcoef</tt>
+</td>
+<td><tt>0x0500</tt>
+</td>
+<td><tt>128 B</tt>
+</td>
+<td>SCAL_CH0_VERTCOEF_REGN
+</td></tr>
+<tr>
+<td><tt>reserved</tt>
+</td>
+<td><tt>0x0580</tt>
+</td>
+<td><tt>128 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>ch1_horzcoef0</tt>
+</td>
+<td><tt>0x0600</tt>
+</td>
+<td><tt>128 B</tt>
+</td>
+<td>SCAL_CH1_HORZCOEF0_REGN
+</td></tr>
+<tr>
+<td><tt>ch1_horzcoef1</tt>
+</td>
+<td><tt>0x0680</tt>
+</td>
+<td><tt>128 B</tt>
+</td>
+<td>SCAL_CH1_HORZCOEF1_REGN
+</td></tr>
+<tr>
+<td><tt>ch1_vertcoef</tt>
+</td>
+<td><tt>0x0700</tt>
+</td>
+<td><tt>128 B</tt>
+</td>
+<td>SCAL_CH1_VERTCOEF_REGN
+</td></tr>
+<tr>
+<td><tt>reserved??</tt>
+</td>
+<td><tt>0x0780</tt>
+</td>
+<td><tt>128 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>reserved</tt>
+</td>
+<td><tt>0x0800</tt>
+</td>
+<td><tt>512 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>vpp_en</tt>
+</td>
+<td><tt>0x0A00</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_VPP_EN_REG
+</td></tr>
+<tr>
+<td><tt>vpp_dcti</tt>
+</td>
+<td><tt>0x0A04</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_VPP_DCTI_REG
+</td></tr>
+<tr>
+<td><tt>vpp_lp1</tt>
+</td>
+<td><tt>0x0A08</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_VPP_LP1_REG
+</td></tr>
+<tr>
+<td><tt>vpp_lp2</tt>
+</td>
+<td><tt>0x0A0c</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_VPP_LP2_REG
+</td></tr>
+<tr>
+<td><tt>vpp_wle</tt>
+</td>
+<td><tt>0x0A10</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_VPP_WLE_REG
+</td></tr>
+<tr>
+<td><tt>vpp_ble</tt>
+</td>
+<td><tt>0x0A14</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SCAL_VPP_BLE_REG
+</td></tr></tbody></table>
+<h2><span id="BE_Registers(Video_BackEnd)"></span><span class="mw-headline" id="BE_Registers.28Video_BackEnd.29">BE Registers(Video BackEnd)</span></h2>
+<p>Base address: 0x01e60000 or 0x01e40000
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Register Name
+</th>
+<th>Offset
+</th>
+<th>Size
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>DE_BE_MODE_CTL</tt>
+</td>
+<td><tt>0x0800</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>back-end mode control register
+</td></tr>
+<tr>
+<td><tt>DE_BE_COLOR_CTL</tt>
+</td>
+<td><tt>0x0804</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>back-end color control register
+</td></tr>
+<tr>
+<td><tt>DE_BE_DISP_SIZE</tt>
+</td>
+<td><tt>0x0808</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>back-end display size setting register
+</td></tr>
+<tr>
+<td><tt>DE_BE_ERROR_CORRECTION</tt>
+</td>
+<td><tt>0x080C</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>DE_BE_LAYER_SIZE</tt>
+</td>
+<td><tt>0x0810</tt>
+</td>
+<td><tt>16? B</tt>
+</td>
+<td>back-end layer size register
+</td></tr>
+<tr>
+<td><tt>DE_BE_LAYER_CRD_CTL</tt>
+</td>
+<td><tt>0x0820</tt>
+</td>
+<td><tt>32? B</tt>
+</td>
+<td>back-end layer coordinate control register
+</td></tr>
+<tr>
+<td><tt>DE_BE_FRMBUF_WLINE</tt>
+</td>
+<td><tt>0x0840</tt>
+</td>
+<td><tt>16? B</tt>
+</td>
+<td>back-end frame buffer line width register
+</td></tr>
+<tr>
+<td><tt>DE_BE_FRMBUF_LOW32ADDR</tt>
+</td>
+<td><tt>0x0850</tt>
+</td>
+<td><tt>16? B</tt>
+</td>
+<td>back-end frame buffer low 32bit address register
+</td></tr>
+<tr>
+<td><tt>DE_BE_FRMBUF_HIGH4ADDR</tt>
+</td>
+<td><tt>0x0860</tt>
+</td>
+<td><tt>16? B</tt>
+</td>
+<td>back-end frame buffer high 4bit address register
+</td></tr>
+<tr>
+<td><tt>DE_BE_FRMBUF_CTL</tt>
+</td>
+<td><tt>0x0870</tt>
+</td>
+<td><tt>16? B</tt>
+</td>
+<td>back-end frame buffer control register
+</td></tr>
+<tr>
+<td><tt>DE_BE_CLRKEY_MAX</tt>
+</td>
+<td><tt>0x0880</tt>
+</td>
+<td><tt>8? B</tt>
+</td>
+<td>back-end color key max register
+</td></tr>
+<tr>
+<td><tt>DE_BE_CLRKEY_CFG</tt>
+</td>
+<td><tt>0x0888</tt>
+</td>
+<td><tt>8? B</tt>
+</td>
+<td>back-end color key configuration register
+</td></tr>
+<tr>
+<td><tt>DE_BE_LAYER_ATTRCTL_OFF0</tt>
+</td>
+<td><tt>0x0890</tt>
+</td>
+<td><tt>16? B</tt>
+</td>
+<td>back-end layer attribute control register0
+</td></tr>
+<tr>
+<td><tt>DE_BE_LAYER_ATTRCTL_OFF1</tt>
+</td>
+<td><tt>0x08a0</tt>
+</td>
+<td><tt>16? B</tt>
+</td>
+<td>back-end layer attribute control register1
+</td></tr>
+<tr>
+<td><tt>DE_BE_DLCDP_CTL</tt>
+</td>
+<td><tt>0x08b0</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>direct lcd pipe control register
+</td></tr>
+<tr>
+<td><tt>DE_BE_DLCDP_FRMBUF_ADDRCTL</tt>
+</td>
+<td><tt>0x08b4</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>direct lcd pipe frame buffer address control register
+</td></tr>
+<tr>
+<td><tt>DE_BE_DLCDP_CRD_CTL_OFF0</tt>
+</td>
+<td><tt>0x08b8</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>direct lcd pipe coordinate control register0
+</td></tr>
+<tr>
+<td><tt>DE_BE_DLCDP_CRD_CTL_OFF1</tt>
+</td>
+<td><tt>0x08bc</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>direct lcd pipe coordinate control register1
+</td></tr>
+<tr>
+<td><tt>DE_BE_INT_EN</tt>
+</td>
+<td><tt>0x08c0</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>DE_BE_INT_FLAG</tt>
+</td>
+<td><tt>0x08c4</tt>
+</td>
+<td><tt>? B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>DE_BE_HWC_CRD_CTL</tt>
+</td>
+<td><tt>0x08d8</tt>
+</td>
+<td><tt>? B</tt>
+</td>
+<td>hardware cursor coordinate control register
+</td></tr>
+<tr>
+<td><tt>DE_BE_HWC_FRMBUF</tt>
+</td>
+<td><tt>0x08e0</tt>
+</td>
+<td><tt>16? B</tt>
+</td>
+<td>hardware cursor framebuffer control
+</td></tr>
+<tr>
+<td><tt>DE_BE_WB_CTRL</tt>
+</td>
+<td><tt>0x08f0</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>back-end write back control
+</td></tr>
+<tr>
+<td><tt>DE_BE_WB_ADDR</tt>
+</td>
+<td><tt>0x08f4</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>back-end write back address
+</td></tr>
+<tr>
+<td><tt>DE_BE_WB_LINE_WIDTH</tt>
+</td>
+<td><tt>0x08f8</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>back-end write back buffer line width
+</td></tr>
+<tr>
+<td><tt>DE_BE_SPRITE_EN</tt>
+</td>
+<td><tt>0x0900</tt>
+</td>
+<td><tt>8? B</tt>
+</td>
+<td>sprite enable
+</td></tr>
+<tr>
+<td><tt>DE_BE_SPRITE_FORMAT_CTRL</tt>
+</td>
+<td><tt>0x0908</tt>
+</td>
+<td><tt>8? B</tt>
+</td>
+<td>sprite format control
+</td></tr>
+<tr>
+<td><tt>DE_BE_SPRITE_ALPHA_CTRL</tt>
+</td>
+<td><tt>0x090c</tt>
+</td>
+<td><tt>? B</tt>
+</td>
+<td>sprite alpha control
+</td></tr>
+<tr>
+<td><tt>DE_BE_SPRITE_POS_CTRL</tt>
+</td>
+<td><tt>0x0a00</tt>
+</td>
+<td><tt>? B</tt>
+</td>
+<td>sprite single block coordinate control
+</td></tr>
+<tr>
+<td><tt>DE_BE_SPRITE_ATTR_CTRL</tt>
+</td>
+<td><tt>0x0b00</tt>
+</td>
+<td><tt>? B</tt>
+</td>
+<td>sprite single block attribute control
+</td></tr>
+<tr>
+<td><tt>DE_BE_SPRITE_ADDR</tt>
+</td>
+<td><tt>0x0c00</tt>
+</td>
+<td><tt>? B</tt>
+</td>
+<td>sprite single block address setting SRAM array
+</td></tr>
+<tr>
+<td><tt>DE_BE_SPRITE_LINE_WIDTH</tt>
+</td>
+<td><tt>0x0d00</tt>
+</td>
+<td><tt>? B</tt>
+</td>
+<td>sprite single block address setting SRAM array
+</td></tr>
+<tr>
+<td><tt>DE_BE_YUV_CTRL</tt>
+</td>
+<td><tt>0x0920</tt>
+</td>
+<td><tt>? B</tt>
+</td>
+<td>back-end input YUV channel control
+</td></tr>
+<tr>
+<td><tt>DE_BE_YUV_ADDR</tt>
+</td>
+<td><tt>0x0930</tt>
+</td>
+<td><tt>? B</tt>
+</td>
+<td>back-end YUV channel frame buffer address
+</td></tr>
+<tr>
+<td><tt>DE_BE_YUV_LINE_WIDTH</tt>
+</td>
+<td><tt>0x0940</tt>
+</td>
+<td><tt>? B</tt>
+</td>
+<td>back-end YUV channel buffer line width
+</td></tr>
+<tr>
+<td><tt>DE_BE_YG_COEFF</tt>
+</td>
+<td><tt>0x0950</tt>
+</td>
+<td><tt>? B</tt>
+</td>
+<td>back Y/G coefficient
+</td></tr>
+<tr>
+<td><tt>DE_BE_YG_CONSTANT</tt>
+</td>
+<td><tt>0x095c</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>back Y/G constant
+</td></tr>
+<tr>
+<td><tt>DE_BE_UR_COEFF</tt>
+</td>
+<td><tt>0x0960</tt>
+</td>
+<td><tt>? B</tt>
+</td>
+<td>back U/R coefficient
+</td></tr>
+<tr>
+<td><tt>DE_BE_UR_CONSTANT</tt>
+</td>
+<td><tt>0x096c</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>back U/R constant
+</td></tr>
+<tr>
+<td><tt>DE_BE_VB_COEFF</tt>
+</td>
+<td><tt>0x0970</tt>
+</td>
+<td><tt>? B</tt>
+</td>
+<td>back V/B coefficient
+</td></tr>
+<tr>
+<td><tt>DE_BE_VB_CONSTANT</tt>
+</td>
+<td><tt>0x097c</tt>
+</td>
+<td><tt>? B</tt>
+</td>
+<td>back V/B constant
+</td></tr>
+<tr>
+<td><tt>DE_BE_OUT_COLOR_CTRL</tt>
+</td>
+<td><tt>0x09c0</tt>
+</td>
+<td><tt>? B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>DE_BE_OUT_COLOR_R_COEFF</tt>
+</td>
+<td><tt>0x09d0</tt>
+</td>
+<td><tt>? B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>DE_BE_OUT_COLOR_R_CONSTANT</tt>
+</td>
+<td><tt>0x09dc</tt>
+</td>
+<td><tt>? B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>DE_BE_OUT_COLOR_G_COEFF</tt>
+</td>
+<td><tt>0x09e0</tt>
+</td>
+<td><tt>? B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>DE_BE_OUT_COLOR_G_CONSTANT</tt>
+</td>
+<td><tt>0x09ec</tt>
+</td>
+<td><tt>? B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>DE_BE_OUT_COLOR_B_COEFF</tt>
+</td>
+<td><tt>0x09f0</tt>
+</td>
+<td><tt>? B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>DE_BE_OUT_COLOR_B_CONSTANT</tt>
+</td>
+<td><tt>0x09fc</tt>
+</td>
+<td><tt>? B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>DE_BE_SPRITE_PALETTE_TABLE_ADDR</tt>
+</td>
+<td><tt>0x4000</tt>
+</td>
+<td><tt>1024 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>DE_BE_GAMMA_TABLE_ADDR</tt>
+</td>
+<td><tt>0x4400</tt>
+</td>
+<td><tt>1024 B</tt>
+</td>
+<td>Used as internal framebuffer when layer attributes are set accordingly
+</td></tr>
+<tr>
+<td><tt>DE_BE_HWC_MEMORY_ADDR</tt>
+</td>
+<td><tt>0x4800</tt>
+</td>
+<td><tt>1024 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>DE_BE_HWC_PALETTE_TABLE_ADDR</tt>
+</td>
+<td><tt>0x4c00</tt>
+</td>
+<td><tt>1024 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>DE_BE_INTER_PALETTE_TABLE_PIPE0_ADDR</tt>
+</td>
+<td><tt>0x5000</tt>
+</td>
+<td><tt>1024 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>DE_BE_INTER_PALETTE_TABLE_PIPE1_ADDR</tt>
+</td>
+<td><tt>0x5400</tt>
+</td>
+<td><tt>1024 B</tt>
+</td>
+<td>
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="LCD_Registers">LCD Registers</span></h2>
+<p>Base address: 0x01c0c000 or 0x01c0d000 
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Register Name
+</th>
+<th>Offset
+</th>
+<th>Size
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>LCDC_GCTL</tt>
+</td>
+<td><tt>0x0000</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>global control registers
+</td></tr>
+<tr>
+<td><tt>LCDC_GINT0</tt>
+</td>
+<td><tt>0x0004</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>interrupt registers
+</td></tr>
+<tr>
+<td><tt>LCDC_GINT1</tt>
+</td>
+<td><tt>0x0008</tt>
+</td>
+<td><tt>4? B</tt>
+</td>
+<td>interrupt registers
+</td></tr>
+<tr>
+<td><tt>LCDC_FRM0</tt>
+</td>
+<td><tt>0x0010</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>frm registers
+</td></tr>
+<tr>
+<td><tt>LCDC_FRM1</tt>
+</td>
+<td><tt>0x0014</tt>
+</td>
+<td><tt>? B</tt>
+</td>
+<td>frm registers
+</td></tr>
+<tr>
+<td><tt>LCDC_FRM2</tt>
+</td>
+<td><tt>0x002c</tt>
+</td>
+<td><tt>? B</tt>
+</td>
+<td>frm registers
+</td></tr>
+<tr>
+<td><tt>LCDC_CTL</tt>
+</td>
+<td><tt>0x0040</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>control registers
+</td></tr>
+<tr>
+<td><tt>LCDC_DCLK</tt>
+</td>
+<td><tt>0x0044</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>dot clock registers
+</td></tr>
+<tr>
+<td><tt>LCDC_BASIC0</tt>
+</td>
+<td><tt>0x0048</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>base0 registers
+</td></tr>
+<tr>
+<td><tt>LCDC_BASIC1</tt>
+</td>
+<td><tt>0x004c</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>base1 registers
+</td></tr>
+<tr>
+<td><tt>LCDC_BASIC2</tt>
+</td>
+<td><tt>0x0050</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>base2 registers
+</td></tr>
+<tr>
+<td><tt>LCDC_BASIC3</tt>
+</td>
+<td><tt>0x0054</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>base3 registers
+</td></tr>
+<tr>
+<td><tt>LCDC_HVIF</tt>
+</td>
+<td><tt>0x0058</tt>
+</td>
+<td><tt>? B</tt>
+</td>
+<td>hv interface registers
+</td></tr>
+<tr>
+<td><tt>LCDC_CPUIF</tt>
+</td>
+<td><tt>0x0060</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>cpu interface registers
+</td></tr>
+<tr>
+<td><tt>LCDC_CPUWR</tt>
+</td>
+<td><tt>0x0064</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>cpu wr registers
+</td></tr>
+<tr>
+<td><tt>LCDC_CPURD</tt>
+</td>
+<td><tt>0x0068</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>cpu rd registers
+</td></tr>
+<tr>
+<td><tt>LCDC_CPURDNX</tt>
+</td>
+<td><tt>0x006c</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>cpu rdnx registers
+</td></tr>
+<tr>
+<td><tt>LCDC_TTL0</tt>
+</td>
+<td><tt>0x0070</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>TTL0 registers
+</td></tr>
+<tr>
+<td><tt>LCDC_TTL1</tt>
+</td>
+<td><tt>0x0074</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>TTL1 registers
+</td></tr>
+<tr>
+<td><tt>LCDC_TTL2</tt>
+</td>
+<td><tt>0x0078</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>TTL2 registers
+</td></tr>
+<tr>
+<td><tt>LCDC_TTL3</tt>
+</td>
+<td><tt>0x007c</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>TTL3 registers
+</td></tr>
+<tr>
+<td><tt>LCDC_TTL4</tt>
+</td>
+<td><tt>0x0080</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>TTL4 registers
+</td></tr>
+<tr>
+<td><tt>LCDC_LVDS</tt>
+</td>
+<td><tt>0x0084</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>LVDS registers
+</td></tr>
+<tr>
+<td><tt>LCDC_IOCTL0</tt>
+</td>
+<td><tt>0x0088</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>io control0 registers
+</td></tr>
+<tr>
+<td><tt>LCDC_IOCTL1</tt>
+</td>
+<td><tt>0x008c</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>io control1 registers
+</td></tr>
+<tr>
+<td><tt>LCDC_HDTVIF</tt>
+</td>
+<td><tt>0x0090</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>tv interface  registers
+</td></tr>
+<tr>
+<td><tt>LCDC_HDTV0</tt>
+</td>
+<td><tt>0x0094</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>HDTV0 registers
+</td></tr>
+<tr>
+<td><tt>LCDC_HDTV1</tt>
+</td>
+<td><tt>0x0098</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>HDTV1 registers
+</td></tr>
+<tr>
+<td><tt>LCDC_HDTV2</tt>
+</td>
+<td><tt>0x009c</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>HDTV2 registers
+</td></tr>
+<tr>
+<td><tt>LCDC_HDTV3</tt>
+</td>
+<td><tt>0x00a0</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>HDTV3 registers
+</td></tr>
+<tr>
+<td><tt>LCDC_HDTV4</tt>
+</td>
+<td><tt>0x00a4</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>HDTV4 registers
+</td></tr>
+<tr>
+<td><tt>LCDC_HDTV5</tt>
+</td>
+<td><tt>0x00a8</tt>
+</td>
+<td><tt>? B</tt>
+</td>
+<td>HDTV5 registers
+</td></tr>
+<tr>
+<td><tt>LCDC_IOCTL2</tt>
+</td>
+<td><tt>0x00f0</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>io control2 registers
+</td></tr>
+<tr>
+<td><tt>LCDC_IOCTL3</tt>
+</td>
+<td><tt>0x00f4</tt>
+</td>
+<td><tt>? B</tt>
+</td>
+<td>io control3 registers
+</td></tr>
+<tr>
+<td><tt>LCDC_DUBUG</tt>
+</td>
+<td><tt>0x00fc</tt>
+</td>
+<td><tt>? B</tt>
+</td>
+<td>debug register
+</td></tr>
+<tr>
+<td><tt>LCDC_CEU</tt>
+</td>
+<td><tt>0x0100</tt>
+</td>
+<td><tt>? B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>LCDC_MUX_CTRL</tt>
+</td>
+<td><tt>0x0200</tt>
+</td>
+<td><tt>? B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>LCDC_LVDS_ANA0</tt>
+</td>
+<td><tt>0x0220</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>LCDC_LVDS_ANA1</tt>
+</td>
+<td><tt>0x0224</tt>
+</td>
+<td><tt>? B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>LCDC_3DF_CTL</tt>
+</td>
+<td><tt>0x0300</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>LCDC_3DF_A1B</tt>
+</td>
+<td><tt>0x0304</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>LCDC_3DF_A1E</tt>
+</td>
+<td><tt>0x0308</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>LCDC_3DF_D1</tt>
+</td>
+<td><tt>0x030c</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>LCDC_3DF_A2B</tt>
+</td>
+<td><tt>0x0310</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>LCDC_3DF_A2E</tt>
+</td>
+<td><tt>0x0314</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>LCDC_3DF_D2</tt>
+</td>
+<td><tt>0x0318</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>LCDC_3DF_A3B</tt>
+</td>
+<td><tt>0x031c</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>LCDC_3DF_A3E</tt>
+</td>
+<td><tt>0x0320</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>LCDC_3DF_D3</tt>
+</td>
+<td><tt>0x0318??</tt>
+</td>
+<td><tt>? B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>LCDC_GAMMA_TABLE</tt>
+</td>
+<td><tt>0x0400</tt>
+</td>
+<td><tt>? B</tt>
+</td>
+<td>
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="TVEC_Registers">TVEC Registers</span></h2>
+<p>Base address: 0x01c0a000 or 0x01c1b000 
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Register Name
+</th>
+<th>Offset
+</th>
+<th>Size
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>TVE_000</tt>
+</td>
+<td><tt>0x0000</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>TVE_004</tt>
+</td>
+<td><tt>0x0004</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>TVE_008</tt>
+</td>
+<td><tt>0x0008</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>TVE_00C</tt>
+</td>
+<td><tt>0x000C</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>TVE_010</tt>
+</td>
+<td><tt>0x0010</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>TVE_014</tt>
+</td>
+<td><tt>0x0014</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>TVE_018</tt>
+</td>
+<td><tt>0x0018</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>TVE_01C</tt>
+</td>
+<td><tt>0x001c</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>TVE_020</tt>
+</td>
+<td><tt>0x0020</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>TVE_024</tt>
+</td>
+<td><tt>0x0024</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>TVE_030</tt>
+</td>
+<td><tt>0x0030</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>TVE_034</tt>
+</td>
+<td><tt>0x0034</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>TVE_038</tt>
+</td>
+<td><tt>0x0038</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>TVE_03C</tt>
+</td>
+<td><tt>0x003c</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>TVE_040</tt>
+</td>
+<td><tt>0x0040</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>TVE_044</tt>
+</td>
+<td><tt>0x0044</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>TVE_048</tt>
+</td>
+<td><tt>0x0048</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>TVE_04C</tt>
+</td>
+<td><tt>0x004c</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>TVE_100</tt>
+</td>
+<td><tt>0x0100</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>TVE_104</tt>
+</td>
+<td><tt>0x0104</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>TVE_10C</tt>
+</td>
+<td><tt>0x010c</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>TVE_110</tt>
+</td>
+<td><tt>0x0110</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>TVE_114</tt>
+</td>
+<td><tt>0x0114</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>TVE_118</tt>
+</td>
+<td><tt>0x0118</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>TVE_11C</tt>
+</td>
+<td><tt>0x011c</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>TVE_124</tt>
+</td>
+<td><tt>0x0124</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>TVE_128</tt>
+</td>
+<td><tt>0x0128</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>TVE_12C</tt>
+</td>
+<td><tt>0x012c</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>TVE_130</tt>
+</td>
+<td><tt>0x0130</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>TVE_138</tt>
+</td>
+<td><tt>0x0138</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>TVE_13C</tt>
+</td>
+<td><tt>0x013c</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="HDMI_Registers">HDMI Registers</span></h2>
+<p>Base address: 0x01c16000 
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Register Name
+</th>
+<th>Offset
+</th>
+<th>Size
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt></tt>
+</td>
+<td><tt>0x000</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>???
+</td></tr>
+<tr>
+<td><tt>HDMI_CTRL</tt>
+</td>
+<td><tt>0x004</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>Ctrl
+</td></tr>
+<tr>
+<td><tt>HDMI_INT_CTRL</tt>
+</td>
+<td><tt>0x008</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>HDMI_HPD</tt>
+</td>
+<td><tt>0x00c</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>HDMI_VIDEO_CTRL</tt>
+</td>
+<td><tt>0x010</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>Video ctrl
+</td></tr>
+<tr>
+<td><tt>HDMI_VIDEO_H</tt>
+</td>
+<td><tt>0x014</tt>
+</td>
+<td><tt>2 B</tt>
+</td>
+<td>Horizontal visible resolution
+</td></tr>
+<tr>
+<td><tt>HDMI_VIDEO_V</tt>
+</td>
+<td><tt>0x016</tt>
+</td>
+<td><tt>2 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>HDMI_VIDEO_HBP</tt>
+</td>
+<td><tt>0x018</tt>
+</td>
+<td><tt>2 B</tt>
+</td>
+<td>length of horizontal sync + time from sync to picture
+</td></tr>
+<tr>
+<td><tt>HDMI_VIDEO_VBP</tt>
+</td>
+<td><tt>0x01a</tt>
+</td>
+<td><tt>2 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>HDMI_VIDEO_HFP</tt>
+</td>
+<td><tt>0x01c</tt>
+</td>
+<td><tt>2 B</tt>
+</td>
+<td>time from picture to sync
+</td></tr>
+<tr>
+<td><tt>HDMI_VIDEO_VFP</tt>
+</td>
+<td><tt>0x01e</tt>
+</td>
+<td><tt>2 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>HDMI_VIDEO_HSPW</tt>
+</td>
+<td><tt>0x020</tt>
+</td>
+<td><tt>2 B</tt>
+</td>
+<td>length of horizontal sync
+</td></tr>
+<tr>
+<td><tt>HDMI_VIDEO_VPSW</tt>
+</td>
+<td><tt>0x022</tt>
+</td>
+<td><tt>2 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>HDMI_VIDEO_POLARITY</tt>
+</td>
+<td><tt>0x024</tt>
+</td>
+<td><tt>2 B</tt>
+</td>
+<td>Vsync/Hsync polarity
+</td></tr>
+<tr>
+<td><tt>HDMI_TX_CLOCK</tt>
+</td>
+<td><tt>0x026</tt>
+</td>
+<td><tt>2 B?</tt>
+</td>
+<td>TX clock sequence
+</td></tr>
+<tr>
+<td><tt>HDMI_AUDIO_CTRL</tt>
+</td>
+<td><tt>0x040</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>Audio ctrl
+</td></tr>
+<tr>
+<td><tt></tt>
+</td>
+<td><tt>0x044</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt></tt>
+</td>
+<td><tt>0x048</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt></tt>
+</td>
+<td><tt>0x04c</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt></tt>
+</td>
+<td><tt>0x050</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt></tt>
+</td>
+<td><tt>0x054</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt></tt>
+</td>
+<td><tt>0x058</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt></tt>
+</td>
+<td><tt>0x05c</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>HDMI_AVI_INFOFRAME</tt>
+</td>
+<td><tt>0x080</tt>
+</td>
+<td><tt>16 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>HDMI_AUDIO_INFOFRAME</tt>
+</td>
+<td><tt>0x0a0</tt>
+</td>
+<td><tt>13? B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt></tt>
+</td>
+<td><tt>0x0e0</tt>
+</td>
+<td><tt>8? B</tt>
+</td>
+<td>QCP packet
+</td></tr>
+<tr>
+<td><tt></tt>
+</td>
+<td><tt>0x200</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>Tx driver
+</td></tr>
+<tr>
+<td><tt></tt>
+</td>
+<td><tt>0x204</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>Tx driver
+</td></tr>
+<tr>
+<td><tt></tt>
+</td>
+<td><tt>0x208</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>Tx driver
+</td></tr>
+<tr>
+<td><tt></tt>
+</td>
+<td><tt>0x20c</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>HDMI_CEC</tt>
+</td>
+<td><tt>0x214</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>HDMI_VENDOR_INFOFRAME</tt>
+</td>
+<td><tt>0x240</tt>
+</td>
+<td><tt>? B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt></tt>
+</td>
+<td><tt>0x300</tt>
+</td>
+<td><tt>? B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>HDMI_I2C_GENERAL</tt>
+</td>
+<td><tt>0x500</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>I2C
+</td></tr>
+<tr>
+<td><tt>HDMI_I2C_ADDR</tt>
+</td>
+<td><tt>0x504</tt>
+</td>
+<td><tt>4? B</tt>
+</td>
+<td>I2C
+</td></tr>
+<tr>
+<td><tt>HDMI_I2C_STATUS</tt>
+</td>
+<td><tt>0x50c</tt>
+</td>
+<td><tt>4? B</tt>
+</td>
+<td>I2C
+</td></tr>
+<tr>
+<td><tt></tt>
+</td>
+<td><tt>0x510</tt>
+</td>
+<td><tt>4? B</tt>
+</td>
+<td>I2C
+</td></tr>
+<tr>
+<td><tt>HDMI_I2C_DATA</tt>
+</td>
+<td><tt>0x518</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>I2C
+</td></tr>
+<tr>
+<td><tt>HDMI_I2C_DATA_LENGTH</tt>
+</td>
+<td><tt>0x51c</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>I2C
+</td></tr>
+<tr>
+<td><tt>HDMI_I2C_CMD</tt>
+</td>
+<td><tt>0x520</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>I2C
+</td></tr>
+<tr>
+<td><tt></tt>
+</td>
+<td><tt>0x524</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>I2C
+</td></tr>
+<tr>
+<td><tt>HDMI_I2C_CLK</tt>
+</td>
+<td><tt>0x528</tt>
+</td>
+<td><tt>4? B</tt>
+</td>
+<td>I2C
+</td></tr>
+<tr>
+<td><tt>HDMI_I2C_LINE_CTRL</tt>
+</td>
+<td><tt>0x540</tt>
+</td>
+<td><tt>4? B</tt>
+</td>
+<td>I2C
+</td></tr>
+<tr>
+<td><tt></tt>
+</td>
+<td><tt>0x5f0</tt>
+</td>
+<td><tt>? B</tt>
+</td>
+<td>
+</td></tr></tbody></table>
+<p><br />
+</p>
+<h5><span class="mw-headline" id="HDMI_INT_CTRL">HDMI_INT_CTRL</span></h5>
+<p>Default value: Unknown<br />
+Offset: 0x04
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default (Hex)
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>0:3</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>Unknown</tt>
+</td>
+<td><tt>
+</tt><pre><tt>   Interrupt flag?
+  </tt>
+</pre>
+</td></tr>
+<tr>
+<td><tt>15:18</tt>
+</td>
+<td><tt>Write</tt>
+</td>
+<td><tt>Unknown</tt>
+</td>
+<td><tt>
+</tt><pre><tt>   Interrupt enable?
+  </tt>
+</pre>
+</td></tr></tbody></table>
+<p><br />
+</p>
+<h5><span class="mw-headline" id="HDMI_CEC">HDMI_CEC</span></h5>
+<p>Default value: Unknown<br />
+Offset: 0x214
+</p><p>The register is called HPD_CEC in A20 manual
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Bit</th>
+<th>Read/Write</th>
+<th>Default</th>
+<th>description
+</th></tr>
+<tr>
+<td>31:12</td>
+<td>/</td>
+<td>/</td>
+<td>reserved
+</td></tr>
+<tr>
+<td>11</td>
+<td>Read/Write</td>
+<td>0</td>
+<td>REG_CEC_EN
+</td></tr>
+<tr>
+<td>10</td>
+<td>Read/Write</td>
+<td>0</td>
+<td>REG_CECPS
+</td></tr>
+<tr>
+<td>9</td>
+<td>Read/Write</td>
+<td>0</td>
+<td>W_CEC
+</td></tr>
+<tr>
+<td>8</td>
+<td>Read</td>
+<td>/</td>
+<td>R_CEC
+</td></tr>
+<tr>
+<td>7:4</td>
+<td>/</td>
+<td>/</td>
+<td>reserved
+</td></tr>
+<tr>
+<td>3</td>
+<td>Read/Write</td>
+<td>0</td>
+<td>REG_HPD_EN
+</td></tr>
+<tr>
+<td>2</td>
+<td>Read/Write</td>
+<td>0</td>
+<td>REG_HPDPD
+</td></tr>
+<tr>
+<td>1</td>
+<td>Read/Write</td>
+<td>0</td>
+<td>W_HPD
+</td></tr>
+<tr>
+<td>0</td>
+<td>Read</td>
+<td>/</td>
+<td>R_HPD
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="IEP_Registers">IEP Registers</span></h2>
+<p>Base address: 0x01e70000
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Register Name
+</th>
+<th>Offset
+</th>
+<th>Size
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>gnectl</tt>
+</td>
+<td><tt>0x0000</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>__imgehc_gnectl_reg_t
+</td></tr>
+<tr>
+<td><tt>drcsize</tt>
+</td>
+<td><tt>0x0004</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>__imgehc_drcsize_reg_t
+</td></tr>
+<tr>
+<td><tt>reserved</tt>
+</td>
+<td><tt>0x0008</tt>
+</td>
+<td><tt>8 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>drcctl</tt>
+</td>
+<td><tt>0x0010</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>__imgehc_drcctl_reg_t
+</td></tr>
+<tr>
+<td><tt>drclgc_addr</tt>
+</td>
+<td><tt>0x0014</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>__imgehc_drclgc_staadd_reg_t
+</td></tr>
+<tr>
+<td><tt>drc_set</tt>
+</td>
+<td><tt>0x0018</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>__imgehc_drc_set_reg_t
+</td></tr>
+<tr>
+<td><tt>drc_wp0</tt>
+</td>
+<td><tt>0x001c</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>__imgehc_drc_wp_reg0_t
+</td></tr>
+<tr>
+<td><tt>drc_wp1</tt>
+</td>
+<td><tt>0x0020</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>__imgehc_drc_wp_reg1_t
+</td></tr>
+<tr>
+<td><tt>wbctl</tt>
+</td>
+<td><tt>0x0024</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>__imgehc_wbctl_reg_t
+</td></tr>
+<tr>
+<td><tt>wbaddr</tt>
+</td>
+<td><tt>0x0028</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>__imgehc_wbaddr_reg_t
+</td></tr>
+<tr>
+<td><tt>wbline</tt>
+</td>
+<td><tt>0x002c</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>__imgehc_wbline_reg_t
+</td></tr>
+<tr>
+<td><tt>lhctl</tt>
+</td>
+<td><tt>0x0030</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>__imgehc_lhctl_reg_t
+</td></tr>
+<tr>
+<td><tt>lhthr0</tt>
+</td>
+<td><tt>0x0034</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>__imgehc_lhthr_reg0_t
+</td></tr>
+<tr>
+<td><tt>lhthr1</tt>
+</td>
+<td><tt>0x0038</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>__imgehc_lhthr_reg1_t
+</td></tr>
+<tr>
+<td><tt>reserved</tt>
+</td>
+<td><tt>0x003c</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>lhslum</tt>
+</td>
+<td><tt>0x0040</tt>
+</td>
+<td><tt>32 B</tt>
+</td>
+<td>__imgehc_lhslum_reg_t
+</td></tr>
+<tr>
+<td><tt>lhscnt</tt>
+</td>
+<td><tt>0x0060</tt>
+</td>
+<td><tt>32 B</tt>
+</td>
+<td>__imgehc_lhscnt_reg_t
+</td></tr>
+<tr>
+<td><tt>dfctl</tt>
+</td>
+<td><tt>0x0080</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>__imgehc_dfctl_reg_t
+</td></tr>
+<tr>
+<td><tt>reserved</tt>
+</td>
+<td><tt>0x0084</tt>
+</td>
+<td><tt>60 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>cscygcoff</tt>
+</td>
+<td><tt>0x00c0</tt>
+</td>
+<td><tt>12 B</tt>
+</td>
+<td>__imgehc_cscygcoff_reg_t
+</td></tr>
+<tr>
+<td><tt>cscygcon</tt>
+</td>
+<td><tt>0x00cc</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>__imgehc_cscygcon_reg_t
+</td></tr>
+<tr>
+<td><tt>cscurcoff</tt>
+</td>
+<td><tt>0x00d0</tt>
+</td>
+<td><tt>12 B</tt>
+</td>
+<td>__imgehc_cscurcoff_reg_t
+</td></tr>
+<tr>
+<td><tt>cscurcon</tt>
+</td>
+<td><tt>0x00dc</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>__imgehc_cscurcon_reg_t
+</td></tr>
+<tr>
+<td><tt>cscvbcoff</tt>
+</td>
+<td><tt>0x00e0</tt>
+</td>
+<td><tt>12 B</tt>
+</td>
+<td>__imgehc_cscvbcoff_reg_t
+</td></tr>
+<tr>
+<td><tt>cscvbcon</tt>
+</td>
+<td><tt>0x00ec</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>__imgehc_cscvbcon_reg_t
+</td></tr>
+<tr>
+<td><tt>drcspacoff</tt>
+</td>
+<td><tt>0x00f0</tt>
+</td>
+<td><tt>12 B</tt>
+</td>
+<td>__imgehc_drcspacoff_reg_t
+</td></tr>
+<tr>
+<td><tt>reserved</tt>
+</td>
+<td><tt>0x00ff</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>drcintcoff</tt>
+</td>
+<td><tt>0x0100</tt>
+</td>
+<td><tt>256 B</tt>
+</td>
+<td>__imgehc_drcintcoff_reg_t
+</td></tr>
+<tr>
+<td><tt>drclgcoff</tt>
+</td>
+<td><tt>0x0200</tt>
+</td>
+<td><tt>512 B</tt>
+</td>
+<td>__imgehc_drclgcoff_reg_t
+</td></tr></tbody></table>
+<!-- 
+NewPP limit report
+Cached time: 20251029050230
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.277 seconds
+Real time usage: 0.289 seconds
+Preprocessor visited node count: 34/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:358-0!canonical and timestamp 20251029050229 and revision id 24300
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=Display_Controller_Register_Guide&amp;oldid=24300">https://linux-sunxi.org/index.php?title=Display_Controller_Register_Guide&amp;oldid=24300</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Categories</a>: <ul><li><a href="Category:A10_Register_guide.html" title="Category:A10 Register guide">A10 Register guide</a></li><li><a href="Category:A13_Register_guide.html" title="Category:A13 Register guide">A13 Register guide</a></li><li><a href="Category:A20_Register_guide.html" title="Category:A20 Register guide">A20 Register guide</a></li><li><a href="Category:A31_Register_guide.html" title="Category:A31 Register guide">A31 Register guide</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=Display+Controller+Register+Guide" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=Display+Controller+Register+Guide" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="Display_Controller_Register_Guide.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:Display_Controller_Register_Guide&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="Display_Controller_Register_Guide.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Display_Controller_Register_Guide&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Display_Controller_Register_Guide&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/Display_Controller_Register_Guide.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/Display_Controller_Register_Guide" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=Display_Controller_Register_Guide&amp;oldid=24300" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=Display_Controller_Register_Guide&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 5 July 2021, at 07:08.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.277","walltime":"0.289","ppvisitednodes":{"value":34,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":0,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20251029050230","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":353});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

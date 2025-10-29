@@ -1,0 +1,344 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>MTD Driver - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"a74af3e2a8f9025889f7f15f","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"MTD_Driver","wgTitle":"MTD Driver","wgCurRevisionId":26732,"wgRevisionId":26732,"wgArticleId":1625,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"MTD_Driver","wgRelevantArticleId":1625,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":"ready","user":"ready",
+"user.options":"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=mediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="MTD_Driver.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-MTD_Driver rootpage-MTD_Driver skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">MTD Driver</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><table style="margin: 0.7em; border-width: 1px 1px 1px 10px; border-style: solid; border-color: #EE8822; background-color: #FFEEDD">
+<tbody><tr>
+<td style="padding: 0.2em; vertical-align: baseline;"><a href="File:MBOX_icon_important.png.html" class="image"><img alt="MBOX icon important.png" src="https://linux-sunxi.org/images/f/f0/MBOX_icon_important.png" decoding="async" width="40" height="40" /></a>
+</td>
+<td style="width:100%; padding-left: 0.2em; padding-right: 0.2em; vertical-align: baseline;">This work is not stable at the moment. This both means that these instructions might change arbitrarily in the future, and that you might lose data by upgrading your kernel to some newer work or because they got corrupt.
+</td></tr></tbody></table>
+<p>The <b>sunxi-nand MTD Linux driver</b> is the MTD driver for the NAND controller present in the Allwinner A20 chip. It is meant to replace the Allwinner driver present in linux-sunxi-3.4 programmed by Allwinner. In contrast with the Allwinner driver, this driver exposes the underlying NAND device using the standard <a rel="nofollow" class="external text" href="http://www.linux-mtd.infradead.org/">Linux MTD interface</a> and not as an emulated block device. Also, this driver allows reading and writing to the whole NAND flash from Linux, including the <a href="BROM.html#Source_code_for_boot0_and_boot1" title="BROM">boot0 bootloader</a> which is loaded by <a href="BROM.html#eGON_Boot" title="BROM">eGON</a>.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Kernel"><span class="tocnumber">1</span> <span class="toctext">Kernel</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Booting"><span class="tocnumber">2</span> <span class="toctext">Booting</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Vocabulary"><span class="tocnumber">3</span> <span class="toctext">Vocabulary</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Erase_Blocks"><span class="tocnumber">3.1</span> <span class="toctext">Erase Blocks</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Pages"><span class="tocnumber">3.2</span> <span class="toctext">Pages</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#OOB_area"><span class="tocnumber">3.3</span> <span class="toctext">OOB area</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Bitflips"><span class="tocnumber">3.4</span> <span class="toctext">Bitflips</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Error_Correcting_Code_.28ECC.29"><span class="tocnumber">3.5</span> <span class="toctext">Error Correcting Code (ECC)</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Bad_Blocks"><span class="tocnumber">3.6</span> <span class="toctext">Bad Blocks</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#Bad_Block_Marker_.28BBM.29"><span class="tocnumber">3.7</span> <span class="toctext">Bad Block Marker (BBM)</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="#Bad_Block_Table_.28BBT.29"><span class="tocnumber">3.8</span> <span class="toctext">Bad Block Table (BBT)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-12"><a href="#Challenges"><span class="tocnumber">4</span> <span class="toctext">Challenges</span></a>
+<ul>
+<li class="toclevel-2 tocsection-13"><a href="#Supporting_the_hardware_randomizer"><span class="tocnumber">4.1</span> <span class="toctext">Supporting the hardware randomizer</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="#BROM.2FeGON_limitations"><span class="tocnumber">4.2</span> <span class="toctext">BROM/eGON limitations</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="#Preventing_uncorrectable_errors"><span class="tocnumber">4.3</span> <span class="toctext">Preventing uncorrectable errors</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="#Paired_pages"><span class="tocnumber">4.4</span> <span class="toctext">Paired pages</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="#Unstable_bits"><span class="tocnumber">4.5</span> <span class="toctext">Unstable bits</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-18"><a href="#How_to"><span class="tocnumber">5</span> <span class="toctext">How to</span></a></li>
+<li class="toclevel-1 tocsection-19"><a href="#External_Links"><span class="tocnumber">6</span> <span class="toctext">External Links</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Kernel">Kernel</span></h2>
+<p>The main work on the MTD driver is done by <a class="external text" href="https://github.com/bbrezillon">bbrezillon</a>. In order to test the driver you'll have to compile a kernel from these <a class="external text" href="https://github.com/bbrezillon/linux-sunxi/tree/sunxi-nand-pre-v5">sources</a> and use the dtb compiled for your board as well.
+Since version 3.19 of the Mainline Kernel SLC NAND is supported.<br />
+</p><p>TODO: create a branch containing up-to-date developments <a class="external text" href="https://github.com/bbrezillon/linux-sunxi">here</a>
+</p>
+<h2><span class="mw-headline" id="Booting">Booting</span></h2>
+<p>TODO: dtb, u-boot, boot0/sunxi-spl, special hw-randomization for boot partitions<br />
+TODO: create a branch containing up-to-date developments <a class="external text" href="https://github.com/bbrezillon/u-boot">here</a>
+</p>
+<h2><span class="mw-headline" id="Vocabulary">Vocabulary</span></h2>
+<p>NAND devices being very different from traditional block devices, require specific vocabulary in order to be able to talk about them. Making sure you use the right word helps both getting your message across and also getting help faster without wasting time describing what you're trying to talk about. Below is some common terminology used when talking about MTD devices in general.
+</p>
+<h3><span class="mw-headline" id="Erase_Blocks">Erase Blocks</span></h3>
+<p>An MTD device consists of a number of <b>erase blocks</b>. An <b>erase block</b> is the minimum I/O unit of an <b>erase operation</b>. An erase operation sets all the bits of an <b>erase block</b> to 1s. You can think of them like the blocks of traditional block devices but in reality they behave very differently. See this <a rel="nofollow" class="external text" href="http://www.linux-mtd.infradead.org/faq/general.html#L_mtd_vs_hdd#L_mtd_vs_hdd">FAQ</a> for a list of differences between the two.  
+</p>
+<h3><span class="mw-headline" id="Pages">Pages</span></h3>
+<p>An <b>erase block</b> consists of a number of <b>pages</b>. A <b>page</b> is the minimum I/O unit of a <b>read/write operation</b>. When a page is written bits can only change from 1 to 0. In order to change a bit in a page from 0 to 1 a full erase block erase is required before rewriting the block again (and possibly the other blocks that were in the erase block) with the specific bit flipped.
+</p>
+<h3><span class="mw-headline" id="OOB_area">OOB area</span></h3>
+<p>A <b>page</b> consists of a data area and a <b>out of band (OOB)</b> area. NAND devices do not store data reliably. Some of the bits you write or read might get flipped. The OOB area is some extra space per page provided by the NAND manufacturer to save <b>Error Correcting Code (ECC)</b> bytes. This though is not something enforced and is completely controlled by software. In theory one could use the whole page to write data but with the caveat of getting bits flipped undetectably.
+</p>
+<h3><span class="mw-headline" id="Bitflips">Bitflips</span></h3>
+<p>This is a symptom observed on modern NAND chips. Some of the bits you have written to a NAND section may flip from one to zero or vice versa.<br />
+This can be caused by various factors:
+</p>
+<ol><li>Read/write disturbance: when you read or write a NAND page, you may flip some bits in adjacent pages</li>
+<li>Data retention lifetime: a NAND device cannot retain data for an infinite time, because NAND cells may loose their charge over time</li></ol>
+<h3><span id="Error_Correcting_Code_(ECC)"></span><span class="mw-headline" id="Error_Correcting_Code_.28ECC.29">Error Correcting Code (ECC)</span></h3>
+<p><b>ECC</b> is written in the <b>OOB area</b> of each page to provide detection and correction of bit flips in the data area of the page. The <b>ECC</b> is characterized by its strength and step size, (e.g. 40 bits / 1024 bytes, where the strength is 40 bits, and the step size is 1024 bytes). These values are usually dictated by the NAND's datasheet. The amount of <b>ECC</b> bytes required to achieve the desired bit strength depends on the algorithm used. The most common algorithms use BCH code and more rarely Reed-Solomon code. The <b>ECC</b> algorithm can be implemented either in software or in hardware if a the SoC features an <b>ECC</b> generator.
+</p>
+<h3><span class="mw-headline" id="Bad_Blocks">Bad Blocks</span></h3>
+<p>As we already saw, an erase block wears-off as erase operations happen. At some point the erase block will fail to turn all its bits to 1 after an erase operation. When this happens we say that we have a <b>bad block</b> and we must avoid using it for our data. <b>bad blocks</b> are very common and NAND chips usually ship with <b>bad blocks</b> in them from the manufacturer.
+</p>
+<h3><span id="Bad_Block_Marker_(BBM)"></span><span class="mw-headline" id="Bad_Block_Marker_.28BBM.29">Bad Block Marker (BBM)</span></h3>
+<p>In order to identify <b>bad blocks</b>, <b>bad block markers</b> are used. The marker is implemented by writing 0x00 on the first 2 bytes of the OOB of the first, last or the first two pages of a block. When a block is marked as bad it is not used for IO operations.
+</p>
+<h3><span id="Bad_Block_Table_(BBT)"></span><span class="mw-headline" id="Bad_Block_Table_.28BBT.29">Bad Block Table (BBT)</span></h3>
+<p>In order to cope with the fact that bad blocks exist and new might appear in the future the system stores information about which blocks are bad in a <b>Bad Block Table (BBT)</b>. This table is consulted before any I/O operation and updated whenever an erase operation fails. This table can be either regenerated every time the device starts up or it can be persisted on the NAND chip itself. Regenerating the table on each boot takes a considerable amount of time as the whole NAND has to be scanned and usually an on-nand BBT is used. The table is stored in the last two good erase blocks of the NAND and is preserved across reboots.
+</p>
+<h2><span class="mw-headline" id="Challenges">Challenges</span></h2>
+<p>A lot of people are asking why the boards already supported in mainline does not have the NAND related stuff defined in their device trees. There a simple answer to that question: using the current NAND driver with the usual UBI/UBIFS layers to interface with MLC NANDs is simply not reliable enough, and we don't want people to start deploying/using this NAND driver unless they really know what they are doing.<br />
+This being said, if you feel like you don't care about the reliability issues, or just want to test it on your platform you can follow the "how to" section.<br />
+<br />
+Now let's get back to the missing things to get a reliable solution for all allwinner platforms using one or several MLC chips.
+</p>
+<h3><span class="mw-headline" id="Supporting_the_hardware_randomizer">Supporting the hardware randomizer</span></h3>
+<p>Some MLC chips are sensitive to repeated patterns. In other words, when writing too many times the same pattern in a given NAND block, you'll experience a high number of bitflips. So high that even the ECC engine cannot correct them.<br />
+To address that you have to randomize your data before storing them in your NAND, and this is exactly what the hardware randomizer embedded in the NAND controller is meant for. Note that this is not required on all MLC chips: some of them are not sensitive to reapeted patterns (older MLC chips), and some directly embed the randomizer in their die, thus removing the need for an external randomizer (this is the case for some Micron chips).<br />
+<br />
+Status: <a rel="nofollow" class="external text" href="https://lkml.org/lkml/2015/12/2/186">Submitted</a>, waiting for reviews.
+</p>
+<h3><span id="BROM/eGON_limitations"></span><span class="mw-headline" id="BROM.2FeGON_limitations">BROM/eGON limitations</span></h3>
+<p>TODO: describe the BROM limitations in term of ECC and randomizer config, and the possible incompatibility with the NAND requirements.
+Explain how to overcome that and allow BOOT0/SPL flashing (raw access mode).
+</p>
+<h3><span class="mw-headline" id="Preventing_uncorrectable_errors">Preventing uncorrectable errors</span></h3>
+<p>As described above, ECC algorithms are here to correct a certain amount of bitflips, but if the number of bitflips exceeds the ECC strength, you experience data loss. While data retention issues are common to all NAND chips, MLC NANDs are way more exposed to read/write disturbance.<br />
+In order to prevent uncorrectable errors, we have to regularly scan all NAND blocks and detect those where we have reached a critical limit (called bitflip theshold), and move data to another block.<br />
+</p><p>Status: Richard Weinberger proposed a solution to handle that at the UBI level. His solution is involving <a rel="nofollow" class="external text" href="https://lore.kernel.org/all/1446764217-15021-1-git-send-email-richard@nod.at/">trivial changes to the UBI code</a> to expose new ioctls to userspace and a  <a rel="nofollow" class="external text" href="https://lore.kernel.org/all/1446764403-22742-1-git-send-email-richard@nod.at/">userspace daemon</a> which is reponsible for doing the hard work.
+</p>
+<h3><span class="mw-headline" id="Paired_pages">Paired pages</span></h3>
+<p>TODO: describe the "paired pages" concept and the associated constraints
+</p>
+<h3><span class="mw-headline" id="Unstable_bits">Unstable bits</span></h3>
+<p>TODO: describe the "unstable bits" problem
+</p>
+<h2><span class="mw-headline" id="How_to">How to</span></h2>
+<p><a href="Mainline_NAND_Howto.html" title="Mainline NAND Howto">Mainline NAND Howto</a> contains some bits and pieces on how to set up NAND.
+</p>
+<h2><span class="mw-headline" id="External_Links">External Links</span></h2>
+<ul><li><a rel="nofollow" class="external text" href="http://wiki.openwrt.org/doc/techref/flash">Flash memory</a></li>
+<li><a rel="nofollow" class="external text" href="http://www.stlinux.com/howto/NAND/BadBlocks">Bad blocks</a></li></ul>
+<!-- 
+NewPP limit report
+Cached time: 20251029040817
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.070 seconds
+Real time usage: 0.093 seconds
+Preprocessor visited node count: 91/1000000
+Post‐expand include size: 1578/2097152 bytes
+Template argument size: 741/2097152 bytes
+Highest expansion depth: 7/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   21.886      1 Template:Alert
+100.00%   21.886      1 -total
+ 62.79%   13.742      1 Template:MBOX_NOTE
+ 23.61%    5.168      1 Template:MBOX
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:1625-0!canonical and timestamp 20251029040817 and revision id 26732
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=MTD_Driver&amp;oldid=26732">https://linux-sunxi.org/index.php?title=MTD_Driver&amp;oldid=26732</a>"</div>
+		<div id="catlinks" class="catlinks catlinks-allhidden" data-mw="interface"></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=MTD+Driver" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=MTD+Driver" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="MTD_Driver.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:MTD_Driver&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="MTD_Driver.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=MTD_Driver&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=MTD_Driver&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/MTD_Driver.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/MTD_Driver" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=MTD_Driver&amp;oldid=26732" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=MTD_Driver&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 19 September 2025, at 17:08.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.070","walltime":"0.093","ppvisitednodes":{"value":91,"limit":1000000},"postexpandincludesize":{"value":1578,"limit":2097152},"templateargumentsize":{"value":741,"limit":2097152},"expansiondepth":{"value":7,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":0,"limit":5000000},"timingprofile":["100.00%   21.886      1 Template:Alert","100.00%   21.886      1 -total"," 62.79%   13.742      1 Template:MBOX_NOTE"," 23.61%    5.168      1 Template:MBOX"]},"cachereport":{"timestamp":"20251029040817","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":176});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

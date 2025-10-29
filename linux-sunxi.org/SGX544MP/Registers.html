@@ -1,0 +1,773 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>SGX544MP/Registers - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"5abd20bcc87b47464e964988","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"SGX544MP/Registers","wgTitle":"SGX544MP/Registers","wgCurRevisionId":21704,"wgRevisionId":21704,"wgArticleId":3318,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"SGX544MP/Registers","wgRelevantArticleId":3318,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles"
+:"ready","user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=mediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="Registers.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-SGX544MP_Registers rootpage-SGX544MP skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">SGX544MP/Registers</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"><span class="subpages">&lt; <a href="../SGX544MP.html" title="SGX544MP">SGX544MP</a></span></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Info"><span class="tocnumber">1</span> <span class="toctext">Info</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Datasheet"><span class="tocnumber">1.1</span> <span class="toctext">Datasheet</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-3"><a href="#Register_List"><span class="tocnumber">2</span> <span class="toctext">Register List</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Source"><span class="tocnumber">3</span> <span class="toctext">Source</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Info">Info</span></h1>
+<p>These information come from Published code from Img Tech and is under the GPL v2 Licencse<br />
+According to the Datasheet of the A83T the Registers have a total size of 64k (Adressrange: 0x0000 - 0xFFFF) <br />
+</p><p><b>Please insert here only officially published information from Img Tech (like from the linked git pages at the bottom of this site)!!<br /></b>
+<b>If we want to develop an opensource driver out of these information we must make sure that all information are legal!</b>
+</p>
+<h2><span class="mw-headline" id="Datasheet">Datasheet</span></h2>
+<p>Wip Datasheet: <a class="external free" href="https://github.com/embed-3d/PVRSGX_hwdoc">https://github.com/embed-3d/PVRSGX_hwdoc</a>
+</p>
+<h1><span class="mw-headline" id="Register_List">Register List</span></h1>
+<table class="wikitable">
+
+<tbody><tr>
+<th>Register Name</th>
+<th>Offset</th>
+<th>Description
+</th></tr>
+<tr>
+<td>CLKGATECTL</td>
+<td>0x0000</td>
+<td>Clock Gate Control Register
+</td></tr>
+<tr>
+<td>CLKGATECTL2</td>
+<td>0x0004</td>
+<td>Clock Gate Control Register2
+</td></tr>
+<tr>
+<td>CLKGATESTATUS</td>
+<td>0x0008</td>
+<td>Clock Gate Status Register
+</td></tr>
+<tr>
+<td>CLKGATECTLOVR</td>
+<td>0x000C</td>
+<td>Clock Gate -?- Register
+</td></tr>
+<tr>
+<td>POWER</td>
+<td>0x001C</td>
+<td>Power Register
+</td></tr>
+<tr>
+<td>CORE_ID</td>
+<td>0x0020</td>
+<td>Core ID Register
+</td></tr>
+<tr>
+<td>CORE_REVISION</td>
+<td>0x0024</td>
+<td>Core Revision Register
+</td></tr>
+<tr>
+<td>DESIGNER_REV_FIELD1</td>
+<td>0x0028</td>
+<td>Designer Revision Field 1 Register
+</td></tr>
+<tr>
+<td>DESIGNER_REV_FIELD2</td>
+<td>0x002C</td>
+<td>Designer Revision Field 2 Register
+</td></tr>
+<tr>
+<td>SOFT_RESET</td>
+<td>0x0080</td>
+<td>Soft Reset Register
+</td></tr>
+<tr>
+<td>EVENT_HOST_ENABLE2</td>
+<td>0x0110</td>
+<td>Event Host Enable Register 2
+</td></tr>
+<tr>
+<td>EVENT_HOST_CLEAR2</td>
+<td>0x0114</td>
+<td>Event Host Clear Register 2
+</td></tr>
+<tr>
+<td>EVENT_STATUS2</td>
+<td>0x0118</td>
+<td>Event Status Register 2
+</td></tr>
+<tr>
+<td>EVENT_STATUS1</td>
+<td>0x012C</td>
+<td>Event Status Register 1
+</td></tr>
+<tr>
+<td>EVENT_HOST_ENABLE1</td>
+<td>0x0130</td>
+<td>Event Host Enable Register 1
+</td></tr>
+<tr>
+<td>HOST_CLEAR1</td>
+<td>0x0134</td>
+<td>Event Host Clear Register 1
+</td></tr>
+<tr>
+<td>TIMER</td>
+<td>0x0144</td>
+<td>Timer Register
+</td></tr>
+<tr>
+<td>EVENT_KICK1</td>
+<td>0x0AB0</td>
+<td>Event Kick 1 Register
+</td></tr>
+<tr>
+<td>EVENT_KICK2</td>
+<td>0x0AC0</td>
+<td>Event Kick 2 Register
+</td></tr>
+<tr>
+<td>EVENT_KICKER</td>
+<td>0x0AC4</td>
+<td>Event Kicker Register
+</td></tr>
+<tr>
+<td>EVENT_KICK0</td>
+<td>0x0AC8</td>
+<td>Event Kick 0 Register
+</td></tr>
+<tr>
+<td>EVENT_TIMER</td>
+<td>0x0ACC</td>
+<td>Event Timer Register
+</td></tr>
+<tr>
+<td>PDS_INV0</td>
+<td>0x0AD0</td>
+<td>-?-
+</td></tr>
+<tr>
+<td>PDS_INV1</td>
+<td>0x0AD4</td>
+<td>-?-
+</td></tr>
+<tr>
+<td>EVENT_KICK3</td>
+<td>0x0AD8</td>
+<td>Event Kick 3 Register
+</td></tr>
+<tr>
+<td>PDS_INV3</td>
+<td>0x0ADC</td>
+<td>-?-
+</td></tr>
+<tr>
+<td>PDS_INV_CSC</td>
+<td>0x0AE0</td>
+<td>-?-
+</td></tr>
+<tr>
+<td>BIF_CTRL</td>
+<td>0x0C00</td>
+<td>BIF Control Register
+</td></tr>
+<tr>
+<td>BIF_INT_STAT</td>
+<td>0x0C04</td>
+<td>BIF INT Status Register
+</td></tr>
+<tr>
+<td>BIF_FAULT</td>
+<td>0x0C08</td>
+<td>BIF Fault Register
+</td></tr>
+<tr>
+<td>BIF_TILE0</td>
+<td>0x0C0C</td>
+<td>BIF Tile 0 Register
+</td></tr>
+<tr>
+<td>BIF_TILE1</td>
+<td>0x0C10</td>
+<td>BIF Tile 1 Register
+</td></tr>
+<tr>
+<td>BIF_TILE2</td>
+<td>0x0C14</td>
+<td>BIF Tile 2 Register
+</td></tr>
+<tr>
+<td>BIF_TILE3</td>
+<td>0x0C18</td>
+<td>BIF Tile 3 Register
+</td></tr>
+<tr>
+<td>BIF_TILE4</td>
+<td>0x0C1C</td>
+<td>BIF Tile 4 Register
+</td></tr>
+<tr>
+<td>BIF_TILE5</td>
+<td>0x0C20</td>
+<td>BIF Tile 5 Register
+</td></tr>
+<tr>
+<td>BIF_TILE6</td>
+<td>0x0C24</td>
+<td>BIF Tile 6 Register
+</td></tr>
+<tr>
+<td>BIF_TILE7</td>
+<td>0x0C28</td>
+<td>BIF Tile 7 Register
+</td></tr>
+<tr>
+<td>BIF_TILE8</td>
+<td>0x0C2C</td>
+<td>BIF Tile 8 Register
+</td></tr>
+<tr>
+<td>BIF_TILE9</td>
+<td>0x0C30</td>
+<td>BIF Tile 9 Register
+</td></tr>
+<tr>
+<td>BIF_CTRL_INVAL</td>
+<td>0x0C34</td>
+<td>BIF Control INVAL Register
+</td></tr>
+<tr>
+<td>BIF_DIR_LIST_BASE 1</td>
+<td>0x0C38</td>
+<td>-?-
+</td></tr>
+<tr>
+<td>BIF_DIR_LIST_BASE 2</td>
+<td>0x0C3C</td>
+<td>-?-
+</td></tr>
+<tr>
+<td>BIF_DIR_LIST_BASE 3</td>
+<td>0x0C40</td>
+<td>-?-
+</td></tr>
+<tr>
+<td>BIF_DIR_LIST_BASE 4</td>
+<td>0x0C44</td>
+<td>-?-
+</td></tr>
+<tr>
+<td>BIF_DIR_LIST_BASE 5</td>
+<td>0x0C48</td>
+<td>-?-
+</td></tr>
+<tr>
+<td>BIF_DIR_LIST_BASE 6</td>
+<td>0x0C4C</td>
+<td>-?-
+</td></tr>
+<tr>
+<td>BIF_DIR_LIST_BASE 7</td>
+<td>0x0C50</td>
+<td>-?-
+</td></tr>
+<tr>
+<td>BIF_BANK_SET</td>
+<td>0x0C74</td>
+<td>BIF Bank Set Register
+</td></tr>
+<tr>
+<td>BIF_BANK0</td>
+<td>0x0C78</td>
+<td>BIF Bank 0 Register
+</td></tr>
+<tr>
+<td>BIF_BANK1</td>
+<td>0x0C7C</td>
+<td>BIF Bank 1 Register
+</td></tr>
+<tr>
+<td>BIF_DIR_LIST_BASE0</td>
+<td>0x0C84</td>
+<td>-?-
+</td></tr>
+<tr>
+<td>BIF_TA_REQ_BASE</td>
+<td>0x0C90</td>
+<td>-?-
+</td></tr>
+<tr>
+<td>BIF_MEM_REQ_STAT</td>
+<td>0x0CA8</td>
+<td>-?-
+</td></tr>
+<tr>
+<td>BIF_3D_REQ_BASE</td>
+<td>0x0CAC</td>
+<td>-?-
+</td></tr>
+<tr>
+<td>BIF_ZLS_REQ_BASE</td>
+<td>0x0CB0</td>
+<td>-?-
+</td></tr>
+<tr>
+<td>BIF_BANK_STATUS</td>
+<td>0x0CB4</td>
+<td>-?-
+</td></tr>
+<tr>
+<td>BIF_MMU_CTRL</td>
+<td>0x0CD0</td>
+<td>-?-
+</td></tr>
+<tr>
+<td>2D_BLIT_STATUS</td>
+<td>0x0E04</td>
+<td>BLIT Status Register
+</td></tr>
+<tr>
+<td>2D_VIRTUAL_FIFO_0</td>
+<td>0x0E10</td>
+<td>-?-
+</td></tr>
+<tr>
+<td>2D_VIRTUAL_FIFO_1</td>
+<td>0x0E14</td>
+<td>-?-
+</td></tr>
+<tr>
+<td>BREAKPOINT0_START</td>
+<td>0x0F44</td>
+<td>-?-
+</td></tr>
+<tr>
+<td>BREAKPOINT0_END</td>
+<td>0x0F48</td>
+<td>-?-
+</td></tr>
+<tr>
+<td>BREAKPOINT0</td>
+<td>0x0F4C</td>
+<td>-?-
+</td></tr>
+<tr>
+<td>BREAKPOINT1_START</td>
+<td>0x0F50</td>
+<td>-?-
+</td></tr>
+<tr>
+<td>BREAKPOINT1_END</td>
+<td>0x0F54</td>
+<td>-?-
+</td></tr>
+<tr>
+<td>BREAKPOINT1</td>
+<td>0x0F58</td>
+<td>-?-
+</td></tr>
+<tr>
+<td>BREAKPOINT2_START</td>
+<td>0x0F5C</td>
+<td>-?-
+</td></tr>
+<tr>
+<td>BREAKPOINT2_END</td>
+<td>0x0F60</td>
+<td>-?-
+</td></tr>
+<tr>
+<td>BREAKPOINT2</td>
+<td>0x0F64</td>
+<td>-?-
+</td></tr>
+<tr>
+<td>BREAKPOINT3_START</td>
+<td>0x0F68</td>
+<td>-?-
+</td></tr>
+<tr>
+<td>BREAKPOINT3_END</td>
+<td>0x0F6C</td>
+<td>-?-
+</td></tr>
+<tr>
+<td>BREAKPOINT3</td>
+<td>0x0F70</td>
+<td>-?-
+</td></tr>
+<tr>
+<td>BREAKPOINT_READ</td>
+<td>0x0F74</td>
+<td>-?-
+</td></tr>
+<tr>
+<td>PARTITION_BREAKPOINT_TRAP</td>
+<td>0x0F78</td>
+<td>-?-
+</td></tr>
+<tr>
+<td>PARTITION_BREAKPOINT</td>
+<td>0x0F7C</td>
+<td>-?-
+</td></tr>
+<tr>
+<td>PARTITION_BREAKPOINT_TRAP_INFO0</td>
+<td>0x0F80</td>
+<td>-?-
+</td></tr>
+<tr>
+<td>PARTITION_BREAKPOINT_TRAP_INFO1</td>
+<td>0x0F84</td>
+<td>-?-
+</td></tr>
+<tr>
+<td>USE_CODE_BASE_0</td>
+<td>0x0A0C</td>
+<td>Use Code Base Register 0
+</td></tr>
+<tr>
+<td>USE_CODE_BASE_1</td>
+<td>0x0A10</td>
+<td>Use Code Base Register 1
+</td></tr>
+<tr>
+<td>USE_CODE_BASE_2</td>
+<td>0x0A14</td>
+<td>Use Code Base Register 2
+</td></tr>
+<tr>
+<td>USE_CODE_BASE_3</td>
+<td>0x0A18</td>
+<td>Use Code Base Register 3
+</td></tr>
+<tr>
+<td>USE_CODE_BASE_4</td>
+<td>0x0A1C</td>
+<td>Use Code Base Register 4
+</td></tr>
+<tr>
+<td>USE_CODE_BASE_5</td>
+<td>0x0A20</td>
+<td>Use Code Base Register 5
+</td></tr>
+<tr>
+<td>USE_CODE_BASE_6</td>
+<td>0x0A24</td>
+<td>Use Code Base Register 6
+</td></tr>
+<tr>
+<td>USE_CODE_BASE_7</td>
+<td>0x0A28</td>
+<td>Use Code Base Register 7
+</td></tr>
+<tr>
+<td>USE_CODE_BASE_8</td>
+<td>0x0A2C</td>
+<td>Use Code Base Register 8
+</td></tr>
+<tr>
+<td>USE_CODE_BASE_9</td>
+<td>0x0A30</td>
+<td>Use Code Base Register 9
+</td></tr>
+<tr>
+<td>USE_CODE_BASE_10</td>
+<td>0x0A34</td>
+<td>Use Code Base Register 10
+</td></tr>
+<tr>
+<td>USE_CODE_BASE_11</td>
+<td>0x0A38</td>
+<td>Use Code Base Register 11
+</td></tr>
+<tr>
+<td>USE_CODE_BASE_12</td>
+<td>0x0A3C</td>
+<td>Use Code Base Register 12
+</td></tr>
+<tr>
+<td>USE_CODE_BASE_13</td>
+<td>0x0A40</td>
+<td>Use Code Base Register 13
+</td></tr>
+<tr>
+<td>USE_CODE_BASE_14</td>
+<td>0x0A44</td>
+<td>Use Code Base Register 14
+</td></tr>
+<tr>
+<td>USE_CODE_BASE_15</td>
+<td>0x0A48</td>
+<td>Use Code Base Register 15
+</td></tr>
+<tr>
+<td>PIPE0_BREAKPOINT_TRAP</td>
+<td>0x0F88</td>
+<td>Pipe 0 Breakpoint Trap Register
+</td></tr>
+<tr>
+<td>PIPE0_BREAKPOINT</td>
+<td>0x0F8C</td>
+<td>Pipe 0 Breakpoint Register
+</td></tr>
+<tr>
+<td>PIPE0_BREAKPOINT_TRAP_INFO0</td>
+<td>0x0F90</td>
+<td>Pipe 0 Breakpoint Trap Info Register 0
+</td></tr>
+<tr>
+<td>PIPE0_BREAKPOINT_TRAP_INFO1</td>
+<td>0x0F94</td>
+<td>Pipe 0 Breakpoint Trap Info Register 1
+</td></tr>
+<tr>
+<td>PIPE1_BREAKPOINT_TRAP</td>
+<td>0x0F98</td>
+<td>Pipe 1 Breakpoint Trap Register
+</td></tr>
+<tr>
+<td>PIPE1_BREAKPOINT</td>
+<td>0x0F9C</td>
+<td>Pipe 1 Breakpoint Register
+</td></tr>
+<tr>
+<td>PIPE1_BREAKPOINT_TRAP_INFO0</td>
+<td>0x0FA0</td>
+<td>Pipe 1 Breakpoint Trap Info Register 0
+</td></tr>
+<tr>
+<td>PIPE1_BREAKPOINT_TRAP_INFO1</td>
+<td>0x0FA4</td>
+<td>Pipe 1 Breakpoint Trap Info Register 1
+</td></tr></tbody></table>
+<h1><span class="mw-headline" id="Source">Source</span></h1>
+<ul><li><a class="external free" href="https://github.com/embed-3d/BPI-M3-PVR-SGX/tree/master/linux-sunxi/drivers/gpu/pvr/eurasia_km/services4/srvkm/hwdefs">https://github.com/embed-3d/BPI-M3-PVR-SGX/tree/master/linux-sunxi/drivers/gpu/pvr/eurasia_km/services4/srvkm/hwdefs</a></li>
+<li><a class="external free" href="https://github.com/embed-3d/BPI-M3-PVR-SGX/tree/master/linux-sunxi/drivers/gpu/pvr/eurasia_km/services4/srvkm/hwdefs/sgx544defs.h">https://github.com/embed-3d/BPI-M3-PVR-SGX/tree/master/linux-sunxi/drivers/gpu/pvr/eurasia_km/services4/srvkm/hwdefs/sgx544defs.h</a></li></ul>
+<!-- 
+NewPP limit report
+Cached time: 20251029094239
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.041 seconds
+Real time usage: 0.051 seconds
+Preprocessor visited node count: 15/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:3318-0!canonical and timestamp 20251029094239 and revision id 21704
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=SGX544MP/Registers&amp;oldid=21704">https://linux-sunxi.org/index.php?title=SGX544MP/Registers&amp;oldid=21704</a>"</div>
+		<div id="catlinks" class="catlinks catlinks-allhidden" data-mw="interface"></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=SGX544MP%2FRegisters" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=SGX544MP%2FRegisters" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="Registers.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:SGX544MP/Registers&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="Registers.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=SGX544MP/Registers&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=SGX544MP/Registers&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="../index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="../index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="../sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="../Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="https://linux-sunxi.org/Special:WhatLinksHere/SGX544MP/Registers" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/SGX544MP/Registers" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="../Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=SGX544MP/Registers&amp;oldid=21704" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=SGX544MP/Registers&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 3 November 2018, at 12:27.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.041","walltime":"0.051","ppvisitednodes":{"value":15,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":0,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20251029094239","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":300});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

@@ -1,0 +1,1481 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>AR100 - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"7630f683bde8f3264e3b86c3","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"AR100","wgTitle":"AR100","wgCurRevisionId":24272,"wgRevisionId":24272,"wgArticleId":608,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Hardware"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"AR100","wgRelevantArticleId":608,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":"ready","user":"ready",
+"user.options":"loading","ext.cite.styles":"ready","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","ext.cite.ux-enhancements","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=ext.cite.styles%7Cmediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="AR100.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-AR100 rootpage-AR100 skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">AR100</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>The <b>AR100</b>, also called the <b>CPUS</b>, <b>arisc</b>, or <b>ARISC</b> in SoC documentation, is a coprocessor present in the A31 and newer sunxi SoCs (including the popular H3 and most 64-bit chips). It is not another ARM core, but instead uses the 32-bit <a rel="nofollow" class="external text" href="https://openrisc.io/architecture">OpenRISC 1000</a> instruction set architecture.
+</p><p>Allwinner releases a closed-source firmware blob for the AR100 as part of their BSP. This blob provides power management services to software running on the ARM CPUs, such as Linux and U-Boot. It also implements deep power-saving modes ("super standby") for the BSP kernel. The AR100 is not currently used for anything on mainline Linux, as power management there is implemented using native drivers. A few projects have begun to write free firmware for the AR100, using it for power management or as an independent microcontroller.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Hardware"><span class="tocnumber">1</span> <span class="toctext">Hardware</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#CPU_core"><span class="tocnumber">1.1</span> <span class="toctext">CPU core</span></a>
+<ul>
+<li class="toclevel-3 tocsection-3"><a href="#Instruction_set"><span class="tocnumber">1.1.1</span> <span class="toctext">Instruction set</span></a></li>
+<li class="toclevel-3 tocsection-4"><a href="#OR1200_features"><span class="tocnumber">1.1.2</span> <span class="toctext">OR1200 features</span></a></li>
+<li class="toclevel-3 tocsection-5"><a href="#SPR_data"><span class="tocnumber">1.1.3</span> <span class="toctext">SPR data</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-6"><a href="#Memory"><span class="tocnumber">1.2</span> <span class="toctext">Memory</span></a>
+<ul>
+<li class="toclevel-3 tocsection-7"><a href="#Byte_swapping.2Fendianness"><span class="tocnumber">1.2.1</span> <span class="toctext">Byte swapping/endianness</span></a>
+<ul>
+<li class="toclevel-4 tocsection-8"><a href="#Byte-invariant_Ranges"><span class="tocnumber">1.2.1.1</span> <span class="toctext">Byte-invariant Ranges</span></a></li>
+</ul>
+</li>
+<li class="toclevel-3 tocsection-9"><a href="#A31"><span class="tocnumber">1.2.2</span> <span class="toctext">A31</span></a></li>
+<li class="toclevel-3 tocsection-10"><a href="#H3"><span class="tocnumber">1.2.3</span> <span class="toctext">H3</span></a></li>
+<li class="toclevel-3 tocsection-11"><a href="#A64.2FH5"><span class="tocnumber">1.2.4</span> <span class="toctext">A64/H5</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-12"><a href="#Clocking"><span class="tocnumber">1.3</span> <span class="toctext">Clocking</span></a>
+<ul>
+<li class="toclevel-3 tocsection-13"><a href="#CPUS_CLK_CFG_REG"><span class="tocnumber">1.3.1</span> <span class="toctext">CPUS_CLK_CFG_REG</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-14"><a href="#Known_issues"><span class="tocnumber">1.4</span> <span class="toctext">Known issues</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-15"><a href="#Software"><span class="tocnumber">2</span> <span class="toctext">Software</span></a>
+<ul>
+<li class="toclevel-2 tocsection-16"><a href="#Toolchain"><span class="tocnumber">2.1</span> <span class="toctext">Toolchain</span></a>
+<ul>
+<li class="toclevel-3 tocsection-17"><a href="#Mainline_GCC"><span class="tocnumber">2.1.1</span> <span class="toctext">Mainline GCC</span></a></li>
+<li class="toclevel-3 tocsection-18"><a href="#Legacy_or1k-gcc"><span class="tocnumber">2.1.2</span> <span class="toctext">Legacy or1k-gcc</span></a></li>
+<li class="toclevel-3 tocsection-19"><a href="#Original_.28Obsolete.29_or32_GCC"><span class="tocnumber">2.1.3</span> <span class="toctext">Original (Obsolete) or32 GCC</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-20"><a href="#Allwinner_blob"><span class="tocnumber">2.2</span> <span class="toctext">Allwinner blob</span></a>
+<ul>
+<li class="toclevel-3 tocsection-21"><a href="#Blob_versions"><span class="tocnumber">2.2.1</span> <span class="toctext">Blob versions</span></a></li>
+<li class="toclevel-3 tocsection-22"><a href="#Decompiling_the_H3_blob"><span class="tocnumber">2.2.2</span> <span class="toctext">Decompiling the H3 blob</span></a></li>
+<li class="toclevel-3 tocsection-23"><a href="#Reverse-engineering_tools_for_all_blob_versions"><span class="tocnumber">2.2.3</span> <span class="toctext">Reverse-engineering tools for all blob versions</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-24"><a href="#Community_software_projects"><span class="tocnumber">2.3</span> <span class="toctext">Community software projects</span></a>
+<ul>
+<li class="toclevel-3 tocsection-25"><a href="#Information-gathering_programs"><span class="tocnumber">2.3.1</span> <span class="toctext">Information-gathering programs</span></a></li>
+<li class="toclevel-3 tocsection-26"><a href="#Power_management_firmware"><span class="tocnumber">2.3.2</span> <span class="toctext">Power management firmware</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-27"><a href="#Mainline_Kernel_Support"><span class="tocnumber">2.4</span> <span class="toctext">Mainline Kernel Support</span></a>
+<ul>
+<li class="toclevel-3 tocsection-28"><a href="#Resource_Sharing"><span class="tocnumber">2.4.1</span> <span class="toctext">Resource Sharing</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-29"><a href="#Documentation"><span class="tocnumber">3</span> <span class="toctext">Documentation</span></a></li>
+<li class="toclevel-1 tocsection-30"><a href="#Links"><span class="tocnumber">4</span> <span class="toctext">Links</span></a></li>
+<li class="toclevel-1 tocsection-31"><a href="#Notes"><span class="tocnumber">5</span> <span class="toctext">Notes</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Hardware">Hardware</span></h1>
+<p>While the name "AR100" refers only to the OpenRISC CPU core, the processor is tightly integrated with other "RTC block" hardware. In general, any device whose name begins with "R_" is intended to be controlled by the AR100. This includes the R_PIO, <a href="PRCM.html" title="PRCM">R_PRCM</a>, and several timers. This also includes the R_CIR infrared receiver, so a remote control can be used to wake the SoC from deep sleep.
+</p>
+<h2><span class="mw-headline" id="CPU_core">CPU core</span></h2>
+<p>The AR100 is based on the OR1200 implementation of the OpenRISC 1000 architecture. This is an open-source CPU; Verilog source code is available at <a class="external free" href="https://github.com/openrisc/or1200">https://github.com/openrisc/or1200</a>. The AR100 CPU reports that it is hardware revision 1 in its "Version Register" SPR (below). The revision was changed to 8 in <a class="external text" href="https://github.com/openrisc/or1200/commit/31c7fde68c3a3c78d2ee560a861445783ac39f2f">commit 31c7fde6</a>, so that means the AR100 hardware cannot be based on any OR1200 commit newer than <a class="external text" href="https://github.com/openrisc/or1200/tree/4a4a96758f8354de4ffdb8b0d2c8a62f81ac6c17">4a4a9675</a>. Thus, the AR100 is a very old design with several known bugs, some of which are detailed below.
+</p>
+<h3><span class="mw-headline" id="Instruction_set">Instruction set</span></h3>
+<p>The OpenRISC architecture is very flexible, with many optional features. The AR100 only supports the 32-bit base instruction set ("ORBIS32"), so it has no floating-point or vector arithmetic instructions. Even within the ORBIS32, several instructions are optional. Running an unimplemented instruction should cause an "Illegal Instruction" exception, but this is not always the case due to bugs. Optional instruction support is described in the following table:
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Instruction
+</th>
+<th>Description
+</th>
+<th>Implemented?
+</th>
+<th>Functional?
+</th></tr>
+<tr>
+<td><tt>l.cmov</tt>
+</td>
+<td>Conditional Move
+</td>
+<td>Yes<sup id="cite_ref-ar100-info_1-0" class="reference"><a href="#cite_note-ar100-info-1">&#91;1&#93;</a></sup>
+</td>
+<td>Yes<sup id="cite_ref-ar100-fuzzer_2-0" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup> (but broken when icache is enabled)
+</td></tr>
+<tr>
+<td><tt>l.csync</tt>
+</td>
+<td>Context Synchronization
+</td>
+<td>Yes<sup id="cite_ref-ar100-fuzzer_2-1" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup>
+</td>
+<td>Yes (used by the Allwinner blob)
+</td></tr>
+<tr>
+<td><tt>l.cust[1-8]</tt>
+</td>
+<td>Custom Instructions
+</td>
+<td>No<sup id="cite_ref-ar100-fuzzer_2-2" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup>
+</td>
+<td>N/A
+</td></tr>
+<tr>
+<td><tt>l.div</tt>
+</td>
+<td>Divide Signed
+</td>
+<td>Yes<sup id="cite_ref-ar100-info_1-1" class="reference"><a href="#cite_note-ar100-info-1">&#91;1&#93;</a></sup><sup id="cite_ref-ar100-fuzzer_2-3" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup>
+</td>
+<td>No<sup id="cite_ref-ar100-fuzzer_2-4" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup>
+</td></tr>
+<tr>
+<td><tt>l.divu</tt>
+</td>
+<td>Divide Unsigned
+</td>
+<td>Yes<sup id="cite_ref-ar100-info_1-2" class="reference"><a href="#cite_note-ar100-info-1">&#91;1&#93;</a></sup><sup id="cite_ref-ar100-fuzzer_2-5" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup>
+</td>
+<td>No<sup id="cite_ref-ar100-fuzzer_2-6" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup>
+</td></tr>
+<tr>
+<td><tt>l.extbs</tt>
+</td>
+<td>Extend Byte with Sign
+</td>
+<td>Yes<sup id="cite_ref-ar100-info_1-3" class="reference"><a href="#cite_note-ar100-info-1">&#91;1&#93;</a></sup><sup id="cite_ref-ar100-fuzzer_2-7" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup>
+</td>
+<td>No<sup id="cite_ref-ar100-fuzzer_2-8" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup>
+</td></tr>
+<tr>
+<td><tt>l.extbz</tt>
+</td>
+<td>Extend Byte with Zero
+</td>
+<td>Yes<sup id="cite_ref-ar100-info_1-4" class="reference"><a href="#cite_note-ar100-info-1">&#91;1&#93;</a></sup><sup id="cite_ref-ar100-fuzzer_2-9" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup>
+</td>
+<td>No<sup id="cite_ref-ar100-fuzzer_2-10" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup>
+</td></tr>
+<tr>
+<td><tt>l.exths</tt>
+</td>
+<td>Extend Half Word with Sign
+</td>
+<td>Yes<sup id="cite_ref-ar100-info_1-5" class="reference"><a href="#cite_note-ar100-info-1">&#91;1&#93;</a></sup><sup id="cite_ref-ar100-fuzzer_2-11" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup>
+</td>
+<td>No<sup id="cite_ref-ar100-fuzzer_2-12" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup>
+</td></tr>
+<tr>
+<td><tt>l.exthz</tt>
+</td>
+<td>Extend Half Word with Zero
+</td>
+<td>Yes<sup id="cite_ref-ar100-info_1-6" class="reference"><a href="#cite_note-ar100-info-1">&#91;1&#93;</a></sup><sup id="cite_ref-ar100-fuzzer_2-13" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup>
+</td>
+<td>No<sup id="cite_ref-ar100-fuzzer_2-14" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup>
+</td></tr>
+<tr>
+<td><tt>l.extws</tt>
+</td>
+<td>Extend Word with Sign
+</td>
+<td>Yes<sup id="cite_ref-ar100-info_1-7" class="reference"><a href="#cite_note-ar100-info-1">&#91;1&#93;</a></sup><sup id="cite_ref-ar100-fuzzer_2-15" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup>
+</td>
+<td>No<sup id="cite_ref-ar100-fuzzer_2-16" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup>
+</td></tr>
+<tr>
+<td><tt>l.extwz</tt>
+</td>
+<td>Extend Word with Zero
+</td>
+<td>Yes<sup id="cite_ref-ar100-info_1-8" class="reference"><a href="#cite_note-ar100-info-1">&#91;1&#93;</a></sup><sup id="cite_ref-ar100-fuzzer_2-17" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup>
+</td>
+<td>No<sup id="cite_ref-ar100-fuzzer_2-18" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup>
+</td></tr>
+<tr>
+<td><tt>l.ff1</tt>
+</td>
+<td>Find First 1
+</td>
+<td>Yes<sup id="cite_ref-ar100-info_1-9" class="reference"><a href="#cite_note-ar100-info-1">&#91;1&#93;</a></sup><sup id="cite_ref-ar100-fuzzer_2-19" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup>
+</td>
+<td>Yes<sup id="cite_ref-ar100-fuzzer_2-20" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup>
+</td></tr>
+<tr>
+<td><tt>l.fl1</tt>
+</td>
+<td>Find Last 1
+</td>
+<td>Yes<sup id="cite_ref-ar100-info_1-10" class="reference"><a href="#cite_note-ar100-info-1">&#91;1&#93;</a></sup><sup id="cite_ref-ar100-fuzzer_2-21" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup>
+</td>
+<td>No<sup id="cite_ref-ar100-fuzzer_2-22" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup> (functions same as <tt>l.ff1</tt>)
+</td></tr>
+<tr>
+<td><tt>l.lwa</tt>
+</td>
+<td>Load Single Word Atomic
+</td>
+<td>Unknown
+</td>
+<td>Unknown
+</td></tr>
+<tr>
+<td><tt>l.mac</tt>
+</td>
+<td>Multiply and Accumulate Signed
+</td>
+<td>Yes<sup id="cite_ref-ar100-info_1-11" class="reference"><a href="#cite_note-ar100-info-1">&#91;1&#93;</a></sup>
+</td>
+<td>Unknown
+</td></tr>
+<tr>
+<td><tt>l.maci</tt>
+</td>
+<td>Multiply Immediate and Accumulate Signed
+</td>
+<td>Yes<sup id="cite_ref-ar100-info_1-12" class="reference"><a href="#cite_note-ar100-info-1">&#91;1&#93;</a></sup>
+</td>
+<td>Unknown
+</td></tr>
+<tr>
+<td><tt>l.macrc</tt>
+</td>
+<td>MAC Read and Clear
+</td>
+<td>Yes<sup id="cite_ref-ar100-info_1-13" class="reference"><a href="#cite_note-ar100-info-1">&#91;1&#93;</a></sup>
+</td>
+<td>Unknown
+</td></tr>
+<tr>
+<td><tt>l.macu</tt>
+</td>
+<td>Multiply and Accumulate Unsigned
+</td>
+<td>Unknown
+</td>
+<td>Unknown
+</td></tr>
+<tr>
+<td><tt>l.msb</tt>
+</td>
+<td>Multiply and Subtract Signed
+</td>
+<td>Unknown
+</td>
+<td>Unknown
+</td></tr>
+<tr>
+<td><tt>l.msbu</tt>
+</td>
+<td>Multiply and Subtract Unsigned
+</td>
+<td>Unknown
+</td>
+<td>Unknown
+</td></tr>
+<tr>
+<td><tt>l.msync</tt>
+</td>
+<td>Memory Synchronization
+</td>
+<td>Yes<sup id="cite_ref-ar100-fuzzer_2-23" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup>
+</td>
+<td>Unknown
+</td></tr>
+<tr>
+<td><tt>l.mul</tt>
+</td>
+<td>Multiply Signed
+</td>
+<td>Yes<sup id="cite_ref-ar100-info_1-14" class="reference"><a href="#cite_note-ar100-info-1">&#91;1&#93;</a></sup><sup id="cite_ref-ar100-fuzzer_2-24" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup>
+</td>
+<td>Yes<sup id="cite_ref-ar100-fuzzer_2-25" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup> (used by the Allwinner blob)
+</td></tr>
+<tr>
+<td><tt>l.muld</tt>
+</td>
+<td>Multiply Signed to Double
+</td>
+<td>Unknown
+</td>
+<td>Unknown
+</td></tr>
+<tr>
+<td><tt>l.muli</tt>
+</td>
+<td>Multiply Immediate Signed
+</td>
+<td>Yes<sup id="cite_ref-ar100-info_1-15" class="reference"><a href="#cite_note-ar100-info-1">&#91;1&#93;</a></sup><sup id="cite_ref-ar100-fuzzer_2-26" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup>
+</td>
+<td>No<sup id="cite_ref-ar100-fuzzer_2-27" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup> (returns indeterminate value)
+</td></tr>
+<tr>
+<td><tt>l.mulu</tt>
+</td>
+<td>Multiply Unsigned
+</td>
+<td>Yes<sup id="cite_ref-ar100-info_1-16" class="reference"><a href="#cite_note-ar100-info-1">&#91;1&#93;</a></sup><sup id="cite_ref-ar100-fuzzer_2-28" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup>
+</td>
+<td>No<sup id="cite_ref-ar100-fuzzer_2-29" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup> (always returns the value in <tt>rB</tt><sup id="cite_ref-ar100-fuzzer_2-30" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup>)
+</td></tr>
+<tr>
+<td><tt>l.mulud</tt>
+</td>
+<td>Multiply Unsigned to Double
+</td>
+<td>Unknown
+</td>
+<td>Unknown
+</td></tr>
+<tr>
+<td><tt>l.psync</tt>
+</td>
+<td>Pipeline Synchronization
+</td>
+<td>Yes<sup id="cite_ref-ar100-fuzzer_2-31" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup>
+</td>
+<td>Unknown
+</td></tr>
+<tr>
+<td><tt>l.ror</tt>
+</td>
+<td>Rotate Right
+</td>
+<td>Yes<sup id="cite_ref-ar100-info_1-17" class="reference"><a href="#cite_note-ar100-info-1">&#91;1&#93;</a></sup><sup id="cite_ref-ar100-fuzzer_2-32" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup>
+</td>
+<td>No<sup id="cite_ref-ar100-fuzzer_2-33" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup>
+</td></tr>
+<tr>
+<td><tt>l.rori</tt>
+</td>
+<td>Rotate Right with Immediate
+</td>
+<td>Yes<sup id="cite_ref-ar100-info_1-18" class="reference"><a href="#cite_note-ar100-info-1">&#91;1&#93;</a></sup><sup id="cite_ref-ar100-fuzzer_2-34" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup>
+</td>
+<td>No<sup id="cite_ref-ar100-fuzzer_2-35" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup>
+</td></tr>
+<tr>
+<td><tt>l.sfeqi</tt>
+</td>
+<td>Set Flag if Equal Immediate
+</td>
+<td>Yes<sup id="cite_ref-ar100-fuzzer_2-36" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup>
+</td>
+<td>Yes<sup id="cite_ref-ar100-fuzzer_2-37" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup>
+</td></tr>
+<tr>
+<td><tt>l.sfgesi</tt>
+</td>
+<td>Set Flag if Greater Than or Equal to Immediate Signed
+</td>
+<td>Yes<sup id="cite_ref-ar100-fuzzer_2-38" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup>
+</td>
+<td>Yes<sup id="cite_ref-ar100-fuzzer_2-39" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup>
+</td></tr>
+<tr>
+<td><tt>l.sfgeui</tt>
+</td>
+<td>Set Flag if Greater Than or Equal to Immediate Unsigned
+</td>
+<td>Yes<sup id="cite_ref-ar100-fuzzer_2-40" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup>
+</td>
+<td>Yes<sup id="cite_ref-ar100-fuzzer_2-41" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup>
+</td></tr>
+<tr>
+<td><tt>l.sfgtsi</tt>
+</td>
+<td>Set Flag if Greater Than Immediate Signed
+</td>
+<td>Yes<sup id="cite_ref-ar100-fuzzer_2-42" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup>
+</td>
+<td>Yes<sup id="cite_ref-ar100-fuzzer_2-43" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup>
+</td></tr>
+<tr>
+<td><tt>l.sfgtui</tt>
+</td>
+<td>Set Flag if Greater Than Immediate Unsigned
+</td>
+<td>Yes<sup id="cite_ref-ar100-fuzzer_2-44" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup>
+</td>
+<td>Yes<sup id="cite_ref-ar100-fuzzer_2-45" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup>
+</td></tr>
+<tr>
+<td><tt>l.sflesi</tt>
+</td>
+<td>Set Flag if Less Than or Equal to Immediate Signed
+</td>
+<td>Yes<sup id="cite_ref-ar100-fuzzer_2-46" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup>
+</td>
+<td>Yes<sup id="cite_ref-ar100-fuzzer_2-47" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup>
+</td></tr>
+<tr>
+<td><tt>l.sfleui</tt>
+</td>
+<td>Set Flag if Less Than or Equal to Immediate Unsigned
+</td>
+<td>Yes<sup id="cite_ref-ar100-fuzzer_2-48" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup>
+</td>
+<td>Yes<sup id="cite_ref-ar100-fuzzer_2-49" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup>
+</td></tr>
+<tr>
+<td><tt>l.sfltsi</tt>
+</td>
+<td>Set Flag if Less Than Immediate Signed
+</td>
+<td>Yes<sup id="cite_ref-ar100-fuzzer_2-50" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup>
+</td>
+<td>Yes<sup id="cite_ref-ar100-fuzzer_2-51" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup>
+</td></tr>
+<tr>
+<td><tt>l.sfltui</tt>
+</td>
+<td>Set Flag if Less Than Immediate Unsigned
+</td>
+<td>Yes<sup id="cite_ref-ar100-fuzzer_2-52" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup>
+</td>
+<td>Yes<sup id="cite_ref-ar100-fuzzer_2-53" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup>
+</td></tr>
+<tr>
+<td><tt>l.sfnei</tt>
+</td>
+<td>Set Flag if Not Equal Immediate
+</td>
+<td>Yes<sup id="cite_ref-ar100-fuzzer_2-54" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup>
+</td>
+<td>Yes<sup id="cite_ref-ar100-fuzzer_2-55" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup>
+</td></tr>
+<tr>
+<td><tt>l.srai</tt>
+</td>
+<td>Shift Right Arithmetic with Immediate
+</td>
+<td>Yes<sup id="cite_ref-ar100-fuzzer_2-56" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup>
+</td>
+<td>Yes<sup id="cite_ref-ar100-fuzzer_2-57" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup>
+</td></tr>
+<tr>
+<td><tt>l.swa</tt>
+</td>
+<td>Store Single Word Atomic
+</td>
+<td>Unknown
+</td>
+<td>Unknown
+</td></tr>
+<tr>
+<td><tt>l.trap</tt>
+</td>
+<td>Trap
+</td>
+<td>Yes<sup id="cite_ref-ar100-fuzzer_2-58" class="reference"><a href="#cite_note-ar100-fuzzer-2">&#91;2&#93;</a></sup>
+</td>
+<td>Unknown
+</td></tr></tbody></table>
+<p>See the <a href="#Toolchain">toolchain</a> section below for how this instruction support translates into GCC flags.
+</p>
+<h3><span class="mw-headline" id="OR1200_features">OR1200 features</span></h3>
+<p>The OR1200 itself is also very configurable. Bits in the "Unit Present Register" and other SPRs describe which features are available. In summary:
+</p>
+<ul><li>General purpose registers: 32</li>
+<li>Instruction set(s) supported: ORBIS32</li>
+<li>Delay slot: 1 present</li>
+<li>Byte ordering: big-endian only (but see Memory below)</li>
+<li>Instruction cache: 4KiB, one-way, physically tagged, 16-byte cache blocks</li>
+<li>Data cache: not present</li>
+<li>MMU: not present</li>
+<li>Multiply-Accumulate (MAC) unit: present</li>
+<li>Debug unit: present</li>
+<li>Performance counters: not present</li>
+<li>Power management: present (broken)</li>
+<li>Programmable interrupt controller: present (broken)</li>
+<li>Tick timer: present</li>
+<li>FPU: not present</li></ul>
+<h3><span class="mw-headline" id="SPR_data">SPR data</span></h3>
+<p>The OpenRISC 1000 architecture defines several special-purpose registers, or SPRs. Some of the informational ones are detailed here:
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>SPR</th>
+<th>Name</th>
+<th>Value</th>
+<th>Interpretation
+</th></tr>
+<tr>
+<td>SPR_VR</td>
+<td>Version Register</td>
+<td>0x12000001</td>
+<td>
+<pre>Revision: 1
+Updated Version Registers: not present
+Configuration Template: 0x0
+Version: 0x12
+</pre>
+</td></tr>
+<tr>
+<td>SPR_UPR</td>
+<td>Unit Present Register</td>
+<td>0x00000765</td>
+<td>
+<pre>Unit Present Register: present
+Data Cache: not present
+Instruction Cache: present
+Data MMU: not present
+Instruction MMU: not present
+MAC: present
+Debug Unit: present
+Performance Counters Unit: not present
+Power Management: present
+Programmable Interrupt Controller: present
+Tick Timer: present
+Custom Units: none present
+</pre>
+</td></tr>
+<tr>
+<td>SPR_CPUCFGR</td>
+<td>CPU Configuration Register</td>
+<td>0x00000020</td>
+<td>
+<pre>Number of Shadow GPR Files: 0
+Custom GPR File: no
+ORBIS32 Supported: yes
+ORBIS64 Supported: no
+ORFPX32 Supported: no
+ORFPX64 Supported: no
+ORVDX64 Supported: no
+Delay Slot: yes
+Architecture Version Register: not present
+Exception Vector Base Address Register: not present
+Implementation-Specific Registers (ISR0-7): not present
+Arithmetic Exception Control/Status Registers: not present
+</pre>
+</td></tr>
+<tr>
+<td>SPR_DCCFGR</td>
+<td>Data Cache Configuration Register</td>
+<td>0x00002600</td>
+<td>
+<pre>Number of Cache Ways: 1
+Number of Cache Sets: 1
+Cache Block Size: 16
+Cache Write Strategy: WB
+Cache Control Register Implemented: yes
+Cache Block Invalidate Register Implemented: yes
+Cache Block Prefetch Register Implemented: no
+Cache Block Lock Register Implemented: no
+Cache Block Flush Register Implemented: yes
+Cache Block Write-back Register Implemented: no
+</pre>
+</td></tr>
+<tr>
+<td>SPR_ICCFGR</td>
+<td>Instruction Cache Configuration Register</td>
+<td>0x00002640</td>
+<td>
+<pre>Number of Cache Ways: 1
+Number of Cache Sets: 256
+Cache Block Size: 16
+Cache Control Register Implemented: yes
+Cache Block Invalidate Register Implemented: yes
+Cache Block Prefetch Register Implemented: no
+Cache Block Lock Register Implemented: no
+</pre>
+</td></tr></tbody></table>
+<p>Note: the DCCFGR values are not meaningful, since the data cache is not implemented.
+</p>
+<h2><span class="mw-headline" id="Memory">Memory</span></h2>
+<h3><span id="Byte_swapping/endianness"></span><span class="mw-headline" id="Byte_swapping.2Fendianness">Byte swapping/endianness</span></h3>
+<p>While the CPU itself is big-endian, the data bus coming out of the CPU is byte swapped. This makes 32-bit memory access appear to be "little-endian", as each group of 4 memory bytes is reversed. This is extremely convenient, as it allows the bits in the MMIO register definitions from the SoC manual to be used as is. However, 8 or 16-bit memory reads/writes will access the wrong data (see the table below), so transfering strings or small integers between the ARM world and the AR100 requires swapping bytes. For this reason, MMIO access from the AR100 must always use 32-bit loads and stores.
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Data type
+</th>
+<th>C representation
+</th>
+<th>In memory (hex)
+</th>
+<th>ARM CPU interpretation
+</th>
+<th>AR100 interpretation
+</th></tr>
+<tr>
+<td>32-bit integer
+</td>
+<td><tt>0x12345678</tt>
+</td>
+<td><tt>78 56 34 12</tt>
+</td>
+<td><tt>0x12345678</tt>
+</td>
+<td><tt>0x12345678</tt>
+</td></tr>
+<tr>
+<td>16-bit integers
+</td>
+<td><tt>0xabcd, 0x1234</tt>
+</td>
+<td><tt>cd ab 34 12</tt>
+</td>
+<td><tt>0xabcd, 0x1234</tt>
+</td>
+<td><tt>0x1234, 0xabcd</tt>
+</td></tr>
+<tr>
+<td>Characters
+</td>
+<td><tt>'R', 'I', 'S', 'C'</tt>
+</td>
+<td><tt>52 49 53 43</tt>
+</td>
+<td><tt>'R', 'I', 'S', 'C'</tt>
+</td>
+<td><tt>'C', 'S', 'I', 'R'</tt>
+</td></tr></tbody></table>
+<p>Byte swapping also affects the AR100's instruction stream. The toolchain writes instructions in big-endian byte order, and the AR100 CPU expects to read them in big-endian byte order. However, due to the byte swapping, if the instructions are stored in SRAM as-is, they will be read by the CPU as little-endian, and they will not run. To solve this, the instructions must be reversed before writing them to SRAM; they will be un-reversed when read by the AR100. This can be done using <tt>objcopy</tt> when creating a binary firmware image:
+</p>
+<pre>${CROSS_COMPILE}objcopy -O binary --reverse-bytes 4 firmware.elf firmware.bin
+</pre>
+<h4><span class="mw-headline" id="Byte-invariant_Ranges">Byte-invariant Ranges</span></h4>
+<p>On at least on the A64 and H6, four ranges of addresses can be configured as byte-invariant. This means that 8-bit and 16-bit memory accesses will see the same values as the ARM CPUs, which is incredibly useful for sending strings between the processors. The granularity of these ranges is is 1KiB, as the low 10 bits of each start/end register are ignored. The addresses here correspond to the AR100's address space, with SRAM A2 starting at address 0. Note that using these ranges does not remove the need to byte swap the AR100's instruction stream.
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Register
+</th>
+<th>Use
+</th></tr>
+<tr>
+<td><tt>R_CPUCFG + 0x0c</tt>
+</td>
+<td>Byte-invariant range enable flags (one bit per range)
+</td></tr>
+<tr>
+<td><tt>R_CPUCFG + 0x10</tt>
+</td>
+<td>Byte-invariant range 0 start address
+</td></tr>
+<tr>
+<td><tt>R_CPUCFG + 0x14</tt>
+</td>
+<td>Byte-invariant range 0 end address
+</td></tr>
+<tr>
+<td><tt>R_CPUCFG + 0x18</tt>
+</td>
+<td>Byte-invariant range 1 start address
+</td></tr>
+<tr>
+<td><tt>R_CPUCFG + 0x1c</tt>
+</td>
+<td>Byte-invariant range 1 end address
+</td></tr>
+<tr>
+<td><tt>R_CPUCFG + 0x20</tt>
+</td>
+<td>Byte-invariant range 2 start address
+</td></tr>
+<tr>
+<td><tt>R_CPUCFG + 0x24</tt>
+</td>
+<td>Byte-invariant range 2 end address
+</td></tr>
+<tr>
+<td><tt>R_CPUCFG + 0x28</tt>
+</td>
+<td>Byte-invariant range 3 start address
+</td></tr>
+<tr>
+<td><tt>R_CPUCFG + 0x2c</tt>
+</td>
+<td>Byte-invariant range 3 end address
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="A31">A31</span></h3>
+<table class="wikitable">
+<tbody><tr>
+<th colspan="2">AR100 address space
+</th>
+<th colspan="2">ARM address space
+</th>
+<th rowspan="2">Size
+</th>
+<th rowspan="2">Description
+</th>
+<th rowspan="2">Notes
+</th></tr>
+<tr>
+<th>Start</th>
+<th>End</th>
+<th>Start</th>
+<th>End
+</th></tr>
+<tr>
+<td><tt>0x00000000</tt></td>
+<td><tt>0x00001fff</tt>
+</td>
+<td><tt>0x00040000</tt></td>
+<td><tt>0x00041fff</tt>
+</td>
+<td>8 KiB
+</td>
+<td>Exception vectors
+</td>
+<td>Only one writable word at each 0x100 boundary
+</td></tr>
+<tr>
+<td><tt>0x00002000</tt></td>
+<td><tt>0x00003fff</tt>
+</td>
+<td><tt>0x00042000</tt></td>
+<td><tt>0x00043fff</tt>
+</td>
+<td>8 KiB
+</td>
+<td>Reserved
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>0x00004000</tt></td>
+<td><tt>0x00013fff</tt>
+</td>
+<td><tt>0x00044000</tt></td>
+<td><tt>0x00053fff</tt>
+</td>
+<td>64 KiB
+</td>
+<td>SRAM A2
+</td>
+<td>One read costs exactly 3 cycles
+</td></tr>
+<tr>
+<td><tt>0x00020000</tt></td>
+<td><tt>0x0002ffff</tt>
+</td>
+<td><tt>0x00020000</tt></td>
+<td><tt>0x0002ffff</tt>
+</td>
+<td>64 KiB
+</td>
+<td>SRAM B
+</td>
+<td>One read costs ~13 cycles for 300 MHz AR100 and 200 MHz AHB1
+</td></tr>
+<tr>
+<td><tt>0x00040000</tt></td>
+<td><tt>0x00047fff</tt>
+</td>
+<td><tt>0x00000000</tt></td>
+<td><tt>0x00007fff</tt>
+</td>
+<td>32 KiB
+</td>
+<td>SRAM A1
+</td>
+<td>One read costs ~13 cycles for 300 MHz AR100 and 200 MHz AHB1
+</td></tr>
+<tr>
+<td><tt>0x40000000</tt></td>
+<td><tt>0xbfffffff</tt>
+</td>
+<td><tt>0x40000000</tt></td>
+<td><tt>0xbfffffff</tt>
+</td>
+<td>2 GiB
+</td>
+<td>DRAM
+</td>
+<td>One read costs ~53 cycles for 300 MHz AR100 and 360 MHz DRAM
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="H3">H3</span></h3>
+<table class="wikitable">
+<tbody><tr>
+<th colspan="2">AR100 address space
+</th>
+<th colspan="2">ARM address space
+</th>
+<th rowspan="2">Size
+</th>
+<th rowspan="2">Description
+</th>
+<th rowspan="2">Notes
+</th></tr>
+<tr>
+<th>Start</th>
+<th>End</th>
+<th>Start</th>
+<th>End
+</th></tr>
+<tr>
+<td><tt>0x00000000</tt></td>
+<td><tt>0x00001fff</tt>
+</td>
+<td><tt>0x00040000</tt></td>
+<td><tt>0x00041fff</tt>
+</td>
+<td>8 KiB
+</td>
+<td>Exception vectors
+</td>
+<td>Only one writable word at each 0x100 boundary
+</td></tr>
+<tr>
+<td><tt>0x00002000</tt></td>
+<td><tt>0x00003fff</tt>
+</td>
+<td><tt>0x00042000</tt></td>
+<td><tt>0x00043fff</tt>
+</td>
+<td>8 KiB
+</td>
+<td>Reserved
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>0x00004000</tt></td>
+<td><tt>0x0000bfff</tt>
+</td>
+<td><tt>0x00044000</tt></td>
+<td><tt>0x0004bfff</tt>
+</td>
+<td>32 KiB
+</td>
+<td>SRAM A2
+</td>
+<td>One read costs exactly 3 cycles
+</td></tr>
+<tr>
+<td><tt>0x00040000</tt></td>
+<td><tt>0x0004ffff</tt>
+</td>
+<td><tt>0x00000000</tt></td>
+<td><tt>0x0000ffff</tt>
+</td>
+<td>64 KiB
+</td>
+<td>SRAM A1
+</td>
+<td>One read costs ~25 cycles for 300 MHz AR100 and 200 MHz AHB1
+</td></tr>
+<tr>
+<td><tt>0x40000000</tt></td>
+<td><tt>0xbfffffff</tt>
+</td>
+<td><tt>0x40000000</tt></td>
+<td><tt>0xbfffffff</tt>
+</td>
+<td>2 GiB
+</td>
+<td>DRAM
+</td>
+<td>One read costs ~60 cycles for 300 MHz AR100 and 672 MHz DRAM
+</td></tr></tbody></table>
+<p>To be investigated: something seems to be weird about the SRAM A1 and DRAM access times in H3 when compared to A31. Maybe the MBUS clock speed makes some difference too?
+</p>
+<h3><span id="A64/H5"></span><span class="mw-headline" id="A64.2FH5">A64/H5</span></h3>
+<table class="wikitable">
+<tbody><tr>
+<th colspan="2">AR100 address space
+</th>
+<th colspan="2">ARM address space
+</th>
+<th rowspan="2">Size
+</th>
+<th rowspan="2">Description
+</th>
+<th rowspan="2">Notes
+</th></tr>
+<tr>
+<th>Start</th>
+<th>End</th>
+<th>Start</th>
+<th>End
+</th></tr>
+<tr>
+<td><tt>0x00000000</tt></td>
+<td><tt>0x00001fff</tt>
+</td>
+<td><tt>0x00040000</tt></td>
+<td><tt>0x00041fff</tt>
+</td>
+<td>8 KiB
+</td>
+<td>Exception vectors
+</td>
+<td>Only one writable word at each 0x100 boundary
+</td></tr>
+<tr>
+<td><tt>0x00002000</tt></td>
+<td><tt>0x00003fff</tt>
+</td>
+<td><tt>0x00042000</tt></td>
+<td><tt>0x00043fff</tt>
+</td>
+<td>8 KiB
+</td>
+<td>Reserved
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>0x00004000</tt></td>
+<td><tt>0x00013fff</tt>
+</td>
+<td><tt>0x00044000</tt></td>
+<td><tt>0x00053fff</tt>
+</td>
+<td>64 KiB
+</td>
+<td>SRAM A2
+</td>
+<td>One read costs exactly 3 cycles
+</td></tr>
+<tr>
+<td><tt>0x00040000</tt></td>
+<td><tt>0x0004ffff</tt>
+</td>
+<td><tt>0x00000000</tt></td>
+<td><tt>0x0000ffff</tt>
+</td>
+<td>64 KiB
+</td>
+<td>ARM BROM
+</td>
+<td>One read costs ~10 cycles for 300 MHz AR100
+</td></tr>
+<tr>
+<td><tt>0x00050000</tt></td>
+<td><tt>0x00053fff</tt>
+</td>
+<td><tt>0x00050000</tt></td>
+<td><tt>0x00053fff</tt>
+</td>
+<td>16 KiB
+</td>
+<td>SRAM A2 (again)
+</td>
+<td>One read costs ~40 cycles for 300 MHz AR100
+</td></tr>
+<tr>
+<td><tt>0x40000000</tt></td>
+<td><tt>0xffffffff</tt>
+</td>
+<td><tt>0x40000000</tt></td>
+<td><tt>0xffffffff</tt>
+</td>
+<td>3 GiB
+</td>
+<td>DRAM
+</td>
+<td>One read costs ~70 cycles for 300 MHz AR100 and 314 MHz DRAM
+</td></tr></tbody></table>
+<p>The ARM BROM is mapped into the AR100 address space because it was moved into the previous location of SRAM A1, but the ARM/AR100 remapping was not updated. (SRAM A1 was moved to make space for the BROM; the BROM was moved to allow for more than 2 GiB of DRAM address space).
+</p><p>The copy of the end of SRAM A2 mapped at the AR100's <tt>0x00050000</tt> is interesting because its access is so much slower than expected, as if the data is going in a loop through several buses in the SoC back to AHB0.
+</p>
+<h2><span class="mw-headline" id="Clocking">Clocking</span></h2>
+<h4><span class="mw-headline" id="CPUS_CLK_CFG_REG">CPUS_CLK_CFG_REG</span></h4>
+<p>The CPU clock can be configured with a register referenced as <tt>CCMU_CPUS_CFG</tt> in the Allwinner sun6i Linux source code. It is documented in the A80 and A83T manuals under <tt>R_PRCM</tt> as <tt>CPUS_CLK_CFG_REG</tt> and <tt>CPUS_CLK_REG</tt>, respectively.
+</p><p>The register is generally the first register in the <a href="PRCM.html" title="PRCM">PRCM</a>, located at <tt>0x01f01400</tt> on H3/A64/H5.
+</p>
+<table class="wikitable" style="max-width:1000px; margin-right:0px;">
+<tbody><tr>
+<th style="padding:0em 1em; font-size:75%; color:#444444;">Offset</th>
+<td style="padding:0em 1em;" colspan="2"><center><tt>0x0000</tt></center></td>
+</tr>
+<tr style="font-size:75%; color:#444444;">
+<th style="padding:0em 1em; min-width:23em;">Name</th>
+<th style="padding:0em 1em;">Bits</th>
+<th style="padding:0em 1em;">R/W</th>
+<th style="padding:0em 1em;">Default</th>
+<th style="padding:0em 1em;">Values</th>
+<th style="padding:0em 1em; width:100%; text-align:left;">Description</th>
+</tr>
+
+
+
+<tr>
+<td style="padding:0em .4em;"><tt> / </tt></td>
+<td><tt> 31:18 </tt></td>
+<td><center><tt>/</tt></center></td>
+<td><center><tt>/</tt></center></td>
+<td></td>
+<td style="padding:0em .4em;"></td>
+</tr>
+
+
+
+<tr>
+<td style="padding:0em .4em;"><tt> CPUS_CLK_SRC_SEL </tt></td>
+<td><tt> 17:16 </tt></td>
+<td><center><tt>RW</tt></center></td>
+<td><center><tt>01</tt></center></td>
+<td><tt>
+<pre>00: LOSC (32 KHz)
+01: HOSC (24 MHz)
+10: PLL_PERIPH0/CPUS_POST_DIV
+11: IOSC (16 MHz)
+</pre>
+</tt></td>
+<td style="padding:0em .4em;">Clock source</td>
+</tr>
+
+
+
+<tr>
+<td style="padding:0em .4em;"><tt> / </tt></td>
+<td><tt> 15:13 </tt></td>
+<td><center><tt>/</tt></center></td>
+<td><center><tt>/</tt></center></td>
+<td></td>
+<td style="padding:0em .4em;"></td>
+</tr>
+
+
+
+<tr>
+<td style="padding:0em .4em;"><tt> CPUS_POST_DIV </tt></td>
+<td><tt>  12:8 </tt></td>
+<td><center><tt>RW</tt></center></td>
+<td><center><tt>00000</tt></center></td>
+<td><tt>
+<pre>00000: /1
+00001: /2
+00010: /3
+…
+11111: /32
+</pre>
+</tt></td>
+<td style="padding:0em .4em;">Post-divider for <tt>PLL_PERIPH0</tt> source</td>
+</tr>
+
+
+
+<tr>
+<td style="padding:0em .4em;"><tt> / </tt></td>
+<td><tt>   7:6 </tt></td>
+<td><center><tt>/</tt></center></td>
+<td><center><tt>/</tt></center></td>
+<td></td>
+<td style="padding:0em .4em;"></td>
+</tr>
+
+
+
+<tr>
+<td style="padding:0em .4em;"><tt> CPUS_CLK_RATIO </tt></td>
+<td><tt>   5:4 </tt></td>
+<td><center><tt>RW</tt></center></td>
+<td><center><tt>00</tt></center></td>
+<td><tt>
+<pre>00: /1
+01: /2
+10: /4
+11: /8
+</pre>
+</tt></td>
+<td style="padding:0em .4em;">Clock divide ratio</td>
+</tr>
+
+
+
+<tr>
+<td style="padding:0em .4em;"><tt> / </tt></td>
+<td><tt>   3:0 </tt></td>
+<td><center><tt>/</tt></center></td>
+<td><center><tt>/</tt></center></td>
+<td></td>
+<td style="padding:0em .4em;"></td>
+</tr>
+
+
+</tbody></table>
+<h2><span class="mw-headline" id="Known_issues">Known issues</span></h2>
+<p>Since the AR100 is based on an extremely old OR1200 commit, any bugs in the CPU core since then can be considered "known issues". This includes:
+</p>
+<ul><li>Multiply-accumulate unit (MAC) bugs, fixed by e.g. <a class="external text" href="https://github.com/openrisc/or1200/commit/d24b2173">d24b2173</a> and <a class="external text" href="https://github.com/openrisc/or1200/commit/57a449d2">57a449d2</a>.</li>
+<li><tt>l.fl1</tt> returns the same value as <tt>l.ff1</tt> (fixed by <a class="external text" href="https://github.com/openrisc/or1200/commit/66efe9cd">66efe9cd</a>).</li>
+<li>More multiply/divide bugs, fixed by e.g. <a class="external text" href="https://github.com/openrisc/or1200/commit/bc9b53bc">bc9b53bc</a>.</li>
+<li>Arithmetic carry/overflow flags are not implemented (done in <a class="external text" href="https://github.com/openrisc/or1200/commit/2c0765d7">2c0765d7</a>).</li>
+<li>The "infamous <tt>l.rfe</tt> fix", in <a class="external text" href="https://github.com/openrisc/or1200/commit/f0255fab">f0255fab</a>.</li>
+<li><tt>l.lws</tt> does not do anything (fixed by <a class="external text" href="https://github.com/openrisc/or1200/commit/385ffbf3">385ffbf3</a>).</li>
+<li>A bug with filling the instruction cache (fixed by <a class="external text" href="https://github.com/openrisc/or1200/commit/bd5b48dc">bd5b48dc</a>).</li>
+<li><tt>l.ror</tt> appears to be implemented, even though it is not (fixed by <a class="external text" href="https://github.com/openrisc/or1200/commit/26febe37">26febe37</a>).</li>
+<li>Plus other bugfix commits not explained in the commit message (they point to a now-defunct bugzilla instance).</li></ul>
+<p>Other issues found while developing for the AR100 include:
+</p>
+<ul><li>The division instructions claim to be implemented but do not work at all. They return either 2 or 10 for all inputs.</li>
+<li><tt>l.cmov</tt> has some undefined effect when present 4 bytes into an instruction cache block (so at address 0x???4) with the instruction cache enabled. It appears to affect later instructions in the pipeline, as if the next few instructions are skipped. Workaround is to not use <tt>l.cmov</tt> (it's not generated by <tt>gcc</tt> by default anyway).</li>
+<li><tt>l.ror</tt> does not work, most likely because it is unimplemented. Due to a known bug in the OR1200 (see above), it does not cause an "Illegal Instruction" exception even when unimplemented.</li>
+<li>All bits in the power management register appear to be ignored. Probably this means the signals from the OR1200 core are not connected to any control logic in the SoC. This makes it impossible to stop or slow down the AR100 CPU when it is idle. Workaround is to control the clock using the register in the PRCM.</li>
+<li>The programmable interrupt controller (PIC) registers claim to be implemented, but have no effect. No workaround is needed, as all interrupts come in through an external interrupt controller (<tt>R_INTC</tt>, compatible with the interrupt controller in the <a href="A13.html" title="A13">A13</a>).</li></ul>
+<p>These issues may be due to a (later fixed or still unfixed) bug in the OR1200, modifications made by Allwinner to the OR1200 core, or a silicon bug in the SoC.
+</p>
+<h1><span class="mw-headline" id="Software">Software</span></h1>
+<h2><span class="mw-headline" id="Toolchain">Toolchain</span></h2>
+<h3><span class="mw-headline" id="Mainline_GCC">Mainline GCC</span></h3>
+<p>OpenRISC is an officially-supported architecture as of GCC 9.
+</p><p>This new GCC port requires binutils 2.32 or newer, as it generates assembly with relocation syntax only understood by the newer <tt>gas</tt>.
+</p><p>Because the or1k instruction set has optional instructions, GCC has flags to tell it which ones your processor supports. That way it will avoid generating code that contains unimplemented instructions. The flags used by the mainline GCC port are different that the ones used by <tt>or1k-gcc</tt>. The authoritative reference is the <a class="external text" href="https://github.com/gcc-mirror/gcc/blob/master/gcc/config/or1k/or1k.opt">GCC source</a> (this file is easy to read). For the AR100, you should use:
+</p>
+<pre>-msfimm -mshftimm -msoft-div -msoft-mul
+</pre>
+<p>You can use <tt>-mhard-mul</tt> if you are careful and only do signed multiplication, and make sure the compiler doesn't use <tt>l.muli</tt> either. However, it's safer to use <tt>-msoft-mul</tt> and provide a <tt>__mulsi3</tt> implementation that uses the <tt>l.mul</tt> instruction only.
+</p>
+<h3><span class="mw-headline" id="Legacy_or1k-gcc">Legacy or1k-gcc</span></h3>
+<p>The previous out-of-tree GCC port was known as <tt>or1k-gcc</tt>. It has not been updated since an experimental GCC 6 release, with the latest stable version being GCC 5.4.0. It is available at <a class="external free" href="https://github.com/openrisc/or1k-gcc">https://github.com/openrisc/or1k-gcc</a>; however, that version will never be contributed upstream. The reason is explained in the <a rel="nofollow" class="external text" href="http://juliusbaxter.net/openrisc-irc/%23openrisc.2016-11-25.log.html">#openrisc irc log from 2016-11-25</a>:
+</p>
+<pre>olofk  Everyone, except for one guy has given permission for copyright assignment.
+       Unfortunately, his work is very early in the development, so technically the rest is based upin that
+wbx    and this guy is no longer interested in or1k?
+olofk  The latest idea we had was to see if the stuff he wrote has actually been replaced by other patches
+olofk  He is actually running very much involved, as he works for a company that makes proprietary versions of OpenRISC
+wbx    isn't is possible to convince the guy to just offer his code as public domain, so no special fsf agreement required.
+olofk  No. His standpoint is that he doesn't want to give up his ownership of the code
+olofk  Which of course is just pure fucking bogus
+wbx    so he thinks his company benefits from these actions so that toolchain support isn't upstream or what?
+wbx    i don't understand such actions from people working with open source.
+olofk  Well, me neither. But there is not much more we can do to convince him&#160;:/
+</pre>
+<p>The forked GCC is still a GPL licensed free software, so using it is perfectly legal (the linux-sunxi wiki provides <a href="Toolchain.html" title="Toolchain">installation instructions</a>). But packaging a usable OpenRISC toolchain in Linux distributions (such as Debian) is another story because this may involve some <a rel="nofollow" class="external text" href="http://linux-sunxi.narkive.com/pIoQeJMb/a64-arisc-scpi-and-regulator-handling">political arm wrestling</a>.
+</p><p>Downloads of <tt>or1k-gcc</tt> binaries are available <a class="external text" href="https://github.com/openrisc/or1k-gcc/releases">here</a> and <a class="external text" href="https://github.com/openrisc/newlib/releases">here</a>. The musl toolchain is the smallest, and also works for bare metal development.
+</p><p>On the other hand, binutils, gdb, and newlib all have upstream OpenRISC 1000 support. It is possible to use the latest binutils release with both <tt>or1k-gcc</tt> and <tt>or32-gcc</tt> (though some symlinking is necessary in this second case because the architecture names are different).
+</p>
+<h3><span id="Original_(Obsolete)_or32_GCC"></span><span class="mw-headline" id="Original_.28Obsolete.29_or32_GCC">Original (Obsolete) or32 GCC</span></h3>
+<p>The first port, during the GCC 3.x era, used the <tt>or32</tt> architecture name. It is still available at an <a rel="nofollow" class="external text" href="http://archive.tcltk.co.kr/files/misc/or32/crosschain/sites/www.meansoffreedom.com/index.html">archive of the meansoffreedom.com website</a> (<a rel="nofollow" class="external text" href="http://archive.tcltk.co.kr/?dir=files%2Fmisc%2For32%2Fcrosschain%2Fsites%2Fwww.meansoffreedom.com">file listing</a>). This toolchain, based on GCC 3.4.4, is the one used by Allwinner to compile their firmware blob. Because it is able to elide function prologues/epilogues, it actually generates smaller code than the newest <tt>or1k-gcc</tt> release.
+</p>
+<h2><span class="mw-headline" id="Allwinner_blob">Allwinner blob</span></h2>
+<p>Allwinner's blob provides a power management API using the message box and spinlock devices, as well as a shared memory area in DRAM. The API is used by Linux (<tt>drivers/arisc</tt>), U-Boot, and ATF. All three clients have code for loading and starting the firmware blob. An example of the header containing the API definitions is available <a class="external text" href="https://github.com/Allwinner-Homlet/H6-BSP4.9-brandy/blob/ceec41bced9047a61df5caa6322376dd278aac6f/arm-trusted-firmware-1.0/plat/sun50iw2p1/include/arisc.h">in the ATF source</a> at <tt>plat/sun50iw2p1/include/arisc.h</tt>.
+</p><p>Blobs can be found in some BSP Linux kernel source trees, e.g. <a class="external free" href="https://github.com/tinalinux/linux-3.10/tree/r18-v0.9/drivers/arisc/binary">https://github.com/tinalinux/linux-3.10/tree/r18-v0.9/drivers/arisc/binary</a>. The <tt>arisc_*.code</tt> files contain both the blob and an encrypted source archive. The blobs can also be found in the BSP as <tt>tools/pack/chips/*/bin/scp.bin</tt>.
+</p>
+<h3><span class="mw-headline" id="Blob_versions">Blob versions</span></h3>
+<p>These versions have been extracted from the blobs in <a href="https://linux-sunxi.org/index.php?title=User:Smaeul&amp;action=edit&amp;redlink=1" class="new" title="User:Smaeul (page does not exist)">smaeul's</a> <a class="external text" href="https://github.com/smaeul/sunxi-blobs">sunxi-blobs</a> repository. Hopefully these can give some insight into the evolution of Allwinner's blob over time and between SoCs.
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Version</th>
+<th>Blob directory
+</th></tr>
+<tr>
+<td>sun8iw5_v0.03.00-227-gcec3a2b</td>
+<td>a64/arisc_pine64_new
+</td></tr>
+<tr>
+<td>sun8iw5_v0.03.00-244-gb750b8e</td>
+<td>h5/arisc_lichee_a64_v3
+</td></tr>
+<tr>
+<td>sun8iw5_v0.03.00-399-g9fac845</td>
+<td>sun8iw12p1/arisc_lichee_h6_4.9_beta
+</td></tr>
+<tr>
+<td>v0.1.54</td>
+<td>a64/arisc_tinalinux
+</td></tr>
+<tr>
+<td>v0.1.76</td>
+<td>a64/arisc_pine64
+</td></tr>
+<tr>
+<td>v0.1.94</td>
+<td>a64/arisc_lichee_v2
+</td></tr>
+<tr>
+<td>v0.2.17.1</td>
+<td>a64/arisc_lichee_v3
+</td></tr>
+<tr>
+<td>v0.2.23</td>
+<td>h5/arisc_lichee_h6_v1rc4
+</td></tr>
+<tr>
+<td>v0.2.30</td>
+<td>h6/arisc_lichee_h6_v1rc4
+</td></tr>
+<tr>
+<td>v0.2.83</td>
+<td>sun8iw12p1/arisc_lichee_h6_v1rc4
+</td></tr>
+<tr>
+<td>v0.3.27</td>
+<td>h3/arisc_lichee_4.4
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="Decompiling_the_H3_blob">Decompiling the H3 blob</span></h3>
+<p>To ease reverse engineering of the firmware for H3, you can use a script that takes arisc_sun8iw7p1.bin file (available in the lichee H3 sdk from Draco) and produces readable pseudocode. Pseudocode is split into cross-referenced functions and basic blocks; code within basic blocks is emulated; and register assignments use evaluated values if they are known. Memory and register addresses are renamed based on the map of known locations. Most of the functions are named based on their purpose.
+</p><p>Code can be used to understand the suspend/resume function in H3 in particular and write a mainline implementataion.
+</p><p>It is available on github: <a class="external text" href="https://github.com/megous/h3-ar100-firmware-decompiler">megous/h3-ar100-firmware-decompiler</a>
+</p>
+<h3><span class="mw-headline" id="Reverse-engineering_tools_for_all_blob_versions">Reverse-engineering tools for all blob versions</span></h3>
+<p>Another project, <a class="external text" href="https://github.com/smaeul/sunxi-blobs">sunxi-blobs</a>, provides more generic tools for disassembling and analyzing AR100 firmware blobs (as well as boot ROMs). These scripts can take a firmware dump and generate an annotated disassembly listing as well as an SVG control flow graph (using graphviz). See the project's README for more details.
+</p>
+<h2><span class="mw-headline" id="Community_software_projects">Community software projects</span></h2>
+<h3><span class="mw-headline" id="Information-gathering_programs">Information-gathering programs</span></h3>
+<ul><li><a class="external free" href="https://github.com/skristiansson/ar100-info">https://github.com/skristiansson/ar100-info</a></li>
+<li><a class="external free" href="https://github.com/Icenowy/ar100-info">https://github.com/Icenowy/ar100-info</a> (A64/H5 support in the is-a64-h5 branch).</li>
+<li><a class="external free" href="https://github.com/megous/h3-firmware">https://github.com/megous/h3-firmware</a></li></ul>
+<h3><span class="mw-headline" id="Power_management_firmware">Power management firmware</span></h3>
+<ul><li>h3fakeoff (from the <a rel="nofollow" class="external text" href="https://h3droid.com/">H3Droid</a> project)</li>
+<li><a class="external free" href="https://github.com/Icenowy/h3-arisc-shutdown">https://github.com/Icenowy/h3-arisc-shutdown</a></li>
+<li><a class="external free" href="https://github.com/crust-firmware/crust">https://github.com/crust-firmware/crust</a></li></ul>
+<h2><span class="mw-headline" id="Mainline_Kernel_Support">Mainline Kernel Support</span></h2>
+<h3><span class="mw-headline" id="Resource_Sharing">Resource Sharing</span></h3>
+<p>The AR100 and the Arm cores run asynchronously, and can access the same memory and registers.  In order to prevent the AR100 from corrupting the state of the ARM cores, one of two things needs to be done:
+</p>
+<ol><li>IF the AR100 ONLY accesses chip resources that are otherwise unused from Linux, it can do so safely at any time.</li>
+<li>IF the AR100 needs to access shared resources (such as GPIO) then it needs to synchronise with the kernel, and the kernel needs to be aware of it.</li></ol>
+<p>To synchronise with the kernel, the chips implement hardware spinlocks.  There is a kernel driver for these spinlocks, but it has not yet been finally submitted upstream due to a lack of testing.
+</p>
+<ul><li><a class="external free" href="https://github.com/montjoie/linux/tree/sun8i-hwspinlock-wip_next-20180301">https://github.com/montjoie/linux/tree/sun8i-hwspinlock-wip_next-20180301</a></li></ul>
+<p>Getting this driver in mainline should be considered essential for any use of the AR100 as a realtime coprocessor.
+At the minimum, hardware spinlocks should protect GPIO Writes, and GPIO Direction.
+Other GPIO states, such as function, should be initialised by the kernel before the AR100 firmware is started.  There should be little need to reinitialise GPIO modes inside AR100 code.
+</p><p>For simplicity of implementation of AR100 firmware, it is suggested that a set of known Hardware Spinlocks be defined in a kernel header file.
+AR100 firmware should then compile against this header, which would ensure synchronisation of the firmware with the kernel version.
+The predefined hardware spinlocks are initialised early by the kernel, during board initialisation using:
+</p>
+<pre>struct hwspinlock *hwspin_lock_request_specific(unsigned int id);
+</pre>
+<p>See <a rel="nofollow" class="external autonumber" href="https://www.kernel.org/doc/Documentation/hwspinlock.txt">[1]</a> for details.
+</p><p><br />
+</p>
+<h1><span class="mw-headline" id="Documentation">Documentation</span></h1>
+<ul><li><a class="external text" href="https://github.com/openrisc/doc/blob/master/openrisc-arch-1.2-rev0.pdf?raw=true">OpenRISC 1000 Architecture Manual 1.2</a></li>
+<li><a rel="nofollow" class="external text" href="https://openrisc.io/or1k.html">OpenRISC 1000 Architecture Manual 1.1 (HTML)</a></li>
+<li><a class="external text" href="https://github.com/openrisc/or1200/blob/master/doc/openrisc1200_spec.pdf?raw=true">OpenRISC 1200 IP Core Specification (Preliminary Draft)</a></li>
+<li><a class="external text" href="https://github.com/openrisc/or1200/blob/master/doc/openrisc1200_supplementary_prm.pdf?raw=true">OpenRISC 1200 Supplementary Programmer's Reference Manual</a></li></ul>
+<h1><span class="mw-headline" id="Links">Links</span></h1>
+<ul><li><a rel="nofollow" class="external text" href="https://openrisc.io/">OpenRISC project website</a></li>
+<li><a class="external text" href="https://github.com/openrisc">OpenRISC on GitHub</a></li>
+<li><a rel="nofollow" class="external text" href="https://sourceware.org/git/?p=newlib-cygwin.git;a=tree;f=libgloss/or1k;hb=HEAD">or1k port of <tt>libgloss</tt></a> (contains low-level library functions and useful headers)</li></ul>
+<h1><span class="mw-headline" id="Notes">Notes</span></h1>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-ar100-info-1"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-ar100-info_1-0">1.00</a></sup> <sup><a href="#cite_ref-ar100-info_1-1">1.01</a></sup> <sup><a href="#cite_ref-ar100-info_1-2">1.02</a></sup> <sup><a href="#cite_ref-ar100-info_1-3">1.03</a></sup> <sup><a href="#cite_ref-ar100-info_1-4">1.04</a></sup> <sup><a href="#cite_ref-ar100-info_1-5">1.05</a></sup> <sup><a href="#cite_ref-ar100-info_1-6">1.06</a></sup> <sup><a href="#cite_ref-ar100-info_1-7">1.07</a></sup> <sup><a href="#cite_ref-ar100-info_1-8">1.08</a></sup> <sup><a href="#cite_ref-ar100-info_1-9">1.09</a></sup> <sup><a href="#cite_ref-ar100-info_1-10">1.10</a></sup> <sup><a href="#cite_ref-ar100-info_1-11">1.11</a></sup> <sup><a href="#cite_ref-ar100-info_1-12">1.12</a></sup> <sup><a href="#cite_ref-ar100-info_1-13">1.13</a></sup> <sup><a href="#cite_ref-ar100-info_1-14">1.14</a></sup> <sup><a href="#cite_ref-ar100-info_1-15">1.15</a></sup> <sup><a href="#cite_ref-ar100-info_1-16">1.16</a></sup> <sup><a href="#cite_ref-ar100-info_1-17">1.17</a></sup> <sup><a href="#cite_ref-ar100-info_1-18">1.18</a></sup></span> <span class="reference-text">Tested with <a class="external text" href="https://github.com/skristiansson/ar100-info">ar100-info</a>. A64/H5 version by Icenowy <a class="external text" href="https://github.com/Icenowy/ar100-info/tree/is-a64-h5">here</a>.</span>
+</li>
+<li id="cite_note-ar100-fuzzer-2"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-ar100-fuzzer_2-0">2.00</a></sup> <sup><a href="#cite_ref-ar100-fuzzer_2-1">2.01</a></sup> <sup><a href="#cite_ref-ar100-fuzzer_2-2">2.02</a></sup> <sup><a href="#cite_ref-ar100-fuzzer_2-3">2.03</a></sup> <sup><a href="#cite_ref-ar100-fuzzer_2-4">2.04</a></sup> <sup><a href="#cite_ref-ar100-fuzzer_2-5">2.05</a></sup> <sup><a href="#cite_ref-ar100-fuzzer_2-6">2.06</a></sup> <sup><a href="#cite_ref-ar100-fuzzer_2-7">2.07</a></sup> <sup><a href="#cite_ref-ar100-fuzzer_2-8">2.08</a></sup> <sup><a href="#cite_ref-ar100-fuzzer_2-9">2.09</a></sup> <sup><a href="#cite_ref-ar100-fuzzer_2-10">2.10</a></sup> <sup><a href="#cite_ref-ar100-fuzzer_2-11">2.11</a></sup> <sup><a href="#cite_ref-ar100-fuzzer_2-12">2.12</a></sup> <sup><a href="#cite_ref-ar100-fuzzer_2-13">2.13</a></sup> <sup><a href="#cite_ref-ar100-fuzzer_2-14">2.14</a></sup> <sup><a href="#cite_ref-ar100-fuzzer_2-15">2.15</a></sup> <sup><a href="#cite_ref-ar100-fuzzer_2-16">2.16</a></sup> <sup><a href="#cite_ref-ar100-fuzzer_2-17">2.17</a></sup> <sup><a href="#cite_ref-ar100-fuzzer_2-18">2.18</a></sup> <sup><a href="#cite_ref-ar100-fuzzer_2-19">2.19</a></sup> <sup><a href="#cite_ref-ar100-fuzzer_2-20">2.20</a></sup> <sup><a href="#cite_ref-ar100-fuzzer_2-21">2.21</a></sup> <sup><a href="#cite_ref-ar100-fuzzer_2-22">2.22</a></sup> <sup><a href="#cite_ref-ar100-fuzzer_2-23">2.23</a></sup> <sup><a href="#cite_ref-ar100-fuzzer_2-24">2.24</a></sup> <sup><a href="#cite_ref-ar100-fuzzer_2-25">2.25</a></sup> <sup><a href="#cite_ref-ar100-fuzzer_2-26">2.26</a></sup> <sup><a href="#cite_ref-ar100-fuzzer_2-27">2.27</a></sup> <sup><a href="#cite_ref-ar100-fuzzer_2-28">2.28</a></sup> <sup><a href="#cite_ref-ar100-fuzzer_2-29">2.29</a></sup> <sup><a href="#cite_ref-ar100-fuzzer_2-30">2.30</a></sup> <sup><a href="#cite_ref-ar100-fuzzer_2-31">2.31</a></sup> <sup><a href="#cite_ref-ar100-fuzzer_2-32">2.32</a></sup> <sup><a href="#cite_ref-ar100-fuzzer_2-33">2.33</a></sup> <sup><a href="#cite_ref-ar100-fuzzer_2-34">2.34</a></sup> <sup><a href="#cite_ref-ar100-fuzzer_2-35">2.35</a></sup> <sup><a href="#cite_ref-ar100-fuzzer_2-36">2.36</a></sup> <sup><a href="#cite_ref-ar100-fuzzer_2-37">2.37</a></sup> <sup><a href="#cite_ref-ar100-fuzzer_2-38">2.38</a></sup> <sup><a href="#cite_ref-ar100-fuzzer_2-39">2.39</a></sup> <sup><a href="#cite_ref-ar100-fuzzer_2-40">2.40</a></sup> <sup><a href="#cite_ref-ar100-fuzzer_2-41">2.41</a></sup> <sup><a href="#cite_ref-ar100-fuzzer_2-42">2.42</a></sup> <sup><a href="#cite_ref-ar100-fuzzer_2-43">2.43</a></sup> <sup><a href="#cite_ref-ar100-fuzzer_2-44">2.44</a></sup> <sup><a href="#cite_ref-ar100-fuzzer_2-45">2.45</a></sup> <sup><a href="#cite_ref-ar100-fuzzer_2-46">2.46</a></sup> <sup><a href="#cite_ref-ar100-fuzzer_2-47">2.47</a></sup> <sup><a href="#cite_ref-ar100-fuzzer_2-48">2.48</a></sup> <sup><a href="#cite_ref-ar100-fuzzer_2-49">2.49</a></sup> <sup><a href="#cite_ref-ar100-fuzzer_2-50">2.50</a></sup> <sup><a href="#cite_ref-ar100-fuzzer_2-51">2.51</a></sup> <sup><a href="#cite_ref-ar100-fuzzer_2-52">2.52</a></sup> <sup><a href="#cite_ref-ar100-fuzzer_2-53">2.53</a></sup> <sup><a href="#cite_ref-ar100-fuzzer_2-54">2.54</a></sup> <sup><a href="#cite_ref-ar100-fuzzer_2-55">2.55</a></sup> <sup><a href="#cite_ref-ar100-fuzzer_2-56">2.56</a></sup> <sup><a href="#cite_ref-ar100-fuzzer_2-57">2.57</a></sup> <sup><a href="#cite_ref-ar100-fuzzer_2-58">2.58</a></sup></span> <span class="reference-text">Tested with <a class="external text" href="https://github.com/crust-firmware/ar100-fuzzer">ar100-fuzzer</a> on A64.</span>
+</li>
+</ol></div>
+<!-- 
+NewPP limit report
+Cached time: 20251029040248
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.221 seconds
+Real time usage: 0.247 seconds
+Preprocessor visited node count: 701/1000000
+Post‐expand include size: 4131/2097152 bytes
+Template argument size: 2187/2097152 bytes
+Highest expansion depth: 5/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 13748/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   20.903      1 -total
+100.00%   20.903      1 Template:REG
+ 20.14%    4.209      7 Template:REG/FIELD
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:608-0!canonical and timestamp 20251029040248 and revision id 24272
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=AR100&amp;oldid=24272">https://linux-sunxi.org/index.php?title=AR100&amp;oldid=24272</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Category</a>: <ul><li><a href="Category:Hardware.html" title="Category:Hardware">Hardware</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=AR100" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=AR100" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="AR100.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:AR100&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="AR100.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=AR100&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=AR100&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/AR100.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/AR100" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=AR100&amp;oldid=24272" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=AR100&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 5 June 2021, at 18:41.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.221","walltime":"0.247","ppvisitednodes":{"value":701,"limit":1000000},"postexpandincludesize":{"value":4131,"limit":2097152},"templateargumentsize":{"value":2187,"limit":2097152},"expansiondepth":{"value":5,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":13748,"limit":5000000},"timingprofile":["100.00%   20.903      1 -total","100.00%   20.903      1 Template:REG"," 20.14%    4.209      7 Template:REG/FIELD"]},"cachereport":{"timestamp":"20251029040248","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":189});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

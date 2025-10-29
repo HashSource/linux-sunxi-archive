@@ -1,0 +1,518 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>UART - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"6d0a339cfc47e6df4fe6d4eb","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"UART","wgTitle":"UART","wgCurRevisionId":24508,"wgRevisionId":24508,"wgArticleId":788,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Hardware","Development"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"UART","wgRelevantArticleId":788,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":"ready","user":
+"ready","user.options":"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=mediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="UART.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-UART rootpage-UART skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">UART</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div class="thumb tright"><div class="thumbinner" style="width:242px;"><a href="File:Cp2102_usb_uart_module.jpg.html" class="image"><img alt="" src="https://linux-sunxi.org/images/thumb/c/c6/Cp2102_usb_uart_module.jpg/240px-Cp2102_usb_uart_module.jpg" decoding="async" width="240" height="165" class="thumbimage" srcset="https://linux-sunxi.org/images/thumb/c/c6/Cp2102_usb_uart_module.jpg/360px-Cp2102_usb_uart_module.jpg 1.5x, https://linux-sunxi.org/images/c/c6/Cp2102_usb_uart_module.jpg 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="File:Cp2102_usb_uart_module.jpg.html" class="internal" title="Enlarge"></a></div>A common CP2102 3.3V capable USB UART module</div></div></div>
+<p>A UART (stands for universal asynchronous receiver-transmitter)  or serial console is absolutely essential when doing bootloader or kernel development on any computer. Due to the lack of a standard PC BIOS and the VESA BIOS that goes with it, access to the serial console on ARM devices is even more important than on the PC.
+</p><p>Even if you do not intend to do much U-Boot or kernel work, access to the serial console will be a life-saver when anything goes wrong.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Before_you_start"><span class="tocnumber">1</span> <span class="toctext">Before you start</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#UART_hardware"><span class="tocnumber">2</span> <span class="toctext">UART hardware</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#PC_Serial_port"><span class="tocnumber">2.1</span> <span class="toctext">PC Serial port</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#UART-USB_dongle"><span class="tocnumber">2.2</span> <span class="toctext">UART-USB dongle</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Using_an_Arduino"><span class="tocnumber">2.3</span> <span class="toctext">Using an Arduino</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#USB_serial_gadget"><span class="tocnumber">2.4</span> <span class="toctext">USB serial gadget</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="#Using_the_serial_console"><span class="tocnumber">3</span> <span class="toctext">Using the serial console</span></a>
+<ul>
+<li class="toclevel-2 tocsection-8"><a href="#Troubleshooting_.2F_device_file_permissions"><span class="tocnumber">3.1</span> <span class="toctext">Troubleshooting / device file permissions</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Software"><span class="tocnumber">3.2</span> <span class="toctext">Software</span></a>
+<ul>
+<li class="toclevel-3 tocsection-10"><a href="#Linux_.2F_OSX"><span class="tocnumber">3.2.1</span> <span class="toctext">Linux / OSX</span></a>
+<ul>
+<li class="toclevel-4 tocsection-11"><a href="#cu"><span class="tocnumber">3.2.1.1</span> <span class="toctext"><i>cu</i></span></a></li>
+<li class="toclevel-4 tocsection-12"><a href="#screen"><span class="tocnumber">3.2.1.2</span> <span class="toctext"><i>screen</i></span></a></li>
+<li class="toclevel-4 tocsection-13"><a href="#gtkterm"><span class="tocnumber">3.2.1.3</span> <span class="toctext"><i>gtkterm</i></span></a></li>
+<li class="toclevel-4 tocsection-14"><a href="#tinyserial"><span class="tocnumber">3.2.1.4</span> <span class="toctext"><i>tinyserial</i></span></a></li>
+</ul>
+</li>
+<li class="toclevel-3 tocsection-15"><a href="#Windows"><span class="tocnumber">3.2.2</span> <span class="toctext">Windows</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-16"><a href="#Attaching_the_UART"><span class="tocnumber">4</span> <span class="toctext">Attaching the UART</span></a>
+<ul>
+<li class="toclevel-2 tocsection-17"><a href="#With_a_UART_connector_available"><span class="tocnumber">4.1</span> <span class="toctext">With a UART connector available</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="#Without_a_UART_connector"><span class="tocnumber">4.2</span> <span class="toctext">Without a UART connector</span></a>
+<ul>
+<li class="toclevel-3 tocsection-19"><a href="#Necessary_tools_and_skills"><span class="tocnumber">4.2.1</span> <span class="toctext">Necessary tools and skills</span></a></li>
+<li class="toclevel-3 tocsection-20"><a href="#Disassembling_the_device"><span class="tocnumber">4.2.2</span> <span class="toctext">Disassembling the device</span></a></li>
+<li class="toclevel-3 tocsection-21"><a href="#Inspect_the_mainboard"><span class="tocnumber">4.2.3</span> <span class="toctext">Inspect the mainboard</span></a></li>
+<li class="toclevel-3 tocsection-22"><a href="#Attaching_the_UART_module"><span class="tocnumber">4.2.4</span> <span class="toctext">Attaching the UART module</span></a></li>
+<li class="toclevel-3 tocsection-23"><a href="#Make_some_noise"><span class="tocnumber">4.2.5</span> <span class="toctext">Make some noise</span></a></li>
+<li class="toclevel-3 tocsection-24"><a href="#Find_TX"><span class="tocnumber">4.2.6</span> <span class="toctext">Find TX</span></a></li>
+<li class="toclevel-3 tocsection-25"><a href="#Find_RX"><span class="tocnumber">4.2.7</span> <span class="toctext">Find RX</span></a></li>
+<li class="toclevel-3 tocsection-26"><a href="#Cable_routing"><span class="tocnumber">4.2.8</span> <span class="toctext">Cable routing</span></a></li>
+<li class="toclevel-3 tocsection-27"><a href="#Soldering_the_jumper_wires"><span class="tocnumber">4.2.9</span> <span class="toctext">Soldering the jumper wires</span></a></li>
+<li class="toclevel-3 tocsection-28"><a href="#Reassemble_your_device"><span class="tocnumber">4.2.10</span> <span class="toctext">Reassemble your device</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-29"><a href="#No_UART_to_be_found"><span class="tocnumber">5</span> <span class="toctext">No UART to be found</span></a></li>
+<li class="toclevel-1 tocsection-30"><a href="#When_all_else_fails"><span class="tocnumber">6</span> <span class="toctext">When all else fails</span></a></li>
+<li class="toclevel-1 tocsection-31"><a href="#Common_Pitfalls"><span class="tocnumber">7</span> <span class="toctext">Common Pitfalls</span></a>
+<ul>
+<li class="toclevel-2 tocsection-32"><a href="#Serial_output_stops_when_kernel_uart_driver_is_loaded"><span class="tocnumber">7.1</span> <span class="toctext">Serial output stops when kernel uart driver is loaded</span></a></li>
+<li class="toclevel-2 tocsection-33"><a href="#U-Boot_stops_after_initial_load"><span class="tocnumber">7.2</span> <span class="toctext">U-Boot stops after initial load</span></a></li>
+<li class="toclevel-2 tocsection-34"><a href="#UART_transmits_intermittent_garbage_when_clocked_with_PLL_PERIPH0.281X.29"><span class="tocnumber">7.3</span> <span class="toctext">UART transmits intermittent garbage when clocked with PLL_PERIPH0(1X)</span></a></li>
+<li class="toclevel-2 tocsection-35"><a href="#Board_won.27t_shut_down_completely"><span class="tocnumber">7.4</span> <span class="toctext">Board won't shut down completely</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-36"><a href="#See_Also"><span class="tocnumber">8</span> <span class="toctext">See Also</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Before_you_start">Before you start</span></h1>
+<p>Do <b>not</b> connect the RED WIRE unless you want to power the device via UART. Note that the UART power wire probably won't deliver enough power for powering a large SBC. Even a rather small ESP8266 might run out of power with some USB UART dongles.
+</p>
+<h1><span class="mw-headline" id="UART_hardware">UART hardware</span></h1>
+<h2><span class="mw-headline" id="PC_Serial_port">PC Serial port</span></h2>
+<p>Currently, all of the available sunxi hardware requires a <b>3.3V UART</b>. If you buy a voltage stepper module ("level shifter") you might get away with attaching it to the serial port of your IBM PC (RS232), but this is rather cumbersome. It is much much easier to just buy a 3.3V USB UART module.
+</p>
+<h2><span class="mw-headline" id="UART-USB_dongle">UART-USB dongle</span></h2>
+<p>Currently, all of the available sunxi hardware requires a <b>3.3V UART</b>. Popular chips for such modules are the Silicon Labs CP2102 and the Prolific PL2303HX which are both cheap and relatively easy to find. Many cheap chinese dongles come with either of these or a CH340 based design. They all are supported by mainline Linux.
+</p><p>If you don't know what to buy, consider one that explicitly has 3.3V and 5V printed on the board -- it will probably be compatible with both 3.3V TX/RX. Please note that the cheap dongles will probably leak more power to the SBC, which might cause issues if you want to reset or shut down the board properly. If you want to avoid this power leakage, google for (optically) isolated USB-UART designs. If you already have a cheap dongle, you could try adding some resistors or diodes between the dongle and the SBC or try a thin USB extension cable. These might lower the leakage just enough to enable resetting the board.
+</p><p><a href="File:Exclamation.png.html" class="image"><img alt="Exclamation.png" src="https://linux-sunxi.org/images/c/c0/Exclamation.png" decoding="async" width="16" height="16" /></a>  Unfortunately, many TTL adapters are very poorly documented. The actual available voltage level (1.8/3.3/5/&#8230;V) is either switchable, or a fixed arbitrary value depending on adapter design. Also adapters with the board embedded inside a case tend to have just wires sticking out at one end, with no documentation regarding which wire is which. <b>If in doubt use a multimeter.</b>
+</p><p>Sample measured values (against USB shell when connected to USB only):
+</p>
+<ul><li>Original <a rel="nofollow" class="external text" href="http://store.r0ck.me/products/ttl-to-usb-serial-cable">Cubietech adapter (board SJ-019 V3.0)</a> or <a rel="nofollow" class="external text" href="http://dx.com/p/arduino-pl2303hx-to-usb-ttl-upload-download-wire-black-100cm-199553">this (board SJ-019 V6.0)</a> white (RX) floating, green (TX) 3.5V, black (gnd) 0V, red (5V) 4.9V. When connected to CB/CT and the board is powered off the power led on the board is dim (not off completely). (You can also check the "<a href="Cubieboard/TTL.html" title="Cubieboard/TTL">Cubieboard/TTL</a>" article to use it with a Cubieboard).</li></ul>
+<ul><li>DX <a rel="nofollow" class="external text" href="http://dx.com/p/pl2303hx-usb-to-ttl-converter-adapter-module-w-dubond-thread-blue-224704">this</a> or <a rel="nofollow" class="external text" href="http://dx.com/p/pl2303hx-usb-to-ttl-converter-module-149859">this</a> board SJ-039 V1.0  3V3 3.5V, GND 0V, TXD 3.5V, RXD 1.8V, 5V 4.9V. When connected to CB/CT and the board is powered off the RX LED is lit. The power led on the board also lights up slightly.</li></ul>
+<ul><li>Some PL2303HX 5V TTL USB adapter - board USB-STC-ISP GND 0V, RX 4.6V, TX 4.9V, 5V 5V, 3.3V 3.4V - this <b>won't work</b> - the voltage is too high for cubieboard and would probably damage it. Untested due to lack of 5V uart.</li></ul>
+<h2><span class="mw-headline" id="Using_an_Arduino">Using an Arduino</span></h2>
+<p>If you have an <a rel="nofollow" class="external text" href="https://www.arduino.cc/en/Main/Boards">Arduino USB</a> lying around, you can use it as a UART-USB dongle/converter. Arduino USB and his successors (UNO, Duemilanove, Diecimila, NG, Extreme) have a detachable microcontroller and a USB-to-serial converter. You can use them by carefully taking out the microcontroller from its slot and connecting pins as described on <a href="#Attaching_the_UART_module">Attaching the UART module</a>. Connect Ardunio's RX (pin 0) to the board's RX, TX (pin 1) to TX and GND to GND. Do not connect VCC.
+</p><p>No driver is needed if you are using Linux. For Windows check <a rel="nofollow" class="external text" href="https://www.arduino.cc/en/Guide/Windows#toc4#toc4">driver installation instructions on Arduino's website</a>.
+</p><p>Another alternative to disable the Arduino chip is to wire the RESET pin to the GND pin. Some new Arduino chips are soldered on the board, and cannot be removed easily.
+</p>
+<h2><span class="mw-headline" id="USB_serial_gadget">USB serial gadget</span></h2>
+<p>There is also the option to use the <a href="USB_Gadget/Serial.html" title="USB Gadget/Serial">USB serial gadget</a> driver. The driver activates only after the kernel has loaded so it won't be able to display U-Boot messages, but at least it can be used to analyze the kernel logs and for logging in. If you're going to use <a href="FEL/USBBoot.html" title="FEL/USBBoot">USBBoot</a> anyway, this might be a viable option.
+</p>
+<h1><span class="mw-headline" id="Using_the_serial_console">Using the serial console</span></h1>
+<p>Once you hook up your usb module to the host, you should see something like the following appear in your syslog (among other messages):
+</p>
+<dl><dd><code>usb 1-1.3: cp210x converter now attached to ttyUSB0</code></dd>
+<dd>or</dd>
+<dd><code>usb 4-1: pl2303 converter now attached to ttyUSB0</code></dd></dl>
+<p>You see here to which tty your UART is connected to - and you can now use it through one of the programs listed next.
+</p>
+<h2><span id="Troubleshooting_/_device_file_permissions"></span><span class="mw-headline" id="Troubleshooting_.2F_device_file_permissions">Troubleshooting / device file permissions</span></h2>
+<p>You might get the following error when trying to access the serial port
+</p>
+<pre> $ sudo cu -s 115200 -l /dev/ttyUSB0
+ cu: open (/dev/ttyUSB0): Permission denied
+ cu: /dev/ttyUSB0: Line in use
+</pre>
+<p>The reason why you cannot access the serial port even if you are root, is due to additional kernel-level security restrictions (such as AppArmor or SELinux).
+For the case of Ubuntu, which has AppArmor, your account needs to be member of the group <i>dialout</i>. To add your account to the <i>dialout</i> group, run the command
+</p>
+<pre> $ sudo usermod --append --groups dialout myusername
+</pre>
+<p>Then, log out and log in again.
+</p><p>Consider some other <a rel="nofollow" class="external text" href="https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=264626#25#25">solutions listed here</a>.
+</p><p>You could also try this, but it only works until reboot / device is disconnected:
+</p>
+<pre>sudo chmod 666 /dev/ttyUSB0</pre>
+<p><br />
+</p>
+<h2><span class="mw-headline" id="Software">Software</span></h2>
+<h3><span id="Linux_/_OSX"></span><span class="mw-headline" id="Linux_.2F_OSX">Linux / OSX</span></h3>
+<p>'<i>If you are using OSX, you should replace <b>/dev/ttyUSB0</b> with <b>/dev/tty.PL2303-00001014'</b></i>
+</p>
+<h4><span class="mw-headline" id="cu"><i>cu</i></span></h4>
+<p><i>cu</i> is an utitlity that comes with popular system distributions like Fedora, Debian, Ubuntu, NetBSD, etc. It can be used to talk to a device connected to a serial port. On Linux with the serial cable as the only USB serial port
+</p>
+<pre> stty -F /dev/ttyUSB0 -crtscts  # turn off hardware flow control - the cable has no wires for that
+ <i>cu</i> -s 115200 -l /dev/ttyUSB0
+</pre>
+<h4><span class="mw-headline" id="screen"><i>screen</i></span></h4>
+<pre>screen /dev/ttyUSB0 115200</pre>
+<p>Be sure to set the baudrate to the maximum of 115200, otherwise your console might not function reliably.
+</p><p>To exit screen is tricky: Ctrl + 'a' followed by '\' - Exit screen and terminate all programs.
+</p>
+<h4><span class="mw-headline" id="gtkterm"><i>gtkterm</i></span></h4>
+<p>With gtkterm, a serial terminal tool with minimum graphic interface:
+</p>
+<pre>gtkterm -p /dev/ttyUSB0 -s 115200
+</pre>
+<h4><span class="mw-headline" id="tinyserial"><i>tinyserial</i></span></h4>
+<p>On Archlinux, the command <code>com</code> from <code><a rel="nofollow" class="external text" href="http://brokestream.com/tinyserial.html">tinyserial</a></code> package can be used:
+</p>
+<pre>com /dev/ttyUSB0 115200
+</pre>
+<h3><span class="mw-headline" id="Windows">Windows</span></h3>
+<p>On Windows you can use software like <a rel="nofollow" class="external text" href="http://ttssh2.sourceforge.jp/index.html.en">TeraTerm</a> or <a rel="nofollow" class="external text" href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">Putty</a> or similar which can connect over serial line.
+</p>
+<h1><span class="mw-headline" id="Attaching_the_UART">Attaching the UART</span></h1>
+<h2><span class="mw-headline" id="With_a_UART_connector_available">With a UART connector available</span></h2>
+<p>If you are using a development board, or a device like the Mele A1000, you should have a nice connector available for attaching your UART module to. If you are extremely lucky, the pin functions will even be printed on your board. Many will not be so lucky, especially with tablets. How to deal with those tougher cases is described below.
+</p><p><br /><b><a href="File:Exclamation-red.png.html" class="image"><img alt="Exclamation-red.png" src="https://linux-sunxi.org/images/2/29/Exclamation-red.png" decoding="async" width="16" height="16" /></a> Do not connect the VCC or 3.3V/5V pin, as that will damage your device!</b> <br /> Some modules have color-coded leads, in that case the <span style="color:red">red</span> wire should correspond to VCC.
+</p><p>Your USB UART module should have 3 pins:<br />
+RX goes to TX<br />
+TX goes to RX<br />
+GND goes to GND on both
+</p><p>If you have wired things up correctly, <a href="UART.html#Using_the_serial_console" title="UART">(read serial console)</a> and boot your device you should see boot messages flying by. If this does not work, try swapping RX/TX around.
+</p><p>If it's not clear which pins are which on your target, use a multimeter to determine <i>GND</i> and <i>VCC</i>. You can do this by measuring the voltage difference between, for instance, shielding of a USB connector and the UART pins, on a running device.
+</p>
+<h2><span class="mw-headline" id="Without_a_UART_connector">Without a UART connector</span></h2>
+<p>Finding the UART pins on a device not meant for development might get quite tricky. It involves disassembling your device with great care, some basic (logical) troubleshooting, some soldering, and then some creativity to be able to export your serial connection to the outside world.
+</p><p><b><a href="File:Exclamation.png.html" class="image"><img alt="Exclamation.png" src="https://linux-sunxi.org/images/c/c0/Exclamation.png" decoding="async" width="16" height="16" /></a>  You will be seriously voiding your warranty here. The likelihood of being left with a damaged device is very high. You might even totally destroy your device. So you need to be extremely careful.</b>
+</p><p><b>Like with everything on this wiki, you yourself are responsible for the actions you take. If you do damage or destroy your device, it's your own fault.</b>
+</p><p>If you do NOT want to risk damaging or destroying your device, then this howto is not for you. If you are not comfortable with disassembling your device, soldering wires to it, or are lacking some of the necessary equipment, get someone else to do it for you, or don't do it at all.
+</p>
+<h3><span class="mw-headline" id="Necessary_tools_and_skills">Necessary tools and skills</span></h3>
+<p>You need some very basic electronics equipment. A multimeter, your usual collection of banana plug cables, probes and hirschmann clamps, a fine soldering iron (temperature controlled preferred), good solder and flux.
+</p><p>You will also need some jumper wires, which are easily scrounged off of an old PC case. Preferably black, green and white, in a triple housing.
+</p>
+<h3><span class="mw-headline" id="Disassembling_the_device">Disassembling the device</span></h3>
+<p>Disassembling your device is outside of the scope of this document. By using google, you might be able to find someone who has already taken your device apart, and see the process documented on some android forum. Failing that, there are tons of tablet disassembly guides on the likes of youtube. But do use a <a href="Plastic_tool.html" title="Plastic tool">plastic tool</a> instead of a screwdriver for prying your device open.
+</p><p>You probably need to be able to access the backside of the motherboard as well, so make sure that the board is free. Do not cut any wires, you will need your device to work, even when all of it has been laid bare.
+</p>
+<h3><span class="mw-headline" id="Inspect_the_mainboard">Inspect the mainboard</span></h3>
+<p>Often times, you can get lucky, and the UART can be spotted easily. The <a href="Hyundai_A7HD.html#Adding_a_serial_port" title="Hyundai A7HD">Hyundai A7HD</a> is a great example of that as it has a full serial port on big pre-tinned pads available. In case of the <a href="Hyundai_A7.html#Adding_a_serial_port_.28voids_warranty.29" title="Hyundai A7"> Hyundai A7</a>, due to the limited number of testpads, and the way they were grouped, it was also clear which were the UART pins.
+</p><p>When you are not so lucky, you get presented with a motherboard with a big load of test-pads. This leaves you no option but to systematically try each one of them.
+</p><p>Regardless of whether the connections are easy to find or not, you still pretty much need to run through the procedure as listed below.
+</p>
+<h3><span class="mw-headline" id="Attaching_the_UART_module">Attaching the UART module</span></h3>
+<p>Boot your device, and get the original OS running.
+</p><p>Attach your UART module to your host PC and run your console program on it.
+</p><p>Connect GND of the UART module to a convenient ground location on your board, and attach a probe to RX of the UART module.
+</p><p>If you now touch the probe to ground, you should see some broken characters appear on your console program. If not, check whether GND is wired up correctly, or swap RX/TX around on the module side.
+</p>
+<h3><span class="mw-headline" id="Make_some_noise">Make some noise</span></h3>
+<p>Normally, your device will only sporadically send data out the serial bus, so the chances of seeing any text scroll past on the console, is pretty low.
+</p><p>A small tool called <a class="external text" href="http://dl.linux-sunxi.org/users/libv/serial_noise">serial_noise</a> is available, and it is statically compiled and verified to run on many android systems (<a class="external text" href="https://github.com/libv/serial_noise">source code is available here</a>). <a class="external text" href="http://dl.linux-sunxi.org/users/libv/serial_noise">Download it</a> to your device, and run it.
+</p><p>When serial_noise has successfully started, and has found serial consoles in /dev/, it says:
+</p>
+<pre>Flooding serial consoles with text...</pre>
+<p>It will then be sending the /dev/ device names out to all the detected serial consoles on the system.
+</p>
+<h3><span class="mw-headline" id="Find_TX">Find TX</span></h3>
+<p>You can now go and carefully touch the testpads with your probe, for a few seconds each until you see a device name scroll past. From time to time, verify that your setup is still working by sending some garbage to your hosts console program by touching ground with your probe.
+</p>
+<h3><span class="mw-headline" id="Find_RX">Find RX</span></h3>
+<p>If or when you have found TX, you should find RX nearby.
+</p><p>Attach a second probe to the TX pin of the UART module.
+</p><p>With the other probe on the TX pad on the device still, you can now go and probe for the RX pad.
+</p><p>The easiest way to verify this is to touch a pad with the probe, and then typing things into the console program on your host computer. If you see your characters echoed back, then you have successfully located the RX pad.
+</p>
+<h3><span class="mw-headline" id="Cable_routing">Cable routing</span></h3>
+<p>Before you solder on the jumper wires, figure out how to get your serial connection available to the outside world.
+</p><p>With space at a premium in any mobile device, it is not easy to find a good solution here. The punishment for bad routing is quite severe. Your device might not close anymore, and there might be pressure on your devices LCD, leading to uneven backlighting and colours. So do take care at this stage.
+</p><p>A good example of bad routing and the damage that it causes can be seen on the <a href="Hyundai_A7HD.html" title="Hyundai A7HD">Hyundai A7HD page</a>.
+</p><p>Make a point of clearly marking which wire is GND by using a brown or black wire for it. If you use jumper wires from an old PC case, try use a triple connector to make life easier in future.
+</p>
+<div class="thumb tright"><div class="thumbinner" style="width:242px;"><a href="File:A7hd_working.jpg.html" class="image"><img alt="" src="https://linux-sunxi.org/images/thumb/1/16/A7hd_working.jpg/240px-A7hd_working.jpg" decoding="async" width="240" height="180" class="thumbimage" srcset="https://linux-sunxi.org/images/thumb/1/16/A7hd_working.jpg/360px-A7hd_working.jpg 1.5x, https://linux-sunxi.org/images/thumb/1/16/A7hd_working.jpg/480px-A7hd_working.jpg 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="File:A7hd_working.jpg.html" class="internal" title="Enlarge"></a></div>Great for development, but not very socially acceptable.</div></div></div>
+<h3><span class="mw-headline" id="Soldering_the_jumper_wires">Soldering the jumper wires</span></h3>
+<p>The usual recommendations for small electronics soldering apply.
+</p>
+<h3><span class="mw-headline" id="Reassemble_your_device">Reassemble your device</span></h3>
+<p>And if all goes well, you should now have a tablet with something strange hanging out. You should be able to attach your UART module to it directly, fire up your console program and immediately get a console.
+</p><p>Now you can do low level development on your tablet, even when on the move. Just don't bring it up in a conversation with normal people if you still want them to respect you afterwards.
+</p>
+<h1><span class="mw-headline" id="No_UART_to_be_found">No UART to be found</span></h1>
+<p>There is a (slight) possibility that the UART simply is not enabled in script.bin. In that case, first finish off the <a href="Retrieving_device_information.html" title="Retrieving device information">Retrieving Device information howto</a> from the <a href="New_Device_howto.html" title="New Device howto">New Device howto</a>, so that you make sure that all the necessary data from the android installation has been retrieved. Then, still following the New Device Howto, try to set up a linux on an SD card and boot from that. You can then try editing <a href="Fex_Guide.html" title="Fex Guide">script.bin</a>, to enable the UART, and you can then <a href="#Attaching_the_UART_module">try to locate the UART</a> on the board again.
+</p>
+<h1><span class="mw-headline" id="When_all_else_fails">When all else fails</span></h1>
+<p>In this case, you usually can still use the SD/micro-SD connector with a <a href="MicroSD_Breakout.html" title="MicroSD Breakout">MicroSD Breakout Adapter</a>. Do note that this requires an altered <a href="U-Boot.html" title="U-Boot">U-Boot target</a> and an altered <a href="Fex_Guide.html" title="Fex Guide">script.bin</a>.
+</p><p>You lose the functionality of the SD-Card, but you can do <a href="U-Boot.html" title="U-Boot">U-Boot</a> or <a href="Linux_Kernel.html" title="Linux Kernel">Kernel</a> development over <a href="FEL/USBBoot.html" title="FEL/USBBoot">USBBoot</a> instead.
+</p>
+<h1><span class="mw-headline" id="Common_Pitfalls">Common Pitfalls</span></h1>
+<h2><span class="mw-headline" id="Serial_output_stops_when_kernel_uart_driver_is_loaded">Serial output stops when kernel uart driver is loaded</span></h2>
+<p>If you have working serial output with U-Boot, but the output stops just after loading the kernel uart driver, like so:
+</p>
+<pre>&lt;6&gt;Serial: 8250/16550 driver, 8 ports, IRQ sharing disabled
+&lt;6&gt;[uart]: used uart info.: 0x01
+&lt;6&gt;[uart]: serial probe 0 irq 33 mapbase 0x01c28000
+&lt;6&gt;sunxi-uart.0: ttyS0 at MMIO 0x1c28000 (irq = 33) is a U6_16550A
+</pre>
+<p>Then there might be something wrong with your kernel commandline.
+</p><p>Please verify that you have "console=ttyS0,115200" in your commandline, for instance in your U-Boot boot.cmd:
+</p>
+<pre>setenv bootargs console=ttyS0,115200 root=/dev/mmcblk0p2 rootwait panic=10 ${extra}
+</pre>
+<p>Make sure that the baudrate is provided as well.
+</p>
+<h2><span class="mw-headline" id="U-Boot_stops_after_initial_load">U-Boot stops after initial load</span></h2>
+<p>If U-Boot behaves erratically, and stops after initial load, with the last line printed of the boot log repeating the first lines, there might be something wrong with your UART pads, or the cabling to it.
+</p><p>Here is an example of the boot log, note the repetition of the first line:
+</p>
+<pre>    U-Boot SPL 2014.04-10710-g509d96d (Sep 05 2014 - 18:47:53)
+    Board: Iteaduino_Plus_A20
+    DRAM: 1024 MiB
+    Failed to set core voltage! Can't set CPU frequency
+    spl: not an uImage at 1600
+     
+     
+    U-Boot 2014.04-10710-g509d96d (Sep 05 2014 - 18:47:53) Allwinner Technology
+     
+    CPU:   Allwinner A20 (SUN7I)
+    Board: Iteaduino_Plus_A20
+    I2C:   ready
+    DRAM:  1 GiB
+    MMC:   SUNXI SD/MMC: 0
+    *** Warning - bad CRC, using default environment
+     
+    In:    serial
+    Out:   serial
+    Err:   serial
+    Net:   emac
+    Hit any key to stop autoboot:  0
+    sun7i#
+    sun7i#
+    sun7i#
+    sun7i#
+    sun7i#
+    sun7i# U-Boot 2014.04-10710-g509d96d (Sep 05 2014 - 18:47:53) All2###### U-Boot 2014.04-10710-g509d96d (Sep 05 2014 - 18:47:53l
+</pre>
+<p>When you probe the RX and TX lines with an oscilloscope you will see an erratic serial signal.
+</p><p>The issue above was a short between RX and TX. Please verify that this is not the case if you have some of the above symptoms.
+</p>
+<h2><span id="UART_transmits_intermittent_garbage_when_clocked_with_PLL_PERIPH0(1X)"></span><span class="mw-headline" id="UART_transmits_intermittent_garbage_when_clocked_with_PLL_PERIPH0.281X.29">UART transmits intermittent garbage when clocked with PLL_PERIPH0(1X)</span></h2>
+<p>Problem was observed on an H5 (NanoPi Neo 2 2017).
+</p><p>Switch UART clock source (APB2) to use PLL_PERIPH0(1X) running at nominal 600MHz. Confirmed baud rates were as expected.
+</p><p>UART works but transmits intermittent garbage characters. Oscilloscope confirms that the wrong character is being transmitted and that it's not being mis-received. Observed on a 115000 baud link.
+</p><p>Solution is to reduce the clock rate to the UART by setting a divide ratio in APB2_CFG_REG. I could achieve my baud rates by setting CLK_RAT_M=12 (divide by 13).
+</p><p>Note the RM has the following to say when switching clock rates:
+"Make sure that the clock source output is valid before the clock source switch, and then set a proper divide ratio; after
+the division factor becomes valid, switch the clock source."
+</p><p>I used writel(CLK_24M | NEW_DIV_RATIO,APB2_CFG_REG);writel(CLK_PERIPH0(1X) | NEW_DIV_RATIO,APB2_CFG_REG); and it worked fine.
+</p>
+<h2><span id="Board_won't_shut_down_completely"></span><span class="mw-headline" id="Board_won.27t_shut_down_completely">Board won't shut down completely</span></h2>
+<p>The UART link may often leak some current, which prevents the board from completely shutting down. As a result, the board might not switch to FEL boot mode. Disconnecting and reattaching the UART cable should solve this issue. If one needs to constantly reboot, this can become an issue. There are (optically) isolated UART modules that don't leak power, but one could also experiment with a resistor in the host TX pin or using USB UART dongles with a long extension cable (will weaken the current just enough to prevent the board from staying on).
+</p>
+<h1><span class="mw-headline" id="See_Also">See Also</span></h1>
+<ul><li><a href="JTAG.html" title="JTAG">JTAG</a></li></ul>
+<!-- 
+NewPP limit report
+Cached time: 20251029040207
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.147 seconds
+Real time usage: 0.155 seconds
+Preprocessor visited node count: 182/1000000
+Post‐expand include size: 732/2097152 bytes
+Template argument size: 651/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 1253/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   18.858      1 -total
+ 11.43%    2.155      2 Template:Warn
+  9.37%    1.768      1 Template:Dont
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:788-0!canonical and timestamp 20251029040207 and revision id 24508
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=UART&amp;oldid=24508">https://linux-sunxi.org/index.php?title=UART&amp;oldid=24508</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Categories</a>: <ul><li><a href="Category:Hardware.html" title="Category:Hardware">Hardware</a></li><li><a href="Category:Development.html" title="Category:Development">Development</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=UART" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=UART" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="UART.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:UART&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="UART.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=UART&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=UART&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/UART.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/UART" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=UART&amp;oldid=24508" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=UART&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 19 November 2021, at 22:45.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.147","walltime":"0.155","ppvisitednodes":{"value":182,"limit":1000000},"postexpandincludesize":{"value":732,"limit":2097152},"templateargumentsize":{"value":651,"limit":2097152},"expansiondepth":{"value":3,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":1253,"limit":5000000},"timingprofile":["100.00%   18.858      1 -total"," 11.43%    2.155      2 Template:Warn","  9.37%    1.768      1 Template:Dont"]},"cachereport":{"timestamp":"20251029040207","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":508});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

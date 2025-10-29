@@ -1,0 +1,575 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>A10 DRAM Controller Calibration - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"647f5504359177292c49525c","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"A10_DRAM_Controller_Calibration","wgTitle":"A10 DRAM Controller Calibration","wgCurRevisionId":24672,"wgRevisionId":24672,"wgArticleId":1214,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Hardware"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"A10_DRAM_Controller_Calibration","wgRelevantArticleId":1214,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={
+"site.styles":"ready","noscript":"ready","user.styles":"ready","user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=mediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="A10_DRAM_Controller_Calibration.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-A10_DRAM_Controller_Calibration rootpage-A10_DRAM_Controller_Calibration skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">A10 DRAM Controller Calibration</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Overview_of_the_DRAM_controller_features_affecting_the_clock_speed_limit_and_reliability"><span class="tocnumber">1</span> <span class="toctext">Overview of the DRAM controller features affecting the clock speed limit and reliability</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#DQS_gate_training"><span class="tocnumber">1.1</span> <span class="toctext">DQS gate training</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Impedance_settings.2C_ODT_and_ZQ_calibration"><span class="tocnumber">1.2</span> <span class="toctext">Impedance settings, ODT and ZQ calibration</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#CLK-DQS_timing_de-skew.2C_read_and_write_leveling"><span class="tocnumber">1.3</span> <span class="toctext">CLK-DQS timing de-skew, read and write leveling</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#DDR3_timing_parameters"><span class="tocnumber">1.4</span> <span class="toctext">DDR3 timing parameters</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="#Finding_optimal_DRAM_settings_for_your_board_or_device"><span class="tocnumber">2</span> <span class="toctext">Finding optimal DRAM settings for your board or device</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="#The_software_setup_and_the_required_tools"><span class="tocnumber">2.1</span> <span class="toctext">The software setup and the required tools</span></a>
+<ul>
+<li class="toclevel-3 tocsection-8"><a href="#The_kernel.2C_rootfs_and_installing_the_necessary_userland_tools"><span class="tocnumber">2.1.1</span> <span class="toctext">The kernel, rootfs and installing the necessary userland tools</span></a></li>
+<li class="toclevel-3 tocsection-9"><a href="#The_bootloader"><span class="tocnumber">2.1.2</span> <span class="toctext">The bootloader</span></a></li>
+<li class="toclevel-3 tocsection-10"><a href="#General_workflow"><span class="tocnumber">2.1.3</span> <span class="toctext">General workflow</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-11"><a href="#Finding_good_DQS_gating_delay_settings"><span class="tocnumber">2.2</span> <span class="toctext">Finding good DQS gating delay settings</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="#Finding_good_impedance_settings"><span class="tocnumber">2.3</span> <span class="toctext">Finding good impedance settings</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-13"><a href="#Other_links"><span class="tocnumber">3</span> <span class="toctext">Other links</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Overview_of_the_DRAM_controller_features_affecting_the_clock_speed_limit_and_reliability">Overview of the DRAM controller features affecting the clock speed limit and reliability</span></h1>
+<p>This section provides information about DDR3 memory in general and an overview of the relevant configuration features of the A10/A13/A20 DRAM controller.
+</p>
+<h2><span class="mw-headline" id="DQS_gate_training">DQS gate training</span></h2>
+<p>The DQ data lines and DQS/DQS# strobe lines are used both for sending data to the DRAM chips and also for receiving data back. As a result, the DRAM controller must switch between reading and writing at appropriate times. After sending a read command to the DRAM chip, we are expecting a response with a certain delay. At the time when this response arrives, we need to have the DQS gate open to let the data in. Then after the data is fully received and we need to switch back to writing, the DQS gate has to be closed. To allow a certain level of tolerance to the timing skew, every batch of read operations is surrounded by 0.9 cycle long "preamble" and the 0.3 cycle long "postamble". The gate needs to be open during "preamble" and closed during "postamble".
+</p><p>An important parameter to be configured is the delay between submitting read commands and opening the DQS gate for getting the responses. It is written to the <a href="A10_DRAM_Controller_Register_Guide.html#SDR_RSLRn" title="A10 DRAM Controller Register Guide">SDR_RSLR0/SDR_RSLR1</a> and the <a href="A10_DRAM_Controller_Register_Guide.html#SDR_RDGRn" title="A10 DRAM Controller Register Guide">SDR_RDGR0/SDR_RDGR1</a> registers, which configure it with 1/4 cycle granularity. Luckily, <b>this delay can be automatically detected by the hardware</b> (triggered by setting the <a href="A10_DRAM_Controller_Register_Guide.html#SDR_CCR" title="A10 DRAM Controller Register Guide">CCR_DATA_TRAINING</a> bit in the SDR_CCR register). Unluckily, <span style="color:red"><b>the automatic detection is a bit flaky and sometimes ends up with unreliable settings</b></span>, especially on cold system start (this is a problem only for high DRAM clock frequencies, low frequencies are reasonably safe). So it makes a lot of sense to just identify the optimal DQS gating delay for each board and override the hardware detection with a pre-defined delay in the 'dram_para' struct.
+</p><p>Other than the delay value itself, we have two types of windowing to select from:
+</p>
+<ul><li>passive (the DQS gate close time is calculated as the gate open time plus the duration of the read operation added)</li>
+<li>active (the DQS gate is auto-closing, internally implemented by watching for the last rising edge on the DQS line)</li></ul>
+<p>The passive windowing mode is activated by setting the <a href="A10_DRAM_Controller_Register_Guide.html#SDR_CCR" title="A10 DRAM Controller Register Guide">CCR_DQS_GATE</a> bit in the SDR_CCR register. However accurately hitting the 0.3 cycle long "postamble" is a bit difficult in the passive mode with just 1/4 cycle delay granularity. The active windowing mode exists to address this particular problem and should be preferred. Still there is one good use for the passive windowing mode: that's the process of hardware DQS gate training itself. Since the passive mode has more strict timing requirements, the gating delay value obtained by the hardware DQS gate training is more accurate in passive mode.
+</p><p>Also the hardware supports DQS gating delay drift compensation (the <a href="A10_DRAM_Controller_Register_Guide.html#SDR_CCR" title="A10 DRAM Controller Register Guide">CCR_DQS_DRIFT_COMP</a> bit in the SDR_CCR register) for automatically adjusting it at runtime if necessary. But in reality, experiments show that enabling the drift compensation feature just makes reliability worse and we should avoid it.
+</p>
+<h2><span id="Impedance_settings,_ODT_and_ZQ_calibration"></span><span class="mw-headline" id="Impedance_settings.2C_ODT_and_ZQ_calibration">Impedance settings, ODT and ZQ calibration</span></h2>
+<p>The tracks on the PCB connect the DRAM controller with the DDR3 chip(s) and behave like any other wires. Signal integrity may vary really a lot depending on whether the <a class="external text" href="http://en.wikipedia.org/wiki/Impedance_matching">impedance matching</a> has been done properly. Both output drive and termination impedance can (and should) be adjusted on both ends of the track. For the memory write operations, we deal with the DRAM controller output drive impedance and the DDR3 termination impedance. And vice versa, for the memory read operations, we deal with the DRAM controller termination impedance and the DDR3 output drive impedance.
+</p><p>The <a class="external text" href="http://en.wikipedia.org/wiki/On-die_termination">ODT</a> abbreviation means on-die termination. The internal resistors for implementing configurable impedance are located on-die both in the SoC (for the DRAM controller) and in the DDR3 chips. But because the accuracy of the on-die resistors is not so great, they are calibrated against external high precision 240 ohm resistors at the initialization time (both on the DRAM controller side and on the DDR3 chip side) and optionally periodically re-calibrated at run time (on the DDR3 chip side, coupled with the refresh operation). This calibration process against the external resistor is called ZQ calibration. When looking at the device schematics, one can normally find at least two high precision 240 ohm resistors: one connected to the SoC and one connected to the DRAM chip. For example, <a class="external text" href="https://github.com/OLIMEX/OLINUXINO/blob/master/HARDWARE/A13-OLinuXino-MICRO/A13-OLinuXino-MICRO_Rev_B.pdf?raw=true">A13-OLinuXino-MICRO</a> has these resistors connected to the DZQ and the ZQ pins.
+</p><p>The purpose of the ZQ calibration is only to ensure that the configured impedance settings are applied accurately. For example, if we configure the 240/4 ohm termination impedance, then we want to be sure that it is really 60 ohm on every board, regardless of the PVT (process-voltage-temperature) differences. ZQ calibration solves this. <span style="color:red"><b>But the selection of optimal impedance divisors is still the responsibility of the user, because they are not configured automatically by the hardware</b></span>. For Allwinner A10/A13/A20 based devices, the impedance divisors are specified in the 'dram_para' struct in the u-boot bootloader via the following parameters:
+</p>
+<ul><li>the '<b>zq'</b> and the '<b>odt_en'</b> variables (see the <a href="A10_DRAM_Controller_Register_Guide.html#SDR_ZQCR0" title="A10 DRAM Controller Register Guide">SDR_ZQCR0</a> register) for the impedance on the DRAM controller end of the wire</li>
+<li>the '<b>emr1'</b> variable (see the description of the MR1 configuration register bits in the DDR3 spec or the DRAM datasheet) for the impedance on the DDR3 chip end of the wire</li></ul>
+<p><br />
+Additional references:
+</p>
+<ul><li><a rel="nofollow" class="external text" href="http://www.micron.com/-/media/Documents/Products/Technical%20Note/DRAM/TN4104.pdf">DDR3 Dynamic On-Die Termination</a></li>
+<li><a rel="nofollow" class="external text" href="http://www.micron.com/~/media/Documents/Products/Technical%20Note/DRAM/TN4102.pdf">DDR3 ZQ Calibration</a></li>
+<li><a rel="nofollow" class="external text" href="http://www.altera.com/literature/hb/external-memory/emi_plan_board_ddr2.pdf">Altera - DDR2, DDR3, and DDR4 SDRAM Board Design Guidelines</a></li>
+<li><a rel="nofollow" class="external text" href="http://www.ctscorp.com/components/appnotes/AN1025_ClockTerminationDesignGuidelines.pdf">CTS Electronic Components - Clock Termination Techniques and Layout Considerations</a></li></ul>
+<h2><span id="CLK-DQS_timing_de-skew,_read_and_write_leveling"></span><span class="mw-headline" id="CLK-DQS_timing_de-skew.2C_read_and_write_leveling">CLK-DQS timing de-skew, read and write leveling</span></h2>
+<p>In the case of PCB tracks length mismatch, there may be some timing skew between the CMD/ADD/CLK, DQ and/or DQS/DQS# signals. Some general overview can be found in the <a rel="nofollow" class="external text" href="https://web.archive.org/web/20140921154140/http://www.micron.com/-/media/Documents/Products/Technical%20Note/DRAM/E1503E10.pdf">New Features of DDR3 SDRAM</a> pdf. Also the <a rel="nofollow" class="external text" href="http://www.altera.com/literature/wp/wp-01034-Utilizing-Leveling-Techniques-in-DDR3-SDRAM.pdf">Altera - Utilizing Leveling Techniques in DDR3 SDRAM Memory Interfaces</a> pdf is quite interesting even though it talks about a different DRAM controller and is not directly applicable.
+</p><p>The A10/A13/A20 DRAM controller has a lot of knobs to configure various delays, even up to an individual bit level. <span style="color:red"><b>However, the DRAM controller does not implement any hardware assistance for automatic read/write leveling at all.</b></span> So we are up to using some other method for exploring the vast space of possible configurations to find the one, which works the best. If a good configuration for the delay adjustments is identified, then we can hardcode it into the 'dram_para' struct in the u-boot bootloader for each board type.
+</p><p>Right now, all the delays related configuration is exposed as the '<b>tpr3'</b> variable in the 'dram_para' struct. This variable is a hexadecimal number, composed of the following bit-fields:
+</p>
+<ul><li>bits [22:20] - mapped to <a href="A10_DRAM_Controller_Register_Guide.html#SDR_DLLCRn" title="A10 DRAM Controller Register Guide">MFWDLY</a> bits of the command lane</li>
+<li>bits [18:16] - mapped to <a href="A10_DRAM_Controller_Register_Guide.html#SDR_DLLCRn" title="A10 DRAM Controller Register Guide">MFBDLY</a> bits of the command lane</li>
+<li>bits [15:12] - mapped to <a href="A10_DRAM_Controller_Register_Guide.html#SDR_DLLCRn" title="A10 DRAM Controller Register Guide">SDPHASE</a> bits of the byte lane 3</li>
+<li>bits [11:8] - mapped to <a href="A10_DRAM_Controller_Register_Guide.html#SDR_DLLCRn" title="A10 DRAM Controller Register Guide">SDPHASE</a> bits of the byte lane 2</li>
+<li>bits [7:4] - mapped to <a href="A10_DRAM_Controller_Register_Guide.html#SDR_DLLCRn" title="A10 DRAM Controller Register Guide">SDPHASE</a> bits of the byte lane 1</li>
+<li>bits [3:0] - mapped to <a href="A10_DRAM_Controller_Register_Guide.html#SDR_DLLCRn" title="A10 DRAM Controller Register Guide">SDPHASE</a> bits of the byte lane 0</li></ul>
+<p>Basically, adjusting bits 22:16 in the 'tpr3' parameter tweaks delays on the command lane. Because the relative delay between the signals on the command lane and the signals on the byte lanes changes, this also effectively adjusts the delays for both <b>write</b> and read operations. Also adjusting bits 15:0 in the 'tpr3' parameter allows to postpone or move forward the sampling of incoming data for <b>read</b> operations (relative to the default 90 degrees phase). Since we can control both read and write delays almost independently from each other, the 'tpr3' parameter is good enough for simple de-skew adjustments. There are also other delay related knobs in the DRAM controller, but they are not exposed in the 'dram_para' struct yet.
+</p>
+<h2><span class="mw-headline" id="DDR3_timing_parameters">DDR3 timing parameters</span></h2>
+<p>The description of DDR3 DRAM modules sometimes includes a sequence of 4 numbers separated by dashes, for example DDR3-1333 9-9-9-24. These four numbers are the values of tCAS-tRCD-tRP-tRAS parameters, which are most important for performance (lower is better). But there are more parameters than just these four. A complete list of timing parameters and their possible values can be found in the DDR3 spec (for the standard speed bins) and also in the datasheet of each DRAM chip in the case if the chip can support tighter timings than required by the DDR3 standard. The A10/A13/A20 DRAM controller registers <a href="A10_DRAM_Controller_Register_Guide.html#SDR_TPR0" title="A10 DRAM Controller Register Guide">SDR_TPR0</a>, <a href="A10_DRAM_Controller_Register_Guide.html#SDR_TPR1" title="A10 DRAM Controller Register Guide">SDR_TPR1</a> and <a href="A10_DRAM_Controller_Register_Guide.html#SDR_TPR2" title="A10 DRAM Controller Register Guide">SDR_TPR2</a> are used to configure these timing parameters. Please note that the DRAM controller expects these parameters in cycles, and DRAM datasheets usually provide them in nanoseconds. So a conversion is necessary to configure this right.
+</p><p>This configuration is provided by the '<b>tpr0'</b>, '<b>tpr1'</b>, '<b>tpr2'</b> parameters in the u-boot 'dram_para' struct, which are directly written to the corresponding hardware registers on DRAM initialization.
+</p>
+<h1><span class="mw-headline" id="Finding_optimal_DRAM_settings_for_your_board_or_device">Finding optimal DRAM settings for your board or device</span></h1>
+<p>The DRAM controller overview in the previous chapters contains some parts of text, which are highlighted in red. Basically, they say that the A10/A13/A20 DRAM controller is missing decent automatic DDR3 configuration features, enjoyed by the high-end ARM or x86 desktop systems. And using a bad configuration or just keeping the defaults does not allow reaching really high DDR3 clock speeds.
+</p><p>To overcome this hardware limitation and in order to allow significantly faster DRAM clock speeds, we essentially <a class="external text" href="http://en.wikipedia.org/wiki/Brute-force_search">brute-force search</a> for a good configuration using the <a class="external text" href="https://github.com/ssvb/lima-memtester/">lima-memtester</a> program as a tool to evaluate and compare reliability of different settings. This method can be used by anyone and does not require any special lab equipment, simulation software or anything else. However hardcoding the impedance and delays is not a perfectly universal solution. <span style="color:red"><b>The optimal DRAM settings, found with this method, can be only used just for a single device model (and even limited to a single PCB revision in some cases).</b></span>
+</p><p>The next chapters contain the description of the exact step by step procedure. Be warned that it is a very long iterative process and may take up to a week to find something useful! But the results typically pay off and reward you with much better memory performance.
+</p><p>Obviously, if somebody else has already done this work for the same device model, then you can just verify the settings with lima-memtester on your device and take them into use. Either way, sharing test results is very much welcome (both positive and negative results are useful!). So that we can collect sufficient statistics and eventually enable better DRAM settings in U-Boot.
+</p>
+<h2><span class="mw-headline" id="The_software_setup_and_the_required_tools">The software setup and the required tools</span></h2>
+<h3><span id="The_kernel,_rootfs_and_installing_the_necessary_userland_tools"></span><span class="mw-headline" id="The_kernel.2C_rootfs_and_installing_the_necessary_userland_tools">The kernel, rootfs and installing the necessary userland tools</span></h3>
+<p>It is required to have the <b>sunxi-3.4 kernel</b> (specifically for for the mali kernel module). The mainline kernel is not supported yet because it is lacking in the graphics department. Also the process of probing different dram setting involves a lot of watchdog triggered reboots, which may corrupt the file system pretty fast. So it is strongly recommended to setup <b>boot over the network</b> <a href="How_to_boot_the_A10_or_A20_over_the_network.html" title="How to boot the A10 or A20 over the network">using the NFS root file system</a>. <span style="color:red"><b>Any other configurations are only going to bring unnecessary troubles and are completely unsupported by this guide.</b></span>
+</p><p>Once the system is up and running, we need to install some prerequisites: <b>git</b>, <b>cmake</b> and the <b>ruby</b> scripting language interpreter. For example, on a Debian/Ubuntu distro it would be:
+</p>
+<pre>   apt-get install git cmake ruby
+</pre>
+<p>And then compile and install the <a class="external text" href="https://github.com/ssvb/lima-memtester/">lima-memtester</a> and <a class="external text" href="https://github.com/ssvb/a10-dram-tools">a10-dram-tools</a>:
+</p>
+<pre>   cd /tmp
+   git clone <a class="external free" href="https://github.com/ssvb/lima-memtester.git">https://github.com/ssvb/lima-memtester.git</a>
+   cd lima-memtester
+   cmake -DCMAKE_INSTALL_PREFIX=/usr .
+   make -j2 install
+</pre>
+<pre>   cd /tmp
+   git clone <a class="external free" href="https://github.com/ssvb/a10-dram-tools.git">https://github.com/ssvb/a10-dram-tools.git</a>
+   cd a10-dram-tools
+   cmake -DCMAKE_INSTALL_PREFIX=/usr .
+   make -j2 install
+</pre>
+<p>Installing into /usr is not very nice, because it is the place, where software is usually installed by the distro package managers. Anyway, this whole setup is primarily intended just for the DRAM calibration process, so not a big deal.
+</p>
+<h3><span class="mw-headline" id="The_bootloader">The bootloader</span></h3>
+<p>The DRAM settings are configured in U-Boot. And we are going to use the <a href="Mainline_U-boot.html" class="mw-redirect" title="Mainline U-boot">Mainline U-boot</a> because it makes no sense to use anything else. In the mainline U-Boot, changing the DRAM settings needs to be done in the defconfig files for each board. For example, higher DRAM clock speed settings for the Cubieboard <a href="A10_DRAM_Controller_Calibration_(impedance_configuration_example).html#Cubieboard1.2C_528MHz.2C_zq.3D0x3B.2C_emr1.3D0x04.2C_dcdc3.3D1.25V" title="A10 DRAM Controller Calibration (impedance configuration example)">(528MHz, zq=0x3B, emr1=0x04)</a> may look like this:
+</p>
+<pre>CONFIG_SPL=y
+CONFIG_SYS_EXTRA_OPTIONS="AXP209_POWER,SUNXI_EMAC,AHCI,SATAPWR=SUNXI_GPB(8),USB_EHCI"
+CONFIG_FDTFILE="sun4i-a10-cubieboard.dtb"
+CONFIG_ARM=y
+CONFIG_ARCH_SUNXI=y
+CONFIG_MACH_SUN4I=y
+CONFIG_DRAM_CLK=528
+CONFIG_DRAM_ODT_EN=3
+CONFIG_DRAM_ZQ=17688576
+CONFIG_DRAM_TPR3=0
+CONFIG_DRAM_EMR1=4
+CONFIG_DRAM_DQS_GATING_DELAY=0x06060606
+CONFIG_DRAM_TIMINGS_DDR3_1066F_1333H=y
+</pre>
+<p>Additionally, the dcdc3 voltage has to be currently <a rel="nofollow" class="external text" href="http://git.denx.de/?p=u-boot.git;a=blob;f=board/sunxi/board.c;h=e1891d198e4ae37635e2e8f970cbe77e460ca91a;hb=HEAD#l183#l183">patched in the U-Boot sources</a> if the default 1.25V is too low for the high DRAM or MBUS clock speed. Modern u-boot can be configured with  CONFIG_AXP_DCDC3_VOLT=1300. After changing the settings, recompiling u-boot and rebooting, be sure that the changes have in fact taken effect by running
+</p>
+<pre>   a10-meminfo
+</pre>
+<p>If video support is enabled in U-Boot, then the sunxi-3.4 kernel appears to fail booting properly from time to time (it gets stuck after roughly 10 or 20 reboots at least on <a href="LinkSprite_pcDuino_V2.html" class="mw-redirect" title="LinkSprite pcDuino V2">LinkSprite pcDuino V2</a> board). And this is a major annoyance when using the 'a10-tpr3-scan' script. In order to workaround this problem, the following line can be added to the board defconfig in U-Boot:
+</p>
+<pre># CONFIG_VIDEO is not set
+</pre>
+<h3><span class="mw-headline" id="General_workflow">General workflow</span></h3>
+<p>After all the tools are installed, network boot configured, u-boot built with some preliminary DRAM settings and the system is booted, we want to assess the reliability of the resulting configuration. Just running the lima-memtester tool for some reasonable period of time can provide only a PASS or FAIL verdict. Having just two possible states is not enough to grade the reliability of many different DRAM configurations, and this makes it difficult to select the best one.
+</p><p>To provide a better insight about the reliability of the current DRAM configuration, a special <b>a10-tpr3-scan</b> script had been developed. It exploits the fact that some of the configuration knobs (the <b>tpr3</b> parameter) can be actually changed at runtime without resetting the DRAM controller, and this configuration adjustment can be done from the userspace via /dev/mem (this is actually not completely reliable, but works in most cases and is good enough for the DRAM calibration purposes). Essentially, this script needs to be set to run automatically after reboot. So that it can start probing different 'tpr3' settings, and using the lima-memtester program to verify reliability of each of these settings. This can be done by adding a shell script into some special distribution dependent place (<a rel="nofollow" class="external text" href="https://www.debian.org/doc/manuals/debian-faq/ch-customizing.en.html#s-custombootscripts#s-custombootscripts">Debian</a>, <a rel="nofollow" class="external text" href="http://wiki.gentoo.org/wiki/Local.d">Gentoo</a>, ...). This script may contain something like this (assuming that 192.168.1.123 is the ip address of the device):
+</p>
+<pre>   if [ "`ifconfig | grep 192.168.1.123`" ]&#160;; then
+       mkdir /var/tpr3_results
+       # If the board has LEDs, then you can also toggle one of them here (this may help troubleshooting)
+       a10-tpr3-scan /var/tpr3_results "Cubietruck"
+   fi
+</pre>
+<p>The /var/tpr3_results is a directory for storing the collected data. After several hours and many automatic reboots, the data should be there. This data can be then processed by another script <b>a10-tpr3-html-report</b> to get a nicely formatted html report:
+</p>
+<pre>   a10-tpr3-html-report /var/tpr3_results &gt; /var/tpr3_results/report.html
+</pre>
+<p>The html report can also generated even for the partially collected data, so there it is possible to watch the progress in real time from your desktop PC (where the data is actually stored):
+</p>
+<pre>   while sleep 15&#160;; do a10-tpr3-html-report /nfs/exported/var/tpr3_results &gt; /nfs/exported/var/tpr3_results/tmp.html&#160;; mv /nfs/exported/var/tpr3_results/tmp.html /nfs/exported/var/tpr3_results/report.html&#160;; done;
+</pre>
+<p>Just be sure to set the permissions right for it to work. Then open /nfs/exported/var/tpr3_results/report.html in your favourite browser and keep refreshing. Here is an example of a generated report:
+</p><p><b>Cubietruck, (zq=0x2c, emr1=0x42), 648MHz DRAM and 600MHz MBUS, needs at least 1.325V dcdc3</b>
+</p>
+<table border="1" style="border-collapse: collapse; empty-cells: show; font-family: Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New, monospace; font-size: small; white-space: nowrap; background: #F0F0F0;">
+<tbody><tr><td><table border="0" style="border-collapse: collapse; empty-cells: show; font-family: Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New, monospace; font-size: small; white-space: nowrap; background: #F0F0F0;">
+<tbody><tr><td>dcdc3_vol         = 1325<br />dram_clk          = 648<br />mbus_clk          = 600<br />dram_type         = 3<br />dram_rank_num     = 1<br />dram_chip_density = 4096<br />dram_io_width     = 8<br />dram_bus_width    = 32<br />dram_cas          = 9<br />dram_zq           = 0x2c (0x10d3900)<br />dram_odt_en       = 3<br />dram_tpr0         = 0x429899b4<br />dram_tpr1         = 0xa0a0<br />dram_tpr2         = 0x2c200<br />dram_tpr3         = 0x182222<br />dram_emr1         = 0x42<br />dram_emr2         = 0x10<br />dram_emr3         = 0x0<br />dqs_gating_delay  = 0x07070707<br />active_windowing  = 1</td></tr></tbody></table></td><td><table border="1" style="border-collapse: collapse; empty-cells: show; font-family: arial; font-size: small; white-space: nowrap; background: #F0F0F0;">
+<tbody><tr><th>mfxdly</th><th>phase=36</th><th>phase=54</th><th>phase=72</th><th>phase=90</th><th>phase=108</th><th>phase=126</th></tr><tr><th><b>0x07</b></th><td bgcolor="#FF1111" title="after configuring tpr3 and before running memtester">0x073333</td><td bgcolor="#FF1111" title="after configuring tpr3 and before running memtester">0x072222</td><td bgcolor="#FF1111" title="after configuring tpr3 and before running memtester">0x071111</td><td bgcolor="#FF1111" title="">0x070000</td><td bgcolor="#FF1111" title="before configuring tpr3, try2">0x07EEEE</td><td bgcolor="#FF1111" title="before configuring tpr3, try2">0x07DDDD</td></tr><tr><th><b>0x06</b></th><td bgcolor="#FF1111" title="after configuring tpr3 and before running memtester">0x063333</td><td bgcolor="#FF1111" title="after configuring tpr3 and before running memtester">0x062222</td><td bgcolor="#FF1111" title="after configuring tpr3 and before running memtester">0x061111</td><td bgcolor="#FF1111" title="after configuring tpr3 and before running memtester">0x060000</td><td bgcolor="#FF1111" title="before configuring tpr3, try2">0x06EEEE</td><td bgcolor="#FF1111" title="before configuring tpr3, try2">0x06DDDD</td></tr><tr><th><b>0x05</b></th><td bgcolor="#FF6C00" title="FINISHED, memtester success rate: 0/1 READ FAILURE: 0x00000100&#32;!= 0x00000000 at offset 0x00103168 (solidbits).">0x0533<b>3</b>3</td><td bgcolor="#FF1111" title="after configuring tpr3 and before running memtester">0x052222</td><td bgcolor="#FF1111" title="after configuring tpr3 and before running memtester">0x051111</td><td bgcolor="#FF1111" title="after configuring tpr3 and before running memtester">0x050000</td><td bgcolor="#FF1111" title="after configuring tpr3 and before running memtester">0x05EEEE</td><td bgcolor="#FF1111" title="before configuring tpr3, try2">0x05DDDD</td></tr><tr><th><b>0x04</b></th><td bgcolor="#FF6C00" title="FINISHED, memtester success rate: 0/1 READ FAILURE: 0x00000100&#32;!= 0x00000000 at offset 0x0011f378 (solidbits).">0x0433<b>3</b>3</td><td bgcolor="#FF1111" title="after configuring tpr3 and before running memtester">0x042222</td><td bgcolor="#FF1111" title="after configuring tpr3 and before running memtester">0x041111</td><td bgcolor="#FF6C00" title="FINISHED, memtester success rate: 0/1 READ FAILURE: 0xffffffff&#32;!= 0xfffffeff at offset 0x00027e08 (bitflip).">0x0400<b>0</b>0</td><td bgcolor="#FF1111" title="after configuring tpr3 and before running memtester">0x04EEEE</td><td bgcolor="#FF1111" title="before configuring tpr3, try2">0x04DDDD</td></tr><tr><th><b>0x03</b></th><td bgcolor="#FF6C00" title="FINISHED, memtester success rate: 0/1 READ FAILURE: 0x00000000&#32;!= 0x00000100 at offset 0x0054c334 (solidbits).">0x0333<b>3</b>3</td><td bgcolor="#FF3232" title="memtester success rate: 4/4">0x032222</td><td bgcolor="#40C040" title="FINISHED, memtester success rate: 10/10">0x031111</td><td bgcolor="#FF6C00" title="FINISHED, memtester success rate: 0/1 READ FAILURE: 0x00000200&#32;!= 0x00000000 at offset 0x0038f684 (bitflip).">0x0300<b>0</b>0</td><td bgcolor="#FF1111" title="FINISHED, memtester success rate: 0/1">0x03EEEE</td><td bgcolor="#FF1111" title="after configuring tpr3 and before running memtester">0x03DDDD</td></tr><tr><th><b>0x02</b></th><td bgcolor="#FF6C00" title="FINISHED, memtester success rate: 0/1 READ FAILURE: 0x00000100&#32;!= 0x00000000 at offset 0x002c4920 (solidbits).">0x0233<b>3</b>3</td><td bgcolor="#40C040" title="FINISHED, memtester success rate: 10/10">0x022222</td><td bgcolor="#40C040" title="FINISHED, memtester success rate: 10/10">0x021111</td><td bgcolor="#FF006C" title="FINISHED, memtester success rate: 0/1 WRITE FAILURE: 0xfffff7ff&#32;!= 0xffffffff at offset 0x00489404 (bitflip).">0x0200<b>0</b>0</td><td bgcolor="#FF1111" title="FINISHED, memtester success rate: 0/1">0x02EEEE</td><td bgcolor="#FF1111" title="FINISHED, memtester success rate: 0/1">0x02DDDD</td></tr><tr><th><b>0x01</b></th><td bgcolor="#FF6C00" title="FINISHED, memtester success rate: 0/1 READ FAILURE: 0x00080100&#32;!= 0x00080000 at offset 0x0044e478 (bitflip).">0x0133<b>3</b>3</td><td bgcolor="#40C040" title="FINISHED, memtester success rate: 10/10">0x012222</td><td bgcolor="#40C040" title="FINISHED, memtester success rate: 10/10">0x011111</td><td bgcolor="#40C040" title="FINISHED, memtester success rate: 10/10">0x010000</td><td bgcolor="#FF6C00" title="FINISHED, memtester success rate: 0/1 READ FAILURE: 0xfffff7ff&#32;!= 0xffffffff at offset 0x0001be84 (bitflip).">0x01EE<b>E</b>E</td><td bgcolor="#FF1111" title="after configuring tpr3 and before running memtester">0x01DDDD</td></tr><tr><th><b>0x00</b></th><td bgcolor="#FF6C00" title="FINISHED, memtester success rate: 0/1 READ FAILURE: 0x00080000&#32;!= 0x00080100 at offset 0x00156964 (bitflip).">0x0033<b>3</b>3</td><td bgcolor="#40C040" title="FINISHED, memtester success rate: 10/10">0x002222</td><td bgcolor="#40C040" title="FINISHED, memtester success rate: 10/10">0x001111</td><td bgcolor="#40C040" title="FINISHED, memtester success rate: 10/10">0x000000</td><td bgcolor="#FF6C00" title="FINISHED, memtester success rate: 0/1 READ FAILURE: 0xfffffdff&#32;!= 0xffffffff at offset 0x003a59c4 (bitflip).">0x00EE<b>E</b>E</td><td bgcolor="#FF1111" title="FINISHED, memtester success rate: 0/1">0x00DDDD</td></tr><tr><th><b>0x08</b></th><td bgcolor="#FF8100" title="FINISHED, memtester success rate: 1/2 READ FAILURE: 0x02000000&#32;!= 0x02000100 at offset 0x0057a1e4 (bitflip).">0x0833<b>3</b>3</td><td bgcolor="#40C040" title="FINISHED, memtester success rate: 10/10">0x082222</td><td bgcolor="#40C040" title="FINISHED, memtester success rate: 10/10">0x081111</td><td bgcolor="#40C040" title="FINISHED, memtester success rate: 10/10">0x080000</td><td bgcolor="#FF8F00" title="FINISHED, memtester success rate: 2/3 READ FAILURE: 0xfeffffff&#32;!= 0xffffffff at offset 0x0000b5d8 (bitflip).">0x08<b>E</b>EEE</td><td bgcolor="#FF6C00" title="FINISHED, memtester success rate: 0/1 READ FAILURE: 0xfffffffe&#32;!= 0xffffffff at offset 0x005f1318 (bitflip).">0x08DDD<b>D</b></td></tr><tr><th><b>0x10</b></th><td bgcolor="#40C040" title="FINISHED, memtester success rate: 10/10">0x103333</td><td bgcolor="#40C040" title="FINISHED, memtester success rate: 10/10">0x102222</td><td bgcolor="#40C040" title="FINISHED, memtester success rate: 10/10">0x101111</td><td bgcolor="#40C040" title="FINISHED, memtester success rate: 10/10">0x100000</td><td bgcolor="#FF6C00" title="FINISHED, memtester success rate: 0/1 READ FAILURE: 0xfeffffff&#32;!= 0xffffffff at offset 0x005fd568 (bitflip).">0x10<b>E</b>EEE</td><td bgcolor="#FF1111" title="after configuring tpr3 and before running memtester">0x10DDDD</td></tr><tr><th><b>0x18</b></th><td bgcolor="#40C040" title="FINISHED, memtester success rate: 10/10">0x183333</td><td bgcolor="#40C040" title="FINISHED, memtester success rate: 10/10">0x182222</td><td bgcolor="#40C040" title="FINISHED, memtester success rate: 10/10">0x181111</td><td bgcolor="#40C040" title="FINISHED, memtester success rate: 10/10">0x180000</td><td bgcolor="#FF6C00" title="FINISHED, memtester success rate: 0/1 READ FAILURE: 0xffffffff&#32;!= 0xfffff7ff at offset 0x0026d1e4 (bitflip).">0x18EE<b>E</b>E</td><td bgcolor="#FF1111" title="FINISHED, memtester success rate: 0/1 Failed to">0x18DDDD</td></tr><tr><th><b>0x20</b></th><td bgcolor="#FF00C5" title="FINISHED, memtester success rate: 8/9 WRITE FAILURE: 0xfffff7ff&#32;!= 0x00fff7ff at offset 0x004c6ab8 (bitflip).">0x20<b>3</b>333</td><td bgcolor="#FF00A5" title="FINISHED, memtester success rate: 4/5 WRITE FAILURE: 0xffffffef&#32;!= 0xff00ffef at offset 0x002a7838 (bitflip).">0x202<b>2</b>22</td><td bgcolor="#40C040" title="FINISHED, memtester success rate: 10/10">0x201111</td><td bgcolor="#FF6C00" title="FINISHED, memtester success rate: 0/1 READ FAILURE: 0xfeffffff&#32;!= 0xffffffff at offset 0x004513b0 (bitflip).">0x20<b>0</b>000</td><td bgcolor="#FF1111" title="after configuring tpr3 and before running memtester">0x20EEEE</td><td bgcolor="#FF1111" title="before configuring tpr3, try2">0x20DDDD</td></tr><tr><th><b>0x28</b></th><td bgcolor="#FF0081" title="FINISHED, memtester success rate: 1/2 WRITE FAILURE: 0xffffff00&#32;!= 0xffffffff at offset 0x000837c8 (solidbits).">0x28333<b>3</b></td><td bgcolor="#FF0081" title="FINISHED, memtester success rate: 1/2 WRITE FAILURE: 0x000000ef&#32;!= 0x00000010 at offset 0x005a57c4 (bitflip).">0x28222<b>2</b></td><td bgcolor="#FF00A5" title="FINISHED, memtester success rate: 4/5 WRITE FAILURE: 0x008000ff&#32;!= 0x00800000 at offset 0x00195704 (bitflip).">0x28111<b>1</b></td><td bgcolor="#FF6C00" title="FINISHED, memtester success rate: 0/1 READ FAILURE: 0xfffffffb&#32;!= 0xffffffff at offset 0x004073a8 (bitflip).">0x28000<b>0</b></td><td bgcolor="#FF006C" title="FINISHED, memtester success rate: 0/1 WRITE FAILURE: 0xfffffffe&#32;!= 0xffffffff at offset 0x0004fce8 (bitflip).">0x28EEE<b>E</b></td><td bgcolor="#FF1111" title="before configuring tpr3, try2">0x28DDDD</td></tr><tr><th><b>0x30</b></th><td bgcolor="#FF006C" title="FINISHED, memtester success rate: 0/1 WRITE FAILURE: 0x00000000&#32;!= 0x000000ff at offset 0x002f3bf4 (solidbits).">0x30333<b>3</b></td><td bgcolor="#FF006C" title="FINISHED, memtester success rate: 0/1 WRITE FAILURE: 0xffff0000&#32;!= 0xffffffff at offset 0x005e10c8 (solidbits).">0x3022<b>2</b><b>2</b></td><td bgcolor="#FF006C" title="FINISHED, memtester success rate: 0/1 WRITE FAILURE: 0x00000000&#32;!= 0x000000ff at offset 0x0013fdf4 (solidbits).">0x30111<b>1</b></td><td bgcolor="#FF006C" title="FINISHED, memtester success rate: 0/1 WRITE FAILURE: 0x00000000&#32;!= 0x000000ff at offset 0x005fda74 (solidbits).">0x30000<b>0</b></td><td bgcolor="#FF1111" title="after configuring tpr3 and before running memtester">0x30EEEE</td><td bgcolor="#FF1111" title="before configuring tpr3, try2">0x30DDDD</td></tr><tr><th><b>0x38</b></th><td bgcolor="#FF006C" title="FINISHED, memtester success rate: 0/1 WRITE FAILURE: 0x00000000&#32;!= 0x000000ff at offset 0x005bf1b4 (solidbits).">0x38333<b>3</b></td><td bgcolor="#FF1111" title="after configuring tpr3 and before running memtester">0x382222</td><td bgcolor="#FF006C" title="FINISHED, memtester success rate: 0/1 WRITE FAILURE: 0x00000000&#32;!= 0x000000ff at offset 0x005801b4 (solidbits).">0x38111<b>1</b></td><td bgcolor="#FF006C" title="FINISHED, memtester success rate: 0/1 WRITE FAILURE: 0x00000000&#32;!= 0x000000ff at offset 0x005ff534 (solidbits).">0x38000<b>0</b></td><td bgcolor="#FF1111" title="before configuring tpr3, try2">0x38EEEE</td><td bgcolor="#FF1111" title="before configuring tpr3, try2">0x38DDDD</td></tr></tbody></table>
+</td><td>Lane phase adjustments: [0, 0, 0, 0]<br />Error statistics from memtester: [bitflip=19, solidbits=12]<br /><br />Total number of successful memtester runs: 235<br /><br />Best luminance at the height 0.5 is above 0x081111, score = 0.742<br />Best luminance at the height 1.0 is above 0x081111, score = 0.634<br />Best luminance at the height 2.0 is above 0x081111, score = 0.512<br />Best luminance at the height 3.0 is above 0x081111, score = 0.440<br /><br />Read errors per lane: [3, 0, 12, 2]. Lane 1 is the most noisy/problematic.<br />Errors from the lane 0 are not intersecting with the errors from the worst line 1.<br />Errors from the lane 3 are not intersecting with the errors from the worst line 1.<br /><br />Write errors per lane: [1, 1, 2, 11]. Lane 0 is the most noisy/problematic.<br />Errors from the lane 1 are 50.0% eclipsed by the worst lane 0.<br />Errors from the lane 2 are not intersecting with the errors from the worst line 0.<br />Errors from the lane 3 are not intersecting with the errors from the worst line 0.<br /></td></tr></tbody></table><p class="mw-empty-elt"></p>
+<p>Collecting a few of such reports for different dram settings, we can select a more reliable configuration among them (with larger 'green' areas and higher scores).
+</p>
+<h2><span class="mw-headline" id="Finding_good_DQS_gating_delay_settings">Finding good DQS gating delay settings</span></h2>
+<p>The '<b>dqs_gating_delay'</b> parameter, reported by the 'a10-meminfo' tool, is automatically detected by the DRAM controller by default. It is usually good enough at low dram clock frequencies (around ~400MHz). However at high dram clock frequencies (getting close to ~600MHz), it may become a potential reliability hazard in the case of a possible autodetection glitch. The autodetection also happens to be sensitive to the chip temperature, so we may get substantially different values on cold start vs. the values obtained on reboot immediately after running some heavy workload.
+</p><p>The unstable DQS gating delay autodetection also has some inconveniences for the 'a10-tpr3-scan' tool, which (rightfully) treats different 'dqs_gating_delay' settings as different unique dram configurations. This results in collecting statistics for multiple dram configurations instead of just one and slowing down the whole process significantly.
+</p><p>As a solution, the 'dqs_gating_delay' parameter can be hardcoded in the 'dram_para' struct. The most common autodetected value (reported by 'a10-meminfo' tool) can be used for this parameter. Or alternatively, one can try to experimentally find the borderline low and borderline high 'dqs_gating_delay' values and just average them. We don't need to care about the accuracy of this selection if the 'active_windowing' parameter is set to 1, but only need to safeguard against the potential pathologically bad autodetection results. The optimal 'dqs_gating_delay' value depends on the dram clock frequency, so a bit of care still needs to be taken in the case of increasing or reducing the dram clock frequency significantly.
+</p><p>The 'dqs_gating_delay' parameter does not affect reliability in any other way (does not play together or interfere with the other dram settings) as long as it is within a tolerable range. So there is no point wasting too much time selecting the best possible value, it only needs to be good enough.
+</p>
+<h2><span class="mw-headline" id="Finding_good_impedance_settings">Finding good impedance settings</span></h2>
+<p>First of all, we may want to configure the '<b>emr1'</b> parameter, which initializes the MR1 register (the description can be found in the DDR3 spec) and controls impedance settings on the DDR3 chip side. The 'Rtt_Nom' parameter is encoded in bits 9, 6 and 2 of the MR1 register. The 'Output Driver Impedance Control' parameter is encoded in bits 5 and 1 of the MR1 register. This provides us with a number of possible configurations (RZQ is normally 240 ohm):
+</p>
+<table class="wikitable">
+
+<tbody><tr>
+<th>dram_emr1
+</th>
+<th>Rtt_Nom
+</th>
+<th>Output driver impedance
+</th></tr>
+<tr>
+<td>0x00
+</td>
+<td>disabled
+</td>
+<td>RZQ/6
+</td></tr>
+<tr>
+<td>0x02
+</td>
+<td>disabled
+</td>
+<td>RZQ/7
+</td></tr>
+<tr>
+<td>0x04
+</td>
+<td>RZQ/4
+</td>
+<td>RZQ/6
+</td></tr>
+<tr>
+<td>0x06
+</td>
+<td>RZQ/4
+</td>
+<td>RZQ/7
+</td></tr>
+<tr>
+<td>0x40
+</td>
+<td>RZQ/2
+</td>
+<td>RZQ/6
+</td></tr>
+<tr>
+<td>0x42
+</td>
+<td>RZQ/2
+</td>
+<td>RZQ/7
+</td></tr>
+<tr>
+<td>0x44
+</td>
+<td>RZQ/6
+</td>
+<td>RZQ/6
+</td></tr>
+<tr>
+<td>0x46
+</td>
+<td>RZQ/6
+</td>
+<td>RZQ/7
+</td></tr>
+</tbody></table>
+<p>We just need to try each of these 'emr1' values from the table and get 'a10-tpr3-scan' results for them. Here is an example of doing the <a href="A10_DRAM_Controller_Calibration_(impedance_configuration_example).html#Searching_for_optimal_.22dram_emr1.22" title="A10 DRAM Controller Calibration (impedance configuration example)"> initial 'emr1' selection for cubieboard1</a>. Starting with 'emr1' is a good idea because it has only a limited number of valid and/or interesting states (unlike somewhat more flexible 'zq' settings).
+</p><p>Next we need to configure the '<b>zq'</b> parameter, which initializes impedance settings on the DRAM controller side. It is a 8-bit value, where the higher 4 bits are responsible for the termination impedance (similar to Rtt_Nom), and the lower 4 bits are responsible for the output driver impedance. These lower/higher parts of 'zq' are most likely the divisors for RZQ. We have no idea what the value of 0 would mean (is it reserved? or maybe the divisors are just encoded as 1-16 values instead of 0-15?). In any case, what we have is a space of 256 values (or a bit less if we exclude zeros) to try brute-forcing. The higher and lower 4-bit 'zq' parts can be tried with the 'a10-tpr3-scan' tool independently, starting from something around <b>0x2c</b> or <b>0x3b</b> as the initial 'zq' approximation. The default reset value <b>0x7b</b> is typically a bad choice and just regresses reliability. In order for this all to have effect, we need to also set the '<b>odt_en'</b> parameter to <b>3, or "y"</b> in the current mainline u-boot.  The 'zq' parameter selection is also demonstrated in the <a href="A10_DRAM_Controller_Calibration_(impedance_configuration_example).html" title="A10 DRAM Controller Calibration (impedance configuration example)"> impedance configuration example</a>.
+</p>
+<table class="wikitable">
+<caption>ZQ parameter interpretation from the TI Keystone2 manual (spruhn7b.pdf)
+</caption>
+<tbody><tr>
+<th>dram_zq (ZPROG)
+</th>
+<th>On-die termination impedance
+</th>
+<th>Output driver impedance
+</th></tr>
+<tr>
+<td>0x2b
+</td>
+<td>120 ohms
+</td>
+<td>40 ohms
+</td></tr>
+<tr>
+<td>0x2d
+</td>
+<td>120 ohms
+</td>
+<td>34 ohms
+</td></tr>
+<tr>
+<td>0x5b
+</td>
+<td>60 ohms
+</td>
+<td>40 ohms
+</td></tr>
+<tr>
+<td>0x5d
+</td>
+<td>60 ohms
+</td>
+<td>34 ohms
+</td></tr>
+<tr>
+<td>0x8b
+</td>
+<td>40 ohms
+</td>
+<td>40 ohms
+</td></tr>
+<tr>
+<td>0x8d
+</td>
+<td>40 ohms
+</td>
+<td>34 ohms
+</td></tr>
+</tbody></table>
+<p>The divisors, which are encoded in ZPROG (a two-digit hex number) are are not used directly by the hardware, but first get calibrated into ZDATA (a five-digit hex number) by the DRAM controller. One can search for ZPROG, ZDATA and ZCTRL in the <a href="A10_DRAM_Controller_Register_Guide.html" title="A10 DRAM Controller Register Guide">A10 DRAM Controller Register Guide</a> to find more details. Examples of ZQ calibration results (PROG -&gt; ZDATA conversion):
+</p>
+<table class="wikitable">
+
+<tbody><tr>
+<th>Device
+</th>
+<th>ZPROG (two-digit 'zq' parameter)
+</th>
+<th>Calibrated ZDATA on cold start (SoC temperature is low)
+</th>
+<th>Calibrated ZDATA on hot reboot (SoC temperature is high)
+</th></tr>
+<tr>
+<td>ssvb's Cubietruck
+</td>
+<td>0x2c
+</td>
+<td>0x10d1800
+</td>
+<td>0x10d3900
+</td></tr>
+<tr>
+<td>ssvb's Primo73
+</td>
+<td>0x2b
+</td>
+<td>0x10de800
+</td>
+<td>0x10d6900
+</td></tr>
+<tr>
+<td>ssvb's Cubieboard
+</td>
+<td>0x2b
+</td>
+<td>0x10dcb00
+</td>
+<td>0x10de800
+</td></tr>
+<tr>
+<td>ssvb's Cubieboard
+</td>
+<td>0x3b
+</td>
+<td>0x199cb00
+</td>
+<td>0x199e800
+</td></tr>
+</tbody></table>
+<p>It is possible to use ZDATA directly in the CONFIG_DRAM_ZQ U-Boot defconfig variable instead of ZPROG, skipping the calibration step. Because the calibration process is not always deterministic and depends on the temperature among other things, it may make sense to prefer the ZDATA style configuration.
+</p>
+<h1><span class="mw-headline" id="Other_links">Other links</span></h1>
+<p>Some links, which are not directly describing sunxi hardware, but may be useful for grasping the general concept:
+</p>
+<ul><li><a rel="nofollow" class="external text" href="http://www.altera.com/literature/wp/wp-01034-Utilizing-Leveling-Techniques-in-DDR3-SDRAM.pdf">Altera - Utilizing Leveling Techniques in DDR3 SDRAM Memory Interfaces</a></li>
+<li><a rel="nofollow" class="external text" href="http://freescale.com/files/32bit/doc/app_note/AN4467.pdf">Freescale - i.MX 6 Series DDR Calibration</a></li>
+<li><a rel="nofollow" class="external text" href="http://www.slideshare.net/itzjishnu/ddr3">DDR3 introduction slides</a></li>
+<li><a rel="nofollow" class="external text" href="http://www.samsung.com/global/business/semiconductor/file/product/Mobile_DRAM_app_note_for_Frequently_Violated_parameters_rev0-1.pdf">Samsung - Mobile DRAM’s Frequently violated parameters Application Note</a></li>
+<li><a rel="nofollow" class="external text" href="https://www.altera.com/en_US/pdfs/literature/wp/wp-01169-high-speed-memory.pdf">Altera - Using External Memory Interfaces to Achieve Efficient High-Speed Memory Solutions</a></li></ul>
+<!-- 
+NewPP limit report
+Cached time: 20251029040241
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.077 seconds
+Real time usage: 0.086 seconds
+Preprocessor visited node count: 168/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 426/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:1214-0!canonical and timestamp 20251029040241 and revision id 24672
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=A10_DRAM_Controller_Calibration&amp;oldid=24672">https://linux-sunxi.org/index.php?title=A10_DRAM_Controller_Calibration&amp;oldid=24672</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Category</a>: <ul><li><a href="Category:Hardware.html" title="Category:Hardware">Hardware</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=A10+DRAM+Controller+Calibration" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=A10+DRAM+Controller+Calibration" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="A10_DRAM_Controller_Calibration.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk"><a href="Talk:A10_DRAM_Controller_Calibration.html" rel="discussion" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="A10_DRAM_Controller_Calibration.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=A10_DRAM_Controller_Calibration&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=A10_DRAM_Controller_Calibration&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/A10_DRAM_Controller_Calibration.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/A10_DRAM_Controller_Calibration" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=A10_DRAM_Controller_Calibration&amp;oldid=24672" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=A10_DRAM_Controller_Calibration&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 29 January 2022, at 21:16.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.077","walltime":"0.086","ppvisitednodes":{"value":168,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":426,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20251029040241","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":254});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

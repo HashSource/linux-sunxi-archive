@@ -1,0 +1,323 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>U-Boot/Configuration - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"88d008684232d9f4ff7f3325","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"U-Boot/Configuration","wgTitle":"U-Boot/Configuration","wgCurRevisionId":18919,"wgRevisionId":18919,"wgArticleId":3034,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"U-Boot/Configuration","wgRelevantArticleId":3034,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready",
+"user.styles":"ready","user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=mediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="Configuration.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-U-Boot_Configuration rootpage-U-Boot skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">U-Boot/Configuration</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"><span class="subpages">&lt; <a href="../U-Boot.html" title="U-Boot">U-Boot</a></span></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>This article provides a collection of various scenarios for booting with U-Boot. 
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Boot"><span class="tocnumber">1</span> <span class="toctext">Boot</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Setting_u-boot_environment_variables"><span class="tocnumber">2</span> <span class="toctext">Setting u-boot environment variables</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#SD_Card_.28legacy_kernel.29"><span class="tocnumber">3</span> <span class="toctext">SD Card (legacy kernel)</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#NAND"><span class="tocnumber">4</span> <span class="toctext">NAND</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#NFS"><span class="tocnumber">5</span> <span class="toctext">NFS</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#FB_console"><span class="tocnumber">6</span> <span class="toctext">FB console</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#LCD_Settings"><span class="tocnumber">7</span> <span class="toctext">LCD Settings</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Boot">Boot</span></h2>
+<p>For getting these bits loaded onto the hardware, please refer to the respective howto:
+</p>
+<ul><li><a href="../Bootable_SD_card.html#Bootloader" title="Bootable SD card"> SD Card</a></li>
+<li><a href="../Mainline_NAND_Howto.html#Booting_from_NAND" title="Mainline NAND Howto">NAND</a></li>
+<li><a href="../Bootable_SPI_flash.html" title="Bootable SPI flash"> SPI NOR Flash</a></li>
+<li><a href="../FEL/USBBoot.html" title="FEL/USBBoot"> USB OTG</a></li>
+<li><a href="../How_to_boot_the_A10_or_A20_over_the_network.html" title="How to boot the A10 or A20 over the network"> Ethernet</a></li></ul>
+<p>For booting from sd with mainline u-boot, the recommended way is:
+</p>
+<ul><li>create a file <i>boot.cmd</i> on the first partition (also check <a href="../Kernel_arguments.html" title="Kernel arguments">Kernel arguments</a> for extra 'bootargs' options):</li></ul>
+<table class="wikitable">
+<tbody><tr>
+<th>mainline kernel
+</th>
+<th>sunxi-3.4 kernel
+</th></tr>
+<tr>
+<td>
+<pre>setenv bootargs console=ttyS0,115200 root=/dev/mmcblk0p2 rootwait panic=10
+load mmc 0:1 0x43000000 ${fdtfile} || load mmc 0:1 0x43000000 boot/${fdtfile}
+load mmc 0:1 0x42000000 uImage || load mmc 0:1 0x42000000 boot/uImage
+bootm 0x42000000 - 0x43000000
+</pre>
+</td>
+<td>
+<pre>setenv bootm_boot_mode sec
+setenv bootargs console=ttyS0,115200 root=/dev/mmcblk0p2 rootwait panic=10
+load mmc 0:1 0x43000000 script.bin || load mmc 0:1 0x43000000 boot/script.bin
+load mmc 0:1 0x42000000 uImage || load mmc 0:1 0x42000000 boot/uImage
+bootm 0x42000000
+</pre>
+</td></tr></tbody></table>
+<dl><dd><a href="../File:Information.png.html" class="image"><img alt="Information.png" src="https://linux-sunxi.org/images/5/54/Information.png" decoding="async" width="16" height="16" /></a> If you're wondering why setting <b>bootm_boot_mode</b> might be necessary for older kernels, have a look at the details of <a href="../PSCI.html" title="PSCI">PSCI</a>.</dd></dl>
+<dl><dd><a href="../File:Sticky-note-pin.png.html" class="image"><img alt="Sticky-note-pin.png" src="https://linux-sunxi.org/images/f/f0/Sticky-note-pin.png" decoding="async" width="16" height="16" /></a> <i>Note:</i> Directly using a <b>zImage</b> is also supported by U-Boot for the sunxi platform. Substitute <i>zImage</i> in place of <i>uImage</i> in the commands above, and then use the <b>bootz</b> command instead of <i>bootm</i>.</dd></dl>
+<h2><span class="mw-headline" id="Setting_u-boot_environment_variables">Setting u-boot environment variables</span></h2>
+<p>There is a difference in setting environment variables between the boot script and the U-Boot shell.
+</p><p>Inside the shell you would set, for instance:
+</p>
+<pre>setenv root /dev/sda1</pre>
+<p>But in the script you would use:
+</p>
+<pre>root=/dev/sda1</pre>
+<h2><span id="SD_Card_(legacy_kernel)"></span><span class="mw-headline" id="SD_Card_.28legacy_kernel.29">SD Card (legacy kernel)</span></h2>
+<pre>setenv bootargs console=ttyS0,115200 root=/dev/mmcblk0p2 rootwait panic=10 ${extra}
+ext2load mmc 0 0x43000000 script.bin
+ext2load mmc 0 0x48000000 uImage
+bootm 0x48000000</pre>
+<h2><span class="mw-headline" id="NAND">NAND</span></h2>
+<p>Example U-Boot environment, as found in <code>uEnv.txt</code> from a stock android U-Boot environment partition
+</p>
+<pre>bootdelay=0
+bootcmd=run setargs boot_normal
+console=ttyS0,115200
+nand_root=/dev/nandc
+mmc_root=/dev/mmcblk0p4
+init=/init
+loglevel=8
+setargs=setenv bootargs console=${console} root=${nand_root} init=${init} loglevel=${loglevel}
+boot_normal=nand read 40007800 boot;boota 40007800
+boot_recovery=nand read 40007800 recovery;boota 40007800
+boot_fastboot=fastboot</pre>
+<h2><span class="mw-headline" id="NFS">NFS</span></h2>
+<p>Recent version of U-Boot are able to boot from NFS as well as TFTP, but you have to get rid of the automatic setup of FTP. Check <a href="../How_to_boot_the_A10_or_A20_over_the_network.html" title="How to boot the A10 or A20 over the network"> Ethernet</a> for more information.
+</p><p><a href="../File:Sticky-note-pin.png.html" class="image"><img alt="Sticky-note-pin.png" src="https://linux-sunxi.org/images/f/f0/Sticky-note-pin.png" decoding="async" width="16" height="16" /></a> <i>Note:</i> on the A20 based cubieboards, this only seems to work on the stable kernel, not on stage.
+</p>
+<h2><span class="mw-headline" id="FB_console">FB console</span></h2>
+<p>To get U-Boot output shown on the built-in framebuffer driver (currently, HDMI only at 1024x768), add the following to your boot.cmd:
+</p>
+<pre>setenv stdout=serial,vga
+setenv stderr=serial,vga</pre>
+<p>The default environment has these values set as well.
+</p>
+<h2><span class="mw-headline" id="LCD_Settings">LCD Settings</span></h2>
+<p>There is a <a href="../LCD.html" title="LCD">separate wiki page about configuring LCD</a> in U-Boot.
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20251029050516
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.086 seconds
+Real time usage: 0.102 seconds
+Preprocessor visited node count: 73/1000000
+Post‐expand include size: 404/2097152 bytes
+Template argument size: 301/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 666/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    8.461      1 -total
+ 44.14%    3.735      2 Template:Note
+ 37.48%    3.171      1 Template:Info
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:3034-0!canonical and timestamp 20251029050516 and revision id 18919
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=U-Boot/Configuration&amp;oldid=18919">https://linux-sunxi.org/index.php?title=U-Boot/Configuration&amp;oldid=18919</a>"</div>
+		<div id="catlinks" class="catlinks catlinks-allhidden" data-mw="interface"></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=U-Boot%2FConfiguration" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=U-Boot%2FConfiguration" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="Configuration.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:U-Boot/Configuration&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="Configuration.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=U-Boot/Configuration&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=U-Boot/Configuration&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="../index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="../index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="../sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="../Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="https://linux-sunxi.org/Special:WhatLinksHere/U-Boot/Configuration" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/U-Boot/Configuration" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="../Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=U-Boot/Configuration&amp;oldid=18919" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=U-Boot/Configuration&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 28 November 2016, at 08:26.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.086","walltime":"0.102","ppvisitednodes":{"value":73,"limit":1000000},"postexpandincludesize":{"value":404,"limit":2097152},"templateargumentsize":{"value":301,"limit":2097152},"expansiondepth":{"value":3,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":666,"limit":5000000},"timingprofile":["100.00%    8.461      1 -total"," 44.14%    3.735      2 Template:Note"," 37.48%    3.171      1 Template:Info"]},"cachereport":{"timestamp":"20251029050516","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":359});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

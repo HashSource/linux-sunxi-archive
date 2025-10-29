@@ -1,0 +1,340 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>USB OTG Charging Hub - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"8e2c2899a72b92a53c3b8c37","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"USB_OTG_Charging_Hub","wgTitle":"USB OTG Charging Hub","wgCurRevisionId":19038,"wgRevisionId":19038,"wgArticleId":1885,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["USB OTG","Hardware","Power"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"USB_OTG_Charging_Hub","wgRelevantArticleId":1885,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":
+"ready","noscript":"ready","user.styles":"ready","user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=skins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="USB_OTG_Charging_Hub.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-USB_OTG_Charging_Hub rootpage-USB_OTG_Charging_Hub skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">USB OTG Charging Hub</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>Some sunxi devices, primarily tablets, only have a single USB OTG connector (mini or micro) as the only way to connect USB peripheral devices. Moreover, these tablets often don't have a dedicated 5V DC power connector and also rely on USB OTG for charging. This is less than perfect if the tablet is supposed to be sometimes used in a "linux desktop" or a "linux server" role, which requires being able to operate indefinitely without any need for periodic cumbersome maintenance, such as battery recharging. At the same time, supporting USB keyboard/mouse is necessary for handling interaction with the user. And if the tablet does not have an ethernet connector, then a USB ethernet dongle is very useful for providing network connectivity. So, ideally, we want to have the following feature: <b>the USB OTG connector should be able to work as a USB host and also supply power to the tablet at the same time</b>.
+</p><p>Fortunately, searching ebay or other online webshops for "otg charging hub" keywords allows to find relatively cheap ~5$ devices, which might be a reasonable solution for this particular problem. They may look like this:
+</p><p><a href="File:4_Port_Micro_Usb_Power_Charging_Otg_Hub.jpg.html" class="image"><img alt="4 Port Micro Usb Power Charging Otg Hub.jpg" src="https://linux-sunxi.org/images/thumb/c/c6/4_Port_Micro_Usb_Power_Charging_Otg_Hub.jpg/800px-4_Port_Micro_Usb_Power_Charging_Otg_Hub.jpg" decoding="async" width="800" height="600" srcset="https://linux-sunxi.org/images/thumb/c/c6/4_Port_Micro_Usb_Power_Charging_Otg_Hub.jpg/1200px-4_Port_Micro_Usb_Power_Charging_Otg_Hub.jpg 1.5x, https://linux-sunxi.org/images/thumb/c/c6/4_Port_Micro_Usb_Power_Charging_Otg_Hub.jpg/1600px-4_Port_Micro_Usb_Power_Charging_Otg_Hub.jpg 2x" /></a>
+</p><p>There is a mechanical switch, which changes between "OTG" and "Charge" modes. In the "OTG" mode, it acts as a powered USB hub, which allows to connect 3 USB devices to it. The power can be provided to it by a microusb charger cable by plugging it to a "female" microusb connector in the hub. The "male" microusb connector is connected to the OTG port of a sunxi device. If the switch is set to the "Charge" position, then the hub is also providing 5V on the VBUS pin to the sunxi device.
+</p>
+<h2><span class="mw-headline" id="sunxi-3.4_kernel">sunxi-3.4 kernel</span></h2>
+<p>Apply the following patch to the kernel:
+</p>
+<pre>From 2033a7f5d19cfcc76daad382660eb31add9e33ee Mon Sep 17 00:00:00 2001
+From: Siarhei Siamashka &lt;<a href="https://linux-sunxi.org/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7a09131b08121f135409131b171b0912111b3a1d171b131654191517">[email&#160;protected]</a>&gt;
+Date: Fri, 14 Nov 2014 19:34:12 +0200
+Subject: [PATCH] HACK: Support USB OTH Charging Hub
+
+We assume that the hub is supplying power to the device on VBUS
+and also provides host ports for connecting USB peripherals.
+
+Hence configure OTG as 'host only' and remove the bits of code,
+which try to configure AXP to provide 5V on VBUS. AXP should
+always treat VBUS as the external source of power and charge
+the battery from it, regardless of the MUSB state.
+---
+ arch/arm/configs/sun4i_defconfig         |  1 +
+ arch/arm/configs/sun5i_defconfig         |  1 +
+ arch/arm/configs/sun7i_defconfig         |  1 +
+ drivers/usb/sunxi_usb/hcd/hcd0/sw_hcd0.c | 17 +++++------------
+ 4 files changed, 8 insertions(+), 12 deletions(-)
+
+diff --git a/arch/arm/configs/sun4i_defconfig b/arch/arm/configs/sun4i_defconfig
+index 2bc999d..b313b60 100644
+--- a/arch/arm/configs/sun4i_defconfig
++++ b/arch/arm/configs/sun4i_defconfig
+@@ -240,6 +240,7 @@ CONFIG_USB_FILE_STORAGE=m
+ CONFIG_USB_FILE_STORAGE_TEST=y
+ CONFIG_USB_SW_SUNXI_USB=y
+ CONFIG_USB_SW_SUNXI_USB_MANAGER=y
++CONFIG_USB_SW_SUNXI_USB0_HOST_ONLY=y
+ CONFIG_USB_SW_SUNXI_USB_DEBUG=y
+ CONFIG_MMC=y
+ CONFIG_MMC_UNSAFE_RESUME=y
+diff --git a/arch/arm/configs/sun5i_defconfig b/arch/arm/configs/sun5i_defconfig
+index f837d69..ed0e1b52 100644
+--- a/arch/arm/configs/sun5i_defconfig
++++ b/arch/arm/configs/sun5i_defconfig
+@@ -174,6 +174,7 @@ CONFIG_USB_FILE_STORAGE=m
+ CONFIG_USB_FILE_STORAGE_TEST=y
+ CONFIG_USB_SW_SUNXI_USB=y
+ CONFIG_USB_SW_SUNXI_USB_MANAGER=y
++CONFIG_USB_SW_SUNXI_USB0_HOST_ONLY=y
+ CONFIG_USB_SW_SUNXI_USB_DEBUG=y
+ CONFIG_MMC=y
+ CONFIG_MMC_UNSAFE_RESUME=y
+diff --git a/arch/arm/configs/sun7i_defconfig b/arch/arm/configs/sun7i_defconfig
+index d414a27..e306d9d 100644
+--- a/arch/arm/configs/sun7i_defconfig
++++ b/arch/arm/configs/sun7i_defconfig
+@@ -239,6 +239,7 @@ CONFIG_USB_FILE_STORAGE=m
+ CONFIG_USB_FILE_STORAGE_TEST=y
+ CONFIG_USB_SW_SUNXI_USB=y
+ CONFIG_USB_SW_SUNXI_USB_MANAGER=y
++CONFIG_USB_SW_SUNXI_USB0_HOST_ONLY=y
+ CONFIG_USB_SW_SUNXI_USB_DEBUG=y
+ CONFIG_MMC=y
+ CONFIG_MMC_UNSAFE_RESUME=y
+diff --git a/drivers/usb/sunxi_usb/hcd/hcd0/sw_hcd0.c b/drivers/usb/sunxi_usb/hcd/hcd0/sw_hcd0.c
+index 2399ec6..8c80ae9 100644
+--- a/drivers/usb/sunxi_usb/hcd/hcd0/sw_hcd0.c
++++ b/drivers/usb/sunxi_usb/hcd/hcd0/sw_hcd0.c
+@@ -550,23 +550,16 @@ static void sw_hcd_board_set_vbus(struct sw_hcd *sw_hcd, int is_on)
+ 
+ 	if (is_on &amp;&amp; hcd0_set_vbus_cnt == 1) {
+ 		DMSG_INFO("[%s]: Set USB Power On\n", sw_hcd-&gt;driver_name);
+-		if (sw_hcd-&gt;sw_hcd_io-&gt;drv_vbus_gpio_set.port == 0xffff)
+-			axp_gpio_set_value(hcd_io-&gt;drv_vbus_gpio_set.port_num,
+-					on_off);
+-		else
+-			gpio_write_one_pin_value(hcd_io-&gt;Drv_vbus_Handle,
+-					on_off, NULL);
++
++		/* leave AXP alone and don't touch VBUS */
++
+ 	/* set gpio data */
+ 		USBC_Host_StartSession(sw_hcd-&gt;sw_hcd_io-&gt;usb_bsp_hdle);
+ 		USBC_ForceVbusValid(sw_hcd-&gt;sw_hcd_io-&gt;usb_bsp_hdle, USBC_VBUS_TYPE_HIGH);
+ 	} else if (!is_on &amp;&amp; hcd0_set_vbus_cnt == 0) {
+ 		DMSG_INFO("[%s]: Set USB Power Off\n", sw_hcd-&gt;driver_name);
+-		if (sw_hcd-&gt;sw_hcd_io-&gt;drv_vbus_gpio_set.port == 0xffff)
+-			axp_gpio_set_value(hcd_io-&gt;drv_vbus_gpio_set.port_num,
+-					on_off);
+-		else
+-			gpio_write_one_pin_value(hcd_io-&gt;Drv_vbus_Handle,
+-					on_off, NULL);
++
++		/* leave AXP alone and don't touch VBUS */
+ 
+ 		set_hcd0_connect_status(0);
+ 		USBC_Host_EndSession(sw_hcd-&gt;sw_hcd_io-&gt;usb_bsp_hdle);
+-- 
+2.0.4
+</pre>
+<p>After this kernel tweak, if the mechanical switch is set to the "Charge" mode, then the hub can be used to provide power to boot the sunxi device perfectly fine and also drive 3 USB host ports. Tested on <a href="Olimex_A10-OLinuXino-Lime.html" title="Olimex A10-OLinuXino-Lime">Olimex_A10-OLinuXino-Lime</a>, <a href="Olimex_A13-OLinuXino-Micro.html" title="Olimex A13-OLinuXino-Micro">Olimex_A13-OLinuXino-Micro</a> and <a href="Cubietech_Cubietruck.html" title="Cubietech Cubietruck">Cubietech_Cubietruck</a> with the use of "female microusb &lt;-&gt; male miniusb" adapter.
+</p><p><a href="File:OTG_Charging_Hub_In_Action.jpg.html" class="image"><img alt="OTG Charging Hub In Action.jpg" src="https://linux-sunxi.org/images/thumb/4/48/OTG_Charging_Hub_In_Action.jpg/400px-OTG_Charging_Hub_In_Action.jpg" decoding="async" width="400" height="310" srcset="https://linux-sunxi.org/images/thumb/4/48/OTG_Charging_Hub_In_Action.jpg/600px-OTG_Charging_Hub_In_Action.jpg 1.5x, https://linux-sunxi.org/images/thumb/4/48/OTG_Charging_Hub_In_Action.jpg/800px-OTG_Charging_Hub_In_Action.jpg 2x" /></a>
+</p><p>The picture above is showcasing the use of this hub to provide power to <a href="Olimex_A13-OLinuXino-Micro.html" title="Olimex A13-OLinuXino-Micro">Olimex_A13-OLinuXino-Micro</a> board and also connect a USB Ethernet dongle and a USB wireless keyboard/mouse receiver. In this setup, X11 linux desktop system works properly with all the interaction with the outside world done using just USB OTG connector alone.
+</p><p>Tablets and battery charging - TODO
+</p>
+<h2><span class="mw-headline" id="mainline_kernel">mainline kernel</span></h2>
+<p><span style="color:#ba0000">TODO</span>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20251029040309
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.035 seconds
+Real time usage: 0.057 seconds
+Preprocessor visited node count: 26/1000000
+Post‐expand include size: 78/2097152 bytes
+Template argument size: 8/2097152 bytes
+Highest expansion depth: 5/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 3563/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    5.774      1 -total
+100.00%    5.774      1 Template:Edit
+ 48.77%    2.816      1 Template:Red
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:1885-0!canonical and timestamp 20251029040309 and revision id 19038
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=USB_OTG_Charging_Hub&amp;oldid=19038">https://linux-sunxi.org/index.php?title=USB_OTG_Charging_Hub&amp;oldid=19038</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Categories</a>: <ul><li><a href="Category:USB_OTG.html" title="Category:USB OTG">USB OTG</a></li><li><a href="Category:Hardware.html" title="Category:Hardware">Hardware</a></li><li><a href="Category:Power.html" title="Category:Power">Power</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=USB+OTG+Charging+Hub" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=USB+OTG+Charging+Hub" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="USB_OTG_Charging_Hub.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:USB_OTG_Charging_Hub&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="USB_OTG_Charging_Hub.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=USB_OTG_Charging_Hub&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=USB_OTG_Charging_Hub&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/USB_OTG_Charging_Hub.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/USB_OTG_Charging_Hub" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=USB_OTG_Charging_Hub&amp;oldid=19038" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=USB_OTG_Charging_Hub&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 9 December 2016, at 16:36.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script data-cfasync="false" src="https://linux-sunxi.org/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.035","walltime":"0.057","ppvisitednodes":{"value":26,"limit":1000000},"postexpandincludesize":{"value":78,"limit":2097152},"templateargumentsize":{"value":8,"limit":2097152},"expansiondepth":{"value":5,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":3563,"limit":5000000},"timingprofile":["100.00%    5.774      1 -total","100.00%    5.774      1 Template:Edit"," 48.77%    2.816      1 Template:Red"]},"cachereport":{"timestamp":"20251029040309","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":654});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

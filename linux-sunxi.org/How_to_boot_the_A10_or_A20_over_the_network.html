@@ -1,0 +1,380 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>How to boot the A10 or A20 over the network - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"ec2951bdcdda498da53b1312","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"How_to_boot_the_A10_or_A20_over_the_network","wgTitle":"How to boot the A10 or A20 over the network","wgCurRevisionId":18742,"wgRevisionId":18742,"wgArticleId":412,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Tutorial","Boot"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"How_to_boot_the_A10_or_A20_over_the_network","wgRelevantArticleId":412,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":
+[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":"ready","user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=mediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="How_to_boot_the_A10_or_A20_over_the_network.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-How_to_boot_the_A10_or_A20_over_the_network rootpage-How_to_boot_the_A10_or_A20_over_the_network skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">How to boot the A10 or A20 over the network</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Prerequisites"><span class="tocnumber">1</span> <span class="toctext">Prerequisites</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Settin_up_network_boot"><span class="tocnumber">2</span> <span class="toctext">Settin up network boot</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Network_configuration"><span class="tocnumber">3</span> <span class="toctext">Network configuration</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Manual"><span class="tocnumber">3.1</span> <span class="toctext">Manual</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Automatic"><span class="tocnumber">3.2</span> <span class="toctext">Automatic</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="#TFTP_booting"><span class="tocnumber">4</span> <span class="toctext">TFTP booting</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Booting_from_an_NFS_share"><span class="tocnumber">5</span> <span class="toctext">Booting from an NFS share</span></a>
+<ul>
+<li class="toclevel-2 tocsection-8"><a href="#Ubuntu_10.04"><span class="tocnumber">5.1</span> <span class="toctext">Ubuntu 10.04</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-9"><a href="#Web_resources"><span class="tocnumber">6</span> <span class="toctext">Web resources</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Prerequisites">Prerequisites</span></h2>
+<p>You'll need a Linux box, a microSD card, a card reader and a serial console adapter for this tutorial.
+</p>
+<ul><li><a href="U-Boot.html#Compilation" title="U-Boot">Build U-Boot</a></li>
+<li>Prepare an SD Card</li></ul>
+<dl><dd>For network booting it is enough to copy only the U-Boot to the SD card, so follow instructions in <a href="Bootable_SD_card.html#Cleaning" title="Bootable SD card">Bootable_SD_card#Cleaning</a> and <a href="Bootable_SD_card.html#Bootloader" title="Bootable SD card">Bootable SD card#Bootloader</a>.</dd></dl>
+<ul><li>Linux Kernel, you can use either legacy but featurefull sunxi-3.4, or mainline kernel which has basic support only.</li>
+<li>Root file system, or rootfs.</li></ul>
+<h2><span class="mw-headline" id="Settin_up_network_boot">Settin up network boot</span></h2>
+<p>SD Card is now ready to take for a spin. Put it into your board and connect your serial console and fire up a terminal on your host PC so you can interact with u-boot. Now power on the board. After booting you should see something like this:
+</p>
+<pre>   U-Boot SPL 2013.01-05621-gb7b6374 (Jan 18 2013 - 23:01:07)
+   Board: Cubieboard
+   DRAM: 1024MB
+   SUNXI SD/MMC: 0
+   <br />
+   <br />
+   U-Boot 2013.01-05621-gb7b6374 (Jan 18 2013 - 23:01:07) Allwinner Technology
+   <br />
+   CPU:   SUNXI Family
+   Board: Cubieboard 
+   I2C:   ready
+   DRAM:  1 GiB
+   MMC:   SUNXI SD/MMC: 0
+   In:    serial
+   Out:   serial
+   Err:   serial
+   Net:   wemac
+   Hit any key to stop autoboot:  0
+   sun4i#
+</pre>
+<p>The autoboot is stopped because we don't have any partitions on the SD card yet so it'll not succeed booting.
+</p>
+<h2><span class="mw-headline" id="Network_configuration">Network configuration</span></h2>
+<ul><li>Let's bring up the ethernet interface.</li></ul>
+<dl><dd><ul><li>We must set the ethaddr variable to the MAC address of the NIC on the board. For testing purposes you can use something dummy like this:</li></ul></dd></dl>
+<pre>   sun4i# setenv ethaddr 12:34:56:78:99:aa
+</pre>
+<dl><dd>but please don't do this in production environment. Next you can choose between manual or automatic setup.</dd></dl>
+<h3><span class="mw-headline" id="Manual">Manual</span></h3>
+<pre>sun4i# setenv netmask &lt;netmask&gt;
+sun4i# setenv dnsip &lt;dns&gt;
+sun4i# setenv gatewayip &lt;gateway&gt;
+sun4i# setenv ipaddr &lt;ip-address&gt;
+</pre>
+<h3><span class="mw-headline" id="Automatic">Automatic</span></h3>
+<dl><dd>It is needed to also issue</dd></dl>
+<pre> sun4i# setenv autoload no
+</pre>
+<dl><dd>because by default once you execute the next 'dhcp' command and autoload is enabled it will automatically try to load an image from TFTP, named as the IP address in hex followed by .img, which is not what is wanted.</dd></dl>
+<pre>sun4i# dhcp
+</pre>
+<p>Now you're ready to try out TFTP or NFS. In either case you first need to set the IP of the server
+</p>
+<pre>sun4i# setenv serverip &lt;server-ip&gt;
+</pre>
+<p>Also it is recommended to save your environment to the MMC card, so later or if something goes wrong with booting, you will not need to retype any of the previous commands.
+</p>
+<pre>sun4i# saveenv
+</pre>
+<h2><span class="mw-headline" id="TFTP_booting">TFTP booting</span></h2>
+<p>Let's say you now have a TFTP server running on the IP address set above and serving files and have a kernel named 'uImage' and '&lt;your-board&gt;.dtb' (or 'script.bin') in the server file system.
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>mainline kernel
+</th>
+<th>sunxi-3.4 kernel
+</th></tr>
+<tr>
+<td>
+<pre> tftp 0x46000000 uImage
+ tftp 0x49000000 &lt;your-board&gt;.dtb
+ env set fdt_high ffffffff
+ bootm 0x46000000 - 0x49000000
+</pre>
+</td>
+<td>
+<pre> setenv bootm_boot_mode sec
+ tftp 0x42000000 uImage
+ tftp 0x43000000 script.bin
+ bootm 0x42000000
+</pre>
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="Booting_from_an_NFS_share">Booting from an NFS share</span></h2>
+<dl><dd><ul><li>You have to compile a custom kernel because you have to enable root NFS support to work with NFS mounted root filesystems. Follow the build instructions described here: <a rel="nofollow" class="external free" href="http://linux-sunxi.org/Linux#Building#Building">http://linux-sunxi.org/Linux#Building</a> but before executing the second build command modify .config file in the kernel's source directory to contain the following lines:</li></ul></dd></dl>
+<pre>   CONFIG_IP_PNP=y
+   CONFIG_ROOT_NFS=y
+</pre>
+<dl><dd>You might get some question from the next build command but you just have to say yes when it asks for the values above. You'll find the built kernel at arch/boot/uImage if you did everything right.</dd></dl>
+<ul><li>Prepare NFS share</li></ul>
+<h3><span class="mw-headline" id="Ubuntu_10.04">Ubuntu 10.04</span></h3>
+<dl><dd><ul><li>You have to install the required package</li></ul></dd></dl>
+<pre>   apt-get install nfs-kernel-server 
+</pre>
+<dl><dd><ul><li>Create a share directory.</li></ul></dd></dl>
+<pre>   mkdir -p /var/nfsexport/arch/
+</pre>
+<dl><dd><ul><li>Edit /etc/exports to include this directory. Put the following line to the end:</li></ul></dd></dl>
+<pre>   /var/nfsexport *(rw,sync,no_root_squash,no_subtree_check)
+</pre>
+<dl><dd><ul><li>Finally restart the daemon</li></ul></dd></dl>
+<pre>   /etc/init.d/nfs-kernel-server restart
+</pre>
+<ul><li>Copy required files</li></ul>
+<dl><dd><ul><li>Copy uImage from the first step to /var/nfsexport/arch/</li>
+<li>We have to build a script.bin file for the kernel to work properly. Clone the <a class="external free" href="https://github.com/linux-sunxi/sunxi-boards">https://github.com/linux-sunxi/sunxi-boards</a> and <a class="external free" href="https://github.com/linux-sunxi/sunxi-tools">https://github.com/linux-sunxi/sunxi-tools</a> repository and compile sunxi tools (make). After that you have to convert your boards fex file with the fex2bin you've just built. In my case:</li></ul></dd></dl>
+<pre>   ./sunxi-tools/fex2bin sunxi-boards/sys_config/a10/cubieboard.fex &gt; script.bin
+</pre>
+<dl><dd><ul><li>Copy script.bin next to the kernel</li>
+<li>Download and extract Arch rootfs image. I'm using the MeleA100 image from the Arch ARM Linux site. Extract it to the NFS export folder:</li></ul></dd></dl>
+<pre>  wget <a rel="nofollow" class="external free" href="http://archlinuxarm.org/os/ArchLinuxARM-sun4i-latest.tar.gz">http://archlinuxarm.org/os/ArchLinuxARM-sun4i-latest.tar.gz</a>
+  tar xzf ArchLinuxARM-sun4i-latest.tar.gz -C /var/nfsexport/arch/
+</pre>
+<ul><li>Configure U-Boot</li></ul>
+<dl><dd><ul><li>Boot into U-Boot with the serial console attached and halt autoboot by pressing a key, then</li></ul></dd></dl>
+<pre>   sun4i# setenv nfsroot ${serverip}:/var/nfsexport/arch
+   sun4i# setenv bootcmd "nfs 0x43000000 ${nfsroot}/script.bin; nfs 0x48000000 ${nfsroot}/uImage; bootm 0x48000000"
+   sun4i# setenv bootargs "console=ttyS0,115200 root=/dev/nfs nfsroot=${nfsroot} ip=${ipaddr}:${serverip}:${gatewayip}:${netmask}:${hostname}:eth0"
+   saveenv
+</pre>
+<dl><dd><ul><li>Reset the board</li></ul></dd></dl>
+<ul><li>Known bugs if using Arch Linux rootfs:</li></ul>
+<dl><dd><ul><li>Reboot is not working; network interface is stopped but Arch wants to write something to the NFS mount which can't be done after that.</li>
+<li>No output on HDMI but you can interact with Arch through the serial console or by using an SSH client and connect to the IP you've specified in uboot.</li></ul></dd></dl>
+<h2><span class="mw-headline" id="Web_resources">Web resources</span></h2>
+<ul><li>This wiki page is quite useful for explaining the kernel booting with U-Boot: <a rel="nofollow" class="external free" href="http://processors.wiki.ti.com/index.php/Booting_Linux_kernel_using_U-Boot">http://processors.wiki.ti.com/index.php/Booting_Linux_kernel_using_U-Boot</a><br /></li></ul>
+<ul><li>You can read more about mkimage's usage here: <a rel="nofollow" class="external free" href="http://www.linuxfordevices.com/c/a/Linux-For-Devices-Articles/Introduction-to-Das-UBoot-the-universal-open-source-bootloader/">http://www.linuxfordevices.com/c/a/Linux-For-Devices-Articles/Introduction-to-Das-UBoot-the-universal-open-source-bootloader/</a></li></ul>
+<ul><li>You can follow this tutorial to get a TFTP server in Ubuntu: <a rel="nofollow" class="external free" href="http://www.davidsudjiman.info/2006/03/27/installing-and-setting-tftpd-in-ubuntu/">http://www.davidsudjiman.info/2006/03/27/installing-and-setting-tftpd-in-ubuntu/</a> It can be installed to VM and set Virtualbox to bridge the internal NIC adapter directly to my local network where the Cubieboard is also connected. This way you can have a straight VM to Cubieboard development environment.</li></ul>
+<!-- 
+NewPP limit report
+Cached time: 20251029040826
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.150 seconds
+Real time usage: 0.248 seconds
+Preprocessor visited node count: 29/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:412-0!canonical and timestamp 20251029040826 and revision id 18742
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=How_to_boot_the_A10_or_A20_over_the_network&amp;oldid=18742">https://linux-sunxi.org/index.php?title=How_to_boot_the_A10_or_A20_over_the_network&amp;oldid=18742</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Categories</a>: <ul><li><a href="Category:Tutorial.html" title="Category:Tutorial">Tutorial</a></li><li><a href="Category:Boot.html" title="Category:Boot">Boot</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=How+to+boot+the+A10+or+A20+over+the+network" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=How+to+boot+the+A10+or+A20+over+the+network" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="How_to_boot_the_A10_or_A20_over_the_network.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:How_to_boot_the_A10_or_A20_over_the_network&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="How_to_boot_the_A10_or_A20_over_the_network.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=How_to_boot_the_A10_or_A20_over_the_network&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=How_to_boot_the_A10_or_A20_over_the_network&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/How_to_boot_the_A10_or_A20_over_the_network.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/How_to_boot_the_A10_or_A20_over_the_network" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=How_to_boot_the_A10_or_A20_over_the_network&amp;oldid=18742" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=How_to_boot_the_A10_or_A20_over_the_network&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 23 November 2016, at 00:13.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.150","walltime":"0.248","ppvisitednodes":{"value":29,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":0,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20251029040826","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":439});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

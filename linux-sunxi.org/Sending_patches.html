@@ -1,0 +1,353 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Sending patches - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"267c6b11c61cf518c0563d2d","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Sending_patches","wgTitle":"Sending patches","wgCurRevisionId":25844,"wgRevisionId":25844,"wgArticleId":201,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Community","Development"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Sending_patches","wgRelevantArticleId":201,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready"
+,"user.styles":"ready","user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=mediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="Sending_patches.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-Sending_patches rootpage-Sending_patches skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">Sending patches</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>The final destination for every change these days are the mainline repositories of the involved projects, there are no relevant linux-sunxi specific repositories anymore.
+</p>
+<table class="wikitable">
+
+<tbody><tr>
+<th>Project</th>
+<th>Purpose</th>
+<th>git branch to patch against</th>
+<th>work flow
+</th></tr>
+<tr>
+<td><a href="U-Boot.html" title="U-Boot">U-Boot</a></td>
+<td>SPL initial loader and U-Boot bootloader</td>
+<td><a rel="nofollow" class="external free" href="https://source.denx.de/u-boot/u-boot">https://source.denx.de/u-boot/u-boot</a> master</td>
+<td>git / email
+</td></tr>
+<tr>
+<td><a class="external text" href="https://github.com/crust-firmware/crust">Crust</a></td>
+<td>ARISC management processor firmware</td>
+<td><a class="external free" href="https://github.com/crust-firmware/crust">https://github.com/crust-firmware/crust</a> master</td>
+<td>Github pull requests
+</td></tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://www.trustedfirmware.org/projects/tf-a/">TF-A</a></td>
+<td>EL3 secure runtime firmware (PSCI)</td>
+<td><a rel="nofollow" class="external free" href="https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git">https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git</a> master</td>
+<td><a rel="nofollow" class="external text" href="https://review.trustedfirmware.org/q/project:TF-A/trusted-firmware-a">gerrit</a>
+</td></tr>
+<tr>
+<td><a href="Linux_mainlining_effort.html" title="Linux mainlining effort">Linux kernel</a></td>
+<td>Kernel drivers and devicetrees</td>
+<td><a rel="nofollow" class="external free" href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git">https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git</a> master</td>
+<td>git / email
+</td></tr>
+<tr>
+<td><a href="Sunxi-tools.html" title="Sunxi-tools">sunxi-tools</a></td>
+<td>sunxi-fel and other development tools</td>
+<td><a class="external free" href="https://github.com/linux-sunxi/sunxi-tools">https://github.com/linux-sunxi/sunxi-tools</a> master</td>
+<td>Github pull requests
+</td></tr></tbody></table>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#git_.2F_email_based_workflow"><span class="tocnumber">1</span> <span class="toctext">git / email based workflow</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Setting_up_git_send-email"><span class="tocnumber">1.1</span> <span class="toctext">Setting up git send-email</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Changes_structure"><span class="tocnumber">1.2</span> <span class="toctext">Changes structure</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Creating_patch_emails"><span class="tocnumber">1.3</span> <span class="toctext">Creating patch emails</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Sending_out_patch_emails"><span class="tocnumber">1.4</span> <span class="toctext">Sending out patch emails</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Versioning"><span class="tocnumber">1.5</span> <span class="toctext">Versioning</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="#More_information"><span class="tocnumber">2</span> <span class="toctext">More information</span></a></li>
+</ul>
+</div>
+
+<h2><span id="git_/_email_based_workflow"></span><span class="mw-headline" id="git_.2F_email_based_workflow">git / email based workflow</span></h2>
+<p>U-Boot and the Linux kernel use an email based workflow, that sends git-formatted patches in email threads to maintainers and mailing lists. The process is explained in detail in the <a rel="nofollow" class="external text" href="https://docs.kernel.org/process/submitting-patches.html">kernel documentation</a>, the summary here provides a quick overview.
+</p>
+<h3><span class="mw-headline" id="Setting_up_git_send-email">Setting up git send-email</span></h3>
+<p>While you can send the emails manually, this is tedious and error-prone. Using git-send-email simplifies the process significantly. To use the tool, you need to set this up (once), to tell git about the email server to use for sending out the emails. The configuration is held in the .gitconfig file in the home directory, which can be edited with any editor. Alternatively a git command can store each setting:
+</p>
+<pre>   git config --global sendemail.from <i><a href="https://linux-sunxi.org/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2c5543595e6c49414d4540024f4341">[email&#160;protected]</a></i>
+</pre>
+<p>The following settings (in the <code>[sendemail]</code> section) need to be set, please replace the placeholder values with the respective values for your setup:
+</p>
+<pre>   from = "<i>First Last &lt;<a href="https://linux-sunxi.org/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d7aeb8a2a5f9b2bab6bebb97a7a5b8a1beb3b2a5f9b4b8ba">[email&#160;protected]</a>&gt;</i>"
+   smtpencryption = tls
+   smtpserver = <i>smtp.yourprovider.com</i>
+   smtpuser = <i>yourusernameforsmtp</i>
+   smtpserverport = 587
+   chainreplyto = false
+</pre>
+<p>An example for GMail is shown in the <a rel="nofollow" class="external text" href="https://git-scm.com/docs/git-send-email#_use_gmail_as_the_smtp_server#_use_gmail_as_the_smtp_server">Git documentation</a>.
+</p>
+<h3><span class="mw-headline" id="Changes_structure">Changes structure</span></h3>
+<ul><li>The changes need to be initially in separate patches in a repository branched of the master branch. Sometimes other kernel.org branches like linux-next/master or sunxi/sunxi/for-next are better suited.</li>
+<li>Each patch should cover a single, contained change.</li>
+<li>Each patch needs to have at least a Signed-off-by: line from the patch author. You can also use the git commit <code>-s</code> (or <code>--signoff</code>) parameter in order to reduce typo's.</li>
+<li>Each patch must have a short subject with a subsystem prefix: <code>mmc: sunxi-mmc: Add D1 MMC variant</code></li>
+<li>Each patch must have a descriptive commit message, explaining the reason for the patch and providing as much extra information as possible. (Trimmed) kernel error messages are OK to include. Commit messages can be elaborate.</li></ul>
+<h3><span class="mw-headline" id="Creating_patch_emails">Creating patch emails</span></h3>
+<p>Each patch will be send in a separate email, with the body consisting of the commit message, followed by the actual patch, inlined to the email. No attachments!
+</p><p>The <code>git format-patch</code> command takes care of creating those emails (as files), in the correct format. To prepare the emails for the 5 top patches of the current branch:
+</p>
+<pre>   $ git format-patch -5 --cover-letter HEAD
+</pre>
+<p>You can change <code>HEAD</code> to point to any commit, as per git syntax. If you are sending follow-up versions of the same series, add <code>-v 2</code> to automatically insert the version number.
+</p><p>For a single patch you can omit the <code>--cover-letter</code> option, any process related comments can go in the section after the three dashes in the email.
+</p><p>The created email files should be briefly inspected, and <i>can</i> be changed manually, although any changes should be done in the git repository, to allow re-creating the email files, for future resubmissions.
+</p>
+<h3><span class="mw-headline" id="Sending_out_patch_emails">Sending out patch emails</span></h3>
+<p>You might need to install the git-email addon using your favorite package manager first.
+</p><p>Always send the email files to yourself first, then skim through the mails in your (web) email client. This helps to spot any errors before the patches hit the list:
+</p>
+<pre>   $ git send-email --to <a href="https://linux-sunxi.org/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e39a8c9691cd868e828a8fa393918c958a878691cd808c8e">[email&#160;protected]</a> --suppress-cc=all 00??-*.patch
+</pre>
+<p>Make sure you don't have email files from previous submission lying around in the same directory.
+</p><p>To learn about the recipients of the patches, use the <code>scripts/get_maintainer.pl</code> command in the Linux kernel (or U-Boot) source directory:
+</p>
+<pre>   $ scripts/get_maintainer.pl 00??-*.patch
+</pre>
+<p>This will generate a long list of people and lists to include, along with a short rationale for their inclusion. Always include maintainers, best in To:, as they are the ones that need to deal with your patches. Include mailing lists in Cc:. Add people that you want to notify, that have been involved in the patches, that you hope to get reviews from, or that have hardware and can provide a Tested-by: tag, in Cc:. Do not include your managers or colleagues, unless they took part in the creation of the patches. If you need to notify people, put them in Bcc:, or send them a link to the thread in the mailing list archives.
+</p><p>Eventually send the patches out:
+</p>
+<pre>   $ git send-email --to "Jane Maintainer &lt;<a href="https://linux-sunxi.org/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7f151e111a51121e16110b3f191010511d1e0d">[email&#160;protected]</a>&gt;" --to "Joe Maintainer &lt;<a href="https://linux-sunxi.org/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2842474d064441465d50684a495a064a4952">[email&#160;protected]</a>&gt;" --cc <a href="https://linux-sunxi.org/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c0a7b5b9eeb7a8afeea8a1b3eea1eea2afa1b2a480a6afafeea3afad">[email&#160;protected]</a> --cc <a href="https://linux-sunxi.org/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ec8085829994c19f99829485ac80859f989fc28085829994c288899a">[email&#160;protected]</a> --cc <a href="https://linux-sunxi.org/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="701c191e05085d1b15021e151c30061715025e1b15021e151c5e1f0217">[email&#160;protected]</a> --suppress-cc=all 00??-*.patch
+</pre>
+<p>If you add <code>--bcc <a href="https://linux-sunxi.org/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="8df4e2f8ffa3e8e0ece4e1cdfdffe2fbe4e9e8ffa3eee2e0">[email&#160;protected]</a></code>, you will receive the patches in your regular inbox, so you can copy them to your Sent folder, and follow the correct threading in your email client.
+</p>
+<h3><span class="mw-headline" id="Versioning">Versioning</span></h3>
+<p>In case you get comments back from the community and you need to modify your patches and/or commit message you will need to supply versioning information on your attempts. The first go contains no versioning information and is considered version 1. All subsequent attempts need to include the increased version number. For later reference it might be a good idea to create separate branches for subsequent versions. Then regenerate the patch emails, specifying the version number in the format-patch command:
+</p>
+<pre>  $ git format-patch -5 -v 2 --cover-letter HEAD
+</pre>
+<p>This will automatically change the subject prefix in the patch emails, and names the patch files with a version prefix, so they don't clash with previous versions.
+Alternatively, though that is not recommended, the version number could also be included in the <code>send-email</code> command:
+</p>
+<pre>  $ git send-email -v2 --subject-prefix="PATCH v2" [....] 00??-*.patch
+</pre>
+<h2><span class="mw-headline" id="More_information">More information</span></h2>
+<ul><li><a rel="nofollow" class="external text" href="https://felipec.wordpress.com/2009/10/25/git-send-email-tricks/">(Old!) git send-email tricks</a></li>
+<li><a rel="nofollow" class="external text" href="https://docs.kernel.org/process/submitting-patches.html">Linux Documentation: Submitting patches</a></li>
+<li><a rel="nofollow" class="external text" href="https://www.youtube.com/watch?v=LLBrBBImJt4">(2010!)Youtube: Write and Submit your first Linux kernel Patch By Greg Kroah-Hartman</a></li></ul>
+<!-- 
+NewPP limit report
+Cached time: 20251029035654
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.022 seconds
+Real time usage: 0.041 seconds
+Preprocessor visited node count: 24/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:201-0!canonical and timestamp 20251029035654 and revision id 25844
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=Sending_patches&amp;oldid=25844">https://linux-sunxi.org/index.php?title=Sending_patches&amp;oldid=25844</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Categories</a>: <ul><li><a href="Category:Community.html" title="Category:Community">Community</a></li><li><a href="Category:Development.html" title="Category:Development">Development</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=Sending+patches" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=Sending+patches" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="Sending_patches.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:Sending_patches&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="Sending_patches.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Sending_patches&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Sending_patches&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/Sending_patches.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/Sending_patches" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=Sending_patches&amp;oldid=25844" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=Sending_patches&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 7 May 2024, at 22:48.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script data-cfasync="false" src="https://linux-sunxi.org/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.022","walltime":"0.041","ppvisitednodes":{"value":24,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":0,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20251029035654","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":282});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

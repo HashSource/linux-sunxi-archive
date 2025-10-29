@@ -1,0 +1,457 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Mainline Kernel Howto - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"18e21a791515922a107cb439","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Mainline_Kernel_Howto","wgTitle":"Mainline Kernel Howto","wgCurRevisionId":26441,"wgRevisionId":26441,"wgArticleId":602,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Tutorial","Software"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Mainline_Kernel_Howto","wgRelevantArticleId":602,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready",
+"noscript":"ready","user.styles":"ready","user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=mediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="Mainline_Kernel_Howto.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-Mainline_Kernel_Howto rootpage-Mainline_Kernel_Howto skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">Mainline Kernel Howto</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>This page describes how you can compile and use the Linux mainline kernel.
+</p><p>Warning: Mainline NAND support is not compatible with Allwinner NAND support and will make your existing NAND unreadable.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Current_status"><span class="tocnumber">1</span> <span class="toctext">Current status</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Prerequisites"><span class="tocnumber">2</span> <span class="toctext">Prerequisites</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Kernel_source"><span class="tocnumber">3</span> <span class="toctext">Kernel source</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Linus.27_tree"><span class="tocnumber">3.1</span> <span class="toctext">Linus' tree</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Patches_merged_in_the_next_stable_release"><span class="tocnumber">3.2</span> <span class="toctext">Patches merged in the next stable release</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="#Kernel_Configuration"><span class="tocnumber">4</span> <span class="toctext">Kernel Configuration</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="#defconfig"><span class="tocnumber">4.1</span> <span class="toctext">defconfig</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#oldconfig"><span class="tocnumber">4.2</span> <span class="toctext">oldconfig</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#manual_configuration"><span class="tocnumber">4.3</span> <span class="toctext">manual configuration</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-10"><a href="#Kernel_Compilation"><span class="tocnumber">5</span> <span class="toctext">Kernel Compilation</span></a>
+<ul>
+<li class="toclevel-2 tocsection-11"><a href="#zImage.2F_Image"><span class="tocnumber">5.1</span> <span class="toctext">zImage/ Image</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="#Devicetree"><span class="tocnumber">5.2</span> <span class="toctext">Devicetree</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="#modules"><span class="tocnumber">5.3</span> <span class="toctext">modules</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="#headers"><span class="tocnumber">5.4</span> <span class="toctext">headers</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="#Specific_Debian_kernel_notes"><span class="tocnumber">5.5</span> <span class="toctext">Specific Debian kernel notes</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-16"><a href="#Boot"><span class="tocnumber">6</span> <span class="toctext">Boot</span></a>
+<ul>
+<li class="toclevel-2 tocsection-17"><a href="#SD-Card_Boot_partition"><span class="tocnumber">6.1</span> <span class="toctext">SD-Card Boot partition</span></a>
+<ul>
+<li class="toclevel-3 tocsection-18"><a href="#boot.cmd"><span class="tocnumber">6.1.1</span> <span class="toctext">boot.cmd</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-19"><a href="#eMMC_boot_partition"><span class="tocnumber">6.2</span> <span class="toctext">eMMC boot partition</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="#Network_boot_setup"><span class="tocnumber">6.3</span> <span class="toctext">Network boot setup</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-21"><a href="#Extra_features"><span class="tocnumber">7</span> <span class="toctext">Extra features</span></a>
+<ul>
+<li class="toclevel-2 tocsection-22"><a href="#SYSV_IPC_.28debian_users.21.29"><span class="tocnumber">7.1</span> <span class="toctext">SYSV IPC (debian users!)</span></a></li>
+<li class="toclevel-2 tocsection-23"><a href="#Early_printk"><span class="tocnumber">7.2</span> <span class="toctext">Early printk</span></a></li>
+<li class="toclevel-2 tocsection-24"><a href="#simplefb"><span class="tocnumber">7.3</span> <span class="toctext">simplefb</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-25"><a href="#Adding_a_new_device"><span class="tocnumber">8</span> <span class="toctext">Adding a new device</span></a></li>
+<li class="toclevel-1 tocsection-26"><a href="#See_also"><span class="tocnumber">9</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Current_status">Current status</span></h1>
+<p>Please refer to the <a href="Linux_mainlining_effort.html" title="Linux mainlining effort">Linux mainlining effort</a> page for detailed status of the mainlining effort, and supported boards and driver coverage.
+</p><p>Some SoCs and some subsystems might not be supported yet, you might need to revert to our <a href="Linux_Kernel.html" title="Linux Kernel">heavily hacked kernel version</a> that's close to Allwinners code for A10/A13/A20, or use a BSP kernel. 
+</p>
+<h1><span class="mw-headline" id="Prerequisites">Prerequisites</span></h1>
+<p>You should be running through this howto as part of our <a href="Manual_build_howto.html" title="Manual build howto">Manual build howto</a>. It guides you through toolchain, u-boot and rootfs steps as well.
+</p>
+<h1><span class="mw-headline" id="Kernel_source">Kernel source</span></h1>
+<h2><span id="Linus'_tree"></span><span class="mw-headline" id="Linus.27_tree">Linus' tree</span></h2>
+<p>The stable releases are released by Linus Torvalds. Since Linux 3.8, the Allwinner support is added gradually.
+</p><p>For a full clone (if you wish to do future development) run:
+</p>
+<pre>git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git</pre>
+<p>Often a shallow clone will suffice to just get mainline working:
+</p>
+<pre>git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git --depth=1</pre>
+<h2><span class="mw-headline" id="Patches_merged_in_the_next_stable_release">Patches merged in the next stable release</span></h2>
+<p>There is also a <i>sunxi-next</i> branch maintained with all the inclusions that have been accepted, merged and will be included in the next stable release. If you want to do some development, it's probably the best pick.
+</p>
+<pre>git clone [http://github.com/linux-sunxi/linux-sunxi/tree/sunxi-next git://github.com/linux-sunxi/linux-sunxi.git] -b sunxi-next --depth=1</pre>
+<h1><span class="mw-headline" id="Kernel_Configuration">Kernel Configuration</span></h1>
+<h2><span class="mw-headline" id="defconfig">defconfig</span></h2>
+<p>To get a working kernel, just use the following for configuration:
+</p><p><b>armhf</b>
+</p>
+<pre>make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- sunxi_defconfig</pre>
+<p><b>arm64</b>
+</p>
+<pre>ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- make defconfig</pre>
+<h2><span class="mw-headline" id="oldconfig">oldconfig</span></h2>
+<p>If you have an old relevant .config, e.g. if you installed a late debian, and now want to build the kernel, you can copy it in and run <code>make ARCH=arm oldconfig</code> or <code>make ARCH=arm64 oldconfig</code>.
+</p>
+<dl><dd><a href="File:Sticky-note-pin.png.html" class="image"><img alt="Sticky-note-pin.png" src="https://linux-sunxi.org/images/f/f0/Sticky-note-pin.png" decoding="async" width="16" height="16" /></a> <i>Note:</i> If you happen to run <code>make menuconfig</code> without specifying the architecture, architecture-specific options will be <b>lost</b>; in that case you'll need to go back to an existing config and start again.</dd></dl>
+<h2><span class="mw-headline" id="manual_configuration">manual configuration</span></h2>
+<p>If you wish to alter configuration, run:
+</p><p><b>armhf</b>
+</p>
+<pre>make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- menuconfig</pre>
+<p><b>arm64</b>
+</p>
+<pre>ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- make menuconfig</pre>
+<h1><span class="mw-headline" id="Kernel_Compilation">Kernel Compilation</span></h1>
+<h2><span id="zImage/_Image"></span><span class="mw-headline" id="zImage.2F_Image">zImage/ Image</span></h2>
+<p><b>armhf</b>
+</p>
+<pre>ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- make -j4 zImage</pre>
+<p><b>arm64</b>
+</p>
+<pre>ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- make -j4 Image</pre>
+<p>After the compilation ended, you should have generated <b>zImage</b> in <i>arch/arm/boot</i> (armhf) or <b>Image</b> in <i>arch/arm64/boot</i> (arm64).
+</p>
+<h2><span class="mw-headline" id="Devicetree">Devicetree</span></h2>
+<p><b>armhf</b>
+</p>
+<pre>ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- make -j4 dtbs</pre>
+<p><b>arm64</b>
+</p>
+<pre>ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- make -j4 dtbs</pre>
+<p>You should now have a device tree binary (<i>.dtb</i>) in <i>arch/arm/boot/dts</i> (armhf) or <i>arch/arm64/boot/dts</i> (arm64), which matches your device, it should be listed on the device page for your device.
+</p><p>All the sunxi dtbs follow the pattern &lt;family&gt;-&lt;soc&gt;-&lt;board&gt;.dtb.
+</p>
+<h2><span class="mw-headline" id="modules">modules</span></h2>
+<p><b>armhf</b>
+</p>
+<pre>ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- make -j4 modules
+ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- INSTALL_MOD_PATH=&lt;any-path-you-like&gt; make modules modules_install</pre>
+<p><b>arm64</b>
+</p>
+<pre>ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- make -j4 modules
+ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- INSTALL_MOD_PATH=&lt;any-path-you-like&gt; make modules modules_install</pre>
+<p>After the build succeeds, you can find the modules in the supplied <tt>INSTALL_MOD_PATH</tt> directory.
+</p>
+<h2><span class="mw-headline" id="headers">headers</span></h2>
+<p><b>armhf</b>
+</p>
+<pre>ARCH=arm INSTALL_HDR_PATH=&lt;any-path-you-like&gt; make headers_install</pre>
+<p><b>arm64</b>
+</p>
+<pre>ARCH=arm64 INSTALL_HDR_PATH=&lt;any-path-you-like&gt; make headers_install</pre><p>
+Change <tt>INSTALL_HDR_PATH</tt> to the path, you want the headers to be installed to, for example <tt>/usr</tt> or <tt>&lt;some_prefix&gt;/usr</tt> if you are doing a cross build.
+</p><h2><span class="mw-headline" id="Specific_Debian_kernel_notes">Specific Debian kernel notes</span></h2>
+<p>Having installed a late debian using the arm installer, building the Debian kernel is an attractive proposition.  (for Debian install, see <a href="Rikomagic_mk802.html" title="Rikomagic mk802">Rikomagic_mk802</a> 'Images' section).
+</p><p>Some notes on doing so (as it's not so obvious from Google):  You can download the sources using apt-get linux-source.  Today, Dec 2016, this will get you ~4.8.7.  Given sufficient space, this can be built on device (~4 days compile time), but probably better to cross-compile.  Extract the tar to a suitable location, and copy /boot/config-&lt;your current version&gt; to .config.  You may want to edit the .config comment out CONFIG_MODULE_SIG_FORCE and CONFIG_MODULE_SIG.  Prepare your cross machine, and then run 
+</p><p><code>make ARCH=arm oldconfig</code>
+</p><p>(you may get some new options).
+</p><p>Now, the important bit.  IF 'uname -a' on your target shows 'armmp' anywhere, your kernel will need to be this 'flavor'; if it is not, then your newly created .deb kernel package will not install on the device.....  So, to stamp it as flavor 'armmp':
+</p><p>Create a file called 'localversion' in the linux-source directory, and put -armmp inside.  This will then generate a kernel stamped with the version '4.8.7-armmp' rather than plain '4.8.7', and will make dpkg/flash-kernel happy on install.
+</p><p>Then, to make the kernel, use; substituting your cross compiler;:
+</p><p><code>make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- deb-pkg</code>
+</p><p>Note: if you want to build, but not start from scratch, the target bindeb-pkg does not do a clean first, whereas deb-pkg does.
+</p><p>You should end up with a file in one folder lower called something like <code>linux-image-4.8.7-armmp_4.8.7-armmp-3_armhf.deb</code>
+</p><p>To install this on the device, go to that folder, or copy it to the device, and use
+</p><p><code>dpkg -i linux-image-4.8.7-armmp_4.8.7-armmp-3_armhf.deb</code>
+</p><p>and if successful, reboot...
+</p><p><br />
+Note from the author of this last bit:  I'm no expert on this, but as it took me over a week to establish the above; I hope it helps somebody!  Please feel free to enhance or correct any of the above.
+<b>If you do intend to reproduce this, then please make notes as you do it; a good (accurate) from scratch description would be a bonus here.</b>
+</p>
+<h1><span class="mw-headline" id="Boot">Boot</span></h1>
+<h2><span class="mw-headline" id="SD-Card_Boot_partition">SD-Card Boot partition</span></h2>
+<p>Like with our <a href="Manual_build_howto.html#Setting_up_the_boot_partition" title="Manual build howto"> Manual build howto</a>, you have to set up the boot partition. Instead of <i>script.bin</i>, you need to install your board-specific <b>.dtb</b> to the boot partition. (Above kernel compilation should generate this binary representation of the <a href="Device_tree.html" class="mw-redirect" title="Device tree">device tree</a> automatically.)
+</p>
+<h3><span class="mw-headline" id="boot.cmd">boot.cmd</span></h3>
+<p>Like in the <a href="Manual_build_howto.html#boot.cmd" title="Manual build howto"> Manual build howto</a>, create a boot.cmd with the following contents:
+</p>
+<pre>fatload mmc 0 0x46000000 zImage
+fatload mmc 0 0x49000000 &lt;board&gt;.dtb
+
+setenv bootargs console=ttyS0,115200 earlyprintk root=/dev/mmcblk0p&lt;partition&gt; rootwait panic=10 ${extra}
+
+bootz 0x46000000 - 0x49000000</pre>
+<dl><dd><a href="File:Sticky-note-pin.png.html" class="image"><img alt="Sticky-note-pin.png" src="https://linux-sunxi.org/images/f/f0/Sticky-note-pin.png" decoding="async" width="16" height="16" /></a> <i>Note:</i> In order to boot an <b>arm64</b> kernel, remember to use <i>Image</i> instead of <i>zImage</i>. You also have to load it with <i>booti</i> instead of <i>bootz</i>. So you have to adopt the corresponding lines in the above boot.cmd file.</dd></dl>
+<p>Replace <i>fatload</i> with <i>ext2load</i> if needed. <a href="#Early_printk">earlyprintk</a> is optional; if your kernel boots up just fine, you might as well remove it.
+</p><p>If you are using an older U-Boot (you shouldn't - <span style="color:#ba0000">Which?</span>), you might require the following line, to keep the extracted kernel from overwriting the device tree configuration:
+</p>
+<pre>setenv fdt_high ffffffff</pre>
+<p>If you wish to use an initramfs, then the <i>bootz</i> command becomes:
+</p>
+<pre>bootz 0x46000000 0x&lt;initramfs-address&gt; 0x49000000</pre>
+<p>Now <a href="Mainline_U-boot.html#Boot" class="mw-redirect" title="Mainline U-boot">generate boot.scr</a>. Don't forget to copy over your <i>zImage</i> and &lt;board&gt;.dtb files as well.
+</p>
+<h2><span class="mw-headline" id="eMMC_boot_partition">eMMC boot partition</span></h2>
+<p><a class="external text" href="http://en.wikipedia.org/wiki/MultiMediaCard#eMMC#eMMC">eMMC</a> is very similar to the SD card case (see above). From a user's perspective, think of it as an "internal" memory card. Some devices are able to boot entirely from eMMC, forgoing the need for an external SD card.
+</p><p><a href="File:Information.png.html" class="image"><img alt="Information.png" src="https://linux-sunxi.org/images/5/54/Information.png" decoding="async" width="16" height="16" /></a> Keep a keen eye on the numbering of the <i>mmcblk</i> devices when switching the boot process between SD card and eMMC, e.g. during installation.
+</p>
+<dl><dd>The Linux kernel may change device numbers depending on which mmc devices are actually present.</dd>
+<dd>For example: If your SD card corresponds to <i>mmc0</i>, and the eMMC is <i>mmc1</i>, you'll probably end up with the eMMC as <i>mmcblk<b>1</b></i> when a SD card is also present (with the latter being <i>mmcblk<b>0</b></i>). But it's likely that the eMMC becomes <i>mmcblk<b>0</b></i> as soon as no SD card (<i>mmc0</i>) is present. If in doubt, check the kernel messages and adjust your partition layout / boot options accordingly.</dd></dl>
+<h2><span class="mw-headline" id="Network_boot_setup">Network boot setup</span></h2>
+<p><span style="color:#ba0000">TODO.</span> Fold in <a href="Possible_setups_for_hacking_on_mainline.html" title="Possible setups for hacking on mainline">Possible setups for hacking on mainline</a>.
+</p>
+<h1><span class="mw-headline" id="Extra_features">Extra features</span></h1>
+<h2><span id="SYSV_IPC_(debian_users!)"></span><span class="mw-headline" id="SYSV_IPC_.28debian_users.21.29">SYSV IPC (debian users!)</span></h2>
+<p>The current sunxi_defconfig has actually become rather complete, but SYSV IPC is disabled, and it is important for the fakeroot tool which is used for making debian packages.
+</p><p>Go to:
+</p>
+<pre>    General setup  ---&gt;</pre>
+<p>Then enable <b>CONFIG_SYSVIPC</b>:
+</p>
+<pre>[*] System V IPC</pre>
+<h2><span class="mw-headline" id="Early_printk">Early printk</span></h2>
+<p>If and only if your kernel does nothing, it pays to enable early printk support.
+</p><p>Go to:
+</p>
+<pre>    Kernel hacking  ---&gt;</pre>
+<p>Then enable <b>CONFIG_DEBUG_KERNEL</b>:
+</p>
+<pre>[*] Kernel debugging</pre>
+<p>To actually get early printk, you need to also enable <b>CONFIG_DEBUG_LL</b>, select one of the <b>CONFIG_DEBUG_SUNXI_</b> options, and enable <b>CONFIG_EARLY_PRINTK</b>:
+Inside arm debugging: 
+</p>
+<pre>[*] Kernel low-level debugging functions (read help!)
+      Kernel low-level debugging port (Kernel low-level debugging messages via sunXi UART0)  ---&gt;
+[*] Early printk</pre>
+<p>The selection of the debugging port (<b>CONFIG_DEBUG_SUNXI_</b>) depends on the board you are using. The selection of these is this contrived as these are all symbolic names for the raw addresses for the debug port.
+</p>
+<ul><li>For most SoCs, you should first select <b>DEBUG_SUNXI_UART0</b>:<pre>(X) Kernel low-level debugging messages via sunXi UART0</pre></li>
+<li>For A13, try <b>DEBUG_SUNXI_UART1</b> first:<pre>(X) Kernel low-level debugging messages via sunXi UART1</pre></li>
+<li>For A23, try <b>DEBUG_SUNXI_R_UART</b> first:<pre>(X) Kernel low-level debugging messages via sunXi R_UART</pre></li>
+<li>For A80, try <b>DEBUG_SUN9I_UART0</b> first:<pre>(X) Kernel low-level debugging messages via sun9i UART0</pre></li></ul>
+<h2><span class="mw-headline" id="simplefb">simplefb</span></h2>
+<p><span style="color:#ba0000"> TODO: This is now part of defconfig anyway. Be sure to add the console command line option to the console/display support page.</span>
+</p><p>Don't forget to change your console in your boot.cmd/boot.scr to console=tty1 to enable the simple framebuffer driver.
+</p>
+<h1><span class="mw-headline" id="Adding_a_new_device">Adding a new device</span></h1>
+<p>Mainly, you have to write a <a href="Device_Tree.html" title="Device Tree">device description</a>. Please <a href="Sending_patches.html" title="Sending patches">send a patch</a> to help others finding good examples.
+</p>
+<h1><span class="mw-headline" id="See_also">See also</span></h1>
+<ul><li><a href="Manual_build_howto.html" title="Manual build howto">Manual build howto</a></li>
+<li><a href="Linux_mainlining_effort.html" title="Linux mainlining effort">Linux mainlining effort</a></li>
+<li><a href="Possible_setups_for_hacking_on_mainline.html" title="Possible setups for hacking on mainline">Possible setups for hacking on mainline</a></li></ul>
+<!-- 
+NewPP limit report
+Cached time: 20251029040332
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.072 seconds
+Real time usage: 0.088 seconds
+Preprocessor visited node count: 278/1000000
+Post‐expand include size: 1167/2097152 bytes
+Template argument size: 854/2097152 bytes
+Highest expansion depth: 5/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 2340/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   17.768      1 -total
+ 47.59%    8.455      3 Template:Remove
+ 29.47%    5.237      2 Template:Note
+ 17.39%    3.090      3 Template:Red
+ 13.72%    2.437      1 Template:Info
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:602-0!canonical and timestamp 20251029040332 and revision id 26441
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=Mainline_Kernel_Howto&amp;oldid=26441">https://linux-sunxi.org/index.php?title=Mainline_Kernel_Howto&amp;oldid=26441</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Categories</a>: <ul><li><a href="Category:Tutorial.html" title="Category:Tutorial">Tutorial</a></li><li><a href="Category:Software.html" title="Category:Software">Software</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=Mainline+Kernel+Howto" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=Mainline+Kernel+Howto" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="Mainline_Kernel_Howto.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:Mainline_Kernel_Howto&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="Mainline_Kernel_Howto.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Mainline_Kernel_Howto&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Mainline_Kernel_Howto&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/Mainline_Kernel_Howto.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/Mainline_Kernel_Howto" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=Mainline_Kernel_Howto&amp;oldid=26441" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=Mainline_Kernel_Howto&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 18 May 2025, at 20:56.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.072","walltime":"0.088","ppvisitednodes":{"value":278,"limit":1000000},"postexpandincludesize":{"value":1167,"limit":2097152},"templateargumentsize":{"value":854,"limit":2097152},"expansiondepth":{"value":5,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":2340,"limit":5000000},"timingprofile":["100.00%   17.768      1 -total"," 47.59%    8.455      3 Template:Remove"," 29.47%    5.237      2 Template:Note"," 17.39%    3.090      3 Template:Red"," 13.72%    2.437      1 Template:Info"]},"cachereport":{"timestamp":"20251029040332","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":164});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

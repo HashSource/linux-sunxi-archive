@@ -1,0 +1,491 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>DDR3 - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"1e875f1f5459fe6147923f3a","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"DDR3","wgTitle":"DDR3","wgCurRevisionId":21322,"wgRevisionId":21322,"wgArticleId":2014,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"DDR3","wgRelevantArticleId":2014,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":"ready","user":"ready","user.options":
+"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=mediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="DDR3.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-DDR3 rootpage-DDR3 skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">DDR3</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>This page is an attempt to collect all the information about the various DDR3 chips in use on Sunxi hardware.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#DDR3_configuration_in_u-boot"><span class="tocnumber">1</span> <span class="toctext">DDR3 configuration in u-boot</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#JEDEC_speed_bin"><span class="tocnumber">1.1</span> <span class="toctext">JEDEC speed bin</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-3"><a href="#Manufacturers"><span class="tocnumber">2</span> <span class="toctext">Manufacturers</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Elixir"><span class="tocnumber">2.1</span> <span class="toctext">Elixir</span></a>
+<ul>
+<li class="toclevel-3 tocsection-5"><a href="#N2CB2G80GN-CG"><span class="tocnumber">2.1.1</span> <span class="toctext">N2CB2G80GN-CG</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-6"><a href="#Elpida"><span class="tocnumber">2.2</span> <span class="toctext">Elpida</span></a>
+<ul>
+<li class="toclevel-3 tocsection-7"><a href="#J2108BCSE-DJ-F"><span class="tocnumber">2.2.1</span> <span class="toctext">J2108BCSE-DJ-F</span></a></li>
+<li class="toclevel-3 tocsection-8"><a href="#J4216BFBG-GN-F"><span class="tocnumber">2.2.2</span> <span class="toctext">J4216BFBG-GN-F</span></a></li>
+<li class="toclevel-3 tocsection-9"><a href="#J4216BBBG-DJ-F"><span class="tocnumber">2.2.3</span> <span class="toctext">J4216BBBG-DJ-F</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-10"><a href="#Foresee"><span class="tocnumber">2.3</span> <span class="toctext">Foresee</span></a>
+<ul>
+<li class="toclevel-3 tocsection-11"><a href="#NCLD3B2512M32"><span class="tocnumber">2.3.1</span> <span class="toctext">NCLD3B2512M32</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-12"><a href="#GT"><span class="tocnumber">2.4</span> <span class="toctext">GT</span></a>
+<ul>
+<li class="toclevel-3 tocsection-13"><a href="#GT8UB256M16BP-BG"><span class="tocnumber">2.4.1</span> <span class="toctext">GT8UB256M16BP-BG</span></a></li>
+<li class="toclevel-3 tocsection-14"><a href="#GT8UB256M16BP-BH"><span class="tocnumber">2.4.2</span> <span class="toctext">GT8UB256M16BP-BH</span></a></li>
+<li class="toclevel-3 tocsection-15"><a href="#GT8UB512M8EN-BG"><span class="tocnumber">2.4.3</span> <span class="toctext">GT8UB512M8EN-BG</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-16"><a href="#MEMPHIS"><span class="tocnumber">2.5</span> <span class="toctext">MEMPHIS</span></a>
+<ul>
+<li class="toclevel-3 tocsection-17"><a href="#MEM4G08D3EABG-125"><span class="tocnumber">2.5.1</span> <span class="toctext">MEM4G08D3EABG-125</span></a></li>
+<li class="toclevel-3 tocsection-18"><a href="#MEM4G16D3EABG-125"><span class="tocnumber">2.5.2</span> <span class="toctext">MEM4G16D3EABG-125</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-19"><a href="#Micron"><span class="tocnumber">2.6</span> <span class="toctext">Micron</span></a>
+<ul>
+<li class="toclevel-3 tocsection-20"><a href="#MT41J256M16HA-125"><span class="tocnumber">2.6.1</span> <span class="toctext">MT41J256M16HA-125</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-21"><a href="#MIRA"><span class="tocnumber">2.7</span> <span class="toctext">MIRA</span></a>
+<ul>
+<li class="toclevel-3 tocsection-22"><a href="#P3P4GF4BLF-GDJ"><span class="tocnumber">2.7.1</span> <span class="toctext">P3P4GF4BLF-GDJ</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-23"><a href="#Nanya"><span class="tocnumber">2.8</span> <span class="toctext">Nanya</span></a>
+<ul>
+<li class="toclevel-3 tocsection-24"><a href="#NT5CB256M16BP-DI"><span class="tocnumber">2.8.1</span> <span class="toctext">NT5CB256M16BP-DI</span></a></li>
+<li class="toclevel-3 tocsection-25"><a href="#NT5CB256M8BN-CG"><span class="tocnumber">2.8.2</span> <span class="toctext">NT5CB256M8BN-CG</span></a></li>
+<li class="toclevel-3 tocsection-26"><a href="#NT5CB256M8DN-CG"><span class="tocnumber">2.8.3</span> <span class="toctext">NT5CB256M8DN-CG</span></a></li>
+<li class="toclevel-3 tocsection-27"><a href="#NT5CC256M16CP-DI"><span class="tocnumber">2.8.4</span> <span class="toctext">NT5CC256M16CP-DI</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-28"><a href="#Samsung"><span class="tocnumber">2.9</span> <span class="toctext">Samsung</span></a>
+<ul>
+<li class="toclevel-3 tocsection-29"><a href="#K4B4G1646Q-HYK0"><span class="tocnumber">2.9.1</span> <span class="toctext">K4B4G1646Q-HYK0</span></a></li>
+<li class="toclevel-3 tocsection-30"><a href="#K4B2G1646Q-HYK0"><span class="tocnumber">2.9.2</span> <span class="toctext">K4B2G1646Q-HYK0</span></a></li>
+<li class="toclevel-3 tocsection-31"><a href="#K4B4G0846E"><span class="tocnumber">2.9.3</span> <span class="toctext">K4B4G0846E</span></a></li>
+<li class="toclevel-3 tocsection-32"><a href="#K4B4G1646D-BCK0"><span class="tocnumber">2.9.4</span> <span class="toctext">K4B4G1646D-BCK0</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-33"><a href="#SK_Hynix"><span class="tocnumber">2.10</span> <span class="toctext">SK Hynix</span></a>
+<ul>
+<li class="toclevel-3 tocsection-34"><a href="#H5TC4G83AFR-PBA"><span class="tocnumber">2.10.1</span> <span class="toctext">H5TC4G83AFR-PBA</span></a></li>
+<li class="toclevel-3 tocsection-35"><a href="#H5TQ1G63EFR-H9C"><span class="tocnumber">2.10.2</span> <span class="toctext">H5TQ1G63EFR-H9C</span></a></li>
+<li class="toclevel-3 tocsection-36"><a href="#H5TQ1G83TFR-H9C"><span class="tocnumber">2.10.3</span> <span class="toctext">H5TQ1G83TFR-H9C</span></a></li>
+<li class="toclevel-3 tocsection-37"><a href="#H5TQ1G83BFR-H9C"><span class="tocnumber">2.10.4</span> <span class="toctext">H5TQ1G83BFR-H9C</span></a></li>
+<li class="toclevel-3 tocsection-38"><a href="#H5TQ2G63BFR-H9C"><span class="tocnumber">2.10.5</span> <span class="toctext">H5TQ2G63BFR-H9C</span></a></li>
+<li class="toclevel-3 tocsection-39"><a href="#H5TQ2G63DFR-PBC"><span class="tocnumber">2.10.6</span> <span class="toctext">H5TQ2G63DFR-PBC</span></a></li>
+<li class="toclevel-3 tocsection-40"><a href="#H5TQ2G63GFR-RDC"><span class="tocnumber">2.10.7</span> <span class="toctext">H5TQ2G63GFR-RDC</span></a></li>
+<li class="toclevel-3 tocsection-41"><a href="#H5TQ2G83CFR-H9C"><span class="tocnumber">2.10.8</span> <span class="toctext">H5TQ2G83CFR-H9C</span></a></li>
+<li class="toclevel-3 tocsection-42"><a href="#H5TQ2G83EFR-PBC"><span class="tocnumber">2.10.9</span> <span class="toctext">H5TQ2G83EFR-PBC</span></a></li>
+<li class="toclevel-3 tocsection-43"><a href="#H5TQ4G63AFR-PBC"><span class="tocnumber">2.10.10</span> <span class="toctext">H5TQ4G63AFR-PBC</span></a></li>
+<li class="toclevel-3 tocsection-44"><a href="#H5TQ4G63CFR-RDC"><span class="tocnumber">2.10.11</span> <span class="toctext">H5TQ4G63CFR-RDC</span></a></li>
+<li class="toclevel-3 tocsection-45"><a href="#H5TQ4G83AFR-PBC"><span class="tocnumber">2.10.12</span> <span class="toctext">H5TQ4G83AFR-PBC</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-46"><a href="#SPECTEK"><span class="tocnumber">2.11</span> <span class="toctext">SPECTEK</span></a>
+<ul>
+<li class="toclevel-3 tocsection-47"><a href="#PE918-15E"><span class="tocnumber">2.11.1</span> <span class="toctext">PE918-15E</span></a></li>
+<li class="toclevel-3 tocsection-48"><a href="#PEB15-15E"><span class="tocnumber">2.11.2</span> <span class="toctext">PEB15-15E</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-49"><a href="#Unidentified"><span class="tocnumber">2.12</span> <span class="toctext">Unidentified</span></a>
+<ul>
+<li class="toclevel-3 tocsection-50"><a href="#256X8DDR3_HL_1320"><span class="tocnumber">2.12.1</span> <span class="toctext">256X8DDR3 HL 1320</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-51"><a href="#Useful_information"><span class="tocnumber">3</span> <span class="toctext">Useful information</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="DDR3_configuration_in_u-boot">DDR3 configuration in u-boot</span></h1>
+<h2><span class="mw-headline" id="JEDEC_speed_bin">JEDEC speed bin</span></h2>
+<p>Sunxi devices typically use DRAM clock speeds not exceeding 533MHz, which means that the JEDEC DDR3-1066F speed bin is the most common set of timings that they are expected to be targeting for. The DDR3-1333 and DDR3-1600 chips, which are rated for higher clock speeds, may or may not support down binning to DDR3-1066F (this information has to be checked in the datasheets). That's because the DDR3-1066F compatible chips need to support 13.125 ns timings for tRP/tRCD, while the DDR3-1333H chips are only required to support 13.5 ns. So the DDR3-1066F speed bin has a bit tighter timings than DDR3-1333H. This difference between 13.125 ns and 13.5 ns is relatively important, because when the delays are converted from nanoseconds to cycles and rounded up, it is a matter of having 7 cycles delay instead of 8!
+</p><p>It is quite common to have DDR3-1333H or DDR3-1600K chips, which support DDR3-1066F timings too. This may look like an explicit note <i>"backward compatible to 1066 CL-7"</i> in the datasheets of such chips. Or the tRP/tRCD timing information may be sometimes specified as <i>"13.5 (13.125) ns"</i> in the table.
+</p><p>The u-boot *_defconfig file for an Allwinner A10/A13/A20 device may use the following configuration option to indicate that the DRAM chip is in fact compatible with DDR3-1066F timings (and with DDR3-1333H for the DRAM clock speeds &gt;533MHz):
+</p>
+<pre>  +S:CONFIG_DRAM_TIMINGS_DDR3_1066F_1333H=y
+</pre>
+<p>In the unlikely case if the DDR3-1066F speed bin is not supported by the DRAM chip, a slower DDR3-1066G speed bin has to be assumed.
+</p>
+<h1><span class="mw-headline" id="Manufacturers">Manufacturers</span></h1>
+<h2><span class="mw-headline" id="Elixir">Elixir</span></h2>
+<h4><span class="mw-headline" id="N2CB2G80GN-CG">N2CB2G80GN-CG</span></h4>
+<p>DDR3-1333H (supports down binning to DDR3-1066F), x8, density: 2G, page size: 1K
+</p><p>Datasheet: <a rel="nofollow" class="external free" href="http://www.elixir-memory.com/products/file/elixir-ddr3-2gb-g-die-r10.pdf">http://www.elixir-memory.com/products/file/elixir-ddr3-2gb-g-die-r10.pdf</a>
+</p>
+<h2><span class="mw-headline" id="Elpida">Elpida</span></h2>
+<p>Elpida Memory. Inc was a Japanese company which filed for bankruptcy in the beginning of 2012 and was eventually acquired by <a href="#Micron">Micron Technology</a>.
+</p>
+<h4><span class="mw-headline" id="J2108BCSE-DJ-F">J2108BCSE-DJ-F</span></h4>
+<p>DDR3-1333H (supports down binning to DDR3-1066F), x8, density: 2G, page size: 1K, tRFC: 160ns
+</p><p>Datasheet: <a rel="nofollow" class="external free" href="http://www.datasheets360.com/part/detail/edj2108bcse-dj-f/2732776748928774995/">http://www.datasheets360.com/part/detail/edj2108bcse-dj-f/2732776748928774995/</a>
+</p>
+<h4><span class="mw-headline" id="J4216BFBG-GN-F">J4216BFBG-GN-F</span></h4>
+<h4><span class="mw-headline" id="J4216BBBG-DJ-F">J4216BBBG-DJ-F</span></h4>
+<p><span style="color:#ba0000">Unknown</span>
+</p>
+<h2><span class="mw-headline" id="Foresee">Foresee</span></h2>
+<h4><span class="mw-headline" id="NCLD3B2512M32">NCLD3B2512M32</span></h4>
+<p>LPDRR3-1066, x32, density: 16G, page size:&#160;?, tRFC:&#160;? (marked as TBD in datasheet for 16Gb version)
+</p><p>Datasheet: <a href="File:FORESEE_178ball_12x11.5_LPDDR3_16G_Spec_V1.0-1228.pdf.html" title="File:FORESEE 178ball 12x11.5 LPDDR3 16G Spec V1.0-1228.pdf">File:FORESEE 178ball 12x11.5 LPDDR3 16G Spec V1.0-1228.pdf</a>
+</p>
+<h2><span class="mw-headline" id="GT">GT</span></h2>
+<h4><span class="mw-headline" id="GT8UB256M16BP-BG">GT8UB256M16BP-BG</span></h4>
+<p>DDR3-1333H, x16, density: 4G, page size: 2K, tRFC: 260ns (lower than JEDEC default 300ns)
+</p><p>Datasheet: <a class="external free" href="https://github.com/SoM-Boards/SoM-allwinnerA10/blob/master/docs/GT-DDR3-4Gbit-B-DIE-x8%20x16.pdf">https://github.com/SoM-Boards/SoM-allwinnerA10/blob/master/docs/GT-DDR3-4Gbit-B-DIE-x8%20x16.pdf</a>
+</p>
+<h4><span class="mw-headline" id="GT8UB256M16BP-BH">GT8UB256M16BP-BH</span></h4>
+<p>DDR3-1600K (supports down binning to DDR3-1066F), x16, density: 4G, page size: 2K, tRFC: 260ns (lower than JEDEC default 300ns)
+</p><p>Datasheet: <a class="external free" href="https://github.com/SoM-Boards/SoM-allwinnerA10/blob/master/docs/GT-DDR3-4Gbit-B-DIE-x8%20x16.pdf">https://github.com/SoM-Boards/SoM-allwinnerA10/blob/master/docs/GT-DDR3-4Gbit-B-DIE-x8%20x16.pdf</a>
+</p>
+<h4><span class="mw-headline" id="GT8UB512M8EN-BG">GT8UB512M8EN-BG</span></h4>
+<p>DDR3-1333H, x8, density: 4G, page size: 1K, tRFC: 260ns (lower than JEDEC default 300ns)
+</p><p>Datasheet: <a class="external free" href="https://github.com/SoM-Boards/SoM-allwinnerA10/blob/master/docs/GT-DDR3-4Gbit-B-DIE-x8%20x16.pdf">https://github.com/SoM-Boards/SoM-allwinnerA10/blob/master/docs/GT-DDR3-4Gbit-B-DIE-x8%20x16.pdf</a>
+</p>
+<h2><span class="mw-headline" id="MEMPHIS">MEMPHIS</span></h2>
+<h4><span class="mw-headline" id="MEM4G08D3EABG-125">MEM4G08D3EABG-125</span></h4>
+<p>DDR3-1600K (supports down binning to DDR3-1066F), x8, density: 4G, page size: 1K, tRFC: 260ns (lower than JEDEC default 300ns)
+</p><p>Datasheet: <a rel="nofollow" class="external free" href="http://www.memphis.ag/fileadmin/datasheets/MEM4G0804D3EABG_10.pdf">http://www.memphis.ag/fileadmin/datasheets/MEM4G0804D3EABG_10.pdf</a>
+</p>
+<h4><span class="mw-headline" id="MEM4G16D3EABG-125">MEM4G16D3EABG-125</span></h4>
+<p>DDR3-1600K (supports down binning to DDR3-1066F), x16, density: 4G, page size: 2K, tRFC: 260ns (lower than JEDEC default 300ns)
+</p><p>Datasheet: <a rel="nofollow" class="external free" href="http://www.memphis.ag/fileadmin/datasheets/MEM4G16D3EABG_10.pdf">http://www.memphis.ag/fileadmin/datasheets/MEM4G16D3EABG_10.pdf</a>
+</p>
+<h2><span class="mw-headline" id="Micron">Micron</span></h2>
+<h4><span class="mw-headline" id="MT41J256M16HA-125">MT41J256M16HA-125</span></h4>
+<p>DDR3-1600K (supports down binning to DDR3-1066F), x16, density: 4G, page size: 2K, tRFC: 260ns (lower than JEDEC default 300ns)
+</p><p>Datasheet: <a rel="nofollow" class="external free" href="http://www.micron.com/~/media/documents/products/data-sheet/dram/ddr3/4gb_ddr3_sdram.pdf">http://www.micron.com/~/media/documents/products/data-sheet/dram/ddr3/4gb_ddr3_sdram.pdf</a>
+</p>
+<h2><span class="mw-headline" id="MIRA">MIRA</span></h2>
+<h4><span class="mw-headline" id="P3P4GF4BLF-GDJ">P3P4GF4BLF-GDJ</span></h4>
+<p>DDR3-1333H (supports down binning to DDR3-1066F), x16, density: 4G, page size: 2K, tRFC: 260ns (lower than JEDEC default 300ns)
+</p><p>Datasheet: <a rel="nofollow" class="external free" href="http://www.deutron.com.tw/pdf/D3_256x16.pdf">http://www.deutron.com.tw/pdf/D3_256x16.pdf</a>
+</p>
+<h2><span class="mw-headline" id="Nanya">Nanya</span></h2>
+<h4><span class="mw-headline" id="NT5CB256M16BP-DI">NT5CB256M16BP-DI</span></h4>
+<p>DDR3-1600K (supports down binning to DDR3-1066F), x16, density: 4G, page size: 2K, tRFC: 260ns (lower than JEDEC default 300ns)
+</p><p>Datasheet: <a rel="nofollow" class="external free" href="http://www.nanya.com/NanyaAdmin/GetFiles.ashx?ID=1110">http://www.nanya.com/NanyaAdmin/GetFiles.ashx?ID=1110</a>
+</p>
+<h4><span class="mw-headline" id="NT5CB256M8BN-CG">NT5CB256M8BN-CG</span></h4>
+<p>DDR3-1333H (supports down binning to DDR3-1066F), x8, density: 2G, page size: 1K
+</p><p>Datasheet: <a rel="nofollow" class="external free" href="http://www.nanya.com/NanyaAdmin/GetFiles.ashx?ID=961">http://www.nanya.com/NanyaAdmin/GetFiles.ashx?ID=961</a>
+</p>
+<h4><span class="mw-headline" id="NT5CB256M8DN-CG">NT5CB256M8DN-CG</span></h4>
+<p>DDR3-1333H (supports down binning to DDR3-1066F), x8, density: 2G, page size: 1K
+</p><p>Datasheet: <a rel="nofollow" class="external free" href="http://www.nanya.com/NanyaAdmin/GetFiles.ashx?ID=923">http://www.nanya.com/NanyaAdmin/GetFiles.ashx?ID=923</a>
+</p>
+<h4><span class="mw-headline" id="NT5CC256M16CP-DI">NT5CC256M16CP-DI</span></h4>
+<p>DDR3-1600K (supports down binning to DDR3-1066F), x16, density: 4G, page size: 2K, tRFC: 260ns (lower than JEDEC default 300ns), 1.35V
+</p><p>Datasheet: <a rel="nofollow" class="external free" href="http://www.nanya.com/NanyaAdmin/GetFiles.ashx?ID=1147">http://www.nanya.com/NanyaAdmin/GetFiles.ashx?ID=1147</a>
+</p>
+<h2><span class="mw-headline" id="Samsung">Samsung</span></h2>
+<p><a rel="nofollow" class="external text" href="http://www.samsung.com/semiconductor/global/file/product/ddr3_product_guide_dec_12-0.pdf">Samsung DDR3 product guide</a> for decoding chip numbers
+</p>
+<h4><span class="mw-headline" id="K4B4G1646Q-HYK0">K4B4G1646Q-HYK0</span></h4>
+<p>DDR3-1600K (supports down binning to DDR3-1333H and DDR3-1066F), x16, density: 4G, page size: 2K, tRFC: 260ns (lower than JEDEC default 300ns)
+</p><p>Datasheet: <a rel="nofollow" class="external free" href="http://www.samsung.com/global/business/semiconductor/file/product/ds_k4b4g1646b_rev10-1.pdf">http://www.samsung.com/global/business/semiconductor/file/product/ds_k4b4g1646b_rev10-1.pdf</a>
+</p>
+<h4><span class="mw-headline" id="K4B2G1646Q-HYK0">K4B2G1646Q-HYK0</span></h4>
+<p>Datasheet: <a rel="nofollow" class="external free" href="http://www.samsung.com/global/business/semiconductor/file/product/DS_K4B2G1646Q-BY_Rev101.pdf">http://www.samsung.com/global/business/semiconductor/file/product/DS_K4B2G1646Q-BY_Rev101.pdf</a>
+</p>
+<h4><span class="mw-headline" id="K4B4G0846E">K4B4G0846E</span></h4>
+<p>Datasheet: <a rel="nofollow" class="external free" href="http://www.samsung.com/semiconductor/global/file/product/DS_4G_E_DDR3_Rev1.2.pdf">http://www.samsung.com/semiconductor/global/file/product/DS_4G_E_DDR3_Rev1.2.pdf</a>
+</p>
+<h4><span class="mw-headline" id="K4B4G1646D-BCK0">K4B4G1646D-BCK0</span></h4>
+<p>Datasheet: <a rel="nofollow" class="external free" href="http://www.samsung.com/semiconductor/search/?q=K4B4g1646D-BC">http://www.samsung.com/semiconductor/search/?q=K4B4g1646D-BC</a>
+</p>
+<h2><span class="mw-headline" id="SK_Hynix">SK Hynix</span></h2>
+<h4><span class="mw-headline" id="H5TC4G83AFR-PBA">H5TC4G83AFR-PBA</span></h4>
+<p>DDR3-1600<span style="color:#ba0000">?</span> (<span style="color:#ba0000">???</span>), x8, density: 4G, page size: 1K
+</p><p>Datasheet: <a rel="nofollow" class="external free" href="https://www.skhynix.com/product/filedata/fileDownload.do?seq=2475">https://www.skhynix.com/product/filedata/fileDownload.do?seq=2475</a>
+</p>
+<h4><span class="mw-headline" id="H5TQ1G63EFR-H9C">H5TQ1G63EFR-H9C</span></h4>
+<p>DDR3-1333H (supports down binning to DDR3-1066F), x16, density: 1G, page size: 2K
+</p><p>Datasheet: <a rel="nofollow" class="external free" href="https://www.skhynix.com/product/filedata/fileDownload.do?seq=2658">https://www.skhynix.com/product/filedata/fileDownload.do?seq=2658</a>
+</p>
+<h4><span class="mw-headline" id="H5TQ1G83TFR-H9C">H5TQ1G83TFR-H9C</span></h4>
+<p>DDR3-1333H (supports down binning to DDR3-1066F), x8, density: 1G, page size: 1K
+</p><p>Datasheet: <a rel="nofollow" class="external free" href="http://www.skhynix.com/inc/pdfDownload.jsp?path=/datasheet/pdf/dram/DDR3_H5TQ1G(4_8)3TFR(Rev1.1).pdf">http://www.skhynix.com/inc/pdfDownload.jsp?path=/datasheet/pdf/dram/DDR3_H5TQ1G(4_8)3TFR(Rev1.1).pdf</a>
+</p>
+<h4><span class="mw-headline" id="H5TQ1G83BFR-H9C">H5TQ1G83BFR-H9C</span></h4>
+<p>DDR3-1333H (supports down binning to DDR3-1066F), x8, density: 1G, page size: 1K
+</p><p>Datasheet: <a rel="nofollow" class="external free" href="http://www.hynix.com/product/filedata/fileDownload.do?seq=2274">http://www.hynix.com/product/filedata/fileDownload.do?seq=2274</a>
+</p>
+<h4><span class="mw-headline" id="H5TQ2G63BFR-H9C">H5TQ2G63BFR-H9C</span></h4>
+<p>DDR3-1333H (supports down binning to DDR3-1066F), x16, density: 2G, page size: 2K
+</p><p>Datasheet: <a rel="nofollow" class="external free" href="http://hands.com/~lkcl/H5TQ2G63BFR.pdf">http://hands.com/~lkcl/H5TQ2G63BFR.pdf</a>
+</p>
+<h4><span class="mw-headline" id="H5TQ2G63DFR-PBC">H5TQ2G63DFR-PBC</span></h4>
+<p>DDR3-1600K (supports down binning to DDR3-1066F and DDR3-1333H), x16, density: 2G, page size: 2K
+</p><p>Datasheet: <a rel="nofollow" class="external free" href="https://www.skhynix.com/inc/pdfDownload.jsp?path=/datasheet/pdf/dram/Consumer_DDR3_H5TQ2G8(6)3DFR(Rev1.3)_131101.pdf">https://www.skhynix.com/inc/pdfDownload.jsp?path=/datasheet/pdf/dram/Consumer_DDR3_H5TQ2G8(6)3DFR(Rev1.3)_131101.pdf</a>
+</p>
+<h4><span class="mw-headline" id="H5TQ2G63GFR-RDC">H5TQ2G63GFR-RDC</span></h4>
+<p>Datasheet: <a rel="nofollow" class="external free" href="https://www.skhynix.com/product/filedata/fileDownload.do?seq=6119">https://www.skhynix.com/product/filedata/fileDownload.do?seq=6119</a>
+</p>
+<h4><span class="mw-headline" id="H5TQ2G83CFR-H9C">H5TQ2G83CFR-H9C</span></h4>
+<p>DDR3-1333H (supports down binning to DDR3-1066F), x8, density: 2G, page size: 1K
+</p><p>Datasheet: <a rel="nofollow" class="external free" href="https://www.skhynix.com/inc/pdfDownload.jsp?path=/datasheet/pdf/dram/Computing_DDR3_H5TQ2G4(8)3CFR(Rev1.0).pdf">https://www.skhynix.com/inc/pdfDownload.jsp?path=/datasheet/pdf/dram/Computing_DDR3_H5TQ2G4(8)3CFR(Rev1.0).pdf</a>
+</p>
+<h4><span class="mw-headline" id="H5TQ2G83EFR-PBC">H5TQ2G83EFR-PBC</span></h4>
+<p>DDR3-1333H <span style="color:#ba0000">?</span> (<span style="color:#ba0000">???</span>), x8, density: 2G, page size: 1K
+</p><p>Datasheet: <a rel="nofollow" class="external free" href="https://www.skhynix.com/product/filedata/fileDownload.do?seq=2630">https://www.skhynix.com/product/filedata/fileDownload.do?seq=2630</a>
+</p>
+<h4><span class="mw-headline" id="H5TQ4G63AFR-PBC">H5TQ4G63AFR-PBC</span></h4>
+<p>DDR3-1600K (supports down binning to DDR3-1066F), x16, density: 4G, page size: 2K, tRFC: 260ns (lower than JEDEC default 300ns)
+</p><p>Datasheet: <a rel="nofollow" class="external free" href="https://www.skhynix.com/inc/pdfDownload.jsp?path=/datasheet/pdf/dram/Consumer_DDR3_H5TQ4G8(6)3AFR(Rev1.1)_130130.pdf">https://www.skhynix.com/inc/pdfDownload.jsp?path=/datasheet/pdf/dram/Consumer_DDR3_H5TQ4G8(6)3AFR(Rev1.1)_130130.pdf</a>
+</p>
+<h4><span class="mw-headline" id="H5TQ4G63CFR-RDC">H5TQ4G63CFR-RDC</span></h4>
+<p>Datasheet: <a rel="nofollow" class="external free" href="https://www.skhynix.com/product/filedata/fileDownload.do?seq=2688">https://www.skhynix.com/product/filedata/fileDownload.do?seq=2688</a>
+</p>
+<h4><span class="mw-headline" id="H5TQ4G83AFR-PBC">H5TQ4G83AFR-PBC</span></h4>
+<p>DDR3-1600K (supports down binning to DDR3-800E, DDR3-1066F, DDR3-1333H), x8, density: 4G, page size: 1K, tRFC: <span style="color:#ba0000">??</span>ns
+</p><p>Datasheet: <a rel="nofollow" class="external free" href="https://www.skhynix.com/product/filedata/fileDownload.do?seq=2419">https://www.skhynix.com/product/filedata/fileDownload.do?seq=2419</a>
+</p>
+<h2><span class="mw-headline" id="SPECTEK">SPECTEK</span></h2>
+<h4><span class="mw-headline" id="PE918-15E">PE918-15E</span></h4>
+<p>DDR3-1333H, x8, density: 2G, page size: 1K
+</p><p>Datasheet: <a rel="nofollow" class="external free" href="http://www.spectek.com/pdfs/PRN256M8V79DG8GQF-15E.PDF">http://www.spectek.com/pdfs/PRN256M8V79DG8GQF-15E.PDF</a>
+</p>
+<h4><span class="mw-headline" id="PEB15-15E">PEB15-15E</span></h4>
+<p>DDR3-1333H, x16, density: 4G, page size: 1K
+</p><p>Datasheet: <a rel="nofollow" class="external free" href="http://www.spectek.com/pdfs/SPECTEK_4GB_DDR3_SDRAM.PDF">http://www.spectek.com/pdfs/SPECTEK_4GB_DDR3_SDRAM.PDF</a>
+</p>
+<h2><span class="mw-headline" id="Unidentified">Unidentified</span></h2>
+<h4><span class="mw-headline" id="256X8DDR3_HL_1320">256X8DDR3 HL 1320</span></h4>
+<h1><span class="mw-headline" id="Useful_information">Useful information</span></h1>
+<ol><li>The <a rel="nofollow" class="external text" href="https://www.skhynix.com/static/filedata/fileDownload.do?seq=211">"DDR3 Device Operation"</a> document from SK Hynix contains a lot of copy/paste information from the DDR3 spec.</li>
+<li><a rel="nofollow" class="external text" href="http://utaharch.blogspot.fi/2013/11/a-dram-refresh-tutorial.html">"A DRAM Refresh Tutorial"</a> blog post jointly authored by Rajeev Balasubramonian (University of Utah), Manju Shevgoor (University of Utah), and Jung-Sik Kim (Samsung).</li></ol>
+<!-- 
+NewPP limit report
+Cached time: 20251029041701
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.076 seconds
+Real time usage: 0.101 seconds
+Preprocessor visited node count: 221/1000000
+Post‐expand include size: 454/2097152 bytes
+Template argument size: 34/2097152 bytes
+Highest expansion depth: 5/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   24.799      1 -total
+ 96.28%   23.877      6 Template:Remove
+  8.51%    2.111      6 Template:Red
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:2014-0!canonical and timestamp 20251029041701 and revision id 21322
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=DDR3&amp;oldid=21322">https://linux-sunxi.org/index.php?title=DDR3&amp;oldid=21322</a>"</div>
+		<div id="catlinks" class="catlinks catlinks-allhidden" data-mw="interface"></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=DDR3" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=DDR3" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="DDR3.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:DDR3&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="DDR3.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=DDR3&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=DDR3&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/DDR3.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/DDR3" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=DDR3&amp;oldid=21322" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=DDR3&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 5 May 2018, at 11:48.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.076","walltime":"0.101","ppvisitednodes":{"value":221,"limit":1000000},"postexpandincludesize":{"value":454,"limit":2097152},"templateargumentsize":{"value":34,"limit":2097152},"expansiondepth":{"value":5,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":0,"limit":5000000},"timingprofile":["100.00%   24.799      1 -total"," 96.28%   23.877      6 Template:Remove","  8.51%    2.111      6 Template:Red"]},"cachereport":{"timestamp":"20251029041701","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":318});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

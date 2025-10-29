@@ -1,0 +1,642 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Display - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"a24b8679844b155b19739871","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Display","wgTitle":"Display","wgCurRevisionId":23014,"wgRevisionId":23014,"wgArticleId":465,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Tutorial","Legacy Tutorial"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Display","wgRelevantArticleId":465,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":
+"ready","user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=mediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="Display.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-Display rootpage-Display skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">Display</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><table style="margin: 0.7em; border-width: 1px 1px 1px 10px; border-style: solid; border-color: #EE8822; background-color: #FFEEDD">
+<tbody><tr>
+<td style="padding: 0.2em; vertical-align: baseline;"><a href="File:MBOX_icon_important.png.html" class="image"><img alt="MBOX icon important.png" src="https://linux-sunxi.org/images/f/f0/MBOX_icon_important.png" decoding="async" width="40" height="40" /></a>
+</td>
+<td style="width:100%; padding-left: 0.2em; padding-right: 0.2em; vertical-align: baseline;">This page provides outdated set of instructions and needs to be updated to reflect current status.
+</td></tr></tbody></table>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Current_issues"><span class="tocnumber">1</span> <span class="toctext">Current issues</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#A20.2Fsun4i_Broken_CLK_handling"><span class="tocnumber">1.1</span> <span class="toctext">A20/sun4i Broken CLK handling</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-3"><a href="#Various_tips_and_tricks"><span class="tocnumber">2</span> <span class="toctext">Various tips and tricks</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Framebuffer_console_at_boot"><span class="tocnumber">2.1</span> <span class="toctext">Framebuffer console at boot</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Changing_resolution"><span class="tocnumber">2.2</span> <span class="toctext">Changing resolution</span></a>
+<ul>
+<li class="toclevel-3 tocsection-6"><a href="#legacy_kernel"><span class="tocnumber">2.2.1</span> <span class="toctext">legacy kernel</span></a></li>
+<li class="toclevel-3 tocsection-7"><a href="#mainline_kernel"><span class="tocnumber">2.2.2</span> <span class="toctext">mainline kernel</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-8"><a href="#Framebuffer_tips"><span class="tocnumber">2.3</span> <span class="toctext">Framebuffer tips</span></a>
+<ul>
+<li class="toclevel-3 tocsection-9"><a href="#Blanking_timeout"><span class="tocnumber">2.3.1</span> <span class="toctext">Blanking timeout</span></a></li>
+<li class="toclevel-3 tocsection-10"><a href="#Unblank"><span class="tocnumber">2.3.2</span> <span class="toctext">Unblank</span></a></li>
+<li class="toclevel-3 tocsection-11"><a href="#Hide_cursor"><span class="tocnumber">2.3.3</span> <span class="toctext">Hide cursor</span></a></li>
+<li class="toclevel-3 tocsection-12"><a href="#Rotation"><span class="tocnumber">2.3.4</span> <span class="toctext">Rotation</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-13"><a href="#HDMI"><span class="tocnumber">2.4</span> <span class="toctext">HDMI</span></a>
+<ul>
+<li class="toclevel-3 tocsection-14"><a href="#boot.scr"><span class="tocnumber">2.4.1</span> <span class="toctext">boot.scr</span></a></li>
+<li class="toclevel-3 tocsection-15"><a href="#script.bin.2Ffex_file"><span class="tocnumber">2.4.2</span> <span class="toctext">script.bin/fex file</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-16"><a href="#LVDS"><span class="tocnumber">2.5</span> <span class="toctext">LVDS</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="#VGA"><span class="tocnumber">2.6</span> <span class="toctext">VGA</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="#TV.2FCVBS"><span class="tocnumber">2.7</span> <span class="toctext">TV/CVBS</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="#Using_two_displays"><span class="tocnumber">2.8</span> <span class="toctext">Using two displays</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="#Using_hardware_scaler"><span class="tocnumber">2.9</span> <span class="toctext">Using hardware scaler</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="#Driving_LCDs"><span class="tocnumber">2.10</span> <span class="toctext">Driving LCDs</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-22"><a href="#See_Also"><span class="tocnumber">3</span> <span class="toctext">See Also</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Current_issues">Current issues</span></h1>
+<h2><span id="A20/sun4i_Broken_CLK_handling"></span><span class="mw-headline" id="A20.2Fsun4i_Broken_CLK_handling">A20/sun4i Broken CLK handling</span></h2>
+<p>The current mainline setup seems to prefer to set <i>all</i> display related devices to depend on PLL3 (aka pll-video0). For both pipelines, and including the gpu.
+</p><p>If u-boot does not have HDMI enabled, the clock halving bit on the hdmi pads is not set, and then the logic goes awry. In case of a 1280x1024/108MHz secondary pipeline resolution, this results in pll3 being set to half the dotclock, with only the hdmi-tmds clock being set to the target resolution. Here is the output of debugfs/clk-summary for pll-video0 (pll-video1/PLL7 is unused):
+</p>
+<pre>                                  enable  prepare  protect                                duty
+   clock                          count    count    count        rate   accuracy phase  cycle
+---------------------------------------------------------------------------------------------
+       pll-video0                     6        6        2    54000000          0     0  50000
+          hdmi1                       0        0        0    54000000          0     0  50000
+          gpu                         0        0        0    54000000          0     0  50000
+          hdmi                        1        1        0    54000000          0     0  50000
+          tcon1-ch1-sclk2             1        1        1    54000000          0     0  50000
+             tcon1-ch1-sclk1          1        1        1    54000000          0     0  50000
+          tcon0-ch1-sclk2             0        0        0    54000000          0     0  50000
+             tcon0-ch1-sclk1          0        0        0    54000000          0     0  50000
+          tvd-sclk2                   0        0        0    54000000          0     0  50000
+             tvd-sclk1                0        0        0    54000000          0     0  50000
+          csi-sclk                    0        0        0    54000000          0     0  50000
+          tcon1-ch0-sclk              1        1        0    54000000          0     0  50000
+             tcon1-pixel-clock        0        0        0    54000000          0     0  50000
+          tcon0-ch0-sclk              2        2        1    54000000          0     0  50000
+             tcon0-pixel-clock        1        1        1     9000000          0     0  50000
+          de-mp                       0        0        0    54000000          0     0  50000
+          de-fe1                      0        0        0    54000000          0     0  50000
+          de-fe0                      0        0        0    54000000          0     0  50000
+          de-be1                      1        1        0    54000000          0     0  50000
+          pll-video0-2x               1        1        0   108000000          0     0  50000
+             hdmi-tmds                2        2        0   108000000          0     0  50000
+                hdmi-ddc              1        1        0       96428          0     0  50000</pre>
+<p><br />
+</p>
+<h1><span class="mw-headline" id="Various_tips_and_tricks">Various tips and tricks</span></h1>
+<p>When you are using a ready made image for your device your display should be configured automatically.
+</p><p>In script.bin it is defined what display output is used and what hardware lines are used for connecting the output.
+</p><p>On <a href="Kernel_arguments.html" title="Kernel arguments">kernel arguments</a> you can specify the video mode used on the output or override autodetection on outputs that support EDID.
+</p><p><br />
+</p>
+<h2><span class="mw-headline" id="Framebuffer_console_at_boot">Framebuffer console at boot</span></h2>
+<p>To see boot traces you need to put all display related modules into linux kernel (3.4 branch ATM)&#160;:
+</p>
+<pre>CONFIG_FB_SUNXI=y
+CONFIG_FB_SUNXI_LCD=y
+CONFIG_FB_SUNXI_HDMI=y
+
+CONFIG_FRAMEBUFFER_CONSOLE=y
+CONFIG_FONT_8x8=y
+CONFIG_FONT_8x16=y
+</pre>
+<p>Then change u-boot config console=xxx parameter to tty0.  If you want to still use a serial console you can define multiple consoles.  For example "console=ttyS0,115200 console=tty0".
+</p><p><br />
+</p>
+<h2><span class="mw-headline" id="Changing_resolution">Changing resolution</span></h2>
+<h3><span class="mw-headline" id="legacy_kernel">legacy kernel</span></h3>
+<p>The initial display resolution at boot time is defined in script.bin (fex-file), and can be overridden by <a href="Kernel_arguments.html" title="Kernel arguments">kernel command line options</a>.
+</p><p>But you can change it afterward by using this tool from doozan forum:
+</p>
+<pre>http://forum.doozan.com/read.php?6,9002
+https://github.com/doozan/a10-tools/blob/master/a10_display.c
+</pre>
+<p>Tool changes display timings for wanted resolution. After that you'll need to set correct resolution with fbset -xres xxx -yres xxx
+</p><p>There is also a utility called a10disp that requires that version 1.0 or later of the sunxi kernel display driver is available (linux-sunxi 3.4.43 or later). It can be used to show information about the current display mode, change the resolution and color depth of HDMI modes, and switch between LCD and HDMI output. It can be found at <a class="external free" href="http://www.github.com/hglm/a10disp.git">http://www.github.com/hglm/a10disp.git</a>.
+</p>
+<h3><span class="mw-headline" id="mainline_kernel">mainline kernel</span></h3>
+<p>it should be possible to change mode in uboot by setting variable, ie.:
+</p>
+<pre>setenv video-mode sunxi:1024x768-24@50,monitor=dvi,hpd=0,edid=0
+</pre>
+<p>(but somehow it doesnt work in boot.cmd, hardcoding it in drivers/video/videomodes.c::video_get_video_mode() works as expected).
+</p><p>params are described in <a rel="nofollow" class="external text" href="http://git.denx.de/?p=u-boot.git;a=blob;f=doc/README.video">README.video</a>
+</p>
+<h2><span class="mw-headline" id="Framebuffer_tips">Framebuffer tips</span></h2>
+<h3><span class="mw-headline" id="Blanking_timeout">Blanking timeout</span></h3>
+<p>The framebuffer has a default blank screen saver. The timeout (in seconds) can be changed or disabled (0) with a kernel parameter:
+</p>
+<pre>consoleblank=0
+</pre>
+<h3><span class="mw-headline" id="Unblank">Unblank</span></h3>
+<p>To blank or unblank a framebuffer, you can set 0 or 1 in this sysfs entry:
+</p>
+<pre>/sys/class/graphics/fb0/blank
+</pre>
+<h3><span class="mw-headline" id="Hide_cursor">Hide cursor</span></h3>
+<p>If you are running a console on your framebuffer, you can hide the cursor with a kernel parameter:
+</p>
+<pre>vt.global_cursor_default=0
+</pre>
+<p>It can be changed at runtime by setting 0 or 1 in this sysfs entry:
+</p>
+<pre>/sys/class/graphics/fbcon/cursor_blink
+</pre>
+<p>All these parameters can be changed with setterm command.
+</p>
+<h3><span class="mw-headline" id="Rotation">Rotation</span></h3>
+<p>You can rotate the framebuffer by supplying fbcon=rotate:&lt;n&gt; kernel parameter, where n can be one of the following.
+</p>
+<ul><li>0 - normal orientation (0 degree)</li>
+<li>1 - clockwise orientation (90 degrees)</li>
+<li>2 - upside down orientation (180 degrees)</li>
+<li>3 - counterclockwise orientation (270 degrees)</li></ul>
+<p>Alternatively you could echo &lt;n&gt; to 
+</p>
+<pre>/sys/class/graphics/fbcon/rotate
+</pre>
+<p>after kernel has booted. For more see Documentation/fb/fbcon.txt in kernel tree.
+</p>
+<h2><span class="mw-headline" id="HDMI">HDMI</span></h2>
+<p>If you are using a device with HDMI and have proper script.bin for your device setting up display is as simple as adding <i>disp.screen0_output_mode=EDID</i> to your kernel command line in boot.scr file. You can specify a fixed mode like <i>disp.screen0_output_mode=1280x1024p60</i> or a fallback in case EDID did not work <i>disp.screen0_output_mode=EDID:1280x1024p60</i>. The supported fallback display modes are currently hardcoded in the disp driver. Looking at the clock table in <a class="external free" href="https://github.com/linux-sunxi/linux-sunxi/blob/sunxi-3.0/drivers/video/sunxi/disp/disp_clk.c">https://github.com/linux-sunxi/linux-sunxi/blob/sunxi-3.0/drivers/video/sunxi/disp/disp_clk.c</a> might be helpful.
+</p><p>Warning: some monitors require <i>hdmi.audio=EDID:0</i> option in the kernel command line to work correctly! Otherwise they are confused by the audio data embedded in the HDMI signal. The 1680x1050 monitors are known to be particularly bad in this respect.
+</p>
+<h3><span class="mw-headline" id="boot.scr">boot.scr</span></h3>
+<pre># fixed mode
+setenv bootargs console=tty0 hdmi.audio=EDID:0 disp.screen0_output_mode=1280x720p60 root=/dev/mmcblk0p1 rootwait panic=10
+
+# try EDID first, if it did not work fallback to specific output mode
+setenv bootargs console=tty0 hdmi.audio=EDID:0 disp.screen0_output_mode=EDID:1280x720p60 root=/dev/mmcblk0p1 rootwait panic=10
+</pre>
+<p>To generate a new boot.scr you need to edit boot.cmd file and then make a new boot.scr binary file.
+</p>
+<pre>mkimage -C none -A arm -T script -d &lt;boot.cmd-file&gt; boot.scr
+</pre>
+<p><br />
+</p>
+<h3><span id="script.bin/fex_file"></span><span class="mw-headline" id="script.bin.2Ffex_file">script.bin/fex file</span></h3>
+<p>The settings in the [disp_init] section of the script.bin/fex file define the display output enabled at boot.
+</p><p>An example configuration for HDMI:
+</p>
+<pre>[disp_init]
+disp_init_enable = 1
+disp_mode = 0
+screen0_output_type = 3
+screen0_output_mode = 4
+fb0_framebuffer_num = 2
+fb0_format = 10
+fb0_pixel_sequence = 0
+fb0_scaler_mode_enable = 0
+</pre>
+<ul><li>disp_mode selects single-screen output or different dual screen modes. Generally this is 0, which means use screen0 with fb0 (one screen).</li>
+<li>screen0_output_type = 3 means HDMI output.</li>
+<li>screen0_output_mode selects the video/monitor mode to use (resolution and refresh rate).  See the table in the <a href="Fex_Guide.html#disp_init_configuration" title="Fex Guide">Fex guide</a>.</li>
+<li>fb0_framebuffer_num selects the number of buffers for fb0, generally you need 2 or more for video acceleration or Mali (3D), 3 is better.</li>
+<li>fb0_format and  fb0_pixel_sequence determine the pixel format in the framebuffer. The above example (values of 10 and 0) selects the most common variant of 32bpp truecolor (ARGB).</li>
+<li>fb0_scaler_mode_enable selects whether the scaler should be enabled. Enabling it does not really scale pixels, it configures the scaler to scale pixels 1-to-1 which can fix screen refresh-related problems at 1080p resolution. See the section below.</li></ul>
+<p>Similar parameter are defined for screen1 (which is usually disabled in practice).
+</p><p>See the <a href="Fex_Guide.html#.23disp_init_configuration" title="Fex Guide">Fex guide</a> for a more detailed description.
+</p>
+<h2><span class="mw-headline" id="LVDS">LVDS</span></h2>
+<p>sunxi socs (A10 A13 A20 A31s) use same LCDC  that support output of lvds display signals throught port D of SOC.
+</p>
+<table class="wikitable" style="text-align: center; width: 100%;">
+
+<tbody><tr>
+<td>Pin
+</td>
+<td>Function
+</td>
+<td>Note
+</td></tr>
+<tr>
+<td>PD0
+</td>
+<td>LVDS0_VP0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>PD1
+</td>
+<td>LVDS0_VN0
+</td>
+<td>
+</td></tr>
+<tr>
+<td>PD2
+</td>
+<td>LVDS0_VP1
+</td>
+<td>
+</td></tr>
+<tr>
+<td>PD3
+</td>
+<td>LVDS0_VN1
+</td>
+<td>
+</td></tr>
+<tr>
+<td>PD4
+</td>
+<td>LVDS0_VP2
+</td>
+<td>
+</td></tr>
+<tr>
+<td>PD5
+</td>
+<td>LVDS0_VN2
+</td>
+<td>
+</td></tr>
+<tr>
+<td>PD6
+</td>
+<td>LVDS0_VPC
+</td>
+<td>
+</td></tr>
+<tr>
+<td>PD7
+</td>
+<td>LVDS0_VNC
+</td>
+<td>
+</td></tr>
+<tr>
+<td>PD8
+</td>
+<td>LVDS0_VP3
+</td>
+<td>
+</td></tr>
+<tr>
+<td>PD9
+</td>
+<td>LVDS0_VN3
+</td>
+<td>
+</td></tr>
+<tr>
+<td>PD10
+</td>
+<td>LVDS1_VP0
+</td>
+<td>Used only in Dual Channel
+</td></tr>
+<tr>
+<td>PD11
+</td>
+<td>LVDS1_VN0
+</td>
+<td>Used only in Dual Channel
+</td></tr>
+<tr>
+<td>PD12
+</td>
+<td>LVDS1_VP1
+</td>
+<td>Used only in Dual Channel
+</td></tr>
+<tr>
+<td>PD13
+</td>
+<td>LVDS1_VN1
+</td>
+<td>Used only in Dual Channel
+</td></tr>
+<tr>
+<td>PD14
+</td>
+<td>LVDS1_VP2
+</td>
+<td>Used only in Dual Channel
+</td></tr>
+<tr>
+<td>PD15
+</td>
+<td>LVDS1_VN2
+</td>
+<td>Used only in Dual Channel
+</td></tr>
+<tr>
+<td>PD16
+</td>
+<td>LVDS1_VPC
+</td>
+<td>Used only in Dual Channel
+</td></tr>
+<tr>
+<td>PD17
+</td>
+<td>LVDS1_VNC
+</td>
+<td>Used only in Dual Channel
+</td></tr>
+<tr>
+<td>PD18
+</td>
+<td>LVDS1_VP3
+</td>
+<td>Used only in Dual Channel
+</td></tr>
+<tr>
+<td>PD19
+</td>
+<td>LVDS1_VN3
+</td>
+<td>Used only in Dual Channel
+</td></tr></tbody></table>
+<p>See:
+<a href="Cubieboard/LVDS.html" title="Cubieboard/LVDS">Cubieboard/LVDS</a>
+</p>
+<h2><span class="mw-headline" id="VGA">VGA</span></h2>
+<p>TBD
+</p><p><br />
+</p>
+<h2><span id="TV/CVBS"></span><span class="mw-headline" id="TV.2FCVBS">TV/CVBS</span></h2>
+<p>The composite output can be used by configuring a screen in TV mode (2).<br />
+Then DAC #3 must be configured for composite (0).<br />
+Be sure to choose the right mode for your TV (PAL = 11 / NTSC = 14).
+</p><p><a href="Fex_Guide.html#.23disp_init_configuration" title="Fex Guide">Fex</a> example:
+</p>
+<pre> [disp_init]
+ disp_init_enable = 1
+ disp_mode = 0
+ screen0_output_type = 2
+ screen0_output_mode = 11
+ [tv_out_dac_para]
+ dac_used = 1
+ dac3_src = 0
+</pre>
+<h2><span class="mw-headline" id="Using_two_displays">Using two displays</span></h2>
+<p>A10 has support for using two independent display outputs. Depending on board wiring and other hardware limitations not all output combinations may be possible. More information is available on our <a href="Dual_Monitor_Support.html" title="Dual Monitor Support">Dual Monitor Support</a> page.
+</p>
+<h2><span class="mw-headline" id="Using_hardware_scaler">Using hardware scaler</span></h2>
+<p>In some configurations turning the hardware scaler on or off in script.bin solves some issues.
+</p><p>More specifcally. when driving a high bandwidth screen resolution (specifically 1920x1080 (1080p) with 32bpp at 60Hz) the Allwinner chip may sometimes be starved for memory bandwidth for refreshing the screen, especially if other components on the chip are utilizing a lot of memory bandwidth. The symptom is a "wavy screen" with most of the screen scanlines bouncing up and down quickly. This has been observed on an A10 in the Xorg environment (small bouncing), and on an A20 in X when running GLES accelerated Mali applications (heavy bouncing), especially with a large window size. Turning on "scaler mode" seems to solve the issue in both cases (sometimes it can be enough to lower the refresh rate, for example use 1080p at 50 Hz instead of 60 Hz). Scaler mode can be enabled by changing script.bin (fb0_scaler_mode_enable = 1) or using a runtime mode-setting utility such as [<a class="external autonumber" href="http://www.github.com/hglm/a10disp.git">[1]</a>].
+</p>
+<h2><span class="mw-headline" id="Driving_LCDs">Driving LCDs</span></h2>
+<p>Tablet LCDs can generally may be made to work provided that the LCD parameters in script.bin are correct (see <a href="Fex_Guide.html#lcd.5B0.2F1.5D_configuration" title="Fex Guide">Fex guide LCD parameter section</a>). Usually these will be need to be obtained from the script.bin in Android's bootloader partition (/dev/block/nanda). Normally you would use Android's script.bin (converted to .fex) as a base and adopt it for linux-sunxi.
+</p><p>Tthe script.bin settings in the [disp_init] section (see <a href="Fex_Guide.html#disp_init_configuration" title="Fex Guide">Fex guide</a>) for Android tablets are usually configured to boot with screen0 on the LCD. A fex file configured to boot from LCD might like this:
+</p>
+<pre>[disp_init]
+disp_init_enable = 1
+disp_mode = 0
+screen0_output_type = 1
+screen0_output_mode = 4
+screen1_output_type = 1
+screen1_output_mode = 4
+fb0_framebuffer_num = 2
+fb0_format = 10
+fb0_pixel_sequence = 0
+fb0_scaler_mode_enable = 0
+fb0_width = 0
+fb0_height = 0
+fb1_framebuffer_num = 2
+fb1_format = 10
+fb1_pixel_sequence = 0
+fb1_scaler_mode_enable = 0
+fb1_width = 0
+fb1_height = 0
+</pre>
+<p>screen0_output_type = 1 means LCD.  The screen0_output_mode probably does not matter when the output type is LCD, since the LCD resolution is defined in the LCD parameter section.
+</p><p>Switching between LCD and HDMI at runtime works using a utility such as <a class="external free" href="http://www.github.com/hglm/a10disp.git">http://www.github.com/hglm/a10disp.git</a>. Driving two screens (such as LCD and HDMI) at the same time (which the hardware supports) has not been extensively tested or verified.
+</p><p><br />
+</p>
+<h1><span class="mw-headline" id="See_Also">See Also</span></h1>
+<ul><li><a href="Sunxi_disp_driver_interface.html" title="Sunxi disp driver interface">IOCTLs for Allwinners disp driver.</a></li>
+<li><a href="Xorg.html" title="Xorg">Setting up Xorg</a></li>
+<li><a href="Mali_binary_driver.html" title="Mali binary driver">Mali binary driver</a></li>
+<li><a href="Video_Engine.html" title="Video Engine">Hardware Media decoding</a></li></ul>
+<!-- 
+NewPP limit report
+Cached time: 20251029040910
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.058 seconds
+Real time usage: 0.102 seconds
+Preprocessor visited node count: 133/1000000
+Post‐expand include size: 1212/2097152 bytes
+Template argument size: 375/2097152 bytes
+Highest expansion depth: 7/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 3631/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   16.199      1 Template:Alert
+100.00%   16.199      1 -total
+ 80.97%   13.116      1 Template:MBOX_NOTE
+ 36.43%    5.902      1 Template:MBOX
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:465-0!canonical and timestamp 20251029040910 and revision id 23014
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=Display&amp;oldid=23014">https://linux-sunxi.org/index.php?title=Display&amp;oldid=23014</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Categories</a>: <ul><li><a href="Category:Tutorial.html" title="Category:Tutorial">Tutorial</a></li><li><a href="https://linux-sunxi.org/index.php?title=Category:Legacy_Tutorial&amp;action=edit&amp;redlink=1" class="new" title="Category:Legacy Tutorial (page does not exist)">Legacy Tutorial</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=Display" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=Display" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="Display.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:Display&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="Display.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Display&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Display&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/Display.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/Display" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=Display&amp;oldid=23014" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=Display&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 20 December 2019, at 19:06.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.058","walltime":"0.102","ppvisitednodes":{"value":133,"limit":1000000},"postexpandincludesize":{"value":1212,"limit":2097152},"templateargumentsize":{"value":375,"limit":2097152},"expansiondepth":{"value":7,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":3631,"limit":5000000},"timingprofile":["100.00%   16.199      1 Template:Alert","100.00%   16.199      1 -total"," 80.97%   13.116      1 Template:MBOX_NOTE"," 36.43%    5.902      1 Template:MBOX"]},"cachereport":{"timestamp":"20251029040910","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":873});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

@@ -1,0 +1,1761 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>LCD - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"595e24d0246fda07087beeb0","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"LCD","wgTitle":"LCD","wgCurRevisionId":26403,"wgRevisionId":26403,"wgArticleId":1911,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Hardware"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"LCD","wgRelevantArticleId":1911,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":"ready","user":"ready",
+"user.options":"loading","ext.cite.styles":"ready","skins.vector.styles.legacy":"ready","jquery.makeCollapsible.styles":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","ext.cite.ux-enhancements","site","mediawiki.page.startup","mediawiki.page.ready","jquery.makeCollapsible","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=ext.cite.styles%7Cjquery.makeCollapsible.styles%7Cmediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="LCD.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-LCD rootpage-LCD skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">LCD</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>Allwinner SoCs can output display signals to LCD panels.
+</p><p>For devices with LCD displays, the resolution and timing values
+can be found in the <a href="Fex_Guide.html#lcd.5B0.2F1.5D_configuration" title="Fex Guide"> FEX file</a>.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Software"><span class="tocnumber">1</span> <span class="toctext">Software</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Mainline_U-Boot"><span class="tocnumber">1.1</span> <span class="toctext">Mainline U-Boot</span></a>
+<ul>
+<li class="toclevel-3 tocsection-3"><a href="#FEX_conversion_rules"><span class="tocnumber">1.1.1</span> <span class="toctext">FEX conversion rules</span></a></li>
+<li class="toclevel-3 tocsection-4"><a href="#Mainline_Linux_.28panel-simple.29"><span class="tocnumber">1.1.2</span> <span class="toctext">Mainline Linux (panel-simple)</span></a></li>
+<li class="toclevel-3 tocsection-5"><a href="#Script_for_automated_conversion"><span class="tocnumber">1.1.3</span> <span class="toctext">Script for automated conversion</span></a></li>
+<li class="toclevel-3 tocsection-6"><a href="#Dithering_test_program"><span class="tocnumber">1.1.4</span> <span class="toctext">Dithering test program</span></a></li>
+<li class="toclevel-3 tocsection-7"><a href="#Bulk_automatic_conversion_of_all_FEX_files_from_the_sunxi-boards_repository"><span class="tocnumber">1.1.5</span> <span class="toctext">Bulk automatic conversion of all FEX files from the sunxi-boards repository</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="#LCD_panel"><span class="tocnumber">2</span> <span class="toctext">LCD panel</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#Downloadable_LCD_panel_datasheets"><span class="tocnumber">3</span> <span class="toctext">Downloadable LCD panel datasheets</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Software">Software</span></h1>
+<h2><span class="mw-headline" id="Mainline_U-Boot">Mainline U-Boot</span></h2>
+<p>Support for LCD displays is available in mainline U-boot, starting from release v2015.04.
+</p>
+<h4><span class="mw-headline" id="FEX_conversion_rules">FEX conversion rules</span></h4>
+<p>The timing definitions and values are slightly different from the FEX files.
+The following is a translation table.
+</p>
+<table class="wikitable">
+
+<tbody><tr>
+<th>Value</th>
+<th>CONFIG_DM_VIDEO</th>
+<th>CONFIG_VIDEO_LCD_MODE</th>
+<th>FEX file values</th>
+<th>Notes
+</th></tr>
+<tr>
+<td>Horizontal resolution (pixels)</td>
+<td>hactive</td>
+<td>x</td>
+<td>lcd_x
+</td></tr>
+<tr>
+<td>Vertical Resolution (pixels)</td>
+<td>vactive</td>
+<td>y</td>
+<td>lcd_y
+</td></tr>
+<tr>
+<td>Color depth / format</td>
+<td>data-mapping</td>
+<td>depth</td>
+<td>lcd_frm:0 =&gt; depth:24 (to be verified)<br />
+<p>lcd_frm:1 =&gt; depth:18
+</p>
+</td></tr>
+<tr>
+<td>Pixel Clock (KHz)</td>
+<td>clock-frequency (Hz)</td>
+<td>pclk_khz</td>
+<td>lcd_dclk_freq * 1000
+</td></tr>
+<tr>
+<td>Horizontal Sync Length</td>
+<td>hsync-len</td>
+<td>hs</td>
+<td>lcd_hv_hspw (with a minimum of 1)</td>
+<td><sup id="cite_ref-blanking_1-0" class="reference"><a href="#cite_note-blanking-1">&#91;1&#93;</a></sup>
+</td></tr>
+<tr>
+<td>Vertical Sync Length</td>
+<td>vsync-len</td>
+<td>vs</td>
+<td>lcd_hv_vspw (with a minimum of 1)</td>
+<td><sup id="cite_ref-blanking_1-1" class="reference"><a href="#cite_note-blanking-1">&#91;1&#93;</a></sup>
+</td></tr>
+<tr>
+<td>Left Margin (Horizontal back porch)</td>
+<td>hback-porch</td>
+<td>le</td>
+<td>lcd_hbp - hs</td>
+<td><sup id="cite_ref-blanking_1-2" class="reference"><a href="#cite_note-blanking-1">&#91;1&#93;</a></sup>
+</td></tr>
+<tr>
+<td>Right Margin (Horizontal front porch)</td>
+<td>hfront-porch</td>
+<td>ri</td>
+<td>lcd_ht - lcd_x - lcd_hbp</td>
+<td><sup id="cite_ref-blanking_1-3" class="reference"><a href="#cite_note-blanking-1">&#91;1&#93;</a></sup>
+</td></tr>
+<tr>
+<td>Top Margin (Vertical back porch)</td>
+<td>vback-porch</td>
+<td>up</td>
+<td>lcd_vbp - vs</td>
+<td><sup id="cite_ref-blanking_1-4" class="reference"><a href="#cite_note-blanking-1">&#91;1&#93;</a></sup>
+</td></tr>
+<tr>
+<td>Bottom Margin (Vertical front porch)</td>
+<td>vfront-porch</td>
+<td>lo</td>
+<td><sup id="cite_ref-blanking_1-5" class="reference"><a href="#cite_note-blanking-1">&#91;1&#93;</a></sup>
+<pre>sun[457i]: (lcd_vt / 2) - lcd_y - lcd_vbp
+sun8i: lcd_vt - lcd_y - lcd_vbp
+</pre>
+</td></tr>
+<tr>
+<td>u-boot SYNC flags</td>
+<td>NA</td>
+<td>sync:3</td>
+<td>NA
+</td></tr>
+<tr>
+<td>u-boot VMODE flags</td>
+<td>NA</td>
+<td>vmode:0</td>
+<td>NA
+</td></tr></tbody></table>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-blanking-1"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-blanking_1-0">1.0</a></sup> <sup><a href="#cite_ref-blanking_1-1">1.1</a></sup> <sup><a href="#cite_ref-blanking_1-2">1.2</a></sup> <sup><a href="#cite_ref-blanking_1-3">1.3</a></sup> <sup><a href="#cite_ref-blanking_1-4">1.4</a></sup> <sup><a href="#cite_ref-blanking_1-5">1.5</a></sup></span> <span class="reference-text"><a class="external text" href="http://en.wikipedia.org/wiki/Horizontal_blanking_interval">Definition of back porch / front porch / sync pulse based on Wikipedia</a></span>
+</li>
+</ol></div>
+<h4><span id="Mainline_Linux_(panel-simple)"></span><span class="mw-headline" id="Mainline_Linux_.28panel-simple.29">Mainline Linux (panel-simple)</span></h4>
+<p>In the mainline kernel, this file is in /drivers/gpu/drm/panel
+</p><p>Conversion from LCD timing from u-boot configuration string to <tt>struct drm_display_mode</tt> in mainline kernel:
+</p>
+<pre>CONFIG_VIDEO_LCD_MODE="x:1024,y:768,depth:18,pclk_khz:100000,le:799,ri:260,up:15,lo:16,hs:1,vs:1,sync:3,vmode:0"</pre>
+<pre>static const struct drm_display_mode unknown_display = {
+    .clock = 100000,                    // pclk_khz (FEX: lcd_dclk_freq * 1000)
+    .hdisplay = 1024,                   // x (FEX: lcd_x)
+    .hsync_start = 1024 + 260,          // x + ri
+    .hsync_end = 1024 + 260 + 1,        // x + ri + hs
+    .htotal = 1024 + 260 + 1 + 799,     // x + ri + hs + le (FEX: lcd_ht)
+    .vdisplay = 768,                    // y (FEX: lcd_y)
+    .vsync_start = 768 + 16,            // y + lo
+    .vsync_end = 768 + 16 + 1,          // y + lo + vs
+    .vtotal = 768 + 16 + 1 + 15,        // y + lo + vs + up (FEX: lcd_vt / 2)
+    .vrefresh = 60,  // 
+};
+</pre>
+<p>Example timing calculation from a INNOLUX EJ070NA-01J 7inch LVDS LCD datasheet (tested on DS167 board):
+</p><p><a href="File:7inch-LVDS-example.png.html" class="image"><img alt="7inch-LVDS-example.png" src="https://linux-sunxi.org/images/9/9a/7inch-LVDS-example.png" decoding="async" width="640" height="399" /></a>
+</p><p>Corresponding u-boot configuration string:
+</p>
+<pre>CONFIG_VIDEO_LCD_MODE="x:1024,y:600,depth:18,pclk_khz:51000,le:22,ri:297,up:1,lo:33,hs:1,vs:1,sync:3,vmode:0"</pre>
+<p>Note: Some values above such as pclk, le, ri,lo...etc have margins as seen from above datasheet. You may get perfectly fine picture if you set ri=296 instead of ri=297 here. You might experience visual artifacts if your settings are beyond defined limits in the datasheet.
+</p>
+<h4><span class="mw-headline" id="Script_for_automated_conversion">Script for automated conversion</span></h4>
+<p>The following ruby script takes fex file name as a command line parameter and produces the corresponding config line for u-boot according to the rules from the table above.
+</p>
+<div class="toccolours mw-collapsible mw-collapsed">
+<p><b>Here is the ruby script (click on the 'Expand' link to see it):</b>
+</p>
+<div class="mw-collapsible-content">
+<pre>#!/usr/bin/env ruby
+
+if !ARGV[0] || !File.exists?(ARGV[0]) then
+  abort "Usage: ruby #{__FILE__} [fex_file_name]\n"
+end
+
+def parse_fex_section(filename, section)
+  results = {}
+  current_section = ""
+  File.open(filename).each_line {|l|
+    current_section = $1 if l =~ /^\[(.*?)\]/
+    next if current_section&#160;!= section
+    results[$1] = $2.strip if l =~ /^(\S+)\s*\=\s*(.*)/
+    results[$1] = $2.to_i if l =~ /^(\S+)\s*\=\s*(\d+)\s*$/
+  }
+  return results
+end
+
+def print_video_lcd_mode(lcd0_para, vt_div)
+  x        = lcd0_para["lcd_x"]
+  y        = lcd0_para["lcd_y"]
+  depth    = { 0 =&gt; 24, 1 =&gt; 18 }[lcd0_para["lcd_frm"]]
+  pclk_khz = lcd0_para["lcd_dclk_freq"] * 1000
+  hs       = [1, (lcd0_para["lcd_hv_hspw"] || lcd0_para["lcd_hspw"])].max
+  vs       = [1, (lcd0_para["lcd_hv_vspw"] || lcd0_para["lcd_vspw"])].max
+  le       = lcd0_para["lcd_hbp"] - hs
+  ri       = lcd0_para["lcd_ht"] - x - lcd0_para["lcd_hbp"]
+  up       = lcd0_para["lcd_vbp"] - vs
+  lo       = lcd0_para["lcd_vt"] / vt_div - y - lcd0_para["lcd_vbp"]
+
+  abort "Unsupported 'lcd_frm' parameter" if !depth
+
+  printf("CONFIG_VIDEO_LCD_MODE=\"" +
+         "x:#{x},y:#{y},depth:#{depth},pclk_khz:#{pclk_khz}," +
+         "le:#{le},ri:#{ri},up:#{up},lo:#{lo},hs:#{hs},vs:#{vs}," +
+         "sync:3,vmode:0\"\n")
+end
+
+lcd0_para = parse_fex_section(ARGV[0], "lcd0_para")
+abort "Not a valid 'lcd0_para' section" if lcd0_para["lcd_used"]&#160;!= 1
+
+printf("== for sun[457]i ==\n")
+print_video_lcd_mode(lcd0_para, 2)
+
+printf("\n== for sun[68]i ==\n")
+print_video_lcd_mode(lcd0_para, 1)
+</pre>
+</div>
+</div>
+<h4><span class="mw-headline" id="Dithering_test_program">Dithering test program</span></h4>
+<p>If in doubt regarding 18-bit vs. 24-bit depth, it is possible to compile and run on the device the following simple test program. It should show a smooth gradient picture. If the gradient looks blocky, then the depth most likely needs to be changed to 18.
+</p>
+<div class="toccolours mw-collapsible mw-collapsed">
+<p><b>Here is the C source code (click on the 'Expand' link to see it):</b>
+</p>
+<div class="mw-collapsible-content">
+<pre>/* gcc -O2 -o fbgradient fbgradient.c */
+
+#include &lt;stdint.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;fcntl.h&gt;
+#include &lt;linux/fb.h&gt;
+#include &lt;sys/ioctl.h&gt;
+#include &lt;sys/mman.h&gt;
+
+int main()
+{
+    int fd, x, y;
+    uint32_t *fb;
+    struct fb_fix_screeninfo finfo;
+    struct fb_var_screeninfo vinfo;
+
+    if ((fd = open("/dev/fb0", O_RDWR)) == -1) {
+        printf("Can't open /dev/fb0\n");
+        return 1;
+    }
+
+    if (ioctl(fd, FBIOGET_FSCREENINFO, &amp;finfo)) {
+        printf("FBIOGET_FSCREENINFO failed\n");
+        return 1;
+    }
+
+    if (ioctl(fd, FBIOGET_VSCREENINFO, &amp;vinfo)) {
+        printf("FBIOGET_VSCREENINFO failed\n");
+        return 1;
+    }
+
+    if (vinfo.bits_per_pixel&#160;!= 32) {
+        printf("Only 32bpp framebuffer is supported\n");
+        return 1;
+    }
+
+    fb = mmap(0, finfo.smem_len, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
+    if (fb == (void *)-1) {
+        printf("mmap failed\n");
+        return 1;
+    }
+
+    for (y = 0; y &lt; vinfo.yres; y++)
+        for (x = 0; x &lt; vinfo.xres; x++)
+            fb[y * vinfo.xres + x] = (255 * x / vinfo.xres) * 0x000100 +
+                                     (255 * y / vinfo.yres) * 0x010001;
+
+    return 0;
+}
+</pre>
+</div>
+</div>
+<h4><span class="mw-headline" id="Bulk_automatic_conversion_of_all_FEX_files_from_the_sunxi-boards_repository">Bulk automatic conversion of all FEX files from the <a class="external text" href="https://github.com/linux-sunxi/sunxi-boards">sunxi-boards</a> repository</span></h4>
+<p>The results of automatic FEX files conversion are listed in the table below. The CONFIG_VIDEO_LCD_MODE line should be accurate and calculated exactly as described in the first section of this page. But the GPIO settings need careful human review. "Green" settings are likely to be usable as-is. "Yellow" most definitely need some tweaks. "Orange" are impossible to support with the current u-boot code.
+</p><p>CONFIG_VIDEO_LCD_PANEL_LVDS conversion rules - <a rel="nofollow" class="external free" href="http://lists.denx.de/pipermail/u-boot/2015-January/200168.html">http://lists.denx.de/pipermail/u-boot/2015-January/200168.html</a>
+</p><p>CONFIG_VIDEO_LCD_DCLK_PHASE conversion rules - <a rel="nofollow" class="external free" href="http://lists.denx.de/pipermail/u-boot/2015-January/201751.html">http://lists.denx.de/pipermail/u-boot/2015-January/201751.html</a>
+</p>
+<table class="wikitable">
+<tbody><tr>
+<td>SoC
+</td>
+<td>Device info
+</td>
+<td>FEX file
+</td>
+<td>CONFIG_VIDEO_LCD_MODE u-boot settings
+</td></tr>
+<tr>
+<td><a href="A20.html" title="A20">A20</a>
+</td>
+<td>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a20/Mele_M3.fex">Mele_M3.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:800,y:480,depth:24,pclk_khz:33000,le:45,ri:209,up:22,lo:22,hs:1,vs:1,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_POWER="PH8"
+CONFIG_VIDEO_LCD_BL_EN="PH7"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A10.html" title="A10">A10</a>
+</td>
+<td><a href="Olimex_A10-OLinuXino-Lime.html" title="Olimex A10-OLinuXino-Lime">Olimex_A10-OLinuXino-Lime</a>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a10/a10-olinuxino-lime.fex">a10-olinuxino-lime.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:800,y:480,depth:24,pclk_khz:33000,le:45,ri:209,up:22,lo:22,hs:1,vs:1,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_POWER="PH8"
+CONFIG_VIDEO_LCD_BL_EN="PH7"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A10s.html" title="A10s">A10s</a>
+</td>
+<td><a href="Olimex_A10s-OLinuXino-Micro.html" title="Olimex A10s-OLinuXino-Micro">Olimex_A10s-OLinuXino-Micro</a>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a10s/a10s-olinuxino-m.fex">a10s-olinuxino-m.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:800,y:480,depth:18,pclk_khz:33000,le:16,ri:209,up:22,lo:24,hs:30,vs:1,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_DCLK_PHASE=0
+CONFIG_VIDEO_LCD_POWER="PB9"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A10s.html" title="A10s">A10s</a>
+</td>
+<td>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a10s/a10s-olinuxino-m-lcd10.fex">a10s-olinuxino-m-lcd10.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:1024,y:600,depth:18,pclk_khz:45000,le:150,ri:16,up:21,lo:2,hs:10,vs:2,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_DCLK_PHASE=0
+CONFIG_VIDEO_LCD_POWER="PB9"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A10s.html" title="A10s">A10s</a>
+</td>
+<td>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a10s/a10s-olinuxino-m-lcd7.fex">a10s-olinuxino-m-lcd7.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:800,y:480,depth:18,pclk_khz:33000,le:16,ri:209,up:22,lo:22,hs:30,vs:1,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_DCLK_PHASE=0
+CONFIG_VIDEO_LCD_POWER="PB9"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A13.html" title="A13">A13</a>
+</td>
+<td><a href="Olimex_A13-OLinuXino.html" title="Olimex A13-OLinuXino">Olimex_A13-OLinuXino</a>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a13/a13-olinuxino.fex">a13-olinuxino.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:800,y:600,depth:18,pclk_khz:40000,le:88,ri:40,up:19,lo:5,hs:128,vs:4,sync:3,vmode:0"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A13.html" title="A13">A13</a>
+</td>
+<td>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a13/a13-olinuxino-lcd10.fex">a13-olinuxino-lcd10.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:1024,y:600,depth:18,pclk_khz:45000,le:150,ri:16,up:21,lo:2,hs:10,vs:2,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_POWER="AXP0-0"
+CONFIG_VIDEO_LCD_BL_EN="AXP0-1"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A13.html" title="A13">A13</a>
+</td>
+<td>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a13/a13-olinuxino-lcd7.fex">a13-olinuxino-lcd7.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:800,y:480,depth:18,pclk_khz:33000,le:16,ri:209,up:22,lo:22,hs:30,vs:1,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_POWER="AXP0-0"
+CONFIG_VIDEO_LCD_BL_EN="AXP0-1"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A13.html" title="A13">A13</a>
+</td>
+<td><a href="Olimex_A13-OLinuXino-Micro.html" title="Olimex A13-OLinuXino-Micro">Olimex_A13-OLinuXino-Micro</a>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a13/a13-olinuxinom.fex">a13-olinuxinom.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:800,y:600,depth:18,pclk_khz:40000,le:88,ri:40,up:19,lo:5,hs:128,vs:4,sync:3,vmode:0"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A13.html" title="A13">A13</a>
+</td>
+<td>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a13/a13-olinuxinom-lcd10.fex">a13-olinuxinom-lcd10.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:1024,y:600,depth:18,pclk_khz:45000,le:150,ri:16,up:21,lo:2,hs:10,vs:2,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_POWER="PB10"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A13.html" title="A13">A13</a>
+</td>
+<td>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a13/a13-olinuxinom-lcd7.fex">a13-olinuxinom-lcd7.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:800,y:480,depth:18,pclk_khz:33000,le:16,ri:209,up:22,lo:22,hs:30,vs:1,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_POWER="PB10"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A13.html" title="A13">A13</a>
+</td>
+<td>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a13/a13_mid.fex">a13_mid.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:800,y:480,depth:18,pclk_khz:33000,le:39,ri:88,up:22,lo:22,hs:1,vs:1,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_POWER="AXP0-0"
+CONFIG_VIDEO_LCD_BL_EN="AXP0-1"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A20.html" title="A20">A20</a>
+</td>
+<td><a href="Olimex_A20-OLinuXino-Lime.html" title="Olimex A20-OLinuXino-Lime">Olimex_A20-OLinuXino-Lime</a>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a20/a20-olinuxino_lime.fex">a20-olinuxino_lime.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:800,y:480,depth:18,pclk_khz:33000,le:16,ri:209,up:22,lo:22,hs:30,vs:1,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_DCLK_PHASE=0
+CONFIG_VIDEO_LCD_POWER="PH8"
+CONFIG_VIDEO_LCD_BL_EN="PH7"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A20.html" title="A20">A20</a>
+</td>
+<td><a href="Olimex_A20-OLinuXino-Lime2.html" title="Olimex A20-OLinuXino-Lime2">Olimex_A20-OLinuXino-Lime2</a>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a20/a20-olinuxino_lime2.fex">a20-olinuxino_lime2.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:800,y:480,depth:18,pclk_khz:33000,le:16,ri:209,up:22,lo:22,hs:30,vs:1,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_DCLK_PHASE=0
+CONFIG_VIDEO_LCD_POWER="PH8"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A20.html" title="A20">A20</a>
+</td>
+<td><a href="Olimex_A20-OLinuXino-Micro.html" title="Olimex A20-OLinuXino-Micro">Olimex_A20-OLinuXino-Micro</a>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a20/a20-olinuxino_micro.fex">a20-olinuxino_micro.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:800,y:480,depth:24,pclk_khz:33000,le:45,ri:209,up:22,lo:22,hs:1,vs:1,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_POWER="PH8"
+CONFIG_VIDEO_LCD_BL_EN="PH7"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A20.html" title="A20">A20</a>
+</td>
+<td>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a20/a20-olinuxino_micro-lcd10.fex">a20-olinuxino_micro-lcd10.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:1024,y:600,depth:18,pclk_khz:45000,le:150,ri:16,up:21,lo:2,hs:10,vs:2,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_DCLK_PHASE=0
+CONFIG_VIDEO_LCD_POWER="PH8"
+CONFIG_VIDEO_LCD_BL_EN="PH7"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A20.html" title="A20">A20</a>
+</td>
+<td>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a20/a20-olinuxino_micro-lcd7.fex">a20-olinuxino_micro-lcd7.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:800,y:480,depth:18,pclk_khz:33000,le:16,ri:209,up:22,lo:22,hs:30,vs:1,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_POWER="PH8"
+CONFIG_VIDEO_LCD_BL_EN="PH7"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A20.html" title="A20">A20</a>
+</td>
+<td><a href="A70x.html" title="A70x">A70x</a>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a20/a70x.fex">a70x.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:800,y:480,depth:24,pclk_khz:33000,le:45,ri:209,up:22,lo:22,hs:1,vs:1,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_POWER="PH8"
+CONFIG_VIDEO_LCD_BL_EN="PH7"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A20.html" title="A20">A20</a>
+</td>
+<td><a href="Ainol_AW1.html" title="Ainol AW1">Ainol_AW1</a>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a20/ainol_aw1.fex">ainol_aw1.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:800,y:480,depth:18,pclk_khz:40000,le:87,ri:112,up:38,lo:141,hs:1,vs:1,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_POWER="PH8"
+CONFIG_VIDEO_LCD_BL_EN="PH7"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A13.html" title="A13">A13</a>
+</td>
+<td><a href="Ampe_A76.html" title="Ampe A76">Ampe_A76</a>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a13/ampe_a76.fex">ampe_a76.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:800,y:480,depth:18,pclk_khz:33000,le:45,ri:82,up:22,lo:22,hs:1,vs:1,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_POWER="AXP0-0"
+CONFIG_VIDEO_LCD_BL_EN="AXP0-1"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A20.html" title="A20">A20</a>
+</td>
+<td>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a20/banana_pi_35lcd.fex">banana_pi_35lcd.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:320,y:240,depth:24,pclk_khz:7000,le:38,ri:20,up:15,lo:4,hs:30,vs:3,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_POWER="PH12"
+CONFIG_VIDEO_LCD_BL_EN="PH8"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A20.html" title="A20">A20</a>
+</td>
+<td>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a20/banana_pi_5lcd.fex">banana_pi_5lcd.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:800,y:480,depth:24,pclk_khz:30000,le:40,ri:40,up:29,lo:13,hs:48,vs:3,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_POWER="PH12"
+CONFIG_VIDEO_LCD_BL_EN="PH8"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A20.html" title="A20">A20</a>
+</td>
+<td>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a20/banana_pi_7lcd.fex">banana_pi_7lcd.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:1024,y:600,depth:24,pclk_khz:55000,le:100,ri:170,up:10,lo:15,hs:50,vs:10,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_PANEL_LVDS=y
+CONFIG_VIDEO_LCD_POWER="PH12"
+CONFIG_VIDEO_LCD_BL_EN="PH8"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A20.html" title="A20">A20</a>
+</td>
+<td>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a20/banana_pro_35lcd.fex">banana_pro_35lcd.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:320,y:240,depth:24,pclk_khz:7000,le:38,ri:20,up:15,lo:4,hs:30,vs:3,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_POWER="PH12"
+CONFIG_VIDEO_LCD_BL_EN="PH8"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A20.html" title="A20">A20</a>
+</td>
+<td>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a20/banana_pro_5lcd.fex">banana_pro_5lcd.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:800,y:480,depth:24,pclk_khz:30000,le:40,ri:40,up:29,lo:13,hs:48,vs:3,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_POWER="PH12"
+CONFIG_VIDEO_LCD_BL_EN="PH8"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A20.html" title="A20">A20</a>
+</td>
+<td>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a20/banana_pro_7lcd.fex">banana_pro_7lcd.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:1024,y:600,depth:24,pclk_khz:55000,le:100,ri:170,up:10,lo:15,hs:50,vs:10,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_PANEL_LVDS=y
+CONFIG_VIDEO_LCD_POWER="PH12"
+CONFIG_VIDEO_LCD_BL_EN="PH8"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A10.html" title="A10">A10</a>
+</td>
+<td>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a10/cherry728.fex">cherry728.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:1024,y:600,depth:24,pclk_khz:51000,le:45,ri:274,up:22,lo:12,hs:1,vs:1,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_PANEL_LVDS=y
+CONFIG_VIDEO_LCD_POWER="PH2"
+CONFIG_VIDEO_LCD_BL_EN="PH9"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A10.html" title="A10">A10</a>
+</td>
+<td>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a10/chuwi-v7-cw0825.fex">chuwi-v7-cw0825.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:1024,y:768,depth:24,pclk_khz:51000,le:19,ri:300,up:6,lo:31,hs:1,vs:1,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_PANEL_LVDS=y
+VIDEO_LCD_HITACHI_TX18D42VM=y
+VIDEO_LCD_SPI_CS="PA0"
+VIDEO_LCD_SPI_SCLK="PA1"
+VIDEO_LCD_SPI_MOSI="PA2"
+CONFIG_VIDEO_LCD_POWER="PH8"
+CONFIG_VIDEO_LCD_BL_EN="PH7"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A10.html" title="A10">A10</a>
+</td>
+<td><a href="Coby_MID7042.html" title="Coby MID7042">Coby_MID7042</a>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a10/coby_mid7042.fex">coby_mid7042.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:800,y:480,depth:18,pclk_khz:33000,le:214,ri:40,up:33,lo:11,hs:1,vs:1,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_POWER="PH8"
+CONFIG_VIDEO_LCD_BL_EN="PH7"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A10.html" title="A10">A10</a>
+</td>
+<td>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a10/coby_mid8042.fex">coby_mid8042.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:800,y:600,depth:18,pclk_khz:45000,le:85,ri:170,up:38,lo:11,hs:1,vs:1,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_POWER="PH8"
+CONFIG_VIDEO_LCD_BL_EN="PH7"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A10.html" title="A10">A10</a>
+</td>
+<td>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a10/coby_mid9742.fex">coby_mid9742.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:1024,y:768,depth:18,pclk_khz:100000,le:479,ri:544,up:5,lo:26,hs:1,vs:1,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_DCLK_PHASE=0
+CONFIG_VIDEO_LCD_PANEL_LVDS=y
+CONFIG_VIDEO_LCD_POWER="PH8"
+CONFIG_VIDEO_LCD_BL_EN="PH7"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A10.html" title="A10">A10</a>
+</td>
+<td><a href="Cubietech_Cubieboard.html" title="Cubietech Cubieboard">Cubietech_Cubieboard</a>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a10/cubieboard.fex">cubieboard.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:800,y:480,depth:24,pclk_khz:33000,le:45,ri:209,up:22,lo:22,hs:1,vs:1,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_POWER="PH8"
+CONFIG_VIDEO_LCD_BL_EN="PH7"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A10.html" title="A10">A10</a>
+</td>
+<td>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a10/cubieboard_512.fex">cubieboard_512.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:800,y:480,depth:24,pclk_khz:33000,le:45,ri:209,up:22,lo:22,hs:1,vs:1,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_POWER="PH8"
+CONFIG_VIDEO_LCD_BL_EN="PH7"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A20.html" title="A20">A20</a>
+</td>
+<td><a href="Cubietech_Cubietruck.html" title="Cubietech Cubietruck">Cubietech_Cubietruck</a>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a20/cubietruck.fex">cubietruck.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:800,y:480,depth:24,pclk_khz:33000,le:45,ri:209,up:22,lo:22,hs:1,vs:1,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_POWER="PH8"
+CONFIG_VIDEO_LCD_BL_EN="PH7"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A10.html" title="A10">A10</a>
+</td>
+<td>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a10/dns_m82.fex">dns_m82.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:1024,y:768,depth:24,pclk_khz:64000,le:198,ri:120,up:21,lo:15,hs:2,vs:2,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_PANEL_LVDS=y
+CONFIG_VIDEO_LCD_POWER="PH8"
+CONFIG_VIDEO_LCD_BL_EN="PH7"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A13.html" title="A13">A13</a>
+</td>
+<td><a href="Forfun_Q88DB.html" title="Forfun Q88DB">Forfun_Q88DB</a>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a13/forfun_q88db.fex">forfun_q88db.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:800,y:480,depth:18,pclk_khz:33000,le:87,ri:40,up:31,lo:13,hs:1,vs:1,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_POWER="AXP0-0"
+CONFIG_VIDEO_LCD_BL_EN="AXP0-1"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A10.html" title="A10">A10</a>
+</td>
+<td><a href="Topwise_A721.html" title="Topwise A721">Topwise_A721</a>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a10/gooseberry_a721.fex">gooseberry_a721.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:800,y:480,depth:24,pclk_khz:33000,le:45,ri:209,up:22,lo:22,hs:1,vs:1,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_POWER="PH8"
+CONFIG_VIDEO_LCD_BL_EN="PH7"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A10.html" title="A10">A10</a>
+</td>
+<td>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a10/h6.fex">h6.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:1024,y:600,depth:24,pclk_khz:45000,le:159,ri:16,up:22,lo:12,hs:1,vs:1,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_POWER="PH8"
+CONFIG_VIDEO_LCD_BL_EN="PH7"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A10.html" title="A10">A10</a>
+</td>
+<td><a href="Miniand_Hackberry.html" title="Miniand Hackberry">Miniand_Hackberry</a>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a10/hackberry.fex">hackberry.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:800,y:480,depth:24,pclk_khz:33000,le:45,ri:209,up:22,lo:22,hs:1,vs:1,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_POWER="PH8"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A20.html" title="A20">A20</a>
+</td>
+<td><a href="HDB_MID_S906.html" title="HDB MID S906">HDB_MID_S906</a>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a20/hbd_mid_s906.fex">hbd_mid_s906.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:800,y:480,depth:18,pclk_khz:42000,le:110,ri:386,up:22,lo:130,hs:48,vs:3,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_DCLK_PHASE=0
+CONFIG_VIDEO_LCD_POWER="PH8"
+CONFIG_VIDEO_LCD_BL_EN="PH7"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A13.html" title="A13">A13</a>
+</td>
+<td><a href="HSG_H702.html" title="HSG H702">HSG_H702</a>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a13/hsg_h702.fex">hsg_h702.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:800,y:480,depth:18,pclk_khz:39000,le:5,ri:83,up:20,lo:22,hs:40,vs:3,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_POWER="AXP0-0"
+CONFIG_VIDEO_LCD_BL_EN="AXP0-1"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A10.html" title="A10">A10</a>
+</td>
+<td><a href="Hyundai_A7.html" title="Hyundai A7">Hyundai_A7</a>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a10/hyundai_a7.fex">hyundai_a7.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:800,y:480,depth:24,pclk_khz:33000,le:40,ri:40,up:29,lo:13,hs:48,vs:3,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_POWER="PH8"
+CONFIG_VIDEO_LCD_BL_EN="PH7"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A10.html" title="A10">A10</a>
+</td>
+<td><a href="Hyundai_A7HD.html" title="Hyundai A7HD">Hyundai_A7HD</a>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a10/hyundai_a7hd.fex">hyundai_a7hd.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:1024,y:600,depth:24,pclk_khz:51000,le:45,ri:274,up:22,lo:12,hs:1,vs:1,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_PANEL_LVDS=y
+CONFIG_VIDEO_LCD_POWER="PH2"
+CONFIG_VIDEO_LCD_BL_EN="PH9"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A20.html" title="A20">A20</a>
+</td>
+<td>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a20/inet-k970.fex">inet-k970.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:1024,y:768,depth:18,pclk_khz:65000,le:120,ri:180,up:22,lo:13,hs:20,vs:3,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_DCLK_PHASE=0
+CONFIG_VIDEO_LCD_POWER="PH8"
+CONFIG_VIDEO_LCD_BL_EN="PH7"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A10.html" title="A10">A10</a>
+</td>
+<td><a href="Inet_97f.html" title="Inet 97f">Inet_97f</a>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a10/inet97f-ii.fex">inet97f-ii.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:800,y:480,depth:24,pclk_khz:33000,le:45,ri:209,up:22,lo:22,hs:1,vs:1,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_POWER="PH8"
+CONFIG_VIDEO_LCD_BL_EN="PH7"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A13.html" title="A13">A13</a>
+</td>
+<td><a href="Inet_86vs.html" title="Inet 86vs">Inet_86vs</a>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a13/inet_86vs.fex">inet_86vs.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:800,y:480,depth:18,pclk_khz:33000,le:45,ri:209,up:22,lo:22,hs:1,vs:1,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_DCLK_PHASE=0
+CONFIG_VIDEO_LCD_POWER="AXP0-0"
+CONFIG_VIDEO_LCD_BL_EN="AXP0-1"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A13.html" title="A13">A13</a>
+</td>
+<td><a href="Inet_86vz.html" title="Inet 86vz">Inet_86vz</a>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a13/inet_86vz.fex">inet_86vz.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:800,y:480,depth:18,pclk_khz:33000,le:45,ri:209,up:22,lo:22,hs:1,vs:1,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_DCLK_PHASE=0
+CONFIG_VIDEO_LCD_POWER="AXP0-0"
+CONFIG_VIDEO_LCD_BL_EN="AXP0-1"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A20.html" title="A20">A20</a>
+</td>
+<td><a href="Inet_k70hc.html" title="Inet k70hc">Inet_k70hc</a>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a20/inet_k70hc.fex">inet_k70hc.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:1024,y:600,depth:18,pclk_khz:51000,le:138,ri:162,up:22,lo:10,hs:20,vs:3,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_DCLK_PHASE=0
+CONFIG_VIDEO_LCD_POWER="PH8"
+CONFIG_VIDEO_LCD_BL_EN="PH7"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A20.html" title="A20">A20</a>
+</td>
+<td><a href="Yonnet_Interra-3.html" title="Yonnet Interra-3">Yonnet_Interra-3</a>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a20/interra-3.fex">interra-3.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:1280,y:800,depth:18,pclk_khz:69000,le:19,ri:118,up:9,lo:6,hs:1,vs:1,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_PANEL_LVDS=y
+CONFIG_VIDEO_LCD_POWER="PH8"
+CONFIG_VIDEO_LCD_BL_EN="PH7"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A20.html" title="A20">A20</a>
+</td>
+<td><a href="Inet_k100c.html" title="Inet k100c">Inet_k100c</a>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a20/k1001l1c.fex">k1001l1c.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:1024,y:600,depth:24,pclk_khz:52000,le:32,ri:287,up:22,lo:12,hs:1,vs:1,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_PANEL_LVDS=y
+CONFIG_VIDEO_LCD_POWER="PH8"
+CONFIG_VIDEO_LCD_BL_EN="PH7"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A20.html" title="A20">A20</a>
+</td>
+<td><a href="Kurio_7S.html" title="Kurio 7S">Kurio_7S</a>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a20/kurio_7s.fex">kurio_7s.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:1024,y:600,depth:24,pclk_khz:51000,le:157,ri:160,up:20,lo:12,hs:3,vs:3,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_DCLK_PHASE=0
+CONFIG_VIDEO_LCD_POWER="PH8"
+CONFIG_VIDEO_LCD_BL_EN="PH7"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A20.html" title="A20">A20</a>
+</td>
+<td>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a20/ltm7.fex">ltm7.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:800,y:480,depth:24,pclk_khz:33000,le:45,ri:209,up:22,lo:22,hs:1,vs:1,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_POWER="PH8"
+CONFIG_VIDEO_LCD_BL_EN="PH7"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A10.html" title="A10">A10</a>
+</td>
+<td><a href="MarsBoard_A10.html" title="MarsBoard A10">MarsBoard_A10</a>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a10/marsboard_a10.fex">marsboard_a10.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:800,y:480,depth:24,pclk_khz:33000,le:45,ri:209,up:22,lo:22,hs:1,vs:1,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_POWER="PH8"
+CONFIG_VIDEO_LCD_BL_EN="PH7"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A20.html" title="A20">A20</a>
+</td>
+<td><a href="Merrii_Hummingbird_A20.html" title="Merrii Hummingbird A20">Merrii_Hummingbird_A20</a>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a20/merrii_hummingbird_a20.fex">merrii_hummingbird_a20.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:800,y:480,depth:24,pclk_khz:33000,le:45,ri:209,up:22,lo:22,hs:1,vs:1,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_POWER="PH11"
+CONFIG_VIDEO_LCD_BL_EN="PH12"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A10.html" title="A10">A10</a>
+</td>
+<td><a href="Pineriver_H24.html" title="Pineriver H24">Pineriver_H24</a>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a10/mini-x.fex">mini-x.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:800,y:480,depth:24,pclk_khz:33000,le:45,ri:209,up:22,lo:22,hs:1,vs:1,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_POWER="PH8"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A20.html" title="A20">A20</a>
+</td>
+<td><a href="MSI_Primo73.html" title="MSI Primo73">MSI_Primo73</a>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a20/msi_primo73.fex">msi_primo73.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:1024,y:600,depth:18,pclk_khz:60000,le:60,ri:160,up:13,lo:12,hs:100,vs:10,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_DCLK_PHASE=0
+CONFIG_VIDEO_LCD_POWER="PH8"
+CONFIG_VIDEO_LCD_BL_EN="PH7"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A13.html" title="A13">A13</a>
+</td>
+<td>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a13/myaudio-708m.fex">myaudio-708m.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:800,y:480,depth:18,pclk_khz:33000,le:45,ri:210,up:22,lo:22,hs:1,vs:1,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_POWER="AXP0-0"
+CONFIG_VIDEO_LCD_BL_EN="AXP0-1"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A20.html" title="A20">A20</a>
+</td>
+<td><a href="Olimex_A20-SOM.html" title="Olimex A20-SOM">Olimex_A20-SOM</a>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a20/olimex_a20_som.fex">olimex_a20_som.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:1366,y:768,depth:18,pclk_khz:70000,le:53,ri:20,up:22,lo:17,hs:1,vs:1,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_DCLK_PHASE=0
+CONFIG_VIDEO_LCD_PANEL_LVDS=y
+CONFIG_VIDEO_LCD_POWER="PH7"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A10.html" title="A10">A10</a>
+</td>
+<td><a href="LinkSprite_pcDuino.html" title="LinkSprite pcDuino">LinkSprite_pcDuino</a>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a10/pcduino.fex">pcduino.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:800,y:480,depth:24,pclk_khz:33000,le:45,ri:209,up:22,lo:22,hs:1,vs:1,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_POWER="PH8"
+CONFIG_VIDEO_LCD_BL_EN="PH7"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A10.html" title="A10">A10</a>
+</td>
+<td>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a10/pov_protab2_ips9.fex">pov_protab2_ips9.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:1024,y:768,depth:18,pclk_khz:100000,le:480,ri:260,up:6,lo:16,hs:320,vs:10,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_DCLK_PHASE=0
+CONFIG_VIDEO_LCD_PANEL_LVDS=y
+CONFIG_VIDEO_LCD_POWER="PH8"
+CONFIG_VIDEO_LCD_BL_EN="PH7"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A10.html" title="A10">A10</a>
+</td>
+<td>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a10/pov_protab2_ips_3g.fex">pov_protab2_ips_3g.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:1024,y:768,depth:18,pclk_khz:100000,le:480,ri:260,up:6,lo:16,hs:320,vs:10,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_DCLK_PHASE=0
+CONFIG_VIDEO_LCD_PANEL_LVDS=y
+CONFIG_VIDEO_LCD_POWER="PH8"
+CONFIG_VIDEO_LCD_BL_EN="PH7"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A13.html" title="A13">A13</a>
+</td>
+<td><a href="Q8.html" title="Q8">Q8</a>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a13/pov_tab_p703.fex">pov_tab_p703.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:800,y:480,depth:18,pclk_khz:33000,le:45,ri:210,up:22,lo:22,hs:1,vs:1,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_POWER="AXP0-0"
+CONFIG_VIDEO_LCD_BL_EN="AXP0-1"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A13.html" title="A13">A13</a>
+</td>
+<td><a href="Prestigio_PMP3670B.html" title="Prestigio PMP3670B">Prestigio_PMP3670B</a>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a13/prestigio_pmp3670b.fex">prestigio_pmp3670b.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:800,y:480,depth:18,pclk_khz:30000,le:45,ri:79,up:22,lo:13,hs:1,vs:1,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_POWER="AXP0-0"
+CONFIG_VIDEO_LCD_BL_EN="AXP0-1"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A10.html" title="A10">A10</a>
+</td>
+<td><a href="Sanei_N90.html" title="Sanei N90">Sanei_N90</a>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a10/sanei_n90.fex">sanei_n90.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:1024,y:768,depth:18,pclk_khz:100000,le:480,ri:260,up:6,lo:16,hs:320,vs:10,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_DCLK_PHASE=0
+CONFIG_VIDEO_LCD_PANEL_LVDS=y
+CONFIG_VIDEO_LCD_POWER="PH8"
+CONFIG_VIDEO_LCD_BL_EN="PH7"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A13.html" title="A13">A13</a>
+</td>
+<td><a href="XW711.html" title="XW711">XW711</a>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a13/szenio_1207c4.fex">szenio_1207c4.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:800,y:480,depth:18,pclk_khz:33000,le:45,ri:82,up:22,lo:22,hs:1,vs:1,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_POWER="AXP0-0"
+CONFIG_VIDEO_LCD_BL_EN="AXP0-1"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A10.html" title="A10">A10</a>
+</td>
+<td><a href="T702A.html" title="T702A">T702A</a>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a10/t702a.fex">t702a.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:800,y:480,depth:24,pclk_khz:33000,le:45,ri:209,up:22,lo:22,hs:1,vs:1,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_POWER="PH8"
+CONFIG_VIDEO_LCD_BL_EN="PH7"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A13.html" title="A13">A13</a>
+</td>
+<td><a href="TZX-Q8-713B6.html" title="TZX-Q8-713B6">TZX-Q8-713B6</a>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a13/tzx-q8-713b6.fex">tzx-q8-713b6.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:800,y:480,depth:18,pclk_khz:33000,le:87,ri:40,up:31,lo:13,hs:1,vs:1,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_POWER="AXP0-0"
+CONFIG_VIDEO_LCD_BL_EN="AXP0-1"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A13.html" title="A13">A13</a>
+</td>
+<td><a href="TZX-Q8-713B7.html" title="TZX-Q8-713B7">TZX-Q8-713B7</a>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a13/tzx-q8-713b7.fex">tzx-q8-713b7.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:800,y:480,depth:18,pclk_khz:33000,le:87,ri:40,up:31,lo:13,hs:1,vs:1,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_POWER="AXP0-0"
+CONFIG_VIDEO_LCD_BL_EN="AXP0-1"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A20.html" title="A20">A20</a>
+</td>
+<td><a href="Wexler_TAB_7200.html" title="Wexler TAB 7200">Wexler_TAB_7200</a>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a20/wexler_tab_7200.fex">wexler_tab_7200.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:800,y:480,depth:24,pclk_khz:33000,le:45,ri:210,up:22,lo:22,hs:1,vs:1,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_POWER="PH8"
+CONFIG_VIDEO_LCD_BL_EN="PH7"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A13.html" title="A13">A13</a>
+</td>
+<td><a href="Along_rt713.html" title="Along rt713">Along_rt713</a>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a13/xzpad700.fex">xzpad700.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:800,y:480,depth:18,pclk_khz:33000,le:2,ri:78,up:29,lo:13,hs:48,vs:3,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_POWER="AXP0-0"
+CONFIG_VIDEO_LCD_BL_EN="AXP0-1"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A10.html" title="A10">A10</a>
+</td>
+<td>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a10/yarvik_tab260.fex">yarvik_tab260.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:800,y:480,depth:24,pclk_khz:33000,le:45,ri:209,up:22,lo:22,hs:1,vs:1,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_POWER="PH8"
+CONFIG_VIDEO_LCD_BL_EN="PH7"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A20.html" title="A20">A20</a>
+</td>
+<td><a href="Yones_Toptech_BD1078.html" title="Yones Toptech BD1078">Yones_Toptech_BD1078</a>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a20/yonestoptech_bd1078.fex">yonestoptech_bd1078.fex</a>
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:1024,y:600,depth:24,pclk_khz:63000,le:32,ri:287,up:22,lo:12,hs:1,vs:1,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_DCLK_PHASE=0
+CONFIG_VIDEO_LCD_PANEL_LVDS=y
+CONFIG_VIDEO_LCD_POWER="PH8"
+CONFIG_VIDEO_LCD_BL_EN="PH7"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A10.html" title="A10">A10</a>
+</td>
+<td>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a10/eoma68_a10.fex">eoma68_a10.fex</a>
+</td>
+<td><pre style="background-color: yellow;">CONFIG_VIDEO_LCD_MODE="x:1366,y:768,depth:18,pclk_khz:75000,le:12,ri:171,up:12,lo:25,hs:1,vs:1,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_DCLK_PHASE=0
+CONFIG_VIDEO_LCD_PANEL_LVDS=y
+# warning: contradicting 'lcd_pwm_used' and 'lcd_pwm_not_used'
+</pre>
+</td></tr>
+<tr>
+<td><a href="A31.html" title="A31">A31</a>
+</td>
+<td><a href="Merrii_Hummingbird_A31.html" title="Merrii Hummingbird A31">Merrii_Hummingbird_A31</a>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a31/hummingbird_a31.fex">hummingbird_a31.fex</a>
+</td>
+<td><pre style="background-color: yellow;">CONFIG_VIDEO_LCD_MODE="x:800,y:480,depth:18,pclk_khz:65000,le:45,ri:82,up:22,lo:547,hs:1,vs:1,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_DCLK_PHASE=0
+# warning: could not decode 'lcd_power' (port:power2&lt;1&gt;&lt;0&gt;&lt;default&gt;&lt;1&gt;)
+CONFIG_VIDEO_LCD_BL_EN="PM1"
+CONFIG_VIDEO_LCD_BL_PWM="PH13"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A20.html" title="A20">A20</a>
+</td>
+<td><a href="ICOU_Fatty_I.html" title="ICOU Fatty I">ICOU_Fatty_I</a>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a20/icou_fatty_i.fex">icou_fatty_i.fex</a>
+</td>
+<td><pre style="background-color: yellow;">CONFIG_VIDEO_LCD_MODE="x:768,y:1024,depth:18,pclk_khz:66000,le:56,ri:60,up:30,lo:36,hs:64,vs:50,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_DCLK_PHASE=0
+CONFIG_VIDEO_LCD_POWER="PH8"
+CONFIG_VIDEO_LCD_BL_EN="PH7"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+# warning: 'lcd_gpio_0' = 'port:PA06&lt;1&gt;&lt;0&gt;&lt;default&gt;&lt;1&gt;'
+# warning: 'lcd_gpio_1' = 'port:PA07&lt;1&gt;&lt;0&gt;&lt;default&gt;&lt;1&gt;'
+# warning: 'lcd_gpio_2' = 'port:PH24&lt;1&gt;&lt;0&gt;&lt;default&gt;&lt;0&gt;'
+# warning: 'lcd_gpio_3' = 'port:PA05&lt;1&gt;&lt;0&gt;&lt;default&gt;&lt;1&gt;'
+# warning: 'lcd_gpio_4' = 'port:PH23&lt;1&gt;&lt;0&gt;&lt;default&gt;&lt;0&gt;'
+# warning: 'lcd_gpio_5' = 'port:PH22&lt;1&gt;&lt;0&gt;&lt;default&gt;&lt;0&gt;'
+</pre>
+</td></tr>
+<tr>
+<td><a href="A10.html" title="A10">A10</a>
+</td>
+<td><a href="Inet_3fbt.html" title="Inet 3fbt">Inet_3fbt</a>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a10/inet_3fbt.fex">inet_3fbt.fex</a>
+</td>
+<td><pre style="background-color: yellow;">CONFIG_VIDEO_LCD_MODE="x:1024,y:768,depth:24,pclk_khz:100000,le:799,ri:260,up:15,lo:16,hs:1,vs:1,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_PANEL_LVDS=y
+# warning: unsupported 'lcd_lvds_mode'&#160;: 1
+CONFIG_VIDEO_LCD_POWER="PH8"
+CONFIG_VIDEO_LCD_BL_EN="PH7"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A23.html" title="A23">A23</a>
+</td>
+<td>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a23/ippo_q8h_v1.0.fex">ippo_q8h_v1.0.fex</a>
+</td>
+<td><pre style="background-color: yellow;">CONFIG_VIDEO_LCD_MODE="x:800,y:480,depth:18,pclk_khz:33000,le:45,ri:209,up:22,lo:22,hs:1,vs:1,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_DCLK_PHASE=0
+# warning: could not decode 'lcd_power' (port:power2&lt;1&gt;&lt;0&gt;&lt;default&gt;&lt;1&gt;)
+CONFIG_VIDEO_LCD_BL_EN="PH6"
+CONFIG_VIDEO_LCD_BL_PWM="PH0"
+# warning: 'lcd_gpio_0' = 'port:PH07&lt;1&gt;&lt;0&gt;&lt;default&gt;&lt;1&gt;'
+</pre>
+</td></tr>
+<tr>
+<td><a href="A23.html" title="A23">A23</a>
+</td>
+<td>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a23/ippo_q8h_v1.2.fex">ippo_q8h_v1.2.fex</a>
+</td>
+<td><pre style="background-color: yellow;">CONFIG_VIDEO_LCD_MODE="x:800,y:480,depth:18,pclk_khz:33000,le:87,ri:167,up:31,lo:13,hs:1,vs:1,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_DCLK_PHASE=0
+# warning: could not decode 'lcd_power' (port:power2&lt;1&gt;&lt;0&gt;&lt;default&gt;&lt;1&gt;)
+CONFIG_VIDEO_LCD_BL_EN="PH6"
+CONFIG_VIDEO_LCD_BL_PWM="PH0"
+# warning: 'lcd_gpio_0' = 'port:PH07&lt;1&gt;&lt;0&gt;&lt;default&gt;&lt;1&gt;'
+</pre>
+</td></tr>
+<tr>
+<td><a href="A23.html" title="A23">A23</a>
+</td>
+<td>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a23/ippo_q8h_v2.fex">ippo_q8h_v2.fex</a>
+</td>
+<td><pre style="background-color: yellow;">CONFIG_VIDEO_LCD_MODE="x:800,y:480,depth:18,pclk_khz:33000,le:45,ri:209,up:22,lo:22,hs:1,vs:1,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_DCLK_PHASE=0
+# warning: could not decode 'lcd_power' (port:power2&lt;1&gt;&lt;0&gt;&lt;default&gt;&lt;1&gt;)
+CONFIG_VIDEO_LCD_BL_EN="PH6"
+CONFIG_VIDEO_LCD_BL_PWM="PH0"
+# warning: 'lcd_gpio_0' = 'port:PH07&lt;1&gt;&lt;0&gt;&lt;default&gt;&lt;1&gt;'
+</pre>
+</td></tr>
+<tr>
+<td><a href="A23.html" title="A23">A23</a>
+</td>
+<td><a href="Ippo_q8h.html" title="Ippo q8h">Ippo_q8h</a>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a23/ippo_q8h_v5.fex">ippo_q8h_v5.fex</a>
+</td>
+<td><pre style="background-color: yellow;">CONFIG_VIDEO_LCD_MODE="x:800,y:480,depth:18,pclk_khz:33000,le:87,ri:168,up:31,lo:13,hs:1,vs:1,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_DCLK_PHASE=0
+# warning: could not decode 'lcd_power' (port:power2&lt;1&gt;&lt;0&gt;&lt;default&gt;&lt;1&gt;)
+CONFIG_VIDEO_LCD_BL_EN="PH6"
+CONFIG_VIDEO_LCD_BL_PWM="PH0"
+# warning: 'lcd_gpio_0' = 'port:PH07&lt;1&gt;&lt;0&gt;&lt;default&gt;&lt;1&gt;'
+</pre>
+</td></tr>
+<tr>
+<td><a href="A20.html" title="A20">A20</a>
+</td>
+<td><a href="Itead_ibox.html" title="Itead ibox">Itead_ibox</a>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a20/iteaduino_plus_a20.fex">iteaduino_plus_a20.fex</a>
+</td>
+<td><pre style="background-color: yellow;">CONFIG_VIDEO_LCD_MODE="x:1024,y:600,depth:18,pclk_khz:51000,le:138,ri:162,up:22,lo:10,hs:20,vs:3,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_DCLK_PHASE=0
+# warning: contradicting 'lcd_pwm_used' and 'lcd_pwm_not_used'
+</pre>
+</td></tr>
+<tr>
+<td><a href="A20.html" title="A20">A20</a>
+</td>
+<td>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a20/merrii_m2.fex">merrii_m2.fex</a>
+</td>
+<td><pre style="background-color: yellow;">CONFIG_VIDEO_LCD_MODE="x:1920,y:1080,depth:24,pclk_khz:148000,le:19,ri:260,up:19,lo:25,hs:1,vs:1,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_PANEL_LVDS=y
+# warning: unsupported 'lcd_lvds_ch'&#160;: 1
+CONFIG_VIDEO_LCD_POWER="PH8"
+CONFIG_VIDEO_LCD_BL_EN="PH7"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A31s.html" class="mw-redirect" title="A31s">A31s</a>
+</td>
+<td><a href="MSI_Primo81.html" title="MSI Primo81">MSI_Primo81</a>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a31s/msi_primo81.fex">msi_primo81.fex</a>
+</td>
+<td><pre style="background-color: yellow;">CONFIG_VIDEO_LCD_MODE="x:768,y:1024,depth:18,pclk_khz:66000,le:56,ri:60,up:30,lo:36,hs:64,vs:50,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_DCLK_PHASE=0
+# warning: could not decode 'lcd_power' (port:power2&lt;1&gt;&lt;0&gt;&lt;default&gt;&lt;1&gt;)
+CONFIG_VIDEO_LCD_BL_EN="PA25"
+CONFIG_VIDEO_LCD_BL_PWM="PH13"
+# warning: 'lcd_gpio_0' = 'port:PH10&lt;1&gt;&lt;0&gt;&lt;2&gt;&lt;1&gt;'
+# warning: 'lcd_gpio_1' = 'port:PH11&lt;1&gt;&lt;0&gt;&lt;2&gt;&lt;1&gt;'
+# warning: 'lcd_gpio_2' = 'port:PA26&lt;1&gt;&lt;0&gt;&lt;2&gt;&lt;1&gt;'
+# warning: 'lcd_gpio_3' = 'port:PH09&lt;1&gt;&lt;0&gt;&lt;2&gt;&lt;1&gt;'
+</pre>
+</td></tr>
+<tr>
+<td><a href="A31s.html" class="mw-redirect" title="A31s">A31s</a>
+</td>
+<td>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a31s/sinlinx_a31s.fex">sinlinx_a31s.fex</a>
+</td>
+<td><pre style="background-color: yellow;">CONFIG_VIDEO_LCD_MODE="x:1024,y:600,depth:18,pclk_khz:66000,le:90,ri:160,up:3,lo:127,hs:70,vs:20,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_DCLK_PHASE=0
+# warning: could not decode 'lcd_power' (port:power2&lt;1&gt;&lt;0&gt;&lt;default&gt;&lt;1&gt;)
+CONFIG_VIDEO_LCD_BL_EN="PA25"
+CONFIG_VIDEO_LCD_BL_PWM="PH13"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A31s.html" class="mw-redirect" title="A31s">A31s</a>
+</td>
+<td><a href="Yones_Toptech_BS1078.html" title="Yones Toptech BS1078">Yones_Toptech_BS1078</a>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a31s/yonestoptech_bs1078.fex">yonestoptech_bs1078.fex</a>
+</td>
+<td><pre style="background-color: yellow;">CONFIG_VIDEO_LCD_MODE="x:1024,y:600,depth:24,pclk_khz:70000,le:120,ri:180,up:17,lo:15,hs:20,vs:3,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_DCLK_PHASE=0
+CONFIG_VIDEO_LCD_PANEL_LVDS=y
+# warning: could not decode 'lcd_power' (port:power2&lt;1&gt;&lt;0&gt;&lt;default&gt;&lt;1&gt;)
+CONFIG_VIDEO_LCD_BL_EN="PA25"
+CONFIG_VIDEO_LCD_BL_PWM="PH13"
+# warning: 'lcd_gpio_0' = 'port:PH10&lt;1&gt;&lt;0&gt;&lt;2&gt;&lt;1&gt;'
+# warning: 'lcd_gpio_1' = 'port:PH11&lt;1&gt;&lt;0&gt;&lt;2&gt;&lt;1&gt;'
+# warning: 'lcd_gpio_2' = 'port:PA23&lt;1&gt;&lt;0&gt;&lt;2&gt;&lt;0&gt;'
+# warning: 'lcd_gpio_3' = 'port:PH09&lt;1&gt;&lt;0&gt;&lt;2&gt;&lt;1&gt;'
+</pre>
+</td></tr>
+<tr>
+<td><a href="A10.html" title="A10">A10</a>
+</td>
+<td><a href="Gemei_G9.html" title="Gemei G9">Gemei_G9</a>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a10/zatab.fex">zatab.fex</a>
+</td>
+<td><pre style="background-color: yellow;">CONFIG_VIDEO_LCD_MODE="x:1024,y:768,depth:24,pclk_khz:100000,le:799,ri:260,up:15,lo:16,hs:1,vs:1,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_PANEL_LVDS=y
+# warning: unsupported 'lcd_lvds_mode'&#160;: 1
+CONFIG_VIDEO_LCD_POWER="PH8"
+CONFIG_VIDEO_LCD_BL_EN="PH7"
+CONFIG_VIDEO_LCD_BL_PWM="PB2"
+</pre>
+</td></tr>
+<tr>
+<td><a href="A31.html" title="A31">A31</a>
+</td>
+<td>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a31/A31_EVB.fex">A31_EVB.fex</a>
+</td>
+<td><pre style="background-color: orange;"># warning: unsupported 'lcd_if'&#160;: 5 (LCD_IF_EDP)
+</pre>
+</td></tr>
+<tr>
+<td><a href="A10.html" title="A10">A10</a>
+</td>
+<td><a href="Itead_Iteaduino_Plus.html" title="Itead Iteaduino Plus">Itead_Iteaduino_Plus</a>
+</td>
+<td><a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a10/iteaduino_plus_a10.fex">iteaduino_plus_a10.fex</a>
+</td>
+<td><pre style="background-color: orange;"># warning: unsupported 'lcd_frm'&#160;: 
+</pre>
+</td></tr></tbody></table>
+<h1><span class="mw-headline" id="LCD_panel">LCD panel</span></h1>
+<p>LCD LVDS panels can be found on old notebook or desktop monitor.
+</p>
+<table class="wikitable">
+<tbody><tr>
+<td>Model
+</td>
+<td>Inch
+</td>
+<td>u-boot settings
+</td></tr>
+<tr>
+<td>QD17EL07
+</td>
+<td>17"
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:1280,y:1024,depth:24,pclk_khz:108000,le:56,ri:60,up:29,lo:3,hs:10,vs:10,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_DCLK_PHASE=1
+</pre>
+</td></tr>
+<tr>
+<td>LTN150XB
+</td>
+<td>15"
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:1024,y:768,depth:18,pclk_khz:65000,le:88,ri:24,up:29,lo:3,hs:136,vs:6,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_DCLK_PHASE=1
+</pre>
+</td></tr>
+<tr>
+<td>B150XG01<br />LTD154EX0K
+</td>
+<td>15" 16:9
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:1280,y:800,depth:18,pclk_khz:71100,le:88,ri:48,up:15,lo:2,hs:32,vs:6,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_DCLK_PHASE=1
+</pre>
+</td></tr>
+<tr>
+<td>HSD121PS11
+</td>
+<td>12.1"
+</td>
+<td><pre style="background-color: lightgreen;">CONFIG_VIDEO_LCD_MODE="x:800,y:600,depth:18,pclk_khz:40000,le:88,ri:40,up:23,lo:1,hs:128,vs:4,sync:3,vmode:0"
+CONFIG_VIDEO_LCD_DCLK_PHASE=1
+</pre>
+</td></tr></tbody></table>
+<p><br />
+Monitor with vertical size bigger 768 px and 24bit deep need u-boot patch to add lvds dual channel support.
+</p>
+<h1><span class="mw-headline" id="Downloadable_LCD_panel_datasheets">Downloadable LCD panel datasheets</span></h1>
+<p>Some of the LCD panel web shops are kind enough to conveniently provide freely downloadable collections of datasheets:
+</p>
+<ul><li><a rel="nofollow" class="external free" href="http://yslcd.com.tw/Docs.aspx">http://yslcd.com.tw/Docs.aspx</a></li>
+<li><a rel="nofollow" class="external free" href="http://www.beyondinfinite.com/library.html">http://www.beyondinfinite.com/library.html</a></li></ul>
+<!-- 
+NewPP limit report
+Cached time: 20251029034358
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.185 seconds
+Real time usage: 0.209 seconds
+Preprocessor visited node count: 704/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 30410/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:1911-0!canonical and timestamp 20251029034358 and revision id 26403
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=LCD&amp;oldid=26403">https://linux-sunxi.org/index.php?title=LCD&amp;oldid=26403</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Category</a>: <ul><li><a href="Category:Hardware.html" title="Category:Hardware">Hardware</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=LCD" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=LCD" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="LCD.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:LCD&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="LCD.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=LCD&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=LCD&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/LCD.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/LCD" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=LCD&amp;oldid=26403" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=LCD&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 12 May 2025, at 13:36.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.185","walltime":"0.209","ppvisitednodes":{"value":704,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":30410,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20251029034358","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":138});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

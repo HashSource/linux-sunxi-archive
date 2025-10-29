@@ -1,0 +1,861 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>A10 DRAM Controller Performance - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"cbc84692025be7bda2ab42bc","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"A10_DRAM_Controller_Performance","wgTitle":"A10 DRAM Controller Performance","wgCurRevisionId":18756,"wgRevisionId":18756,"wgArticleId":1431,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Hardware"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"A10_DRAM_Controller_Performance","wgRelevantArticleId":1431,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={
+"site.styles":"ready","noscript":"ready","user.styles":"ready","user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=skins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="A10_DRAM_Controller_Performance.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-A10_DRAM_Controller_Performance rootpage-A10_DRAM_Controller_Performance skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">A10 DRAM Controller Performance</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><h2><span id="Tests_with_the_lima-memspeed_program_on_a_Cubietruck_with_a_1920x1080-32@60Hz_monitor"></span><span class="mw-headline" id="Tests_with_the_lima-memspeed_program_on_a_Cubietruck_with_a_1920x1080-32.4060Hz_monitor">Tests with the lima-memspeed program on a Cubietruck with a 1920x1080-32@60Hz monitor</span></h2>
+<p>The <a class="external text" href="https://github.com/ssvb/lima-memtester/">lima-memspeed</a> program is a tool, which tries to simulate different memory intensive workloads and measure how much of the memory bandwidth is really available to be consumed by the CPU, GPU and other peripherals. Basically, it should provide an answer to the question about the optimal relationship between the MBUS and DRAM clock frequencies and whether increasing the DRAM clock speed provides any practical improvements. The systems with a 32-bit dram bus width can't be analyzed well by just the tinymembench program, because tinymembench only focuses on the memory bandwidth available to a single CPU core. And a single CPU core alone can't consume all the DRAM bandwidth, but may benefit from some help from the other peripherals and other CPU cores.
+</p>
+<pre>Usage: lima-memspeed [workload1] [workload2] ... [workloadN]
+
+Where the 'workload' arguments are the identifiers of different
+memory bandwidth consuming workloads. Each workload is run in its
+own thread.
+
+The list of available workload identifiers:
+	fb_blank                       (blank the screen in order not to drain memory bandwidth)
+	fb_scanout                     (take the framebuffer scanout bandwidth into account)
+	gpu_write                      (use the lima driver to solid fill the screen)
+	gpu_copy                       (use the lima driver to copy a texture to the screen)
+	neon_write                     (use ARM NEON to fill a memory buffer)
+	neon_write_backwards           (use ARM NEON to fill a memory buffer)
+	neon_read_pf32                 (use ARM NEON to read from a memory buffer)
+	neon_read_pf64                 (use ARM NEON to read from a memory buffer)
+	neon_copy_pf64                 (use ARM NEON to copy a memory buffer)
+</pre>
+<table class="wikitable">
+<caption>Cubietruck (standard 32-bit dram bus width)
+</caption>
+<tbody><tr>
+<th>MBUS clock
+</th>
+<th>DRAM clock
+</th>
+<th>fb_scanout gpu_write
+</th>
+<th>fb_scanout neon_write
+</th>
+<th>fb_scanout neon_copy_pf64 (*)
+</th>
+<th>fb_blank gpu_write
+</th>
+<th>fb_blank neon_write
+</th>
+<th>fb_blank neon_write neon_read_pf64
+</th>
+<th>fb_blank neon_write gpu_write
+</th></tr>
+<tr>
+<td>300 MHz</td>
+<td>432 MHz</td>
+<td>2209.3 MB/s</td>
+<td>2343.2 MB/s</td>
+<td>1826.3 MB/s</td>
+<td>1935.1 MB/s</td>
+<td>2035.5 MB/s</td>
+<td>2270.5 MB/s</td>
+<td>2018.0 MB/s
+</td></tr>
+<tr>
+<td>400 MHz</td>
+<td>432 MHz</td>
+<td>2301.6 MB/s</td>
+<td>2765.3 MB/s</td>
+<td>1835.9 MB/s</td>
+<td>2045.8 MB/s</td>
+<td>2703.7 MB/s</td>
+<td>2615.1 MB/s</td>
+<td>2610.4 MB/s
+</td></tr>
+<tr>
+<td>400 MHz</td>
+<td>528 MHz</td>
+<td>2448.0 MB/s</td>
+<td>3064.1 MB/s</td>
+<td>2096.7 MB/s</td>
+<td>2073.4 MB/s</td>
+<td>2713.5 MB/s</td>
+<td>2882.8 MB/s</td>
+<td>2673.7 MB/s
+</td></tr>
+<tr>
+<td>528 MHz</td>
+<td>528 MHz</td>
+<td>2461.8 MB/s</td>
+<td>3298.6 MB/s</td>
+<td>2107.1 MB/s</td>
+<td>2098.3 MB/s</td>
+<td>3288.1 MB/s</td>
+<td>3172.1 MB/s</td>
+<td>3370.1 MB/s
+</td></tr>
+<tr>
+<td>400 MHz</td>
+<td>600 MHz</td>
+<td>2511.5 MB/s</td>
+<td>3094.4 MB/s</td>
+<td>2146.1 MB/s</td>
+<td>2073.4 MB/s</td>
+<td>2717.7 MB/s</td>
+<td>2940.8 MB/s</td>
+<td>2675.7 MB/s
+</td></tr>
+<tr>
+<td>400 MHz</td>
+<td>648 MHz</td>
+<td>2542.7 MB/s</td>
+<td>3106.7 MB/s</td>
+<td>2243.0 MB/s</td>
+<td>2073.4 MB/s</td>
+<td>2721.9 MB/s</td>
+<td>2978.5 MB/s</td>
+<td>2683.2 MB/s
+</td></tr>
+<tr>
+<td>600 MHz</td>
+<td>648 MHz</td>
+<td>2543.3 MB/s</td>
+<td>3451.5 MB/s</td>
+<td>2262.7 MB/s</td>
+<td>2102.4 MB/s</td>
+<td>3293.7 MB/s</td>
+<td>3600.8 MB/s</td>
+<td>3630.9 MB/s
+</td></tr></tbody></table>
+<table class="wikitable">
+<caption>Cubietruck (artificially configured 16-bit dram bus width)
+</caption>
+<tbody><tr>
+<th>MBUS clock
+</th>
+<th>DRAM clock
+</th>
+<th>fb_scanout gpu_write
+</th>
+<th>fb_scanout neon_write
+</th>
+<th>fb_scanout neon_copy_pf64 (*)
+</th>
+<th>fb_blank gpu_write
+</th>
+<th>fb_blank neon_write
+</th>
+<th>fb_blank neon_write neon_read_pf64
+</th>
+<th>fb_blank neon_write gpu_write
+</th></tr>
+<tr>
+<td>300 MHz</td>
+<td>528 MHz</td>
+<td>1354.0 MB/s</td>
+<td>1873.6 MB/s</td>
+<td>1268.5 MB/s</td>
+<td>1188.7 MB/s</td>
+<td>1979.5 MB/s</td>
+<td>1627.1 MB/s</td>
+<td>1712.5 MB/s
+</td></tr>
+<tr>
+<td>400 MHz</td>
+<td>528 MHz</td>
+<td>1354.3 MB/s</td>
+<td>1903.0 MB/s</td>
+<td>1278.1 MB/s</td>
+<td>1181.7 MB/s</td>
+<td>1981.7 MB/s</td>
+<td>1637.7 MB/s</td>
+<td>1707.8 MB/s
+</td></tr>
+<tr>
+<td>528 MHz</td>
+<td>528 MHz</td>
+<td>1352.3 MB/s</td>
+<td>1892.6 MB/s</td>
+<td>1269.3 MB/s</td>
+<td>1188.7 MB/s</td>
+<td>1979.6 MB/s</td>
+<td>1626.0 MB/s</td>
+<td>1702.0 MB/s
+</td></tr>
+<tr>
+<td>300 MHz</td>
+<td>648 MHz</td>
+<td>1464.1 MB/s</td>
+<td>2219.9 MB/s</td>
+<td>1403.5 MB/s</td>
+<td>1256.4 MB/s</td>
+<td>2046.7 MB/s</td>
+<td>1923.1 MB/s</td>
+<td>1892.5 MB/s
+</td></tr>
+<tr>
+<td>400 MHz</td>
+<td>648 MHz</td>
+<td>1463.3 MB/s</td>
+<td>2332.0 MB/s</td>
+<td>1403.5 MB/s</td>
+<td>1258.1 MB/s</td>
+<td>2415.7 MB/s</td>
+<td>1925.5 MB/s</td>
+<td>1993.0 MB/s
+</td></tr>
+<tr>
+<td>600 MHz</td>
+<td>648 MHz</td>
+<td>1464.3 MB/s</td>
+<td>2348.3 MB/s</td>
+<td>1403.5 MB/s</td>
+<td>1255.0 MB/s</td>
+<td>2382.0 MB/s</td>
+<td>1926.9 MB/s</td>
+<td>1993.6 MB/s
+</td></tr></tbody></table>
+<p>(*) copying 1 MB from one memory location to another memory location per second means 2 MB/s bandwidth in this table, because both reads and writes are accounted.
+</p><p><span style="color:red"><b>Based on the benchmark results above, looks like the systems with a full 32-bit memory interface want to have both MBUS and DRAM clocked at high speed. While the Allwinner A20 systems with only a 16-bit memory interface (such as <a href="Olimex_A20-OLinuXino-Lime.html" title="Olimex A20-OLinuXino-Lime">Olimex A20-OLinuXino-Lime</a>) should not have any obvious extra bandwidth penalties even if MBUS is clocked slower than DRAM.</b></span>
+</p>
+<h2><span class="mw-headline" id="Tests_with_the_tinymembench_program_on_a_A13-OLinuXino-Micro_and_screen_blanked">Tests with the tinymembench program on a A13-OLinuXino-Micro and screen blanked</span></h2>
+<p>The Allwinner A13 user manual tells us about the 300MHz clock speed limit for MBUS. And indeed, when having only 16-bit external DDR3 memory interface to deal with, clocking MBUS at a very high speed may be unnecessary (assuming that MBUS internally has the same width as in the A10/A20 siblings). So it is quite interesting to check if running MBUS at half-speed of DRAM is fast enough for A13.
+</p><p>Benchmarks have been run on <a href="Olimex_A13-OLinuXino-Micro.html" title="Olimex A13-OLinuXino-Micro">Olimex_A13-OLinuXino-Micro</a> for different MBUS/DRAM clock settings. The CPU clock speed was 1008MHz, AXI clock speed 504MHz (overclocked). The screen was blanked in order not to drain memory bandwidth. The performance numbers are obtained using a <a class="external text" href="https://github.com/ssvb/tinymembench">tinymembench</a> tool for the 'NEON read prefetched (64 bytes step)', 'NEON fill', 'NEON copy prefetched (64 bytes step)' subtests. The DRAM timings are accurately calculated for each clock frequency, assuming JEDEC Speed Bin 1333H (DDR3 1333 9-9-9).
+</p><p><span style="color:red">Please note that the DRAM clock speeds above 533 MHz (and MBUS above 300 MHz) may be considered overclocking if we trust the Allwinner manuals!</span>
+</p>
+<table class="wikitable">
+<caption>Original old u-boot-sunxi settings (with the wastful DDR3-1333 timings)
+</caption>
+<tbody><tr>
+<th>MBUS clock
+</th>
+<th>DRAM clock
+</th>
+<th>Read
+</th>
+<th>Write
+</th>
+<th>Copy
+</th>
+<th>Random read in 64MiB block
+</th></tr>
+<tr>
+<td>204 MHz</td>
+<td>408 MHz</td>
+<td>709.1 MB/s</td>
+<td>1026.7 MB/s</td>
+<td>475.4 MB/s</td>
+<td>311.8 ns
+</td></tr></tbody></table>
+<table class="wikitable">
+<caption>Half speed MBUS
+</caption>
+<tbody><tr>
+<th>MBUS clock
+</th>
+<th>DRAM clock
+</th>
+<th>Read
+</th>
+<th>Write
+</th>
+<th>Copy
+</th>
+<th>Random read in 64MiB block
+</th></tr>
+<tr>
+<td>204 MHz</td>
+<td>408 MHz</td>
+<td>738.0 MB/s</td>
+<td>1027.1 MB/s</td>
+<td>512.7 MB/s</td>
+<td>286.3 ns
+</td></tr>
+<tr>
+<td>216 MHz</td>
+<td>432 MHz</td>
+<td>762.6 MB/s</td>
+<td>1095.4 MB/s</td>
+<td>544.4 MB/s</td>
+<td>274.8 ns
+</td></tr></tbody></table>
+<table class="wikitable">
+<caption>300 MHz MBUS
+</caption>
+<tbody><tr>
+<th>MBUS clock
+</th>
+<th>DRAM clock
+</th>
+<th>Read
+</th>
+<th>Write
+</th>
+<th>Copy
+</th>
+<th>Random read in 64MiB block
+</th></tr>
+<tr>
+<td>300 MHz</td>
+<td>408 MHz</td>
+<td>785.7 MB/s</td>
+<td>1450.3 MB/s</td>
+<td>511.3 MB/s</td>
+<td>262.2 ns
+</td></tr>
+<tr>
+<td>300 MHz</td>
+<td>432 MHz</td>
+<td>825.2 MB/s</td>
+<td>1474.6 MB/s</td>
+<td>544.1 MB/s</td>
+<td>259.2 ns
+</td></tr>
+<tr>
+<td>300 MHz</td>
+<td>456 MHz</td>
+<td>854.3 MB/s</td>
+<td>1486.8 MB/s</td>
+<td>576.3 MB/s</td>
+<td>244.3 ns
+</td></tr>
+<tr>
+<td>300 MHz</td>
+<td>480 MHz</td>
+<td>880.2 MB/s</td>
+<td>1491.6 MB/s</td>
+<td>606.7 MB/s</td>
+<td>241.8 ns
+</td></tr>
+<tr>
+<td>300 MHz</td>
+<td>504 MHz</td>
+<td>889.8 MB/s</td>
+<td>1499.9 MB/s</td>
+<td>637.7 MB/s</td>
+<td>238.6 ns
+</td></tr>
+<tr>
+<td>300 MHz</td>
+<td>528 MHz</td>
+<td>936.2 MB/s</td>
+<td>1507.4 MB/s</td>
+<td>671.0 MB/s</td>
+<td>232.1 ns
+</td></tr>
+<tr>
+<td>300 MHz</td>
+<td>552 MHz</td>
+<td>921.0 MB/s</td>
+<td>1508.3 MB/s</td>
+<td>659.7 MB/s</td>
+<td>236.2 ns
+</td></tr>
+<tr>
+<td>300 MHz</td>
+<td>576 MHz</td>
+<td>943.8 MB/s</td>
+<td>1512.8 MB/s</td>
+<td>689.3 MB/s</td>
+<td>231.2 ns
+</td></tr>
+<tr>
+<td>300 MHz</td>
+<td>600 MHz</td>
+<td>988.3 MB/s</td>
+<td>1517.5 MB/s</td>
+<td>719.1 MB/s</td>
+<td>224.3 ns
+</td></tr>
+<tr>
+<td>300 MHz</td>
+<td>624 MHz</td>
+<td>979.5 MB/s</td>
+<td>1518.9 MB/s</td>
+<td>743.6 MB/s</td>
+<td>226.6 ns
+</td></tr>
+<tr>
+<td>300 MHz</td>
+<td>648 MHz</td>
+<td>1012.8 MB/s</td>
+<td>1522.5 MB/s</td>
+<td>770.1 MB/s</td>
+<td>221.2 ns
+</td></tr></tbody></table>
+<table class="wikitable">
+<caption>Balanced speed MBUS (2/3 of DRAM)
+</caption>
+<tbody><tr>
+<th>MBUS clock
+</th>
+<th>DRAM clock
+</th>
+<th>Read
+</th>
+<th>Write
+</th>
+<th>Copy
+</th>
+<th>Random read in 64MiB block
+</th></tr>
+<tr>
+<td>272 MHz</td>
+<td>408 MHz</td>
+<td>770.2 MB/s</td>
+<td>1345.8 MB/s</td>
+<td>512.2 MB/s</td>
+<td>270.7 ns
+</td></tr>
+<tr>
+<td>288 MHz</td>
+<td>432 MHz</td>
+<td>816.6 MB/s</td>
+<td>1421.0 MB/s</td>
+<td>545.4 MB/s</td>
+<td>259.9 ns
+</td></tr>
+<tr>
+<td>304 MHz</td>
+<td>456 MHz</td>
+<td>857.3 MB/s</td>
+<td>1504.8 MB/s</td>
+<td>576.4 MB/s</td>
+<td>245.3 ns
+</td></tr>
+<tr>
+<td>320 MHz</td>
+<td>480 MHz</td>
+<td>897.5 MB/s</td>
+<td>1584.6 MB/s</td>
+<td>606.8 MB/s</td>
+<td>239.5 ns
+</td></tr>
+<tr>
+<td>336 MHz</td>
+<td>504 MHz</td>
+<td>933.5 MB/s</td>
+<td>1663.9 MB/s</td>
+<td>643.5 MB/s</td>
+<td>232.8 ns
+</td></tr>
+<tr>
+<td>352 MHz</td>
+<td>528 MHz</td>
+<td>954.4 MB/s</td>
+<td>1742.0 MB/s</td>
+<td>669.1 MB/s</td>
+<td>226.6 ns
+</td></tr>
+<tr>
+<td>368 MHz</td>
+<td>552 MHz</td>
+<td>979.4 MB/s</td>
+<td>1797.8 MB/s</td>
+<td>665.3 MB/s</td>
+<td>228.7 ns
+</td></tr>
+<tr>
+<td>384 MHz</td>
+<td>576 MHz</td>
+<td>1014.1 MB/s</td>
+<td>1789.7 MB/s</td>
+<td>689.1 MB/s</td>
+<td>222.6 ns
+</td></tr>
+<tr>
+<td>400 MHz</td>
+<td>600 MHz</td>
+<td>1039.7 MB/s</td>
+<td>1836.8 MB/s</td>
+<td>719.3 MB/s</td>
+<td>215.9 ns
+</td></tr>
+<tr>
+<td>416 MHz</td>
+<td>624 MHz</td>
+<td>1069.6 MB/s</td>
+<td>1819.2 MB/s</td>
+<td>747.5 MB/s</td>
+<td>219.1 ns
+</td></tr>
+<tr>
+<td>432 MHz</td>
+<td>648 MHz</td>
+<td>1092.5 MB/s</td>
+<td>1869.2 MB/s</td>
+<td>777.8 MB/s</td>
+<td>210.3 ns
+</td></tr></tbody></table>
+<table class="wikitable">
+<caption>Full speed MBUS (the same as DRAM)
+</caption>
+<tbody><tr>
+<th>MBUS clock
+</th>
+<th>DRAM clock
+</th>
+<th>Read
+</th>
+<th>Write
+</th>
+<th>Copy
+</th>
+<th>Random read in 64MiB block
+</th></tr>
+<tr>
+<td>408 MHz</td>
+<td>408 MHz</td>
+<td>833.6 MB/s</td>
+<td>1460.8 MB/s</td>
+<td>513.0 MB/s</td>
+<td>252.3 ns
+</td></tr>
+<tr>
+<td>432 MHz</td>
+<td>432 MHz</td>
+<td>863.1 MB/s</td>
+<td>1555.5 MB/s</td>
+<td>543.2 MB/s</td>
+<td>243.8 ns
+</td></tr>
+<tr>
+<td>456 MHz</td>
+<td>456 MHz</td>
+<td>911.5 MB/s</td>
+<td>1647.3 MB/s</td>
+<td>576.7 MB/s</td>
+<td>233.2 ns
+</td></tr>
+<tr>
+<td>480 MHz</td>
+<td>480 MHz</td>
+<td>954.2 MB/s</td>
+<td>1727.3 MB/s</td>
+<td>609.5 MB/s</td>
+<td>231.5 ns
+</td></tr>
+<tr>
+<td>504 MHz</td>
+<td>504 MHz</td>
+<td>983.0 MB/s</td>
+<td>1813.1 MB/s</td>
+<td>638.3 MB/s</td>
+<td>220.6 ns
+</td></tr>
+<tr>
+<td>528 MHz</td>
+<td>528 MHz</td>
+<td>1030.9 MB/s</td>
+<td>1913.3 MB/s</td>
+<td>676.4 MB/s</td>
+<td>220.8 ns
+</td></tr>
+<tr>
+<td>552 MHz</td>
+<td>552 MHz</td>
+<td>1033.2 MB/s</td>
+<td>1943.4 MB/s</td>
+<td>623.4 MB/s</td>
+<td>217.8 ns
+</td></tr>
+<tr>
+<td>576 MHz</td>
+<td>576 MHz</td>
+<td>1065.7 MB/s</td>
+<td>1989.1 MB/s</td>
+<td>691.3 MB/s</td>
+<td>211.3 ns
+</td></tr>
+<tr>
+<td>600 MHz</td>
+<td>600 MHz</td>
+<td colspan="4">Reliability is poor
+</td></tr>
+<tr>
+<td>624 MHz</td>
+<td>624 MHz</td>
+<td colspan="4">Reliability is poor
+</td></tr>
+<tr>
+<td>648 MHz</td>
+<td>648 MHz</td>
+<td colspan="4">Reliability is poor
+</td></tr></tbody></table>
+<table class="wikitable">
+<caption>Exotic MBUS configurations (no practical use, just for the sake of research)
+</caption>
+<tbody><tr>
+<th>MBUS clock
+</th>
+<th>DRAM clock
+</th>
+<th>Read
+</th>
+<th>Write
+</th>
+<th>Copy
+</th>
+<th>Random read in 64MiB block
+</th>
+<th>Random non-cached read in 4KiB block
+</th></tr>
+<tr>
+<td>50 MHz</td>
+<td>600 MHz</td>
+<td>303.1 MB/s</td>
+<td>255.7 MB/s</td>
+<td>236.4 MB/s</td>
+<td>505.3 ns</td>
+<td>335.6 ns
+</td></tr>
+<tr>
+<td>100 MHz</td>
+<td>600 MHz</td>
+<td>535.0 MB/s</td>
+<td>516.3 MB/s</td>
+<td>389.3 MB/s</td>
+<td>316.0 ns</td>
+<td>215.7 ns
+</td></tr>
+<tr>
+<td>150 MHz</td>
+<td>600 MHz</td>
+<td>700.8 MB/s</td>
+<td>773.2 MB/s</td>
+<td>594.1 MB/s</td>
+<td>261.1 ns</td>
+<td>166.3 ns
+</td></tr>
+<tr>
+<td>200 MHz</td>
+<td>600 MHz</td>
+<td>818.1 MB/s</td>
+<td>1018.9 MB/s</td>
+<td>686.9 MB/s</td>
+<td>258.4 ns</td>
+<td>142.7 ns
+</td></tr></tbody></table>
+<p>The non-cached read latency numbers from the table above should have no TLB misses and exactly one DRAM access per read. They seem to fit the <i>(12 * mbus_cycle_time + 95 ns)</i> formula quite nicely. It might be that MBUS contributes 12 its cycles to the memory access latency.
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20251029040240
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.071 seconds
+Real time usage: 0.074 seconds
+Preprocessor visited node count: 13/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 967/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:1431-0!canonical and timestamp 20251029040240 and revision id 18756
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=A10_DRAM_Controller_Performance&amp;oldid=18756">https://linux-sunxi.org/index.php?title=A10_DRAM_Controller_Performance&amp;oldid=18756</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Category</a>: <ul><li><a href="Category:Hardware.html" title="Category:Hardware">Hardware</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=A10+DRAM+Controller+Performance" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=A10+DRAM+Controller+Performance" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="A10_DRAM_Controller_Performance.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:A10_DRAM_Controller_Performance&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="A10_DRAM_Controller_Performance.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=A10_DRAM_Controller_Performance&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=A10_DRAM_Controller_Performance&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/A10_DRAM_Controller_Performance.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/A10_DRAM_Controller_Performance" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=A10_DRAM_Controller_Performance&amp;oldid=18756" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=A10_DRAM_Controller_Performance&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 23 November 2016, at 00:24.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.071","walltime":"0.074","ppvisitednodes":{"value":13,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":967,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20251029040240","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":272});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

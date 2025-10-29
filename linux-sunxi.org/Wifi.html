@@ -1,0 +1,771 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Wifi - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"a3187872da7727d77264e691","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Wifi","wgTitle":"Wifi","wgCurRevisionId":26740,"wgRevisionId":26740,"wgArticleId":248,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Tutorial","Software"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Wifi","wgRelevantArticleId":248,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":"ready","user":"ready"
+,"user.options":"loading","ext.categoryTree.styles":"ready","skins.vector.styles.legacy":"ready","jquery.makeCollapsible.styles":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","ext.categoryTree","site","mediawiki.page.startup","mediawiki.page.ready","jquery.makeCollapsible","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=ext.categoryTree.styles%7Cjquery.makeCollapsible.styles%7Cmediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="Wifi.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-Wifi rootpage-Wifi skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">Wifi</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Driver_specific_information"><span class="tocnumber">1</span> <span class="toctext">Driver specific information</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Allwinner"><span class="tocnumber">1.1</span> <span class="toctext">Allwinner</span></a>
+<ul>
+<li class="toclevel-3 tocsection-3"><a href="#XR819"><span class="tocnumber">1.1.1</span> <span class="toctext">XR819</span></a></li>
+<li class="toclevel-3 tocsection-4"><a href="#AW859A"><span class="tocnumber">1.1.2</span> <span class="toctext">AW859A</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-5"><a href="#Ampak"><span class="tocnumber">1.2</span> <span class="toctext">Ampak</span></a>
+<ul>
+<li class="toclevel-3 tocsection-6"><a href="#Ampak_Devices"><span class="tocnumber">1.2.1</span> <span class="toctext">Ampak Devices</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-7"><a href="#Broadcom"><span class="tocnumber">1.3</span> <span class="toctext">Broadcom</span></a>
+<ul>
+<li class="toclevel-3 tocsection-8"><a href="#Broadcom_Devices"><span class="tocnumber">1.3.1</span> <span class="toctext">Broadcom Devices</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-9"><a href="#Espressif"><span class="tocnumber">1.4</span> <span class="toctext">Espressif</span></a>
+<ul>
+<li class="toclevel-3 tocsection-10"><a href="#Espressif_Devices"><span class="tocnumber">1.4.1</span> <span class="toctext">Espressif Devices</span></a></li>
+<li class="toclevel-3 tocsection-11"><a href="#ESP8089"><span class="tocnumber">1.4.2</span> <span class="toctext">ESP8089</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-12"><a href="#iNet"><span class="tocnumber">1.5</span> <span class="toctext">iNet</span></a>
+<ul>
+<li class="toclevel-3 tocsection-13"><a href="#iNet_Devices"><span class="tocnumber">1.5.1</span> <span class="toctext">iNet Devices</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-14"><a href="#RDA"><span class="tocnumber">1.6</span> <span class="toctext">RDA</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="#Realtek"><span class="tocnumber">1.7</span> <span class="toctext">Realtek</span></a>
+<ul>
+<li class="toclevel-3 tocsection-16"><a href="#USB-based"><span class="tocnumber">1.7.1</span> <span class="toctext">USB-based</span></a></li>
+<li class="toclevel-3 tocsection-17"><a href="#SDIO-based"><span class="tocnumber">1.7.2</span> <span class="toctext">SDIO-based</span></a>
+<ul>
+<li class="toclevel-4 tocsection-18"><a href="#RTL8189ES_.2F_RTL8189ETV"><span class="tocnumber">1.7.2.1</span> <span class="toctext">RTL8189ES / RTL8189ETV</span></a></li>
+<li class="toclevel-4 tocsection-19"><a href="#RTL8189FTV"><span class="tocnumber">1.7.2.2</span> <span class="toctext">RTL8189FTV</span></a></li>
+</ul>
+</li>
+<li class="toclevel-3 tocsection-20"><a href="#Legacy_sunxi-3.4_kernel_support"><span class="tocnumber">1.7.3</span> <span class="toctext">Legacy sunxi-3.4 kernel support</span></a>
+<ul>
+<li class="toclevel-4 tocsection-21"><a href="#Driver_refusing_to_load_.28rt5370sta.2F8188eu.2F8189es.2F8192cu.29"><span class="tocnumber">1.7.3.1</span> <span class="toctext">Driver refusing to load (rt5370sta/8188eu/8189es/8192cu)</span></a></li>
+<li class="toclevel-4 tocsection-22"><a href="#8188eu_driver_on_sunxi-3.4"><span class="tocnumber">1.7.3.2</span> <span class="toctext">8188eu driver on sunxi-3.4</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-23"><a href="#Software_Configuration"><span class="tocnumber">2</span> <span class="toctext">Software Configuration</span></a>
+<ul>
+<li class="toclevel-2 tocsection-24"><a href="#Debian.2Fubuntu_with_NetworkManager"><span class="tocnumber">2.1</span> <span class="toctext">Debian/ubuntu with NetworkManager</span></a></li>
+<li class="toclevel-2 tocsection-25"><a href="#Debian.2Fubuntu_without_NetworkManager"><span class="tocnumber">2.2</span> <span class="toctext">Debian/ubuntu without NetworkManager</span></a>
+<ul>
+<li class="toclevel-3 tocsection-26"><a href="#Setup_with_wpa_supplicant_and_without_network_manager"><span class="tocnumber">2.2.1</span> <span class="toctext">Setup with wpa_supplicant and without network manager</span></a>
+<ul>
+<li class="toclevel-4 tocsection-27"><a href="#Disabling_networkmanager._Fully."><span class="tocnumber">2.2.1.1</span> <span class="toctext">Disabling networkmanager. Fully.</span></a></li>
+<li class="toclevel-4 tocsection-28"><a href="#Simple_and_dumb_WPA_setup"><span class="tocnumber">2.2.1.2</span> <span class="toctext">Simple and dumb WPA setup</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-29"><a href="#Devices"><span class="tocnumber">3</span> <span class="toctext">Devices</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Driver_specific_information">Driver specific information</span></h1>
+<h2><span class="mw-headline" id="Allwinner">Allwinner</span></h2>
+<table border="1">
+<tbody><tr>
+<th scope="col">Device</th>
+<th>Type</th>
+<th>sdio id</th>
+<th>sunxi-3.4 kernel</th>
+<th>mainline kernel</th>
+<th>4.9.170-sun50iw9 kernel
+</th></tr>
+<tr>
+<td>XR819</td>
+<td>SDIO</td>
+<td><a rel="nofollow" class="external text" href="http://pastebin.com/b2NAcvgt">0020:2281</a></td>
+<td>xradio_wlan</td>
+<td></td>
+<td>
+</td></tr>
+<tr>
+<td>AW859A</td>
+<td>SDIO</td>
+<td><a rel="nofollow" class="external text" href="http://pastebin.com/b2NAcvgt">8800:1</a></td>
+<td></td>
+<td></td>
+<td>sunxi-wlan
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="XR819">XR819</span></h3>
+<p>For <a rel="nofollow" class="external text" href="http://certifications.prod.wi-fi.org/pdf/certificate/public/download?cid=WFA61880">XR819</a> driver source was included in Allwinner H2 BSP.
+</p><p>Firmware firmware blobs can be found from <a class="external text" href="https://github.com/armbian/firmware/tree/master/xr819">Armbian firmware repository</a>.
+</p><p>Also some documentation is available now:
+</p>
+<ul><li><a href="File:XR819_Datasheet_V1.0-EN.pdf.html" title="File:XR819 Datasheet V1.0-EN.pdf">File:XR819 Datasheet V1.0-EN.pdf</a></li>
+<li><a href="File:XR819_Datasheet_V1.5-EN.pdf.html" title="File:XR819 Datasheet V1.5-EN.pdf">File:XR819 Datasheet V1.5-EN.pdf</a></li>
+<li><a href="File:XR819_Application_Guide_V1.0-CH.pdf.html" title="File:XR819 Application Guide V1.0-CH.pdf">File:XR819 Application Guide V1.0-CH.pdf</a></li></ul>
+<p>May be related to ST cw1XX0 <a rel="nofollow" class="external autonumber" href="https://irclog.whitequark.org/linux-sunxi/2016-12-27">[1]</a>.
+</p><p>Initial comparison between cw1200 (<tt>drivers/net/wireless/st/cw1200</tt>) and xradio driver shows that the source code for two drivers are really similar and the st1200 driver could be improved to support both devices.
+</p><p>A working out-of-tree driver for mainline kernels is at <a class="external autonumber" href="https://github.com/fifteenhex/xradio">[2]</a>.
+</p>
+<h3><span class="mw-headline" id="AW859A">AW859A</span></h3>
+<p>AW859A is a packaged Unisoc UWE5622 (sc2355) chip.
+</p><p>For AW859A driver source was include in Allwinner H616 Orange Pi Zero2 BSP, you can get it from <a class="external text" href="https://github.com/orangepi-xunlong/orangepi-build">orangepi-build repository</a>.
+</p><p>Firmware firmware blobs can be found from <a class="external text" href="https://github.com/orangepi-xunlong/firmware">orangepi firmware respository</a>.
+</p><p>This module <a class="external text" href="https://github.com/orangepi-xunlong/linux-orangepi/issues/98">does not reliabily work with 802.11r / Band Steering enabled APs</a>
+</p>
+<h2><span class="mw-headline" id="Ampak">Ampak</span></h2>
+<p>Ampak combines broadcom wifi and <a href="Bluetooth.html#AMPAK" title="Bluetooth">bluetooth</a> chips in single modules.
+</p>
+<h3><span class="mw-headline" id="Ampak_Devices">Ampak Devices</span></h3>
+<table border="1">
+<tbody><tr>
+<th scope="col">Device</th>
+<th>Type</th>
+<th>usb/sdio id</th>
+<th>module</th>
+<th>sunxi-3.4 kernel</th>
+<th>mainline kernel
+</th></tr>
+<tr>
+<td>AP6181</td>
+<td>SDIO/UART</td>
+<td>02d0:a962</td>
+<td>See right</td>
+<td>bcmdhd</td>
+<td>brcmfmac
+</td></tr>
+<tr>
+<td>AP6210</td>
+<td>SDIO/UART</td>
+<td>02d0:a962</td>
+<td>See right</td>
+<td>bcmdhd</td>
+<td>brcmfmac
+</td></tr>
+<tr>
+<td>AP6212</td>
+<td>SDIO/UART</td>
+<td>02d0:a9a6</td>
+<td>See right</td>
+<td></td>
+<td>brcmfmac
+</td></tr>
+<tr>
+<td>AP6330</td>
+<td>SDIO/UART</td>
+<td>02d0:4330</td>
+<td>See right</td>
+<td></td>
+<td>brcmfmac
+</td></tr>
+<tr>
+<td>AP6335</td>
+<td>SDIO/UART</td>
+<td>02d0:4335</td>
+<td>See right</td>
+<td></td>
+<td>brcmfmac
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="Broadcom">Broadcom</span></h2>
+<h3><span class="mw-headline" id="Broadcom_Devices">Broadcom Devices</span></h3>
+<table border="1">
+<tbody><tr>
+<th scope="col">Device</th>
+<th>Type</th>
+<th>usb/sdio id</th>
+<th>module</th>
+<th>sunxi-3.4 kernel</th>
+<th>mainline kernel
+</th></tr>
+<tr>
+<td>BCM4334</td>
+<td></td>
+<td>0x4334</td>
+<td>brcmfmac</td>
+<td></td>
+<td>brcmfmac since 3.6+
+</td></tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="Espressif">Espressif</span></h2>
+<p><a rel="nofollow" class="external text" href="http://www.espressif.com">Espressif</a> is a fairly young Chinese company.
+</p>
+<h3><span class="mw-headline" id="Espressif_Devices">Espressif Devices</span></h3>
+<table border="1">
+<tbody><tr>
+<th scope="col">Device</th>
+<th>Type</th>
+<th>sdio id</th>
+<th>module</th>
+<th>sunxi-3.4 kernel</th>
+<th>mainline kernel
+</th></tr>
+<tr>
+<td>ESP8089</td>
+<td>SDIO</td>
+<td>6666:1111</td>
+<td></td>
+<td></td>
+<td>out-of-tree driver exists
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="ESP8089">ESP8089</span></h3>
+<p>Firstly, you should use Hans de Goede's <a class="external text" href="https://github.com/jwrdegoede/linux-sunxi/tree/sunxi-wip">sunxi-wip kernel branch</a> containing various bits and pieces needed to make things work.
+</p><p>Driver itself is currently in its own repository:
+</p>
+<pre>git clone https://github.com/jwrdegoede/esp8089.git
+cd esp8089
+git checkout -B cleanup origin/cleanup
+cd ../linux
+make -j4 ARCH=arm CROSS_COMPILE=arm-linux-gnu- modules M=../esp8089 CONFIG_ESP8089=m
+</pre>
+<p>Do not forget to copy <tt>firmware/*.bin</tt> to <tt>/lib/firmware/</tt> on the target system.
+</p>
+<h2><span class="mw-headline" id="iNet">iNet</span></h2>
+<h3><span class="mw-headline" id="iNet_Devices">iNet Devices</span></h3>
+<table border="1">
+<tbody><tr>
+<th scope="col">Device</th>
+<th>Type</th>
+<th>usb id</th>
+<th>module</th>
+<th>sunxi-3.4 kernel</th>
+<th>mainline kernel
+</th></tr>
+<tr>
+<td>iNet i10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="RDA">RDA</span></h2>
+<p><a rel="nofollow" class="external text" href="http://www.rdamicro.com/">RDA Microelectronics</a> is a relatively unknown and new chinese chipmaker.
+</p>
+<table border="1">
+<tbody><tr>
+<th scope="col">Device</th>
+<th>Type</th>
+<th>usb id / sdio id</th>
+<th>module</th>
+<th>sunxi-3.4 kernel</th>
+<th>mainline kernel
+</th></tr>
+<tr>
+<td>RDA5990P</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td></tr>
+<tr>
+<td>RDA5991</td>
+<td>SDIO</td>
+<td>5449:0145</td>
+<td></td>
+<td></td>
+<td>
+</td></tr></tbody></table>
+<p>The <a rel="nofollow" class="external text" href="http://www.rdamicro.com/products/Detail_273.aspx">RDA5990P</a> is a single chip solution which includes Wifi, Bluetooth and an FM radio. Some code for this wifi chip is available in <a class="external text" href="https://github.com/linuxium/3188-SRC-ORIG/tree/master/kernel/drivers/net/wireless/rda5990">a Rockchip RK3188 kernel tree</a>, but nobody has tested or ported this code yet.
+</p><p>Datasheets: <a rel="nofollow" class="external text" href="http://pkgbuild.com/~jelle/RDA5990P_RDA.pdf">RDA5990P</a> <a rel="nofollow" class="external text" href="http://pkgbuild.com/~jelle/RDA5990_RDA.pdf">RDA5990</a>
+</p>
+<h2><span class="mw-headline" id="Realtek">Realtek</span></h2>
+<h3><span class="mw-headline" id="USB-based">USB-based</span></h3>
+<table style="margin: 0.7em; border-width: 1px 1px 1px 10px; border-style: solid; border-color: #EE8822; background-color: #FFEEDD">
+<tbody><tr>
+<td style="padding: 0.2em; vertical-align: baseline;"><a href="File:MBOX_icon_important.png.html" class="image"><img alt="MBOX icon important.png" src="https://linux-sunxi.org/images/f/f0/MBOX_icon_important.png" decoding="async" width="40" height="40" /></a>
+</td>
+<td style="width:100%; padding-left: 0.2em; padding-right: 0.2em; vertical-align: baseline;">Best up-to-date information about Realtek driver in mainline Linux is available from <a rel="nofollow" class="external text" href="https://wireless.wiki.kernel.org/en/users/drivers/rtl819x">Linux Wireless Project's Realtek drivers page</a>.
+</td></tr></tbody></table>
+<table border="1">
+<tbody><tr>
+<th scope="col">Device</th>
+<th>Type</th>
+<th>USB id</th>
+<th>mainline kernel</th>
+<th>legacy (sunxi-3.4)
+</th></tr>
+<tr>
+<td>RTL8188CTV</td>
+<td>USB</td>
+<td>0bda:8176</td>
+<td><tt><b>rtl8xxxu</b></tt></td>
+<td><tt>8192cu</tt>
+</td></tr>
+<tr>
+<td>RTL8188CUS</td>
+<td>USB</td>
+<td>0bda:8176</td>
+<td><tt><b>rtl8xxxu</b></tt></td>
+<td><tt>8192cu</tt>
+</td></tr>
+<tr>
+<td>RTL8188ETV</td>
+<td>USB</td>
+<td>0bda:0179</td>
+<td><tt><b>rtl8xxxu</b></tt></td>
+<td><tt>8188eu</tt> (see below)
+</td></tr>
+<tr>
+<td>RTL8188EUS</td>
+<td>USB</td>
+<td>0bda:8179</td>
+<td><tt><b>rtl8xxxu</b></tt></td>
+<td><tt>8188eu</tt> (see below)
+</td></tr>
+<tr>
+<td>RTL8192CU</td>
+<td>USB</td>
+<td>0bda:018a</td>
+<td><tt><b>rtl8xxxu</b></tt> (or <tt>rtlwifi</tt>)</td>
+<td><tt>8192cu</tt>
+</td></tr>
+<tr>
+<td>RTL8723AU</td>
+<td>USB</td>
+<td>0bda:0724</td>
+<td><tt><b>rtl8xxxu</b></tt></td>
+<td><tt>8723au</tt>
+</td></tr>
+</tbody></table>
+<h3><span class="mw-headline" id="SDIO-based">SDIO-based</span></h3>
+<table style="margin: 0.7em; border-width: 1px 1px 1px 10px; border-style: solid; border-color: #EE8822; background-color: #FFEEDD">
+<tbody><tr>
+<td style="padding: 0.2em; vertical-align: baseline;"><a href="File:MBOX_icon_important.png.html" class="image"><img alt="MBOX icon important.png" src="https://linux-sunxi.org/images/f/f0/MBOX_icon_important.png" decoding="async" width="40" height="40" /></a>
+</td>
+<td style="width:100%; padding-left: 0.2em; padding-right: 0.2em; vertical-align: baseline;">Best up-to-date information about Realtek driver in mainline Linux is available from <a rel="nofollow" class="external text" href="https://wireless.wiki.kernel.org/en/users/drivers/rtl819x">Linux Wireless Project's Realtek drivers page</a>.
+</td></tr></tbody></table>
+<table border="1">
+<tbody><tr>
+<th scope="col">Device</th>
+<th>Type</th>
+<th>SDIO id</th>
+<th>mainline kernel</th>
+<th>legacy (sunxi-3.4)
+</th></tr>
+<tr>
+<td>RTL8189ES</td>
+<td>SDIO</td>
+<td>??</td>
+<td>out-of-tree driver (see below)</td>
+<td>??
+</td></tr>
+<tr>
+<td>RTL8189FTV</td>
+<td>SDIO</td>
+<td><tt>024c:f179</tt></td>
+<td>out-of-tree driver (see below)</td>
+<td>??
+</td></tr>
+<tr>
+<td>RTL8723BS<br />RTL8703AS</td>
+<td>SDIO</td>
+<td>
+<p><tt>
+024c:0523<br />
+024c:0623<br />
+024c:0626<br />
+024c:b723</tt>
+</p>
+</td>
+<td><tt>rtl8723bs</tt> (staging)</td>
+<td><tt>8723bs</tt>
+</td></tr>
+<tr>
+<td>RTL8821CS</td>
+<td>SDIO</td>
+<td>024c:c821</td>
+<td>rtw88 (since v6.4)</td>
+<td>??
+</td></tr>
+<tr>
+<td>RTL8822BS</td>
+<td>SDIO</td>
+<td>024c:b822</td>
+<td>rtw88 (since v6.4) <a class="external text" href="https://github.com/ChalesYu/rtl8822bs-aml">vendor driver</a></td>
+<td>??
+</td></tr>
+<tr>
+<td>RTL8822CS</td>
+<td>SDIO</td>
+<td>024c:c822</td>
+<td>rtw88 (since v6.4) <a class="external text" href="https://github.com/chewitt/RTL8822CS">vendor driver</a></td>
+<td>??
+</td></tr></tbody></table>
+<p><br />
+</p>
+<h4><span id="RTL8189ES_/_RTL8189ETV"></span><span class="mw-headline" id="RTL8189ES_.2F_RTL8189ETV">RTL8189ES / RTL8189ETV</span></h4>
+<p>Driver has its own repository:
+</p>
+<pre>git clone https://github.com/jwrdegoede/rtl8189ES_linux.git
+cd rtl8189ES_linux
+make -j4 ARCH=arm CROSS_COMPILE=arm-linux-gnu- KSRC=../linux
+</pre>
+<p><br />
+</p>
+<h4><span class="mw-headline" id="RTL8189FTV">RTL8189FTV</span></h4>
+<p>Driver has its own repository:
+</p>
+<pre>git clone https://github.com/jwrdegoede/rtl8189ES_linux.git
+cd rtl8189ES_linux
+git checkout -B rtl8189fs origin/rtl8189fs
+make -j4 ARCH=arm CROSS_COMPILE=arm-linux-gnu- KSRC=../linux
+</pre>
+<h3><span class="mw-headline" id="Legacy_sunxi-3.4_kernel_support">Legacy sunxi-3.4 kernel support</span></h3>
+<h4><span id="Driver_refusing_to_load_(rt5370sta/8188eu/8189es/8192cu)"></span><span class="mw-headline" id="Driver_refusing_to_load_.28rt5370sta.2F8188eu.2F8189es.2F8192cu.29">Driver refusing to load (rt5370sta/8188eu/8189es/8192cu)</span></h4>
+<div class="toccolours mw-collapsible mw-collapsed">
+<p>Please note that sunxi-3.4 kernel is not supported and has been deprecated...
+</p>
+<div class="mw-collapsible-content">
+<p>When using the <b>rt5370sta</b>, <b>8188eu</b>, <b>8189es</b> or <b>8192cu</b> drivers, which are all for USB based realtek devices, it might occur that the driver refuses to load:
+</p>
+<pre>ERR: script_parser_fetch usb_wifi_usbc_num failed
+modprobe: can't load module 8188eu (kernel/drivers/net/wireless/rtl8188eu/8188eu.ko): Cannot allocate memory 
+</pre>
+<p>This is because the usb_wifi_para section is missing from your script.bin:
+</p>
+<pre>[usb_wifi_para]
+usb_wifi_used = 1
+usb_wifi_usbc_num = 2
+</pre>
+<p>Where usb_wifi_usbc_num is the usbc to which your realtek usb wireless chip is attached.
+</p><p>Edit the .fex file and create the script .bin as explained in our <a href="Manual_build_howto.html" title="Manual build howto"> Manual build howto</a>, and <a href="New_Device_howto.html#Step_6:_Add_support_to_sunxi-boards" title="New Device howto"> send a patch to sunxi-boards in to our mailinglist.</a>
+</p>
+</div>
+</div>
+<h4><span class="mw-headline" id="8188eu_driver_on_sunxi-3.4">8188eu driver on sunxi-3.4</span></h4>
+<div class="toccolours mw-collapsible mw-collapsed">
+<p>Please note that sunxi-3.4 kernel is not supported and has been deprecated...
+</p>
+<div class="mw-collapsible-content">
+<p>The sunxi-3.4 branch currently has <a class="external text" href="https://github.com/linux-sunxi/linux-sunxi/blob/sunxi-3.4/drivers/net/wireless/rtl8188eu/include/rtw_version.h">v4.1.2_4787.20120803</a> available.  There are newer versions available at  <a class="external free" href="https://github.com/lwfinger/rtl8188eu/">https://github.com/lwfinger/rtl8188eu/</a> which are <a class="external text" href="https://github.com/lwfinger/rtl8188eu/blob/master/include/rtw_version.h">v4.1.4_6773.20130222</a> and <a class="external text" href="https://github.com/lwfinger/rtl8188eu/blob/v4.1.8_9499/include/rtw_version.h">v4.1.8_9499.20131104</a>.  There's also a v4.1.8 file available at <a class="external free" href="https://github.com/LazyZhu/myblog/raw/gh-pages/file/RTL8188EUS_RTL8189ES_linux_v4.1.8_9499.20131104.zip">https://github.com/LazyZhu/myblog/raw/gh-pages/file/RTL8188EUS_RTL8189ES_linux_v4.1.8_9499.20131104.zip</a> which is likely the original from Realtek.
+</p><p>Here's how to compile the latest version from Realtek:
+</p><p>Extract the driver/rtl8188EUS_rtl8189ES_linux_v4.1.8_9499.20131104.tar.gz from the RTL8188EUS_RTL8189ES_linux_v4.1.8_9499.20131104.zip file and extract it.  These instructions assume your <code>linux-sunxi</code> directory is in the same directory as your <code>rtl8188EUS_rtl8189ES_linux_v4.1.8_9499.20131104</code> directory.  It's also assumed that you've configured the kernel to include the 8188eu driver that's part of linux-sunxi.
+</p>
+<pre>make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- -C ../linux-sunxi/ M=`pwd` modules
+</pre>
+<p>copy the <code>8188eu.ko</code> file over to the device and then install it into your kernel with the following commands (on the device as root):
+</p>
+<pre>modprobe -r 8188eu
+rm -rf /lib/modules/`uname -r`/kernel/drivers/net/wireless/rtl8188eu
+install -p -m 644 8188eu.ko /lib/modules/`uname -r`/kernel/drivers/net/wireless/
+/sbin/depmod
+modprobe 8188eu
+</pre>
+<p>There are two changes you may want to make in <code>include/autoconf.h</code>:
+</p><p>1. The default is to output a LOT of logging and you can disable that by commenting out the following line:
+</p>
+<pre>#define CONFIG_DEBUG /* DBG_871X, etc... */
+</pre>
+<p>2. The default is to disable the activity LED on the wifi device which you may want to see to know that it's working.  You can change that by un-commenting the following line:
+</p>
+<pre>//#define CONFIG_LED
+</pre>
+</div>
+</div>
+<h1><span class="mw-headline" id="Software_Configuration">Software Configuration</span></h1>
+<h2><span id="Debian/ubuntu_with_NetworkManager"></span><span class="mw-headline" id="Debian.2Fubuntu_with_NetworkManager">Debian/ubuntu with NetworkManager</span></h2>
+<p>NetworkManager uses its own wpa_supplicant configuration. That is the reason why manually editing /etc/network/interfaces to use wpa_supplicant does not work together with NetworkManager.
+</p><p>You have to disable all interfaces in /etc/network/interfaces e.g. by commenting out each line by inserting "#" as a first character. 
+</p><p>You even have to <b>disable Ethernet section</b> to use wifi in network manager. Here is an example
+</p>
+<pre>   # interfaces(5) file used by ifup(8) and ifdown(8)
+   auto lo
+   iface lo inet loopback
+   
+   #allow-hotplug eth0
+   #iface eth0 inet dhcp
+   
+   #auto eth0
+   #iface eth0 inet static
+   #address 192.168.101.50
+   #netmask 255.255.255.0
+   #gateway 192.168.101.1
+   #broadcast 192.168.101.255
+   
+   #auto wlan0
+   #iface wlan0 inet dhcp
+   #    wpa-ssid YOUR-NETWORK-NAME
+   #    wpa-key-mgmt WPA-PSK
+   #    wpa-group TKIP CCMP
+   #    wpa-psk YOUR-NETWORK-KEY
+</pre>
+<p><br />
+At your desktop there should emerge a network icon from NetworkManager in the task bar. You can edit the network setting with the gui dialogs.
+</p>
+<h2><span id="Debian/ubuntu_without_NetworkManager"></span><span class="mw-headline" id="Debian.2Fubuntu_without_NetworkManager">Debian/ubuntu without NetworkManager</span></h2>
+<h3><span class="mw-headline" id="Setup_with_wpa_supplicant_and_without_network_manager">Setup with wpa_supplicant and without network manager</span></h3>
+<p>There are many tutorials out there on how to do this. Here is <a rel="nofollow" class="external text" href="http://prupert.wordpress.com/2010/06/25/how-to-configure-wireless-wifi-networking-in-ubuntu-via-the-command-line-cli/">a good one</a>.
+</p>
+<h4><span class="mw-headline" id="Disabling_networkmanager._Fully.">Disabling networkmanager. Fully.</span></h4>
+<p>Even with the common trick of putting the following in /etc/NetworkManager/NetworkManager.conf
+</p>
+<pre>[ifupdown]
+managed=true
+</pre>
+<p>the despotic NetworkManager still will be messing up your careful setup from /etc/network/interfaces, and you might, once again, be left without wifi upon the next reboot.
+</p><p>To stop NetworkManager from running altogether, you can run the following (as root):
+</p>
+<pre>echo "manual" &gt; /etc/init/network-manager.override
+</pre>
+<p>Now, at least on ubuntu, your wifi driver, wpa_supplicant and ifupdown will not be smacked about anymore.
+</p>
+<h4><span class="mw-headline" id="Simple_and_dumb_WPA_setup">Simple and dumb WPA setup</span></h4>
+<p>Install the following packages, if they are not installed already:
+</p>
+<pre>apt-get install wireless-tools wpasupplicant
+</pre>
+<p>Edit /etc/network/interfaces and add the following:
+</p>
+<pre>auto wlan0
+iface wlan0 inet dhcp
+    wpa-ssid YourSSID
+    wpa-psk YourWPASharedKey
+</pre>
+<p>This is the most basic, but static, setup possible for wifi. If you need anything more, you need to read up on wpa_supplicant, or run through one of the tutorials referenced above.
+</p>
+<h1><span class="mw-headline" id="Devices">Devices</span></h1>
+<p>The following devices all come with an built-in wifi chip.
+</p>
+<div class="CategoryTreeTag" data-ct-mode="10" data-ct-options="{&quot;mode&quot;:10,&quot;hideprefix&quot;:20,&quot;showcount&quot;:false,&quot;namespaces&quot;:false,&quot;notranslations&quot;:false}"><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="10moons_LT390W.html" title="10moons LT390W">10moons LT390W</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="A-Star_KV49L.html" title="A-Star KV49L">A-Star KV49L</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="A33_Q7_V1.0.html" title="A33 Q7 V1.0">A33 Q7 V1.0</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="A70x.html" title="A70x">A70x</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="A70x1.html" title="A70x1">A70x1</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Ainol_AW1.html" title="Ainol AW1">Ainol AW1</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Allwinner_A83TDevBoard.html" title="Allwinner A83TDevBoard">Allwinner A83TDevBoard</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Allwinner_Nezha.html" title="Allwinner Nezha">Allwinner Nezha</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Along_A13Q8.html" title="Along A13Q8">Along A13Q8</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Along_rt713.html" title="Along rt713">Along rt713</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Ampe_A76.html" title="Ampe A76">Ampe A76</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Anichips_PhoenixA20.html" title="Anichips PhoenixA20">Anichips PhoenixA20</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Aoson_M751s.html" title="Aoson M751s">Aoson M751s</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Auxtek_T004.html" title="Auxtek T004">Auxtek T004</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Azpen_A741.html" title="Azpen A741">Azpen A741</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Beelink_GS1.html" title="Beelink GS1">Beelink GS1</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Beelink_X2.html" title="Beelink X2">Beelink X2</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Biqu_BTT_Pi.html" title="Biqu BTT Pi">Biqu BTT Pi</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Biqu_CB1.html" title="Biqu CB1">Biqu CB1</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="CherryPi_PC_H6.html" title="CherryPi PC H6">CherryPi PC H6</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Coby_MID7042.html" title="Coby MID7042">Coby MID7042</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Colorfly_e708q1.html" title="Colorfly e708q1">Colorfly e708q1</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="CS918S.html" title="CS918S">CS918S</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="CUBE_U11GT.html" title="CUBE U11GT">CUBE U11GT</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Cubietech_Cubieboard4.html" title="Cubietech Cubieboard4">Cubietech Cubieboard4</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Cubietech_Cubietruck.html" title="Cubietech Cubietruck">Cubietech Cubietruck</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Cubietech_Cubietruck_Plus.html" title="Cubietech Cubietruck Plus">Cubietech Cubietruck Plus</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Digix_TAB-730.html" title="Digix TAB-730">Digix TAB-730</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Digma_iDj7n.html" title="Digma iDj7n">Digma iDj7n</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Ditter_v21.html" title="Ditter v21">Ditter v21</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="DragonTouch_Y88X.html" title="DragonTouch Y88X">DragonTouch Y88X</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Eearl_H1026A.html" title="Eearl H1026A">Eearl H1026A</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Eken_A70h.html" title="Eken A70h">Eken A70h</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="ENET_E714F.html" title="ENET E714F">ENET E714F</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="ET_Q8_V2.0.html" title="ET Q8 V2.0">ET Q8 V2.0</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="ET-Q8_A33.html" title="ET-Q8 A33">ET-Q8 A33</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Finepower_N1.html" title="Finepower N1">Finepower N1</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Forfun_Q88DB.html" title="Forfun Q88DB">Forfun Q88DB</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="FriendlyARM_NanoPi_A64.html" title="FriendlyARM NanoPi A64">FriendlyARM NanoPi A64</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="FriendlyARM_NanoPi_Duo2.html" title="FriendlyARM NanoPi Duo2">FriendlyARM NanoPi Duo2</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="FriendlyARM_NanoPi_K1_Plus.html" title="FriendlyARM NanoPi K1 Plus">FriendlyARM NanoPi K1 Plus</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="FriendlyARM_NanoPi_NEO_&_AIR.html" title="FriendlyARM NanoPi NEO &amp; AIR">FriendlyARM NanoPi NEO &amp; AIR</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="FriendlyARM_NanoPi_NEO_Plus_2.html" title="FriendlyARM NanoPi NEO Plus 2">FriendlyARM NanoPi NEO Plus 2</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="FriendlyElec_NanoPi_R1.html" title="FriendlyElec NanoPi R1">FriendlyElec NanoPi R1</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="FSL_S8.html" title="FSL S8">FSL S8</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Gemei_G9.html" title="Gemei G9">Gemei G9</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Genesis_GT-7220s.html" title="Genesis GT-7220s">Genesis GT-7220s</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="GLD_KF026.html" title="GLD KF026">GLD KF026</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Goclever_Tab_A971.html" title="Goclever Tab A971">Goclever Tab A971</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="INET-3FTD.html" title="INET-3FTD">INET-3FTD</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="IRULU_X11.html" title="IRULU X11">IRULU X11</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="IRULU_X47.html" title="IRULU X47">IRULU X47</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Kickpi_K2B_H618.html" title="Kickpi K2B H618">Kickpi K2B H618</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="KOHOTECH_KP100_MB_V3.0.html" title="KOHOTECH KP100 MB V3.0">KOHOTECH KP100 MB V3.0</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Lamobo_R1.html" title="Lamobo R1">Lamobo R1</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="LeMaker_Banana_Pro.html" title="LeMaker Banana Pro">LeMaker Banana Pro</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="LinkSprite_pcDuino_Lite_WiFi.html" title="LinkSprite pcDuino Lite WiFi">LinkSprite pcDuino Lite WiFi</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="LinkSprite_pcDuino2.html" title="LinkSprite pcDuino2">LinkSprite pcDuino2</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="LinkSprite_pcDuino3.html" title="LinkSprite pcDuino3">LinkSprite pcDuino3</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="MangoPi_MQ1.html" title="MangoPi MQ1">MangoPi MQ1</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="MarsBoard_A20-SOM.html" title="MarsBoard A20-SOM">MarsBoard A20-SOM</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Mele_M3.html" title="Mele M3">Mele M3</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Milagrow_MGPT09.html" title="Milagrow MGPT09">Milagrow MGPT09</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="MSI_Primo73L.html" title="MSI Primo73L">MSI Primo73L</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="MXQ-4K.html" title="MXQ-4K">MXQ-4K</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Navon_iQ7_2018.html" title="Navon iQ7 2018">Navon iQ7 2018</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Naxa_NID-7015.html" title="Naxa NID-7015">Naxa NID-7015</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="NextThingCo_CHIP.html" title="NextThingCo CHIP">NextThingCo CHIP</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Nezha_D1s.html" title="Nezha D1s">Nezha D1s</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Olimex_A13-OLinuXino.html" title="Olimex A13-OLinuXino">Olimex A13-OLinuXino</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Olimex_A13-SOM.html" title="Olimex A13-SOM">Olimex A13-SOM</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Olimex_A64-OLinuXino.html" title="Olimex A64-OLinuXino">Olimex A64-OLinuXino</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Olimex_Teres-A64.html" title="Olimex Teres-A64">Olimex Teres-A64</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Onda_V972.html" title="Onda V972">Onda V972</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Pcduino8_A80_Board.html" title="Pcduino8 A80 Board">Pcduino8 A80 Board</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Pentagram_P5355.html" title="Pentagram P5355">Pentagram P5355</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Pine_Pinebook.html" title="Pine Pinebook">Pine Pinebook</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="PineTab.html" title="PineTab">PineTab</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="User:Putti/Unknown_Device.html" title="User:Putti/Unknown Device">User:Putti/Unknown Device</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Q8H-HD.html" title="Q8H-HD">Q8H-HD</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Radxa_Cubie_A5E.html" title="Radxa Cubie A5E">Radxa Cubie A5E</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Radxa_Cubie_A7A.html" title="Radxa Cubie A7A">Radxa Cubie A7A</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Rubix_A10.html" title="Rubix A10">Rubix A10</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Sinovoip_Banana_Pi_BPI-6204.html" title="Sinovoip Banana Pi BPI-6204">Sinovoip Banana Pi BPI-6204</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Sinovoip_Banana_Pi_M2.html" title="Sinovoip Banana Pi M2">Sinovoip Banana Pi M2</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Sinovoip_Banana_Pi_M2_Berry.html" title="Sinovoip Banana Pi M2 Berry">Sinovoip Banana Pi M2 Berry</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Sinovoip_Banana_Pi_M2_Ultra.html" title="Sinovoip Banana Pi M2 Ultra">Sinovoip Banana Pi M2 Ultra</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Sinovoip_Banana_Pi_M2_Zero.html" title="Sinovoip Banana Pi M2 Zero">Sinovoip Banana Pi M2 Zero</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Sinovoip_Banana_Pi_M2+.html" title="Sinovoip Banana Pi M2+">Sinovoip Banana Pi M2+</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Sinovoip_Banana_Pi_M3.html" title="Sinovoip Banana Pi M3">Sinovoip Banana Pi M3</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Sinovoip_Banana_Pi_M4_Berry.html" title="Sinovoip Banana Pi M4 Berry">Sinovoip Banana Pi M4 Berry</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Sinovoip_Banana_Pi_M64.html" title="Sinovoip Banana Pi M64">Sinovoip Banana Pi M64</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Sunchip_CX-A99.html" title="Sunchip CX-A99">Sunchip CX-A99</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Sunvell_R69.html" title="Sunvell R69">Sunvell R69</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="User:Svenska/QT-7.html" title="User:Svenska/QT-7">User:Svenska/QT-7</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="T95.html" title="T95">T95</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="T95H.html" title="T95H">T95H</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Tanix_TX1.html" title="Tanix TX1">Tanix TX1</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Tanix_TX6.html" title="Tanix TX6">Tanix TX6</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Tanix_TX6s.html" title="Tanix TX6s">Tanix TX6s</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="TBS_A711.html" title="TBS A711">TBS A711</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Thomson_TEO10.html" title="Thomson TEO10">Thomson TEO10</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="TQC_A01.html" title="TQC A01">TQC A01</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Tronsmart_Draco_H3.html" title="Tronsmart Draco H3">Tronsmart Draco H3</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Unisurf_USFT60U7BLK.html" title="Unisurf USFT60U7BLK">Unisurf USFT60U7BLK</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="X-View_Proton_Tab_2.html" title="X-View Proton Tab 2">X-View Proton Tab 2</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="X96_Mate.html" title="X96 Mate">X96 Mate</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="X96QPro.html" title="X96QPro">X96QPro</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Xassette_Asterisk.html" title="Xassette Asterisk">Xassette Asterisk</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Xunlong_Orange_Pi.html" title="Xunlong Orange Pi">Xunlong Orange Pi</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Xunlong_Orange_Pi_2.html" title="Xunlong Orange Pi 2">Xunlong Orange Pi 2</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Xunlong_Orange_Pi_4A.html" title="Xunlong Orange Pi 4A">Xunlong Orange Pi 4A</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Xunlong_Orange_Pi_Mini.html" title="Xunlong Orange Pi Mini">Xunlong Orange Pi Mini</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Xunlong_Orange_Pi_One_&_Lite.html" title="Xunlong Orange Pi One &amp; Lite">Xunlong Orange Pi One &amp; Lite</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Xunlong_Orange_Pi_Plus.html" title="Xunlong Orange Pi Plus">Xunlong Orange Pi Plus</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Xunlong_Orange_Pi_Plus_2.html" title="Xunlong Orange Pi Plus 2">Xunlong Orange Pi Plus 2</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Xunlong_Orange_Pi_Plus_2E.html" title="Xunlong Orange Pi Plus 2E">Xunlong Orange Pi Plus 2E</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Xunlong_Orange_Pi_Prime.html" title="Xunlong Orange Pi Prime">Xunlong Orange Pi Prime</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Xunlong_Orange_Pi_Win.html" title="Xunlong Orange Pi Win">Xunlong Orange Pi Win</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Xunlong_Orange_Pi_Zero.html" title="Xunlong Orange Pi Zero">Xunlong Orange Pi Zero</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Xunlong_Orange_Pi_Zero_Plus.html" title="Xunlong Orange Pi Zero Plus">Xunlong Orange Pi Zero Plus</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Xunlong_Orange_Pi_Zero_Plus_2.html" title="Xunlong Orange Pi Zero Plus 2">Xunlong Orange Pi Zero Plus 2</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Xunlong_Orange_Pi_Zero2.html" title="Xunlong Orange Pi Zero2">Xunlong Orange Pi Zero2</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Xunlong_Orange_Pi_Zero2W.html" title="Xunlong Orange Pi Zero2W">Xunlong Orange Pi Zero2W</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Xunlong_Orange_Pi_Zero3.html" title="Xunlong Orange Pi Zero3">Xunlong Orange Pi Zero3</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Yarvik_tab462.html" title="Yarvik tab462">Yarvik tab462</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Yuntab_PHT_V101H_A33_V1.0.html" title="Yuntab PHT V101H A33 V1.0">Yuntab PHT V101H A33 V1.0</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="YuzukiHD_Avaota_A1.html" title="YuzukiHD Avaota A1">YuzukiHD Avaota A1</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="YuzukiNezha_D1s.html" title="YuzukiNezha D1s">YuzukiNezha D1s</a></div><div class="CategoryTreeChildren" style="display:none"></div></div></div>
+<!-- 
+NewPP limit report
+Cached time: 20251029040342
+Cache expiry: 21600
+Dynamic content: true
+Complications: []
+CPU time usage: 0.241 seconds
+Real time usage: 0.464 seconds
+Preprocessor visited node count: 176/1000000
+Post‐expand include size: 2982/2097152 bytes
+Template argument size: 1308/2097152 bytes
+Highest expansion depth: 7/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 33441/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    8.826      1 -total
+ 97.73%    8.626      2 Template:Alert
+ 66.38%    5.859      2 Template:MBOX_NOTE
+ 33.74%    2.978      2 Template:MBOX
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:248-0!canonical and timestamp 20251029040342 and revision id 26740
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=Wifi&amp;oldid=26740">https://linux-sunxi.org/index.php?title=Wifi&amp;oldid=26740</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Categories</a>: <ul><li><a href="Category:Tutorial.html" title="Category:Tutorial">Tutorial</a></li><li><a href="Category:Software.html" title="Category:Software">Software</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=Wifi" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=Wifi" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="Wifi.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:Wifi&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="Wifi.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Wifi&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Wifi&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/Wifi.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/Wifi" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=Wifi&amp;oldid=26740" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=Wifi&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 1 October 2025, at 23:31.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.241","walltime":"0.464","ppvisitednodes":{"value":176,"limit":1000000},"postexpandincludesize":{"value":2982,"limit":2097152},"templateargumentsize":{"value":1308,"limit":2097152},"expansiondepth":{"value":7,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":33441,"limit":5000000},"timingprofile":["100.00%    8.826      1 -total"," 97.73%    8.626      2 Template:Alert"," 66.38%    5.859      2 Template:MBOX_NOTE"," 33.74%    2.978      2 Template:MBOX"]},"cachereport":{"timestamp":"20251029040342","ttl":21600,"transientcontent":true}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":672});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

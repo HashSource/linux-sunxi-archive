@@ -1,0 +1,314 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Cubieboard/Installing on NAND - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"c7ab714172e2dd2fdd19ad3e","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Cubieboard/Installing_on_NAND","wgTitle":"Cubieboard/Installing on NAND","wgCurRevisionId":14208,"wgRevisionId":14208,"wgArticleId":451,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Cubieboard"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Cubieboard/Installing_on_NAND","wgRelevantArticleId":451,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={
+"site.styles":"ready","noscript":"ready","user.styles":"ready","user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=mediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="Installing_on_NAND.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-Cubieboard_Installing_on_NAND rootpage-Cubieboard skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">Cubieboard/Installing on NAND</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"><span class="subpages">&lt; <a href="../Cubieboard.html" class="mw-redirect" title="Cubieboard">Cubieboard</a></span></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Automatically.2C_with_Install-Cubian"><span class="tocnumber">1</span> <span class="toctext">Automatically, with Install-Cubian</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Manually"><span class="tocnumber">2</span> <span class="toctext">Manually</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Copy_the_SD-card_image_to_a_card"><span class="tocnumber">2.1</span> <span class="toctext">Copy the SD-card image to a card</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Boot_your_Cubieboard_from_the_card"><span class="tocnumber">2.2</span> <span class="toctext">Boot your Cubieboard from the card</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Write_the_boot_partition_and_partition_table_to_NAND"><span class="tocnumber">2.3</span> <span class="toctext">Write the boot partition and partition table to NAND</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Create_the_OS_partition_on_NAND"><span class="tocnumber">2.4</span> <span class="toctext">Create the OS partition on NAND</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Copy_the_kernel_to_NAND"><span class="tocnumber">2.5</span> <span class="toctext">Copy the kernel to NAND</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Copy_the_filesystem"><span class="tocnumber">2.6</span> <span class="toctext">Copy the filesystem</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Finish_setting-up_your_OS"><span class="tocnumber">2.7</span> <span class="toctext">Finish setting-up your OS</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><span id="Automatically,_with_Install-Cubian"></span><span class="mw-headline" id="Automatically.2C_with_Install-Cubian">Automatically, with Install-Cubian</span></h2>
+<p>Update, cubieplayer has made a Linux image for cubieboard1 called <a rel="nofollow" class="external text" href="http://cubian.org">Cubian</a>. which supports automatic <a href="../NAND.html" title="NAND">NAND</a> installation for <a href="../Cubieboard.html" class="mw-redirect" title="Cubieboard">Cubieboard1</a> and <a href="../Cubieboard2.html" class="mw-redirect" title="Cubieboard2">Cubieboard2</a>. Quote from <a class="external text" href="https://github.com/cubieplayer/Cubian/wiki/Install-Cubian#install-to-nand#install-to-nand">Cubian Wiki</a>
+</p>
+<pre>Install Cubian to NAND is pretty simple.
+First, you need to install it to Micro-SD card by the tutorial above, then boot and login to your Cubieboard. 
+Once you logged in, execute the following command
+sudo ~/nandinstall/install.sh
+</pre>
+<p>If you want to port Linux on your SD-card to NAND manually, please continue to read the tutorial below
+</p>
+<h2><span class="mw-headline" id="Manually">Manually</span></h2>
+<p>First, download and uncompress a couple of files:
+</p>
+<ul><li><a rel="nofollow" class="external text" href="http://guillaumeplayground.net/mele-a2000-headless-debian-wheezy-armhf-with-nand-install-v1/">Debian Wheezy SD-card image</a> (Thanks Guillaume).</li>
+<li><a rel="nofollow" class="external text" href="https://code.google.com/p/cubieboard/downloads/detail?name=cubie_nand_uboot_partition_image.bin&amp;can=2&amp;q=">NAND boot partition and MBR image</a> (<a rel="nofollow" class="external text" href="http://www.cubieforums.com/index.php/topic,73.msg235.html#msg235#msg235">Thanks Lawrence</a>)</li>
+<li>CONFIG_SUNXI_NAND=y is needed in kernel configuration</li></ul>
+<h3><span class="mw-headline" id="Copy_the_SD-card_image_to_a_card">Copy the SD-card image to a card</span></h3>
+<p>The first step to installation is to copy the SD-card image to an SD card (make sure it's large enough!)
+</p><p>I'm using a Mac. If you are too, you can do this by:
+</p>
+<ul><li>Typing <tt>mount</tt>. The mounted partition on the card will be listed in there somewhere, with a name like <tt>/dev/diskXs1</tt> (where <tt>X</tt> is a number).</li>
+<li>Unmount it by typing <tt>umount /dev/diskXs1</tt> (replace the <tt>X</tt> with the number from the previous steps). If there is more than one partition on the card (<tt>/dev/diskXs2</tt>, <tt>/dev/diskXs3</tt> etc.) unmount them all.</li>
+<li>Now, you need to copy the Debian SD card image onto the SD card, with a command like <tt>sudo dd bs=4096 if=~/Downloads/debian_wheezy_armhf_v1_mele.img of=/dev/diskX</tt> - again, the <tt>X</tt> should be the same number as in the previous steps. Note that there's no trailing <tt>sY</tt> this time, because we're copying the image over the whole disk, and the numerical 'sY' suffixes refer to partitions.</li>
+<li>After the <tt>dd</tt> command is complete, the system will probably auto-mount the new boot partition on the SD card (this is just a small MS-DOS formatted partition that's used for booting). Eject it, and remove the SD card.</li>
+<li>Now you have Debian on the SD card!</li></ul>
+<p>On Linux, the steps will be quite similar. On Windows they will not, but the goal is the same.
+</p>
+<h3><span class="mw-headline" id="Boot_your_Cubieboard_from_the_card">Boot your Cubieboard from the card</span></h3>
+<p>Next you can boot your Cubieboard with the system on the SD card. Plug it in to your Ethernet network, plug in the SD card, and plug in the power. The power light will come on immediately, followed shortly (maybe 15-20 seconds later) by LED 2. In about 30 seconds, booting will be complete, and the Cubieboard will have obtained an IP from your DHCP server or router. You'll need to find out what this IP is from your router.
+</p><p>After you have the Cubieboard's IP, you can ssh to it. On a UNIX system like a Mac or Linux, that's just a simple <tt>ssh root@&lt;CUBIEBOARD IP ADDRESS&gt;</tt> in a terminal. The password is also <tt>root</tt>. You should be logged in and get a command prompt.
+</p>
+<h3><span class="mw-headline" id="Write_the_boot_partition_and_partition_table_to_NAND">Write the boot partition and partition table to NAND</span></h3>
+<p>Now finally we got to the point where we can start modifying contents of the internal NAND.
+</p><p>First, we need to get the boot partition we downloaded earlier on onto the NAND. You can either copy it over using SCP, then use <tt>dd</tt> to write it to <tt>/dev/nand</tt> (<tt>dd bs=4096 if=./cubie_nand_uboot_partition_image.bin of=/dev/nand</tt>), or just copy it directly there with SCP (on my Mac, <tt>scp ~/Downloads/cubie_nand_uboot_partition_image.bin root@&lt;CUBIEBOARD IP ADDRESS&gt;:/dev/nand</tt>).
+</p><p>After that <b>wait for 30 seconds (this seems like it should not be necessary, but guides I read recommended it, and I'm paranoidly cargo-culting the advice)</b>, then a 'reboot' is in order.
+</p>
+<h3><span class="mw-headline" id="Create_the_OS_partition_on_NAND">Create the OS partition on NAND</span></h3>
+<p><b>Warning&#160;! Depending on system image used, nand partition devices have not the same name</b>. It could be <code>/dev/nanda</code> and <code>/dev/nandb</code>, or <code>/dev/nand1</code> and <code>/dev/nand2</code>. To know what names are used, type <code>ls /dev/nand*</code>. We assume here that it's <i>nanda</i> for first partition and <i>nandb</i> for second one.
+</p><p>After the board reboots, SSH in to it again. Now, we'll create our Linux partition. The image we copied to the NAND already has the partition table and the boot partition on it, so all we need to do is format the partition we'll use by doing <code>mkfs.ext4 /dev/nandb</code>. After that, we can mount it with <code>mount /dev/nandb /mnt</code>.
+</p>
+<h3><span class="mw-headline" id="Copy_the_kernel_to_NAND">Copy the kernel to NAND</span></h3>
+<p>Next, we'll copy the Linux kernel off the SD card. It's on the SD card's boot partition.
+</p><p><b>Warning:</b> On the example given image, the boot and the root partition are not the same, but on some images (as <a rel="nofollow" class="external text" href="http://archlinuxarm.org/platforms/armv7/allwinner/cubieboard-2">Arch Linux ARM for CB2</a> for example), there is only one ext4 partition for the root and the boot, in this case, mounting two times the filesystem could damage it. You can know how much partition are created on your SD card by typing <code>ls /dev/mmcblk0*</code>. <code>mmcblk0</code> is the whole card device file, <code>mmcblk0p1</code> the first partition, and <code>mmcblk0p2</code> the second partition.
+</p><p>So to simplify the following tuto, you can in the case of only one partition (only mmcblk0p1) the files are in <code>/boot/</code> instead of <code>/tmp/boot/</code> mounted partition.
+</p><p>If your image as the one given in the example has two partition, your root partion (mounted as /) is not the one containing the root filesystem, so we'll mount it by creating a directory to mount it into (<code>mkdir /tmp/boot</code>), and then mounting it (<code>mount /dev/mmcblk0p1 /tmp/boot</code>). After that, we copy the kernel image out of it into a boot directory on our new partition (<code>mkdir /mnt/boot</code> then <code>cp -a /tmp/boot/uImage /mnt/boot/uImage</code>).
+</p><p>If you want to use <a href="../Hwpack.html" title="Hwpack">Hwpack</a> features, you should copy <code>uImage</code> and <code>script.bin</code> files from Hwpack <code>kernel</code> directory instead of <code>/tmp/boot/uImage</code>.
+</p>
+<h3><span class="mw-headline" id="Copy_the_filesystem">Copy the filesystem</span></h3>
+<p>All that remains now is to copy over the Linux filesystem. I used <tt>rsync</tt> for that (thanks patwood: <a rel="nofollow" class="external free" href="http://www.cubieforums.com/index.php/topic,73.msg241.html#msg241#msg241">http://www.cubieforums.com/index.php/topic,73.msg241.html#msg241</a>). 
+</p><p>First, I created a file to contain all the directories I <i>didn't</i> want the contents of. The contents of that file were:
+</p>
+<pre>/dev/*
+/proc/*
+/sys/*
+/media/*
+/mnt/*
+/run/*
+/tmp/*
+</pre>
+<p>Then a simple <tt>rsync -avc --exclude-from=EXCLUDE_FILE / /mnt</tt> copied the files.
+</p><p>For using Cubieboard-specific modules from Hwpack, copy the Hwpack <tt>rootfs</tt> directory contents to <tt>/mnt</tt>.
+</p><p>That's it! Do a <tt>shutdown -h now</tt>, and when the lights go out, remove the SD card. Now, power the Cubieboard back up, and you'll have Debian running entirely from the NAND.
+</p>
+<h3><span class="mw-headline" id="Finish_setting-up_your_OS">Finish setting-up your OS</span></h3>
+<p>Now, it's time to properly set things up. An <tt>apt-get update</tt> then an <tt>apt-get dist-upgrade</tt> is a pretty good first step to get things up to date. You'll probably want to then create a user account and change the root password. My next steps were to edit <tt>/etc/hostname</tt> to give my board a good name, then <tt>apt-get install man</tt> and <tt>apt-get install g++</tt>. Most of the software you'll need can be installed with <tt>apt-get</tt> - but I won't go into more detail, that's all just generic Debian and Linux stuff, not specific to the Cubieboard.
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20251029042533
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.118 seconds
+Real time usage: 0.245 seconds
+Preprocessor visited node count: 40/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 308/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:451-0!canonical and timestamp 20251029042533 and revision id 14208
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=Cubieboard/Installing_on_NAND&amp;oldid=14208">https://linux-sunxi.org/index.php?title=Cubieboard/Installing_on_NAND&amp;oldid=14208</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="../Special:Categories.html" title="Special:Categories">Category</a>: <ul><li><a href="../Category:Cubieboard.html" title="Category:Cubieboard">Cubieboard</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=Cubieboard%2FInstalling+on+NAND" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=Cubieboard%2FInstalling+on+NAND" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="Installing_on_NAND.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:Cubieboard/Installing_on_NAND&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="Installing_on_NAND.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Cubieboard/Installing_on_NAND&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Cubieboard/Installing_on_NAND&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="../index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="../index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="../sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="../Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="../Special:WhatLinksHere/Cubieboard/Installing_on_NAND.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/Cubieboard/Installing_on_NAND" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="../Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=Cubieboard/Installing_on_NAND&amp;oldid=14208" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=Cubieboard/Installing_on_NAND&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 17 June 2015, at 18:51.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.118","walltime":"0.245","ppvisitednodes":{"value":40,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":308,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20251029042533","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":400});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

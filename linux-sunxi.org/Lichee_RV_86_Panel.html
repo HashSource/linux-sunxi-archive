@@ -1,0 +1,408 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Lichee RV 86 Panel - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"7ebf83e01d8441a35be1e621","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Lichee_RV_86_Panel","wgTitle":"Lichee RV 86 Panel","wgCurRevisionId":25390,"wgRevisionId":25390,"wgArticleId":4121,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Lichee_RV_86_Panel","wgRelevantArticleId":4121,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles"
+:"ready","user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=mediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="Lichee_RV_86_Panel.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-Lichee_RV_86_Panel rootpage-Lichee_RV_86_Panel skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">Lichee RV 86 Panel</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>This page describes the Sipeed RV86 touch screen LCD panel. This panel comes as 480x480 / 720x720 variants.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Status"><span class="tocnumber">1</span> <span class="toctext">Status</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Kernel_Messages"><span class="tocnumber">2</span> <span class="toctext">Kernel Messages</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Kernel_Configuration"><span class="tocnumber">3</span> <span class="toctext">Kernel Configuration</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Frame_Buffer"><span class="tocnumber">4</span> <span class="toctext">Frame Buffer</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Panels"><span class="tocnumber">5</span> <span class="toctext">Panels</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Status">Status</span></h1>
+<p>This panel works with Vendor-provided kernel images.
+</p><p>On the <a href="Allwinner_Nezha.html#Mainline_kernel" title="Allwinner Nezha">mainline kernel</a>, the kernel uses the <b>sun4i-drm</b> driver.
+</p>
+<h1><span class="mw-headline" id="Kernel_Messages">Kernel Messages</span></h1>
+<p>The main line kernel will output this, during boot:
+</p>
+<pre>sun4i-drm display-engine: Adding to iommu group 0
+sun4i-drm display-engine: bound 5100000.mixer (ops 0xffffffff80c5f628)
+sun4i-drm display-engine: bound 5200000.mixer (ops 0xffffffff80c5f628)
+sun4i-drm display-engine: bound 5460000.tcon-top (ops 0xffffffff80c63ca8)
+sun4i-drm display-engine: bound 5461000.lcd-controller (ops 0xffffffff80c5c6d8)
+sun4i-drm display-engine: bound 5470000.lcd-controller (ops 0xffffffff80c5c6d8)
+[drm] Initialized sun4i-drm 1.0.0 20150629 for display-engine on minor 0
+sun4i-drm display-engine: [drm] fb0: sun4i-drmdrmfb frame buffer device
+</pre>
+<p>The vendor kernel does not have any sun4i-drm messages.
+In fact, it does not use DRM at all. Instead it merely reports on hdmi:
+</p>
+<pre>HDMI 2.0 driver init start!
+boot_hdmi=false
+ERROR: pinctrl_get for HDMI2.0 DDC fail
+HDMI2.0 module init end
+hdmi_hpd_sys_config_release
+</pre>
+<h1><span class="mw-headline" id="Kernel_Configuration">Kernel Configuration</span></h1>
+<p>The vendor supplied kernel has these configuration options set:
+</p>
+<pre>#
+# Video support for sunxi
+#
+CONFIG_DISP2_SUNXI=y
+CONFIG_SUNXI_DISP2_FB_DISABLE_ROTATE=y
+CONFIG_HDMI2_DISP2_SUNXI=y
+CONFIG_AW_PHY=y
+CONFIG_HDMI2_HDCP_SUNXI=y
+CONFIG_HDMI2_CEC_SUNXI=y
+CONFIG_DISP2_SUNXI_DEBUG=y
+CONFIG_DISP2_LCD_ESD_DETECT=y
+#
+# LCD panels select
+#
+CONFIG_LCD_SUPPORT_ST7701S_RGB=y
+CONFIG_LCD_SUPPORT_NV3052C_RGB=y
+CONFIG_LCD_SUPPORT_INET_DSI_PANEL=y
+CONFIG_LCD_SUPPORT_ST7789V_CPU=y
+CONFIG_LCD_SUPPORT_TFT08006=y
+#
+# Display engine feature select
+#
+CONFIG_DISP2_SUNXI_SUPPORT_SMBL=y
+CONFIG_DISP2_SUNXI_SUPPORT_ENAHNCE=y
+#
+# Backlight &amp; LCD device support
+#
+# CONFIG_LCD_CLASS_DEVICE is not set
+CONFIG_BACKLIGHT_CLASS_DEVICE=y
+CONFIG_BACKLIGHT_GENERIC=y
+</pre>
+<p>NOTE: These configuration options are not available in the mainline kernel.
+</p>
+<h1><span class="mw-headline" id="Frame_Buffer">Frame Buffer</span></h1>
+<p>The fbset tool will report this on the framebuffer device:
+</p>
+<pre>$ sudo fbset -i
+
+mode "480x480"
+    geometry 480 480 480 480 32
+    timings 0 0 0 0 0 0 0
+    accel true
+    rgba 8/16,8/8,8/0,0/0
+endmode
+
+Frame buffer device information:
+    Name        : sun4i-drmdrmfb
+    Address     : 0
+    Size        : 921600
+    Type        : PACKED PIXELS
+    Visual      : TRUECOLOR
+    XPanStep    : 1
+    YPanStep    : 1
+    YWrapStep   : 0
+    LineLength  : 1920
+    Accelerator&#160;: No
+</pre>
+<p>Compare this with the vendor-provided Linux sipeed 5.4.61, that has a working display:
+</p>
+<pre>$ sudo fbset -i
+
+mode "480x480-60"
+    # D: 19.000 MHz, H: 31.046 kHz, V: 59.704 Hz
+    geometry 480 480 480 960 32
+    timings 52631 48 72 14 22 12 4
+    rgba 8/16,8/8,8/0,8/24
+endmode
+
+Frame buffer device information:
+    Name        : 
+    Address     : 0xffe00000
+    Size        : 1843200
+    Type        : PACKED PIXELS
+    Visual      : TRUECOLOR
+    XPanStep    : 1
+    YPanStep    : 1
+    YWrapStep   : 0
+    LineLength  : 1920
+    Accelerator&#160;: No
+</pre>
+<p>Note that the fb device is unnamed in this case.
+</p>
+<h1><span class="mw-headline" id="Panels">Panels</span></h1>
+<p>The device has been shipped with multiple panel types:
+</p>
+<ul><li>A 480x272 panel, default_lcd driver</li>
+<li>A 480x480 panel, st7701s_rgb driver</li>
+<li>A 720x720 panel, nv3052c_rgb driver</li>
+<li>A 720x720 panel, default_lcd driver</li></ul>
+<p>The last panel requires this device tree node on Allwinner kernels to use correct timings:
+</p>
+<pre>&amp;lcd0 {
+	lcd_used        = &lt;1&gt;;
+	lcd_driver_name = "default_lcd";
+
+	lcd_if          = &lt;0&gt;;
+	lcd_hv_if       = &lt;0&gt;;
+
+	lcd_width       = &lt;70&gt;;
+	lcd_height      = &lt;72&gt;;
+	lcd_x           = &lt;720&gt;;
+	lcd_y           = &lt;720&gt;;
+	lcd_dclk_freq   = &lt;36&gt;;
+	lcd_hbp         = &lt;60&gt;;
+	lcd_ht          = &lt;800&gt;;
+	lcd_hspw        = &lt;12&gt;;
+	lcd_vbp         = &lt;25&gt;;
+	lcd_vt          = &lt;780&gt;;
+	lcd_vspw        = &lt;8&gt;;
+
+	lcd_backlight   = &lt;50&gt;;
+	lcd_pwm_used    = &lt;1&gt;;
+	lcd_pwm_ch      = &lt;7&gt;;
+	lcd_pwm_freq    = &lt;20000&gt;;
+	lcd_pwm_pol     = &lt;1&gt;;
+	lcd_bright_curve_en = &lt;0&gt;;
+
+	lcd_frm         = &lt;1&gt;;
+	lcd_io_phase    = &lt;0x0000&gt;;
+	lcd_gamma_en    = &lt;0&gt;;
+	lcd_cmap_en     = &lt;0&gt;;
+	lcd_hv_clk_phase= &lt;0&gt;;
+	lcd_hv_sync_polarity= &lt;0&gt;;
+	lcd_rb_swap          = &lt;0&gt;;
+
+	lcd_power       = "vcc-lcd";
+	lcd_pin_power   = "vcc-pd";
+	lcd_gpio_0      = &lt;&amp;pio PG 13 GPIO_ACTIVE_HIGH&gt;;
+	lcd_gpio_1      = &lt;&amp;pio PE 14 GPIO_ACTIVE_HIGH&gt;;
+	lcd_gpio_2      = &lt;&amp;pio PE 12 GPIO_ACTIVE_HIGH&gt;;
+	lcd_gpio_3      = &lt;&amp;pio PE 15 GPIO_ACTIVE_HIGH&gt;;
+	pinctrl-0       = &lt;&amp;rgb18_pins_a&gt;;
+	pinctrl-1       = &lt;&amp;rgb18_pins_b&gt;;
+};
+</pre>
+<p>The rest pin polarity is flipped between Allwinner Linux and U-Boot device trees.
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20251029041835
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.028 seconds
+Real time usage: 0.049 seconds
+Preprocessor visited node count: 44/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 3586/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:4121-0!canonical and timestamp 20251029041834 and revision id 25390
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=Lichee_RV_86_Panel&amp;oldid=25390">https://linux-sunxi.org/index.php?title=Lichee_RV_86_Panel&amp;oldid=25390</a>"</div>
+		<div id="catlinks" class="catlinks catlinks-allhidden" data-mw="interface"></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=Lichee+RV+86+Panel" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=Lichee+RV+86+Panel" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="Lichee_RV_86_Panel.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:Lichee_RV_86_Panel&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="Lichee_RV_86_Panel.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Lichee_RV_86_Panel&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Lichee_RV_86_Panel&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/Lichee_RV_86_Panel.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/Lichee_RV_86_Panel" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=Lichee_RV_86_Panel&amp;oldid=25390" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=Lichee_RV_86_Panel&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 24 July 2023, at 19:27.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.028","walltime":"0.049","ppvisitednodes":{"value":44,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":3586,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20251029041835","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":162});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

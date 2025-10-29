@@ -1,0 +1,317 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>SATA - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"92b4720348892507852b3459","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"SATA","wgTitle":"SATA","wgCurRevisionId":22610,"wgRevisionId":22610,"wgArticleId":166,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Hardware"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"SATA","wgRelevantArticleId":166,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":"ready","user":"ready",
+"user.options":"loading","ext.cite.styles":"ready","ext.categoryTree.styles":"ready","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","ext.cite.ux-enhancements","ext.categoryTree","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=ext.categoryTree.styles%7Cext.cite.styles%7Cmediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="SATA.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-SATA rootpage-SATA skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">SATA</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>An integrated <a class="external text" href="http://en.wikipedia.org/wiki/Serial_ATA">Serial ATA</a> interface is available on Allwinner <a href="A10.html" title="A10">A10</a>, <a href="A20.html" title="A20">A20</a> and <a href="R40.html" title="R40">R40</a> SoCs.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Specifications"><span class="tocnumber">1</span> <span class="toctext">Specifications</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Performance"><span class="tocnumber">2</span> <span class="toctext">Performance</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Current_state"><span class="tocnumber">2.1</span> <span class="toctext">Current state</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Measuring_performance_.2F_interpreting_numbers"><span class="tocnumber">2.2</span> <span class="toctext">Measuring performance / interpreting numbers</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="#Port_multipliers"><span class="tocnumber">3</span> <span class="toctext">Port multipliers</span></a>
+<ul>
+<li class="toclevel-2 tocsection-6"><a href="#PMP_support_-_using_SATA_port_multipliers_with_sunxi_devices"><span class="tocnumber">3.1</span> <span class="toctext">PMP support - using SATA port multipliers with sunxi devices</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Caveats"><span class="tocnumber">3.2</span> <span class="toctext">Caveats</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="#Mechanical_quality"><span class="tocnumber">4</span> <span class="toctext">Mechanical quality</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#Devices_with_SATA_ports"><span class="tocnumber">5</span> <span class="toctext">Devices with SATA ports</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="#See_also"><span class="tocnumber">6</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Specifications">Specifications</span></h2>
+<p>From <b>A10</b> EVB Manual<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup>:
+</p>
+<ul><li>Supports SATA 1.5Gb/s, and SATA 3.0Gb/s</li>
+<li>Compliant with SATA Spec. 2.6, and <a class="external text" href="http://en.wikipedia.org/wiki/Advanced_Host_Controller_Interface">AHCI</a> Revision 1.3 Specifications</li>
+<li>Supports industry-standard AMBA High-Performance Bus (AHB) and it is fully compliant with the AMBA Specification, Revision 2.0.</li>
+<li>Supports 32-bit Little Endian</li>
+<li>OOB signaling detection and generation</li>
+<li>SATA 1.5Gb/s and SATA 3.0Gb/s speed negotiation when Tx OON signaling is selected</li>
+<li>Supports device hot-plugging</li>
+<li>Support power management features including automatic Partial to Slumber transition</li>
+<li>Internal DMA Engine for Command and Data Transactions</li>
+<li>Supports hardware-assisted <a class="external text" href="http://en.wikipedia.org/wiki/Native_Command_Queuing">Native Command Queuing</a> (NCQ) for up to 32-entries</li>
+<li>Support external SATA (eSATA)</li></ul>
+<p>The <b>A20</b> user manual<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;2&#93;</a></sup> lists identical SATA/AHCI interface features.
+</p>
+<h2><span class="mw-headline" id="Performance">Performance</span></h2>
+<p><span style="color:#ba0000">This section is work in progress</span>
+</p>
+<h3><span class="mw-headline" id="Current_state">Current state</span></h3>
+<p>SATA sequential throughput is unbalanced for unknown reasons: With appropriate <a href="Cpufreq.html" title="Cpufreq">cpufreq</a> settings it's possible to get sequential read speeds of +200 MB/s while write speeds retain at approx. 45 MB/s. This is caused by wrong dma settings in the original allwinner driver, that was copied in the mainline kernel. See also relevant message in lkml: <a rel="nofollow" class="external free" href="https://lkml.org/lkml/2019/5/12/84">https://lkml.org/lkml/2019/5/12/84</a>
+</p><p>Unlike other platforms sequential SATA transfer rates on A10/A20/R40 scale somewhat linearly with both <a href="Cpufreq.html" title="Cpufreq">cpufreq settings</a> and DRAM clock. In case you use the wrong cpufreq settings it's impossible to achieve maximum SATA performance (eg. using the <i>ondemand</i> governor without <i><a href="Cpufreq.html#Performance.2Ffunctionality_impacts" title="Cpufreq">io_is_busy</a></i> setting).
+</p><p>On the dual-core A20 setting both <i>CONFIG_SCHED_MC=y</i> and <i>CONFIG_SCHED_SMT=y</i> at kernel compile time seems to increase SATA throughput (sequential reads +10 MB/s). Please be aware that this still needs to be confirmed.
+</p><p>Also worth a look are Linux' <a class="external text" href="http://en.wikipedia.org/wiki/I/O_scheduling">I/O schedulers</a>. If your SATA disk is available as <i>/dev/sda</i> you can query <i>/sys/block/sda/queue/scheduler</i> to get the list of available I/O schedulers (the active printed in brackets) and change the scheduler either globally by supplying <i>elevator=deadline</i> to <a href="Kernel_arguments.html" title="Kernel arguments">bootargs</a> environment or on a per device basis using <i>echo deadline &gt;/sys/block/sdN/queue/scheduler</i> (deadline seems to be the most performant scheduler on A10/A20)
+</p><p>
+Since irqbalancing isn't working on sunxi/ARM one way to get better SATA throughput on A20/R40 devices is to assign all AHCI/SATA IRQs away from the 1st CPU core using something like </p><pre>echo 2 &gt;/proc/irq/$(awk -F":" '/ahci/ {print $1}' &lt;/proc/interrupts)/smp_affinity</pre>
+<h3><span id="Measuring_performance_/_interpreting_numbers"></span><span class="mw-headline" id="Measuring_performance_.2F_interpreting_numbers">Measuring performance / interpreting numbers</span></h3>
+<p>It should ne noted that 'passive benchmarking' especially with slow ARM devices often goes wrong ('passive' in contrast to <a rel="nofollow" class="external text" href="http://www.brendangregg.com/activebenchmarking.html"><b>active</b> benchmarking</a> where the goal is to produce insights and not just numbers). You should always ensure that you have an eye on CPU utilization (use 'htop' in another shell, run 'iostat 5' in another, check cpufreq/governor) since many storage benchmarks get bottlenecked by CPU. This is somewhat different on SoCs that are made for this purpose (eg. from Marvell, please see <a rel="nofollow" class="external text" href="https://forum.armbian.com/index.php/topic/1925-some-storage-benchmarks-on-sbcs/#entry15265#entry15265">this thread for some numbers</a>) but with Allwinner SoCs it's always an issue. 
+</p><p>This also affects how to interpret results: if you take <a rel="nofollow" class="external text" href="https://forum.armbian.com/index.php/topic/1917-armbian-running-on-pine64-and-other-a64h5-devices/page-6#entry20316#entry20316">this comparison</a> of A20 SATA performance and A64 <a href="USB/UAS.html" title="USB/UAS">USB/UAS</a> performance for example then random IOPS numbers look pretty close or A64's UAS mode even seems to outperform A20's SATA implementation. But by looking at CPU utilization it's obvious that this test is tampered by CPU performance/utilization since all CPU cores run with 90% or above. Pine64 has 4 cores running at 1152 MHz while A20 was running dual-core at 960 MHz. By repeating this test with R40 (quad-core up to 1.2GHz) SATA will outperform USB for sure since the CPU bottleneck is gone. And the same reason why this synthetic benchmark shows lower numbers for A20/SATA compared to A64/USB won't affect 99.9% of real-world use cases at all: since in real-world scenarios random accesses do not happen constantly but just from time to time and then SATA should always outperform USB due to less overhead.
+</p>
+<h2><span class="mw-headline" id="Port_multipliers">Port multipliers</span></h2>
+<p>A <a class="external text" href="http://en.wikipedia.org/wiki/Port_multiplier">port multiplier</a> allows to connect multiple SATA devices to a single SATA host port. Since <a href="Category:Devices_with_SATA_port.html" title="Category:Devices with SATA port"> sunxi devices with SATA</a> are restricted to only one port, support for the port multiplier protocol (PMP) is a desirable feature. However, this requires suitable hardware (SATA controller) and software (AHCI driver).
+</p>
+<h3><span class="mw-headline" id="PMP_support_-_using_SATA_port_multipliers_with_sunxi_devices">PMP support - using SATA port multipliers with sunxi devices</span></h3>
+<ul><li><a href="A10.html" title="A10">A10</a> is frequently said not to support PMP due to hardware limitations and/or older SATA specification. But some documents (A10 EVB manual) indicate capabilities identical to the A20 (see above), and a <a rel="nofollow" class="external text" href="http://lists.infradead.org/pipermail/linux-arm-kernel/2014-November/302582.html">patch submission</a> from Hans de Goede suggests he tested PMP with both A10- and A20-based devices.</li>
+<li>The <a href="A20.html" title="A20">A20</a>'s SATA controller is confirmed to support PMP from a variety of sources. It only supports the slower <a class="external text" href="https://en.wikipedia.org/wiki/Port_multiplier#Command-based_switching#Command-based_switching">Command-based switching</a> and not the faster <a class="external text" href="https://en.wikipedia.org/wiki/Port_multiplier#FIS-based_.28frame_information_structure.29_switching#FIS-based_.28frame_information_structure.29_switching">FIS-based mode</a>.</li>
+<li><a rel="nofollow" class="external text" href="https://forum.armbian.com/index.php?/topic/5199-banana-pi-m2u-wont-boot/&amp;do=findComment&amp;comment=39587">R40/V40 also support port multipliers</a> (it's the same simple <code>AHCI_HFLAG_NO_PMP</code> flag that has to be set/removed and performance is as low as with A20).</li></ul>
+<p>Originally the <i>sunxi_ahci</i> driver derived from Allwinner sources deliberately disabled PMP by always indicating <code>AHCI_HFLAG_NO_PMP</code>. The reason probably was that while the A20 can do PMP, enabling it breaks compatibility with single drive (non-PMP) mode - so the two are mutually exclusive. (The patch mentioned above states this is due to an inability to issue a proper soft reset to a single drive after port multiplier mode gets enabled.)
+</p><p>A workaround is to compile the driver as a module, and use the <code>enable_pmp=1</code> option as desired at load time (<i>/etc/modprobe.d/ahci-sunxi.conf</i> in most distros) or adding <code>ahci_sunxi.enable_pmp=1</code> to kernel parameter with mainline kernel.
+</p>
+<h3><span class="mw-headline" id="Caveats">Caveats</span></h3>
+<p>If you rely exclusively on a port multiplier to access multiple drives, you're introducing a <a class="external text" href="http://en.wikipedia.org/wiki/Single_point_of_failure">single point of failure</a> (SPoF). Using this technology in an attempt to increase reliability (e.g. by constructing a RAID array) therefore is questionable.
+</p><p>Cheap port multipliers like JMB321/JMB393 are prone to overheating under load and then start to corrupt data or stop working at all. This adds significantly to the SPoF problem since if you build a RAID on top of such a port multiplier setup, the likelihood that you lose your whole array when you would need it will increase dramatically - as running a rebuild (after replacing a failed disk) will put significant stress on the system. Combining cheapest/unreliable components to increase reliability might work in some cases, but definitely not with PM based RAID.
+</p>
+<h2><span class="mw-headline" id="Mechanical_quality">Mechanical quality</span></h2>
+<p>Always keep in mind that all SATA implementations on sunxi devices rely on <i>internal</i> SATA connectors. Unlike <a class="external text" href="http://en.wikipedia.org/wiki/Serial_ATA#eSATA#eSATA">eSATA</a> these connectors are specified for only 50 matings and cheap cables/connectors die way earlier or start to corrupt data. SATA uses a relatively primitive checksum mechanism (ICRC – Interface <a class="external text" href="http://en.wikipedia.org/wiki/Cyclic_redundancy_check">Cyclic Redundancy Check</a>) to detect data corruption on the wire. The corresponding <a class="external text" href="http://en.wikipedia.org/wiki/S.M.A.R.T.#Known_ATA_S.M.A.R.T._attributes#Known_ATA_S.M.A.R.T._attributes">S.M.A.R.T.</a> attribute is 199 (unfortunately disk series exist where this counter does not increase when CRC errors occur – the value remains 0). If you exchanged cables/disks or notice that SATA performance dropped dramatically (due to a huge amount of data retransmits) it's always a good idea to check this attribute using <i>smartctl</i> (contained in the <a rel="nofollow" class="external text" href="http://www.smartmontools.org">smartmontools</a> package). If the counter increases something's wrong with the interconnection disk to SoC.
+</p>
+<h2><span class="mw-headline" id="Devices_with_SATA_ports">Devices with SATA ports</span></h2>
+<div class="CategoryTreeTag" data-ct-mode="10" data-ct-options="{&quot;mode&quot;:10,&quot;hideprefix&quot;:20,&quot;showcount&quot;:false,&quot;namespaces&quot;:false,&quot;notranslations&quot;:false}"><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Anichips_PhoenixA20.html" title="Anichips PhoenixA20">Anichips PhoenixA20</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Cubietech_Cubieboard.html" title="Cubietech Cubieboard">Cubietech Cubieboard</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Cubietech_Cubieboard2.html" title="Cubietech Cubieboard2">Cubietech Cubieboard2</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Cubietech_Cubietruck.html" title="Cubietech Cubietruck">Cubietech Cubietruck</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Cubietech_Cubietruck_Plus.html" title="Cubietech Cubietruck Plus">Cubietech Cubietruck Plus</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Foxconn_Super_Pi.html" title="Foxconn Super Pi">Foxconn Super Pi</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="In-Circuit_ICnova_A20.html" title="In-Circuit ICnova A20">In-Circuit ICnova A20</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Itead_Iteaduino_Plus.html" title="Itead Iteaduino Plus">Itead Iteaduino Plus</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Jesurun_Q5.html" title="Jesurun Q5">Jesurun Q5</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Lamobo_R1.html" title="Lamobo R1">Lamobo R1</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="LeMaker_Banana_Pi.html" title="LeMaker Banana Pi">LeMaker Banana Pi</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="LeMaker_Banana_Pro.html" title="LeMaker Banana Pro">LeMaker Banana Pro</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="LinkSprite_pcDuino3.html" title="LinkSprite pcDuino3">LinkSprite pcDuino3</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="LinkSprite_pcDuino3_Nano.html" title="LinkSprite pcDuino3 Nano">LinkSprite pcDuino3 Nano</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="MarsBoard_A10.html" title="MarsBoard A10">MarsBoard A10</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="MarsBoard_A20.html" title="MarsBoard A20">MarsBoard A20</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="MarsBoard_A20-SOM.html" title="MarsBoard A20-SOM">MarsBoard A20-SOM</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Mele_A1000.html" title="Mele A1000">Mele A1000</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Mele_M5.html" title="Mele M5">Mele M5</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Merrii_Hummingbird_A20.html" title="Merrii Hummingbird A20">Merrii Hummingbird A20</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Olimex_A10-OLinuXino-Lime.html" title="Olimex A10-OLinuXino-Lime">Olimex A10-OLinuXino-Lime</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Olimex_A20-OLinuXino-Lime.html" title="Olimex A20-OLinuXino-Lime">Olimex A20-OLinuXino-Lime</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Olimex_A20-OLinuXino-Lime2.html" title="Olimex A20-OLinuXino-Lime2">Olimex A20-OLinuXino-Lime2</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Olimex_A20-OLinuXino-Micro.html" title="Olimex A20-OLinuXino-Micro">Olimex A20-OLinuXino-Micro</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Olimex_A20-SOM.html" title="Olimex A20-SOM">Olimex A20-SOM</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Sinovoip_Banana_Pi_BPI-6204.html" title="Sinovoip Banana Pi BPI-6204">Sinovoip Banana Pi BPI-6204</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Sinovoip_Banana_Pi_M2_Berry.html" title="Sinovoip Banana Pi M2 Berry">Sinovoip Banana Pi M2 Berry</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Sinovoip_Banana_Pi_M2_Ultra.html" title="Sinovoip Banana Pi M2 Ultra">Sinovoip Banana Pi M2 Ultra</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Sunchip_CX-A99.html" title="Sunchip CX-A99">Sunchip CX-A99</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Xunlong_Orange_Pi.html" title="Xunlong Orange Pi">Xunlong Orange Pi</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Xunlong_Orange_Pi_Mini.html" title="Xunlong Orange Pi Mini">Xunlong Orange Pi Mini</a></div><div class="CategoryTreeChildren" style="display:none"></div></div></div>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<ul><li><a rel="nofollow" class="external text" href="http://thread.gmane.org/gmane.comp.hardware.netbook.arm.sunxi/9694/">Sata multiplier with A20</a> thread on linux-sunxi mailing list</li>
+<li><a rel="nofollow" class="external text" href="http://forum.lemaker.org/thread-9207-1-1.html">Support status of SATA port multipliers connected to A20</a> thread on LeMaker forum (recommended reading with some in-depth information)</li>
+<li><a href="Sunxi_devices_as_NAS.html" title="Sunxi devices as NAS">Sunxi devices as NAS</a></li></ul>
+<p>References:
+</p>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://dl.cubieforums.com/files/pdf/A10_development_board_user_manual--2011.9.23_English.pdf">http://dl.cubieforums.com/files/pdf/A10_development_board_user_manual--2011.9.23_English.pdf</a></span>
+</li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text"><a class="external free" href="https://github.com/allwinner-zh/documents/tree/master/A20/">https://github.com/allwinner-zh/documents/tree/master/A20/</a></span>
+</li>
+</ol></div>
+<!-- 
+NewPP limit report
+Cached time: 20251029040303
+Cache expiry: 21600
+Dynamic content: true
+Complications: []
+CPU time usage: 0.219 seconds
+Real time usage: 0.425 seconds
+Preprocessor visited node count: 86/1000000
+Post‐expand include size: 134/2097152 bytes
+Template argument size: 64/2097152 bytes
+Highest expansion depth: 5/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 9290/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    6.245      1 -total
+100.00%    6.245      1 Template:Remove
+ 36.25%    2.264      1 Template:Red
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:166-0!canonical and timestamp 20251029040303 and revision id 22610
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=SATA&amp;oldid=22610">https://linux-sunxi.org/index.php?title=SATA&amp;oldid=22610</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Category</a>: <ul><li><a href="Category:Hardware.html" title="Category:Hardware">Hardware</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=SATA" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=SATA" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="SATA.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk"><a href="Talk:SATA.html" rel="discussion" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="SATA.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=SATA&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=SATA&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/SATA.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/SATA" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=SATA&amp;oldid=22610" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=SATA&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 25 July 2019, at 19:06.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.219","walltime":"0.425","ppvisitednodes":{"value":86,"limit":1000000},"postexpandincludesize":{"value":134,"limit":2097152},"templateargumentsize":{"value":64,"limit":2097152},"expansiondepth":{"value":5,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":9290,"limit":5000000},"timingprofile":["100.00%    6.245      1 -total","100.00%    6.245      1 Template:Remove"," 36.25%    2.264      1 Template:Red"]},"cachereport":{"timestamp":"20251029040303","ttl":21600,"transientcontent":true}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":350});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

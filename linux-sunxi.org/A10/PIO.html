@@ -1,0 +1,3796 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>A10/PIO - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"14a8af1b2926989d0087f7d7","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"A10/PIO","wgTitle":"A10/PIO","wgCurRevisionId":16500,"wgRevisionId":16500,"wgArticleId":175,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Hardware","PIO"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"A10/PIO","wgRelevantArticleId":175,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":"ready","user":
+"ready","user.options":"loading","skins.vector.styles.legacy":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=skins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="PIO.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-A10_PIO rootpage-A10 skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">A10/PIO</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"><span class="subpages">&lt; <a href="../A10.html" title="A10">A10</a></span></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><h2><span id="Programmable_I/O_Pins"></span><span class="mw-headline" id="Programmable_I.2FO_Pins">Programmable I/O Pins</span></h2>
+<table class="wikitable">
+
+<tbody><tr>
+<th colspan="9"><span id="PA">Port Bank A</span>
+</th></tr>
+<tr>
+<th>Port</th>
+<th>Ball</th>
+<th>Type</th>
+<th>MUX 2</th>
+<th>MUX 3</th>
+<th>MUX 4</th>
+<th>MUX 5</th>
+<th>MUX 6</th>
+<th>MUX 7
+</th></tr>
+<tr>
+<td><span id="PA00"><tt><a href="#PA00">PA00<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>D05
+</td>
+<td>I/O
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=EMAC&amp;action=edit&amp;redlink=1" class="new" title="EMAC (page does not exist)">ERXD3</a>
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=SPI&amp;action=edit&amp;redlink=1" class="new" title="SPI (page does not exist)">SPI1_CS0</a>
+</td>
+<td><a href="../UART.html" title="UART">UART2_RTS</a>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PA01"><tt><a href="#PA01">PA01<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>E05
+</td>
+<td>I/O
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=EMAC&amp;action=edit&amp;redlink=1" class="new" title="EMAC (page does not exist)">ERXD2</a>
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=SPI&amp;action=edit&amp;redlink=1" class="new" title="SPI (page does not exist)">SPI1_CLK</a>
+</td>
+<td><a href="../UART.html" title="UART">UART2_CTS</a>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PA02"><tt><a href="#PA02">PA02<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>D06
+</td>
+<td>I/O
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=EMAC&amp;action=edit&amp;redlink=1" class="new" title="EMAC (page does not exist)">ERXD1</a>
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=SPI&amp;action=edit&amp;redlink=1" class="new" title="SPI (page does not exist)">SPI1_MOSI</a>
+</td>
+<td><a href="../UART.html" title="UART">UART2_TX</a>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PA03"><tt><a href="#PA03">PA03<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>E06
+</td>
+<td>I/O
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=EMAC&amp;action=edit&amp;redlink=1" class="new" title="EMAC (page does not exist)">ERXD0</a>
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=SPI&amp;action=edit&amp;redlink=1" class="new" title="SPI (page does not exist)">SPI1_MISO</a>
+</td>
+<td><a href="../UART.html" title="UART">UART2_RX</a>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PA04"><tt><a href="#PA04">PA04<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>D07
+</td>
+<td>I/O
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=EMAC&amp;action=edit&amp;redlink=1" class="new" title="EMAC (page does not exist)">ETXD3</a>
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=SPI&amp;action=edit&amp;redlink=1" class="new" title="SPI (page does not exist)">SPI1_CS1</a>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PA05"><tt><a href="#PA05">PA05<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>E07
+</td>
+<td>I/O
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=EMAC&amp;action=edit&amp;redlink=1" class="new" title="EMAC (page does not exist)">ETXD2</a>
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=SPI&amp;action=edit&amp;redlink=1" class="new" title="SPI (page does not exist)">SPI3_CS0</a>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PA06"><tt><a href="#PA06">PA06<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>D08
+</td>
+<td>I/O
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=EMAC&amp;action=edit&amp;redlink=1" class="new" title="EMAC (page does not exist)">ETXD1</a>
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=SPI&amp;action=edit&amp;redlink=1" class="new" title="SPI (page does not exist)">SPI3_CLK</a>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PA07"><tt><a href="#PA07">PA07<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>E08
+</td>
+<td>I/O
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=EMAC&amp;action=edit&amp;redlink=1" class="new" title="EMAC (page does not exist)">ETXD0</a>
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=SPI&amp;action=edit&amp;redlink=1" class="new" title="SPI (page does not exist)">SPI3_MOSI</a>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PA08"><tt><a href="#PA08">PA08<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>D09
+</td>
+<td>I/O
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=EMAC&amp;action=edit&amp;redlink=1" class="new" title="EMAC (page does not exist)">ERXCK</a>
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=SPI&amp;action=edit&amp;redlink=1" class="new" title="SPI (page does not exist)">SPI3_MISO</a>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PA09"><tt><a href="#PA09">PA09<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>E09
+</td>
+<td>I/O
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=EMAC&amp;action=edit&amp;redlink=1" class="new" title="EMAC (page does not exist)">ERXERR</a>
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=SPI&amp;action=edit&amp;redlink=1" class="new" title="SPI (page does not exist)">SPI3_CS1</a>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PA10"><tt><a href="#PA10">PA10<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>D10
+</td>
+<td>I/O
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=EMAC&amp;action=edit&amp;redlink=1" class="new" title="EMAC (page does not exist)">ERXDV</a>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td><a href="../UART.html" title="UART">UART1_TX</a>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PA11"><tt><a href="#PA11">PA11<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>E10
+</td>
+<td>I/O
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=EMAC&amp;action=edit&amp;redlink=1" class="new" title="EMAC (page does not exist)">EMDC</a>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td><a href="../UART.html" title="UART">UART1_RX</a>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PA12"><tt><a href="#PA12">PA12<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>D11
+</td>
+<td>I/O
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=EMAC&amp;action=edit&amp;redlink=1" class="new" title="EMAC (page does not exist)">EMDIO</a>
+</td>
+<td><a href="../UART.html" title="UART">UART6_TX</a>
+</td>
+<td><a href="../UART.html" title="UART">UART1_RTS</a>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PA13"><tt><a href="#PA13">PA13<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>E11
+</td>
+<td>I/O
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=EMAC&amp;action=edit&amp;redlink=1" class="new" title="EMAC (page does not exist)">ETXEN</a>
+</td>
+<td><a href="../UART.html" title="UART">UART6_RX</a>
+</td>
+<td><a href="../UART.html" title="UART">UART1_CTS</a>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PA14"><tt><a href="#PA14">PA14<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>D12
+</td>
+<td>I/O
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=EMAC&amp;action=edit&amp;redlink=1" class="new" title="EMAC (page does not exist)">ETXCK</a>
+</td>
+<td><a href="../UART.html" title="UART">UART7_TX</a>
+</td>
+<td><a href="../UART.html" title="UART">UART1_DTR</a>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PA15"><tt><a href="#PA15">PA15<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>E12
+</td>
+<td>I/O
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=EMAC&amp;action=edit&amp;redlink=1" class="new" title="EMAC (page does not exist)">ECRS</a>
+</td>
+<td><a href="../UART.html" title="UART">UART7_RX</a>
+</td>
+<td><a href="../UART.html" title="UART">UART1_DSR</a>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PA16"><tt><a href="#PA16">PA16<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>D13
+</td>
+<td>I/O
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=EMAC&amp;action=edit&amp;redlink=1" class="new" title="EMAC (page does not exist)">ECOL</a>
+</td>
+<td><a href="../CAN.html" title="CAN">CAN_TX</a>
+</td>
+<td><a href="../UART.html" title="UART">UART1_DCD</a>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PA17"><tt><a href="#PA17">PA17<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>C13
+</td>
+<td>I/O
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=EMAC&amp;action=edit&amp;redlink=1" class="new" title="EMAC (page does not exist)">ETXERR</a>
+</td>
+<td><a href="../CAN.html" title="CAN">CAN_RX</a>
+</td>
+<td><a href="../UART.html" title="UART">UART1_RING</a>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<th colspan="9"><span id="PB">Port Bank B</span>
+</th></tr>
+<tr>
+<th>Port</th>
+<th>Ball</th>
+<th>Type</th>
+<th>MUX 2</th>
+<th>MUX 3</th>
+<th>MUX 4</th>
+<th>MUX 5</th>
+<th>MUX 6</th>
+<th>MUX 7
+</th>
+<th>notes
+</th></tr>
+<tr>
+<td><span id="PB00"><tt><a href="#PB00">PB00<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>A15
+</td>
+<td>I/O
+</td>
+<td><a href="../I%C2%B2C.html" class="mw-redirect" title="I²C">TWI0_SCK</a>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PB01"><tt><a href="#PB01">PB01<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>B15
+</td>
+<td>I/O
+</td>
+<td><a href="../I%C2%B2C.html" class="mw-redirect" title="I²C">TWI0_SDA</a>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PB02"><tt><a href="#PB02">PB02<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>A14
+</td>
+<td>I/O
+</td>
+<td>PWM0
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PB03"><tt><a href="#PB03">PB03<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>B14
+</td>
+<td>I/O
+</td>
+<td>IR0_TX
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td>SPDIF_MCLK
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td>STANBYWFI
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td>verify SPDIF_MCLK
+</td></tr>
+<tr>
+<td><span id="PB04"><tt><a href="#PB04">PB04<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>A13
+</td>
+<td>I/O
+</td>
+<td>IR0_RX
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PB05"><tt><a href="#PB05">PB05<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>B13
+</td>
+<td>I/O
+</td>
+<td>I2S_MCLK
+</td>
+<td>AC97_MCLK
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PB06"><tt><a href="#PB06">PB06<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>A12
+</td>
+<td>I/O
+</td>
+<td>I2S_BCLK
+</td>
+<td>AC97_BCLK
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PB07"><tt><a href="#PB07">PB07<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>B12
+</td>
+<td>I/O
+</td>
+<td>I2S_LRCK
+</td>
+<td>AC97_SYNC
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PB08"><tt><a href="#PB08">PB08<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>A11
+</td>
+<td>I/O
+</td>
+<td>I2S_DO0
+</td>
+<td>AC97_DO
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td>verify AC97_DO
+</td></tr>
+<tr>
+<td><span id="PB09"><tt><a href="#PB09">PB09<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>C12
+</td>
+<td>I/O
+</td>
+<td>I2S_DO1
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td>verify AC97_DO
+</td></tr>
+<tr>
+<td><span id="PB10"><tt><a href="#PB10">PB10<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>C11
+</td>
+<td>I/O
+</td>
+<td>I2S_DO2
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PB11"><tt><a href="#PB11">PB11<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>C10
+</td>
+<td>I/O
+</td>
+<td>I2S_DO3
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PB12"><tt><a href="#PB12">PB12<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>C9
+</td>
+<td>I/O
+</td>
+<td>I2S_DI
+</td>
+<td>AC97_DI
+</td>
+<td>SPDIF_DI
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td>verify SPDIF_DI
+</td></tr>
+<tr>
+<td><span id="PB13"><tt><a href="#PB13">PB13<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>B11
+</td>
+<td>I/O
+</td>
+<td>SPI2_CS1
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td>SPDIF_DO
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td>verify SPDIF_DO
+</td></tr>
+<tr>
+<td><span id="PB14"><tt><a href="#PB14">PB14<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>A10
+</td>
+<td>I/O
+</td>
+<td>SPI2_CS0
+</td>
+<td>JTAG_MS0
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PB15"><tt><a href="#PB15">PB15<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>B10
+</td>
+<td>I/O
+</td>
+<td>SPI2_CLK
+</td>
+<td>JTAG_CK0
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PB16"><tt><a href="#PB16">PB16<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>A9
+</td>
+<td>I/O
+</td>
+<td>SPI2_MOSI
+</td>
+<td>JTAG_DO0
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PB17"><tt><a href="#PB17">PB17<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>B9
+</td>
+<td>I/O
+</td>
+<td>SPI2_MISO
+</td>
+<td>JTAG_DI0
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PB18"><tt><a href="#PB18">PB18<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>A8
+</td>
+<td>I/O
+</td>
+<td><a href="../I%C2%B2C.html" class="mw-redirect" title="I²C">TWI1_SCK</a>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PB19"><tt><a href="#PB19">PB19<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>B8
+</td>
+<td>I/O
+</td>
+<td><a href="../I%C2%B2C.html" class="mw-redirect" title="I²C">TWI1_SDA</a>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PB20"><tt><a href="#PB20">PB20<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>C8
+</td>
+<td>I/O
+</td>
+<td><a href="../I%C2%B2C.html" class="mw-redirect" title="I²C">TWI2_SCK</a>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PB21"><tt><a href="#PB21">PB21<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>C7
+</td>
+<td>I/O
+</td>
+<td><a href="../I%C2%B2C.html" class="mw-redirect" title="I²C">TWI2_SDA</a>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PB22"><tt><a href="#PB22">PB22<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>A7
+</td>
+<td>I/O
+</td>
+<td>UART0_TX
+</td>
+<td>IR1_TX
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PB23"><tt><a href="#PB23">PB23<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>B7
+</td>
+<td>I/O
+</td>
+<td>UART0_RX
+</td>
+<td>IR1_RX
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<th colspan="9"><span id="PC">Port Bank C</span>
+</th></tr>
+<tr>
+<th>Port</th>
+<th>Ball</th>
+<th>Type</th>
+<th>MUX 2</th>
+<th>MUX 3</th>
+<th>MUX 4</th>
+<th>MUX 5</th>
+<th>MUX 6</th>
+<th>MUX 7
+</th></tr>
+<tr>
+<td><span id="PC00"><tt><a href="#PC00">PC00<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>M23
+</td>
+<td>I/O
+</td>
+<td><a href="../NFC.html" class="mw-redirect" title="NFC">NAND_WE#</a>
+</td>
+<td>SPI0_MOSI
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PC01"><tt><a href="#PC01">PC01<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>M22
+</td>
+<td>I/O
+</td>
+<td><a href="../NFC.html" class="mw-redirect" title="NFC">NALE</a>
+</td>
+<td>SPI0_MISO
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PC02"><tt><a href="#PC02">PC02<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>L32
+</td>
+<td>I/O
+</td>
+<td><a href="../NFC.html" class="mw-redirect" title="NFC">NCLE</a>
+</td>
+<td>SPI0_CLK
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PC03"><tt><a href="#PC03">PC03<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>L22
+</td>
+<td>I/O
+</td>
+<td><a href="../NFC.html" class="mw-redirect" title="NFC">NCE1</a>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PC04"><tt><a href="#PC04">PC04<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>K23
+</td>
+<td>I/O
+</td>
+<td><a href="../NFC.html" class="mw-redirect" title="NFC">NCE0</a>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PC05"><tt><a href="#PC05">PC05<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>K22
+</td>
+<td>I/O
+</td>
+<td><a href="../NFC.html" class="mw-redirect" title="NFC">NRE#</a>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PC06"><tt><a href="#PC06">PC06<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>J23
+</td>
+<td>I/O
+</td>
+<td><a href="../NFC.html" class="mw-redirect" title="NFC">NRB0</a>
+</td>
+<td>SDC2_CMD
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PC07"><tt><a href="#PC07">PC07<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>J22
+</td>
+<td>I/O
+</td>
+<td><a href="../NFC.html" class="mw-redirect" title="NFC">NRB1</a>
+</td>
+<td>SDC2_CLK
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PC08"><tt><a href="#PC08">PC08<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>H23
+</td>
+<td>I/O
+</td>
+<td><a href="../NFC.html" class="mw-redirect" title="NFC">NDQ0</a>
+</td>
+<td>SDC2_D0
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PC09"><tt><a href="#PC09">PC09<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>H22
+</td>
+<td>I/O
+</td>
+<td><a href="../NFC.html" class="mw-redirect" title="NFC">NDQ1</a>
+</td>
+<td>SDC2_D1
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PC10"><tt><a href="#PC10">PC10<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>G23
+</td>
+<td>I/O
+</td>
+<td><a href="../NFC.html" class="mw-redirect" title="NFC">NDQ2</a>
+</td>
+<td>SDC2_D2
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PC11"><tt><a href="#PC11">PC11<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>G22
+</td>
+<td>I/O
+</td>
+<td><a href="../NFC.html" class="mw-redirect" title="NFC">NDQ3</a>
+</td>
+<td>SDC2_D3
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PC12"><tt><a href="#PC12">PC12<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>H21
+</td>
+<td>I/O
+</td>
+<td><a href="../NFC.html" class="mw-redirect" title="NFC">NDQ4</a>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PC13"><tt><a href="#PC13">PC13<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>H20
+</td>
+<td>I/O
+</td>
+<td><a href="../NFC.html" class="mw-redirect" title="NFC">NDQ5</a>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PC14"><tt><a href="#PC14">PC14<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>G21
+</td>
+<td>I/O
+</td>
+<td><a href="../NFC.html" class="mw-redirect" title="NFC">NDQ6</a>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PC15"><tt><a href="#PC15">PC15<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>G20
+</td>
+<td>I/O
+</td>
+<td><a href="../NFC.html" class="mw-redirect" title="NFC">NDQ7</a>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PC16"><tt><a href="#PC16">PC16<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>M21
+</td>
+<td>I/O
+</td>
+<td><a href="../NFC.html" class="mw-redirect" title="NFC">NWP</a>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PC17"><tt><a href="#PC17">PC17<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>F23
+</td>
+<td>I/O
+</td>
+<td><a href="../NFC.html" class="mw-redirect" title="NFC">NCE2</a>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PC18"><tt><a href="#PC18">PC18<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>F22
+</td>
+<td>I/O
+</td>
+<td><a href="../NFC.html" class="mw-redirect" title="NFC">NCE3</a>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PC19"><tt><a href="#PC19">PC19<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>L21
+</td>
+<td>I/O
+</td>
+<td><a href="../NFC.html" class="mw-redirect" title="NFC">NCE4</a>
+</td>
+<td>SPI2_CS0
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PC20"><tt><a href="#PC20">PC20<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>K21
+</td>
+<td>I/O
+</td>
+<td><a href="../NFC.html" class="mw-redirect" title="NFC">NCE5</a>
+</td>
+<td>SPI2_CLK
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PC21"><tt><a href="#PC21">PC21<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>J21
+</td>
+<td>I/O
+</td>
+<td><a href="../NFC.html" class="mw-redirect" title="NFC">NCE6</a>
+</td>
+<td>SPI2_MOSI
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PC22"><tt><a href="#PC22">PC22<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>J20
+</td>
+<td>I/O
+</td>
+<td><a href="../NFC.html" class="mw-redirect" title="NFC">NCE7</a>
+</td>
+<td>SPI2_MISO
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PC23"><tt><a href="#PC23">PC23<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>G19
+</td>
+<td>I/O
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td>SPI0_CS0
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PC24"><tt><a href="#PC24">PC24<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>F21
+</td>
+<td>I/O
+</td>
+<td><a href="../NFC.html" class="mw-redirect" title="NFC">NDQS</a>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<th colspan="9"><span id="PD">Port Bank D</span>
+</th></tr>
+<tr>
+<th>Port</th>
+<th>Ball</th>
+<th>Type</th>
+<th>MUX 2</th>
+<th>MUX 3</th>
+<th>MUX 4</th>
+<th>MUX 5</th>
+<th>MUX 6</th>
+<th>MUX 7
+</th></tr>
+<tr>
+<td><span id="PD00"><tt><a href="#PD00">PD00<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>AB15
+</td>
+<td>I/O
+</td>
+<td>LCD0_D0
+</td>
+<td>LVDS0_VP0
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PD01"><tt><a href="#PD01">PD01<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>AC15
+</td>
+<td>I/O
+</td>
+<td>LCD0_D1
+</td>
+<td>LVDS0_VN0
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PD02"><tt><a href="#PD02">PD02<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>AB14
+</td>
+<td>I/O
+</td>
+<td>LCD0_D2
+</td>
+<td>LVDS0_VP1
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PD03"><tt><a href="#PD03">PD03<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>AC14
+</td>
+<td>I/O
+</td>
+<td>LCD0_D3
+</td>
+<td>LVDS0_VN1
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PD04"><tt><a href="#PD04">PD04<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>AB13
+</td>
+<td>I/O
+</td>
+<td>LCD0_D4
+</td>
+<td>LVDS0_VP2
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PD05"><tt><a href="#PD05">PD05<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>AC13
+</td>
+<td>I/O
+</td>
+<td>LCD0_D5
+</td>
+<td>LVDS0_VN2
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PD06"><tt><a href="#PD06">PD06<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>AB12
+</td>
+<td>I/O
+</td>
+<td>LCD0_D6
+</td>
+<td>LVDS0_VPC
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PD07"><tt><a href="#PD07">PD07<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>AC12
+</td>
+<td>I/O
+</td>
+<td>LCD0_D7
+</td>
+<td>LVDS0_VNC
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PD08"><tt><a href="#PD08">PD08<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>AB11
+</td>
+<td>I/O
+</td>
+<td>LCD0_D8
+</td>
+<td>LVDS0_VP3
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PD09"><tt><a href="#PD09">PD09<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>AC11
+</td>
+<td>I/O
+</td>
+<td>LCD0_D9
+</td>
+<td>LVDS0_VN3
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PD10"><tt><a href="#PD10">PD10<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>Y15
+</td>
+<td>I/O
+</td>
+<td>LCD0_D10
+</td>
+<td>LVDS1_VP0
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PD11"><tt><a href="#PD11">PD11<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>AA15
+</td>
+<td>I/O
+</td>
+<td>LCD0_D11
+</td>
+<td>LVDS1_VN0
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PD12"><tt><a href="#PD12">PD12<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>Y14
+</td>
+<td>I/O
+</td>
+<td>LCD0_D12
+</td>
+<td>LVDS1_VP1
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PD13"><tt><a href="#PD13">PD13<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>AA14
+</td>
+<td>I/O
+</td>
+<td>LCD0_D13
+</td>
+<td>LVDS1_VN1
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PD14"><tt><a href="#PD14">PD14<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>Y13
+</td>
+<td>I/O
+</td>
+<td>LCD0_D14
+</td>
+<td>LVDS1_VP2
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PD15"><tt><a href="#PD15">PD15<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>AA13
+</td>
+<td>I/O
+</td>
+<td>LCD0_D15
+</td>
+<td>LVDS1_VN2
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PD16"><tt><a href="#PD16">PD16<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>Y12
+</td>
+<td>I/O
+</td>
+<td>LCD0_D16
+</td>
+<td>LVDS1_VPC
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PD17"><tt><a href="#PD17">PD17<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>AA12
+</td>
+<td>I/O
+</td>
+<td>LCD0_D17
+</td>
+<td>LVDS1_VNC
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PD18"><tt><a href="#PD18">PD18<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>Y11
+</td>
+<td>I/O
+</td>
+<td>LCD0_D18
+</td>
+<td>LVDS1_VP3
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PD19"><tt><a href="#PD19">PD19<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>AA11
+</td>
+<td>I/O
+</td>
+<td>LCD0_D19
+</td>
+<td>LVDS1_VN3
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PD20"><tt><a href="#PD20">PD20<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>Y10
+</td>
+<td>I/O
+</td>
+<td>LCD0_D20
+</td>
+<td>CSI1_MCLK
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PD21"><tt><a href="#PD21">PD21<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>AA10
+</td>
+<td>I/O
+</td>
+<td>LCD0_D21
+</td>
+<td>SMC_VPPEN
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PD22"><tt><a href="#PD22">PD22<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>AB10
+</td>
+<td>I/O
+</td>
+<td>LCD0_D22
+</td>
+<td>SMC_VPPPP
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PD23"><tt><a href="#PD23">PD23<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>AC10
+</td>
+<td>I/O
+</td>
+<td>LCD0_D23
+</td>
+<td>SMC_DET
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PD24"><tt><a href="#PD24">PD24<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>Y9
+</td>
+<td>I/O
+</td>
+<td>LCD0_CLK
+</td>
+<td>SMC_VCCEN
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PD25"><tt><a href="#PD25">PD25<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>AA9
+</td>
+<td>I/O
+</td>
+<td>LCD0_DE
+</td>
+<td>SMC_RST
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PD26"><tt><a href="#PD26">PD26<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>AB9
+</td>
+<td>I/O
+</td>
+<td>LCD0_HSYNC
+</td>
+<td>SMC_SCK
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PD27"><tt><a href="#PD27">PD27<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>AC9
+</td>
+<td>I/O
+</td>
+<td>LCD0_VSYNC
+</td>
+<td>SMC_SDA
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<th colspan="9"><span id="PE">Port Bank E</span>
+</th></tr>
+<tr>
+<th>Port</th>
+<th>Ball</th>
+<th>Type</th>
+<th>MUX 2</th>
+<th>MUX 3</th>
+<th>MUX 4</th>
+<th>MUX 5</th>
+<th>MUX 6</th>
+<th>MUX 7
+</th></tr>
+<tr>
+<td><span id="PE00"><tt><a href="#PE00">PE00<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>E23
+</td>
+<td>I/O
+</td>
+<td>TS0_CLK
+</td>
+<td>CSI0_PCK
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PE01"><tt><a href="#PE01">PE01<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>E22
+</td>
+<td>I/O
+</td>
+<td>TS0_ERR
+</td>
+<td>CSI0_CK
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PE02"><tt><a href="#PE02">PE02<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>D23
+</td>
+<td>I/O
+</td>
+<td>TS0_SYNC
+</td>
+<td>CSI0_HSYNC
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PE03"><tt><a href="#PE03">PE03<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>D22
+</td>
+<td>I/O
+</td>
+<td>TS0_DVLD
+</td>
+<td>CSI0_VSYNC
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PE04"><tt><a href="#PE04">PE04<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>C23
+</td>
+<td>I/O
+</td>
+<td>TS0_D0
+</td>
+<td>CSI0_D0
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PE05"><tt><a href="#PE05">PE05<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>C22
+</td>
+<td>I/O
+</td>
+<td>TS0_D1
+</td>
+<td>CSI0_D1
+</td>
+<td>SMC_VPPEN
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PE06"><tt><a href="#PE06">PE06<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>B23
+</td>
+<td>I/O
+</td>
+<td>TS0_D2
+</td>
+<td>CSI0_D2
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PE07"><tt><a href="#PE07">PE07<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>B22
+</td>
+<td>I/O
+</td>
+<td>TS0_D3
+</td>
+<td>CSI0_D3
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PE08"><tt><a href="#PE08">PE08<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>A23
+</td>
+<td>I/O
+</td>
+<td>TS0_D4
+</td>
+<td>CSI0_D4
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PE09"><tt><a href="#PE09">PE09<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>A22
+</td>
+<td>I/O
+</td>
+<td>TS0_D5
+</td>
+<td>CSI0_D5
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PE10"><tt><a href="#PE10">PE10<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>B21
+</td>
+<td>I/O
+</td>
+<td>TS0_D6
+</td>
+<td>CSI0_D6
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PE11"><tt><a href="#PE11">PE11<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>A21
+</td>
+<td>I/O
+</td>
+<td>TS0_D7
+</td>
+<td>CSI0_D7
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<th colspan="9"><span id="PF">Port Bank F</span>
+</th></tr>
+<tr>
+<th>Port</th>
+<th>Ball</th>
+<th>Type</th>
+<th>MUX 2</th>
+<th>MUX 3</th>
+<th>MUX 4</th>
+<th>MUX 5</th>
+<th>MUX 6</th>
+<th>MUX 7
+</th></tr>
+<tr>
+<td><span id="PF00"><tt><a href="#PF00">PF00<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>M20
+</td>
+<td>I/O
+</td>
+<td>SDC0_D1
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td>JTAG_MS1
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PF01"><tt><a href="#PF01">PF01<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>M19
+</td>
+<td>I/O
+</td>
+<td>SDC0_D0
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td>JTAG_DI1
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PF02"><tt><a href="#PF02">PF02<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>L20
+</td>
+<td>I/O
+</td>
+<td>SDC0_CLK
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td>UART0_TX
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PF03"><tt><a href="#PF03">PF03<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>L19
+</td>
+<td>I/O
+</td>
+<td>SDC0_CMD
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td>JTAG_DO1
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PF04"><tt><a href="#PF04">PF04<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>K20
+</td>
+<td>I/O
+</td>
+<td>SDC0_D3
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td>UART0_RX
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PF05"><tt><a href="#PF05">PF05<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>K19
+</td>
+<td>I/O
+</td>
+<td>SDC0_D2
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td>JTAG_CK1
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<th colspan="9"><span id="PG">Port Bank G</span>
+</th></tr>
+<tr>
+<th>Port</th>
+<th>Ball</th>
+<th>Type</th>
+<th>MUX 2</th>
+<th>MUX 3</th>
+<th>MUX 4</th>
+<th>MUX 5</th>
+<th>MUX 6</th>
+<th>MUX 7
+</th></tr>
+<tr>
+<td><span id="PG00"><tt><a href="#PG00">PG00<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>F20
+</td>
+<td>I/O
+</td>
+<td>TS1_CLK
+</td>
+<td>CSI1_PCK
+</td>
+<td>SDC1_CMD
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PG01"><tt><a href="#PG01">PG01<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>E21
+</td>
+<td>I/O
+</td>
+<td>TS1_ERR
+</td>
+<td>CSI1_CK
+</td>
+<td>SDC1_CLK
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PG02"><tt><a href="#PG02">PG02<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>E20
+</td>
+<td>I/O
+</td>
+<td>TS1_SYNC
+</td>
+<td>CSI1_HSYNC
+</td>
+<td>SDC1_D0
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PG03"><tt><a href="#PG03">PG03<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>D21
+</td>
+<td>I/O
+</td>
+<td>TS1_DVLD
+</td>
+<td>CSI1_VSYNC
+</td>
+<td>SDC1_D1
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PG04"><tt><a href="#PG04">PG04<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>D20
+</td>
+<td>I/O
+</td>
+<td>TS1_D0
+</td>
+<td>CSI1_D0
+</td>
+<td>SDC1_D2
+</td>
+<td>CSI0_D8
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PG05"><tt><a href="#PG05">PG05<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>C21
+</td>
+<td>I/O
+</td>
+<td>TS1_D1
+</td>
+<td>CSI1_D1
+</td>
+<td>SDC1_D3
+</td>
+<td>CSI0_D9
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PG06"><tt><a href="#PG06">PG06<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>E19
+</td>
+<td>I/O
+</td>
+<td>TS1_D2
+</td>
+<td>CSI1_D2
+</td>
+<td>UART3_TX
+</td>
+<td>CSI0_D10
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PG07"><tt><a href="#PG07">PG07<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>C20
+</td>
+<td>I/O
+</td>
+<td>TS1_D3
+</td>
+<td>CSI1_D3
+</td>
+<td>UART3_RX
+</td>
+<td>CSI0_D11
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PG08"><tt><a href="#PG08">PG08<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>D19
+</td>
+<td>I/O
+</td>
+<td>TS1_D4
+</td>
+<td>CSI1_D4
+</td>
+<td>UART3_RTS
+</td>
+<td>CSI0_D12
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PG09"><tt><a href="#PG09">PG09<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>C19
+</td>
+<td>I/O
+</td>
+<td>TS1_D5
+</td>
+<td>CSI1_D5
+</td>
+<td>UART3_CTS
+</td>
+<td>CSI0_D13
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PG10"><tt><a href="#PG10">PG10<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>D18
+</td>
+<td>I/O
+</td>
+<td>TS1_D6
+</td>
+<td>CSI1_D6
+</td>
+<td>UART4_TX
+</td>
+<td>CSI0_D14
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PG11"><tt><a href="#PG11">PG11<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>C18
+</td>
+<td>I/O
+</td>
+<td>TS1_D7
+</td>
+<td>CSI1_D7
+</td>
+<td>UART4_RX
+</td>
+<td>CSI0_D15
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<th colspan="9"><span id="PH">Port Bank H</span>
+</th></tr>
+<tr>
+<th>Port</th>
+<th>Ball</th>
+<th>Type</th>
+<th>MUX 2</th>
+<th>MUX 3</th>
+<th>MUX 4</th>
+<th>MUX 5</th>
+<th>MUX 6</th>
+<th>MUX 7
+</th></tr>
+<tr>
+<td><span id="PH00"><tt><a href="#PH00">PH00<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>A6
+</td>
+<td>I/O
+</td>
+<td>LCD1_D00
+</td>
+<td>ATAA00
+</td>
+<td>UART3_TX
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td>EINT0
+</td>
+<td>CSI1_D0
+</td></tr>
+<tr>
+<td><span id="PH01"><tt><a href="#PH01">PH01<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>B6
+</td>
+<td>I/O
+</td>
+<td>LCD1_D01
+</td>
+<td>ATAA01
+</td>
+<td>UART3_RX
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td>EINT1
+</td>
+<td>CSI1_D1
+</td></tr>
+<tr>
+<td><span id="PH02"><tt><a href="#PH02">PH02<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>C6
+</td>
+<td>I/O
+</td>
+<td>LCD1_D02
+</td>
+<td>ATAA02
+</td>
+<td>UART3_RTS
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td>EINT2
+</td>
+<td>CSI1_D2
+</td></tr>
+<tr>
+<td><span id="PH03"><tt><a href="#PH03">PH03<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>A5
+</td>
+<td>I/O
+</td>
+<td>LCD1_D03
+</td>
+<td>ATAIRQ
+</td>
+<td>UART3_CTS
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td>EINT3
+</td>
+<td>CSI1_D3
+</td></tr>
+<tr>
+<td><span id="PH04"><tt><a href="#PH04">PH04<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>B5
+</td>
+<td>I/O
+</td>
+<td>LCD1_D04
+</td>
+<td>ATAD00
+</td>
+<td>UART4_TX
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td>EINT4
+</td>
+<td>CSI1_D4
+</td></tr>
+<tr>
+<td><span id="PH05"><tt><a href="#PH05">PH05<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>C5
+</td>
+<td>I/O
+</td>
+<td>LCD1_D05
+</td>
+<td>ATAD01
+</td>
+<td>UART4_RX
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td>EINT5
+</td>
+<td>CSI1_D5
+</td></tr>
+<tr>
+<td><span id="PH06"><tt><a href="#PH06">PH06<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>A4
+</td>
+<td>I/O
+</td>
+<td>LCD1_D06
+</td>
+<td>ATAD02
+</td>
+<td>UART5_TX
+</td>
+<td>MS_BS
+</td>
+<td>EINT6
+</td>
+<td>CSI1_D6
+</td></tr>
+<tr>
+<td><span id="PH07"><tt><a href="#PH07">PH07<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>B4
+</td>
+<td>I/O
+</td>
+<td>LCD1_D07
+</td>
+<td>ATAD03
+</td>
+<td>UART5_RX
+</td>
+<td>MS_CLK
+</td>
+<td>EINT7
+</td>
+<td>CSI1_D7
+</td></tr>
+<tr>
+<td><span id="PH08"><tt><a href="#PH08">PH08<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>C4
+</td>
+<td>I/O
+</td>
+<td>LCD1_D08
+</td>
+<td>ATAD05
+</td>
+<td>KP_IN0
+</td>
+<td>MS_D1
+</td>
+<td>EINT8
+</td>
+<td>CSI1_D9
+</td></tr>
+<tr>
+<td><span id="PH09"><tt><a href="#PH09">PH09<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>D4
+</td>
+<td>I/O
+</td>
+<td>LCD1_D09
+</td>
+<td>ATAD04
+</td>
+<td>KP_IN1
+</td>
+<td>MS_D0
+</td>
+<td>EINT9
+</td>
+<td>CSI1_D8
+</td></tr>
+<tr>
+<td><span id="PH10"><tt><a href="#PH10">PH10<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>A3
+</td>
+<td>I/O
+</td>
+<td>LCD1_D10
+</td>
+<td>ATAD06
+</td>
+<td>KP_IN2
+</td>
+<td>MS_D2
+</td>
+<td>EINT10
+</td>
+<td>CSI1_D10
+</td></tr>
+<tr>
+<td><span id="PH11"><tt><a href="#PH11">PH11<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>B3
+</td>
+<td>I/O
+</td>
+<td>LCD1_D11
+</td>
+<td>ATAD07
+</td>
+<td>KP_IN3
+</td>
+<td>MS_D3
+</td>
+<td>EINT11
+</td>
+<td>CSI1_D11
+</td></tr>
+<tr>
+<td><span id="PH12"><tt><a href="#PH12">PH12<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>C3
+</td>
+<td>I/O
+</td>
+<td>LCD1_D12
+</td>
+<td>ATAD08
+</td>
+<td>PS2_SCK1
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td>EINT12
+</td>
+<td>CSI1_D12
+</td></tr>
+<tr>
+<td><span id="PH13"><tt><a href="#PH13">PH13<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>A2
+</td>
+<td>I/O
+</td>
+<td>LCD1_D13
+</td>
+<td>ATAD09
+</td>
+<td>PS2_SDA1
+</td>
+<td>SMC_RST
+</td>
+<td>EINT13
+</td>
+<td>CSI1_D13
+</td></tr>
+<tr>
+<td><span id="PH14"><tt><a href="#PH14">PH14<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>B2
+</td>
+<td>I/O
+</td>
+<td>LCD1_D14
+</td>
+<td>ATAD10
+</td>
+<td>KP_IN4
+</td>
+<td>SMC_VPPEN
+</td>
+<td>EINT14
+</td>
+<td>CSI1_D14
+</td></tr>
+<tr>
+<td><span id="PH15"><tt><a href="#PH15">PH15<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>A1
+</td>
+<td>I/O
+</td>
+<td>LCD1_D15
+</td>
+<td>ATAD11
+</td>
+<td>KP_IN5
+</td>
+<td>SMC_VPPPP
+</td>
+<td>EINT15
+</td>
+<td>CSI1_D15
+</td></tr>
+<tr>
+<td><span id="PH16"><tt><a href="#PH16">PH16<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>B1
+</td>
+<td>I/O
+</td>
+<td>LCD1_D16
+</td>
+<td>ATAD12
+</td>
+<td>KP_IN6
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td>EINT16
+</td>
+<td>CSI1_D16
+</td></tr>
+<tr>
+<td><span id="PH17"><tt><a href="#PH17">PH17<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>C1
+</td>
+<td>I/O
+</td>
+<td>LCD1_D17
+</td>
+<td>ATAD13
+</td>
+<td>KP_IN7
+</td>
+<td>SMC_VCCEN
+</td>
+<td>EINT17
+</td>
+<td>CSI1_D17
+</td></tr>
+<tr>
+<td><span id="PH18"><tt><a href="#PH18">PH18<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>C2
+</td>
+<td>I/O
+</td>
+<td>LCD1_D18
+</td>
+<td>ATAD14
+</td>
+<td>KP_OUT0
+</td>
+<td>SMC_SCK
+</td>
+<td>EINT18
+</td>
+<td>CSI1_D18
+</td></tr>
+<tr>
+<td><span id="PH19"><tt><a href="#PH19">PH19<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>D1
+</td>
+<td>I/O
+</td>
+<td>LCD1_D19
+</td>
+<td>ATAD15
+</td>
+<td>KP_OUT1
+</td>
+<td>SMC_SDA
+</td>
+<td>EINT19
+</td>
+<td>CSI1_D19
+</td></tr>
+<tr>
+<td><span id="PH20"><tt><a href="#PH20">PH20<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>D2
+</td>
+<td>I/O
+</td>
+<td>LCD1_D20
+</td>
+<td>ATAOE
+</td>
+<td>CAN_TX
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td>EINT20
+</td>
+<td>CSI1_D20
+</td></tr>
+<tr>
+<td><span id="PH21"><tt><a href="#PH21">PH21<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>D3
+</td>
+<td>I/O
+</td>
+<td>LCD1_D21
+</td>
+<td>ATADREQ
+</td>
+<td>CAN_RX
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td>EINT21
+</td>
+<td>CSI1_D21
+</td></tr>
+<tr>
+<td><span id="PH22"><tt><a href="#PH22">PH22<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>E1
+</td>
+<td>I/O
+</td>
+<td>LCD1_D22
+</td>
+<td>ATADACK
+</td>
+<td>KP_OUT2
+</td>
+<td>SDC1_CMD
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td>CSI1_D22
+</td></tr>
+<tr>
+<td><span id="PH23"><tt><a href="#PH23">PH23<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>E2
+</td>
+<td>I/O
+</td>
+<td>LCD1_D23
+</td>
+<td>ATACS0
+</td>
+<td>KP_OUT3
+</td>
+<td>SDC1_CLK
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td>CSI1_D23
+</td></tr>
+<tr>
+<td><span id="PH24"><tt><a href="#PH24">PH24<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>E3
+</td>
+<td>I/O
+</td>
+<td>LCD1_CLK
+</td>
+<td>ATAIORDY
+</td>
+<td>KP_OUT4
+</td>
+<td>SDC1_D1
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td>CSI1_FIELD
+</td></tr>
+<tr>
+<td><span id="PH25"><tt><a href="#PH25">PH25<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>E4
+</td>
+<td>I/O
+</td>
+<td>LCD1_DE
+</td>
+<td>ATACS1
+</td>
+<td>KP_OUT5
+</td>
+<td>SDC1_D0
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td>CSI1_PCLK
+</td></tr>
+<tr>
+<td><span id="PH26"><tt><a href="#PH26">PH26<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>F3
+</td>
+<td>I/O
+</td>
+<td>LCD1_HSYNC
+</td>
+<td>ATAIOR
+</td>
+<td>KP_OUT6
+</td>
+<td>SDC1_D2
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td>CSI1_HSYNC
+</td></tr>
+<tr>
+<td><span id="PH27"><tt><a href="#PH27">PH27<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>F4
+</td>
+<td>I/O
+</td>
+<td>LCD1_VSYNC
+</td>
+<td>ATAIOW
+</td>
+<td>KP_OUT7
+</td>
+<td>SDC1_D3
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td>CSI1_VSYNC
+</td></tr>
+<tr>
+<th colspan="9"><span id="PI">Port Bank I</span>
+</th></tr>
+<tr>
+<th>Port</th>
+<th>Ball</th>
+<th>Type</th>
+<th>MUX 2</th>
+<th>MUX 3</th>
+<th>MUX 4</th>
+<th>MUX 5</th>
+<th>MUX 6</th>
+<th>MUX 7
+</th></tr>
+<tr>
+<td><span id="PI00"><tt><a href="#PI00">PI00<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>A20
+</td>
+<td>I/O
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=GPS_GPS_CLK&amp;action=edit&amp;redlink=1" class="new" title="GPS GPS CLK (page does not exist)">GPS GPS_CLK</a>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PI01"><tt><a href="#PI01">PI01<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>B20
+</td>
+<td>I/O
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=GPS_GPS_SIGN&amp;action=edit&amp;redlink=1" class="new" title="GPS GPS SIGN (page does not exist)">GPS GPS_SIGN</a>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PI02"><tt><a href="#PI02">PI02<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>A19
+</td>
+<td>I/O
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=GPS_GPS_MAG&amp;action=edit&amp;redlink=1" class="new" title="GPS GPS MAG (page does not exist)">GPS GPS_MAG</a>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PI03"><tt><a href="#PI03">PI03<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>B19
+</td>
+<td>I/O
+</td>
+<td><a href="PWM.html" class="mw-redirect" title="A10/PWM">PWM1</a>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PI04"><tt><a href="#PI04">PI04<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>A18
+</td>
+<td>I/O
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A10/SDC&amp;action=edit&amp;redlink=1" class="new" title="A10/SDC (page does not exist)">SDC3_CMD</a>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PI05"><tt><a href="#PI05">PI05<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>B18
+</td>
+<td>I/O
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A10/SDC&amp;action=edit&amp;redlink=1" class="new" title="A10/SDC (page does not exist)">SDC3_CLK</a>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PI06"><tt><a href="#PI06">PI06<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>A17
+</td>
+<td>I/O
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A10/SDC&amp;action=edit&amp;redlink=1" class="new" title="A10/SDC (page does not exist)">SDC3_D0</a>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PI07"><tt><a href="#PI07">PI07<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>B17
+</td>
+<td>I/O
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A10/SDC&amp;action=edit&amp;redlink=1" class="new" title="A10/SDC (page does not exist)">SDC3_D1</a>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PI08"><tt><a href="#PI08">PI08<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>A16
+</td>
+<td>I/O
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A10/SDC&amp;action=edit&amp;redlink=1" class="new" title="A10/SDC (page does not exist)">SDC3_D2</a>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PI09"><tt><a href="#PI09">PI09<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>B16
+</td>
+<td>I/O
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A10/SDC&amp;action=edit&amp;redlink=1" class="new" title="A10/SDC (page does not exist)">SDC3_D3</a>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PI10"><tt><a href="#PI10">PI10<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>C17
+</td>
+<td>I/O
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A10/SPI&amp;action=edit&amp;redlink=1" class="new" title="A10/SPI (page does not exist)">SPI0_CS0</a>
+</td>
+<td><a href="UART.html" class="mw-redirect" title="A10/UART">UART5_TX</a>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td>EINT22
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PI11"><tt><a href="#PI11">PI11<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>D17
+</td>
+<td>I/O
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A10/SPI&amp;action=edit&amp;redlink=1" class="new" title="A10/SPI (page does not exist)">SPI0_CLK</a>
+</td>
+<td><a href="UART.html" class="mw-redirect" title="A10/UART">UART5_RX</a>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td>EINT23
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PI12"><tt><a href="#PI12">PI12<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>C16
+</td>
+<td>I/O
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A10/SPI&amp;action=edit&amp;redlink=1" class="new" title="A10/SPI (page does not exist)">SPI0_MOSI</a>
+</td>
+<td><a href="UART.html" class="mw-redirect" title="A10/UART">UART6_TX</a>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td>EINT24
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PI13"><tt><a href="#PI13">PI13<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>D16
+</td>
+<td>I/O
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A10/SPI&amp;action=edit&amp;redlink=1" class="new" title="A10/SPI (page does not exist)">SPI0_MISO</a>
+</td>
+<td><a href="UART.html" class="mw-redirect" title="A10/UART">UART6_RX</a>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td>EINT25
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PI14"><tt><a href="#PI14">PI14<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>C16
+</td>
+<td>I/O
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A10/SPI&amp;action=edit&amp;redlink=1" class="new" title="A10/SPI (page does not exist)">SPI0_CS1</a>
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A10/PS2&amp;action=edit&amp;redlink=1" class="new" title="A10/PS2 (page does not exist)">PS2_SCK1</a>
+</td>
+<td>TCLKIN0
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td>EINT26
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PI15"><tt><a href="#PI15">PI15<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>D15
+</td>
+<td>I/O
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A10/SPI&amp;action=edit&amp;redlink=1" class="new" title="A10/SPI (page does not exist)">SPI1_CS1</a>
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A10/PS2&amp;action=edit&amp;redlink=1" class="new" title="A10/PS2 (page does not exist)">PS2_SDA1</a>
+</td>
+<td>TCLKIN1
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td>EINT27
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PI16"><tt><a href="#PI16">PI16<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>E17
+</td>
+<td>I/O
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A10/SPI&amp;action=edit&amp;redlink=1" class="new" title="A10/SPI (page does not exist)">SPI1_CS0</a>
+</td>
+<td><a href="UART.html" class="mw-redirect" title="A10/UART">UART2_RTS</a>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td>EINT28
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PI17"><tt><a href="#PI17">PI17<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>E16
+</td>
+<td>I/O
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A10/SPI&amp;action=edit&amp;redlink=1" class="new" title="A10/SPI (page does not exist)">SPI1_CLK</a>
+</td>
+<td><a href="UART.html" class="mw-redirect" title="A10/UART">UART2_CTS</a>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td>EINT29
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PI18"><tt><a href="#PI18">PI18<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>E15
+</td>
+<td>I/O
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A10/SPI&amp;action=edit&amp;redlink=1" class="new" title="A10/SPI (page does not exist)">SPI1_MOSI</a>
+</td>
+<td><a href="UART.html" class="mw-redirect" title="A10/UART">UART2_TX</a>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td>EINT30
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PI19"><tt><a href="#PI19">PI19<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>D14
+</td>
+<td>I/O
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A10/SPI&amp;action=edit&amp;redlink=1" class="new" title="A10/SPI (page does not exist)">SPI1_MISO</a>
+</td>
+<td><a href="UART.html" class="mw-redirect" title="A10/UART">UART2_RX</a>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td>EINT31
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PI20"><tt><a href="#PI20">PI20<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>E14
+</td>
+<td>I/O
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A10/PS2&amp;action=edit&amp;redlink=1" class="new" title="A10/PS2 (page does not exist)">PS2_SCK0</a>
+</td>
+<td><a href="UART.html" class="mw-redirect" title="A10/UART">UART7_TX</a>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td>HSCL
+</td>
+<td align="center"><i>reserved</i>
+</td></tr>
+<tr>
+<td><span id="PI21"><tt><a href="#PI21">PI21<tt></tt></a></tt></span><tt><tt>
+</tt></tt></td>
+<td>E13
+</td>
+<td>I/O
+</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A10/PS2&amp;action=edit&amp;redlink=1" class="new" title="A10/PS2 (page does not exist)">PS2_SDA0</a>
+</td>
+<td><a href="UART.html" class="mw-redirect" title="A10/UART">UART7_RX</a>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td align="center"><i>reserved</i>
+</td>
+<td>HSDA
+</td>
+<td align="center"><i>reserved</i>
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="Other_Pins">Other Pins</span></h2>
+<table class="wikitable">
+<tbody><tr>
+<th>Port</th>
+<th>Ball</th>
+<th>Function</th>
+<th>Type</th>
+<th>Comment
+</th></tr>
+<tr>
+<td><span id="XP_TP"><tt>XP_TP</tt></span></td>
+<td>Y22</td>
+<td>Input</td>
+<td>AI</td>
+<td>Touchpad X+
+</td></tr>
+<tr>
+<td><span id="XN_TP"><tt>XN_TP</tt></span></td>
+<td>AA22</td>
+<td>Input</td>
+<td>AI</td>
+<td>Touchpad X-
+</td></tr>
+<tr>
+<td><span id="YP_TP"><tt>YP_TP</tt></span></td>
+<td>Y23</td>
+<td>Input</td>
+<td>AI</td>
+<td>Touchpad Y+
+</td></tr>
+<tr>
+<td><span id="YN_TP"><tt>YN_TP</tt></span></td>
+<td>AA23</td>
+<td>Input</td>
+<td>AI</td>
+<td>Touchpad Y-
+</td></tr>
+<tr>
+<td>LRADC0</td>
+<td>AB23</td>
+<td>Input</td>
+<td></td>
+<td>Low Resolution ADC0
+</td></tr>
+<tr>
+<td>LRADC1</td>
+<td>AB22</td>
+<td>Input</td>
+<td></td>
+<td>Low Resolution ADC1
+</td></tr>
+<tr>
+<td>DM0</td>
+<td>N20</td>
+<td>I/O</td>
+<td></td>
+<td>USB0 D-
+</td></tr>
+<tr>
+<td>DP0</td>
+<td>N21</td>
+<td>I/O</td>
+<td></td>
+<td>USB0 D+
+</td></tr>
+<tr>
+<td>DM1</td>
+<td>P20</td>
+<td>I/O</td>
+<td></td>
+<td>USB1 D-
+</td></tr>
+<tr>
+<td>DP1</td>
+<td>P21</td>
+<td>I/O</td>
+<td></td>
+<td>USB1 D+
+</td></tr>
+<tr>
+<td>DM2</td>
+<td>R20</td>
+<td>I/O</td>
+<td></td>
+<td>USB2 D-
+</td></tr>
+<tr>
+<td>DP2</td>
+<td>R21</td>
+<td>I/O</td>
+<td></td>
+<td>USB2 D+
+</td></tr></tbody></table>
+<!-- 
+NewPP limit report
+Cached time: 20251029040243
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.907 seconds
+Real time usage: 1.015 seconds
+Preprocessor visited node count: 16768/1000000
+Post‐expand include size: 90882/2097152 bytes
+Template argument size: 32914/2097152 bytes
+Highest expansion depth: 6/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  519.072      1 -total
+ 72.38%  375.710    175 Template:PIO
+ 32.23%  167.305   1225 Template:PIO/Cell
+ 20.54%  106.613      9 Template:PIO/Header
+ 16.95%   87.962    188 Template:Anchor
+  5.24%   27.189    175 Template:Iif
+  1.82%    9.469      4 Template:Tta
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:175-0!canonical and timestamp 20251029040242 and revision id 16500
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=A10/PIO&amp;oldid=16500">https://linux-sunxi.org/index.php?title=A10/PIO&amp;oldid=16500</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="../Special:Categories.html" title="Special:Categories">Categories</a>: <ul><li><a href="../Category:Hardware.html" title="Category:Hardware">Hardware</a></li><li><a href="https://linux-sunxi.org/index.php?title=Category:PIO&amp;action=edit&amp;redlink=1" class="new" title="Category:PIO (page does not exist)">PIO</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=A10%2FPIO" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=A10%2FPIO" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="PIO.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:A10/PIO&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="PIO.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=A10/PIO&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=A10/PIO&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="../index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="../index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="../sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="../Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="../Special:WhatLinksHere/A10/PIO.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/A10/PIO" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="../Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=A10/PIO&amp;oldid=16500" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=A10/PIO&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 1 March 2016, at 06:38.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.907","walltime":"1.015","ppvisitednodes":{"value":16768,"limit":1000000},"postexpandincludesize":{"value":90882,"limit":2097152},"templateargumentsize":{"value":32914,"limit":2097152},"expansiondepth":{"value":6,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":0,"limit":5000000},"timingprofile":["100.00%  519.072      1 -total"," 72.38%  375.710    175 Template:PIO"," 32.23%  167.305   1225 Template:PIO/Cell"," 20.54%  106.613      9 Template:PIO/Header"," 16.95%   87.962    188 Template:Anchor","  5.24%   27.189    175 Template:Iif","  1.82%    9.469      4 Template:Tta"]},"cachereport":{"timestamp":"20251029040243","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":219});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

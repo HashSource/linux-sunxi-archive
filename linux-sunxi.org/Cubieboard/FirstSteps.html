@@ -1,0 +1,458 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Cubieboard/FirstSteps - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"0fc7ee3b3aea190e9c5d97a8","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Cubieboard/FirstSteps","wgTitle":"Cubieboard/FirstSteps","wgCurRevisionId":6686,"wgRevisionId":6686,"wgArticleId":417,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Cubieboard"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Cubieboard/FirstSteps","wgRelevantArticleId":417,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":
+"ready","user.styles":"ready","user":"ready","user.options":"loading","mediawiki.page.gallery.styles":"ready","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=mediawiki.page.gallery.styles%7Cmediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="FirstSteps.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-Cubieboard_FirstSteps rootpage-Cubieboard skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">Cubieboard/FirstSteps</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"><span class="subpages">&lt; <a href="../Cubieboard.html" class="mw-redirect" title="Cubieboard">Cubieboard</a></span></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p><b>Note</b>: This is the FirstSteps for Cubieboard users.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Which_is_your_Cubieboard_model.3F"><span class="tocnumber">1</span> <span class="toctext">Which is your Cubieboard model?</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Unpacking_the_box"><span class="tocnumber">2</span> <span class="toctext">Unpacking the box</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Connecting_the_parts"><span class="tocnumber">3</span> <span class="toctext">Connecting the parts</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#First_startup"><span class="tocnumber">4</span> <span class="toctext">First startup</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Power_Off_and_On"><span class="tocnumber">5</span> <span class="toctext">Power Off and On</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Booting_sequence"><span class="tocnumber">6</span> <span class="toctext">Booting sequence</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Installing_images_on_the_microSD_card_with_BerryBoot"><span class="tocnumber">7</span> <span class="toctext">Installing images on the microSD card with BerryBoot</span></a>
+<ul>
+<li class="toclevel-2 tocsection-8"><a href="#Preparing_the_Berryboot_microSD_card_using_the_Android_SD_card_writer_app"><span class="tocnumber">7.1</span> <span class="toctext">Preparing the Berryboot microSD card using the Android SD card writer app</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Preparing_the_Berryboot_microSD_card_on_a_Windows_computer"><span class="tocnumber">7.2</span> <span class="toctext">Preparing the Berryboot microSD card on a Windows computer</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#Main_installation"><span class="tocnumber">7.3</span> <span class="toctext">Main installation</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="#More_information"><span class="tocnumber">7.4</span> <span class="toctext">More information</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-12"><a href="#Trying_more_bootable_images"><span class="tocnumber">8</span> <span class="toctext">Trying more bootable images</span></a></li>
+<li class="toclevel-1 tocsection-13"><a href="#What_went_wrong.3F_Kernel_logs.21"><span class="tocnumber">9</span> <span class="toctext">What went wrong? Kernel logs!</span></a></li>
+<li class="toclevel-1 tocsection-14"><a href="#External"><span class="tocnumber">10</span> <span class="toctext">External</span></a></li>
+</ul>
+</div>
+
+<h2><span id="Which_is_your_Cubieboard_model?"></span><span class="mw-headline" id="Which_is_your_Cubieboard_model.3F">Which is your Cubieboard model?</span></h2>
+<p>Currently, there are two batches of the Cubieboard developer board available.
+</p>
+<ol><li>First batch, sold around August/September 2012. The Cubieboard in this batch has 512MB RAM.</li>
+<li>Second batch, sold through the Indiegogo campaign (November 2012), Shopify (January 2013), Miniand (January 2013). The Cubieboard in this batch has 1GB RAM.</li></ol>
+<p>It is important to identify which batch your Cubieboard is from, because the amount of memory has (currently) to be specified in your system image settings.
+</p>
+<h2><span class="mw-headline" id="Unpacking_the_box">Unpacking the box</span></h2>
+<p>The Cubieboard is available in two packages, the Standard package and the Rich package.
+</p>
+<ul class="gallery mw-gallery-traditional">
+		<li class="gallerybox" style="width: 235px"><div style="width: 235px">
+			<div class="thumb" style="width: 230px;"><div style="margin:49.5px auto;"><a href="../File:Cubieboard-standard.jpg.html" class="image"><img alt="" src="https://linux-sunxi.org/images/thumb/8/85/Cubieboard-standard.jpg/200px-Cubieboard-standard.jpg" decoding="async" width="200" height="131" srcset="https://linux-sunxi.org/images/thumb/8/85/Cubieboard-standard.jpg/300px-Cubieboard-standard.jpg 1.5x, https://linux-sunxi.org/images/thumb/8/85/Cubieboard-standard.jpg/400px-Cubieboard-standard.jpg 2x" /></a></div></div>
+			<div class="gallerytext">
+<p>Cubieboard inventory - Standard package.
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 235px"><div style="width: 235px">
+			<div class="thumb" style="width: 230px;"><div style="margin:15px auto;"><a href="../File:Cubieboard_package_list_-_rich.jpg.html" class="image"><img alt="" src="https://linux-sunxi.org/images/thumb/d/df/Cubieboard_package_list_-_rich.jpg/200px-Cubieboard_package_list_-_rich.jpg" decoding="async" width="200" height="200" srcset="https://linux-sunxi.org/images/thumb/d/df/Cubieboard_package_list_-_rich.jpg/300px-Cubieboard_package_list_-_rich.jpg 1.5x, https://linux-sunxi.org/images/thumb/d/df/Cubieboard_package_list_-_rich.jpg/400px-Cubieboard_package_list_-_rich.jpg 2x" /></a></div></div>
+			<div class="gallerytext">
+<p>Cubieboard inventory - Rich package.
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 235px"><div style="width: 235px">
+			<div class="thumb" style="width: 230px;"><div style="margin:15px auto;"><a href="../File:Cubieboard1.jpg.html" class="image"><img alt="" src="https://linux-sunxi.org/images/thumb/a/ae/Cubieboard1.jpg/200px-Cubieboard1.jpg" decoding="async" width="200" height="200" srcset="https://linux-sunxi.org/images/thumb/a/ae/Cubieboard1.jpg/300px-Cubieboard1.jpg 1.5x, https://linux-sunxi.org/images/thumb/a/ae/Cubieboard1.jpg/400px-Cubieboard1.jpg 2x" /></a></div></div>
+			<div class="gallerytext">
+<p>Cubieboard close-up.
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 235px"><div style="width: 235px">
+			<div class="thumb" style="width: 230px;"><div style="margin:15px auto;"><a href="https://linux-sunxi.org/File:Cubieboard2.jpg" class="image"><img alt="" src="https://linux-sunxi.org/images/thumb/d/d9/Cubieboard2.jpg/200px-Cubieboard2.jpg" decoding="async" width="200" height="200" srcset="https://linux-sunxi.org/images/thumb/d/d9/Cubieboard2.jpg/300px-Cubieboard2.jpg 1.5x, https://linux-sunxi.org/images/thumb/d/d9/Cubieboard2.jpg/400px-Cubieboard2.jpg 2x" /></a></div></div>
+			<div class="gallerytext">
+<p>Cubieboard close-up.
+</p>
+			</div>
+		</div></li>
+</ul>
+<p>The Standard package contains (from top left and counter-clockwise): 
+</p>
+<ol><li>The Cubieboard developer board</li>
+<li>SATA data cable and SATA power cable</li>
+<li>USB to DC power cable</li>
+<li>Cubieboard carton box (not shown)</li></ol>
+<p>The Rich package contains (from top left and counter-clockwise): 
+</p>
+<ol><li>SATA data cable and SATA power cable</li>
+<li>Back with screws (for transparent case)</li>
+<li>USB Serial cable</li>
+<li>USB to DC power cable</li>
+<li>Cubieboard carton box</li>
+<li>Transparent plastic case</li>
+<li>The Cubieboard developer board</li></ol>
+<p>Also checkout <a rel="nofollow" class="external text" href="http://www.cnx-software.com/2012/12/09/cubieboard-unboxing-and-quick-start-guide/">Cubieboard Unboxing and Quick Start Guide by CNXSoft</a>.
+</p>
+<h2><span class="mw-headline" id="Connecting_the_parts">Connecting the parts</span></h2>
+<p>Note: Some of the Cubieboards from the Indiegogo campaign may not have a suitable DC to USB cable. Check at <a href="FaultyDCCable.html" title="Cubieboard/FaultyDCCable">Cubieboard/FaultyDCCable</a> to see whether you are affected.
+</p><p>You can power your Cubieboard from either 
+</p>
+<ul><li>a USB to DC cable (provided)</li>
+<li>a USB to mini-USB cable</li></ul>
+<p>You plug the USB cable to your computer (5V/500mA) or any other USB power supply (such as one to charge your mobile phone), and the other end (either DC or mini-USB) to the appropriate port on the Cubieboard. 
+</p><p>Connect the Cubieboard to your HDMI display/TV using an HDMI cable. Note that there has been some issues with HDMI to DVI adapters. Also, if your HDMI TV cannot display 720p, then it might not be able to display properly on the screen. The Android image allows to switch later on to the 1080p resolution (see System settings in Android). 
+</p><p>You can connect a USB hub to the Cubieboard and then attach a keyboard and mouse. Note that if you connect several devices to the Cubieboard, then you will need to provide more power (for example, 500mA will probably be not enough).
+</p><p>You can also look for a PSP power supply (PSP is a Sony game console), which has a compatible barrel plug and provides 5V/2A, just like the Cubieboard needs.
+</p><p><span style="color:red"><b>WARNING</b>: <b>DO NOT CONNECT THE RED LINE TO VCC ON UART(serial ttl connection)</b>.</span>
+</p>
+<h2><span class="mw-headline" id="First_startup">First startup</span></h2>
+<div class="thumb tright"><div class="thumbinner" style="width:302px;"><a href="../File:Cubieboard-connected-booted.jpg.html" class="image"><img alt="" src="https://linux-sunxi.org/images/thumb/0/0e/Cubieboard-connected-booted.jpg/300px-Cubieboard-connected-booted.jpg" decoding="async" width="300" height="161" class="thumbimage" srcset="https://linux-sunxi.org/images/thumb/0/0e/Cubieboard-connected-booted.jpg/450px-Cubieboard-connected-booted.jpg 1.5x, https://linux-sunxi.org/images/thumb/0/0e/Cubieboard-connected-booted.jpg/600px-Cubieboard-connected-booted.jpg 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="../File:Cubieboard-connected-booted.jpg.html" class="internal" title="Enlarge"></a></div>The Cubieboard connected and running. Power comes from the mini-USB port.</div></div></div>
+<p>You powered the Cubieboard using either a USB to DC power cable or a powered USB to mini-USB cable. The Cubieboard should power on - the red <i>POWER</i> and green <i>LED2</i> LEDs should light up.
+</p><p>See also this <a rel="nofollow" class="external text" href="http://www.youtube.com/watch?v=0-O0JPPbYeo%7Cvideo">that shows the Cubieboard booting up using power from the USB OTG port</a>.
+</p><p>If you start the Cubieboard without attaching a microSD card, then it will boot from the NAND flash memory. The Cubieboard has 4GB of internal memory (NAND Flash), which comes pre-loaded with Android 4.0 (ICS).  Therefore, if you start the Cubieboard without a microSD card, then it will will boot into Android. For the first attempt to boot your Cubieboard, it is suggested to try Android.
+</p>
+<div class="thumb tright"><div class="thumbinner" style="width:302px;"><a href="https://linux-sunxi.org/File:CubieboardAndroidAboutDevice.jpg" class="image"><img alt="" src="https://linux-sunxi.org/images/thumb/8/81/CubieboardAndroidAboutDevice.jpg/300px-CubieboardAndroidAboutDevice.jpg" decoding="async" width="300" height="300" class="thumbimage" srcset="https://linux-sunxi.org/images/thumb/8/81/CubieboardAndroidAboutDevice.jpg/450px-CubieboardAndroidAboutDevice.jpg 1.5x, https://linux-sunxi.org/images/thumb/8/81/CubieboardAndroidAboutDevice.jpg/600px-CubieboardAndroidAboutDevice.jpg 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://linux-sunxi.org/File:CubieboardAndroidAboutDevice.jpg" class="internal" title="Enlarge"></a></div>Android "About Device" page from Android</div></div></div>
+<h2><span class="mw-headline" id="Power_Off_and_On">Power Off and On</span></h2>
+<p>Once you connect the Cubieboard to the power, it will automatically boot up.
+</p><p>The red <i>Power</i> LED will light up when your Cubieboard is running. Depending on the operating system, you may also see the green <i>LED2</i> LED light up (it lights up with Android but not with the Linux distributions).
+</p><p>It is recommended to shutdown the Cubieboard using the shutdown facility of the operating system. If you use Android, search Google Play for a Shutdown utility and install it. Then, you can shutdown from that utility. If you upgrade the Android image on the NAND memory to [<a rel="nofollow" class="external text" href="http://cubieboard.org/download/">Release 2</a>], then there should be a Shutdown app already present. If you use a Linux distribution instead, then you can either power off from the GUI or run
+</p><p><i>sudo shutdown -h now</i>
+</p><p>You can subsequently use the <i>Power</i> button to power on and off the Cubieboard. It is located on the left of the HDMI connector. You need to keep it pressed for a few seconds so that the Cubieboard starts up again.
+</p><p>You can force the Cubieboard to shutdown by keeping pressed the <i>Power</i> button for about 10 seconds.
+</p>
+<h2><span class="mw-headline" id="Booting_sequence">Booting sequence</span></h2>
+<p>If a microSD card is present, then the Cubieboard will try to boot from the microSD card.
+If there is no microSD card present, then the Cubieboard will boot from the internal memory (NAND flash), which by default has Android 4.0.
+</p><p>It is possible to boot the Cubieboard from the network, or from a SATA disk.
+</p><p>You can find more details on the boot sequence at <a href="../BROM.html" title="BROM">BROM</a>
+</p>
+<h2><span class="mw-headline" id="Installing_images_on_the_microSD_card_with_BerryBoot">Installing images on the microSD card with BerryBoot</span></h2>
+<p>Berryboot is a simple operating system installation utility and boot selection screen, that allows you to put multiple Linux distributions on a single microSD card.
+To install it, you first need to copy the Berryboot system files to the microSD card. This can be done using the Android app <b>or</b> using a normal desktop computer.
+</p>
+<h3><span class="mw-headline" id="Preparing_the_Berryboot_microSD_card_using_the_Android_SD_card_writer_app">Preparing the Berryboot microSD card using the Android SD card writer app</span></h3>
+<ul class="gallery mw-gallery-traditional">
+		<li class="gallerybox" style="width: 335px"><div style="width: 335px">
+			<div class="thumb" style="width: 330px;"><div style="margin:53px auto;"><a href="../File:Berryboot_downloading_the_installer.png.html" class="image"><img alt="" src="https://linux-sunxi.org/images/thumb/1/14/Berryboot_downloading_the_installer.png/300px-Berryboot_downloading_the_installer.png" decoding="async" width="300" height="224" srcset="https://linux-sunxi.org/images/thumb/1/14/Berryboot_downloading_the_installer.png/450px-Berryboot_downloading_the_installer.png 1.5x, https://linux-sunxi.org/images/thumb/1/14/Berryboot_downloading_the_installer.png/600px-Berryboot_downloading_the_installer.png 2x" /></a></div></div>
+			<div class="gallerytext">
+<p>Downloading the App
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 335px"><div style="width: 335px">
+			<div class="thumb" style="width: 330px;"><div style="margin:15px auto;"><a href="https://linux-sunxi.org/File:Berryboot_SD_card_writer_app.png" class="image"><img alt="" src="https://linux-sunxi.org/images/thumb/8/80/Berryboot_SD_card_writer_app.png/254px-Berryboot_SD_card_writer_app.png" decoding="async" width="254" height="300" srcset="https://linux-sunxi.org/images/thumb/8/80/Berryboot_SD_card_writer_app.png/381px-Berryboot_SD_card_writer_app.png 1.5x, https://linux-sunxi.org/images/thumb/8/80/Berryboot_SD_card_writer_app.png/509px-Berryboot_SD_card_writer_app.png 2x" /></a></div></div>
+			<div class="gallerytext">
+<p>Writing to the SD card
+</p>
+			</div>
+		</div></li>
+</ul>
+<ol><li>Start your Cubieboard, and point the Android webbrowser to <a rel="nofollow" class="external free" href="http://get.berryboot.com/">http://get.berryboot.com/</a></li>
+<li>Download, open and install the .apk you find there.</li>
+<li>Insert an empty SD card in your Cubieboard and press the "write image to SD card" button.</li>
+<li>After it has done writing, it will prompt you to reboot the Cubie and proceed with the main installation.</li></ol>
+<h3><span class="mw-headline" id="Preparing_the_Berryboot_microSD_card_on_a_Windows_computer">Preparing the Berryboot microSD card on a Windows computer</span></h3>
+<p>See also: <a rel="nofollow" class="external text" href="http://cubieboard.org/2012/11/15/install-ubuntu-with-berryboot/">Installing Ubuntu on the Cubieboard with Berryboot (video tutorial)</a>
+</p>
+<ul class="gallery mw-gallery-traditional">
+		<li class="gallerybox" style="width: 335px"><div style="width: 335px">
+			<div class="thumb" style="width: 330px;"><div style="margin:40px auto;"><a href="https://linux-sunxi.org/File:SD_card_adapter.jpg" class="image"><img alt="" src="https://linux-sunxi.org/images/thumb/a/aa/SD_card_adapter.jpg/300px-SD_card_adapter.jpg" decoding="async" width="300" height="250" srcset="https://linux-sunxi.org/images/a/aa/SD_card_adapter.jpg 1.5x" /></a></div></div>
+			<div class="gallerytext">
+<p>SD card USB adapter
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 335px"><div style="width: 335px">
+			<div class="thumb" style="width: 330px;"><div style="margin:89px auto;"><a href="https://linux-sunxi.org/File:Win32DiskImager.jpg" class="image"><img alt="" src="https://linux-sunxi.org/images/thumb/4/47/Win32DiskImager.jpg/300px-Win32DiskImager.jpg" decoding="async" width="300" height="152" srcset="https://linux-sunxi.org/images/4/47/Win32DiskImager.jpg 1.5x" /></a></div></div>
+			<div class="gallerytext">
+<p>Win32DiskImager
+</p>
+			</div>
+		</div></li>
+</ul>
+<ol><li>Put the microSD card into an adapter, and attach it to your computer.</li>
+<li>Download the "<a rel="nofollow" class="external text" href="http://sourceforge.net/projects/berryboot/files/berryboot-cubieboard-beta6.zip/download">Berryboot-cubieboard-beta<b>#</b>.zip</a>" from <a rel="nofollow" class="external free" href="http://www.berryterminal.com/doku.php/berryboot_a10">http://www.berryterminal.com/doku.php/berryboot_a10</a></li>
+<li>Download “<a rel="nofollow" class="external text" href="http://downloads.sourceforge.net/project/win32diskimager/Archive/win32diskimager-v0.8-binary.zip?r=&amp;ts=1375729776&amp;use_mirror=superb-dca2">win32diskimager-v<b>#.#</b>-binary.zip</a>" from <a rel="nofollow" class="external free" href="https://launchpad.net/win32-image-writer/">https://launchpad.net/win32-image-writer/</a></li>
+<li>Extract both .zip archives.</li>
+<li>Start Win32DiskImager.exe</li>
+<li>Click on the browse icon under "image file" -&gt; go to the folder where you downloaded Berryboot -&gt; select the *.* filter to see all files -&gt; select "<i>berryboot-cubieboard-beta#.img</i>"</li>
+<li><b>Important:</b> Double check that the correct disk drive corresponding to your SD card writer is selected under "<b>device</b>"</li>
+<li>Press "write".</li>
+<li>Once finished, put the microSD card into your Cubieboard, and apply power.</li></ol>
+<h3><span class="mw-headline" id="Main_installation">Main installation</span></h3>
+<ul class="gallery mw-gallery-traditional">
+		<li class="gallerybox" style="width: 285px"><div style="width: 285px">
+			<div class="thumb" style="width: 280px;"><div style="margin:15px auto;"><a href="https://linux-sunxi.org/File:Berryboot_installation_step1.png" class="image"><img alt="" src="https://linux-sunxi.org/images/thumb/b/b7/Berryboot_installation_step1.png/244px-Berryboot_installation_step1.png" decoding="async" width="244" height="250" srcset="https://linux-sunxi.org/images/thumb/b/b7/Berryboot_installation_step1.png/367px-Berryboot_installation_step1.png 1.5x, https://linux-sunxi.org/images/b/b7/Berryboot_installation_step1.png 2x" /></a></div></div>
+			<div class="gallerytext">
+<p>Locale selection
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 285px"><div style="width: 285px">
+			<div class="thumb" style="width: 280px;"><div style="margin:16.5px auto;"><a href="../File:Berryboot_installation_step2.png.html" class="image"><img alt="" src="https://linux-sunxi.org/images/thumb/b/b3/Berryboot_installation_step2.png/250px-Berryboot_installation_step2.png" decoding="async" width="250" height="247" srcset="https://linux-sunxi.org/images/thumb/b/b3/Berryboot_installation_step2.png/375px-Berryboot_installation_step2.png 1.5x, https://linux-sunxi.org/images/b/b3/Berryboot_installation_step2.png 2x" /></a></div></div>
+			<div class="gallerytext">
+<p>Disk selection
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 285px"><div style="width: 285px">
+			<div class="thumb" style="width: 280px;"><div style="margin:19.5px auto;"><a href="https://linux-sunxi.org/File:Berryboot_installation_step3.png" class="image"><img alt="" src="https://linux-sunxi.org/images/thumb/4/4b/Berryboot_installation_step3.png/250px-Berryboot_installation_step3.png" decoding="async" width="250" height="241" srcset="https://linux-sunxi.org/images/thumb/4/4b/Berryboot_installation_step3.png/375px-Berryboot_installation_step3.png 1.5x, https://linux-sunxi.org/images/thumb/4/4b/Berryboot_installation_step3.png/500px-Berryboot_installation_step3.png 2x" /></a></div></div>
+			<div class="gallerytext">
+<p>Choose an OS
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 285px"><div style="width: 285px">
+			<div class="thumb" style="width: 280px;"><div style="margin:57px auto;"><a href="https://linux-sunxi.org/File:Berryboot_installation_step4.png" class="image"><img alt="" src="https://linux-sunxi.org/images/thumb/e/e9/Berryboot_installation_step4.png/250px-Berryboot_installation_step4.png" decoding="async" width="250" height="166" srcset="https://linux-sunxi.org/images/e/e9/Berryboot_installation_step4.png 1.5x" /></a></div></div>
+			<div class="gallerytext">
+<p>Downloading
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 285px"><div style="width: 285px">
+			<div class="thumb" style="width: 280px;"><div style="margin:75.5px auto;"><a href="https://linux-sunxi.org/File:Berryboot_menu_editor.png" class="image"><img alt="" src="https://linux-sunxi.org/images/thumb/0/0a/Berryboot_menu_editor.png/250px-Berryboot_menu_editor.png" decoding="async" width="250" height="129" srcset="https://linux-sunxi.org/images/thumb/0/0a/Berryboot_menu_editor.png/375px-Berryboot_menu_editor.png 1.5x, https://linux-sunxi.org/images/thumb/0/0a/Berryboot_menu_editor.png/500px-Berryboot_menu_editor.png 2x" /></a></div></div>
+			<div class="gallerytext">
+<p>Menu editor
+</p>
+			</div>
+		</div></li>
+</ul>
+<ol><li>In the first screen of the installation procedure you will be prompted for your timezone and keyboard layout settings. If the Cubie is connected to the Internet by network cable it will try to detect the settings automatically based on your location.</li>
+<li>Next you will be asked where you want to install the files of your operating systems. This can be on the microSD card itself, on a SATA harddisk, on an USB stick or on a NAS device such as those made by Synology and QNAP. In all cases having the microSD card inserted into the Cubie is still necessary to boot the system.</li>
+<li>Finally you can select which "operating system" you wish to install, such as Ubuntu, Puppy Linux or Debian. The files will be downloaded automatically over the Internet.</li>
+<li>Once the download finishes you will be directed to the Berryboot boot menu editor, where you can install additional operating systems, or press "exit" to reboot and start using your freshly installed operating system!</li></ol>
+<h3><span class="mw-headline" id="More_information">More information</span></h3>
+<ul><li><a href="https://linux-sunxi.org/index.php?title=Berryboot/Adding_your_own_Linux_distributions&amp;action=edit&amp;redlink=1" class="new" title="Berryboot/Adding your own Linux distributions (page does not exist)">Adding your own Linux distributions to Berryboot</a></li>
+<li><a rel="nofollow" class="external text" href="http://www.berryterminal.com/doku.php/berryboot">Main Berryboot site</a></li></ul>
+<h2><span class="mw-headline" id="Trying_more_bootable_images">Trying more bootable images</span></h2>
+<p>See the page <a href="../Bootable_OS_images.html" title="Bootable OS images">Bootable_OS_images</a> for additional bootable OS images. If you cannot find your favorite bootable image in the BerryBoot menu, you can install it manually to your microSD card. These image files (not to be confused with <i>pictures</i>) should be written directly to the memory of the microSD card, which removes all data on that card. 
+If you use a Linux distribution, you would use <b>dd</b> (after you unmount the microSD card using <i>palimptest</i> or <i>gnome-disks</i>). Help expand this section with more detailed instructions!
+</p><p>You can also <a href="Installing_on_NAND.html" title="Cubieboard/Installing on NAND">install an OS on the internal NAND</a>
+</p>
+<h2><span id="What_went_wrong?_Kernel_logs!"></span><span class="mw-headline" id="What_went_wrong.3F_Kernel_logs.21">What went wrong? Kernel logs!</span></h2>
+<p>If your board comes with a <a href="TTL.html" title="Cubieboard/TTL"><b>serial</b> cable</a>, you can connect to see the cubieboard u-boot and kernel messages.
+</p><p>If not, then you can get yourself an appropriate serial cable (normally a USB to Serial dongle which allows connection to the individual pins).
+</p><p>You can troubleshoot the Cubieboard by making use of the serial console. See <a href="TTL.html" title="Cubieboard/TTL">Cubieboard/TTL</a> for detailed instructions and an example output.
+</p><p><br />
+</p>
+<h2><span class="mw-headline" id="External">External</span></h2>
+<ul><li><a rel="nofollow" class="external text" href="http://www.cubieforums.com/index.php/topic,41.0.html">Whats in the Box? CubieBoard photos &amp; OS photos</a></li>
+<li><a rel="nofollow" class="external text" href="http://www.flickr.com/photos/sheedl/sets/72157632648336414/with/8428282015/">Cubieboard photos on Flickt</a></li>
+<li><a rel="nofollow" class="external text" href="http://commons.wikimedia.org/wiki/Category:Cubieboard">Category:Cubieboard</a> and <a rel="nofollow" class="external text" href="http://commons.wikimedia.org/wiki/Category:Cubieboard">Cubieboard2</a> on Wikimedia commons.</li></ul>
+<!-- 
+NewPP limit report
+Cached time: 20251029052046
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.115 seconds
+Real time usage: 0.137 seconds
+Preprocessor visited node count: 86/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 7813/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:417-0!canonical and timestamp 20251029052046 and revision id 6686
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=Cubieboard/FirstSteps&amp;oldid=6686">https://linux-sunxi.org/index.php?title=Cubieboard/FirstSteps&amp;oldid=6686</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="../Special:Categories.html" title="Special:Categories">Category</a>: <ul><li><a href="../Category:Cubieboard.html" title="Category:Cubieboard">Cubieboard</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=Cubieboard%2FFirstSteps" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=Cubieboard%2FFirstSteps" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="FirstSteps.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:Cubieboard/FirstSteps&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="FirstSteps.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Cubieboard/FirstSteps&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Cubieboard/FirstSteps&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="../index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="../index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="../sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="../Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="https://linux-sunxi.org/Special:WhatLinksHere/Cubieboard/FirstSteps" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/Cubieboard/FirstSteps" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="../Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=Cubieboard/FirstSteps&amp;oldid=6686" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=Cubieboard/FirstSteps&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 17 January 2014, at 11:24.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.115","walltime":"0.137","ppvisitednodes":{"value":86,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":7813,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20251029052046","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":934});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

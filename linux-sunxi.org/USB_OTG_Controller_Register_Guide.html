@@ -1,0 +1,1852 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>USB OTG Controller Register Guide - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"e459144d907b401d79ac3494","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"USB_OTG_Controller_Register_Guide","wgTitle":"USB OTG Controller Register Guide","wgCurRevisionId":24915,"wgRevisionId":24915,"wgArticleId":908,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["A10 Register guide","A13 Register guide","A20 Register guide","USB OTG"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"USB_OTG_Controller_Register_Guide","wgRelevantArticleId":908,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":
+!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":"ready","user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=mediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="USB_OTG_Controller_Register_Guide.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-USB_OTG_Controller_Register_Guide rootpage-USB_OTG_Controller_Register_Guide skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">USB OTG Controller Register Guide</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#USB_Vocabulary"><span class="tocnumber">1</span> <span class="toctext">USB Vocabulary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#USB_OTG"><span class="tocnumber">2</span> <span class="toctext">USB OTG</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Info"><span class="tocnumber">2.1</span> <span class="toctext">Info</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#USB_OTG_Controller_Registers"><span class="tocnumber">2.2</span> <span class="toctext">USB OTG Controller Registers</span></a>
+<ul>
+<li class="toclevel-3 tocsection-5"><a href="#Default_Map"><span class="tocnumber">2.2.1</span> <span class="toctext">Default Map</span></a></li>
+<li class="toclevel-3 tocsection-6"><a href="#Common_Registers"><span class="tocnumber">2.2.2</span> <span class="toctext">Common Registers</span></a>
+<ul>
+<li class="toclevel-4 tocsection-7"><a href="#PCTL_.2F_POWER"><span class="tocnumber">2.2.2.1</span> <span class="toctext">PCTL / POWER</span></a></li>
+<li class="toclevel-4 tocsection-8"><a href="#DEVCTL"><span class="tocnumber">2.2.2.2</span> <span class="toctext">DEVCTL</span></a></li>
+<li class="toclevel-4 tocsection-9"><a href="#VEND0"><span class="tocnumber">2.2.2.3</span> <span class="toctext">VEND0</span></a></li>
+</ul>
+</li>
+<li class="toclevel-3 tocsection-10"><a href="#Endpoint_Registers"><span class="tocnumber">2.2.3</span> <span class="toctext">Endpoint Registers</span></a>
+<ul>
+<li class="toclevel-4 tocsection-11"><a href="#Endpoint_0"><span class="tocnumber">2.2.3.1</span> <span class="toctext">Endpoint 0</span></a></li>
+<li class="toclevel-4 tocsection-12"><a href="#Endpoint_1_.7E_N"><span class="tocnumber">2.2.3.2</span> <span class="toctext">Endpoint 1 ~ N</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-13"><a href="#USB_Port_Controller_Registers"><span class="tocnumber">2.3</span> <span class="toctext">USB Port Controller Registers</span></a>
+<ul>
+<li class="toclevel-3 tocsection-14"><a href="#Default_Map_2"><span class="tocnumber">2.3.1</span> <span class="toctext">Default Map</span></a></li>
+<li class="toclevel-3 tocsection-15"><a href="#Register_List"><span class="tocnumber">2.3.2</span> <span class="toctext">Register List</span></a></li>
+<li class="toclevel-3 tocsection-16"><a href="#ISCR"><span class="tocnumber">2.3.3</span> <span class="toctext">ISCR</span></a></li>
+<li class="toclevel-3 tocsection-17"><a href="#PHY_CTRL"><span class="tocnumber">2.3.4</span> <span class="toctext">PHY_CTRL</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-18"><a href="#USB_PHY_Control_Register_Addresses"><span class="tocnumber">2.4</span> <span class="toctext">USB PHY Control Register Addresses</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-19"><a href="#Documentation"><span class="tocnumber">3</span> <span class="toctext">Documentation</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="USB_Vocabulary">USB Vocabulary</span></h1>
+<p><b>HCD</b> - Host Controller Driver
+</p><p><b>UDC</b> - USB Device Controller
+</p>
+<h1><span class="mw-headline" id="USB_OTG">USB OTG</span></h1>
+<p>All Allwinner A-series SoCs come with one USB OTG controller.
+The controller has been identified as a Mentor Graphics Inventra HDRC
+(High-speed Dual Role Controller), which is supported by the "musb" driver.
+However, the register addresses are scrambled.
+</p><p>The A20 manual lists the following features
+</p>
+<ul><li>Complies with USB 2.0 specification</li>
+<li>Supports high-speed, full-speed, and low-speed in host mode</li>
+<li>Supports high-speed and full-speed in device mode</li>
+<li>64 byte endpoint 0 for control transfer</li>
+<li>Supports up to 5 user configurable endpoints for bulk, isochronous, control, and interrupt bi-directional transfers</li></ul>
+<p>The USB OTG controller is connected to a port controller.
+Only the data pins are exported from the SoC.
+The port controller is also used to control or tune the USB PHYs
+for the other USB host controllers.
+</p>
+<h2><span class="mw-headline" id="Info">Info</span></h2>
+<ul><li>USB OTG Controller base address: 0x01c13000</li>
+<li>USB Port Controller base address: 0x01c13400</li></ul>
+<h2><span class="mw-headline" id="USB_OTG_Controller_Registers">USB OTG Controller Registers</span></h2>
+<h3><span class="mw-headline" id="Default_Map">Default Map</span></h3>
+<pre>sun7i# md 0x01c13000 0x100
+01c13000: 6f427dee 6f427dee 6f427dee 6f427dee    .}Bo.}Bo.}Bo.}Bo
+01c13010: 6f427dee 6f427dee 00000000 00000000    .}Bo.}Bo........
+01c13020: 00000000 00000000 00000000 00000000    ................
+01c13030: 00000000 00000000 00000000 00000000    ................
+01c13040: 00008020 00000000 00000000 00000000     ...............
+01c13050: 00000000 00000000 00000000 00000000    ................
+01c13060: 00000000 00000000 00000000 00000000    ................
+01c13070: 00000000 00000000 00000000 00000000    ................
+01c13080: 00000000 00000000 00000000 00000000    ................
+01c13090: 00000000 00000000 00000000 00000000    ................
+01c130a0: 00000000 00000000 00000000 00000000    ................
+01c130b0: 00000000 00000000 00000000 00000000    ................
+01c130c0: 000b55de 5c727780 0000003c 00000000    .U...wr\&lt;.......
+01c130d0: 00000000 05e64074 00000000 00000000    ....t@..........
+01c130e0: 00000000 00000000 00000000 00000000    ................
+01c130f0: 00000000 00000000 00000000 00000000    ................
+01c13100: 00000000 00000000 00000000 00000000    ................
+01c13110: 00000000 00000000 00000000 00000000    ................
+01c13120: 00000000 00000000 00000000 00000000    ................
+01c13130: 00000000 00000000 00000000 00000000    ................
+01c13140: 00000000 00000000 00000000 00000000    ................
+01c13150: 00000000 00000000 00000000 00000000    ................
+01c13160: 00000000 00000000 00000000 00000000    ................
+01c13170: 00000000 00000000 00000000 00000000    ................
+01c13180: 00000000 00000000 00000000 00000000    ................
+01c13190: 00000000 00000000 00000000 00000000    ................
+01c131a0: 00000000 00000000 00000000 00000000    ................
+01c131b0: 00000000 00000000 00000000 00000000    ................
+01c131c0: 00000000 00000000 00000000 00000000    ................
+01c131d0: 00000000 00000000 00000000 00000000    ................
+01c131e0: 00000000 00000000 00000000 00000000    ................
+01c131f0: 00000000 00000000 00000000 00000000    ................
+01c13200: 00000000 00000000 00000000 00000000    ................
+01c13210: 00000000 00000000 00000000 00000000    ................
+01c13220: 00000000 00000000 00000000 00000000    ................
+01c13230: 00000000 00000000 00000000 00000000    ................
+01c13240: 00000000 00000000 00000000 00000000    ................
+01c13250: 00000000 00000000 00000000 00000000    ................
+01c13260: 00000000 00000000 00000000 00000000    ................
+01c13270: 00000000 00000000 00000000 00000000    ................
+01c13280: 00000000 00000000 00000000 00000000    ................
+01c13290: 00000000 00000000 00000000 00000000    ................
+01c132a0: 00000000 00000000 00000000 00000000    ................
+01c132b0: 00000000 00000000 00000000 00000000    ................
+01c132c0: 00000000 00000000 00000000 00000000    ................
+01c132d0: 00000000 00000000 00000000 00000000    ................
+01c132e0: 00000000 00000000 00000000 00000000    ................
+01c132f0: 00000000 00000000 00000000 00000000    ................
+01c13300: 00000000 00000000 00000000.00000000    ................
+01c13310: 00000000 00000000 00000000 00000000    ................
+01c13320: 00000000 00000000 00000000 00000000    ................
+01c13330: 00000000 00000000 00000000 00000000    ................
+01c13340: 00000000 00000000 00000000 00000000    ................
+01c13350: 00000000 00000000 00000000 00000000    ................
+01c13360: 00000000 00000000 00000000 00000000    ................
+01c13370: 00000000 00000000 00000000 00000000    ................
+01c13380: 00000000 00000000 00000000 00000000    ................
+01c13390: 00000000 00000000 00000000 00000000    ................
+01c133a0: 00000000 00000000 00000000 00000000    ................
+01c133b0: 00000000 00000000 00000000 00000000    ................
+01c133c0: 00000000 00000000 00000000 00000000    ................
+01c133d0: 00000000 00000000 00000000 00000000    ................
+01c133e0: 00000000 00000000 00000000 00000000    ................
+01c133f0: 00000000 00000000 00000000 00000000    ................
+</pre>
+<h3><span class="mw-headline" id="Common_Registers">Common Registers</span></h3>
+<table class="wikitable">
+<tbody><tr>
+<th>Register Name
+</th>
+<th>Offset
+</th>
+<th>MUSB offset
+</th>
+<th>Size
+</th>
+<th>Description
+</th>
+<th>Note
+</th></tr>
+<tr>
+<td><tt>PCTL / POWER</tt>
+</td>
+<td><tt>0x40</tt>
+</td>
+<td><tt>0x01</tt>
+</td>
+<td><tt>1 B</tt>
+</td>
+<td>USB Power Control
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>DEVCTL</tt>
+</td>
+<td><tt>0x41</tt>
+</td>
+<td><tt>0x60</tt>
+</td>
+<td><tt>1 B</tt>
+</td>
+<td>OTG Device Control
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>EPIND / INDEX</tt>
+</td>
+<td><tt>0x42</tt>
+</td>
+<td><tt>0x0E</tt>
+</td>
+<td><tt>1 B</tt>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>VEND0</tt>
+</td>
+<td><tt>0x43</tt>
+</td>
+<td><tt>0x??</tt>
+</td>
+<td><tt>1 B</tt>
+</td>
+<td>Vendor specific register
+</td>
+<td>Controls whether to use DMA mode
+</td></tr>
+<tr>
+<td><tt>INTTx / INTRTX</tt>
+</td>
+<td><tt>0x44</tt>
+</td>
+<td><tt>0x02</tt>
+</td>
+<td><tt>2 B</tt>
+</td>
+<td>Transmit interrupt status
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>INTRx / INTRRX</tt>
+</td>
+<td><tt>0x46</tt>
+</td>
+<td><tt>0x04</tt>
+</td>
+<td><tt>2 B</tt>
+</td>
+<td>Receive interrupt status
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>INTTxE / INTRTXE</tt>
+</td>
+<td><tt>0x48</tt>
+</td>
+<td><tt>0x06</tt>
+</td>
+<td><tt>2 B</tt>
+</td>
+<td>Transmit interrupt mask
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>INTRxE / INTRRXE</tt>
+</td>
+<td><tt>0x4A</tt>
+</td>
+<td><tt>0x08</tt>
+</td>
+<td><tt>2 B</tt>
+</td>
+<td>Receive interrupt mask
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>INTUSB / INTRUSB</tt>
+</td>
+<td><tt>0x4C</tt>
+</td>
+<td><tt>0x0A</tt>
+</td>
+<td><tt>1 B</tt>
+</td>
+<td>USB function interrupt status
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>INTUSBE / INTRUSBE</tt>
+</td>
+<td><tt>0x50</tt>
+</td>
+<td><tt>0x0B</tt>
+</td>
+<td><tt>1 B</tt>
+</td>
+<td>USB function interrupt mask
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>FRNUM / FRAME</tt>
+</td>
+<td><tt>0x54</tt>
+</td>
+<td><tt>0x0C</tt>
+</td>
+<td><tt>2 B</tt>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>EPINFO</tt>
+</td>
+<td><tt>0x78</tt>
+</td>
+<td><tt>0x78</tt>
+</td>
+<td><tt>1 B</tt>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>RAMINFO</tt>
+</td>
+<td><tt>0x79</tt>
+</td>
+<td><tt>0x79</tt>
+</td>
+<td><tt>1 B</tt>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>LINKINFO</tt>
+</td>
+<td><tt>0x7A</tt>
+</td>
+<td><tt>0x7A</tt>
+</td>
+<td><tt>1 B</tt>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>VPLEN</tt>
+</td>
+<td><tt>0x7B</tt>
+</td>
+<td><tt>0x7B</tt>
+</td>
+<td><tt>1 B</tt>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>HSEOF / HS_EOF1</tt>
+</td>
+<td><tt>0x7C</tt>
+</td>
+<td><tt>0x7C</tt>
+</td>
+<td><tt>1 B</tt>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>FSEOF / FS_EOF1</tt>
+</td>
+<td><tt>0x7D</tt>
+</td>
+<td><tt>0x7D</tt>
+</td>
+<td><tt>1 B</tt>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>LSEOF / LS_EOF1</tt>
+</td>
+<td><tt>0x7E</tt>
+</td>
+<td><tt>0x7E</tt>
+</td>
+<td><tt>1 B</tt>
+</td>
+<td>
+</td>
+<td>
+</td></tr></tbody></table>
+<h4><span id="PCTL_/_POWER"></span><span class="mw-headline" id="PCTL_.2F_POWER">PCTL / POWER</span></h4>
+<p>Default value: 0x20<br />
+Offset: 0x40<br />
+MUSB offset: 0x01
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default (Hex)
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>ISOUPDATE</tt>
+</td>
+<td><tt>7</tt>
+</td>
+<td><tt>?</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt> </tt>
+</td>
+<td>(device only)
+</td></tr>
+<tr>
+<td><tt>SOFTCONN</tt>
+</td>
+<td><tt>6</tt>
+</td>
+<td><tt>?</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt> </tt>
+</td>
+<td>(device only)
+</td></tr>
+<tr>
+<td><tt>HSENAB</tt>
+</td>
+<td><tt>5</tt>
+</td>
+<td><tt>?</tt>
+</td>
+<td><tt>1</tt>
+</td>
+<td><tt> </tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>HSMODE</tt>
+</td>
+<td><tt>4</tt>
+</td>
+<td><tt>?</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt> </tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>RESET</tt>
+</td>
+<td><tt>3</tt>
+</td>
+<td><tt>?</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt> </tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>RESUME</tt>
+</td>
+<td><tt>2</tt>
+</td>
+<td><tt>?</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt> </tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>SUSPENDM</tt>
+</td>
+<td><tt>1</tt>
+</td>
+<td><tt>?</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt> </tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>ENSUSPEND</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>?</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt> </tt>
+</td>
+<td>
+</td></tr></tbody></table>
+<h4><span class="mw-headline" id="DEVCTL">DEVCTL</span></h4>
+<p>Default value: 0x80<br />
+Offset: 0x41<br />
+MUSB offset: 0x60
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default (Hex)
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>B_DEVICE / BDEVICE</tt>
+</td>
+<td><tt>7</tt>
+</td>
+<td><tt>?</tt>
+</td>
+<td><tt>1</tt>
+</td>
+<td><tt> </tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>FS_DEV / FSDEV</tt>
+</td>
+<td><tt>6</tt>
+</td>
+<td><tt>?</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt> </tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>LS_DEV / LSDEV</tt>
+</td>
+<td><tt>5</tt>
+</td>
+<td><tt>?</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt> </tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>VBUS</tt>
+</td>
+<td><tt>4:3</tt>
+</td>
+<td><tt>?</tt>
+</td>
+<td><tt>10</tt>
+</td>
+<td><tt> </tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>HOST_MODE / HM</tt>
+</td>
+<td><tt>2</tt>
+</td>
+<td><tt>?</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt> </tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>HOST_REQ / HR</tt>
+</td>
+<td><tt>1</tt>
+</td>
+<td><tt>?</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt> </tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>SESSION</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>?</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt> </tt>
+</td>
+<td>
+</td></tr></tbody></table>
+<h4><span class="mw-headline" id="VEND0">VEND0</span></h4>
+<p>Default value: 0x20<br />
+Offset: 0x43<br />
+MUSB offset: 0x??
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default (Hex)
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>DRQ_SEL</tt>
+</td>
+<td><tt>1</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt> </tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>BUS_SEL</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt> </tt>
+</td>
+<td>
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="Endpoint_Registers">Endpoint Registers</span></h3>
+<p>To access these under indexed mode, you must first write the endpoint number to the INDEX register.
+</p>
+<h4><span class="mw-headline" id="Endpoint_0">Endpoint 0</span></h4>
+<table class="wikitable">
+<tbody><tr>
+<th>Register Name
+</th>
+<th>Offset
+</th>
+<th>MUSB offset
+</th>
+<th>Size
+</th>
+<th>Description
+</th>
+<th>Note
+</th></tr>
+<tr>
+<td><tt>CSR0</tt>
+</td>
+<td><tt>0x82</tt>
+</td>
+<td><tt>0x12</tt>
+</td>
+<td><tt>2 B</tt>
+</td>
+<td>MUSB main control / status register
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>COUNT0</tt>
+</td>
+<td><tt>0x88</tt>
+</td>
+<td><tt>0x18</tt>
+</td>
+<td><tt>2 B</tt>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>EP0TYPE / TYPE0</tt>
+</td>
+<td><tt>0x8A</tt>
+</td>
+<td><tt>0x1A</tt>
+</td>
+<td><tt>1 B</tt>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>NAKLIMIT0</tt>
+</td>
+<td><tt>0x8B</tt>
+</td>
+<td><tt>0x1B</tt>
+</td>
+<td><tt>1 B</tt>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>CONFIGDATA</tt>
+</td>
+<td><tt>0xC0</tt>
+</td>
+<td><tt>0x1F</tt>
+</td>
+<td><tt>2 B</tt>
+</td>
+<td>MUSB core hardware feature flags
+</td>
+<td>
+</td></tr></tbody></table>
+<h4><span id="Endpoint_1_~_N"></span><span class="mw-headline" id="Endpoint_1_.7E_N">Endpoint 1 ~ N</span></h4>
+<table class="wikitable">
+<tbody><tr>
+<th>Register Name
+</th>
+<th>Offset
+</th>
+<th>MUSB offset
+</th>
+<th>Size
+</th>
+<th>Description
+</th>
+<th>Note
+</th></tr>
+<tr>
+<td><tt>TXMAXP</tt>
+</td>
+<td><tt>0x80</tt>
+</td>
+<td><tt>0x10</tt>
+</td>
+<td><tt>2 B</tt>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>TXCSR</tt>
+</td>
+<td><tt>0x82</tt>
+</td>
+<td><tt>0x12</tt>
+</td>
+<td><tt>2 B</tt>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>RXMAXP</tt>
+</td>
+<td><tt>0x84</tt>
+</td>
+<td><tt>0x14</tt>
+</td>
+<td><tt>2 B</tt>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>RXCSR</tt>
+</td>
+<td><tt>0x86</tt>
+</td>
+<td><tt>0x16</tt>
+</td>
+<td><tt>2 B</tt>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>RXCOUNT</tt>
+</td>
+<td><tt>0x88</tt>
+</td>
+<td><tt>0x18</tt>
+</td>
+<td><tt>2 B</tt>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>TXTYPE</tt>
+</td>
+<td><tt>0x8C</tt>
+</td>
+<td><tt>0x1A</tt>
+</td>
+<td><tt>1 B</tt>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>TXINTERVAL</tt>
+</td>
+<td><tt>0x8D</tt>
+</td>
+<td><tt>0x1B</tt>
+</td>
+<td><tt>1 B</tt>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>RXTYPE</tt>
+</td>
+<td><tt>0x8E</tt>
+</td>
+<td><tt>0x1C</tt>
+</td>
+<td><tt>1 B</tt>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>RXINTERVAL</tt>
+</td>
+<td><tt>0x8F</tt>
+</td>
+<td><tt>0x1D</tt>
+</td>
+<td><tt>1 B</tt>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>TXFIFOSZ</tt>
+</td>
+<td><tt>0x90</tt>
+</td>
+<td><tt>0x62</tt>
+</td>
+<td><tt>1 B</tt>
+</td>
+<td>TX FIFO size
+</td>
+<td>size = 2 ^ (TXFIFOSZ + 3)
+</td></tr>
+<tr>
+<td><tt>RXFIFOSZ</tt>
+</td>
+<td><tt>0x94</tt>
+</td>
+<td><tt>0x63</tt>
+</td>
+<td><tt>1 B</tt>
+</td>
+<td>RX FIFO size
+</td>
+<td>size = 2 ^ (RXFIFOSZ + 3)
+</td></tr>
+<tr>
+<td><tt>TXFIFOADD</tt>
+</td>
+<td><tt>0x92</tt>
+</td>
+<td><tt>0x64</tt>
+</td>
+<td><tt>2 B</tt>
+</td>
+<td>TX FIFO offset
+</td>
+<td>TXFIFOADD = offset &gt;&gt; 3
+</td></tr>
+<tr>
+<td><tt>RXFIFOADD</tt>
+</td>
+<td><tt>0x96</tt>
+</td>
+<td><tt>0x66</tt>
+</td>
+<td><tt>2 B</tt>
+</td>
+<td>RX FIFO offset
+</td>
+<td>RXFIFOADD = offset &gt;&gt; 3
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="USB_Port_Controller_Registers">USB Port Controller Registers</span></h2>
+<h3><span class="mw-headline" id="Default_Map_2">Default Map</span></h3>
+<pre>sun7i# md 0x01c13400 0x4
+01c13400: 40000000 00000000 00000000 00000000    ...@............
+</pre>
+<h3><span class="mw-headline" id="Register_List">Register List</span></h3>
+<table class="wikitable">
+<tbody><tr>
+<th>Register Name
+</th>
+<th>Offset
+</th>
+<th>Size
+</th>
+<th>Description
+</th>
+<th>Note
+</th></tr>
+<tr>
+<td><tt>ISCR</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>Interrupt status / control register
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>PHY_CTRL</tt>
+</td>
+<td><tt>0x4</tt>
+</td>
+<td><tt>2 B</tt>
+</td>
+<td>PHY control
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>PHY_BIST</tt>
+</td>
+<td><tt>0x8</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>unknown
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>PHY_TUNE</tt>
+</td>
+<td><tt>0xC</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>PHY tuning
+</td>
+<td>
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="ISCR">ISCR</span></h3>
+<p>Default value: 0x40000000<br />
+Offset: 0x0
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default (Hex)
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>no operation</tt>
+</td>
+<td><tt>31</tt>
+</td>
+<td><tt></tt>
+</td>
+<td><tt></tt>
+</td>
+<td><tt></tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>VBUS_VALID_FROM_DATA</tt>
+</td>
+<td><tt>30</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = Invalid
+    1 = Valid
+  </tt>
+</pre>
+</td>
+<td>
+<p>VBUS_VALID_FROM_DATA =&#160;!
+(EXT_DM_STATUS | EXT_DP_STATUS)
+</p>
+</td></tr>
+<tr>
+<td><tt>VBUS_VALID_FROM_VBUS</tt>
+</td>
+<td><tt>29</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = Invalid
+    1 = Valid
+  </tt>
+</pre>
+</td>
+<td>Status of External VBUS pin
+<p>(pin not available on A10/A20)
+</p>
+</td></tr>
+<tr>
+<td><tt>EXT_ID_STATUS</tt>
+</td>
+<td><tt>28</tt>
+</td>
+<td><tt>Read</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = Low
+    1 = High
+  </tt>
+</pre>
+</td>
+<td>Status of External ID pin
+<p>(pin not available on A10/A20)
+</p>
+</td></tr>
+<tr>
+<td><tt>EXT_DM_STATUS</tt>
+</td>
+<td><tt>27</tt>
+</td>
+<td><tt>Read</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = Low
+    1 = High
+  </tt>
+</pre>
+</td>
+<td>Status of D- pin
+</td></tr>
+<tr>
+<td><tt>EXT_DP_STATUS</tt>
+</td>
+<td><tt>26</tt>
+</td>
+<td><tt>Read</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = Low
+    1 = High
+  </tt>
+</pre>
+</td>
+<td>Status of D+ pin
+</td></tr>
+<tr>
+<td><tt>MERGED_VBUS_STATUS</tt>
+</td>
+<td><tt>25</tt>
+</td>
+<td><tt>Read</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = Low
+    1 = High
+  </tt>
+</pre>
+</td>
+<td>
+<p>MERGED_VBUS_STATUS = FORCE_VBUS | (VBUS_VALID_FROM_DATA&#160;? VBUS_VALID_FROM_VBUS)
+</p>
+</td></tr>
+<tr>
+<td><tt>MERGED_ID_STATUS</tt>
+</td>
+<td><tt>24</tt>
+</td>
+<td><tt>Read</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = Low
+    1 = High
+  </tt>
+</pre>
+</td>
+<td>FORCE_ID
+</td></tr>
+<tr>
+<td><tt>no operation</tt>
+</td>
+<td><tt>23:18</tt>
+</td>
+<td><tt></tt>
+</td>
+<td><tt></tt>
+</td>
+<td><tt></tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>ID_PULLUP_EN</tt>
+</td>
+<td><tt>17</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = Disable pull-up
+    1 = Enable pull-up
+  </tt>
+</pre>
+</td>
+<td>Controls pull-up on ID pin
+</td></tr>
+<tr>
+<td><tt>DPDM_PULLUP_EN</tt>
+</td>
+<td><tt>16</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = Disable pull-up
+    1 = Enable pull-up
+  </tt>
+</pre>
+</td>
+<td>Controls pull-up on USB D+/D- pins
+</td></tr>
+<tr>
+<td><tt>FORCE_ID</tt>
+</td>
+<td><tt>15:14</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    00 = Disable
+    01 = unknown
+    10 = Force ID to low
+    11 = Force ID to high
+  </tt>
+</pre>
+</td>
+<td>Force internal ID pin state
+</td></tr>
+<tr>
+<td><tt>FORCE_VBUS_VALID</tt>
+</td>
+<td><tt>13:12</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    00 = Disable
+    01 = unknown
+    10 = Force VBUS valid to low
+    11 = Force VBUS valid to high
+  </tt>
+</pre>
+</td>
+<td>Force internal VBUS pin state
+</td></tr>
+<tr>
+<td><tt>VBUS_VALID_SRC</tt>
+</td>
+<td><tt>11:10</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    00 = 
+    01 = 
+    10 = 
+    11 = 
+  </tt>
+</pre>
+</td>
+<td>unknown
+</td></tr>
+<tr>
+<td><tt>no operation</tt>
+</td>
+<td><tt>9:8</tt>
+</td>
+<td><tt></tt>
+</td>
+<td><tt></tt>
+</td>
+<td><tt></tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>HOSC_EN</tt>
+</td>
+<td><tt>7</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = 
+    1 = 
+  </tt>
+</pre>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>VBUS_CHANGE_DETECT</tt>
+</td>
+<td><tt>6</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = No change
+    1 = Changed
+  </tt>
+</pre>
+</td>
+<td>Was VBUS changed? <br />
+<pre>  Write 1 to clear
+</pre>
+</td></tr>
+<tr>
+<td><tt>ID_CHANGE_DETECT</tt>
+</td>
+<td><tt>5</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = No change
+    1 = Changed
+  </tt>
+</pre>
+</td>
+<td>Was ID changed? <br />
+<pre>  Write 1 to clear
+</pre>
+</td></tr>
+<tr>
+<td><tt>DPDM_CHANGE_DETECT</tt>
+</td>
+<td><tt>4</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = No change
+    1 = Changed
+  </tt>
+</pre>
+</td>
+<td>Was D+/D- changed? <br />
+<pre>  Write 1 to clear
+</pre>
+</td></tr>
+<tr>
+<td><tt>IRQ_ENABLE</tt>
+</td>
+<td><tt>3</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = Disable
+    1 = Enable
+  </tt>
+</pre>
+</td>
+<td>Interrupt on wake
+</td></tr>
+<tr>
+<td><tt>VBUS_CHANGE_DETECT_EN</tt>
+</td>
+<td><tt>2</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = Disable
+    1 = Enable
+  </tt>
+</pre>
+</td>
+<td>Interrupt on VBUS change
+</td></tr>
+<tr>
+<td><tt>ID_CHANGE_DETECT_EN</tt>
+</td>
+<td><tt>1</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = Disable
+    1 = Enable
+  </tt>
+</pre>
+</td>
+<td>Interrupt on ID change
+</td></tr>
+<tr>
+<td><tt>DPDM_CHANGE_DETECT_EN</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = Disable
+    1 = Enable
+  </tt>
+</pre>
+</td>
+<td>Interrupt on D+/D- status change
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="PHY_CTRL">PHY_CTRL</span></h3>
+<p>Default value: 0x0000<br />
+Offset: 0x4
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default (Hex)
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>no operation</tt>
+</td>
+<td><tt>31:19</tt>
+</td>
+<td><tt></tt>
+</td>
+<td><tt></tt>
+</td>
+<td><tt></tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>DATA</tt>
+</td>
+<td><tt>16 + i ( i = 0 ~ 2 )</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt></tt>
+</td>
+<td><tt></tt>
+</td>
+<td>Data bit read back, one bit per PHY
+</td></tr>
+<tr>
+<td><tt>ADDR</tt>
+</td>
+<td><tt>15:8</tt>
+</td>
+<td><tt>Write</tt>
+</td>
+<td><tt></tt>
+</td>
+<td><tt></tt>
+</td>
+<td>Bit address to write to
+</td></tr>
+<tr>
+<td><tt>DATA</tt>
+</td>
+<td><tt>7</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt></tt>
+</td>
+<td><tt></tt>
+</td>
+<td>Data bit to write
+</td></tr>
+<tr>
+<td><tt>USBC_i</tt>
+</td>
+<td><tt>i (i = 0 ~ 2)</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt></tt>
+</td>
+<td><tt></tt>
+</td>
+<td>Pulse the corresponding bit to signal writing to a PHY
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="USB_PHY_Control_Register_Addresses">USB PHY Control Register Addresses</span></h2>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit Address
+</th>
+<th>Size
+</th>
+<th>Default (Hex)
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>SET_PLL_BW</tt>
+</td>
+<td><tt>0x03</tt>
+</td>
+<td><tt>2</tt>
+</td>
+<td><tt>0x2</tt>
+</td>
+<td><tt>0x0 ~ 0x3</tt>
+</td>
+<td>Common to all PHYs, set USB PLL bandwidth
+</td></tr>
+<tr>
+<td><tt>RES45_CAL_EN</tt>
+</td>
+<td><tt>0x0c</tt>
+</td>
+<td><tt>1</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>   0x0: Disable
+   0x1: Enable
+  </tt>
+</pre>
+</td>
+<td>Common to all PHYs, control 45 Ohm resistor calibration (?)
+</td></tr>
+<tr>
+<td><tt>SET_TX_AMPLITUDE_TUNE</tt>
+</td>
+<td><tt>0x20</tt>
+</td>
+<td><tt>2</tt>
+</td>
+<td><tt>0x0</tt>
+</td>
+<td><tt>0x0 ~ 0x3</tt>
+</td>
+<td>Set USB TX signal amplitude
+</td></tr>
+<tr>
+<td><tt>SET_TX_SLEWRATE_TUNE</tt>
+</td>
+<td><tt>0x22</tt>
+</td>
+<td><tt>3</tt>
+</td>
+<td><tt>0x5</tt>
+</td>
+<td><tt>0x0 ~ 0x7</tt>
+</td>
+<td>Set USB TX signal slew rate
+</td></tr>
+<tr>
+<td><tt>SET_VBUS_VALID_THRESHOLD</tt>
+</td>
+<td><tt>0x25</tt>
+</td>
+<td><tt>2</tt>
+</td>
+<td><tt>0x2</tt>
+</td>
+<td><tt>0x0 ~ 0x3</tt>
+</td>
+<td>Set USB VBUS valid threshold
+</td></tr>
+<tr>
+<td><tt>OTG_FUNC_ENABLE</tt>
+</td>
+<td><tt>0x28</tt>
+</td>
+<td><tt>1</tt>
+</td>
+<td><tt>0x1</tt>
+</td>
+<td><tt>
+</tt><pre><tt>   0x0: Disable
+   0x1: Enable
+  </tt>
+</pre>
+</td>
+<td>Control USB OTG function
+</td></tr>
+<tr>
+<td><tt>VBUS_DET_ENABLE</tt>
+</td>
+<td><tt>0x29</tt>
+</td>
+<td><tt>1</tt>
+</td>
+<td><tt>0x1</tt>
+</td>
+<td><tt>
+</tt><pre><tt>   0x0: Disable
+   0x1: Enable
+  </tt>
+</pre>
+</td>
+<td>Control USB VBUS detection
+</td></tr>
+<tr>
+<td><tt>SET_DISCON_DET_THRESHOLD</tt>
+</td>
+<td><tt>0x2a</tt>
+</td>
+<td><tt>3</tt>
+</td>
+<td><tt>0x1</tt>
+</td>
+<td><tt>0x0 ~ 0x3 </tt>
+</td>
+<td>Control USB disconnect detection threshold
+</td></tr></tbody></table>
+<h1><span class="mw-headline" id="Documentation">Documentation</span></h1>
+<ul><li><a href="https://linux-sunxi.org/File:Musbmhdrc.pdf" title="File:Musbmhdrc.pdf">File:Musbmhdrc.pdf</a></li></ul>
+<!-- 
+NewPP limit report
+Cached time: 20251029050239
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.469 seconds
+Real time usage: 0.507 seconds
+Preprocessor visited node count: 77/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 4369/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:908-0!canonical and timestamp 20251029050238 and revision id 24915
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=USB_OTG_Controller_Register_Guide&amp;oldid=24915">https://linux-sunxi.org/index.php?title=USB_OTG_Controller_Register_Guide&amp;oldid=24915</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Categories</a>: <ul><li><a href="Category:A10_Register_guide.html" title="Category:A10 Register guide">A10 Register guide</a></li><li><a href="Category:A13_Register_guide.html" title="Category:A13 Register guide">A13 Register guide</a></li><li><a href="Category:A20_Register_guide.html" title="Category:A20 Register guide">A20 Register guide</a></li><li><a href="Category:USB_OTG.html" title="Category:USB OTG">USB OTG</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=USB+OTG+Controller+Register+Guide" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=USB+OTG+Controller+Register+Guide" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="USB_OTG_Controller_Register_Guide.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:USB_OTG_Controller_Register_Guide&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="USB_OTG_Controller_Register_Guide.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=USB_OTG_Controller_Register_Guide&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=USB_OTG_Controller_Register_Guide&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="https://linux-sunxi.org/Special:WhatLinksHere/USB_OTG_Controller_Register_Guide" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/USB_OTG_Controller_Register_Guide" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=USB_OTG_Controller_Register_Guide&amp;oldid=24915" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=USB_OTG_Controller_Register_Guide&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 23 June 2022, at 20:10.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.469","walltime":"0.507","ppvisitednodes":{"value":77,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":4369,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20251029050239","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":523});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

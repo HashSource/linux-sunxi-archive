@@ -1,0 +1,935 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>U-Boot - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"d5a9e53f0fef590db44f2b5a","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"U-Boot","wgTitle":"U-Boot","wgCurRevisionId":26665,"wgRevisionId":26665,"wgArticleId":1504,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Tutorial","Software","Development","Boot"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"U-Boot","wgRelevantArticleId":1504,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgRedirectedFrom":"Mainline_U-boot",
+"wgInternalRedirectTargetUrl":"/U-Boot"};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":"ready","user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","mediawiki.action.view.redirect","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="/load.php?lang=en&amp;modules=mediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="https://linux-sunxi.org/U-Boot"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-U-Boot rootpage-U-Boot skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">U-Boot</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"><span class="mw-redirectedfrom">(Redirected from <a href="/index.php?title=Mainline_U-boot&amp;redirect=no" class="mw-redirect" title="Mainline U-boot">Mainline U-boot</a>)</span></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>This page describes how to build and use <a rel="nofollow" class="external text" href="http://www.denx.de/wiki/U-Boot">upstream U-Boot</a> for 32bit (armv7/armhf) sunxi devices.
+</p><p>Differences for ARM64 are only mentioned in the <a href="#Compile_U-Boot">Compile U-Boot</a> section. For more info see directly board/sunxi/README.sunxi64 in uboot sources.
+</p><p>We have a separate page for <a href="/U-Boot/Legacy_U-Boot" title="U-Boot/Legacy U-Boot">the deprecated legacy sunxi branch of U-Boot</a>.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Status_Matrix"><span class="tocnumber">1</span> <span class="toctext">Status Matrix</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Device_support"><span class="tocnumber">2</span> <span class="toctext">Device support</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Changelog_.28outdated.29"><span class="tocnumber">3</span> <span class="toctext">Changelog (outdated)</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Compile_U-Boot"><span class="tocnumber">4</span> <span class="toctext">Compile U-Boot</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="#Get_a_toolchain"><span class="tocnumber">4.1</span> <span class="toctext">Get a toolchain</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Get_swig"><span class="tocnumber">4.2</span> <span class="toctext">Get swig</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Get_python3-dev"><span class="tocnumber">4.3</span> <span class="toctext">Get python3-dev</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Get_dtc"><span class="tocnumber">4.4</span> <span class="toctext">Get dtc</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Get_Trusted_Firmware-A_.28aarch64.29"><span class="tocnumber">4.5</span> <span class="toctext">Get Trusted Firmware-A (aarch64)</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#Clone_the_repository"><span class="tocnumber">4.6</span> <span class="toctext">Clone the repository</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="#Determine_build_target"><span class="tocnumber">4.7</span> <span class="toctext">Determine build target</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="#Build"><span class="tocnumber">4.8</span> <span class="toctext">Build</span></a>
+<ul>
+<li class="toclevel-3 tocsection-13"><a href="#armhf"><span class="tocnumber">4.8.1</span> <span class="toctext">armhf</span></a></li>
+<li class="toclevel-3 tocsection-14"><a href="#arm64"><span class="tocnumber">4.8.2</span> <span class="toctext">arm64</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-15"><a href="#Configure_U-Boot"><span class="tocnumber">5</span> <span class="toctext">Configure U-Boot</span></a>
+<ul>
+<li class="toclevel-2 tocsection-16"><a href="#Boot"><span class="tocnumber">5.1</span> <span class="toctext">Boot</span></a>
+<ul>
+<li class="toclevel-3 tocsection-17"><a href="#Booting_with_boot.cmd"><span class="tocnumber">5.1.1</span> <span class="toctext">Booting with boot.cmd</span></a></li>
+<li class="toclevel-3 tocsection-18"><a href="#Booting_with_extlinux.conf"><span class="tocnumber">5.1.2</span> <span class="toctext">Booting with extlinux.conf</span></a></li>
+<li class="toclevel-3 tocsection-19"><a href="#Boot_menu_support"><span class="tocnumber">5.1.3</span> <span class="toctext">Boot menu support</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-20"><a href="#Setting_u-boot_environment_variables"><span class="tocnumber">5.2</span> <span class="toctext">Setting u-boot environment variables</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="#NAND"><span class="tocnumber">5.3</span> <span class="toctext">NAND</span></a></li>
+<li class="toclevel-2 tocsection-22"><a href="#NFS"><span class="tocnumber">5.4</span> <span class="toctext">NFS</span></a></li>
+<li class="toclevel-2 tocsection-23"><a href="#FB_console"><span class="tocnumber">5.5</span> <span class="toctext">FB console</span></a></li>
+<li class="toclevel-2 tocsection-24"><a href="#LCD_Settings"><span class="tocnumber">5.6</span> <span class="toctext">LCD Settings</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-25"><a href="#Install_U-Boot"><span class="tocnumber">6</span> <span class="toctext">Install U-Boot</span></a></li>
+<li class="toclevel-1 tocsection-26"><a href="#Troubleshooting"><span class="tocnumber">7</span> <span class="toctext">Troubleshooting</span></a>
+<ul>
+<li class="toclevel-2 tocsection-27"><a href="#USB_1.x.2C_USB_keyboards_.28U-Boot_.3C_v2015.07.29"><span class="tocnumber">7.1</span> <span class="toctext">USB 1.x, USB keyboards (U-Boot &lt; v2015.07)</span></a></li>
+<li class="toclevel-2 tocsection-28"><a href="#U-Boot_2015.07.2B_won.27t_start"><span class="tocnumber">7.2</span> <span class="toctext">U-Boot 2015.07+ won't start</span></a></li>
+<li class="toclevel-2 tocsection-29"><a href="#Legacy_kernel_won.27t_start"><span class="tocnumber">7.3</span> <span class="toctext">Legacy kernel won't start</span></a></li>
+<li class="toclevel-2 tocsection-30"><a href="#Unrecognized.2Funsupported_machine_ID"><span class="tocnumber">7.4</span> <span class="toctext">Unrecognized/unsupported machine ID</span></a></li>
+<li class="toclevel-2 tocsection-31"><a href="#ImportError:_No_module_named_libfdt"><span class="tocnumber">7.5</span> <span class="toctext">ImportError: No module named _libfdt</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-32"><a href="#Adding_a_new_device_to_upstream_U-Boot"><span class="tocnumber">8</span> <span class="toctext">Adding a new device to upstream U-Boot</span></a>
+<ul>
+<li class="toclevel-2 tocsection-33"><a href="#DRAM_Settings"><span class="tocnumber">8.1</span> <span class="toctext">DRAM Settings</span></a>
+<ul>
+<li class="toclevel-3 tocsection-34"><a href="#Extract_boot0_parameters"><span class="tocnumber">8.1.1</span> <span class="toctext">Extract boot0 parameters</span></a></li>
+<li class="toclevel-3 tocsection-35"><a href="#Failsafe_DRAM_settings_for_old_.28pre_2014.29_devices.2C_based_on_standard_JEDEC_timings"><span class="tocnumber">8.1.2</span> <span class="toctext">Failsafe DRAM settings for old (pre 2014) devices, based on standard JEDEC timings</span></a></li>
+<li class="toclevel-3 tocsection-36"><a href="#The_settings_from_old_.28pre_2014.29_Android_firmware"><span class="tocnumber">8.1.3</span> <span class="toctext">The settings from old (pre 2014) Android firmware</span></a></li>
+<li class="toclevel-3 tocsection-37"><a href="#Performance_optimized_DRAM_settings"><span class="tocnumber">8.1.4</span> <span class="toctext">Performance optimized DRAM settings</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-38"><a href="#See_also"><span class="tocnumber">9</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Status_Matrix">Status Matrix</span></h1>
+<table class="wikitable" style="text-align: center;">
+
+<tbody><tr>
+<th style="text-align: left;">SoC
+</th>
+<td><abbr title="Basic support including console access through the serial port.">Basic support</abbr>
+</td>
+<td><abbr title="Can boot from SD-Card/eMMC.">SD-Card/eMMC boot</abbr>
+</td>
+<td><abbr title="Supports USB devices.">USB</abbr>
+</td>
+<td><abbr title="Can boot over Ethernet (tftp).">Ethernet boot</abbr>
+</td>
+<td><abbr title="Can show console over HDMI.">HDMI display</abbr>
+</td>
+<td><abbr title="Can show console on LCD.">LCD display</abbr>
+</td></tr>
+<tr>
+<th style="text-align: left;"><a href="/F1C100s" title="F1C100s">F1C-100s</a>
+</th>
+<td style="background: lightgreen;"><abbr title="Working since release v2022.04">v2022.04</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2022.07">v2022.07</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2023.10">v2023.10</abbr>
+</td>
+<td><abbr title="Hardware functionality is not available on this SoC">N/A</abbr>
+</td>
+<td><abbr title="Hardware functionality is not available on this SoC">N/A</abbr>
+</td>
+<td style="background: lightgrey;"><abbr title="Unknown support. Please verify and adjust this table.">Unknown</abbr>
+</td></tr>
+<tr>
+<th style="text-align: left;"><a href="/A10" title="A10">A10</a>
+</th>
+<td style="background: lightgreen;"><abbr title="Working since release v2014.10">v2014.10</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2014.10">v2014.10</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2014.10">v2014.10</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2014.10">v2014.10</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2015.01">v2015.01</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2015.04">v2015.04</abbr>
+</td></tr>
+<tr>
+<th style="text-align: left;"><a href="/A10s" title="A10s">A10s</a>
+</th>
+<td style="background: lightgreen;"><abbr title="Working since release v2014.10">v2014.10</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2014.10">v2014.10</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2014.10">v2014.10</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2014.10">v2014.10</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2015.01">v2015.01</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2015.04">v2015.04</abbr>
+</td></tr>
+<tr>
+<th style="text-align: left;"><a href="/A13" title="A13">A13</a>
+</th>
+<td style="background: lightgreen;"><abbr title="Working since release v2014.10">v2014.10</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2014.10">v2014.10</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2014.10">v2014.10</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2014.10">v2014.10</abbr>
+</td>
+<td><abbr title="Hardware functionality is not available on this SoC">N/A</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2015.04">v2015.04</abbr>
+</td></tr>
+<tr>
+<th style="text-align: left;"><a href="/A20" title="A20">A20</a>
+</th>
+<td style="background: lightgreen;"><abbr title="Working since release v2014.07">v2014.07</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2014.07">v2014.07</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2014.10">v2014.10</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2014.07">v2014.07</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2015.01">v2015.01</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2015.04">v2015.04</abbr>
+</td></tr>
+<tr>
+<th style="text-align: left;"><a href="/A23" title="A23">A23</a>
+</th>
+<td style="background: lightgreen;"><abbr title="Working since release v2015.01">v2015.01</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2015.04">v2015.04</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2015.04">v2015.04</abbr>
+</td>
+<td><abbr title="Hardware functionality is not available on this SoC">N/A</abbr>
+</td>
+<td><abbr title="Hardware functionality is not available on this SoC">N/A</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2015.04">v2015.04</abbr>
+</td></tr>
+<tr>
+<th style="text-align: left;"><a href="/A31" title="A31">A31</a>
+</th>
+<td style="background: lightgreen;"><abbr title="Working since release v2015.01">v2015.01</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2015.01">v2015.01</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2015.01">v2015.01</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2015.01">v2015.01</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2015.01">v2015.01</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2015.04">v2015.04</abbr>
+</td></tr>
+<tr>
+<th style="text-align: left;"><a href="/A33" title="A33">A33</a>
+</th>
+<td style="background: lightgreen;"><abbr title="Working since release v2015.07">v2015.07</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2015.07">v2015.07</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2015.07">v2015.07</abbr>
+</td>
+<td><abbr title="Hardware functionality is not available on this SoC">N/A</abbr>
+</td>
+<td><abbr title="Hardware functionality is not available on this SoC">N/A</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2015.07">v2015.07</abbr>
+</td></tr>
+<tr>
+<th style="text-align: left;"><a href="/A64" title="A64">A64</a>
+</th>
+<td style="background: lightgreen;"><abbr title="Working since release v2016.05">v2016.05</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2016.05">v2016.05</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2016.11">v2016.11</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2016.09">v2016.09</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2017.07">v2017.07</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2017.07">v2017.07</abbr>
+</td></tr>
+<tr>
+<th style="text-align: left;"><a href="/A80" title="A80">A80</a>
+</th>
+<td style="background: lightgreen;"><abbr title="Working since release v2015.07">v2015.07</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2015.07">v2015.07</abbr>
+</td>
+<td style="background: red;"><abbr title="TODO, and no-one is working on this currently.">TODO</abbr>
+</td>
+<td style="background: red;"><abbr title="TODO, and no-one is working on this currently.">TODO</abbr>
+</td>
+<td style="background: red;"><abbr title="TODO, and no-one is working on this currently.">TODO</abbr>
+</td>
+<td style="background: red;"><abbr title="TODO, and no-one is working on this currently.">TODO</abbr>
+</td></tr>
+<tr>
+<th style="text-align: left;"><a href="/A83T" title="A83T">A83T</a>
+</th>
+<td style="background: lightgreen;"><abbr title="Working since release v2016.01">v2016.01</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2016.01">v2016.01</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2016.01">v2016.01</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2016.01">v2016.01</abbr>
+</td>
+<td style="background: red;"><abbr title="TODO, and no-one is working on this currently.">TODO</abbr>
+</td>
+<td style="background: red;"><abbr title="TODO, and no-one is working on this currently.">TODO</abbr>
+</td></tr>
+<tr>
+<th style="text-align: left;"><a href="/H3" title="H3">H3</a>
+</th>
+<td style="background: lightgreen;"><abbr title="Working since release v2016.01">v2016.01</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2016.01">v2016.01</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2016.03">v2016.03</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2016.09">v2016.09</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2017.07">v2017.07</abbr>
+</td>
+<td><abbr title="Hardware functionality is not available on this SoC">N/A</abbr>
+</td></tr>
+<tr>
+<th style="text-align: left;"><a href="/H5" title="H5">H5</a>
+</th>
+<td style="background: lightgreen;"><abbr title="Working since release v2017.05">v2017.05</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2017.05">v2017.05</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2017.05">v2017.05</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2017.05">v2017.05</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2017.07">v2017.07</abbr>
+</td>
+<td><abbr title="Hardware functionality is not available on this SoC">N/A</abbr>
+</td></tr>
+<tr>
+<th style="text-align: left;"><a href="/H6" title="H6">H6</a>
+</th>
+<td style="background: lightgreen;"><abbr title="Working since release v2018.09">v2018.09</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2018.09">v2018.09</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2019.10">v2019.10</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2020.07">v2020.07</abbr>
+</td>
+<td style="background: red;"><abbr title="TODO, and no-one is working on this currently.">TODO</abbr>
+</td>
+<td style="background: red;"><abbr title="TODO, and no-one is working on this currently.">TODO</abbr>
+</td></tr>
+<tr>
+<th style="text-align: left;"><a href="/R40" title="R40">R40</a>
+</th>
+<td style="background: lightgreen;"><abbr title="Working since release v2017.05">v2017.05</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2017.05">v2017.05</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2020.04">v2020.04</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2020.04">v2020.04</abbr>
+</td>
+<td style="background: red;"><abbr title="TODO, and no-one is working on this currently.">TODO</abbr>
+</td>
+<td style="background: red;"><abbr title="TODO, and no-one is working on this currently.">TODO</abbr>
+</td></tr>
+<tr>
+<th style="text-align: left;"><a href="/V3" title="V3">V3</a> / <a href="/V3s" title="V3s">V3s</a> / <a href="/index.php?title=S3L&amp;action=edit&amp;redlink=1" class="new" title="S3L (page does not exist)">S3L</a>
+</th>
+<td style="background: lightgreen;"><abbr title="Working since release v2017.05">v2017.05</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2017.05">v2017.05</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2017.05">v2017.05</abbr>
+</td>
+<td style="background: orange;"><abbr title="Work in progress; somebody is working on this.">WIP</abbr>
+</td>
+<td style="background: red;"><abbr title="TODO, and no-one is working on this currently.">TODO</abbr>
+</td>
+<td style="background: red;"><abbr title="TODO, and no-one is working on this currently.">TODO</abbr>
+</td></tr>
+<tr>
+<th style="text-align: left;"><a href="/H616" title="H616">H616</a>
+</th>
+<td style="background: lightgreen;"><abbr title="Working since release v2021.04">v2021.04</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2021.04">v2021.04</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2023.10">v2023.10</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2021.04">v2021.04</abbr>
+</td>
+<td style="background: red;"><abbr title="TODO, and no-one is working on this currently.">TODO</abbr>
+</td>
+<td style="background: red;"><abbr title="TODO, and no-one is working on this currently.">TODO</abbr>
+</td></tr>
+<tr>
+<th style="text-align: left;"><a href="/T113-s3" title="T113-s3">T113-s3</a>
+</th>
+<td style="background: lightgreen;"><abbr title="Working since release v2024.01">v2024.01</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2024.01">v2024.01</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2024.01">v2024.01</abbr>
+</td>
+<td style="background: lightgrey;"><abbr title="Unknown support. Please verify and adjust this table.">Unknown</abbr>
+</td>
+<td><abbr title="Hardware functionality is not available on this SoC">N/A</abbr>
+</td>
+<td style="background: red;"><abbr title="TODO, and no-one is working on this currently.">TODO</abbr>
+</td></tr>
+<tr>
+<th style="text-align: left;"><a href="/D1" title="D1">D1</a> / <a href="/D1s" title="D1s">D1s</a>
+</th>
+<td style="background: lightgrey;"><abbr title="Unknown support. Please verify and adjust this table.">Unknown</abbr>
+</td>
+<td style="background: lightgrey;"><abbr title="Unknown support. Please verify and adjust this table.">Unknown</abbr>
+</td>
+<td style="background: lightgrey;"><abbr title="Unknown support. Please verify and adjust this table.">Unknown</abbr>
+</td>
+<td style="background: lightgrey;"><abbr title="Unknown support. Please verify and adjust this table.">Unknown</abbr>
+</td>
+<td style="background: red;"><abbr title="TODO, and no-one is working on this currently.">TODO</abbr>
+</td>
+<td style="background: red;"><abbr title="TODO, and no-one is working on this currently.">TODO</abbr>
+</td></tr>
+<tr>
+<th style="text-align: left;"><a href="/A133" title="A133">A133</a>
+</th>
+<td style="background: lightgreen;"><abbr title="Working since release v2025.10">v2025.10</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2025.10">v2025.10</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2025.10">v2025.10</abbr>
+</td>
+<td style="background: orange;"><abbr title="Work in progress; somebody is working on this.">WIP</abbr>
+</td>
+<td style="background: red;"><abbr title="TODO, and no-one is working on this currently.">TODO</abbr>
+</td>
+<td style="background: red;"><abbr title="TODO, and no-one is working on this currently.">TODO</abbr>
+</td></tr>
+<tr>
+<th style="text-align: left;"><a href="/A523" title="A523">A523</a>
+</th>
+<td style="background: lightgreen;"><abbr title="Working since release v2025.10">v2025.10</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2025.10">v2025.10</abbr>
+</td>
+<td style="background: lightgreen;"><abbr title="Working since release v2025.10">v2025.10</abbr>
+</td>
+<td style="background: orange;"><abbr title="Work in progress; somebody is working on this.">WIP</abbr>
+</td>
+<td style="background: red;"><abbr title="TODO, and no-one is working on this currently.">TODO</abbr>
+</td>
+<td style="background: red;"><abbr title="TODO, and no-one is working on this currently.">TODO</abbr>
+</td></tr>
+<tr>
+<th style="text-align: left;"><a href="/A733" title="A733">A733</a>
+</th>
+<td style="background: orange;"><abbr title="Work in progress; somebody is working on this.">WIP</abbr>
+</td>
+<td style="background: orange;"><abbr title="Work in progress; somebody is working on this.">WIP</abbr>
+</td>
+<td style="background: orange;"><abbr title="Work in progress; somebody is working on this.">WIP</abbr>
+</td>
+<td style="background: orange;"><abbr title="Work in progress; somebody is working on this.">WIP</abbr>
+</td>
+<td style="background: red;"><abbr title="TODO, and no-one is working on this currently.">TODO</abbr>
+</td>
+<td style="background: red;"><abbr title="TODO, and no-one is working on this currently.">TODO</abbr>
+</td></tr></tbody></table>
+<h1><span class="mw-headline" id="Device_support">Device support</span></h1>
+<p>To know if your device is supported in U-Boot, check out <a href="/Category:Devices" title="Category:Devices">the respective device page.</a>
+</p><p>Here is <a href="/Category:Mainline_U-Boot" title="Category:Mainline U-Boot">the list of all devices supporting mainline U-Boot.</a>
+</p>
+<h1><span id="Changelog_(outdated)"></span><span class="mw-headline" id="Changelog_.28outdated.29">Changelog (outdated)</span></h1>
+<p>A sunxi specific changelog for upstream <a href="/U-Boot/Changelog" title="U-Boot/Changelog"> is available here</a>. It has only been kept up to date until 2019.
+</p>
+<h1><span class="mw-headline" id="Compile_U-Boot">Compile U-Boot</span></h1>
+<h2><span class="mw-headline" id="Get_a_toolchain">Get a toolchain</span></h2>
+<p>Our <a href="/Toolchain" title="Toolchain"> toolchain page</a> explains everything you need to know about installing a toolchain.
+</p>
+<h2><span class="mw-headline" id="Get_swig">Get swig</span></h2>
+<p>Install the swig compiler.
+</p>
+<pre>apt-get install swig</pre>
+<h2><span class="mw-headline" id="Get_python3-dev">Get python3-dev</span></h2>
+<p>If you experience:
+</p>
+<pre>fatal error: Python.h: No such file or directory</pre>
+<p>Then install the development package for python-3:
+</p>
+<pre>apt-get install python3-dev</pre>
+<h2><span class="mw-headline" id="Get_dtc">Get dtc</span></h2>
+<p>The device tree compiler, dtc, needs to be available to successfully build u-boot.
+</p>
+<pre>apt-get install device-tree-compiler</pre>
+<h2><span id="Get_Trusted_Firmware-A_(aarch64)"></span><span class="mw-headline" id="Get_Trusted_Firmware-A_.28aarch64.29">Get Trusted Firmware-A (aarch64)</span></h2>
+<p>If you are building U-Boot for an arm64/aarch64 device, you need to include Trusted Firmware-A (TF-A, formerly known as ATF).
+</p><p>You can get this from:
+</p>
+<pre>git clone https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git</pre>
+<p>To build this, run:
+</p>
+<pre>make CROSS_COMPILE=aarch64-linux-gnu- PLAT=&lt;platform&gt; DEBUG=1 bl31</pre>
+<p>Change <i>&lt;platform&gt;</i> to your needs. <i>sun50i_a64</i> for example is suitable for H5 and A64 devices.
+</p><p>See <a rel="nofollow" class="external text" href="https://trustedfirmware-a.readthedocs.io/en/latest/plat/allwinner.html">docs/plat/allwinner.rst</a> in the TF-A source or <a rel="nofollow" class="external text" href="https://docs.u-boot.org/en/latest/board/allwinner/sunxi.html">doc/board/allwinner/sunxi.rst</a> in the U-Boot source for more information.
+</p>
+<h2><span class="mw-headline" id="Clone_the_repository">Clone the repository</span></h2>
+<p>You can clone the u-boot repository by running:
+</p>
+<pre>git clone git://git.denx.de/u-boot.git</pre>
+<p>You might want to use the latest release instead of the newest development code. To get a list of available releases, which are tags, run:
+</p>
+<pre>git tag -l</pre>
+<p>Check out your preferred release:
+</p>
+<pre>git checkout v2024.01</pre>
+<h2><span class="mw-headline" id="Determine_build_target">Determine build target</span></h2>
+<p>Every <a href="/Identification_guide" title="Identification guide">device page</a> should list the device specific u-boot config under the section <i>Mainline U-Boot</i>.
+</p><p>This config usually follows the <i>&lt;device&gt;_defconfig</i> schema. For instance, if your device is the <a href="/Cubietech_Cubieboard2" title="Cubietech Cubieboard2">Cubieboard2</a> then your build target is <i>Cubieboard2_defconfig</i>.
+</p><p>You should be able to find this file in the u-boot tree under <i>configs/</i>
+</p>
+<h2><span class="mw-headline" id="Build">Build</span></h2>
+<p>The commands below include a menuconfig step, this allows you to change some build-time settings, but can normally be skipped.
+</p><p>When the build has completed, there will be <i>u-boot-sunxi-with-spl.bin</i> available at the top level of your u-boot repository. Follow the u-boot installation step of the respective howto you are following for your preferred installation medium.
+</p>
+<h3><span class="mw-headline" id="armhf">armhf</span></h3>
+<pre>make CROSS_COMPILE=arm-linux-gnueabihf- &lt;board_name&gt;_defconfig
+make CROSS_COMPILE=arm-linux-gnueabihf- menuconfig
+make CROSS_COMPILE=arm-linux-gnueabihf-</pre>
+<h3><span class="mw-headline" id="arm64">arm64</span></h3>
+<pre>make CROSS_COMPILE=aarch64-linux-gnu- BL31=&lt;path_to_arm-trusted-firmware&gt;/build/sun50i_a64/debug/bl31.bin  &lt;board_name&gt;_defconfig
+make CROSS_COMPILE=aarch64-linux-gnu- BL31=&lt;path_to_arm-trusted-firmware&gt;/build/sun50i_a64/debug/bl31.bin menuconfig
+make CROSS_COMPILE=aarch64-linux-gnu- BL31=&lt;path_to_arm-trusted-firmware&gt;/build/sun50i_a64/debug/bl31.bin</pre>
+<h1><span class="mw-headline" id="Configure_U-Boot">Configure U-Boot</span></h1>
+<p>This article provides a collection of various scenarios for booting with U-Boot. 
+</p>
+<h2><span class="mw-headline" id="Boot">Boot</span></h2>
+<p>For getting these bits loaded onto the hardware, please refer to the respective howto:
+</p>
+<ul><li><a href="/Bootable_SD_card#Bootloader" title="Bootable SD card"> SD Card</a></li>
+<li><a href="/Mainline_NAND_Howto#Booting_from_NAND" title="Mainline NAND Howto">NAND</a></li>
+<li><a href="/Bootable_SPI_flash" title="Bootable SPI flash"> SPI NOR Flash</a></li>
+<li><a href="/FEL/USBBoot" title="FEL/USBBoot"> USB OTG</a></li>
+<li><a href="/How_to_boot_the_A10_or_A20_over_the_network" title="How to boot the A10 or A20 over the network"> Ethernet</a></li>
+<li><a href="/Fastboot" title="Fastboot">Fastboot</a></li></ul>
+<h3><span class="mw-headline" id="Booting_with_boot.cmd">Booting with boot.cmd</span></h3>
+<p>For booting from SD with mainline U-Boot, the recommended way is:
+</p>
+<ul><li>create a file <i>boot.cmd</i> on the first partition (also check <a href="/Kernel_arguments" title="Kernel arguments">Kernel arguments</a> for extra 'bootargs' options):</li></ul>
+<table class="wikitable">
+<tbody><tr>
+<th>mainline kernel
+</th>
+<th>sunxi-3.4 kernel
+</th></tr>
+<tr>
+<td>
+<pre>setenv bootargs console=ttyS0,115200 root=/dev/mmcblk0p2 rootwait panic=10
+load mmc 0:1 0x43000000 ${fdtfile} || load mmc 0:1 0x43000000 boot/${fdtfile}
+load mmc 0:1 0x42000000 uImage || load mmc 0:1 0x42000000 boot/uImage
+bootm 0x42000000 - 0x43000000
+</pre>
+</td>
+<td>
+<pre>setenv bootm_boot_mode sec
+setenv bootargs console=ttyS0,115200 root=/dev/mmcblk0p2 rootwait panic=10
+load mmc 0:1 0x43000000 script.bin || load mmc 0:1 0x43000000 boot/script.bin
+load mmc 0:1 0x42000000 uImage || load mmc 0:1 0x42000000 boot/uImage
+bootm 0x42000000
+</pre>
+</td></tr></tbody></table>
+<ul><li>If you also want to use an initramfs, please refer to the <a href="/Initial_Ramdisk" title="Initial Ramdisk">Initial Ramdisk</a> article for details.</li></ul>
+<dl><dd><a href="/File:Information.png" class="image"><img alt="Information.png" src="/images/5/54/Information.png" decoding="async" width="16" height="16" /></a> If you're wondering why setting <b>bootm_boot_mode</b> might be necessary for older kernels, have a look at the details of <a href="/PSCI" title="PSCI">PSCI</a>.</dd></dl>
+<dl><dd><a href="/File:Sticky-note-pin.png" class="image"><img alt="Sticky-note-pin.png" src="/images/f/f0/Sticky-note-pin.png" decoding="async" width="16" height="16" /></a> <i>Note:</i> Directly using a <b>zImage</b> is also supported by U-Boot for the sunxi platform. Substitute <i>zImage</i> in place of <i>uImage</i> in the commands above, and then use the <b>bootz</b> command instead of <i>bootm</i>.</dd>
+<dd><a href="/File:Sticky-note-pin.png" class="image"><img alt="Sticky-note-pin.png" src="/images/f/f0/Sticky-note-pin.png" decoding="async" width="16" height="16" /></a> <i>Note:</i> In order to boot your newly created <b>arm64</b> or <b>riscv</b> kernel, remember to use <i>Image</i> instead of <i>uImage/zImage</i>. You also have to load it with <i>booti</i> instead of <i>bootm/bootz</i>. So you have to adopt the corresponding lines in the boot.cmd file.</dd></dl>
+<ul><li><i>boot.cmd</i> isn't used directly, but needs to be wrapped with uboot header with the command:</li></ul>
+<pre>mkimage -C none -A arm -T script -d boot.cmd boot.scr</pre>
+<h3><span class="mw-headline" id="Booting_with_extlinux.conf">Booting with extlinux.conf</span></h3>
+<p>Mainline U-Boot also use syslinux/extlinux as payload.
+</p><p>You need to install the boot configuration file extlinux.conf in an ext2/3/4 partition of SD card and U-Boot will find and execute it. This is conceptually identical to creating a GRUB configuration file on a desktop PC.
+</p><p>Example extlinux.conf:
+</p>
+<pre>TIMEOUT 100
+DEFAULT default
+MENU TITLE Boot menu
+
+LABEL default
+	MENU LABEL Default
+        LINUX /zImage
+        FDT /sun4i-a10-marsboard.dtb
+        APPEND root=/dev/sda1 rootwait console=tty0 console=ttyS0,115200n8
+
+LABEL exit
+	MENU LABEL Local boot script (boot.scr)
+        LOCALBOOT 1
+</pre>
+<h3><span class="mw-headline" id="Boot_menu_support">Boot menu support</span></h3>
+<p>There are two ways to show boot menu in U-Boot:
+</p>
+<ul><li>Specify multiple <i>LABEL</i>s in extlinux.conf</li></ul>
+<ul><li>Use <i>bootmenu</i> command in boot.cmd and convert boot.cmd to boot.scr</li></ul>
+<p>Make sure that CONFIG_CMD_BOOTMENU is enabled before compiling U-Boot. Then create boot.cmd with the usual booting commands set as the content of the env variable named <i>bootmenu_NUM</i>, followed by <i>bootmenu DELAYS</i>. Examples are as follows:
+</p>
+<pre>setenv bootmenu_0 Kernel and rootfs on USB disk="setenv bootargs console=ttyS0,115200 console=tty0 root=PARTLABEL=USB-Root rw rootwait; led orangepi:red:status on; load usb 0:1 ${fdt_addr_r} board.dtb; load usb 0:1 ${kernel_addr_r} zImage; bootz ${kernel_addr_r} - ${fdt_addr_r}"
+
+setenv bootmenu_1 Kernel and rootfs on SD card="setenv bootargs console=ttyS0,115200 console=tty0 root=/dev/mmcblk0p2 rw rootwait; led orangepi:red:status on; load mmc 0:1 ${fdt_addr_r} board.dtb; load mmc 0:1 ${kernel_addr_r} zImage; bootz ${kernel_addr_r} - ${fdt_addr_r}"
+
+bootmenu 1
+</pre>
+<p>For more info, see doc/usage/cmd/bootmenu.rst in U-Boot source tree.
+</p>
+<h2><span class="mw-headline" id="Setting_u-boot_environment_variables">Setting u-boot environment variables</span></h2>
+<p>There is a difference in setting environment variables between the boot script and the U-Boot shell.
+</p><p>Inside the shell you would set, for instance:
+</p>
+<pre>setenv root /dev/sda1</pre>
+<p>But in the script you would use:
+</p>
+<pre>root=/dev/sda1</pre>
+<h2><span class="mw-headline" id="NAND">NAND</span></h2>
+<p>Example U-Boot environment, as found in <code>uEnv.txt</code> from a stock android U-Boot environment partition
+</p>
+<pre>bootdelay=0
+bootcmd=run setargs boot_normal
+console=ttyS0,115200
+nand_root=/dev/nandc
+mmc_root=/dev/mmcblk0p4
+init=/init
+loglevel=8
+setargs=setenv bootargs console=${console} root=${nand_root} init=${init} loglevel=${loglevel}
+boot_normal=nand read 40007800 boot;boota 40007800
+boot_recovery=nand read 40007800 recovery;boota 40007800
+boot_fastboot=fastboot</pre>
+<h2><span class="mw-headline" id="NFS">NFS</span></h2>
+<p>Recent version of U-Boot are able to boot from NFS as well as TFTP, but you have to get rid of the automatic setup of FTP. Check <a href="/How_to_boot_the_A10_or_A20_over_the_network" title="How to boot the A10 or A20 over the network"> Ethernet</a> for more information.
+</p><p><a href="/File:Sticky-note-pin.png" class="image"><img alt="Sticky-note-pin.png" src="/images/f/f0/Sticky-note-pin.png" decoding="async" width="16" height="16" /></a> <i>Note:</i> on the A20 based cubieboards, this only seems to work on the stable kernel, not on stage.
+</p>
+<h2><span class="mw-headline" id="FB_console">FB console</span></h2>
+<p>To get U-Boot output shown on the built-in framebuffer driver (currently, HDMI only at 1024x768), add the following to your boot.cmd:
+</p>
+<pre>setenv stdout=serial,vga
+setenv stderr=serial,vga</pre>
+<p>The default environment has these values set as well.
+</p>
+<h2><span class="mw-headline" id="LCD_Settings">LCD Settings</span></h2>
+<p>There is a <a href="/LCD" title="LCD">separate wiki page about configuring LCD</a> in U-Boot.
+</p>
+<h1><span class="mw-headline" id="Install_U-Boot">Install U-Boot</span></h1>
+<ul><li>One way to automatically load a specific kernel, with specific command line options, is to create a boot script with the respective U-Boot commands. Convert the <i>boot.cmd</i> to <i>boot.scr</i> using <a href="/U-Boot/Tools#mkimage" title="U-Boot/Tools">mkimage</a>:</li></ul>
+<pre> mkimage -C none -A arm -T script -d boot.cmd boot.scr
+</pre>
+<ul><li>Copy the bootloader to the installation media</li></ul>
+<pre> dd if=u-boot-sunxi-with-spl.bin of=/dev/sdX bs=1024 seek=8
+</pre>
+<p>For a more elaborate list of possible targets to install U-Boot, and instructions on how to best install U-Boot there, check the <a rel="nofollow" class="external text" href="https://docs.u-boot.org/en/latest/board/allwinner/sunxi.html#installing-u-boot">U-Boot documentation</a>.
+</p>
+<ul><li>copy kernel files to the first partition
+<ul><li>For a 3.4 kernel you need <i>uImage</i> (linux kernel) and <i>script.bin</i> (binary representation of <a href="/Fex_Guide" title="Fex Guide">FEX</a>).</li>
+<li>For a device tree based kernel ("mainline", 4.x) you need the kernel image (<i>uImage</i>, <i>zImage</i> or <i>Image</i>) and the device-specific <i>.dtb</i> file (the one referenced in the <i>${fdtfile}</i> above) that is generated as part of your kernel compilation.</li></ul></li></ul>
+<p>Look at <a href="/Manual_build_howto" title="Manual build howto">Manual build howto</a> for more details.
+</p>
+<h1><span class="mw-headline" id="Troubleshooting">Troubleshooting</span></h1>
+<h2><span id="USB_1.x,_USB_keyboards_(U-Boot_&lt;_v2015.07)"></span><span class="mw-headline" id="USB_1.x.2C_USB_keyboards_.28U-Boot_.3C_v2015.07.29">USB 1.x, USB keyboards (U-Boot &lt; v2015.07)</span></h2>
+<p><b>U-Boot v2015.07 and later shouldn't have problems supporting mixed USB 1.x/2.0 devices.</b> OHCI and EHCI no longer conflict with each other (after the switch to device model).
+</p><p>Previous U-Boot versions (v2015.04 and older) have a problem supporting both USB 1.x (OHCI) and USB 2.0 (EHCI) at the same time - the latter includes the <i>SUNXI_EHCI</i> driver for Allwinner boards.
+</p>
+<dl><dd>Unfortunately, this also affects many <b>USB HID / keyboard</b> devices which would not be detected properly by U-Boot. The typical message in this case is "<i>cannot reset port N!?</i>", where <i>N</i> is whichever USB port those devices were attached to.</dd></dl>
+<p><a href="/File:Information.png" class="image"><img alt="Information.png" src="/images/5/54/Information.png" decoding="async" width="16" height="16" /></a> A possible workaround is to place an external USB 2.0 hub between your board and these USB devices.
+</p><p>See: <a rel="nofollow" class="external free" href="http://lists.denx.de/pipermail/u-boot/2015-January/200162.html">http://lists.denx.de/pipermail/u-boot/2015-January/200162.html</a>.
+</p>
+<h2><span id="U-Boot_2015.07+_won't_start"></span><span class="mw-headline" id="U-Boot_2015.07.2B_won.27t_start">U-Boot 2015.07+ won't start</span></h2>
+<p>If you're using a recent (device model based) U-Boot, and the SPL just hangs after initializing the DRAM (<code>CPU: 912000000Hz, AXI/AHB/APB: 3/2/2</code> or something similar), chances are that your main U-Boot binary may be missing DTB information / a proper <a href="/Device_tree" class="mw-redirect" title="Device tree">device tree</a>. Depending on the (possibly outdated) instructions you followed: double-check that you're not incorrectly using <i>u-boot.bin</i> instead of <i>u-boot<b>-dtb</b>.bin</i>, or <i>u-boot.img</i> instead of <i>u-boot<b>-dtb</b>.img</i>.
+</p>
+<h2><span id="Legacy_kernel_won't_start"></span><span class="mw-headline" id="Legacy_kernel_won.27t_start">Legacy kernel won't start</span></h2>
+<ul><li>If your 3.4.x kernel refuses to boot / gets stuck right after <i>"Starting kernel ..."</i>:
+<ul><li>Double-check that <b>bootm_boot_mode</b> is set to "<b>sec</b>"! (see <a href="#Boot">above</a>)</li>
+<li>For U-Boot 2018.09-rc1 or later, set CONFIG_ARMV7_LPAE=n in .config or apply <a rel="nofollow" class="external free" href="https://patchwork.ozlabs.org/patch/1058338/">https://patchwork.ozlabs.org/patch/1058338/</a></li></ul></li>
+<li>If you don't have a serial console and only use VGA/HDMI/LCD, then it might be also the case of "Unrecognized/unsupported machine ID" (see <a href="#Unrecognized.2Funsupported_machine_ID">below</a>).</li></ul>
+<h2><span id="Unrecognized/unsupported_machine_ID"></span><span class="mw-headline" id="Unrecognized.2Funsupported_machine_ID">Unrecognized/unsupported machine ID</span></h2>
+<p>The sunxi-3.4 kernel may fail to boot with one of the following error messages on the serial console (but this message is not visible on a HDMI monitor or a LCD display!):
+</p>
+<pre>Error: unrecognized/unsupported machine ID (r1 = 0x10001008).
+Error: unrecognized/unsupported machine ID (r1 = 0x1000102a).
+Error: unrecognized/unsupported machine ID (r1 = 0x100010bb).
+</pre>
+<p>In this case either upgrade to a recent <i>stage/sunxi-3.4</i> kernel (<a class="external text" href="https://github.com/linux-sunxi/linux-sunxi/tree/stage/sunxi-3.4">github branch</a>) - or try to <b>"Enable workarounds for booting old kernels"</b> in U-Boot:
+</p>
+<dl><dd><code>make menuconfig</code> or <code>make CROSS_COMPILE=arm-linux-gnueabihf- menuconfig</code>, the option is located under "ARM architecture". (Make sure to rebuild your U-Boot after changing it.)</dd></dl>
+<p>If upgrading to <i>stage/sunxi-3.4</i> is not an option (i.e. using some old and very much diverged
+sunxi-3.4 fork is really necessary), then the following patches can be cherry-picked (=&#160;selectively merged <u>as a set</u>):
+</p>
+<pre>wget https://github.com/linux-sunxi/linux-sunxi/commit/5052b83aa44dc16d6662d8d9d936166c139ad8c5.patch
+wget https://github.com/linux-sunxi/linux-sunxi/commit/9a1cd034181af628d4145202289e1993c1687db6.patch
+wget https://github.com/linux-sunxi/linux-sunxi/commit/c4c4664ed1a2f35e54a33ae4e65f517721ff43b5.patch
+wget https://github.com/linux-sunxi/linux-sunxi/commit/ade08aa6e5249a9e75a97393e86c250b2bcb3ec8.patch
+wget https://github.com/linux-sunxi/linux-sunxi/commit/16b25a95327f45a995f6efcf3e9d83a414231af9.patch
+wget https://github.com/linux-sunxi/linux-sunxi/commit/dea62f21deb177053b84b15a519dff6c74d061d9.patch
+wget https://github.com/linux-sunxi/linux-sunxi/commit/d47d367036be38c5180632ec8a3ad169a4593a88.patch
+git am 5052b83aa44dc16d6662d8d9d936166c139ad8c5.patch
+git am 9a1cd034181af628d4145202289e1993c1687db6.patch
+git am c4c4664ed1a2f35e54a33ae4e65f517721ff43b5.patch
+git am ade08aa6e5249a9e75a97393e86c250b2bcb3ec8.patch
+git am 16b25a95327f45a995f6efcf3e9d83a414231af9.patch
+git am dea62f21deb177053b84b15a519dff6c74d061d9.patch
+git am d47d367036be38c5180632ec8a3ad169a4593a88.patch
+</pre>
+<p><a href="/File:Exclamation.png" class="image"><img alt="Exclamation.png" src="/images/c/c0/Exclamation.png" decoding="async" width="16" height="16" /></a>  It is required to apply <b>all</b> of them, as they contain important stability/safety changes. The last patch in this series only takes care of the safety guard, which exists there specifically to block booting problematic kernels. Just removing the safety guard alone without applying all the bugfixes will lead to obscure runtime problems, please don't be tempted to do this.
+</p><p><br />
+</p>
+<h2><span class="mw-headline" id="ImportError:_No_module_named_libfdt">ImportError: No module named _libfdt</span></h2>
+<p>If you see the following error when compiling on Arch Linux arm
+</p>
+<pre>ImportError: No module named _libfdt
+</pre>
+<p>install dtc
+</p>
+<pre>sudo pacman -S dtc
+</pre>
+<h1><span class="mw-headline" id="Adding_a_new_device_to_upstream_U-Boot">Adding a new device to upstream U-Boot</span></h1>
+<p>To add a new device to mainline U-Boot, you will need the devicetree (DT) and a defconfig file. DT files are now synced automatically from the mainline kernel repository (see <a rel="nofollow" class="external text" href="https://docs.u-boot.org/en/latest/develop/devicetree/control.html#where-do-i-get-a-devicetree-file-for-my-board">the U-Boot documentation</a>), so you need to submit your .dts file to the Linux kernel repository first. For development purposes you can place the DT manually in dts/upstream/src/arm64/allwinner.
+</p><p>The defconfig file selects the SoC, and contains the DT name. It also lists those drivers that are not already selected by default (like USB or Ethernet). But the most important info in there are the DRAM settings, which are board specific, see below for more information.
+</p><p>The best way is to find the device that is the most similar, and copy both files. Carefully adjust them, especially the regulator setup in the devicetree might be different and could cause harm to your device. You might want to remove or disable the PMIC completely for initial development.
+</p>
+<h2><span class="mw-headline" id="DRAM_Settings">DRAM Settings</span></h2>
+<p>The settings needed to set up the DRAM controller are board specific, and have often been determined by the board vendor together with Allwinner, with the help of some magic.
+</p>
+<h3><span class="mw-headline" id="Extract_boot0_parameters">Extract boot0 parameters</span></h3>
+<p>A modern vendor provided boot0 image contains those DRAM parameters in its header, you can use the <a class="external text" href="https://github.com/apritzel/sunxi-fw">sunxi-fw</a> tool to extract the values from there. Either use some update image from the web, or extract the first sectors from the device itself, for instance from the eMMC. For the options listed in the defconfig file, just use the respective values from the column matching your SoC.
+</p>
+<h3><span id="Failsafe_DRAM_settings_for_old_(pre_2014)_devices,_based_on_standard_JEDEC_timings"></span><span class="mw-headline" id="Failsafe_DRAM_settings_for_old_.28pre_2014.29_devices.2C_based_on_standard_JEDEC_timings">Failsafe DRAM settings for old (pre 2014) devices, based on standard JEDEC timings</span></h3>
+<p>For old A10/A13/A20 based devices, you would be able to use slow failsafe DRAM settings:
+</p>
+<pre>   CONFIG_DRAM_CLK=360
+   CONFIG_DRAM_ZQ=123
+   CONFIG_DRAM_EMR1=4
+   CONFIG_DRAM_TIMINGS_DDR3_800E_1066G_1333J=y
+</pre>
+<p>For a more complete list of parameters see the <a rel="nofollow" class="external text" href="https://source.denx.de/u-boot/u-boot/-/blob/master/arch/arm/mach-sunxi/Kconfig?ref_type=heads">U-Boot Kconfig file</a>.
+</p>
+<h3><span id="The_settings_from_old_(pre_2014)_Android_firmware"></span><span class="mw-headline" id="The_settings_from_old_.28pre_2014.29_Android_firmware">The settings from old (pre 2014) Android firmware</span></h3>
+<p>Somewhat better settings can be retrieved by the <a href="/Retrieving_device_information#Reading_memory_information_from_registers" title="Retrieving device information">meminfo tool</a> from the stock Android or GNU/Linux system, provided by the device manufacturer. It still makes sense to <a href="/Hardware_Reliability_Tests#DRAM" title="Hardware Reliability Tests">test the reliability</a> of the resulting DRAM configuration. Because some vendors are providing poor configuration for ZQ or EMR1, but nevertheless trying to optimistically set the DRAM clock speed too high.
+</p>
+<h3><span class="mw-headline" id="Performance_optimized_DRAM_settings">Performance optimized DRAM settings</span></h3>
+<p>Tuning DRAM setting for each individual board can provide much better performance than the failsafe defaults. This involves trial and error testing of different settings using a tool until an optimal combination is found. The <a href="/DRAM_Controller" title="DRAM Controller">DRAM Controller page</a> provides links to start researching this topic. This approach will be time consuming, so a satisfactory solution using one of the other approaches may be best to start with.
+</p>
+<h1><span class="mw-headline" id="See_also">See also</span></h1>
+<ul><li><a href="/Mainline_Kernel_Howto" title="Mainline Kernel Howto">Mainline Kernel Howto</a></li>
+<li><a href="/Category:Mainline_U-Boot" title="Category:Mainline U-Boot">Mainline U-Boot supported devices</a></li>
+<li><a href="/U-Boot/Changelog" title="U-Boot/Changelog">U-Boot/Changelog</a></li></ul>
+<!-- 
+NewPP limit report
+Cached time: 20251029040831
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.597 seconds
+Real time usage: 0.720 seconds
+Preprocessor visited node count: 1398/1000000
+Post‐expand include size: 19603/2097152 bytes
+Template argument size: 2414/2097152 bytes
+Highest expansion depth: 4/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 3231/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  102.904      1 -total
+ 18.17%   18.700     86 Template:StatusDone
+ 17.84%   18.356      1 Template:Warn
+ 13.86%   14.266      6 Template:StatusUnknown
+ 10.12%   10.416      2 Template:Info
+  8.46%    8.710      7 Template:StatusInProgress
+  7.41%    7.629     23 Template:StatusTODO
+  5.12%    5.269     10 Template:StatusNA
+  2.25%    2.319      3 Template:Note
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:1504-0!canonical and timestamp 20251029040830 and revision id 26665
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=U-Boot&amp;oldid=26665">https://linux-sunxi.org/index.php?title=U-Boot&amp;oldid=26665</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="/Category:Tutorial" title="Category:Tutorial">Tutorial</a></li><li><a href="/Category:Software" title="Category:Software">Software</a></li><li><a href="/Category:Development" title="Category:Development">Development</a></li><li><a href="/Category:Boot" title="Category:Boot">Boot</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="/index.php?title=Special:CreateAccount&amp;returnto=U-Boot" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/index.php?title=Special:UserLogin&amp;returnto=U-Boot" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="/U-Boot" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk"><a href="/Talk:U-Boot" rel="discussion" class="mw-redirect" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="/U-Boot">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="/index.php?title=U-Boot&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="/index.php?title=U-Boot&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="/Main_Page"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="/sunxi:Community_portal" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="/Special:WhatLinksHere/U-Boot" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="/Special:RecentChangesLinked/U-Boot" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="/index.php?title=U-Boot&amp;oldid=26665" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="/index.php?title=U-Boot&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 21 August 2025, at 01:40.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.597","walltime":"0.720","ppvisitednodes":{"value":1398,"limit":1000000},"postexpandincludesize":{"value":19603,"limit":2097152},"templateargumentsize":{"value":2414,"limit":2097152},"expansiondepth":{"value":4,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":3231,"limit":5000000},"timingprofile":["100.00%  102.904      1 -total"," 18.17%   18.700     86 Template:StatusDone"," 17.84%   18.356      1 Template:Warn"," 13.86%   14.266      6 Template:StatusUnknown"," 10.12%   10.416      2 Template:Info","  8.46%    8.710      7 Template:StatusInProgress","  7.41%    7.629     23 Template:StatusTODO","  5.12%    5.269     10 Template:StatusNA","  2.25%    2.319      3 Template:Note"]},"cachereport":{"timestamp":"20251029040831","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":316});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

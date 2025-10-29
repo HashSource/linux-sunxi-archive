@@ -1,0 +1,1975 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>SID Register Guide - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"6948aafb3678dcb2d151de24","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"SID_Register_Guide","wgTitle":"SID Register Guide","wgCurRevisionId":26785,"wgRevisionId":26785,"wgArticleId":583,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["A10 Register guide","A13 Register guide","A20 Register guide","Hardware"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"SID_Register_Guide","wgRelevantArticleId":583,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],
+"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":"ready","user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready","jquery.tablesorter.styles":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","jquery.tablesorter","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=jquery.tablesorter.styles%7Cmediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="SID_Register_Guide.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-SID_Register_Guide rootpage-SID_Register_Guide skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">SID Register Guide</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Security_ID"><span class="tocnumber">1</span> <span class="toctext">Security ID</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#A10.2FA20.2FA33"><span class="tocnumber">1.1</span> <span class="toctext">A10/A20/A33</span></a>
+<ul>
+<li class="toclevel-3 tocsection-3"><a href="#SID_Registers"><span class="tocnumber">1.1.1</span> <span class="toctext">SID Registers</span></a>
+<ul>
+<li class="toclevel-4 tocsection-4"><a href="#SID_KEY.5B0-3.5D"><span class="tocnumber">1.1.1.1</span> <span class="toctext">SID_KEY[0-3]</span></a></li>
+<li class="toclevel-4 tocsection-5"><a href="#SID_WRITE_DATA"><span class="tocnumber">1.1.1.2</span> <span class="toctext">SID_WRITE_DATA</span></a></li>
+<li class="toclevel-4 tocsection-6"><a href="#SID_WRITE_CTRL"><span class="tocnumber">1.1.1.3</span> <span class="toctext">SID_WRITE_CTRL</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-7"><a href="#A83T.2FA64.2FH3.2FH6"><span class="tocnumber">1.2</span> <span class="toctext">A83T/A64/H3/H6</span></a>
+<ul>
+<li class="toclevel-3 tocsection-8"><a href="#Registers"><span class="tocnumber">1.2.1</span> <span class="toctext">Registers</span></a>
+<ul>
+<li class="toclevel-4 tocsection-9"><a href="#SID_PRCTL"><span class="tocnumber">1.2.1.1</span> <span class="toctext">SID_PRCTL</span></a></li>
+<li class="toclevel-4 tocsection-10"><a href="#SID_PRKEY"><span class="tocnumber">1.2.1.2</span> <span class="toctext">SID_PRKEY</span></a></li>
+<li class="toclevel-4 tocsection-11"><a href="#SID_RDKEY"><span class="tocnumber">1.2.1.3</span> <span class="toctext">SID_RDKEY</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-12"><a href="#eFUSE_Contents"><span class="tocnumber">2</span> <span class="toctext">eFUSE Contents</span></a>
+<ul>
+<li class="toclevel-2 tocsection-13"><a href="#eFUSE_Region_Overview"><span class="tocnumber">2.1</span> <span class="toctext">eFUSE Region Overview</span></a>
+<ul>
+<li class="toclevel-3 tocsection-14"><a href="#SoCs_before_H6"><span class="tocnumber">2.1.1</span> <span class="toctext">SoCs before H6</span></a></li>
+<li class="toclevel-3 tocsection-15"><a href="#H6"><span class="tocnumber">2.1.2</span> <span class="toctext">H6</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-16"><a href="#Specific_eFUSE_Values"><span class="tocnumber">2.2</span> <span class="toctext">Specific eFUSE Values</span></a>
+<ul>
+<li class="toclevel-3 tocsection-17"><a href="#ROTPK_HASH"><span class="tocnumber">2.2.1</span> <span class="toctext">ROTPK_HASH</span></a></li>
+<li class="toclevel-3 tocsection-18"><a href="#LCJS"><span class="tocnumber">2.2.2</span> <span class="toctext">LCJS</span></a></li>
+<li class="toclevel-3 tocsection-19"><a href="#BROM_CONFIG"><span class="tocnumber">2.2.3</span> <span class="toctext">BROM CONFIG</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-20"><a href="#Currently_known_SID.27s"><span class="tocnumber">3</span> <span class="toctext">Currently known SID's</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Security_ID">Security ID</span></h1>
+<p>So far, all Allwinner A-series SoCs come with a bit of memory called 'SID'. So far, for all chips this is 128-512 bytes of usable memory, with a catch. These bytes of memory are not in RAM or ROM, they are so called <a class="external text" href="http://en.wikipedia.org/wiki/EFUSE">e-fuses</a>. Each bit of an e-fuse can only transition from 0 -&gt; 1 once. Writing 0 to a bit does nothing, but once a bit is set to 1, it is set permanently. Therefore, extreme care must be taken when writing any of the areas referenced below.
+</p><p>By default, the chip ID or revision is written to these fuses, as well as a serial number and <a href="Thermal_Sensor.html" title="Thermal Sensor">Thermal Sensor</a> calibration data. While modifying is mostly untested at this moment, it is possible to read the fuses. Note that there are two ways to read the fuses, and some chips have a silicon bug that requires using a specific method of reading.
+</p><p>A few use cases for the SID are, but not limited to:
+</p>
+<ul><li>Generate per-device unique MAC address</li>
+<li>Store/use as an RSA etc key</li>
+<li>Write in-house serial numbers</li>
+<li>Control <a href="BROM.html" title="BROM">Boot ROM</a> behavior</li></ul>
+<h2><span id="A10/A20/A33"></span><span class="mw-headline" id="A10.2FA20.2FA33">A10/A20/A33</span></h2>
+<p>SID Base address: <b>0x01c23800</b>
+</p>
+<h3><span class="mw-headline" id="SID_Registers">SID Registers</span></h3>
+<table class="wikitable">
+<tbody><tr>
+<th>Register Name
+</th>
+<th>Offset
+</th>
+<th>Size
+</th>
+<th>Description
+</th>
+<th>Note
+</th></tr>
+<tr>
+<td><tt>SID_KEY0</tt>
+</td>
+<td><tt>0x00</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>Key0 [0:31]
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>SID_KEY1</tt>
+</td>
+<td><tt>0x04</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>Key1 [32:63]
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>SID_KEY2</tt>
+</td>
+<td><tt>0x08</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>Key2 [64:95]
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>SID_KEY3</tt>
+</td>
+<td><tt>0x0c</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>Key3 [96:127]
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>SID_WRITE_DATA</tt>
+</td>
+<td><tt>0x40</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>Data [0:31]
+</td>
+<td>NOT VERIFIED
+</td></tr>
+<tr>
+<td><tt>SID_WRITE_CTRL</tt>
+</td>
+<td><tt>0x44</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>SID Program Control register
+</td>
+<td>
+</td></tr></tbody></table>
+<p><br />
+</p>
+<h5><span id="SID_KEY[0-3]"></span><span class="mw-headline" id="SID_KEY.5B0-3.5D">SID_KEY[0-3]</span></h5>
+<p>Default value: undefined<br />
+Offset: 0x0{0, 4, 8, c}
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default (Hex)
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>KEY[0-3]</tt>
+</td>
+<td><tt>0:31</tt>
+</td>
+<td><tt>Read</tt>
+</td>
+<td><tt></tt>
+</td>
+<td><tt></tt>
+</td>
+<td>32 bits for SID
+</td></tr></tbody></table>
+<p><br />
+</p>
+<h5><span class="mw-headline" id="SID_WRITE_DATA">SID_WRITE_DATA</span></h5>
+<p>Default value: 0x00000000<br />
+Offset: 0x40
+</p>
+<p>We think this is the data register used when programming the SID efuses. 
+
+</p><p>There is also a EFUSE_VDDQ pin (pin T9 on A10) which is normally tied to GND but which we guess needs to have suitable power to enable efuse programming. Details unknown.
+
+</p><h5><span class="mw-headline" id="SID_WRITE_CTRL">SID_WRITE_CTRL</span></h5>
+<p>Default value: 0x00000000<br />
+Offset: 0x44
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default (Hex)
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>SID_WRITE_START</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0x00 = done writing
+    0x01 = start writing
+  </tt>
+</pre>
+</td>
+<td>Writes when enabled, returns to 0 after writing.
+</td></tr>
+<tr>
+<td><tt>no operation</tt>
+</td>
+<td><tt>1:3</tt>
+</td>
+<td><tt></tt>
+</td>
+<td><tt></tt>
+</td>
+<td><tt></tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>SID_WRITE_POS</tt>
+</td>
+<td><tt>4:7</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0x00 = macrocell 0
+    0x01 = macrocell 1
+    0x02 = macrocell 2
+    0x03 = macrocell 3
+  </tt>
+</pre>
+</td>
+<td>Index of which of the 4 hardware macrocell fuses to burn. It is currently unknown where to obtain said value from but a guess is register 0x40.
+</td></tr>
+<tr>
+<td><tt>no operation</tt>
+</td>
+<td><tt>8:31</tt>
+</td>
+<td><tt></tt>
+</td>
+<td><tt></tt>
+</td>
+<td><tt></tt>
+</td>
+<td>
+</td></tr></tbody></table>
+<h2><span id="A83T/A64/H3/H6"></span><span class="mw-headline" id="A83T.2FA64.2FH3.2FH6">A83T/A64/H3/H6</span></h2>
+<p>Newer SoCs have a 2 kbit eFUSE area with a new controller.
+</p><p>For Allwinner <a href="A83T.html" title="A83T">A83T</a> and <a href="H3.html" title="H3">H3</a> the SID address space starts at 0x01c14000, and the e-fuses are at offset 0x200 - so the address to use for these SoCs is <b>0x01c14200</b>.
+</p>
+<h3><span class="mw-headline" id="Registers">Registers</span></h3>
+<p>Base address: <tt>0x01c14000</tt>
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Register Name</th>
+<th>Offset</th>
+<th>Size</th>
+<th>Description
+</th></tr>
+<tr>
+<td><a href="#SID_PRCTL">SID_PRCTL</a></td>
+<td>0x40</td>
+<td>4B</td>
+<td>Control register
+</td></tr>
+<tr>
+<td><a href="#SID_PRKEY">SID_PRKEY</a></td>
+<td>0x50</td>
+<td>4B</td>
+<td>Program data
+</td></tr>
+<tr>
+<td><a href="#SID_RDKEY">SID_RDKEY</a></td>
+<td>0x60</td>
+<td>4B</td>
+<td>Read data
+</td></tr></tbody></table>
+<h4><span class="mw-headline" id="SID_PRCTL">SID_PRCTL</span></h4>
+<table class="wikitable" style="max-width:1000px; margin-right:0px;">
+<tbody><tr>
+<th style="padding:0em 1em; font-size:75%; color:#444444;">Offset</th>
+<td style="padding:0em 1em;" colspan="2"><center><tt>0x40</tt></center></td>
+</tr>
+<tr style="font-size:75%; color:#444444;">
+<th style="padding:0em 1em; min-width:23em;">Name</th>
+<th style="padding:0em 1em;">Bits</th>
+<th style="padding:0em 1em;">R/W</th>
+<th style="padding:0em 1em;">Default</th>
+<th style="padding:0em 1em;">Values</th>
+<th style="padding:0em 1em; width:100%; text-align:left;">Description</th>
+</tr>
+
+
+
+<tr>
+<td style="padding:0em .4em;"><tt> 
+</tt></td>
+<td><tt>31:24</tt></td>
+<td><center><tt>RW</tt></center></td>
+<td><center><tt></tt></center></td>
+<td></td>
+<td style="padding:0em .4em;"><i>reserved</i></td>
+</tr>
+
+
+
+<tr>
+<td style="padding:0em .4em;"><tt> SID_PRCTL_OFFSET
+</tt></td>
+<td><tt>23:16</tt></td>
+<td><center><tt>RW</tt></center></td>
+<td><center><tt></tt></center></td>
+<td></td>
+<td style="padding:0em .4em;">eFUSE offset</td>
+</tr>
+
+
+
+<tr>
+<td style="padding:0em .4em;"><tt> SID_PRCTL_OP_LOCK
+</tt></td>
+<td><tt>15:8 </tt></td>
+<td><center><tt>W</tt></center></td>
+<td><center><tt></tt></center></td>
+<td><pre>0xac</pre></td>
+<td style="padding:0em .4em;">magic value to prevent accidental programming</td>
+</tr>
+
+
+
+<tr>
+<td style="padding:0em .4em;"><tt> 
+</tt></td>
+<td><tt> 7:2 </tt></td>
+<td><center><tt>RW</tt></center></td>
+<td><center><tt></tt></center></td>
+<td></td>
+<td style="padding:0em .4em;"><i>reserved</i></td>
+</tr>
+
+
+
+<tr>
+<td style="padding:0em .4em;"><tt> SID_PRCTL_READ
+</tt></td>
+<td><tt>   1 </tt></td>
+<td><center><tt>RW</tt></center></td>
+<td><center><tt></tt></center></td>
+<td></td>
+<td style="padding:0em .4em;">write 1 to read eFUSE, clears after finish</td>
+</tr>
+
+
+
+<tr>
+<td style="padding:0em .4em;"><tt> SID_PRCTL_WRITE
+</tt></td>
+<td><tt>   0 </tt></td>
+<td><center><tt>RW</tt></center></td>
+<td><center><tt></tt></center></td>
+<td></td>
+<td style="padding:0em .4em;">write 1 to program eFUSE, clears after finish</td>
+</tr>
+
+
+</tbody></table>
+<h4><span class="mw-headline" id="SID_PRKEY">SID_PRKEY</span></h4>
+<table class="wikitable" style="max-width:1000px; margin-right:0px;">
+<tbody><tr>
+<th style="padding:0em 1em; font-size:75%; color:#444444;">Offset</th>
+<td style="padding:0em 1em;" colspan="2"><center><tt>0x50</tt></center></td>
+</tr>
+<tr style="font-size:75%; color:#444444;">
+<th style="padding:0em 1em; min-width:23em;">Name</th>
+<th style="padding:0em 1em;">Bits</th>
+<th style="padding:0em 1em;">R/W</th>
+<th style="padding:0em 1em;">Default</th>
+<th style="padding:0em 1em;">Values</th>
+<th style="padding:0em 1em; width:100%; text-align:left;">Description</th>
+</tr>
+
+
+
+<tr>
+<td style="padding:0em .4em;"><tt> SID_PRKEY
+</tt></td>
+<td><tt>31:0 </tt></td>
+<td><center><tt>RW</tt></center></td>
+<td><center><tt></tt></center></td>
+<td></td>
+<td style="padding:0em .4em;">data to program to eFUSE</td>
+</tr>
+
+
+</tbody></table>
+<h4><span class="mw-headline" id="SID_RDKEY">SID_RDKEY</span></h4>
+<table class="wikitable" style="max-width:1000px; margin-right:0px;">
+<tbody><tr>
+<th style="padding:0em 1em; font-size:75%; color:#444444;">Offset</th>
+<td style="padding:0em 1em;" colspan="2"><center><tt>0x60</tt></center></td>
+</tr>
+<tr style="font-size:75%; color:#444444;">
+<th style="padding:0em 1em; min-width:23em;">Name</th>
+<th style="padding:0em 1em;">Bits</th>
+<th style="padding:0em 1em;">R/W</th>
+<th style="padding:0em 1em;">Default</th>
+<th style="padding:0em 1em;">Values</th>
+<th style="padding:0em 1em; width:100%; text-align:left;">Description</th>
+</tr>
+
+
+
+<tr>
+<td style="padding:0em .4em;"><tt> SID_RDKEY
+</tt></td>
+<td><tt> 31:0 </tt></td>
+<td><center><tt>RW</tt></center></td>
+<td><center><tt></tt></center></td>
+<td></td>
+<td style="padding:0em .4em;">data read from eFUSE</td>
+</tr>
+
+
+</tbody></table>
+<h1><span class="mw-headline" id="eFUSE_Contents">eFUSE Contents</span></h1>
+<h2><span class="mw-headline" id="eFUSE_Region_Overview">eFUSE Region Overview</span></h2>
+<h3><span class="mw-headline" id="SoCs_before_H6">SoCs before H6</span></h3>
+<table class="wikitable">
+<tbody><tr>
+<th>Name</th>
+<th>Offset</th>
+<th>Size</th>
+<th>Description
+</th></tr>
+<tr>
+<td>CHIPID</td>
+<td>0x00</td>
+<td>128 bit</td>
+<td>Chip-ID, also known as SID
+</td></tr>
+<tr>
+<td>OEM_PROGRAM</td>
+<td>0x10</td>
+<td>32 bit</td>
+<td><i>unknown</i>
+</td></tr>
+<tr>
+<td>NV1</td>
+<td>0x14</td>
+<td>32 bit</td>
+<td><i>unknown</i>
+</td></tr>
+<tr>
+<td>NV2</td>
+<td>0x18</td>
+<td>64 bit</td>
+<td>BSP Wi-Fi MAC address (according to SDK)
+</td></tr>
+<tr>
+<td>RSAKEY_HASH</td>
+<td>0x20</td>
+<td>160 bit</td>
+<td><i>unknown</i>
+</td></tr>
+<tr>
+<td>THERMAL_SENSOR</td>
+<td>0x34</td>
+<td>64 bit</td>
+<td>Thermal sensor calibration data
+</td></tr>
+<tr>
+<td>RENEWABILITY</td>
+<td>0x3c</td>
+<td>64 bit</td>
+<td><i>unknown</i>
+</td></tr>
+<tr>
+<td>HUK</td>
+<td>0x44</td>
+<td>256 bit</td>
+<td>Hardware Unique Key, later split in IN(192), IDENTIFI(32), ID(32)
+</td></tr>
+<tr>
+<td><a href="#ROTPK_HASH">ROTPK_HASH</a></td>
+<td>0x64</td>
+<td>256 bit</td>
+<td>SHA256 hash of the "Root of Trust" public key
+</td></tr>
+<tr>
+<td>SSK</td>
+<td>0x84</td>
+<td>128 bit</td>
+<td><i>unknown</i>
+</td></tr>
+<tr>
+<td>RSSK</td>
+<td>0x94</td>
+<td>256 bit</td>
+<td><i>unknown</i>
+</td></tr>
+<tr>
+<td>HDCP_HASH</td>
+<td>0xb4</td>
+<td>128 bit</td>
+<td><i>unknown</i>
+</td></tr>
+<tr>
+<td>EK_HASH</td>
+<td>0xc4</td>
+<td>128 bit</td>
+<td><i>unknown</i>
+</td></tr>
+<tr>
+<td>SN</td>
+<td>0xd4</td>
+<td>192 bit</td>
+<td><i>unknown, RESERVED before A64</i>
+</td></tr>
+<tr>
+<td>NV2_BACKUP</td>
+<td>0xec</td>
+<td>? bit</td>
+<td><i>unknown, RESERVED before A64</i>
+</td></tr>
+<tr>
+<td><a href="#LCJS">LCJS</a></td>
+<td>0xf4</td>
+<td>32 bit</td>
+<td>Flags (secure boot mode, ...)
+</td></tr>
+<tr>
+<td>DEBUG</td>
+<td>0xf8</td>
+<td>32 bit</td>
+<td><i>unknown</i>
+</td></tr>
+<tr>
+<td>CHIP_CONFIG</td>
+<td>0xfc</td>
+<td>32 bit</td>
+<td>Status of the keys (already written, read allowed, etc)
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="H6">H6</span></h3>
+<table class="wikitable">
+<tbody><tr>
+<th>Name</th>
+<th>Offset</th>
+<th>Size</th>
+<th>Description
+</th></tr>
+<tr>
+<td>CHIPID</td>
+<td>0x00</td>
+<td>128 bit</td>
+<td>Chip-ID, also known as SID
+</td></tr>
+<tr>
+<td><a href="#BROM_CONFIG">BROM_CONFIG</a></td>
+<td>0x10</td>
+<td>32 bit</td>
+<td><i>unknown</i>, "16 bits config, 16 bits try"
+</td></tr>
+<tr>
+<td>THERMAL_SENSOR</td>
+<td>0x14</td>
+<td>64 bit</td>
+<td>Thermal sensor calibration data
+</td></tr>
+<tr>
+<td>TF_ZONE</td>
+<td>0x1c</td>
+<td>128 bit</td>
+<td><i>unknown</i>, probably reserved for Trusted Firmware
+</td></tr>
+<tr>
+<td>OEM_PROGRAM</td>
+<td>0x2c</td>
+<td>160 bit</td>
+<td><i>unknown</i>, "emac 16 + tvout 32 + reserv 112"
+</td></tr>
+<tr>
+<td>MAC</td>
+<td>0x38</td>
+<td>64 bit</td>
+<td>MAC address, overlaps OEM_PROGRAM
+</td></tr>
+<tr>
+<td>WRITE_PROTECT</td>
+<td>0x40</td>
+<td>32 bit</td>
+<td><i>unknown</i>, possibly a new CHIP_CONFIG
+</td></tr>
+<tr>
+<td>READ_PROTECT</td>
+<td>0x44</td>
+<td>32 bit</td>
+<td><i>unknown</i>, possibly a new CHIP_CONFIG
+</td></tr>
+<tr>
+<td><a href="#LCJS">LCJS</a></td>
+<td>0x48</td>
+<td>32 bit</td>
+<td>Flags (secure boot mode, ...)
+</td></tr>
+<tr>
+<td>ATTR</td>
+<td>0x4c</td>
+<td>32 bit</td>
+<td><i>unknown</i>
+</td></tr>
+<tr>
+<td>HUK</td>
+<td>0x50</td>
+<td>256 bit</td>
+<td>Hardware Unique Key, later split in IN(192), IDENTIFI(32), ID(32)
+</td></tr>
+<tr>
+<td>VENDOR_ID</td>
+<td>0x5C</td>
+<td>32 bit</td>
+<td>Read by SBROM to check <a href="TOC0.html" title="TOC0">TOC0</a> key item, overlaps HUK
+</td></tr>
+<tr>
+<td><a href="#ROTPK_HASH">ROTPK_HASH</a></td>
+<td>0x70</td>
+<td>256 bit</td>
+<td>SHA256 hash of the "Root of Trust" public key
+</td></tr>
+<tr>
+<td>SSK</td>
+<td>0x90</td>
+<td>128 bit</td>
+<td><i>unknown</i>
+</td></tr>
+<tr>
+<td>RSSK</td>
+<td>0xa0</td>
+<td>256 bit</td>
+<td><i>unknown</i>
+</td></tr>
+<tr>
+<td>HDCP_HASH</td>
+<td>0xc0</td>
+<td>128 bit</td>
+<td><i>unknown</i>
+</td></tr>
+<tr>
+<td>EK_HASH</td>
+<td>0xd0</td>
+<td>128 bit</td>
+<td><i>unknown</i>
+</td></tr>
+<tr>
+<td>SN</td>
+<td>0xe0</td>
+<td>192 bit</td>
+<td><i>unknown</i>
+</td></tr>
+<tr>
+<td>NV1</td>
+<td>0xf8</td>
+<td>32 bit</td>
+<td><i>unknown</i>
+</td></tr>
+<tr>
+<td>NV2</td>
+<td>0xfc</td>
+<td>224 bit</td>
+<td><i>unknown</i>
+</td></tr>
+<tr>
+<td>HDCP_PKF</td>
+<td>0x118</td>
+<td>128 bit</td>
+<td><i>unknown</i>
+</td></tr>
+<tr>
+<td>HDCP_DUK</td>
+<td>0x128</td>
+<td>128 bit</td>
+<td><i>unknown</i>
+</td></tr>
+<tr>
+<td>BACKUP_KEY</td>
+<td>0x138</td>
+<td>576 bit</td>
+<td><i>unknown</i>
+</td></tr>
+<tr>
+<td>SCK0</td>
+<td>0x180</td>
+<td>256 bit</td>
+<td><i>unknown</i>
+</td></tr>
+<tr>
+<td>SCK0_MASK</td>
+<td>0x1a0</td>
+<td>256 bit</td>
+<td><i>unknown</i>
+</td></tr>
+<tr>
+<td>SCK1</td>
+<td>0x1c0</td>
+<td>256 bit</td>
+<td><i>unknown</i>
+</td></tr>
+<tr>
+<td>SCK1_MASK</td>
+<td>0x1e0</td>
+<td>256 bit</td>
+<td><i>unknown</i>
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="Specific_eFUSE_Values">Specific eFUSE Values</span></h2>
+<h3><span class="mw-headline" id="ROTPK_HASH">ROTPK_HASH</span></h3>
+<p>Contains the SHA256 hash of the 2048-bit RSA public key used to verify the signature of the first code executed after BROM, the so-called <a href="TOC0.html" title="TOC0">TOC0</a>. In the case of a TOC0 containing a key item, the ROTPK is used to sign the key item, and the secondary key in the key item is used to sign the TOC0 firmware contents.
+</p><p>ROTPK_HASH = SHA256([Byte 0-255] = RSA modulus || [Byte 256-x] = RSA public exponent || [Byte x-511] filled with 0x91)
+</p><p>The hash isn't checked as long as all 32-bit words in this eFUSE have the same value. This means, only the signature is verified, but not the key used to sign, so any key can be used.
+</p>
+<h3><span class="mw-headline" id="LCJS">LCJS</span></h3>
+<table class="wikitable">
+<tbody><tr>
+<th>Name</th>
+<th>Bits</th>
+<th>Values</th>
+<th>Description
+</th></tr>
+<tr>
+<td>LCJS_CUSTOM_DMA_WAIT</td>
+<td>31:30
+</td>
+<td><pre>  0x2  = custom wait cycles (para0 * para1)
+ other = fixed wait cycles (32)
+</pre>
+</td>
+<td>BROM flag: DMA wait cycles
+</td></tr>
+<tr>
+<td>LCJS_CE_CLK_SRC</td>
+<td>29:28
+</td>
+<td><pre>  0x2  = PLL_PERIPH0/4
+ other = OSC24M
+</pre>
+</td>
+<td>SBROM flag: CE clock source
+</td></tr>
+<tr>
+<td>LCJS_DMA_WAIT_PARA1</td>
+<td>27:24
+</td>
+<td>
+</td>
+<td>BROM param: DMA wait cycles
+</td></tr>
+<tr>
+<td>LCJS_DMA_WAIT_PARA0</td>
+<td>23:20
+</td>
+<td>
+</td>
+<td>BROM param: DMA wait cycles
+</td></tr>
+<tr>
+<td>LCJS_SW_SHA256</td>
+<td>19:18
+</td>
+<td><pre>  0x2  = software SHA256
+ other = CE hardware SHA256
+</pre>
+</td>
+<td>SBROM flag: use software SHA256 instead of CE
+</td></tr>
+<tr>
+<td>LCJS_MAGIC_FEL_FLAG</td>
+<td>17:16
+</td>
+<td><pre>  0x2  = set flag
+ other = don't set flag
+</pre>
+</td>
+<td>SBROM flag: write magic value at 0x2800, which is checked by FEL code (what does FEL do with it?)
+</td></tr>
+<tr>
+<td>LCJS_SECURE_BOOT</td>
+<td>11</td>
+<td><pre> 0x1 = secure boot
+ 0x0 = normal boot
+</pre>
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="BROM_CONFIG">BROM CONFIG</span></h3>
+<p>Note: Addresses below come from the H6 SBROM.
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name</th>
+<th>Bits</th>
+<th>Values</th>
+<th>Description
+</th></tr>
+<tr>
+<td>UNKNOWN</td>
+<td>31:29</td>
+<td>unknown</td>
+<td>probably unused
+</td></tr>
+<tr>
+<td>BOOT_SELECT</td>
+<td>28:16</td>
+<td>unknown</td>
+<td>See Manual for details
+</td></tr>
+<tr>
+<td>UNKNOWN</td>
+<td>15</td>
+<td><pre>0x0: boot toc0 with 0x10303
+0x1: boot toc0 without 0x10303
+</pre></td>
+<td>
+</td></tr>
+<tr>
+<td>CE_CLK_DIV</td>
+<td>14</td>
+<td><pre>When BROM_CONFIG[13] is clear:
+  0x0:&#160;??? Clock init
+  0x1:&#160;??? Clock init
+When BROM_CONFIG[13] is set:
+  0x0: CE_SCLK = PLL_PERIPH0 / 4
+  0x1: CE_SCLK = PLL_PERIPH0 / 6
+</pre></td>
+<td>
+</td></tr>
+<tr>
+<td>CE_CLK_SRC</td>
+<td>13</td>
+<td>unknown</td>
+<td>Controls clock init in FUN_00001164
+</td></tr>
+<tr>
+<td>MAGIC_FEL_FLAG</td>
+<td>12</td>
+<td><pre>0x0: don't copy magic
+0x1: copy magic
+</pre></td>
+<td>SBROM: write magic values to 0x22800, 0x22804
+</td></tr>
+<tr>
+<td>SW_SHA256</td>
+<td>11</td>
+<td><pre>0x0: CE sha256
+0x1: software sha256
+</pre></td>
+<td>
+</td></tr>
+<tr>
+<td>DMA0_WAIT_CYCLES</td>
+<td>10:8</td>
+<td><pre>(integer)</pre></td>
+<td>Only used when bits 5 and 7 are set
+</td></tr>
+<tr>
+<td>DMA0_WAIT_FLAG</td>
+<td>7</td>
+<td><pre>0x0: Use 0x20
+0x1: Use BROM_CONFIG[10:8] * 0x10
+</pre></td>
+<td>Only used when bit 5 is set
+</td></tr>
+<tr>
+<td>DMA0_MODE_1</td>
+<td>6</td>
+<td><pre>0x0: Set DMA0 to Handshake Mode
+0x1: Set DMA0 to Wait Mode
+</pre></td>
+<td>Used in FUN_000005a4
+</td></tr>
+<tr>
+<td>DMA0_MODE_0</td>
+<td>5</td>
+<td><pre>0x0: Set DMA0 to Handshake Mode
+0x1: Set DMA0 to Wait Mode
+</pre></td>
+<td>Used in FUN_000040d8
+</td></tr>
+<tr>
+<td>UNKNOWN</td>
+<td>4</td>
+<td><pre>0x0: Use the first 2 entries of each table
+0x1: Use the first 4 entries of each table
+</pre></td>
+<td>Chooses which part of the tables at 0x9a14-0x9c1c will be used when iterating in FUN_0000595c
+</td></tr>
+<tr>
+<td>UNKNOWN</td>
+<td>3</td>
+<td>unknown</td>
+<td>FUN_000007dc, used at 0x5d80 by NAND code
+</td></tr>
+<tr>
+<td>UNKNOWN</td>
+<td>2</td>
+<td>unknown</td>
+<td>FUN_000007b4, used at 0x6B00: possibly SMHC / DMA related&#160;?
+</td></tr>
+<tr>
+<td>UNKNOWN</td>
+<td>1</td>
+<td><pre>0x0: Do not add delay
+0x1: Add delay and a debug callout at several places in the BROM
+</pre></td>
+<td>
+</td></tr>
+<tr>
+<td>BOOT_MODE</td>
+<td>0</td>
+<td><pre>0x0: GPIO Pin Select
+0x1: eFuse Select
+</pre></td>
+<td>
+</td></tr>
+</tbody></table>
+<h1><span id="Currently_known_SID's"></span><span class="mw-headline" id="Currently_known_SID.27s">Currently known SID's</span></h1>
+<p>You may try to retrieve the SID value via our <a href="Sunxi-tools.html" title="Sunxi-tools">sunxi-tools</a> (<code>./sunxi-fel sid</code>) - or dump it from within U-Boot using the corresponding, SoC-specific address (e.g. <code>md.l 0x01c23800 4</code>). If running a mainline kernel hexdump should be sufficient.
+</p>
+<pre>hexdump -C /sys/bus/nvmem/devices/sunxi-sid0/nvmem
+00000000  16 51 66 c6 80 51 77 89  54 53 48 48 0a 40 f2 67  |<a href="https://linux-sunxi.org/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="8ba5daeda5a5dafca5dfd8c3c3a5cba5ec">[email&#160;protected]</a>|
+00000010  00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+</pre>
+<p>Simple script to run on legacy kernel with devmem2:
+</p>
+<pre>d0=`./devmem2 0x01c14200 w|grep Value|sed 's/^.*: 0x/ /'`
+d1=`./devmem2 0x01c14204 w|grep Value|sed 's/^.*: 0x/ /'`
+d2=`./devmem2 0x01c14208 w|grep Value|sed 's/^.*: 0x/ /'`
+d3=`./devmem2 0x01c1420c w|grep Value|sed 's/^.*: 0x/ /'`
+echo $d0 $d1 $d2 $d3
+</pre>
+<p><br />
+</p>
+<table class="wikitable sortable">
+
+<tbody><tr>
+<th>Board</th>
+<th>eeprom</th>
+<th>package batch</th>
+<th>notes
+</th></tr>
+<tr>
+<td colspan="4" style="text-align:center;"><b>A10</b>
+</td></tr>
+<tr>
+<td>Cubieboard 1.0 1024 (A10)</td>
+<td><tt>16236747 80728452 50574848 064163D5</tt>
+</td></tr>
+<tr>
+<td>Cubieboard 1.0 1024 (A10)</td>
+<td><tt>162367C7 80778052 50554848 0201DDC3</tt>
+</td></tr>
+<tr>
+<td>Cubieboard 1.0 1024 (A10)</td>
+<td><tt>16236750 80758352 52574848 08025081</tt>
+</td></tr>
+<tr>
+<td>Cubieboard 1.0 1024 (A10)</td>
+<td><tt>16236745 80778052 50554848 07C171AD</tt>
+</td></tr>
+<tr>
+<td>Cubieboard 1.0 1024 (A10)</td>
+<td><tt>16236743 80758952 54544848 0642d3e9</tt>
+</td></tr>
+<tr>
+<td>Cubieboard 1.0 1024 (A10)</td>
+<td><tt>16236790 80758952 54544848 03c21c4e</tt>
+</td></tr>
+<tr>
+<td>Cubieboard 1.0 1024 (A10)</td>
+<td><tt>162367d9 80758952 54544848 08c21483</tt>
+</td></tr>
+<tr>
+<td>Cubieboard 1.0 1024 (A10)</td>
+<td><tt>16236798 80758952 54544848 0781186a</tt>
+</td></tr>
+<tr>
+<td>Cubieboard 1.0 1024 (A10)</td>
+<td><tt>1623674c 80758952 54544848 0a02c845</tt>
+</td></tr>
+<tr>
+<td>Cubieboard 1.0 1024 (A10)</td>
+<td><tt>1623670f 80758952 54544848 0981e268</tt>
+</td></tr>
+<tr>
+<td>Cubieboard 1.0 1024 (A10)</td>
+<td><tt>1623678b 80778251 54534848 0a4285d6</tt>
+</td></tr>
+<tr>
+<td>Cubieboard 1.0 1024 (A10)</td>
+<td><tt>16236743 80758952 54544848 06410f3d</tt>
+</td></tr>
+<tr>
+<td>Gemei G9 (A10)</td>
+<td><tt>16236712 80726652 57524848 04c29968</tt>
+</td></tr>
+<tr>
+<td>Mele A1000 (A10) early version</td>
+<td><tt>00000000 00000000 00000000 00000000</tt>
+</td></tr>
+<tr>
+<td>pcDuino (A10)</td>
+<td><tt>16236755 80758952 53554848 0a41e8c9 </tt>
+</td></tr>
+<tr>
+<td>A10-Lime (A10)</td>
+<td><tt>16236782 80778350 51504848 0a0274fa</tt></td>
+<td></td>
+<td><a href="User:Tkaiser.html" title="User:Tkaiser">Tkaiser</a>, via hexdump
+</td></tr>
+<tr>
+<td colspan="4" style="text-align:center;"><b>A10s</b>
+</td></tr>
+<tr>
+<td>R7 hdmi-stick (A10s)</td>
+<td><tt>16254157 504B4133 30397030 0A41FA85</tt>
+</td></tr>
+<tr>
+<td>mk802 hdmi-stick (A10s)</td>
+<td><tt>16254115 50484E39 35397030 0D02F6E8</tt>
+</td></tr>
+<tr>
+<td>OlinuXino (A10S)</td>
+<td><tt>162541d3 50485937 30357030 04020663</tt>
+</td></tr>
+<tr>
+<td colspan="4" style="text-align:center;"><b>A13</b> / <b>R8</b>
+</td></tr>
+<tr>
+<td>A13B tablet (A13)</td>
+<td><tt>16254216 504E4837 39313030 06819C58</tt>
+</td></tr>
+<tr>
+<td>OlinuXIno (A13)</td>
+<td><tt>16254147 50475838 36313030 0341B75D</tt>
+</td></tr>
+<tr>
+<td>OlinuXIno (A13)</td>
+<td><tt>16254159 50475838 36313030 0B4181E9</tt>
+</td></tr>
+<tr>
+<td>OlinuXIno (A13)</td>
+<td><tt>16254158 504B4E39 35303030 0A0185F5</tt>
+</td></tr>
+<tr>
+<td>OlinuXIno Micro (A13)</td>
+<td><tt>16254187 504b4e39 35303030 094313f2</tt>
+</td></tr>
+<tr>
+<td>NextThingCo CHIP v1.0 (R8)</td>
+<td><tt>1625420f 50303647 36363030 0400b0b0</tt>
+</td></tr>
+<tr>
+<td>NextThingCo CHIP v1.0 (R8)</td>
+<td><tt>16254293 50303858 31333030 0282919a</tt>
+</td></tr>
+<tr>
+<td>Nolimbook (A13)</td>
+<td><tt>162542c1 50525039 30313030 06420e6b</tt>
+</td></tr>
+<tr>
+<td colspan="4" style="text-align:center;"><b>A20</b>
+</td></tr>
+<tr>
+<td>EOMA68-A20 (A20)</td>
+<td><tt>165165c7 80807552 55564848 0842c7fb</tt>
+</td></tr>
+<tr>
+<td>Cubietruck (A20)</td>
+<td><tt>16516683 80485172 49514848 0940e0da </tt></td>
+<td></td>
+<td><a href="User:Plaes.html" title="User:Plaes">plaes</a>, via sunxi-fel
+</td></tr>
+<tr>
+<td>Cubietruck (A20)</td>
+<td><tt>16516507 80808952 56524848 03c18168</tt>
+</td></tr>
+<tr>
+<td>Cubietruck (A20)</td>
+<td><tt>16516581 80808952 56524848 0583548e </tt>
+</td></tr>
+<tr>
+<td>Cubietruck (A20)</td>
+<td><tt>16516587 80808952 56524848 0b81d536 </tt>
+</td></tr>
+<tr>
+<td>Banana Pi (A20)</td>
+<td><tt>1651664f 80485686 53504848 0702dde9</tt>
+</td></tr>
+<tr>
+<td>Banana Pi (A20)</td>
+<td><tt>1651668a 80485788 51484848 02825172</tt>
+</td></tr>
+<tr>
+<td>Banana Pi M1 (A20)</td>
+<td><tt>165166cc 80485666 53564848 09c255a3</tt></td>
+<td></td>
+<td>kc's
+</td></tr>
+<tr>
+<td>Banana Pi R1 (A20)</td>
+<td><tt>16516604 80485686 52524848 0641E864</tt></td>
+<td></td>
+<td>kc's bpi-r1 (using devmem2)
+</td></tr>
+<tr>
+<td>A20-OLinuXIno-LIME2 (A20)</td>
+<td><tt>16516608 80485172 49484848 0800ccfc</tt></td>
+<td></td>
+<td><a href="User:Tkaiser.html" title="User:Tkaiser">Tkaiser</a>, via hexdump
+</td></tr>
+<tr>
+<td>A20-OLinuXIno-LIME2 (A20)</td>
+<td><tt>165166c6 80517789 54534848 0a40f267</tt>
+</td></tr>
+<tr>
+<td>A20-OLinuXino-MICRO (A20)</td>
+<td><tt>00000000 00000000 00000000 00000000 </tt></td>
+<td></td>
+<td>(2 verified)
+</td></tr>
+<tr>
+<td>Cubieboard 2.0 1024 (A20)</td>
+<td><tt>00000000 00000000 00000000 00000000 </tt></td>
+<td></td>
+<td>(3 verified)
+</td></tr>
+<tr>
+<td colspan="4" style="text-align:center;"><b>A31s</b>, SID in AXP221/AXP221s
+</td></tr>
+<tr>
+<td>CSQ CS908 (A31s)</td>
+<td><tt>16524251 434e3038 34010088 080d81eb</tt>
+</td></tr>
+<tr>
+<td>Mele A1000G quad (A31)</td>
+<td><tt>16524251 43423635 32000045 060a7a38</tt>
+</td></tr>
+<tr>
+<td colspan="4" style="text-align:center;"><b>A33</b>/<b>R16</b>
+</td></tr>
+<tr>
+<td>Aoson M751S (A33)</td>
+<td><tt>0461872a 034c0106 9b486765 00000000</tt>
+</td></tr>
+<tr>
+<td>iNet D978 Rev02 (A33)</td>
+<td><tt>0461872a 03386006 1846b855 00000000</tt>
+</td></tr>
+<tr>
+<td>Nintendo NES Classic (R16)</td>
+<td><tt>0461872a 86583185 9ae7d847 6c118000</tt>
+</td></tr>
+<tr>
+<td colspan="4" style="text-align:center;"><b>H2+</b>
+</td></tr>
+<tr>
+<td>Orange Pi Zero</td>
+<td><tt>02004620 3435c614 5030034e 58000032</tt>
+</td></tr>
+<tr>
+<td>Orange Pi Zero</td>
+<td><tt>02c00042 34004620 5035c614 0439098e</tt></td>
+<td><tt>G6079BA 67B1</tt>
+</td></tr>
+<tr>
+<td>Banana Pi M2 Zero (early sample without VDD-CPUX regulation)</td>
+<td><tt>02c00042 44004620 78674320 041e044e</tt></td>
+<td><tt>G9035BA 6CD5</tt>
+</td></tr>
+<tr>
+<td>Banana Pi M2 Zero</td>
+<td><tt>02C00042 14004620 78870618 0C190412</tt>
+</td></tr>
+<tr>
+<td colspan="4" style="text-align:center;"><b>H3</b>
+</td></tr>
+<tr>
+<td>Banana Pi M2+</td>
+<td><tt>02004620 94358000 502d05ce 5800006c</tt>
+</td></tr>
+<tr>
+<td>Banana Pi M2+</td>
+<td><tt>02004620 94358000 50350a8e 4c000022</tt>
+</td></tr>
+<tr>
+<td>HYH-TBH3</td>
+<td><tt>02C00081 00004620 51900618 a058e187</tt></td>
+<td></td>
+<td>BroderTuck's 'Smart Android Box' (using devmem2)
+</td></tr>
+<tr>
+<td>NanoPi NEO</td>
+<td><tt>02004620 24358810 502405ce 2800000a</tt>
+</td></tr>
+<tr>
+<td>NanoPi NEO</td>
+<td><tt>02c00081 44004620 5035c204 2c2e0c4e</tt></td>
+<td>G5071BA 65L3</td>
+<td>Lion's batch -- #1
+</td></tr>
+<tr>
+<td>NanoPi NEO</td>
+<td><tt>02c00081 44004620 5035c204 2417068e</tt></td>
+<td>G5071BA 65L3</td>
+<td>Lion's batch -- #2
+</td></tr>
+<tr>
+<td>NanoPi NEO</td>
+<td><tt>02c00081 44004620 5035c204 242301ce</tt></td>
+<td>G5071BA 65L3</td>
+<td>Lion's batch -- #3
+</td></tr>
+<tr>
+<td>NanoPi M1</td>
+<td><tt>02004620 64358720 50320c8e 40000069</tt>
+</td></tr>
+<tr>
+<td>Orange Pi PC</td>
+<td><tt>02004620 94340508 5040068e 54000000</tt>
+</td></tr>
+<tr>
+<td>Orange Pi PC</td>
+<td><tt>02004620 94340508 502b0a8e 24000000</tt>
+</td></tr>
+<tr>
+<td>Orange Pi PC</td>
+<td><tt>02004620 24340408 50330d0e 60000000</tt>
+</td></tr>
+<tr>
+<td>Orange Pi PC</td>
+<td><tt>02004620 34344314 503a04ce 80000000</tt>
+</td></tr>
+<tr>
+<td>Orange Pi PC</td>
+<td><tt>02004620 34344314 503b0c0e 80000000</tt>
+</td></tr>
+<tr>
+<td>Orange Pi PC</td>
+<td><tt>02c00081 94004620 50340508 3035080e</tt></td>
+<td><tt>F7008BA 68E3</tt></td>
+<td>kc's opipc#1
+</td></tr>
+<tr>
+<td>Orange Pi PC</td>
+<td><tt>02c00081 54004620 50354520 1033080e</tt></td>
+<td><tt>G2064BA 62T3</tt></td>
+<td>kc's opipc#2
+</td></tr>
+<tr>
+<td>Orange Pi PC</td>
+<td><tt>02c00081 54004620 50354520 1c34020e</tt></td>
+<td></td>
+<td>NiteHawk's OPiPC, (incorrect) value before was<br /><tt>02004620 54354520 5034020e 1c000000</tt>
+</td></tr>
+<tr>
+<td>Orange Pi PC</td>
+<td><tt>02c00081 54004620 50358720 4c1c058e</tt></td>
+<td><tt>G4075BA 64P3</tt>
+</td></tr>
+<tr>
+<td>Orange Pi PC Plus</td>
+<td><tt>02004620 1435811c 50340a0e 4c00006f</tt>
+</td></tr>
+<tr>
+<td>Orange Pi PC Plus</td>
+<td><tt>02004620 1435811c 5024010e 5c000080</tt>
+</td></tr>
+<tr>
+<td>Orange Pi Plus</td>
+<td><tt>02004620 94340508 501a050e 4000006d</tt>
+</td></tr>
+<tr>
+<td>Orange Pi Plus 2</td>
+<td><tt>02004620 34344314 5021034e 5c000000</tt>
+</td></tr>
+<tr>
+<td>Orange Pi Plus 2E</td>
+<td><tt>02004620 1435811c 501d078e 4c000060</tt>
+</td></tr>
+<tr>
+<td>Orange Pi Plus 2E</td>
+<td><tt>02004620 1435811c 503f050e 48000085</tt>
+</td></tr>
+<tr>
+<td>Orange Pi Plus 2E</td>
+<td><tt>02c00081 14004620 5035811c 4423098e</tt></td>
+<td><tt>G4060BA-64H3</tt></td>
+<td>kc's opi+2e
+</td></tr>
+<tr>
+<td>Orange Pi Lite</td>
+<td><tt>02004620 1435811c 5022018e 64000022</tt>
+</td></tr>
+<tr>
+<td>Orange Pi Lite</td>
+<td><tt>02004620 1435811c 5018050e 3c000011</tt>
+</td></tr>
+<tr>
+<td>Orange Pi Lite</td>
+<td><tt>02c00081 14004620 50354718 3422048e</tt>
+</td></tr>
+<tr>
+<td>Orange Pi One</td>
+<td><tt>02004620 9435430c 502e034e 58000000</tt>
+</td></tr>
+<tr>
+<td>Orange Pi One</td>
+<td><tt>02004620 4435c204 502404ce 20000065</tt>
+</td></tr>
+<tr>
+<td>Orange Pi One</td>
+<td><tt>02c00081 74004620 50358720 3c27048e</tt></td>
+<td><tt>G5039BA 6593</tt>
+</td></tr>
+<tr>
+<td>Orange Pi 2</td>
+<td><tt>02004620 34900700 51360a0c 0c000050</tt>
+</td></tr>
+<tr>
+<td>NanoPi NEO</td>
+<td><tt>02c00081 24004620 50358810 282405ce</tt></td>
+<td></td>
+<td><a href="User:Tkaiser.html" title="User:Tkaiser">Tkaiser</a>, via hexdump
+</td></tr>
+<tr>
+<td>NanoPi M1 Plus</td>
+<td><tt>02c00081 74004620 5035c504 6416090e</tt></td>
+<td></td>
+<td><a href="User:Tkaiser.html" title="User:Tkaiser">Tkaiser</a>, via hexdump
+</td></tr>
+<tr>
+<td colspan="4" style="text-align:center;"><b>H5</b>
+</td></tr>
+<tr>
+<td>Orange Pi PC 2</td>
+<td><tt>82800001 24004704 5035c120 303403cc</tt>
+</td></tr>
+<tr>
+<td>Orange Pi PC 2</td>
+<td><tt>82800001 44004704 5035c120 2c2d07cc</tt>
+</td></tr>
+<tr>
+<td>Orange Pi PC 2</td>
+<td><tt>82800001 34004704 5035c120 1c2d02cc</tt></td>
+<td><tt>G7015AA 67E1</tt>
+</td></tr>
+<tr>
+<td>Orange Pi Prime</td>
+<td><tt>82800001 34004704 5035c200 382f020c</tt></td>
+<td><tt>G8112AA 6AU2</tt>
+</td></tr>
+<tr>
+<td>NanoPi NEO2</td>
+<td><tt>82800001 34004704 5035c200 3c2b068c</tt></td>
+<td><tt>G8112AA 6AU2</tt></td>
+<td>FriendlyELEC sent to Icenowy, #1
+</td></tr>
+<tr>
+<td>NanoPi NEO2</td>
+<td><tt>82800001 34004704 5035c200 303a080c</tt></td>
+<td><tt>G8112AA 6AU2</tt></td>
+<td>FriendlyELEC sent to Icenowy, #2, in the same order with #1
+</td></tr>
+<tr>
+<td>NanoPi K1 Plus</td>
+<td><tt>82800001 64004704 5036c304 082a068e</tt></td>
+<td></td>
+<td><a href="User:Tkaiser.html" title="User:Tkaiser">Tkaiser</a>, via hexdump
+</td></tr>
+<tr>
+<td colspan="4" style="text-align:center;"><b>A64</b>
+</td></tr>
+<tr>
+<td>Pine64 sample (green LED)</td>
+<td><tt>92c000ba 24104620 51900808 14160acb</tt>
+</td></tr>
+<tr>
+<td>Pine64+ sample (green LED)</td>
+<td><tt>92c000ba 24004620 51900808 141709cb</tt>
+</td></tr>
+<tr>
+<td>Pine64+ (red LED)</td>
+<td><tt>92c000ba 04004620 51900804 0805070b</tt>
+</td></tr>
+<tr>
+<td>Pine64+ 2GB (red LED)</td>
+<td><tt>92c000ba 04004620 51900804 040905cb</tt>
+</td></tr>
+<tr>
+<td>Pine64+ 2GB (red LED)</td>
+<td><tt>92c000ba 54104620 51900808 581802cb</tt></td>
+<td><tt>F8059BA 4977</tt>
+</td></tr>
+<tr>
+<td>Pine64+ 2GB (red LED)</td>
+<td><tt>92c000ba 54104620 51900808 280c094b</tt></td>
+<td><tt>F8059BA 4977</tt>
+</td></tr>
+<tr>
+<td>SoPine RevC</td>
+<td><tt>92c000ba 84004620 50344424 141908cd</tt></td>
+<td><tt>F9192BA 4967</tt>
+</td></tr>
+<tr>
+<td>Banana Pi M64</td>
+<td><tt>92c000ba 84104620 51900800 6020024b</tt>
+</td></tr>
+<tr>
+<td colspan="4" style="text-align:center;"><b>H64</b>
+</td></tr>
+<tr>
+<td>Jide Remix Mini</td>
+<td><tt>92c000bb 44004620 51900808 1011028b</tt>
+</td></tr>
+<tr>
+<td colspan="4" style="text-align:center;"><b>H6</b>
+</td></tr>
+<tr>
+<td>Pine H64</td>
+<td><tt>82c00001 0c004708 0141043e 24881dcb</tt></td>
+<td></td>
+<td><a href="User:Tkaiser.html" title="User:Tkaiser">Tkaiser</a>, early developer sample, via hexdump
+</td></tr>
+<tr>
+<td>Orange Pi Lite 2</td>
+<td><tt>82c00001 0c004708 0141043e 5474224b</tt></td>
+<td></td>
+<td><a href="User:Tkaiser.html" title="User:Tkaiser">Tkaiser</a>, early developer sample, via hexdump
+</td></tr>
+<tr>
+<td>Pine H64</td>
+<td><tt>82c00007 4c004708 01414109 447f210f</tt>
+</td></tr>
+<tr>
+<td>OrangePi 3 LTS</td>
+<td><tt>82c00007 8c004708 01480944 0c981ed3</tt></td>
+<td></td>
+<td><a href="User:Tkaiser.html" title="User:Tkaiser">Tkaiser</a>, via hexdump
+</td></tr>
+<tr>
+<td>OrangePi 3 LTS</td>
+<td><tt>82c00007 8c004708 0146c430 1c731e13</tt></td>
+<td></td>
+<td><a href="User:Tkaiser.html" title="User:Tkaiser">Tkaiser</a>, via hexdump
+</td></tr>
+<tr>
+<td colspan="4" style="text-align:center;"><b>H313</b>
+</td></tr>
+<tr>
+<td>Tanix TX1</td>
+<td><tt>32c05c00 cc004808 0145c33d 20952110</tt></td>
+<td></td>
+<td>apritzel
+</td></tr>
+<tr>
+<td>X96Q Pro</td>
+<td><tt>32c05000 ac004808 01412010 3c991e8e</tt></td>
+<td></td>
+<td><a href="User:CodeKipper" title="User:CodeKipper">codekipper</a>, via hexdump
+</td></tr>
+<tr>
+<td colspan="4" style="text-align:center;"><b>H616</b>
+</td></tr>
+<tr>
+<td>OrangePi Zero 2</td>
+<td><tt>32c05000 fc004808 01454650 507e208f</tt></td>
+<td></td>
+<td><a href="https://linux-sunxi.org/index.php?title=User:Ctag&amp;action=edit&amp;redlink=1" class="new" title="User:Ctag (page does not exist)">ctag</a>, via hexdump
+</td></tr>
+<tr>
+<td>OrangePi Zero 2</td>
+<td><tt>32c05000 6c004808 0141db4c 489921ce</tt></td>
+<td></td>
+<td><a href="User:Tkaiser.html" title="User:Tkaiser">Tkaiser</a>, via hexdump
+</td></tr>
+<tr>
+<td>OrangePi Zero 2</td>
+<td><tt>32c05000 cc004808 01411a64 3c7f228e</tt></td>
+<td></td>
+<td>apritzel
+</td></tr>
+<tr>
+<td>X96 Mate</td>
+<td><tt>32c05000 5c004808 01411c74 2c7c1a8e</tt></td>
+<td></td>
+<td>apritzel
+</td></tr>
+<tr>
+<td colspan="4" style="text-align:center;"><b>H618</b>
+</td></tr>
+<tr>
+<td>OrangePi Zero 2W</td>
+<td><tt>33802000 4c004808 01474228 146d2391</tt></td>
+<td></td>
+<td><a href="User:Tkaiser.html" title="User:Tkaiser">Tkaiser</a>, via hexdump
+</td></tr>
+<tr>
+<td>OrangePi Zero 2W</td>
+<td><tt>33802000 4c004808 01474228 1c921fd1</tt></td>
+<td></td>
+<td><a href="https://linux-sunxi.org/index.php?title=User:Arthurzheng&amp;action=edit&amp;redlink=1" class="new" title="User:Arthurzheng (page does not exist)">Arthur Zheng</a>, via hexdump
+</td></tr>
+<tr>
+<td>OrangePi Zero 3</td>
+<td><tt>33802000 4c004808 01474788 546e1ed1</tt></td>
+<td></td>
+<td>apritzel
+</td></tr>
+<tr>
+<td>OrangePi Zero 3</td>
+<td><tt>33802000 6c004808 01080100 4c731bd2</tt></td>
+<td></td>
+<td>ValdikSS
+</td></tr>
+<tr>
+<td>Transpeed 8K618-T</td>
+<td><tt>33802000 0c004808 0143005d 60861dd1</tt></td>
+<td></td>
+<td>apritzel
+</td></tr>
+<tr>
+<td colspan="4" style="text-align:center;"><b>H700</b>
+</td></tr>
+<tr>
+<td>Anbernic RG35XX-Plus</td>
+<td><tt>33806c00 1c004808 01464541 5c7b2291</tt></td>
+<td></td>
+<td>acmeplus
+</td></tr>
+<tr>
+<td>Anbernic RG35XX-H</td>
+<td><tt>33806c00 6c004808 0106c504 48671e12</tt></td>
+<td></td>
+<td>acmeplus
+</td></tr>
+<tr>
+<td>Anbernic RG35XX-Plus</td>
+<td><tt>33806c00 6c004808 0106c504 508d1d92</tt></td>
+<td></td>
+<td>Tokyovigilante
+</td></tr>
+<tr>
+<td colspan="4" style="text-align:center;"><b>R40</b>
+</td></tr>
+<tr>
+<td>Banana Pi M2 Ultra</td>
+<td><tt>12c00017 14104700 5190410c 2417088c</tt>
+</td></tr>
+<tr>
+<td colspan="4" style="text-align:center;"><b>V3s</b>
+</td></tr>
+<tr>
+<td>Lichee Pi Zero</td>
+<td><tt>12c00000 44104620 5033c810 5c23118d</tt>
+</td></tr>
+<tr>
+<td colspan="4" style="text-align:center;"><b>D1</b>
+</td></tr>
+<tr>
+<td>Lichee 86 Panel</td>
+<td><tt>00504093 1448005c 31624201 8b206238</tt></td>
+<td></td>
+<td>Jookia
+</td></tr>
+<tr>
+<td colspan="4" style="text-align:center;"><b>T113-S3</b>
+</td></tr>
+<tr>
+<td>Mango Pi MQ Dual</td>
+<td><tt>93406000 1c004814 0147054c 28461a91</tt></td>
+<td></td>
+<td>Jookia
+</td></tr>
+<tr>
+<td>Mango Pi MQ Dual</td>
+<td><tt>93406000 0c004814 01464015 5469190c</tt></td>
+<td></td>
+<td>Jookia (ordered same time as previous)
+</td></tr>
+<tr>
+<td>Mango Pi MQ Dual</td>
+<td><tt>93406000 0c004814 01474331 583719d2</tt></td>
+<td></td>
+<td>Jookia
+</td></tr>
+<tr>
+<td>Mango Pi MQ-R</td>
+<td><tt>93406000 ac004814 01440821 4c66174b</tt></td>
+<td></td>
+<td>apritzel
+</td></tr>
+<tr>
+<td colspan="4" style="text-align:center;"><b>T113-S4</b>
+</td></tr>
+<tr>
+<td>EmbedSky TQT113 (M4020DC0)</td>
+<td><tt>93407200 4c004814 01088f71 5c4f16d6</tt></td>
+<td></td>
+<td>Jookia
+</td></tr>
+<tr>
+<td colspan="4" style="text-align:center;"><b>A523</b>
+</td></tr>
+<tr>
+<td>Teclast P85T</td>
+<td><tt>02c05200 70404824 75741408 48791e51</tt></td>
+<td></td>
+<td>apritzel
+</td></tr>
+<tr>
+<td>Teclast P85T</td>
+<td><tt>02c05200 91c04824 75744c18 38931ed1</tt></td>
+<td></td>
+<td>wingrime
+</td></tr>
+<tr>
+<td colspan="4" style="text-align:center;"><b>A527</b>
+</td></tr>
+<tr>
+<td>Radxa Cubie A5E</td>
+<td><tt>0300ff10 80304824 7590d118 647e2313</tt></td>
+<td></td>
+<td>apritzel, A527 M00X0000
+</td></tr>
+<tr>
+<td>Avaota A1</td>
+<td><tt>0300ff10 70c04824 7590d120 607d1dd4</tt></td>
+<td></td>
+<td>apritzel, A527 M00X000H
+</td></tr>
+<tr>
+<td colspan="4" style="text-align:center;"><b>T527</b>
+</td></tr>
+<tr>
+<td>Avaota A1</td>
+<td><tt>03005f30 70504824 75901010 50721fd3</tt></td>
+<td></td>
+<td>apritzel, T527 M00X0DCH
+</td></tr>
+<tr>
+<td colspan="4" style="text-align:center;"><b>H728</b>
+</td></tr>
+<tr>
+<td>X96QPro+</td>
+<td><tt>0300ff00 81c04824 75b09010 1c821cd6</tt></td>
+<td></td>
+<td>apritzel
+</td></tr>
+<tr>
+<td>X96QPro+</td>
+<td><tt>0300ff00 81704824 75b09010 147f1cd6</tt></td>
+<td></td>
+<td>BroderTuck
+</td></tr>
+<tr>
+<td colspan="4" style="text-align:center;"><b>B288</b>
+</td></tr>
+<tr>
+<td>PocketBook Era</td>
+<td><tt>93000000 24004624 7930860c 40140d4b</tt></td>
+<td></td>
+<td>ValdikSS
+</td></tr></tbody></table>
+<dl><dd><a href="File:Sticky-note-pin.png.html" class="image"><img alt="Sticky-note-pin.png" src="https://linux-sunxi.org/images/f/f0/Sticky-note-pin.png" decoding="async" width="16" height="16" /></a> <i>Note:</i> The H3 SIDs starting with 02004620 are likely wrong due to a quirk of H3. A silicon bug manifests itself in a way that returns a garbled SID (root key) when reading the values solely via memory access. Accessing the SID <i>once</i> via register access seems to fix this, even for subsequent memory reading - see the <a rel="nofollow" class="external text" href="https://groups.google.com/forum/#!topic/linux-sunxi/ynyIP8c61Qs#!topic/linux-sunxi/ynyIP8c61Qs">discussion on the mailing list</a>. Corresponding entries in the table above therefore cannot be trusted, and need to be refreshed. A <a class="external text" href="https://github.com/linux-sunxi/sunxi-tools/commit/a3ce5f9f76a371e54eb51445720682a35d7fa8a2">fix for sunxi-fel</a> is now available.</dd></dl>
+<p>Newer SoC families no longer seem to follow the above pattern of containing the SoC ID within the first value.<br />
+However, the leading 32 bits still appear to be consistent among the same SoCs with the <a class="external text" href="https://github.com/ThomasKaiser/sbc-bench/blob/bf5f4ad6296ee09596ab1057f013a2e453f55247/sbc-bench.sh#L5379-L5388#L5379-L5388">potential exception of some bits used for SoC revision or batch number or something similar</a>:
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>SoC</th>
+<th>ID</th>
+<th>SID key
+</th></tr>
+<tr>
+<td>A33 (R16)</td>
+<td>0x1667</td>
+<td><tt>0461872a [...]</tt>
+</td></tr>
+<tr>
+<td>A64</td>
+<td>0x1689</td>
+<td><tt>92c000ba/92c001ba [...]</tt>
+</td></tr>
+<tr>
+<td>A83T</td>
+<td>0x1673</td>
+<td><tt>32c00401/32c00403 [...]</tt>
+</td></tr>
+<tr>
+<td>H2+</td>
+<td>0x1680</td>
+<td><tt>02c00042/02c00142/02c00242 [...]</tt>
+</td></tr>
+<tr>
+<td>H3</td>
+<td>0x1680</td>
+<td><tt>02c00081/02c00181 [...]</tt>
+</td></tr>
+<tr>
+<td>H5</td>
+<td>0x1718</td>
+<td><tt>82800001 [...]</tt>
+</td></tr>
+<tr>
+<td>H6</td>
+<td>0x1728</td>
+<td><tt>82c00001/82c00007 [...]</tt>
+</td></tr>
+<tr>
+<td>H64</td>
+<td>0x1689</td>
+<td><tt>92c000bb [...]</tt>
+</td></tr>
+<tr>
+<td>R40</td>
+<td>0x1701</td>
+<td><tt>12c00017 [...]</tt>
+</td></tr></tbody></table>
+<!-- 
+NewPP limit report
+Cached time: 20251029040305
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.776 seconds
+Real time usage: 0.826 seconds
+Preprocessor visited node count: 343/1000000
+Post‐expand include size: 5764/2097152 bytes
+Template argument size: 2432/2097152 bytes
+Highest expansion depth: 6/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 1628/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   78.862      1 -total
+ 81.81%   64.515      3 Template:REG
+ 21.58%   17.016      8 Template:REG/FIELD
+ 13.15%   10.369      1 Template:Note
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:583-0!canonical and timestamp 20251029040304 and revision id 26785
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=SID_Register_Guide&amp;oldid=26785">https://linux-sunxi.org/index.php?title=SID_Register_Guide&amp;oldid=26785</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Categories</a>: <ul><li><a href="Category:A10_Register_guide.html" title="Category:A10 Register guide">A10 Register guide</a></li><li><a href="Category:A13_Register_guide.html" title="Category:A13 Register guide">A13 Register guide</a></li><li><a href="Category:A20_Register_guide.html" title="Category:A20 Register guide">A20 Register guide</a></li><li><a href="Category:Hardware.html" title="Category:Hardware">Hardware</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=SID+Register+Guide" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=SID+Register+Guide" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="SID_Register_Guide.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:SID_Register_Guide&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="SID_Register_Guide.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=SID_Register_Guide&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=SID_Register_Guide&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/SID_Register_Guide.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/SID_Register_Guide" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=SID_Register_Guide&amp;oldid=26785" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=SID_Register_Guide&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 13 October 2025, at 21:39.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script data-cfasync="false" src="https://linux-sunxi.org/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.776","walltime":"0.826","ppvisitednodes":{"value":343,"limit":1000000},"postexpandincludesize":{"value":5764,"limit":2097152},"templateargumentsize":{"value":2432,"limit":2097152},"expansiondepth":{"value":6,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":1628,"limit":5000000},"timingprofile":["100.00%   78.862      1 -total"," 81.81%   64.515      3 Template:REG"," 21.58%   17.016      8 Template:REG/FIELD"," 13.15%   10.369      1 Template:Note"]},"cachereport":{"timestamp":"20251029040305","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":774});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

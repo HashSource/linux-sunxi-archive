@@ -1,0 +1,410 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>1-Wire - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"750256c511c96be07f2c2ac9","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"1-Wire","wgTitle":"1-Wire","wgCurRevisionId":26603,"wgRevisionId":26603,"wgArticleId":839,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Tutorial","Hardware"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"1-Wire","wgRelevantArticleId":839,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":"ready","user":
+"ready","user.options":"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=mediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="1-Wire.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-1-Wire rootpage-1-Wire skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">1-Wire</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#One_Wire"><span class="tocnumber">1</span> <span class="toctext">One Wire</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#1-Wire_support_for_Mainline_kernel"><span class="tocnumber">1.1</span> <span class="toctext">1-Wire support for Mainline kernel</span></a>
+<ul>
+<li class="toclevel-3 tocsection-3"><a href="#Device_Tree"><span class="tocnumber">1.1.1</span> <span class="toctext">Device Tree</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-4"><a href="#Linux_kernel_3.4"><span class="tocnumber">1.2</span> <span class="toctext">Linux kernel 3.4</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Linux_kernel_4.14"><span class="tocnumber">1.3</span> <span class="toctext">Linux kernel 4.14</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Read_Data_Sensor"><span class="tocnumber">1.4</span> <span class="toctext">Read Data Sensor</span></a>
+<ul>
+<li class="toclevel-3 tocsection-7"><a href="#BASH"><span class="tocnumber">1.4.1</span> <span class="toctext">BASH</span></a></li>
+<li class="toclevel-3 tocsection-8"><a href="#Python"><span class="tocnumber">1.4.2</span> <span class="toctext">Python</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="One_Wire">One Wire</span></h2>
+<p><b>1-Wire</b> is a device communications bus system designed by Dallas Semiconductor that provides low-speed data, signaling, and power over a single signal. 1-Wire is similar in concept to <a href="I%C2%B2C.html" class="mw-redirect" title="I²C">I²C</a>, but with lower data rates and longer range. It is typically used to communicate with small inexpensive devices such as digital thermometers and weather instruments. A network of 1-Wire devices with an associated master device is called a <i>MicroLan</i>.
+</p>
+<h3><span class="mw-headline" id="1-Wire_support_for_Mainline_kernel">1-Wire support for Mainline kernel</span></h3>
+<p>To communicate with 1-wire devices it is recommended to use  <b>w1-gpio</b> driver as most of the Allwinner SoCs lack hardware controller (only present on A31 and A80).
+</p>
+<h4><span class="mw-headline" id="Device_Tree">Device Tree</span></h4>
+<p>Create an overlay for your devicetree (assuming 1-wire device is connected to PE12 pin):
+</p>
+<pre>/dts-v1/;
+/plugin/;
+
+&amp;{/} {
+        onewire {
+        compatible = "w1-gpio";
+        gpios = &lt;&amp;pio 4 12 16&gt;;
+        /* 4: "E" of PE12;
+        12: "12" of PE12;
+        16: GPIO_PULL_UP as defined in dt-bindings/gpio/gpio.h */
+        status = "okay";
+        };
+};
+</pre>
+<p>Save this snippet with a name like sun50i-a64-w1-gpio-PE12.dts and compile it with:
+</p>
+<pre>dtc -I dts -O dtb sun50i-a64-w1-gpio-PE12.dts -o sun50i-a64-w1-gpio-PE12.dtbo
+</pre>
+<p>Specify the .dtbo file path in the fdtoverlays list inside the /boot/uEnv.txt file:
+</p>
+<pre>cat /boot/uEnv.txt
+fdtoverlays=/root/sun50i-a64-w1-gpio-PE12.dtbo
+</pre>
+<p>Reboot and check whether it's enabled:
+</p>
+<pre>cat /sys/kernel/debug/pinctrl/1c20800.pinctrl/pinmux-pins |grep PE12
+</pre>
+<p>The pin is properly configured if you have an output like:
+</p>
+<pre>pin 140 (PE12): GPIO 1c20800.pinctrl:140
+</pre>
+<h3><span class="mw-headline" id="Linux_kernel_3.4">Linux kernel 3.4</span></h3>
+<p>Edit the script.fex file and set the gpio pin for 1-wire bus
+</p>
+<pre class="brush: ini">
+
+[gpio_para]
+gpio_used = 1
+gpio_num = 67
+gpio_pin_1 = port:PG03&lt;1&gt;&lt;default&gt;&lt;default&gt;&lt;1&gt;
+....
+gpio_pin_66 = port:PB10&lt;1&gt;&lt;default&gt;&lt;default&gt;&lt;1&gt;
+
+[w1_para]
+gpio = 66
+</pre>
+<p>Connect the data pin of devices to gpio pin PB10 and in sys folder you have
+</p>
+<pre>/sys/bus/w1/devices/
+28-000004bfae30
+28-000004c022c5
+</pre>
+<p>what are connect  2 DS18B20 devices
+</p>
+<pre>cat /sys/bus/w1/devices/28-000004bfae30/w1_slave
+45 01 4b 46 7f ff 0b 10 84&#160;: crc=84 YES
+45 01 4b 46 7f ff 0b 10 84 t=20312
+</pre>
+<p>the temp is 20.312 °C
+</p>
+<h3><span class="mw-headline" id="Linux_kernel_4.14">Linux kernel 4.14</span></h3>
+<p>You don't have to edit the fex-file, but the /boot/armbianEnv.txt and add the lines:
+</p>
+<pre>overlays=w1-gpio
+param_w1_pin=PB10             # desired pin
+param_w1_pin_int_pullup=1     # internal pullup-resistor: 1=on, 0=off
+</pre>
+<p>Connect the data pin of devices to gpio pin PB10 and proceed like Kernel 3.4 with 
+</p>
+<pre>/sys/bus/w1/devices/
+28-000004bfae30
+28-000004c022c5
+</pre>
+<p>and
+</p>
+<pre>cat /sys/bus/w1/devices/28-000004bfae30/w1_slave
+45 01 4b 46 7f ff 0b 10 84&#160;: crc=84 YES
+45 01 4b 46 7f ff 0b 10 84 t=20312
+</pre>
+<h3><span class="mw-headline" id="Read_Data_Sensor">Read Data Sensor</span></h3>
+<h4><span class="mw-headline" id="BASH">BASH</span></h4>
+<p>simple bash script for read 1-wire temp sensor
+</p>
+<pre class="brush: ini">
+
+#!/bin/bash
+
+file="/sys/bus/w1/devices/28-000004bfae30/w1_slave"
+function find(){
+ [[ "$1" =~ "$2" ]] &amp;&amp; true || false
+}
+
+while&#160;:
+do
+	DATE=$(date +"%d-%m-%Y-%H:%M:%S")
+	#read device
+	CRC=false
+	while read curline; do
+		#check crc
+		if( find "$curline" "crc" &amp;&amp; find "$curline" "YES" ) then
+			CRC=true
+			DEVICE=`echo $curline|cut -d':' -f 1`	
+		fi
+		if($CRC &amp;&amp; find "$curline" "t=") then
+		TEMP=`echo $curline|cut -d'=' -f 2`
+		echo $DEVICE ";" $DATE ";" `echo "scale=3;$TEMP/1000"|bc -l` 
+		fi
+	done &lt;$file
+sleep 10
+done
+</pre>
+<h4><span class="mw-headline" id="Python">Python</span></h4>
+<pre>def get_thermometer_filepath(thermometer_id: str):
+    import os
+    thermometer_filepath = os.path.join("/sys/bus/w1/devices/", thermometer_id, "w1_slave")
+    try:
+        with open(thermometer_filepath, "r"):
+            pass
+    except FileNotFoundError as e:
+        print("Thermometer sysfs file not found: " + str(e))
+        thermometer_filepath = None
+    return thermometer_filepath
+
+def get_temperature(thermometer_filepath: str):
+    if thermometer_filepath:
+        err = None
+        try:
+            with open(thermometer_filepath, "r") as w1handle:
+                lines = w1handle.readlines()
+                try:
+                    crc = lines[0].strip().endswith("YES")
+                    if crc:
+                        return int(lines[1][29:].strip())/1000
+                    else:
+                        err = "Thermometer read CRC failed: " + thermometer_filepath
+                except IndexError as e:
+                    err = "Thermometer sysfs file "+thermometer_filepath+" is empty (communication unsuccessful): " + str(e)
+        except FileNotFoundError as e:
+            err = "Thermometer sysfs file "+thermometer_filepath+" not found: " + str(e)
+        print(err)
+        return -99.99
+    else:
+        return -99.99
+</pre>
+<p>Usage:
+</p>
+<pre>temperature = get_temperature(get_thermometer_filepath("28-000010400ca7"))
+</pre>
+<!-- 
+NewPP limit report
+Cached time: 20251029034345
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.013 seconds
+Real time usage: 0.043 seconds
+Preprocessor visited node count: 37/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 2069/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:839-0!canonical and timestamp 20251029034345 and revision id 26603
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=1-Wire&amp;oldid=26603">https://linux-sunxi.org/index.php?title=1-Wire&amp;oldid=26603</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Categories</a>: <ul><li><a href="Category:Tutorial.html" title="Category:Tutorial">Tutorial</a></li><li><a href="Category:Hardware.html" title="Category:Hardware">Hardware</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=1-Wire" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=1-Wire" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="1-Wire.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:1-Wire&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="1-Wire.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=1-Wire&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=1-Wire&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/1-Wire.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/1-Wire" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=1-Wire&amp;oldid=26603" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=1-Wire&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 16 July 2025, at 10:09.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.013","walltime":"0.043","ppvisitednodes":{"value":37,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":2069,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20251029034345","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":153});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

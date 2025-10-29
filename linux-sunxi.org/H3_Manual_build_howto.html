@@ -1,0 +1,423 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>H3 Manual build howto - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"6c1350bcd50b56d4fd29a6ec","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"H3_Manual_build_howto","wgTitle":"H3 Manual build howto","wgCurRevisionId":19247,"wgRevisionId":19247,"wgArticleId":2176,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Tutorial","Manual build howto"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"H3_Manual_build_howto","wgRelevantArticleId":2176,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":
+"ready","noscript":"ready","user.styles":"ready","user":"ready","user.options":"loading","ext.categoryTree.styles":"ready","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","ext.categoryTree","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=ext.categoryTree.styles%7Cmediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="H3_Manual_build_howto.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-H3_Manual_build_howto rootpage-H3_Manual_build_howto skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">H3 Manual build howto</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p><span style="color:#ba0000">This is currently a placeholder for an H3 specific rework of the <a href="Manual_build_howto.html" title="Manual build howto">Manual build howto</a>.</span>
+</p><p><br />
+</p>
+<table style="margin: 0.7em; border-width: 1px 1px 1px 10px; border-style: solid; border-color: #EE8822; background-color: #FFEEDD">
+<tbody><tr>
+<td style="padding: 0.2em; vertical-align: baseline;"><a href="File:MBOX_icon_important.png.html" class="image"><img alt="MBOX icon important.png" src="https://linux-sunxi.org/images/f/f0/MBOX_icon_important.png" decoding="async" width="40" height="40" /></a>
+</td>
+<td style="width:100%; padding-left: 0.2em; padding-right: 0.2em; vertical-align: baseline;">This page provides instructions for the legacy unmaintained Allwinner BSP.
+<p>It is only here for historical reasons. Please follow the <a href="Mainline_U-Boot.html" class="mw-redirect" title="Mainline U-Boot">Mainline U-Boot</a> / <a href="Mainline_Kernel_Howto.html" title="Mainline Kernel Howto">Mainline Kernel Howto</a>.
+</p>
+</td></tr></tbody></table>
+<p>This page describes the process to combine Allwinners binary boot0, an SDK U-Boot, an SDK linux kernel and other bits together to create a useful SD-card from scratch, the basis for further hacking.
+</p><p>This page is only suited for <a href="H3.html" title="H3">H3</a> based devices, please look under <a href="#See_also">See also</a> for other manual build howtos.
+</p><p>We of course do not build a whole distribution, we only build U-Boot, the kernel and a handful of tools, and then use an existing rootfs to get a useful system. Depending on the rootfs size, you might want to use a 2GB or larger SD Card. SD-card partitioning and formatting will be taken care of later.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Getting_a_cross_toolchain"><span class="tocnumber">1</span> <span class="toctext">Getting a cross toolchain</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Installing_boot0"><span class="tocnumber">2</span> <span class="toctext">Installing boot0</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Building_u-boot"><span class="tocnumber">3</span> <span class="toctext">Building u-boot</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Installing_onto_Storage"><span class="tocnumber">4</span> <span class="toctext">Installing onto Storage</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="#SD_card"><span class="tocnumber">4.1</span> <span class="toctext">SD card</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="#Building_the_kernel"><span class="tocnumber">5</span> <span class="toctext">Building the kernel</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Setting_up_the_boot_partition"><span class="tocnumber">6</span> <span class="toctext">Setting up the boot partition</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#Setting_up_the_rootfs"><span class="tocnumber">7</span> <span class="toctext">Setting up the rootfs</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#Boot.21"><span class="tocnumber">8</span> <span class="toctext">Boot!</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="#See_also"><span class="tocnumber">9</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Getting_a_cross_toolchain">Getting a cross toolchain</span></h1>
+<p>For this part, you need to refer to our <a href="Toolchain.html" title="Toolchain"> toolchain page</a>.
+</p>
+<h1><span class="mw-headline" id="Installing_boot0">Installing boot0</span></h1>
+<table style="margin: 0.7em; border-width: 1px 1px 1px 10px; border-style: solid; border-color: #EE8822; background-color: #FFEEDD">
+<tbody><tr>
+<td style="padding: 0.2em; vertical-align: baseline;"><a href="File:MBOX_icon_important.png.html" class="image"><img alt="MBOX icon important.png" src="https://linux-sunxi.org/images/f/f0/MBOX_icon_important.png" decoding="async" width="40" height="40" /></a>
+</td>
+<td style="width:100%; padding-left: 0.2em; padding-right: 0.2em; vertical-align: baseline;">This page provides instructions for the legacy unmaintained Allwinner BSP.
+<p>It is only here for historical reasons. Please follow the <a href="Mainline_U-Boot.html" class="mw-redirect" title="Mainline U-Boot">Mainline U-Boot</a> / <a href="Mainline_Kernel_Howto.html" title="Mainline Kernel Howto">Mainline Kernel Howto</a>.
+</p>
+</td></tr></tbody></table>
+<p>SDKs only ship a binary version of boot0. This is a pristine version, and needs to be
+seeded with information such as the debug UART, DRAM clock rates, NAND/MMC ports.
+Normally this is done during the packing process. This section goes through the process
+manually.
+There are 2 flavors of boot0: 1 for NAND, and 1 for SD/MMC.
+One will not work with the other, as boot0 loads the next stage bootloader (U-Boot)
+from the respective supported storage.
+The boot0 binary can be found under
+</p>
+<pre>lichee/tools/pack/chips/sun8iw7p1/bin/
+</pre>
+<p>The following is a series of commands (ELF 64-bit) to properly prepare boot0 for usage.
+</p>
+<pre># Using sun8iw7p1 "dolphin-p1" Board as an example
+# Under lichee/tools/pack
+
+# Copy fex file
+cp -fv chips/sun8iw7p1/configs/dolphin-p1/sys_config.fex out/sys_config.fex
+
+# Copy boot0
+cp -fv chips/sun8iw7p1/bin/boot0_sdcard_sun8iw7p1.bin out/boot0_sdcard.fex
+
+# Fex file compiler requires fex file in CRLF format
+unix2dos out/sys_config.fex
+
+# Compile fex file
+pctools/linux/mod_update/script out/sys_config.fex
+
+</pre>
+<p>For compiling The fex file it's preferable to use fex2bin (fexc) from <a href="Sunxi-tools.html" title="Sunxi-tools">sunxi-tools</a>
+</p>
+<pre># Compile fex file with fex2bin (sunxi-tools)
+fex2bin out/sys_config.fex out/sys_config.bin
+</pre>
+<p>This will give you some errors, but they are simple to fix.
+</p><p>Continue with commands from SDK:
+</p>
+<pre># Patch sdcard boot0
+pctools/linux/mod_update/update_boot0 out/boot0_sdcard.fex out/sys_config.bin SDMMC_CARD
+</pre>
+<p>You can then dd the boot0 image onto an SD card. See below for instructions.
+</p>
+<h1><span class="mw-headline" id="Building_u-boot">Building u-boot</span></h1>
+<table style="margin: 0.7em; border-width: 1px 1px 1px 10px; border-style: solid; border-color: #EE8822; background-color: #FFEEDD">
+<tbody><tr>
+<td style="padding: 0.2em; vertical-align: baseline;"><a href="File:MBOX_icon_important.png.html" class="image"><img alt="MBOX icon important.png" src="https://linux-sunxi.org/images/f/f0/MBOX_icon_important.png" decoding="async" width="40" height="40" /></a>
+</td>
+<td style="width:100%; padding-left: 0.2em; padding-right: 0.2em; vertical-align: baseline;">This page provides instructions for the legacy unmaintained Allwinner BSP.
+<p>It is only here for historical reasons. Please follow the <a href="Mainline_U-Boot.html" class="mw-redirect" title="Mainline U-Boot">Mainline U-Boot</a> / <a href="Mainline_Kernel_Howto.html" title="Mainline Kernel Howto">Mainline Kernel Howto</a>.
+</p>
+</td></tr></tbody></table>
+<p>Building U-Boot is fairly straightforward. But before building check env settings in:
+brandy/u-boot-2011.09/include/configs/sun8iw7p1.h -&gt; #define CONFIG_EXTRA_ENV_SETTINGS
+</p><p>Then build the U-Boot binary:
+</p>
+<pre>lichee$ cd brandy/u-boot-2011.09
+
+u-boot-2011.09$ make sun8iw7p1_config
+
+u-boot-2011.09$ make
+[...]
+arm-linux-gnueabi-objcopy --gap-fill=0xff -O binary u-boot u-boot.bin
+'u-boot-sun8iw7p1.bin' -&gt; '../../tools/pack/chips/sun8iw7p1/bin/u-boot-sun8iw7p1.bin'
+</pre>
+<p>The last line shows the U-Boot binary being copied to the packing directory.
+This is because the binary still needs to be seeded with information from the fex file.
+</p><p>The following is an example to manually patch u-boot with sys_config.bin. See the boot0 section how to prepare it:
+</p>
+<pre># Under lichee/tools/pack
+
+# Copy U-Boot
+cp -fv chips/sun8iw7p1/bin/u-boot-sun8iw7p1.bin out/u-boot.fex
+
+# Patch U-Boot
+pctools/linux/mod_update/update_uboot out/u-boot.fex out/sys_config.bin
+</pre>
+<p>You can then dd the updated u-boot.fex (u-boot.bin) image onto an SD card. See below for instructions.
+</p>
+<h1><span class="mw-headline" id="Installing_onto_Storage">Installing onto Storage</span></h1>
+<h2><span class="mw-headline" id="SD_card">SD card</span></h2>
+<p>Allwinner SoCs have a specific boot process, as described in the <a href="EGON.html" title="EGON"> boot loader</a> page.
+The on-chip <a href="BROM.html" title="BROM">BROM</a> loads boot0 starting from sector 16, or 8 KiB. boot0 then loads u-boot
+starting from sector 32800, or 16400 KiB. 
+</p><p>Each of these binaries have a specific header, which includes a magic string and a checksum. 
+Both must be correct for the binary to be accepted and executed by the previous stage.
+</p><p>The following shows the process of installing boot0 and u-boot built from the H3 SDK to an
+SD card in /dev/mmcblk0. Note you must leave enough unused space before the first partition (40960),
+or u-boot may be overwritten by filesystem usage.
+</p>
+<pre># write boot0
+dd if=boot0_sdcard.fex of=/dev/sdX bs=1k seek=8
+
+# write u-boot
+dd if=u-boot.fex of=/dev/sdX bs=1k seek=16400
+</pre>
+<p>The SDK default config for u-boot only supports FAT filesystems, so you will need have a small
+FAT boot partition to store your kernel and other boot files.
+</p>
+<h1><span class="mw-headline" id="Building_the_kernel">Building the kernel</span></h1>
+<table style="margin: 0.7em; border-width: 1px 1px 1px 10px; border-style: solid; border-color: #EE8822; background-color: #FFEEDD">
+<tbody><tr>
+<td style="padding: 0.2em; vertical-align: baseline;"><a href="File:MBOX_icon_important.png.html" class="image"><img alt="MBOX icon important.png" src="https://linux-sunxi.org/images/f/f0/MBOX_icon_important.png" decoding="async" width="40" height="40" /></a>
+</td>
+<td style="width:100%; padding-left: 0.2em; padding-right: 0.2em; vertical-align: baseline;">This page provides instructions for the legacy unmaintained Allwinner BSP.
+<p>It is only here for historical reasons. Please follow the <a href="Mainline_U-Boot.html" class="mw-redirect" title="Mainline U-Boot">Mainline U-Boot</a> / <a href="Mainline_Kernel_Howto.html" title="Mainline Kernel Howto">Mainline Kernel Howto</a>.
+</p>
+</td></tr></tbody></table>
+<p>This is an example of how to build a minimal kernel using the internal (ELF 32-bit) 4.6.3 linaro toolchain (needs lib32-gcc-libs and lib32-zlib on a 64-bit system)&#160;:
+</p>
+<pre>export PATH="$PATH":/your_path_to_the_SDK/lichee/brandy/gcc-linaro/bin
+export C_INCLUDE_PATH=/usr/include
+cd lichee/linux-3.4
+mkdir output
+cp rootfs.cpio.gz output/
+make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- sun8iw7p1smp_min_defconfig
+make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- uImage modules
+make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- INSTALL_MOD_PATH=output modules_install
+</pre>
+<p>Now you can copy the generated uImage and modules to your SD card.
+</p>
+<h1><span class="mw-headline" id="Setting_up_the_boot_partition">Setting up the boot partition</span></h1>
+<p><span style="color:#ba0000">This section should refer to the <a href="Manual_build_howto.html#Setting_up_the_boot_partition" title="Manual build howto">Manual_build_howto#Setting_up_the_boot_partition</a> as much as possible.</span>
+</p>
+<h1><span class="mw-headline" id="Setting_up_the_rootfs">Setting up the rootfs</span></h1>
+<p>Please refer to <a href="Bootable_SD_card.html#Rootfs" title="Bootable SD card">Bootable_SD_card#Rootfs</a>
+</p><p>As a last step you need to copy the kernel modules into the newly created rootfs. Change into the top level directory of the newly created rootfs and run:
+</p>
+<pre>mount ${cardroot} /mnt
+mkdir -p /mnt/lib/modules
+rm -rf /mnt/lib/modules/
+cp -r &lt;PATH_TO_KERNEL_TREE&gt;/output/lib /mnt/
+umount /mnt
+</pre>
+<p>(Replace &lt;PATH_TO_KERNEL_TREE&gt; with the directory you have built your kernel in as described <a href="#Building_the_kernel">above</a>.)
+</p>
+<h1><span id="Boot!"></span><span class="mw-headline" id="Boot.21">Boot!</span></h1>
+<p>Now you should be able to unmount your SDCard filesystems, and you should be able to boot your brand new installation.
+</p>
+<h1><span class="mw-headline" id="See_also">See also</span></h1>
+<p>We have Manual build howtos for all SoCs:
+</p>
+<div class="CategoryTreeTag" data-ct-mode="10" data-ct-options="{&quot;mode&quot;:10,&quot;hideprefix&quot;:20,&quot;showcount&quot;:false,&quot;namespaces&quot;:false,&quot;notranslations&quot;:false}"><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="H3_Manual_build_howto.html" title="H3 Manual build howto">H3 Manual build howto</a></div><div class="CategoryTreeChildren" style="display:none"></div></div><div class="CategoryTreeSection"><div class="CategoryTreeItem"><span class="CategoryTreeBullet">&#160;</span> <a href="Manual_build_howto.html" title="Manual build howto">Manual build howto</a></div><div class="CategoryTreeChildren" style="display:none"></div></div></div>
+<!-- 
+NewPP limit report
+Cached time: 20251029040728
+Cache expiry: 21600
+Dynamic content: true
+Complications: []
+CPU time usage: 0.095 seconds
+Real time usage: 0.139 seconds
+Preprocessor visited node count: 186/1000000
+Post‐expand include size: 6384/2097152 bytes
+Template argument size: 2896/2097152 bytes
+Highest expansion depth: 7/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 2545/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   38.170      1 -total
+ 75.38%   28.773      4 Template:Alert
+ 65.90%   25.152      4 Template:MBOX_NOTE
+ 24.14%    9.214      4 Template:MBOX
+ 21.30%    8.130      2 Template:Remove
+  9.47%    3.614      2 Template:Red
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:2176-0!canonical and timestamp 20251029040728 and revision id 19247
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=H3_Manual_build_howto&amp;oldid=19247">https://linux-sunxi.org/index.php?title=H3_Manual_build_howto&amp;oldid=19247</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Categories</a>: <ul><li><a href="Category:Tutorial.html" title="Category:Tutorial">Tutorial</a></li><li><a href="Category:Manual_build_howto.html" title="Category:Manual build howto">Manual build howto</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=H3+Manual+build+howto" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=H3+Manual+build+howto" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="H3_Manual_build_howto.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:H3_Manual_build_howto&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="H3_Manual_build_howto.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=H3_Manual_build_howto&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=H3_Manual_build_howto&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/H3_Manual_build_howto.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/H3_Manual_build_howto" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=H3_Manual_build_howto&amp;oldid=19247" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=H3_Manual_build_howto&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 25 January 2017, at 08:31.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.095","walltime":"0.139","ppvisitednodes":{"value":186,"limit":1000000},"postexpandincludesize":{"value":6384,"limit":2097152},"templateargumentsize":{"value":2896,"limit":2097152},"expansiondepth":{"value":7,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":2545,"limit":5000000},"timingprofile":["100.00%   38.170      1 -total"," 75.38%   28.773      4 Template:Alert"," 65.90%   25.152      4 Template:MBOX_NOTE"," 24.14%    9.214      4 Template:MBOX"," 21.30%    8.130      2 Template:Remove","  9.47%    3.614      2 Template:Red"]},"cachereport":{"timestamp":"20251029040728","ttl":21600,"transientcontent":true}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":342});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

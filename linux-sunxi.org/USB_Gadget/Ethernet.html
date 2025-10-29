@@ -1,0 +1,466 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>USB Gadget/Ethernet - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"46bdd2d25e3c39f71d813e04","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"USB_Gadget/Ethernet","wgTitle":"USB Gadget/Ethernet","wgCurRevisionId":24072,"wgRevisionId":24072,"wgArticleId":3026,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["USB OTG","Tutorial"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"USB_Gadget/Ethernet","wgRelevantArticleId":3026,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready",
+"noscript":"ready","user.styles":"ready","user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=mediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="Ethernet.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-USB_Gadget_Ethernet rootpage-USB_Gadget skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">USB Gadget/Ethernet</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"><span class="subpages">&lt; <a href="../USB_Gadget" title="USB Gadget">USB Gadget</a></span></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#USB_Ethernet_support"><span class="tocnumber">1</span> <span class="toctext">USB Ethernet support</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Kernel_support"><span class="tocnumber">1.1</span> <span class="toctext">Kernel support</span></a>
+<ul>
+<li class="toclevel-3 tocsection-3"><a href="#Mainline_kernel_.28via_configfs.29"><span class="tocnumber">1.1.1</span> <span class="toctext">Mainline kernel (via configfs)</span></a></li>
+<li class="toclevel-3 tocsection-4"><a href="#Mainline_kernel_.28via_Precomposed_Configurations.29"><span class="tocnumber">1.1.2</span> <span class="toctext">Mainline kernel (via Precomposed Configurations)</span></a></li>
+<li class="toclevel-3 tocsection-5"><a href="#sunxi-3.4"><span class="tocnumber">1.1.3</span> <span class="toctext">sunxi-3.4</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-6"><a href="#Loading_the_driver_.28on_the_device.29"><span class="tocnumber">1.2</span> <span class="toctext">Loading the driver (on the device)</span></a>
+<ul>
+<li class="toclevel-3 tocsection-7"><a href="#configfs"><span class="tocnumber">1.2.1</span> <span class="toctext">configfs</span></a></li>
+<li class="toclevel-3 tocsection-8"><a href="#Precomposed_Configurations"><span class="tocnumber">1.2.2</span> <span class="toctext">Precomposed Configurations</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-9"><a href="#Configuring_the_gadget_under_configfs"><span class="tocnumber">1.3</span> <span class="toctext">Configuring the gadget under configfs</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#Configuring_the_device.27s_networking"><span class="tocnumber">1.4</span> <span class="toctext">Configuring the device's networking</span></a>
+<ul>
+<li class="toclevel-3 tocsection-11"><a href="#Ubuntu.2FDebian"><span class="tocnumber">1.4.1</span> <span class="toctext">Ubuntu/Debian</span></a>
+<ul>
+<li class="toclevel-4 tocsection-12"><a href="#Without_network_manager"><span class="tocnumber">1.4.1.1</span> <span class="toctext">Without network manager</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-13"><a href="#Setting_up_the_host"><span class="tocnumber">1.5</span> <span class="toctext">Setting up the host</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="#See_also"><span class="tocnumber">1.6</span> <span class="toctext">See also</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="USB_Ethernet_support">USB Ethernet support</span></h1>
+<p>This allows ethernet emulation over USB, allowing for all sorts of nifty things like SSH and NFS in one go plus charging over the same wire, at higher speeds than most Wifi connections.
+</p>
+<h2><span class="mw-headline" id="Kernel_support">Kernel support</span></h2>
+<h3><span id="Mainline_kernel_(via_configfs)"></span><span class="mw-headline" id="Mainline_kernel_.28via_configfs.29">Mainline kernel (via configfs)</span></h3>
+<p>The configfs approach allows you to configure the device dynamically from user-space.Thereby, additional configuration needs to be done to bring up the gadget compared with precomposed configurations.
+</p><p><i>(Instructions below were tested on A20 with kernel 5.9.0.)</i>
+</p><p>The RNDIS gadget with configfs requires a number of <i>menuconfig</i> options being enabled:
+</p>
+<pre>    Device Drivers  ---&gt;
+        [*] USB support  ---&gt;
+        &lt;M&gt; Inventra Highspeed Dual Role Controller (TI, ADI, AW, ...)
+                MUSB Mode Selection (Dual Role mode)  ---&gt;
+                *** Platform Glue Layer ***
+            &lt;M&gt; Allwinner (sunxi)
+                *** MUSB DMA mode ***
+            [*] Disable DMA (always use PIO)
+        USB Physical Layer drivers  ---&gt;
+            &lt;M&gt; NOP USB Transceiver Driver
+        &lt;M&gt;   USB Gadget Support  ---&gt;
+            &lt;M&gt;   USB Gadget functions configurable through configfs
+            [*]     RNDIS
+</pre>
+<dl><dd><a href="../File:Sticky-note-pin.png.html" class="image"><img alt="Sticky-note-pin.png" src="https://linux-sunxi.org/images/f/f0/Sticky-note-pin.png" decoding="async" width="16" height="16" /></a> <i>Note:</i> You need to select both "Inventra Highspeed Dual Role Controller" and "NOP USB Transceiver Driver" <b>before</b> the required "Allwinner (sunxi)" option (<i>CONFIG_USB_MUSB_SUNXI</i>) becomes available.</dd></dl>
+<p>Now you can compile the kernel and modules. For details, you can refer to <a href="../Manual_build_howto.html" title="Manual build howto">our manual build howto</a>.
+</p>
+<h3><span id="Mainline_kernel_(via_Precomposed_Configurations)"></span><span class="mw-headline" id="Mainline_kernel_.28via_Precomposed_Configurations.29">Mainline kernel (via Precomposed Configurations)</span></h3>
+<p>See <a rel="nofollow" class="external free" href="http://thread.gmane.org/gmane.comp.hardware.netbook.arm.sunxi/19214/focus=19215">http://thread.gmane.org/gmane.comp.hardware.netbook.arm.sunxi/19214/focus=19215</a>
+</p><p><i>(Instructions below were tested on A20 with kernel 4.4.6.)</i>
+</p><p>For Allwinner SoCs based on the sun4i controller (CONFIG_PHY_SUN4I_USB=y), the "MUSB" (Multipoint Highspeed Dual-Role Controller) driver provides the OTG / gadget functionality. For successful operation, a number of <i>Kconfig</i> options need to be enabled:
+</p>
+<pre>CONFIG_USB_MUSB_HDRC=m
+CONFIG_USB_MUSB_DUAL_ROLE=y
+CONFIG_USB_MUSB_SUNXI=m
+CONFIG_MUSB_PIO_ONLY=y
+CONFIG_USB_PHY=y
+CONFIG_NOP_USB_XCEIV=m
+</pre>
+<p>(Substitute "y" for "m" where desired, if you do not wish modules to be built and want the drivers compiled-in instead.)
+</p><p>With <i>menuconfig</i> this looks like
+</p>
+<pre>    Device Drivers  ---&gt;
+        [*] USB support  ---&gt;
+        &lt;M&gt; Inventra Highspeed Dual Role Controller (TI, ADI, AW, ...)
+                MUSB Mode Selection (Dual Role mode)  ---&gt;
+                *** Platform Glue Layer ***
+            &lt;M&gt; Allwinner (sunxi)
+                *** MUSB DMA mode ***
+            [*] Disable DMA (always use PIO)
+        USB Physical Layer drivers  ---&gt;
+            &lt;M&gt; NOP USB Transceiver Driver
+</pre>
+<dl><dd><a href="../File:Sticky-note-pin.png.html" class="image"><img alt="Sticky-note-pin.png" src="https://linux-sunxi.org/images/f/f0/Sticky-note-pin.png" decoding="async" width="16" height="16" /></a> <i>Note:</i> You need to select both "Inventra Highspeed Dual Role Controller" and "NOP USB Transceiver Driver" <b>before</b> the required "Allwinner (sunxi)" option (<i>CONFIG_USB_MUSB_SUNXI</i>) becomes available.</dd></dl>
+<p>You'll probably also want to select
+</p>
+<pre>        &lt;*&gt; USB Gadget Support</pre>
+<p>and any desired gadget drivers on top of that.
+</p><p>Proceed with compiling and installing your kernel and its corresponding modules (for assistance check our <a href="../Mainline_Kernel_Howto.html" title="Mainline Kernel Howto">howto</a>).
+</p>
+<table style="margin: 0.7em; border-width: 1px 1px 1px 10px; border-style: solid; border-color: #2288EE; background-color: #DDEEFF">
+<tbody><tr>
+<td style="padding: 0.2em; vertical-align: baseline;"><a href="../File:MBOX_icon_information.png.html" class="image"><img alt="MBOX icon information.png" src="https://linux-sunxi.org/images/9/93/MBOX_icon_information.png" decoding="async" width="40" height="40" /></a>
+</td>
+<td style="width:100%; padding-left: 0.2em; padding-right: 0.2em; vertical-align: baseline;">If you compiled the MUSB driver as module(s), make sure to load those first - before you attempt to use any of the gadget drivers:
+<pre>modprobe sunxi</pre>
+</td></tr></tbody></table>
+<p>Upon successful initialization the kernel will report something similar to:
+</p>
+<pre>[   33.950832] usb_phy_generic.0.auto supply vcc not found, using dummy regulator
+[   33.951799] musb-hdrc: ConfigData=0xde (UTMI-8, dyn FIFOs, bulk combine, bulk split, HB-ISO Rx, HB-ISO Tx, SoftConn)
+[   33.951833] musb-hdrc: MHDRC RTL version 0.0 
+[   33.951872] musb-hdrc: 11/11 max ep, 5184/8192 memory
+[   33.952312] musb-hdrc musb-hdrc.1.auto: MUSB HDRC host driver
+[   33.952355] musb-hdrc musb-hdrc.1.auto: new USB bus registered, assigned bus number 5
+[   33.956664] hub 5-0:1.0: USB hub found
+[   33.956828] hub 5-0:1.0: 1 port detected
+</pre>
+<p>After that, you should be able to use the USB gadget drivers/modules (<i>g_ether</i>, <i>g_mass_storage</i>, ...) as described below.
+</p>
+<h3><span class="mw-headline" id="sunxi-3.4">sunxi-3.4</span></h3>
+<p>Currently, the g_ether module is not compiled as part of our kernel configuration.
+</p><p>To enable this, follow the kernel building information of <a href="../Manual_build_howto.html" title="Manual build howto">our manual build howto</a>. But then after making defconfig, either run:
+</p>
+<pre>make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- menuconfig</pre>
+<p>Then trawl down the options and set the "Ethernet Gadget" to "m":
+</p>
+<pre>    Device Drivers  ---&gt;
+        USB support  ---&gt;
+            &lt;*&gt;    USB Gadget Support  ---&gt;
+                &lt;m&gt;    Ethernet Gadget (with CDC Ethernet support)
+            &lt;*&gt;    NOP USB Transceiver Driver
+            [*]    SUNXI USB2.0 Dual Role Controller support ---&gt;
+                [*]    Sunxi USB2.0 Manager
+                       USB0 Controller support (otg support) ---&gt;
+                           (*) otg support
+</pre>
+<p>Or just run:
+</p>
+<pre>./scripts/config -m CONFIG_USB_ETH -e CONFIG_USB_ETH_RNDIS -e CONFIG_USB_OTG_UTILS -e CONFIG_NOP_USB_XCEIV 
+ -e CONFIG_USB_SW_SUNXI_USB -e CONFIG_USB_SW_SUNXI_USB_MANAGER -e CONFIG_USB_SW_SUNXI_USB0_OTG
+</pre>
+<p>You can now continue following <a href="../Manual_build_howto.html" title="Manual build howto">our manual build howto</a> to continue kernel compilation and installation.
+</p><p>Note that for sun4i devices (A10), you also need to enable SoftWinner SUNXI USB 
+peripheral controller in order to enable high-speed operation 
+for gadget- otherwise it will be limited to full-speed only.
+</p>
+<pre>    Device Drivers  ---&gt;
+        USB support  ---&gt;
+            &lt;*&gt;     USB Gadget Support ---&gt;
+                &lt;m&gt; SoftWinner SUNXI USB Peripheral Controller 
+</pre>
+<h2><span id="Loading_the_driver_(on_the_device)"></span><span class="mw-headline" id="Loading_the_driver_.28on_the_device.29">Loading the driver (on the device)</span></h2>
+<h3><span class="mw-headline" id="configfs">configfs</span></h3>
+<p>The configfs approach requires a number of modules being loaded:
+</p>
+<pre>modprobe sunxi
+modprobe configfs
+modprobe libcomposite
+modprobe u_ether
+modprobe usb_f_rndis
+</pre>
+<p>If you see nothing is printed to the kernel ring buffer, it is just normal since the gadget is not enabled until configurations under configfs are done.
+</p>
+<h3><span class="mw-headline" id="Precomposed_Configurations">Precomposed Configurations</span></h3>
+<p>We should now be able to run:
+</p>
+<pre>modprobe g_ether</pre>
+<p>successfully. We can then make this module autoload by adding it to /etc/modules.
+</p><p>Now, so that g_ether doesn't randomly generate a new id every reboot, stick the following in /etc/modprobe.d/g_ether.conf:
+</p>
+<pre>options g_ether host_addr=00:11:22:33:44:55</pre>
+<p>g_ether should've just generated a pair of addresses for you, so replace <i>00:11:22:33:44:55</i> with the outcome of:
+</p>
+<pre> dmesg | grep "HOST MAC"</pre>
+<p>We can also use <i>dev_addr</i> option to set device MAC address.
+</p>
+<h2><span class="mw-headline" id="Configuring_the_gadget_under_configfs">Configuring the gadget under configfs</span></h2>
+<table style="margin: 0.7em; border-width: 1px 1px 1px 10px; border-style: solid; border-color: #2288EE; background-color: #DDEEFF">
+<tbody><tr>
+<td style="padding: 0.2em; vertical-align: baseline;"><a href="../File:MBOX_icon_information.png.html" class="image"><img alt="MBOX icon information.png" src="https://linux-sunxi.org/images/9/93/MBOX_icon_information.png" decoding="async" width="40" height="40" /></a>
+</td>
+<td style="width:100%; padding-left: 0.2em; padding-right: 0.2em; vertical-align: baseline;">This chapter is for configfs approach only. Users who adopt precomposed configurations should skip following steps.
+</td></tr></tbody></table>
+<p>Some configuration must be done to set up the gadget properly.
+</p>
+<pre>cd /sys/kernel/config/usb_gadget
+mkdir g1
+cd g1
+echo "0x1d6b" &gt; idVendor
+echo "0x0104" &gt; idProduct
+mkdir functions/rndis.rn0
+mkdir configs/c1.1
+ln -s functions/rndis.rn0 configs/c1.1/
+</pre>
+<p>Here "0x1d6b" for idVendor stands for Linux Foundation and "0x0104" for idProduct stands for Multifunction Composite Gadget. In case your host can not identify these ids to recognize your device properly, you may need manually install RNDIS driver on your host for your device.
+</p><p>Finally, the gadget can be enabled with
+</p>
+<pre>echo &lt;udc name&gt; &gt; UDC
+</pre>
+<p>where &lt;udc name&gt; is one of those found in /sys/class/udc/* which is musb-hdrc.1.auto on my device.
+</p><p>Similarly, the gadget can be disabled with
+</p>
+<pre>echo "" &gt; UDC
+</pre>
+<p>You can use this to disconnect or reconnect your device to the host logically.
+</p>
+<h2><span id="Configuring_the_device's_networking"></span><span class="mw-headline" id="Configuring_the_device.27s_networking">Configuring the device's networking</span></h2>
+<h3><span id="Ubuntu/Debian"></span><span class="mw-headline" id="Ubuntu.2FDebian">Ubuntu/Debian</span></h3>
+<h4><span class="mw-headline" id="Without_network_manager">Without network manager</span></h4>
+<p>Stop networkmanager:
+</p>
+<pre> stop network-manager </pre>
+<p>To prevent network-manager from starting, run:
+</p>
+<pre>echo "manual" &gt; /etc/init/network-manager.override</pre>
+<p>Now add the following to /etc/network/interfaces:
+</p>
+<pre>auto usb0
+iface usb0 inet static
+	address 192.168.0.2
+	netmask 255.255.255.0
+</pre>
+<p>To manually activate the interface and set an IP (<b>NOTE:</b> if configured with ip from iproute2 it will not work):
+</p>
+
+<pre>     ifconfig usb0 up
+     ifconfig usb0 192.168.0.2
+</pre>
+
+<h2><span class="mw-headline" id="Setting_up_the_host">Setting up the host</span></h2>
+<p>You can convince networkmanager to connect automatically to a specific MAC address, and then you need to hardcode the address to 192.168.0.1 for this connection.
+</p><p>If all goes well, you should now be able to just plug in the USB cable.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p>Experiments with USB ethernet and H3 @ Armbian forums:
+</p>
+<ul><li><a rel="nofollow" class="external free" href="https://forum.armbian.com/index.php/topic/1417-testers-wanted-g-ether-driver-h3-device-as-ethernet-dongle/">https://forum.armbian.com/index.php/topic/1417-testers-wanted-g-ether-driver-h3-device-as-ethernet-dongle/</a></li>
+<li><a rel="nofollow" class="external free" href="https://forum.armbian.com/index.php/topic/2916-usb-otg-as-a-network/">https://forum.armbian.com/index.php/topic/2916-usb-otg-as-a-network/</a></li></ul>
+<!-- 
+NewPP limit report
+Cached time: 20251029040618
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.062 seconds
+Real time usage: 0.078 seconds
+Preprocessor visited node count: 186/1000000
+Post‐expand include size: 2260/2097152 bytes
+Template argument size: 1116/2097152 bytes
+Highest expansion depth: 6/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 3289/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   15.660      1 -total
+ 36.60%    5.731      2 Template:MBOX_INFO
+ 20.36%    3.188      2 Template:Note
+ 17.53%    2.746      2 Template:MBOX
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:3026-0!canonical and timestamp 20251029040618 and revision id 24072
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=USB_Gadget/Ethernet&amp;oldid=24072">https://linux-sunxi.org/index.php?title=USB_Gadget/Ethernet&amp;oldid=24072</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="../Special:Categories.html" title="Special:Categories">Categories</a>: <ul><li><a href="../Category:USB_OTG.html" title="Category:USB OTG">USB OTG</a></li><li><a href="../Category:Tutorial.html" title="Category:Tutorial">Tutorial</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=USB+Gadget%2FEthernet" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=USB+Gadget%2FEthernet" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="Ethernet.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk"><a href="../Talk:USB_Gadget/Ethernet.html" rel="discussion" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="Ethernet.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=USB_Gadget/Ethernet&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=USB_Gadget/Ethernet&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="../index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="../index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="../sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="../Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="../Special:WhatLinksHere/USB_Gadget/Ethernet.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/USB_Gadget/Ethernet" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="../Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=USB_Gadget/Ethernet&amp;oldid=24072" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=USB_Gadget/Ethernet&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 30 March 2021, at 08:23.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.062","walltime":"0.078","ppvisitednodes":{"value":186,"limit":1000000},"postexpandincludesize":{"value":2260,"limit":2097152},"templateargumentsize":{"value":1116,"limit":2097152},"expansiondepth":{"value":6,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":3289,"limit":5000000},"timingprofile":["100.00%   15.660      1 -total"," 36.60%    5.731      2 Template:MBOX_INFO"," 20.36%    3.188      2 Template:Note"," 17.53%    2.746      2 Template:MBOX"]},"cachereport":{"timestamp":"20251029040618","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":181});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

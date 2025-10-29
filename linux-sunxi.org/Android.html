@@ -1,0 +1,471 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Android - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"3b0bc3fefbc15afa238febca","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Android","wgTitle":"Android","wgCurRevisionId":17916,"wgRevisionId":17916,"wgArticleId":268,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Tutorial","Android"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Android","wgRelevantArticleId":268,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":"ready","user"
+:"ready","user.options":"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=mediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="Android.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-Android rootpage-Android skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">Android</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>Building <a class="external text" href="http://en.wikipedia.org/wiki/Android_%28operating_system%29">Android (operating system)</a> for an embedded A10 device can be done in a variety of ways. One method is to use the repo tool from google and point to a git repository. 
+</p><p>Here is one example of building and flashing Android on the "cubieboard". This same method should apply to other A10 boards.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Android_repo_setup_instructions_for_Android_on_A10"><span class="tocnumber">1</span> <span class="toctext">Android repo setup instructions for Android on A10</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Detailed_instructions_for_Ubuntu_12.04_.28and_variants.29"><span class="tocnumber">2</span> <span class="toctext">Detailed instructions for Ubuntu 12.04 (and variants)</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Introduction"><span class="tocnumber">2.1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#SET_BASIC_PATH_AND_ENVIRONMENT_SETTINGS"><span class="tocnumber">2.2</span> <span class="toctext">SET BASIC PATH AND ENVIRONMENT SETTINGS</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#X_-_INSTALL_JAVA_DEVELOPMENT_KIT_FROM_ORACLE"><span class="tocnumber">2.3</span> <span class="toctext">X - INSTALL JAVA DEVELOPMENT KIT FROM ORACLE</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#X_-_PREPARE_THE_ANDROID_NEEDED_TOOLS_AND_LIBS_.28FOR_12.04.29"><span class="tocnumber">2.4</span> <span class="toctext">X - PREPARE THE ANDROID NEEDED TOOLS AND LIBS (FOR 12.04)</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#X_-_PREPARE_THE_ANDROID_NEEDED_TOOLS_AND_LIBS_.28FOR_12.10.29"><span class="tocnumber">2.5</span> <span class="toctext">X - PREPARE THE ANDROID NEEDED TOOLS AND LIBS (FOR 12.10)</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#X_-_IS_TIME_TO_BUILD_ANDROID_FROM_SOURCES"><span class="tocnumber">2.6</span> <span class="toctext">X - IS TIME TO BUILD ANDROID FROM SOURCES</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-9"><a href="#Install_LiveSuit_on_Linux_.2864bit.29"><span class="tocnumber">3</span> <span class="toctext">Install LiveSuit on Linux (64bit)</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="#Flash_nand_flash_on_your_board"><span class="tocnumber">4</span> <span class="toctext">Flash nand flash on your board</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="#Tips_and_tricks"><span class="tocnumber">5</span> <span class="toctext">Tips and tricks</span></a>
+<ul>
+<li class="toclevel-2 tocsection-12"><a href="#Uploading_files_from_Android_to_a_tftp_server"><span class="tocnumber">5.1</span> <span class="toctext">Uploading files from Android to a tftp server</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-13"><a href="#See_also"><span class="tocnumber">6</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Android_repo_setup_instructions_for_Android_on_A10">Android repo setup instructions for Android on A10</span></h2>
+<p>1) Install Java 1.6 JDK (recently Oracle has made this more difficult, but you can do it following <a rel="nofollow" class="external text" href="http://akbarahmed.com/2012/06/22/install-java-jdk-6-0-update-26-on-ubuntu-12-04-lts/">these instructions:</a>) 
+</p><p>Get the binary here:  <a rel="nofollow" class="external text" href="http://www.oracle.com/technetwork/java/javase/downloads/jdk6downloads-1902814.html">Oracle Java 1.6</a>
+</p><p>2) <a rel="nofollow" class="external text" href="http://source.android.com/source/downloading.html">setup repo tool</a>
+</p><p>3) Get the sources and sync the android repository (this will download a large amount of files and take a while)
+</p>
+<pre>mkdir cubie_android_ics &amp;&amp; cd cubie_android_ics
+repo init -u https://github.com/matson-hall/manifest.git -b ics-cubieboard 
+cp .repo/manifests/local_manifest.xml .repo/
+</pre>
+<p>4)Fix the bad manifest: (fixed now, so skip this step)
+</p>
+<pre>sudo cd cubie_android_ics/.repo
+sudo leafpad local_manifest.xml
+</pre>
+<p>Now change this line and save the modified manifest:
+</p>
+<pre>&lt;project path="kernel/allwinner/common" name="linux-allwinner" remote="matson-hall" revision="ics-cubieboard" /&gt;
+</pre>
+<p>to:
+</p>
+<pre>&lt;project path="kernel/allwinner/common" name="linux-sunxi" remote="matson-hall" revision="ics-cubieboard" /&gt;
+</pre>
+<p>5)sync the repository:
+</p>
+<pre>repo sync 
+</pre>
+<p>6) build android -- (Note: you will need around 40GB of free space to build android)
+</p>
+<pre>source build/envsetup.sh 
+lunch 4   # option 4 is cubieboard-eng
+make -j4   # there maybe errors like to ask you "make update-api"
+</pre>
+<p>7) Create the install image:
+</p>
+<pre>chmod +x ./tools/pack-cm.sh
+./tools/pack-cm.sh 
+</pre>
+<p>You will see:
+</p>
+<pre>---------image is at-------------
+/home/username/cubie/allwinner-pack-tools/pack/sun4i_linux_cubieboard.img
+</pre>
+<h2><span id="Detailed_instructions_for_Ubuntu_12.04_(and_variants)"></span><span class="mw-headline" id="Detailed_instructions_for_Ubuntu_12.04_.28and_variants.29">Detailed instructions for Ubuntu 12.04 (and variants)</span></h2>
+<p>(courtesy of Silverio Diquigiovanni)
+</p>
+<h3><span class="mw-headline" id="Introduction">Introduction</span></h3>
+<p>In that document I will describe step by step all operations needed to build android ICS for AllWinner cubieboard using
+XUBUNTU 12.04-64Bit Precise Pangolin LTS. Same info are valid for all UBUNTU 12.04-64Bit distros like LUBUNTU, KUBUNTU 
+and so on. I've also tried, with success, to use XUBUNTU 12.10-64bit so some parts are also 12.10 related.
+</p><p>PS: That's a document for DUMMIES / NOOBS so don't care if I was so pedant in some step description.
+</p><p>To keep simple my job I've installed XUBUNTU in a VMware Virtual Machine, actually in VMware Fusion with Mac OS X Lion
+as host computer. To work fine the virtual machine should have at least 4GB of ram and a disk of least 40GB. Also SWAP
+disk is important and mine was set to 2GB. More than one CPU are apprecied.
+</p><p>PS: I've used a virtual machine because some things on XUBUNTU evironment need to be "forced" and I would not to use 
+</p>
+<pre>   that for my daily jobs, but you can choose to use your working machine.
+</pre>
+<p>So&#160;: 
+- Get xubuntu 12.04-64Bit from xubuntu repositories and install it in a virtual machine. Remember to update it.
+- Install VMware Tools (if you need them - not necessary).
+</p><p><br />
+</p>
+<h3><span class="mw-headline" id="SET_BASIC_PATH_AND_ENVIRONMENT_SETTINGS">SET BASIC PATH AND ENVIRONMENT SETTINGS</span></h3>
+<pre>cd ~/
+mkdir -p android
+mkdir -p android/bin
+</pre>
+<p>ADD export paths for android develop environment
+</p>
+<pre>nano ~/.bashrc
+# add this line at file tail
+export PATH=$PATH:/home/shine/android/bin
+</pre>
+<p>CLOSE and REOPEN terminal console
+</p><p><br />
+</p>
+<h3><span class="mw-headline" id="X_-_INSTALL_JAVA_DEVELOPMENT_KIT_FROM_ORACLE">X - INSTALL JAVA DEVELOPMENT KIT FROM ORACLE</span></h3>
+<p>DOWNLOAD and INSTALL repo
+</p>
+<pre>sudo apt-get install curl
+curl <a rel="nofollow" class="external free" href="https://dl-ssl.google.com/dl/googlesource/git-repo/repo">https://dl-ssl.google.com/dl/googlesource/git-repo/repo</a> &gt; ~/android/bin/repo
+chmod a+x ~/android/bin/repo
+</pre>
+<p>DOWNLOAD and INSTALL jdk-6u24-linux-x64.bin from oracle download page
+</p>
+<pre>cd ~/Downloads/
+chmod +x jdk-6u24-linux-x64.bin
+./jdk-6u24-linux-x64.bin 
+</pre>
+<pre>sudo mkdir /usr/lib/jvm
+sudo mv jdk1.6.0_24 /usr/lib/jvm
+sudo update-alternatives --install "/usr/bin/java" "java" "/usr/lib/jvm/jdk1.6.0_24/bin/java" 1
+sudo update-alternatives --install "/usr/bin/javac" "javac" "/usr/lib/jvm/jdk1.6.0_24/bin/javac" 1
+sudo update-alternatives --install "/usr/bin/javaws" "javaws" "/usr/lib/jvm/jdk1.6.0_24/bin/javaws" 1
+sudo update-alternatives --config java
+sudo update-alternatives --config javac
+</pre>
+<pre>sudo nano /etc/environment
+# add this line at file tail
+JAVA_HOME="/usr/lib/jvm/jdk1.6.0_24"
+</pre>
+<pre>source /etc/environment
+</pre>
+<p><br />
+</p>
+<h3><span id="X_-_PREPARE_THE_ANDROID_NEEDED_TOOLS_AND_LIBS_(FOR_12.04)"></span><span class="mw-headline" id="X_-_PREPARE_THE_ANDROID_NEEDED_TOOLS_AND_LIBS_.28FOR_12.04.29">X - PREPARE THE ANDROID NEEDED TOOLS AND LIBS (FOR 12.04)</span></h3>
+<pre>sudo apt-get install git gnupg flex bison gperf build-essential zip curl libc6-dev libncurses5-dev:i386 \
+   x11proto-core-dev libx11-dev:i386 libreadline6-dev:i386 libgl1-mesa-glx:i386 \
+     libgl1-mesa-dev g++-multilib mingw32 tofrodos python-markdown libxml2-utils xsltproc \
+   zlib1g-dev:i386
+</pre>
+<pre>sudo ln -s /usr/lib/i386-linux-gnu/mesa/libGL.so.1 /usr/lib/i386-linux-gnu/libGL.so
+</pre>
+<p><br />
+</p>
+<h3><span id="X_-_PREPARE_THE_ANDROID_NEEDED_TOOLS_AND_LIBS_(FOR_12.10)"></span><span class="mw-headline" id="X_-_PREPARE_THE_ANDROID_NEEDED_TOOLS_AND_LIBS_.28FOR_12.10.29">X - PREPARE THE ANDROID NEEDED TOOLS AND LIBS (FOR 12.10)</span></h3>
+<pre>   sudo apt-get install git-core gnupg flex bison gperf build-essential zip curl zlib1g-dev zlib1g-dev:i386 \
+   libc6-dev lib32ncurses5-dev ia32-libs x11proto-core-dev libx11-dev:i386 \ 
+   libreadline6-dev:i386 lib32z-dev libgl1-mesa-glx:i386 libgl1-mesa-dev g++-multilib \
+   mingw32 tofrodos python-markdown libxml2-utils xsltproc readline-common libreadline6-dev \
+   libreadline6 lib32readline-gplv2-dev libncurses5-dev lib32readline5 lib32readline6 \
+   libreadline-dev libreadline6-dev:i386 libreadline6:i386 bzip2 libbz2-dev libbz2-1.0 \
+   libghc-bzlib-dev lib32bz2-dev libsdl1.2-dev libesd0-dev squashfs-tools pngcrush schedtool \
+                            libwxgtk2.8-dev python
+</pre>
+<pre>  	sudo ln -s /usr/lib/i386-linux-gnu/mesa/libGL.so.1 /usr/lib/i386-linux-gnu/libGL.so
+</pre>
+<p>Unfortunately ICS don't compile with gcc (Ubuntu/Linaro 4.7.2-2ubuntu1) 4.7.2 already installed on (*)ubuntu so we need
+to manually install 4.4 version with following command:
+</p>
+<pre>   sudo apt-get install gcc-4.4 g++-4.4 g++-4.4-multilib gcc-4.4-multilib
+</pre>
+<p>and manually change the softlink with&#160;:
+</p>
+<pre>      ...
+</pre>
+<h3><span class="mw-headline" id="X_-_IS_TIME_TO_BUILD_ANDROID_FROM_SOURCES">X - IS TIME TO BUILD ANDROID FROM SOURCES</span></h3>
+<pre>mkdir -p ~/android/build/Cubieboard
+cd ~/android/build/Cubieboard/
+wget <a rel="nofollow" class="external free" href="http://dl.cubieboard.org/software/a10-cubieboard/android/cubieboard_opentv.tar.gz">http://dl.cubieboard.org/software/a10-cubieboard/android/cubieboard_opentv.tar.gz</a>
+(also look at <a class="external free" href="http://github.com/cubieboard">http://github.com/cubieboard</a>)
+</pre>
+<p>Now we will check that cubieboard_opentv.tar.gz match what used by that document:
+</p>
+<pre>md5sum cubieboard_opentv.tar.gz 
+$ -&gt; d36631c98f30ebc0f43eeafeba8201ec  cubieboard_opentv.tar.gz
+</pre>
+<pre>tar -zxf cubieboard_opentv.tar.gz
+cd cubieboard-tv-sdk/
+</pre>
+<p>A this point is necessary to fix a but in cubieboard_opentv script and precisely to following file:
+</p>
+<pre>nano frameworks/base/media/libstagefright/Android.mk
+search LOCAL_STATIC_LIBRARIES and add to list: libstagefright_rtsp \ so you get:
+</pre>
+<pre>LOCAL_STATIC_LIBRARIES&#160;:= \
+libstagefright_color_conversion \
+libstagefright_aacenc \
+libstagefright_amrnbenc \
+libstagefright_amrwbenc \
+libstagefright_avcenc \
+libstagefright_m4vh263enc \
+libstagefright_matroska \
+libstagefright_timedtext \
+libvpx \
+libstagefright_mpeg2ts \
+libstagefright_id3 \
+libFLAC \
+libstagefright_rtsp \
+       ...
+</pre>
+<p>Time to build all from cubieboard_opentv root path&#160;:)
+</p>
+<pre>. build/envsetup.sh 
+lunch        # (perhaps typo? Maybe 'launch'? --simos)
+make -j4
+</pre>
+<p>and create the .img that is suitable for LiveSuit 
+</p>
+<pre>tools/pack-cm.sh
+</pre>
+<h2><span id="Install_LiveSuit_on_Linux_(64bit)"></span><span class="mw-headline" id="Install_LiveSuit_on_Linux_.2864bit.29">Install <a href="LiveSuit.html" title="LiveSuit">LiveSuit</a> on Linux (64bit)</span></h2>
+<pre>sudo apt-get install dkms
+git clone https://github.com/matson-hall/allwinner-pack-tools.git -b cubieboard
+unzip allwinner-pack-tools/tools/Livesuit-linux.zip
+chmod +x LiveSuit_For_Linux64/LiveSuit.run
+./LiveSuit_For_Linux64/LiveSuit.run #livesuit will be installed to ~/Bin
+</pre>
+<h2><span class="mw-headline" id="Flash_nand_flash_on_your_board">Flash nand flash on your board</span></h2>
+<pre>sudo ~/Bin/LiveSuit/LiveSuit.sh #run livesuit
+</pre>
+<p>1) Livesuit GUI will start
+</p><p>2) Choose the image we built just now (sun4i_linux_cubieboard.img)
+</p><p>3) Disconnect all power to board, connect USB cable to board side, but not computer, then hold down "usb boot" button on your board, and plug in USB to computer -- a new device should be detected. If using a virtual machine you may need to modify your .vmx file to include the "skip reset usb-quirk" option. Instead of this method, you can follow the instructions to get into <a href="FEL.html" title="FEL">FEL</a> mode.
+</p><p>4) It should ask to format the partition first, say yes.
+</p><p>5) You should see the progress bar increasing.
+</p><p>6) flashing should complete in about 3-4 minutes
+</p>
+<h2><span class="mw-headline" id="Tips_and_tricks">Tips and tricks</span></h2>
+<h3><span class="mw-headline" id="Uploading_files_from_Android_to_a_tftp_server">Uploading files from Android to a tftp server</span></h3>
+<ul><li>Android will expose a shell on serial line. You will not get a prompt, just type in some command and press Enter to see if the shell is really there.</li>
+<li>Set up network, replace XXX with YYY</li></ul>
+<pre>   ip addr add 192.168.0.XXX/24 dev eth0
+   ip link set eth0 up
+   ip route add 0.0.0.0/0 via 192.168.0.YYY dev eth0
+</pre>
+<ul><li>Use tftp, replace ZZZ.</li></ul>
+<dl><dd><b>NOTE:</b> Your tftp root directory should be world writable and there should be a world writable file with the name <i>$TFTPROOT/path/to/file.txt</i> on the server, otherwise it will not work.</dd></dl>
+<pre>   busybox tftp -p -l /path/to/file.txt 192.168.0.ZZZ
+</pre>
+<h1><span class="mw-headline" id="See_also">See also</span></h1>
+<ul><li><a href="Cubieboard/Building_Jellybean.html" title="Cubieboard/Building Jellybean"> Building Jellybean for cubieboard.</a></li></ul>
+<!-- 
+NewPP limit report
+Cached time: 20251029040712
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.068 seconds
+Real time usage: 0.079 seconds
+Preprocessor visited node count: 90/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 1205/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:268-0!canonical and timestamp 20251029040712 and revision id 17916
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=Android&amp;oldid=17916">https://linux-sunxi.org/index.php?title=Android&amp;oldid=17916</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Categories</a>: <ul><li><a href="Category:Tutorial.html" title="Category:Tutorial">Tutorial</a></li><li><a href="Category:Android.html" title="Category:Android">Android</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=Android" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=Android" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="Android.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:Android&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="Android.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Android&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Android&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/Android.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/Android" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=Android&amp;oldid=17916" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=Android&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 14 July 2016, at 23:58.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.068","walltime":"0.079","ppvisitednodes":{"value":90,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":1205,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20251029040712","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":263});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

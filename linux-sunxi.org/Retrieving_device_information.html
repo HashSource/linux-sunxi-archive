@@ -1,0 +1,453 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Retrieving device information - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"269dec300ed76c5ea03f7e64","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Retrieving_device_information","wgTitle":"Retrieving device information","wgCurRevisionId":26386,"wgRevisionId":26386,"wgArticleId":408,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Tutorial"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Retrieving_device_information","wgRelevantArticleId":408,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles"
+:"ready","noscript":"ready","user.styles":"ready","user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=mediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="Retrieving_device_information.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-Retrieving_device_information rootpage-Retrieving_device_information skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">Retrieving device information</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>This page describes how to obtain memory information and the script.bin from the stock operating system of a sunxi device. This is needed for adding support for a new device, as part of our <a href="New_Device_howto.html" title="New Device howto"> New Device Bringup howto</a>.
+</p><p>Any of the methods below requires that <a href="Sunxi-tools.html" title="Sunxi-tools">Sunxi-tools</a> is installed and built on your computer.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Using_FEL"><span class="tocnumber">1</span> <span class="toctext">Using FEL</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Entering_FEL_mode"><span class="tocnumber">1.1</span> <span class="toctext">Entering FEL mode</span></a>
+<ul>
+<li class="toclevel-3 tocsection-3"><a href="#By_using_physical_buttons"><span class="tocnumber">1.1.1</span> <span class="toctext">By using physical buttons</span></a></li>
+<li class="toclevel-3 tocsection-4"><a href="#By_using_the_serial_console"><span class="tocnumber">1.1.2</span> <span class="toctext">By using the serial console</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-5"><a href="#Retrieving_data_over_USB_in_FEL_mode"><span class="tocnumber">1.2</span> <span class="toctext">Retrieving data over USB in FEL mode</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="#Using_the_original_OS"><span class="tocnumber">2</span> <span class="toctext">Using the original OS</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="#Working_with_android"><span class="tocnumber">2.1</span> <span class="toctext">Working with android</span></a>
+<ul>
+<li class="toclevel-3 tocsection-8"><a href="#Android_Debug_Bridge"><span class="tocnumber">2.1.1</span> <span class="toctext">Android Debug Bridge</span></a></li>
+<li class="toclevel-3 tocsection-9"><a href="#Terminal_program"><span class="tocnumber">2.1.2</span> <span class="toctext">Terminal program</span></a></li>
+<li class="toclevel-3 tocsection-10"><a href="#SSH_server"><span class="tocnumber">2.1.3</span> <span class="toctext">SSH server</span></a></li>
+<li class="toclevel-3 tocsection-11"><a href="#USB_storage"><span class="tocnumber">2.1.4</span> <span class="toctext">USB storage</span></a></li>
+<li class="toclevel-3 tocsection-12"><a href="#SD-Cards_under_android"><span class="tocnumber">2.1.5</span> <span class="toctext">SD-Cards under android</span></a></li>
+<li class="toclevel-3 tocsection-13"><a href="#Rooting_android_devices"><span class="tocnumber">2.1.6</span> <span class="toctext">Rooting android devices</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-14"><a href="#Reading_memory_information_from_registers"><span class="tocnumber">2.2</span> <span class="toctext">Reading memory information from registers</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="#copying_script.bin_from_flash"><span class="tocnumber">2.3</span> <span class="toctext">copying script.bin from flash</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="#copying_script.bin_from_RAM"><span class="tocnumber">2.4</span> <span class="toctext">copying script.bin from RAM</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-17"><a href="#Using_a_livesuit_image"><span class="tocnumber">3</span> <span class="toctext">Using a livesuit image</span></a>
+<ul>
+<li class="toclevel-2 tocsection-18"><a href="#Extract_the_image"><span class="tocnumber">3.1</span> <span class="toctext">Extract the image</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="#Retrieve_bootinfo"><span class="tocnumber">3.2</span> <span class="toctext">Retrieve bootinfo</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="#Retrieve_script.bin"><span class="tocnumber">3.3</span> <span class="toctext">Retrieve script.bin</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="#Retrieve_firmware_and_other_random_files_from_Android_system"><span class="tocnumber">3.4</span> <span class="toctext">Retrieve firmware and other random files from Android system</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-22"><a href="#Alternate_script.bin_retrieval_method"><span class="tocnumber">4</span> <span class="toctext">Alternate script.bin retrieval method</span></a></li>
+<li class="toclevel-1 tocsection-23"><a href="#Other_information"><span class="tocnumber">5</span> <span class="toctext">Other information</span></a>
+<ul>
+<li class="toclevel-2 tocsection-24"><a href="#Wifi.2C_Bluetooth"><span class="tocnumber">5.1</span> <span class="toctext">Wifi, Bluetooth</span></a></li>
+<li class="toclevel-2 tocsection-25"><a href="#Touchscreen"><span class="tocnumber">5.2</span> <span class="toctext">Touchscreen</span></a>
+<ul>
+<li class="toclevel-3 tocsection-26"><a href="#Identify_via_kernel_log"><span class="tocnumber">5.2.1</span> <span class="toctext">Identify via kernel log</span></a></li>
+<li class="toclevel-3 tocsection-27"><a href="#Identify_via_ADB.2FShell"><span class="tocnumber">5.2.2</span> <span class="toctext">Identify via ADB/Shell</span></a></li>
+<li class="toclevel-3 tocsection-28"><a href="#Identify_using_the_chips_from_PCB"><span class="tocnumber">5.2.3</span> <span class="toctext">Identify using the chips from PCB</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-29"><a href="#cameras.2C_accelerometers.2C_gps.2C_rtc_and_other_miscellaneous_devices"><span class="tocnumber">5.3</span> <span class="toctext">cameras, accelerometers, gps, rtc and other miscellaneous devices</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Using_FEL">Using FEL</span></h1>
+<p>Make sure that the original image is on the device, and that the original u-boot will be booted by the device ROM. Remove any SD-card that might have been inserted.
+</p>
+<h2><span class="mw-headline" id="Entering_FEL_mode">Entering FEL mode</span></h2>
+<p>The procedure for entering FEL mode is described <a href="FEL.html" title="FEL">on this page</a>, but for clarity, it is reproduced here as well.
+</p>
+<h3><span class="mw-headline" id="By_using_physical_buttons">By using physical buttons</span></h3>
+<ol><li>Fully power off the device, if needs be through a power-button reset.</li>
+<li>Hold down the home button and do not release.</li>
+<li>Power on the device by pressing the power button.</li>
+<li>After a few seconds, press the power button at least three times (or just keep on triggering the power button for several seconds).</li>
+<li>After several seconds, release home button.</li></ol>
+<p>Note that, if you do not have a Home button, the vol+ / vol- button might work as well. If you have booted through a hard reset (if you have a reset button), or by holding the recovery button (if available), or through usbboot, FEL will not load the necessary information to memory, and the retrieved data will be bogus.
+</p>
+<h3><span class="mw-headline" id="By_using_the_serial_console">By using the serial console</span></h3>
+<ol><li>Fully power off the device, if needs be through a power-button reset.</li>
+<li>Connect the UART cable (but do not connect it before or the device will not power off properly).</li>
+<li>Start the console program.</li>
+<li>Send "2" over the serial link, by hold down "2" on your keyboard.</li>
+<li>Power on the device by pressing the power button.</li>
+<li>Wait until boot1 says it enters FEL mode, and then you can release "2".</li></ol>
+<h2><span class="mw-headline" id="Retrieving_data_over_USB_in_FEL_mode">Retrieving data over USB in FEL mode</span></h2>
+<p>You should now attach a USB OTG cable. If you have been able to correctly trigger FEL mode, you should now be able to get the FEL version. Run the following from the sunxi-tools tree on your host:
+</p>
+<pre>./sunxi-fel version
+</pre>
+<p>This should return something resembling:
+</p>
+<pre>AWUSBFEX soc=00162300(A10) 00000001 ver=0001 44 08 scratchpad=00007e00 00000000 00000000
+</pre>
+<p>If not, you might not have entered FEL mode correctly.
+</p><p>Now you should be able to retrieve the relevant information by running:
+</p>
+<pre> ./sunxi-fel read 0x42400000 0x82d0 boot1.header 
+ ./sunxi-fel read 0x43000000 0x20000 script.bin 
+</pre>
+<p>Now the retrieved data can be converted to readable text which can then be used in the <a href="New_Device_howto.html" title="New Device howto"> Device Bringup howto</a>.
+</p>
+<pre> ./sunxi-bootinfo boot1.header &gt; bootinfo.txt
+ ./bin2fex script.bin script.fex
+</pre>
+<h1><span class="mw-headline" id="Using_the_original_OS">Using the original OS</span></h1>
+<h2><span class="mw-headline" id="Working_with_android">Working with android</span></h2>
+<p>The information which was originally here spent most of its time dealing with android intricacies. These are often device specific and the necessary information tends to be multiplied endlessly all over the internet.
+</p><p>To successfully retrieve the necessary information, you need access to the command line, you need a means of transferring the retrieved data, and you need to have root access to the device.
+</p>
+<h3><span class="mw-headline" id="Android_Debug_Bridge">Android Debug Bridge</span></h3>
+<p>When working, ADB is by far the most convenient way of working with android. It can give you shell access, and can transfer files.
+</p><p>More information on ADB can be found <a rel="nofollow" class="external text" href="http://developer.android.com/tools/help/adb.html">here</a>.
+</p>
+<h3><span class="mw-headline" id="Terminal_program">Terminal program</span></h3>
+<p>...
+</p>
+<h3><span class="mw-headline" id="SSH_server">SSH server</span></h3>
+<p>...
+</p>
+<h3><span class="mw-headline" id="USB_storage">USB storage</span></h3>
+<p>...
+</p>
+<h3><span class="mw-headline" id="SD-Cards_under_android">SD-Cards under android</span></h3>
+<p>...
+</p>
+<h3><span class="mw-headline" id="Rooting_android_devices">Rooting android devices</span></h3>
+<p>Most sunxi based systems have no restrictions, and root access can be readily attained. If not, search the web for android forums which might describe how to root your device.
+</p>
+<h2><span class="mw-headline" id="Reading_memory_information_from_registers">Reading memory information from registers</span></h2>
+<p>DRAM information can be read from the SoC registers directly using the <a href="Sunxi-tools.html#meminfo" title="Sunxi-tools"> meminfo tool</a>.
+</p><p>Once you've <a href="Sunxi-tools.html#Building" title="Sunxi-tools"> built this tool</a>, all you need to do is get this file somewhere on your android filesystem (for instance, /data/cache), make sure that it is executable (chmod 755), and then run it and retrieve its output (for instance, to the sdcard).
+</p>
+<h2><span class="mw-headline" id="copying_script.bin_from_flash">copying script.bin from flash</span></h2>
+<p>Script.bin is directly available from the first partition of the NAND flash (but apparently this is not the case with newer Allwinner devices). Under Android, this flash device should appear as /dev/block/nanda. Often nanda is already mounted, if not, you can just mount it with -t vfat.
+</p>
+<h2><span class="mw-headline" id="copying_script.bin_from_RAM">copying script.bin from RAM</span></h2>
+<p>Script.bin can be also dumped directly from RAM using the <a href="Sunxi-tools.html#script-extractor" title="Sunxi-tools"> script-extractor tool</a>.
+</p>
+<h1><span class="mw-headline" id="Using_a_livesuit_image">Using a livesuit image</span></h1>
+<p>While it is much much preferable to retrieve information from your device directly, this sometimes is not possible (either due to a bricked device, or the lack of a fel button or usb-otg). If you have been able to find a livesuit image, you might still get the information you need, at least until you can boot a full sunxi and examine the nand filesystem directly.
+</p>
+<h2><span class="mw-headline" id="Extract_the_image">Extract the image</span></h2>
+<p>First, git clone the <a href="LiveSuit_images.html#awutils" title="LiveSuit images"> awutils repository</a> and build it.
+</p><p>Then, extract the image with awimage:
+</p>
+<pre>awimage -u name.img</pre>
+<p>This will create a directory called <i>name.img.dump</i>, filled with loads of files and matching .hdr files.
+</p>
+<h2><span class="mw-headline" id="Retrieve_bootinfo">Retrieve bootinfo</span></h2>
+<p>The files for this are often called <i>12345678_1234567890boot_0</i> or <i>2345678_1234567890boot_1</i>. When in doubt, grep:
+</p>
+<pre>grep "eGON.BT" *</pre>
+<p>You can then run bootinfo from sunxi-tools on one of the files to retrieve the memory information.
+</p>
+<h2><span class="mw-headline" id="Retrieve_script.bin">Retrieve script.bin</span></h2>
+<p>You then need to find the filesystem which usually lives in nanda. This is usually known as <i>RFSFAT16_BOOTLOADER_00000</i>, but when in doubt, grep:
+</p>
+<pre>grep "SCRIPT  BIN" *</pre>
+<p>This is a fat image that can be mounted directly:
+</p>
+<pre>mount -o loop /home/user/dir/name.img.dump/RFSFAT16_BOOTLOADER_00000 /mnt/</pre>
+<p>You can then just take the script.bin and run it through bin2fex.
+</p>
+<h2><span class="mw-headline" id="Retrieve_firmware_and_other_random_files_from_Android_system">Retrieve firmware and other random files from Android system</span></h2>
+<p>The largest file in your unpacked Livesuit image should be a sparse ext4 filesystem.
+</p>
+<pre>file RFSFAT16_SYSTEM_000000000
+ RFSFAT16_SYSTEM_000000000: Android sparse image, version: 1.0, Total of 131072 4096-byte output blocks in 1346 input chunks.
+simg2img RFSFAT16_SYSTEM_000000000 RFSFAT16_SYSTEM_000000000.img
+mount -o loop,ro RFSFAT16_SYSTEM_000000000.img /mnt
+cp -a /mnt/vendor/modules .
+</pre>
+<p>You can find simg2img in Android SDK or a distro package such as android-tools-fsutils on Debian.
+</p>
+<h1><span class="mw-headline" id="Alternate_script.bin_retrieval_method">Alternate script.bin retrieval method</span></h1>
+<p>This method is limited in that it can only retrieve the script.bin and not the necessary memory information. It also requires access to the UART, which means that it is of limited use now that we have <a href="Retrieving_device_information.html#Using_FEL" title="Retrieving device information">the ability to talk to FEL mode directly</a>.
+</p>
+<ol><li>Fully power off the device, if needs be through a power-button reset.</li>
+<li>Connect the UART cable (but do not connect it before or the device will not power off properly).</li>
+<li>Start the console program.</li>
+<li>Send "1" over the serial link, by hold down "1" on your keyboard.</li>
+<li>Power on the device by pressing the power button.</li>
+<li>Wait until boot1 says it enters FEL mode, and then you can release "1".</li></ol>
+<p>You should now be able to connect a USB OTG cable, and copy script.bin (and .fex if available) off usb storage.
+</p>
+<h1><span class="mw-headline" id="Other_information">Other information</span></h1>
+<h2><span id="Wifi,_Bluetooth"></span><span class="mw-headline" id="Wifi.2C_Bluetooth"><a href="Wifi.html" title="Wifi">Wifi</a>, Bluetooth</span></h2>
+<p>It is good idea what to try and find out what <a href="Wifi.html" title="Wifi">Wifi</a> and Bluetooth chips your device has. Bluetooth is often implemented in the same chip as wifi if present at all.
+</p><p>You can try to read the text on a chip near antenna wire (often on a subboard) and compare it to list of <a href="Wifi.html" title="Wifi">known WiFi chips common on tablets</a> or try to look at kernel messages from the android system preinstalled on your device.
+</p><p>It is possible that the chip you have is already supported and will work out of the box when you boot linux but you may have a new yet unknown chip. Even when driver for the <a href="Wifi.html" title="Wifi">wifi</a> chip is available somewhere you may need to copy a firmware file from the original android system to use <a href="Wifi.html" title="Wifi">wifi</a>.
+</p>
+<h2><span class="mw-headline" id="Touchscreen"><a href="Touchscreen.html" title="Touchscreen">Touchscreen</a></span></h2>
+<p><a href="Touchscreen.html" title="Touchscreen">Touchscreen</a> support is not very good so far. Although Allwinner SoCs have built-in support for single-touch resistive touchscreen, it is usually not used due to popularity of capacitive multitouch touchscreens.
+</p><p>Many touchscreens require a firmware file that has to be extracted from android - either from a kernel module (<tt>.ko</tt> file) or from special directory (usually <tt>/etc/firmware</tt> or <tt>/vendor/firmware</tt>).
+</p>
+<h3><span class="mw-headline" id="Identify_via_kernel_log">Identify via kernel log</span></h3>
+<p>One possible way to identify the touchscreen controller is to look at the kernel messages from the original android system:
+</p>
+<pre>$ cat kernel.log |grep input
+&lt;6&gt;[    1.912941] input: sun4i-keyboard as /devices/virtual/input/input0
+&lt;6&gt;[    2.181851] input: axp20-supplyer as /devices/platform/sun4i-i2c.0/i2c-0/0-0034/axp20-supplyer.28/input  /input1
+&lt;6&gt;[    8.590497] input: Goodix-TS-board-3 as /devices/virtual/input/input2
+&lt;6&gt;[    8.936340] input: bma250 as /devices/virtual/input/input3
+</pre>
+<p>From the log above, we can see that this device has 4 input devices. And using <a href="Touchscreen.html" title="Touchscreen"> common knowledge</a> we know that this device is using one of the Goodix chips. Further identification is left as a exercise to the reader.
+</p>
+<h3><span id="Identify_via_ADB/Shell"></span><span class="mw-headline" id="Identify_via_ADB.2FShell">Identify via ADB/Shell</span></h3>
+<p>If that does not work, try this over adb:
+Access the device shell
+</p>
+<pre>   $ adb shell
+</pre>
+<p>Get a list of input devices (/dev/input/event0, /dev/input/event1 etc) and events. ^C to stop this process
+</p>
+<pre>   # getevent
+</pre>
+<p>Try this for some and compare with the information on <a href="Touchscreen.html" title="Touchscreen">Touchscreen</a> to identify your touchscreen
+</p>
+<pre>   # getevent -i /dev/input/eventX
+</pre>
+<h3><span class="mw-headline" id="Identify_using_the_chips_from_PCB">Identify using the chips from PCB</span></h3>
+<p>It is sometimes possible to identify the touchscreen driver by searching the web for some alphanumeric codes 
+that are <a rel="nofollow" class="external text" href="http://linux-sunxi.org/File:Gemei_g9_touch_controller_annotated.jpg">printed on the chip</a> near the touchscreen cable.
+</p>
+<h2><span id="cameras,_accelerometers,_gps,_rtc_and_other_miscellaneous_devices"></span><span class="mw-headline" id="cameras.2C_accelerometers.2C_gps.2C_rtc_and_other_miscellaneous_devices">cameras, accelerometers, gps, rtc and other miscellaneous devices</span></h2>
+<p>Linux has suport for many of these devices. However, not many people care about them working or not so far.
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20251029040210
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.068 seconds
+Real time usage: 0.076 seconds
+Preprocessor visited node count: 143/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 511/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:408-0!canonical and timestamp 20251029040210 and revision id 26386
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=Retrieving_device_information&amp;oldid=26386">https://linux-sunxi.org/index.php?title=Retrieving_device_information&amp;oldid=26386</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Category</a>: <ul><li><a href="Category:Tutorial.html" title="Category:Tutorial">Tutorial</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=Retrieving+device+information" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=Retrieving+device+information" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="Retrieving_device_information.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk"><a href="Talk:Retrieving_device_information.html" rel="discussion" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="Retrieving_device_information.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Retrieving_device_information&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Retrieving_device_information&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/Retrieving_device_information.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/Retrieving_device_information" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=Retrieving_device_information&amp;oldid=26386" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=Retrieving_device_information&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 6 May 2025, at 19:51.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.068","walltime":"0.076","ppvisitednodes":{"value":143,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":511,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20251029040210","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":1290});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

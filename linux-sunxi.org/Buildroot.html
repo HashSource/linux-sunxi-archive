@@ -1,0 +1,319 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Buildroot - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"26e9ba4cd83d0309893426e3","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Buildroot","wgTitle":"Buildroot","wgCurRevisionId":25536,"wgRevisionId":25536,"wgArticleId":214,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Tutorial","Linux Distributions"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Buildroot","wgRelevantArticleId":214,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready",
+"user.styles":"ready","user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=mediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="Buildroot.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-Buildroot rootpage-Buildroot skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">Buildroot</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>Buildroot is a set of Makefiles and patches that makes it easy to generate a complete embedded Linux system. More information can be found at <a rel="nofollow" class="external text" href="http://buildroot.org/">buildroot.org</a>.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Build_buildroot_image_for_A10"><span class="tocnumber">1</span> <span class="toctext">Build buildroot image for A10</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Flash_the_image"><span class="tocnumber">2</span> <span class="toctext">Flash the image</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Buildroot_XBMC_on_the_Mele_A1000_and_A2000_.28Allwinner_A10.29"><span class="tocnumber">3</span> <span class="toctext">Buildroot XBMC on the Mele A1000 and A2000 (Allwinner A10)</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Tips"><span class="tocnumber">4</span> <span class="toctext">Tips</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#SkiffOS"><span class="tocnumber">5</span> <span class="toctext">SkiffOS</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#External_links"><span class="tocnumber">6</span> <span class="toctext">External links</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Build_buildroot_image_for_A10">Build buildroot image for A10</span></h2>
+<p>Here are the instructions for building Livesuit image for Cubieboard using buildroot, they might also apply to other A10 devices.
+</p>
+<pre>mkdir cubie &amp;&amp; cd cubie
+git clone https://github.com/matson-hall/allwinner-buildroot.git -b cubieboard
+git clone https://github.com/matson-hall/allwinner-pack-tools.git -b cubieboard
+git clone https://github.com/matson-hall/linux-sunxi.git -b cubieboard linux-allwinner
+
+./allwinner-pack-tools/bin/build.sh
+</pre>
+<p><b><a href="File:Sticky-note-pin.png.html" class="image"><img alt="Sticky-note-pin.png" src="https://linux-sunxi.org/images/f/f0/Sticky-note-pin.png" decoding="async" width="16" height="16" /></a> <i>Note:</i> </b> 64bit system needed to execute the pack tools script (files in this folder: <kbd>./allwinner-pack-tools/pack/pctools/linux/mod_update</kbd>)
+</p><p><code>script  script.exe  script_old  script_old.exe  u_boot_env_gen  update_23  update_23.exe  update_mbr  update_mbr.exe</code>
+</p><p><b><a href="File:Information.png.html" class="image"><img alt="Information.png" src="https://linux-sunxi.org/images/5/54/Information.png" decoding="async" width="16" height="16" /></a> These binaries are meant to be executed on a 64bit system, so to use this script, it appears that you need a 64bit system.</b>
+</p><p>If the git commands failed, you want to wait for a few minutes before retrying.
+</p><p>To log the build process:
+</p>
+<pre>./allwinner-pack-tools/bin/build.sh &gt; buildlog.txt 2&gt;&amp;1
+</pre>
+<p>There are some commands in the script that appear to require sudo to run (chown, ldconfig, mknod), so not clear if is expected to be run with sudo.  
+</p><p>This script will build buildroot and linux kernel with cubieboard default config, and pack the image into a <a href="LiveSuit_images.html" title="LiveSuit images">LiveSuit_images</a>.
+</p><p>The build should take about 10-15 minutes depending upon machine speed. If it goes much faster, your build environment may not be setup correctly. See the Instructions above for setting up build environment.
+</p><p>At the end of the build, you will see 
+</p>
+<pre>---------image is at-------------
+
+/home/«username»/cubie/allwinner-pack-tools/pack/sun4i_linux_cubieboard.img
+</pre>
+<p>(File should be at <kbd>~/cubie/allwinner-pack-tools/pack/sun4i_linux_cubieboard.img<kbd>)
+</kbd></kbd></p><p>That's it, to flash the image to Nand flash, you need to install <a href="LiveSuit.html" title="LiveSuit">LiveSuit</a>.
+</p><p><b><a href="File:Sticky-note-pin.png.html" class="image"><img alt="Sticky-note-pin.png" src="https://linux-sunxi.org/images/f/f0/Sticky-note-pin.png" decoding="async" width="16" height="16" /></a> <i>Note:</i> </b>  This image is minimalistic with only a few scripts to test hardware. You need to change rootfs if you want to build proper linux distribution.
+</p><p><b><a href="File:Sticky-note-pin.png.html" class="image"><img alt="Sticky-note-pin.png" src="https://linux-sunxi.org/images/f/f0/Sticky-note-pin.png" decoding="async" width="16" height="16" /></a> <i>Note:</i> </b>  After flashing this image, if you are getting message "/bin/dwin: error while loading shared libraries: libdirectfb-1.4.so.5: cannot open shared object file: No such file or directory" in serial log, you need to 'make menuconfig' -&gt; 'Package selection for the target' -&gt; 'Graphics libraries and applications' and select appropriate directfb options.
+</p>
+<h2><span class="mw-headline" id="Flash_the_image">Flash the image</span></h2>
+<pre>unzip allwinner-pack-tools/tools/Livesuit-linux.zip
+chmod +x LiveSuit_For_Linux64/LiveSuit.run
+./LiveSuit_For_Linux64/LiveSuit.run #livesuit will be installed to ~/Bin
+sudo ~/Bin/LiveSuit/LiveSuit.sh #run livesuit
+</pre>
+<p>choose the image we built just now, let cubieboard go to <a href="FEL.html" title="FEL">FEL</a> mode, holding the button under the miniUSB port, then connecting the USB cable or power adapter, you should see the progress bar increasing.
+</p><p>Note: LiveSuit.run installs a dynamic kernel module, you will need to install dkms in order to use this driver. It is an allwinner usb driver that talks to the board for flashing.
+</p>
+<pre>sudo apt-get install dkms
+</pre>
+<h2><span id="Buildroot_XBMC_on_the_Mele_A1000_and_A2000_(Allwinner_A10)"></span><span class="mw-headline" id="Buildroot_XBMC_on_the_Mele_A1000_and_A2000_.28Allwinner_A10.29">Buildroot XBMC on the Mele A1000 and A2000 (Allwinner A10)</span></h2>
+<p>Team-XBMC developer Gimli (a.k.a. huceke) has updated his Buildroot development environment that he originally designed for developing XBMC on the Raspberry Pi to also be compatible with Mele A1000 and A2000 (Allwinner <a href="A10.html" title="A10">A10</a>) with <a href="CedarX" title="CedarX">CedarX</a> support:
+</p>
+<ul><li><a class="external free" href="http://github.com/huceke/buildroot-rbp">http://github.com/huceke/buildroot-rbp</a></li>
+<li><a rel="nofollow" class="external text" href="http://www.j1nx.nl/buildroot-xbmc-on-mele-a1000-allwinner-a10/">http://www.j1nx.nl/buildroot-xbmc-on-mele-a1000-allwinner-a10/</a></li>
+<li><a rel="nofollow" class="external free" href="http://www.cnx-software.com/2012/11/12/xbmc-for-linux-on-allwinner-a10-devices-it-works-sort-of/">http://www.cnx-software.com/2012/11/12/xbmc-for-linux-on-allwinner-a10-devices-it-works-sort-of/</a></li></ul>
+<p><i>"Gimli recently decided to push his XBMC port to the public, so we now have a Buildroot XBMC on the mele A1000.  Some of you are already knew about the port empatzero decided to release. This port is around for a while now and it does look like the same decoding gitches appear to happen. For some reason sometimes the decoding times show peaks in decoding time, up to the point it results in glitches.</i>
+</p><p><i>As both ports show similar bugs, Gimli decided to push it out in the open. Communication with Allwinner was still going on but progress was at a very slow rate. Having two different ports / approaches showing similar bugs kind of proof it is most likely something in the cedarX libraries. Hence the reason Gimli decided to release it.</i>
+</p><p><i>Up till this point I have been following the progress from the sideline. I saw the port of empatzero popping up, but never actually decided to give it a go. I did not really liked the full blown linux OS for only one program (XBMC).</i>
+</p><p><i>I compiled the minimalistic buildroot envirnment (same as Gimli used for the RPi), compiled XBMC and merged them together with the necessary tweaks to get it running.</i>
+</p>
+<ul><li><i>3.0.42 kernel (just before the update to 3.0.52).</i></li>
+<li><i>Buildroot environment.</i></li>
+<li><i>No window manager (X11). XBMC runs straight onto the framebuffer.</i></li>
+<li><i>Couple of tweaks here and there as this is not even an alpha release.</i></li>
+<li><i>All armhf compild with Linaro toolchain.</i></li></ul>
+<p><i>Created a bootable SD card with a ext2 partition containing the rootfs and xbmc binaries and started it up. There appears to be a memory leak in samba armhf compiled, so disabled that for now (server, not the client). Further more there is nothing really included. No LIRC remote support or other side hardware for that matter.</i>
+</p><p><i>Inserted the SD card and turned on the Mele A1000. After a good couple of seconds the XBMC start splash appeared and the GUI showed up. GUI speed is fast enough and rendered at around ~40 FPS, similar as Empatzero his port.</i>
+</p><p><i>Exactly the same performance and issues as Empatzero his port. The only difference is the AVI playback, but it should be noted that the test results on linux-sunxi (at this moment) are done without empatzero his last commit and support for AVI and other missing codecs.</i>
+</p><p><i>There are still small issues here and there, but all with all not bad for a initial pre-alpha release. I will to some more testing, tweaking and adjustments. People that want to do it themselfs can already do so. Everything can be found on Gimli his github account <a class="external free" href="https://github.com/huceke">https://github.com/huceke</a>."</i>
+</p>
+<h2><span class="mw-headline" id="Tips">Tips</span></h2>
+<ul><li>run /test/test.sh #you can test all the interface of cubieboard except the 96pin headers</li>
+<li>run CedarXPlayerTest /root/test1.mp4 #you can play video from console</li>
+<li>run /test/lightshow/lightshow #you can test openGL ES of mali400</li></ul>
+<h2><span class="mw-headline" id="SkiffOS">SkiffOS</span></h2>
+<p><a class="external text" href="https://github.com/skiffos/skiffos">SkiffOS</a> is an MIT-licensed configuration layering system for Buildroot which makes it easy to compartmentalize Buildroot configurations into layers and retarget them between different underlying device types. It also has optional support for Docker containers and running on standard Intel-based desktop PCs.
+</p>
+<h2><span class="mw-headline" id="External_links">External links</span></h2>
+<ul><li><a rel="nofollow" class="external text" href="http://buildroot.org/">buildroot project's homepage</a></li></ul>
+<!-- 
+NewPP limit report
+Cached time: 20251029040839
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.039 seconds
+Real time usage: 0.046 seconds
+Preprocessor visited node count: 75/1000000
+Post‐expand include size: 264/2097152 bytes
+Template argument size: 122/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 782/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    5.022      1 -total
+ 50.88%    2.555      3 Template:Note
+ 38.53%    1.935      1 Template:Info
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:214-0!canonical and timestamp 20251029040838 and revision id 25536
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=Buildroot&amp;oldid=25536">https://linux-sunxi.org/index.php?title=Buildroot&amp;oldid=25536</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Categories</a>: <ul><li><a href="Category:Tutorial.html" title="Category:Tutorial">Tutorial</a></li><li><a href="Category:Linux_Distributions.html" title="Category:Linux Distributions">Linux Distributions</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=Buildroot" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=Buildroot" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="Buildroot.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk"><a href="Talk:Buildroot.html" rel="discussion" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="Buildroot.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Buildroot&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Buildroot&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="https://linux-sunxi.org/Special:WhatLinksHere/Buildroot" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/Buildroot" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=Buildroot&amp;oldid=25536" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=Buildroot&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 6 November 2023, at 21:27.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.039","walltime":"0.046","ppvisitednodes":{"value":75,"limit":1000000},"postexpandincludesize":{"value":264,"limit":2097152},"templateargumentsize":{"value":122,"limit":2097152},"expansiondepth":{"value":3,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":782,"limit":5000000},"timingprofile":["100.00%    5.022      1 -total"," 50.88%    2.555      3 Template:Note"," 38.53%    1.935      1 Template:Info"]},"cachereport":{"timestamp":"20251029040839","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":283});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

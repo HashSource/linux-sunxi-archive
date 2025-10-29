@@ -1,0 +1,1603 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Allwinner SoC Family - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"293028952e2983ca9b7dc10d","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Allwinner_SoC_Family","wgTitle":"Allwinner SoC Family","wgCurRevisionId":26714,"wgRevisionId":26714,"wgArticleId":771,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["System on Chip"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Allwinner_SoC_Family","wgRelevantArticleId":771,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgRedirectedFrom":"Sunxi",
+"wgInternalRedirectTargetUrl":"/Allwinner_SoC_Family"};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":"ready","user":"ready","user.options":"loading","ext.cite.styles":"ready","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","mediawiki.action.view.redirect","ext.cite.ux-enhancements","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=ext.cite.styles%7Cmediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="Allwinner_SoC_Family.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-Allwinner_SoC_Family rootpage-Allwinner_SoC_Family skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">Allwinner SoC Family</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"><span class="mw-redirectedfrom">(Redirected from <a href="https://linux-sunxi.org/index.php?title=Sunxi&amp;redirect=no" class="mw-redirect" title="Sunxi">Sunxi</a>)</span></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#SoC_series"><span class="tocnumber">1</span> <span class="toctext">SoC series</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#.22A.22-Series"><span class="tocnumber">1.1</span> <span class="toctext">"A"-Series</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#.22F.22-Series"><span class="tocnumber">1.2</span> <span class="toctext">"F"-Series</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#.22H.22-Series"><span class="tocnumber">1.3</span> <span class="toctext">"H"-Series</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#.22R.22-Series"><span class="tocnumber">1.4</span> <span class="toctext">"R"-Series</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#.22T.22-series"><span class="tocnumber">1.5</span> <span class="toctext">"T"-series</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#.22V.22-series"><span class="tocnumber">1.6</span> <span class="toctext">"V"-series</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#.22X.22_-_.28B.2FMR.2FS.2FVR.2FTV.29_-_series"><span class="tocnumber">1.7</span> <span class="toctext">"X" - (B/MR/S/VR/TV) - series</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#.22RISC-V.22-Series"><span class="tocnumber">1.8</span> <span class="toctext">"RISC-V"-Series</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-10"><a href="#2013_naming_scheme_change"><span class="tocnumber">2</span> <span class="toctext">2013 naming scheme change</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="#Features"><span class="tocnumber">3</span> <span class="toctext">Features</span></a>
+<ul>
+<li class="toclevel-2 tocsection-12"><a href="#Comparison_table"><span class="tocnumber">3.1</span> <span class="toctext">Comparison table</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-13"><a href="#References"><span class="tocnumber">4</span> <span class="toctext">References</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="SoC_series">SoC series</span></h1>
+<p><b>A</b> series processors are used for mobile applications, mainly referring to tablet application here;
+</p><p><b>B</b> for "Book", used for E-book tablet reader. 
+</p><p><b>H</b> for “Homlet”, mainly used in home entertainment applications, including smart OTT boxes, HDMI mini PCs, gaming boxes, etc;
+</p><p><b>V</b> for video-related applications, including video surveillance, automotive DVR, etc;
+</p><p><b>T</b> series processors target the Automotive products like ADAS. 
+</p><p><b>TV</b> series processors target to the video-related applications, projector, TV
+</p><p><b>F</b> series are processors based on Allwinner’s melis OS, mainly used in smart video radios, video MP5, etc;
+</p>
+<h2><span id="&quot;A&quot;-Series"></span><span class="mw-headline" id=".22A.22-Series">"A"-Series</span></h2>
+<p>Based on ARMv7 Cortex-A cores (Cortex-A7, A8 and A15) targeted for high-end devices like digital media players, tablets, and netbooks:
+</p>
+<table class="wikitable">
+<tbody><tr>
+<td><a href="A10.html" title="A10">Allwinner A10</a></td>
+<td><small>(sun4i)</small></td>
+<td>1 x Cortex-A8 CPU-core
+</td></tr>
+<tr>
+<td><a href="A13.html" title="A13">Allwinner A13</a></td>
+<td><small>(sun5i)</small></td>
+<td>1 x Cortex-A8 CPU-core
+</td></tr>
+<tr>
+<td><a href="A10s.html" title="A10s">Allwinner A10s</a></td>
+<td><small>(sun5i)</small></td>
+<td>1 x Cortex-A8 CPU-core
+</td></tr>
+<tr>
+<td><a href="A20.html" title="A20">Allwinner A20</a><sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup></td>
+<td><small>(sun7i)</small></td>
+<td>2 x Cortex-A7 CPU-cores
+</td></tr>
+<tr>
+<td><a href="A23.html" title="A23">Allwinner A23</a></td>
+<td><small>(sun8i)</small></td>
+<td>2 x Cortex-A7 CPU-cores
+</td></tr>
+<tr>
+<td><a href="A31.html" title="A31">Allwinner A31</a></td>
+<td><small>(sun6i)</small></td>
+<td>4 x Cortex-A7 CPU-cores
+</td></tr>
+<tr>
+<td><a href="A31s.html" class="mw-redirect" title="A31s">Allwinner A31s</a></td>
+<td><small>(sun6i)</small></td>
+<td>4 x Cortex-A7 CPU-cores
+</td></tr>
+<tr>
+<td><a href="A33.html" title="A33">Allwinner A33</a><sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;2&#93;</a></sup></td>
+<td><small>(sun8i)</small></td>
+<td>4 x Cortex-A7 CPU-cores
+</td></tr>
+<tr>
+<td><a href="A40i.html" class="mw-redirect" title="A40i">Allwinner A40i</a><sup id="cite_ref-3" class="reference"><a href="#cite_note-3">&#91;3&#93;</a></sup></td>
+<td><small>(sun8i)</small></td>
+<td>4 x Cortex-A7 CPU-cores
+</td></tr>
+<tr>
+<td><a href="A50.html" title="A50">Allwinner A50</a><sup id="cite_ref-4" class="reference"><a href="#cite_note-4">&#91;4&#93;</a></sup></td>
+<td><small>(sun8i)</small></td>
+<td>4 x Cortex-A7 CPU-cores
+</td></tr>
+<tr>
+<td><a href="A80.html" title="A80">Allwinner A80</a></td>
+<td><small>(sun9i)</small></td>
+<td>4 x Cortex-A7 CPU-cores + 4 x Cortex-A15 CPU-cores&#160;<br /><small>(using ARM big.LITTLE heterogeneous CPU architecture)</small>
+</td></tr>
+<tr>
+<td><a href="A83T.html" title="A83T">Allwinner A83T</a><sup id="cite_ref-5" class="reference"><a href="#cite_note-5">&#91;5&#93;</a></sup></td>
+<td><small>(sun8i)</small>&#160;</td>
+<td>8 x Cortex-A7 CPU-cores
+</td></tr></tbody></table>
+<p><b>64-bit</b>
+</p><p>Based on ARMv8 Cortex-A cores (Cortex-A53, A55) targeted for high-end devices like digital media players, tablets, and netbooks:
+</p>
+<table class="wikitable">
+<tbody><tr>
+<td><a href="A63.html" title="A63">Allwinner A63</a><sup id="cite_ref-6" class="reference"><a href="#cite_note-6">&#91;6&#93;</a></sup></td>
+<td><small>(sun50i)</small>&#160;</td>
+<td>4 x Cortex-A53 CPU-core
+</td></tr>
+<tr>
+<td><a href="A64.html" title="A64">Allwinner A64</a><sup id="cite_ref-7" class="reference"><a href="#cite_note-7">&#91;7&#93;</a></sup></td>
+<td><small>(sun50i)</small>&#160;</td>
+<td>4 x Cortex-A53 CPU-core
+</td></tr>
+<tr>
+<td><a href="A100.html" class="mw-redirect" title="A100">Allwinner A100</a></td>
+<td><small>(sun50i)</small>&#160;</td>
+<td>4 x Cortex-A53 CPU-cores
+</td></tr>
+<tr>
+<td><a href="A133.html" title="A133">Allwinner A133</a><sup id="cite_ref-8" class="reference"><a href="#cite_note-8">&#91;8&#93;</a></sup></td>
+<td><small>(sun50i)</small></td>
+<td>4 x Cortex-A53 CPU-core
+</td></tr>
+<tr>
+<td><a href="A523.html" title="A523">Allwinner A523</a></td>
+<td><small>(sun55i)</small></td>
+<td>8 x Cortex-A55 CPU-core
+</td></tr>
+<tr>
+<td><a href="A527.html" class="mw-redirect" title="A527">Allwinner A527</a></td>
+<td><small>(sun55iw3)</small></td>
+<td>8 x Cortex-A55 CPU-core
+</td></tr>
+<tr>
+<td><a href="A733.html" title="A733">Allwinner A733</a></td>
+<td><small>(sun60i)</small></td>
+<td>2 x Cortex-A76 CPU-core + 6 x Cortex-A55 CPU-core
+</td></tr>
+<tr>
+<td><a href="https://linux-sunxi.org/index.php?title=A537&amp;action=edit&amp;redlink=1" class="new" title="A537 (page does not exist)">Allwinner A537</a></td>
+<td><small>(sun65i)</small></td>
+<td>2 x Cortex-A73 CPU-core + 2 x Cortex-A53 CPU-core + 4 x Cortex-A53 CPU-core
+</td></tr>
+<tr>
+<td><a href="https://linux-sunxi.org/index.php?title=A333&amp;action=edit&amp;redlink=1" class="new" title="A333 (page does not exist)">Allwinner A333</a></td>
+<td><small>(sun65i)</small></td>
+<td>1 x Cortex-A73 CPU-core + 4 x Cortex-A53 CPU-core
+</td></tr></tbody></table>
+<h2><span id="&quot;F&quot;-Series"></span><span class="mw-headline" id=".22F.22-Series">"F"-Series</span></h2>
+<dl><dd><b><a href="File:Sticky-note-pin.png.html" class="image"><img alt="Sticky-note-pin.png" src="https://linux-sunxi.org/images/f/f0/Sticky-note-pin.png" decoding="async" width="16" height="16" /></a> <i>Note:</i> The F series is not supported by the linux-sunxi community due to lack of developers and hardware. <i>sun3i</i> have only official linux support, <i>sunii</i> have no linux support, only Allwinner's "Melis" RTOS.</b></dd></dl>
+<p>Based on ARMv5 ARM926-EJS core and currently targeted for low market devices such as cheap ebook readers, etc.
+</p><p>F1C700 seems to be a remarked A13, and it's ARMv7.
+</p>
+<table class="wikitable">
+<tbody><tr>
+<td><a href="https://linux-sunxi.org/index.php?title=C100&amp;action=edit&amp;redlink=1" class="new" title="C100 (page does not exist)">Boxchip C100</a></td>
+<td><small>(sun3i)</small>
+</td></tr>
+<tr>
+<td><a href="E200.html" title="E200">Boxchip E200</a></td>
+<td><small>(sun3i)</small>
+</td></tr>
+<tr>
+<td><a href="https://linux-sunxi.org/index.php?title=F10&amp;action=edit&amp;redlink=1" class="new" title="F10 (page does not exist)">Boxchip F10</a> <small>aka SoChip SC9800 aka Teclast T8100</small>&#160;</td>
+<td><small>(sunii)</small>
+</td></tr>
+<tr>
+<td><a href="https://linux-sunxi.org/index.php?title=F13&amp;action=edit&amp;redlink=1" class="new" title="F13 (page does not exist)">Boxchip F13</a></td>
+<td><small>(sunii)</small>
+</td></tr>
+<tr>
+<td><a href="https://linux-sunxi.org/index.php?title=F13&amp;action=edit&amp;redlink=1" class="new" title="F13 (page does not exist)">Boxchip F15</a> <small>aka SoChip SC8600 aka Teclast T7200</small></td>
+<td><small>(sunii)</small>
+</td></tr>
+<tr>
+<td><a href="https://linux-sunxi.org/index.php?title=F18&amp;action=edit&amp;redlink=1" class="new" title="F18 (page does not exist)">Boxchip F18</a></td>
+<td><small>(sunii)</small>
+</td></tr>
+<tr>
+<td><a href="F20.html" title="F20">Boxchip F20</a></td>
+<td><small>(sun3i)</small>
+</td></tr>
+<tr>
+<td><a href="https://linux-sunxi.org/index.php?title=F23&amp;action=edit&amp;redlink=1" class="new" title="F23 (page does not exist)">Allwinner F23</a><sup id="cite_ref-9" class="reference"><a href="#cite_note-9">&#91;9&#93;</a></sup>  <small>aka F1C100A</small></td>
+<td><small>(suniv)</small>
+</td></tr>
+<tr>
+<td><a href="https://linux-sunxi.org/index.php?title=F25&amp;action=edit&amp;redlink=1" class="new" title="F25 (page does not exist)">Allwinner F25</a><sup id="cite_ref-10" class="reference"><a href="#cite_note-10">&#91;10&#93;</a></sup></td>
+<td><small>(suniv)</small>
+</td></tr>
+<tr>
+<td><a href="https://linux-sunxi.org/index.php?title=F1C100A&amp;action=edit&amp;redlink=1" class="new" title="F1C100A (page does not exist)">Allwinner F1C100A</a><sup id="cite_ref-11" class="reference"><a href="#cite_note-11">&#91;11&#93;</a></sup></td>
+<td><small>(suniv)</small>
+</td></tr>
+<tr>
+<td><a href="F1C100s.html" title="F1C100s">Allwinner F1C100s</a><sup id="cite_ref-12" class="reference"><a href="#cite_note-12">&#91;12&#93;</a></sup></td>
+<td><small>(suniv)</small>
+</td></tr>
+<tr>
+<td><a href="F1C200s.html" class="mw-redirect" title="F1C200s">Allwinner F1C200s</a><sup id="cite_ref-13" class="reference"><a href="#cite_note-13">&#91;13&#93;</a></sup></td>
+<td><small>(suniv)</small>
+</td></tr>
+<tr>
+<td><a href="https://linux-sunxi.org/index.php?title=F1C500&amp;action=edit&amp;redlink=1" class="new" title="F1C500 (page does not exist)">Allwinner F1C500</a><sup id="cite_ref-14" class="reference"><a href="#cite_note-14">&#91;14&#93;</a></sup></td>
+<td><small>(suniv)</small>
+</td></tr>
+<tr>
+<td><a href="F1C500s.html" class="mw-redirect" title="F1C500s">Allwinner F1C500s</a><sup id="cite_ref-15" class="reference"><a href="#cite_note-15">&#91;15&#93;</a></sup></td>
+<td><small>(suniv)</small>
+</td></tr>
+<tr>
+<td><a href="https://linux-sunxi.org/index.php?title=F1C600&amp;action=edit&amp;redlink=1" class="new" title="F1C600 (page does not exist)">Allwinner F1C600</a><sup id="cite_ref-16" class="reference"><a href="#cite_note-16">&#91;16&#93;</a></sup></td>
+<td><small>(suniv)</small>
+</td></tr>
+<tr>
+<td><a href="https://linux-sunxi.org/index.php?title=F1C700&amp;action=edit&amp;redlink=1" class="new" title="F1C700 (page does not exist)">Allwinner F1C700</a></td>
+<td><small>(sun5i)</small>
+</td></tr>
+<tr>
+<td><a href="https://linux-sunxi.org/index.php?title=F1C800&amp;action=edit&amp;redlink=1" class="new" title="F1C800 (page does not exist)">Allwinner F1C800</a><sup id="cite_ref-17" class="reference"><a href="#cite_note-17">&#91;17&#93;</a></sup></td>
+<td><small>(suniv)</small>
+</td></tr>
+<tr>
+<td><a href="https://linux-sunxi.org/index.php?title=F1D100&amp;action=edit&amp;redlink=1" class="new" title="F1D100 (page does not exist)">Allwinner F1D100</a><sup id="cite_ref-18" class="reference"><a href="#cite_note-18">&#91;18&#93;</a></sup></td>
+<td><small>(suniv)</small>
+</td></tr></tbody></table>
+<h2><span id="&quot;H&quot;-Series"></span><span class="mw-headline" id=".22H.22-Series">"H"-Series</span></h2>
+<p>Based on ARMv7/ARMv8 Cortex-A cores (A7/A53) targeted for video OTT (over-the-top) boxes and high-end gaming consoles:
+</p>
+<table class="wikitable">
+<tbody><tr>
+<td><a href="H2+.html" class="mw-redirect" title="H2+">Allwinner H2+</a><sup id="cite_ref-19" class="reference"><a href="#cite_note-19">&#91;19&#93;</a></sup></td>
+<td><small>(sun8i)</small>&#160;</td>
+<td>4 x Cortex-A7 CPU-core&#160;
+</td></tr>
+<tr>
+<td><a href="H3.html" title="H3">Allwinner H3</a><sup id="cite_ref-20" class="reference"><a href="#cite_note-20">&#91;20&#93;</a></sup></td>
+<td><small>(sun8i)</small>&#160;</td>
+<td>4 x Cortex-A7 CPU-core&#160;
+</td></tr>
+<tr>
+<td><a href="H8.html" class="mw-redirect" title="H8">Allwinner H8</a></td>
+<td><small>(sun8i)</small></td>
+<td>8 x Cortex-A7 CPU-core
+</td></tr>
+<tr>
+<td><a href="https://linux-sunxi.org/index.php?title=H80&amp;action=edit&amp;redlink=1" class="new" title="H80 (page does not exist)">Allwinner H80</a><sup id="cite_ref-21" class="reference"><a href="#cite_note-21">&#91;21&#93;</a></sup></td>
+<td><small>(sun8i)</small></td>
+<td>8 x Cortex-A7 CPU-core
+</td></tr>
+<tr>
+<td><a href="H133.html" title="H133">Allwinner H133</a></td>
+<td><small>(sun8i)</small></td>
+<td>2 x Cortex-A7 CPU-core
+</td></tr></tbody></table>
+<p><b>64-bit</b>
+</p>
+<table class="wikitable">
+<tbody><tr>
+<td><a href="H5.html" title="H5">Allwinner H5</a><sup id="cite_ref-22" class="reference"><a href="#cite_note-22">&#91;22&#93;</a></sup>&#160;</td>
+<td><small>(sun50i)</small>&#160;</td>
+<td>4 x Cortex-A53 CPU-core
+</td></tr>
+<tr>
+<td><a href="H6.html" title="H6">Allwinner H6</a><sup id="cite_ref-23" class="reference"><a href="#cite_note-23">&#91;23&#93;</a></sup>&#160;</td>
+<td><small>(sun50i)</small>&#160;</td>
+<td>4 x Cortex-A53 CPU-core
+</td></tr>
+<tr>
+<td><a href="H64.html" title="H64">Allwinner H64</a><sup id="cite_ref-24" class="reference"><a href="#cite_note-24">&#91;24&#93;</a></sup></td>
+<td><small>(sun50i)</small></td>
+<td>4 x Cortex-A53 CPU-core
+</td></tr>
+<tr>
+<td><a href="H313.html" class="mw-redirect" title="H313">Allwinner H313</a><sup id="cite_ref-25" class="reference"><a href="#cite_note-25">&#91;25&#93;</a></sup></td>
+<td><small>(sun50i)</small></td>
+<td>4 x Cortex-A53 CPU-core
+</td></tr>
+<tr>
+<td><a href="H616.html" title="H616">Allwinner H616</a><sup id="cite_ref-26" class="reference"><a href="#cite_note-26">&#91;26&#93;</a></sup></td>
+<td><small>(sun50i)</small></td>
+<td>4 x Cortex-A53 CPU-core
+</td></tr>
+<tr>
+<td><a href="H618.html" class="mw-redirect" title="H618">Allwinner H618</a></td>
+<td><small>(sun50i)</small></td>
+<td>4 x Cortex-A53 CPU-core
+</td></tr>
+<tr>
+<td><a href="H700.html" class="mw-redirect" title="H700">Allwinner H700</a></td>
+<td><small>(sun50i)</small></td>
+<td>4 x Cortex-A53 CPU-core
+</td></tr>
+<tr>
+<td><a href="H713.html" title="H713">Allwinner H713</a></td>
+<td><small>(sun50i)</small></td>
+<td>4 x Cortex-A53 CPU-core
+</td></tr>
+<tr>
+<td><a href="https://linux-sunxi.org/index.php?title=H716&amp;action=edit&amp;redlink=1" class="new" title="H716 (page does not exist)">Allwinner H716</a></td>
+<td><small>(sun50i)</small></td>
+<td>4 x Cortex-A53 CPU-core
+</td></tr>
+<tr>
+<td><a href="H728.html" class="mw-redirect" title="H728">Allwinner H728</a></td>
+<td><small>(sun55i)</small></td>
+<td>8 x Cortex-A55 CPU-core
+</td></tr>
+<tr>
+<td><a href="https://linux-sunxi.org/index.php?title=H135&amp;action=edit&amp;redlink=1" class="new" title="H135 (page does not exist)">Allwinner H135</a></td>
+<td><small>(sun251i)</small></td>
+<td>1 x RISC-V T-Head XuanTie C906 CPU-core
+</td></tr>
+<tr>
+<td><a href="https://linux-sunxi.org/index.php?title=H136&amp;action=edit&amp;redlink=1" class="new" title="H136 (page does not exist)">Allwinner H136</a></td>
+<td><small>(sun251i)</small></td>
+<td>1 x RISC-V T-Head XuanTie C906 CPU-core
+</td></tr>
+<tr>
+<td><a href="https://linux-sunxi.org/index.php?title=H137&amp;action=edit&amp;redlink=1" class="new" title="H137 (page does not exist)">Allwinner H137</a></td>
+<td><small>(sun251i)</small></td>
+<td>1 x RISC-V T-Head XuanTie C906 CPU-core
+</td></tr></tbody></table>
+<h2><span id="&quot;R&quot;-Series"></span><span class="mw-headline" id=".22R.22-Series">"R"-Series</span></h2>
+<table class="wikitable">
+<tbody><tr>
+<td><a href="https://linux-sunxi.org/index.php?title=R6&amp;action=edit&amp;redlink=1" class="new" title="R6 (page does not exist)">Allwinner R6</a><sup id="cite_ref-27" class="reference"><a href="#cite_note-27">&#91;27&#93;</a></sup></td>
+<td><small>(sun3i)</small></td>
+<td>1 x ARM926EJ-S CPU-core
+</td></tr>
+<tr>
+<td><a href="https://linux-sunxi.org/index.php?title=R7&amp;action=edit&amp;redlink=1" class="new" title="R7 (page does not exist)">Allwinner R7</a><sup id="cite_ref-28" class="reference"><a href="#cite_note-28">&#91;28&#93;</a></sup></td>
+<td><small>(sun8i)</small></td>
+<td>1 x Cortex-A7 CPU-core
+</td></tr>
+<tr>
+<td><a href="R8.html" class="mw-redirect" title="R8">Allwinner R8</a><sup id="cite_ref-29" class="reference"><a href="#cite_note-29">&#91;29&#93;</a></sup></td>
+<td><small>(sun5i)</small>&#160;</td>
+<td>1 x Cortex-A8 CPU-core
+</td></tr>
+<tr>
+<td><a href="https://linux-sunxi.org/index.php?title=R11&amp;action=edit&amp;redlink=1" class="new" title="R11 (page does not exist)">Allwinner R11</a><sup id="cite_ref-30" class="reference"><a href="#cite_note-30">&#91;30&#93;</a></sup></td>
+<td><small>(sun8i)</small></td>
+<td>1 x Cortex-A7 CPU-core
+</td></tr>
+<tr>
+<td><a href="R16.html" class="mw-redirect" title="R16">Allwinner R16</a><sup id="cite_ref-31" class="reference"><a href="#cite_note-31">&#91;31&#93;</a></sup></td>
+<td><small>(sun8i)</small></td>
+<td>4 x Cortex-A7 CPU-core
+</td></tr>
+<tr>
+<td><a href="R40.html" title="R40">Allwinner R40</a><sup id="cite_ref-32" class="reference"><a href="#cite_note-32">&#91;32&#93;</a></sup></td>
+<td><small>(sun8i)</small></td>
+<td>4 x Cortex-A7 CPU-core
+</td></tr>
+<tr>
+<td><a href="R58.html" class="mw-redirect" title="R58">Allwinner R58</a><sup id="cite_ref-33" class="reference"><a href="#cite_note-33">&#91;33&#93;</a></sup>&#160;</td>
+<td><small>(sun8i)</small></td>
+<td>8 x Cortex-A7 CPU-core
+</td></tr>
+<tr>
+<td><a href="https://linux-sunxi.org/index.php?title=R311&amp;action=edit&amp;redlink=1" class="new" title="R311 (page does not exist)">Allwinner R311</a><sup id="cite_ref-34" class="reference"><a href="#cite_note-34">&#91;34&#93;</a></sup>&#160;</td>
+<td><small>(sun8i)</small></td>
+<td>4 x Cortex-A7 CPU-core
+</td></tr>
+<tr>
+<td><a href="https://linux-sunxi.org/index.php?title=R328&amp;action=edit&amp;redlink=1" class="new" title="R328 (page does not exist)">Allwinner R328</a><sup id="cite_ref-35" class="reference"><a href="#cite_note-35">&#91;35&#93;</a></sup>&#160;</td>
+<td><small>(sun8i)</small></td>
+<td>2 x Cortex-A7 CPU-core
+</td></tr>
+<tr>
+<td><a href="https://linux-sunxi.org/index.php?title=R853&amp;action=edit&amp;redlink=1" class="new" title="R853 (page does not exist)">Allwinner R853</a></td>
+<td><small>(sun8i)</small></td>
+<td>1 x Cortex-A7 CPU-core + 1 x RISC-V MCU
+</td></tr></tbody></table>
+<p>The Allwinner R8 is repackaged version of the A13. This SoC gets used in the minicomputer presented in Next Thing Co.'s <a href="NextThingCo_CHIP.html" title="NextThingCo CHIP"><i>C.H.I.P.</i></a> kickstarter project ("The $9 computer")<sup id="cite_ref-36" class="reference"><a href="#cite_note-36">&#91;36&#93;</a></sup>.
+</p><p>By comparing the product pages the R16 seems to be a relabeled version of A33. This is somewhat confirmed by the (identical) SoC ID the BROM reports.<sup id="cite_ref-37" class="reference"><a href="#cite_note-37">&#91;37&#93;</a></sup>
+</p><p><b>64-bit</b>
+</p>
+<table class="wikitable">
+<tbody><tr>
+<td><a href="https://linux-sunxi.org/index.php?title=R18&amp;action=edit&amp;redlink=1" class="new" title="R18 (page does not exist)">Allwinner R18</a><sup id="cite_ref-38" class="reference"><a href="#cite_note-38">&#91;38&#93;</a></sup></td>
+<td><small>sun50i</small></td>
+<td>4 x Cortex-A53 CPU-core
+</td></tr>
+<tr>
+<td><a href="R329.html" title="R329">Allwinner R329</a><sup id="cite_ref-39" class="reference"><a href="#cite_note-39">&#91;39&#93;</a></sup>&#160;</td>
+<td><small>(sun50i)</small></td>
+<td>2 x Cortex-A53 CPU-core
+</td></tr>
+<tr>
+<td><a href="R818.html" class="mw-redirect" title="R818">Allwinner R818</a><sup id="cite_ref-40" class="reference"><a href="#cite_note-40">&#91;40&#93;</a></sup></td>
+<td><small>(sun50i)</small></td>
+<td>4 x Cortex-A53 CPU-core
+</td></tr></tbody></table>
+<p><b>64-bit Heterogeneous</b>
+</p>
+<table class="wikitable">
+<tbody><tr>
+<td><a href="https://linux-sunxi.org/index.php?title=R128&amp;action=edit&amp;redlink=1" class="new" title="R128 (page does not exist)">Allwinner R128</a></td>
+<td><small>sun20i</small></td>
+<td>1 x Cortex-m33, 1 x Xuantie C906, 1 x HiFi5 DSP
+</td></tr></tbody></table>
+<h2><span id="&quot;T&quot;-series"></span><span class="mw-headline" id=".22T.22-series">"T"-series</span></h2>
+<table class="wikitable">
+<tbody><tr>
+<td><a href="https://linux-sunxi.org/index.php?title=T2&amp;action=edit&amp;redlink=1" class="new" title="T2 (page does not exist)">Allwinner T2</a><sup id="cite_ref-41" class="reference"><a href="#cite_note-41">&#91;41&#93;</a></sup></td>
+<td><small>(sun8i)</small></td>
+<td>2 x Cortex-A7 CPU-core
+</td></tr>
+<tr>
+<td><a href="T3.html" class="mw-redirect" title="T3">Allwinner T3</a><sup id="cite_ref-42" class="reference"><a href="#cite_note-42">&#91;42&#93;</a></sup></td>
+<td><small>(sun8i)</small></td>
+<td>4 x Cortex-A7 CPU-core
+</td></tr>
+<tr>
+<td><a href="https://linux-sunxi.org/index.php?title=T7&amp;action=edit&amp;redlink=1" class="new" title="T7 (page does not exist)">Allwinner T7</a><sup id="cite_ref-43" class="reference"><a href="#cite_note-43">&#91;43&#93;</a></sup></td>
+<td><small>(sun8i)</small></td>
+<td>6 x Cortex-A7 CPU-core
+</td></tr>
+<tr>
+<td><a href="https://linux-sunxi.org/index.php?title=T8&amp;action=edit&amp;redlink=1" class="new" title="T8 (page does not exist)">Allwinner T8</a><sup id="cite_ref-44" class="reference"><a href="#cite_note-44">&#91;44&#93;</a></sup></td>
+<td><small>(sun8i)</small></td>
+<td>8 x Cortex-A7 CPU-core
+</td></tr>
+<tr>
+<td><a href="T113-s3.html" title="T113-s3">Allwinner T113-S3</a></td>
+<td><small>(sun8i)</small></td>
+<td>2 x Cortex-A7 CPU-core
+</td></tr>
+<tr>
+<td><a href="https://linux-sunxi.org/index.php?title=T113-I&amp;action=edit&amp;redlink=1" class="new" title="T113-I (page does not exist)">Allwinner T113-I</a></td>
+<td><small>(sun8i)</small></td>
+<td>2 x Cortex-A7 CPU-core + 1 x RISC-V <a rel="nofollow" class="external text" href="https://occ.t-head.cn/vendor/cpu/index?id=3817197695983423488">T-Head XuanTie C906</a> CPU-core
+</td></tr></tbody></table>
+<p><br />
+<b>64-bit</b>
+</p>
+<table class="wikitable">
+<tbody><tr>
+<td><a href="T507.html" title="T507">Allwinner T507(T5 Series)</a><sup id="cite_ref-45" class="reference"><a href="#cite_note-45">&#91;45&#93;</a></sup></td>
+<td><small>(sun50i)</small></td>
+<td>4 x Cortex-A53 CPU-core
+</td></tr>
+<tr>
+<td><a href="T527.html" class="mw-redirect" title="T527">Allwinner T527</a><sup id="cite_ref-46" class="reference"><a href="#cite_note-46">&#91;46&#93;</a></sup></td>
+<td><small>(sun55i)</small></td>
+<td>8 x Cortex-A55 CPU-core
+</td></tr>
+<tr>
+<td><a href="T536.html" title="T536">Allwinner T536</a></td>
+<td><small>(sun55i)</small></td>
+<td>4 x Cortex-A55 CPU-core
+</td></tr></tbody></table>
+<h2><span id="&quot;V&quot;-series"></span><span class="mw-headline" id=".22V.22-series">"V"-series</span></h2>
+<table class="wikitable">
+<tbody><tr>
+<td><a href="V3.html" title="V3">Allwinner V3</a><sup id="cite_ref-47" class="reference"><a href="#cite_note-47">&#91;47&#93;</a></sup></td>
+<td><small>(sun8i)</small></td>
+<td>1 x Cortex-A7 CPU-core
+</td></tr>
+<tr>
+<td><a href="V3s.html" title="V3s">Allwinner V3s</a><sup id="cite_ref-48" class="reference"><a href="#cite_note-48">&#91;48&#93;</a></sup></td>
+<td><small>(sun8i)</small></td>
+<td>1 x Cortex-A7 CPU-core
+</td></tr>
+<tr>
+<td><a href="https://linux-sunxi.org/index.php?title=V5&amp;action=edit&amp;redlink=1" class="new" title="V5 (page does not exist)">Allwinner V5</a><sup id="cite_ref-49" class="reference"><a href="#cite_note-49">&#91;49&#93;</a></sup></td>
+<td><small>(sun8i)</small></td>
+<td>4 x Cortex-A7 CPU-core
+</td></tr>
+<tr>
+<td><a href="V40.html" class="mw-redirect" title="V40">Allwinner V40</a><sup id="cite_ref-50" class="reference"><a href="#cite_note-50">&#91;50&#93;</a></sup></td>
+<td><small>(sun8i)</small></td>
+<td>4 x Cortex-A7 CPU-core
+</td></tr>
+<tr>
+<td><a href="https://linux-sunxi.org/index.php?title=V66&amp;action=edit&amp;redlink=1" class="new" title="V66 (page does not exist)">Allwinner V66</a><sup id="cite_ref-51" class="reference"><a href="#cite_note-51">&#91;51&#93;</a></sup></td>
+<td><small>(sun8i)</small></td>
+<td>8 x Cortex-A7 CPU-core
+</td></tr>
+<tr>
+<td><a href="https://linux-sunxi.org/index.php?title=V316&amp;action=edit&amp;redlink=1" class="new" title="V316 (page does not exist)">Allwinner V316</a><sup id="cite_ref-52" class="reference"><a href="#cite_note-52">&#91;52&#93;</a></sup></td>
+<td><small>(sun8i)</small></td>
+<td>2 x Cortex-A7 CPU-core
+</td></tr>
+<tr>
+<td><a href="https://linux-sunxi.org/index.php?title=V536&amp;action=edit&amp;redlink=1" class="new" title="V536 (page does not exist)">Allwinner V536</a><sup id="cite_ref-53" class="reference"><a href="#cite_note-53">&#91;53&#93;</a></sup></td>
+<td><small>(sun8i)</small></td>
+<td>2 x Cortex-A7 CPU-core
+</td></tr>
+<tr>
+<td><a href="V831.html" title="V831">Allwinner V831</a></td>
+<td><small>(sun8i)</small></td>
+<td>1 x Cortex-A7 CPU-core
+</td></tr>
+<tr>
+<td><a href="https://linux-sunxi.org/index.php?title=V833&amp;action=edit&amp;redlink=1" class="new" title="V833 (page does not exist)">Allwinner V833</a></td>
+<td><small>(sun8i)</small></td>
+<td>1 x Cortex-A7 CPU-core
+</td></tr>
+<tr>
+<td><a href="https://linux-sunxi.org/index.php?title=V837s&amp;action=edit&amp;redlink=1" class="new" title="V837s (page does not exist)">Allwinner V837s</a></td>
+<td><small>(sun8i)</small></td>
+<td>1 x Cortex-A7 CPU-core + 1x RISC-V MCU Core
+</td></tr>
+<tr>
+<td><a href="https://linux-sunxi.org/index.php?title=V853s&amp;action=edit&amp;redlink=1" class="new" title="V853s (page does not exist)">Allwinner V853s</a></td>
+<td><small>(sun8i)</small></td>
+<td>1 x Cortex-A7 CPU-core + 1x RISC-V MCU Core
+</td></tr>
+<tr>
+<td><a href="V853.html" title="V853">Allwinner V853</a></td>
+<td><small>(sun8i)</small></td>
+<td>1 x Cortex-A7 CPU-core + 1x RISC-V MCU Core
+</td></tr>
+<tr>
+<td><a href="V851s.html" title="V851s">Allwinner V851s</a></td>
+<td><small>(sun8i)</small></td>
+<td>1 x Cortex-A7 CPU-core + 1x RISC-V MCU Core
+</td></tr>
+<tr>
+<td><a href="https://linux-sunxi.org/index.php?title=V851se&amp;action=edit&amp;redlink=1" class="new" title="V851se (page does not exist)">Allwinner V851se</a></td>
+<td><small>(sun8i)</small></td>
+<td>1 x Cortex-A7 CPU-core + 1x RISC-V MCU Core
+</td></tr>
+<tr>
+<td><a href="V821.html" title="V821">Allwinner V821</a></td>
+<td><small>(sun300i)</small></td>
+<td>1 x <a rel="nofollow" class="external text" href="https://www.andestech.com/en/products-solutions/andescore-processors/riscv-a27l2">Andes A27L2</a> RISC-V RV32 CPU-core + 1x <a rel="nofollow" class="external text" href="https://www.xrvm.com/product/xuantie/E907">T-Head XuanTie E907</a> RISC-V RV32 MCU-Core
+</td></tr></tbody></table>
+<h2><span id="&quot;X&quot;_-_(B/MR/S/VR/TV)_-_series"></span><span class="mw-headline" id=".22X.22_-_.28B.2FMR.2FS.2FVR.2FTV.29_-_series">"X" - (B/MR/S/VR/TV) - series</span></h2>
+<table class="wikitable">
+<tbody><tr>
+<td><a href="B288.html" title="B288">Allwinner B288</a><sup id="cite_ref-54" class="reference"><a href="#cite_note-54">&#91;54&#93;</a></sup></td>
+<td><small>(sun8i)</small></td>
+<td>2 x Cortex-A7 CPU-core
+</td></tr>
+<tr>
+<td><a href="B300.html" title="B300">Allwinner B300</a><sup id="cite_ref-55" class="reference"><a href="#cite_note-55">&#91;55&#93;</a></sup></td>
+<td><small>(sun8i)</small></td>
+<td>4 x Cortex-A7 CPU-core
+</td></tr></tbody></table>
+<table class="wikitable">
+<tbody><tr>
+<td><a href="https://linux-sunxi.org/index.php?title=MR100&amp;action=edit&amp;redlink=1" class="new" title="MR100 (page does not exist)">Allwinner MR100</a><sup id="cite_ref-56" class="reference"><a href="#cite_note-56">&#91;56&#93;</a></sup></td>
+<td><small>(sun8i)</small></td>
+<td>4 x Cortex-A7 CPU-core
+</td></tr>
+<tr>
+<td><a href="https://linux-sunxi.org/index.php?title=MR133&amp;action=edit&amp;redlink=1" class="new" title="MR133 (page does not exist)">Allwinner MR133</a><sup id="cite_ref-57" class="reference"><a href="#cite_note-57">&#91;57&#93;</a></sup></td>
+<td><small>(sun8i)</small></td>
+<td>4 x Cortex-A7 CPU-core
+</td></tr></tbody></table>
+<table class="wikitable">
+<tbody><tr>
+<td><a href="S3.html" title="S3">Allwinner S3</a><sup id="cite_ref-58" class="reference"><a href="#cite_note-58">&#91;58&#93;</a></sup></td>
+<td><small>(sun8i)</small></td>
+<td>1 x Cortex-A7 CPU-core
+</td></tr></tbody></table>
+<p><b>64-bit</b>
+</p>
+<table class="wikitable">
+<tbody><tr>
+<td><a href="https://linux-sunxi.org/index.php?title=VR9&amp;action=edit&amp;redlink=1" class="new" title="VR9 (page does not exist)">Allwinner VR9</a><sup id="cite_ref-59" class="reference"><a href="#cite_note-59">&#91;59&#93;</a></sup></td>
+<td><small>(sun50i)</small></td>
+<td>4 x Cortex-A53 CPU-core
+</td></tr></tbody></table>
+<table class="wikitable">
+<tbody><tr>
+<td><a href="https://linux-sunxi.org/index.php?title=MR813&amp;action=edit&amp;redlink=1" class="new" title="MR813 (page does not exist)">Allwinner MR813</a></td>
+<td><small>(sun50i)</small></td>
+<td>4 x Cortex-A53 CPU-core
+</td></tr>
+<tr>
+<td><a href="https://linux-sunxi.org/index.php?title=MR527&amp;action=edit&amp;redlink=1" class="new" title="MR527 (page does not exist)">Allwinner MR527</a></td>
+<td><small>(sun55i)</small></td>
+<td>8 x Cortex-A55 CPU-core
+</td></tr></tbody></table>
+<table class="wikitable">
+<tbody><tr>
+<td><a href="https://linux-sunxi.org/index.php?title=TV303&amp;action=edit&amp;redlink=1" class="new" title="TV303 (page does not exist)">Allwinner TV303</a></td>
+<td><small>(sun50i)</small></td>
+<td>4 x Cortex-A53 CPU-core
+</td></tr></tbody></table>
+<h2><span id="&quot;RISC-V&quot;-Series"></span><span class="mw-headline" id=".22RISC-V.22-Series">"RISC-V"-Series</span></h2>
+<table class="wikitable">
+<tbody><tr>
+<td><a href="D1.html" title="D1">Allwinner D1</a><sup id="cite_ref-60" class="reference"><a href="#cite_note-60">&#91;60&#93;</a></sup></td>
+<td><small>(sun20i)</small>&#160;</td>
+<td>1 x RISC-V <a rel="nofollow" class="external text" href="https://occ.t-head.cn/vendor/cpu/index?id=3817197695983423488">T-Head XuanTie C906</a> CPU-core
+</td></tr>
+<tr>
+<td><a href="D1s.html" title="D1s">Allwinner D1s (or F133)</a><sup id="cite_ref-61" class="reference"><a href="#cite_note-61">&#91;61&#93;</a></sup></td>
+<td><small>(sun20i)</small>&#160;</td>
+<td>1 x RISC-V <a rel="nofollow" class="external text" href="https://occ.t-head.cn/vendor/cpu/index?id=3817197695983423488">T-Head XuanTie C906</a> CPU-core
+</td></tr>
+<tr>
+<td><a href="V821.html" title="V821">Allwinner V821</a></td>
+<td><small>(sun300i)</small></td>
+<td>1 x <a rel="nofollow" class="external text" href="https://www.andestech.com/en/products-solutions/andescore-processors/riscv-a27l2">Andes A27L2</a> RISC-V RV32 CPU-core + 1x <a rel="nofollow" class="external text" href="https://www.xrvm.com/product/xuantie/E907">T-Head XuanTie E907</a> RISC-V RV32 MCU-Core
+</td></tr></tbody></table>
+<h1><span class="mw-headline" id="2013_naming_scheme_change">2013 naming scheme change</span></h1>
+<p>Initially, Allwinner named their SoCs chronologically:
+</p>
+<ul><li>sun4i = A10</li>
+<li>sun5i = A13/A10s</li>
+<li>sun6i = A31</li>
+<li>sun7i = A20</li></ul>
+<p>but, somewhere in 2013, Allwinner decided to update their naming scheme to be based on the ARM core used instead: (taken from the A80 SDK kernel code).
+</p><p>Note: SoCs with "?" have never appeared on Allwinner's website. <sup id="cite_ref-62" class="reference"><a href="#cite_note-62">&#91;62&#93;</a></sup>
+</p><p>TODO: Add to the following table: <a href="https://linux-sunxi.org/index.php?title=F1C800&amp;action=edit&amp;redlink=1" class="new" title="F1C800 (page does not exist)">F1C800</a>, <a href="https://linux-sunxi.org/index.php?title=F23&amp;action=edit&amp;redlink=1" class="new" title="F23 (page does not exist)">F23</a>, <a href="https://linux-sunxi.org/index.php?title=F25&amp;action=edit&amp;redlink=1" class="new" title="F25 (page does not exist)">F25</a>, <a href="https://linux-sunxi.org/index.php?title=R11&amp;action=edit&amp;redlink=1" class="new" title="R11 (page does not exist)">R11</a>, <a href="https://linux-sunxi.org/index.php?title=R328&amp;action=edit&amp;redlink=1" class="new" title="R328 (page does not exist)">R328</a>, <a href="https://linux-sunxi.org/index.php?title=T2&amp;action=edit&amp;redlink=1" class="new" title="T2 (page does not exist)">T2</a>, <a href="https://linux-sunxi.org/index.php?title=T5&amp;action=edit&amp;redlink=1" class="new" title="T5 (page does not exist)">T5</a>, <a href="https://linux-sunxi.org/index.php?title=T8&amp;action=edit&amp;redlink=1" class="new" title="T8 (page does not exist)">T8</a>, <a href="https://linux-sunxi.org/index.php?title=MR100&amp;action=edit&amp;redlink=1" class="new" title="MR100 (page does not exist)">MR100</a>, <a href="https://linux-sunxi.org/index.php?title=VR9&amp;action=edit&amp;redlink=1" class="new" title="VR9 (page does not exist)">VR9</a>, <a href="https://linux-sunxi.org/index.php?title=H716&amp;action=edit&amp;redlink=1" class="new" title="H716 (page does not exist)">H716</a>, <a href="https://linux-sunxi.org/index.php?title=V837s&amp;action=edit&amp;redlink=1" class="new" title="V837s (page does not exist)">V837s</a>, <a href="https://linux-sunxi.org/index.php?title=F135&amp;action=edit&amp;redlink=1" class="new" title="F135 (page does not exist)">F135</a>, <a href="https://linux-sunxi.org/index.php?title=H727&amp;action=edit&amp;redlink=1" class="new" title="H727 (page does not exist)">H727</a>, <a href="T153.html" title="T153">T153</a>
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>sunxi (arm cores)</th>
+<th>sunxiwx (soc id)</th>
+<th>p (rev id)</th>
+<th>soc name</th>
+<th>cores</th>
+<th>notes
+</th></tr>
+<tr>
+<td>sun3i (arm926ejs)</td>
+<td>sun3iw1 (0x1663)</td>
+<td>sun3iw1p1</td>
+<td><a href="F1C100s.html" title="F1C100s">F1C100s</a>, <a href="https://linux-sunxi.org/index.php?title=F1C100A&amp;action=edit&amp;redlink=1" class="new" title="F1C100A (page does not exist)">F1C100A</a>, <a href="F1C200s.html" class="mw-redirect" title="F1C200s">F1C200s</a>, <a href="https://linux-sunxi.org/index.php?title=F1C500&amp;action=edit&amp;redlink=1" class="new" title="F1C500 (page does not exist)">F1C500</a>, <a href="F1C500s.html" class="mw-redirect" title="F1C500s">F1C500s</a>, <a href="https://linux-sunxi.org/index.php?title=F1C600&amp;action=edit&amp;redlink=1" class="new" title="F1C600 (page does not exist)">F1C600</a>, <a href="https://linux-sunxi.org/index.php?title=F1D100&amp;action=edit&amp;redlink=1" class="new" title="F1D100 (page does not exist)">F1D100</a>, <a href="https://linux-sunxi.org/index.php?title=R6&amp;action=edit&amp;redlink=1" class="new" title="R6 (page does not exist)">R6</a></td>
+<td>1xARM926EJ-S
+</td></tr>
+<tr>
+<td style="text-align: left;" rowspan="4">sun4i (cortex-a8)
+</td>
+<td>sun4iw1 (0x1623)</td>
+<td>sun4iw1p1</td>
+<td><a href="A10.html" title="A10">A10</a></td>
+<td>1xCortex-A8
+</td></tr>
+<tr>
+<td style="text-align: left;" rowspan="3">sun4iw2 (0x1625)
+</td>
+<td>sun4iw2p1</td>
+<td><a href="A13.html" title="A13">A13</a></td>
+<td>1xCortex-A8
+</td></tr>
+<tr>
+<td>sun4iw2p2</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A12&amp;action=edit&amp;redlink=1" class="new" title="A12 (page does not exist)">A12</a></td>
+<td>?
+</td></tr>
+<tr>
+<td>sun4iw2p3</td>
+<td><a href="A10s.html" title="A10s">A10s</a></td>
+<td>1xCortex-A8
+</td></tr>
+<tr>
+<td style="text-align: left;" rowspan="23">sun8i
+<p>(cortex-a7 smp)
+</p>
+</td>
+<td style="text-align: left;" rowspan="2">sun8iw1 (0x1633)
+</td>
+<td>sun8iw1p1</td>
+<td><a href="A31.html" title="A31">A31</a></td>
+<td>4xCortex-A7
+</td></tr>
+<tr>
+<td>sun8iw1p2</td>
+<td><a href="A31s.html" class="mw-redirect" title="A31s">A31s</a></td>
+<td>4xCortex-A7
+</td></tr>
+<tr>
+<td style="text-align: left;" rowspan="2">sun8iw2 (0x1651)
+</td>
+<td>sun8iw2p1</td>
+<td><a href="A20.html" title="A20">A20</a></td>
+<td>2xCortex-A7
+</td></tr>
+<tr>
+<td>sun8iw2p2</td>
+<td>?</td>
+<td>?
+</td></tr>
+<tr>
+<td style="text-align: left;" rowspan="2">sun8iw3 (0x1650)
+</td>
+<td>sun8iw3p1</td>
+<td><a href="A23.html" title="A23">A23</a></td>
+<td>2xCortex-A7
+</td></tr>
+<tr>
+<td>sun8iw3p2</td>
+<td>?</td>
+<td>?
+</td></tr>
+<tr>
+<td>sun8iw5 (0x1667)</td>
+<td>sun8iw5p1</td>
+<td><a href="A33.html" title="A33">A33</a>, <a href="R16.html" class="mw-redirect" title="R16">R16</a></td>
+<td>4xCortex-A7
+</td></tr>
+<tr>
+<td>sun8iw6 (0x1673)</td>
+<td>sun8iw6p1</td>
+<td><a href="A83T.html" title="A83T">A83T</a>, <a href="H8.html" class="mw-redirect" title="H8">H8</a>, <a href="https://linux-sunxi.org/index.php?title=H80&amp;action=edit&amp;redlink=1" class="new" title="H80 (page does not exist)">H80</a>, <a href="https://linux-sunxi.org/index.php?title=V66&amp;action=edit&amp;redlink=1" class="new" title="V66 (page does not exist)">V66</a>, <a href="R58.html" class="mw-redirect" title="R58">R58</a></td>
+<td>8xCortex-A7
+</td></tr>
+<tr>
+<td>sun8iw7 (0x1680)</td>
+<td>sun8iw7p1</td>
+<td><a href="H3.html" title="H3">H3</a>, <a href="H2+.html" class="mw-redirect" title="H2+">H2+</a></td>
+<td>4xCortex-A7
+</td></tr>
+<tr>
+<td style="text-align: left;" rowspan="2">sun8iw8 (0x1681)
+</td>
+<td>sun8iw8p1</td>
+<td><a href="V3.html" title="V3">V3</a>, <a href="S3.html" title="S3">S3</a>, <a href="V3s.html" title="V3s">V3s</a></td>
+<td>1xCortex-A7</td>
+<td>called V30 in allwinner's kernel source
+</td></tr>
+<tr>
+<td>sun8iw8p2</td>
+<td>?</td>
+<td>?</td>
+<td>called V33 in allwinner's kernel source
+</td></tr>
+<tr>
+<td>sun8iw10 (0x1699)</td>
+<td>sun8iw10p1</td>
+<td><a href="B288.html" title="B288">B288</a>, <a href="https://linux-sunxi.org/index.php?title=B100&amp;action=edit&amp;redlink=1" class="new" title="B100 (page does not exist)">B100</a></td>
+<td>2xCortex-A7
+</td></tr>
+<tr>
+<td style="text-align: left;" rowspan="4">sun8iw11 (0x1701)
+</td>
+<td>sun8iw11p1</td>
+<td><a href="R40.html" title="R40">R40</a>, <a href="V40.html" class="mw-redirect" title="V40">V40</a>, <a href="T3.html" class="mw-redirect" title="T3">T3</a>, <a href="A40i.html" class="mw-redirect" title="A40i">A40i</a>, <a href="https://linux-sunxi.org/index.php?title=A20e&amp;action=edit&amp;redlink=1" class="new" title="A20e (page does not exist)">A20e</a>?</td>
+<td>4xCortex-A7
+</td></tr>
+<tr>
+<td>sun8iw11p2</td>
+<td>??</td>
+<td>4xCortex-A7
+</td></tr>
+<tr>
+<td>sun8iw11p3</td>
+<td>??</td>
+<td>4xCortex-A7
+</td></tr>
+<tr>
+<td>sun8iw11p4</td>
+<td>??</td>
+<td>4xCortex-A7
+</td></tr>
+<tr>
+<td>sun8iw12 (0x1721)</td>
+<td>sun8iw12p1</td>
+<td><a href="https://linux-sunxi.org/index.php?title=V5&amp;action=edit&amp;redlink=1" class="new" title="V5 (page does not exist)">V5</a>, <a href="https://linux-sunxi.org/index.php?title=V100&amp;action=edit&amp;redlink=1" class="new" title="V100 (page does not exist)">V100</a></td>
+<td>4xCortex-A7
+</td></tr>
+<tr>
+<td>sun8iw15 (0x1755)</td>
+<td>sun8iw15p1</td>
+<td><a href="A50.html" title="A50">A50</a>, <a href="https://linux-sunxi.org/index.php?title=MR133&amp;action=edit&amp;redlink=1" class="new" title="MR133 (page does not exist)">MR133</a>, <a href="https://linux-sunxi.org/index.php?title=R311&amp;action=edit&amp;redlink=1" class="new" title="R311 (page does not exist)">R311</a>, <a href="B300.html" title="B300">B300</a></td>
+<td>4xCortex-A7
+</td></tr>
+<tr>
+<td>sun8iw16 (0x1816)</td>
+<td>sun8iw16p1</td>
+<td><a href="https://linux-sunxi.org/index.php?title=V313&amp;action=edit&amp;redlink=1" class="new" title="V313 (page does not exist)">V313</a>, <a href="https://linux-sunxi.org/index.php?title=V316&amp;action=edit&amp;redlink=1" class="new" title="V316 (page does not exist)">V316</a>, <a href="https://linux-sunxi.org/index.php?title=V526&amp;action=edit&amp;redlink=1" class="new" title="V526 (page does not exist)">V526</a>, <a href="https://linux-sunxi.org/index.php?title=V536&amp;action=edit&amp;redlink=1" class="new" title="V536 (page does not exist)">V536</a>, <a href="https://linux-sunxi.org/index.php?title=V5V200&amp;action=edit&amp;redlink=1" class="new" title="V5V200 (page does not exist)">V5V200</a></td>
+<td>2xCortex-A7
+</td></tr>
+<tr>
+<td>sun8iw17 (0x1708)</td>
+<td>sun8iw17p1</td>
+<td><a href="https://linux-sunxi.org/index.php?title=T7&amp;action=edit&amp;redlink=1" class="new" title="T7 (page does not exist)">T7</a></td>
+<td>6xCortex-A7
+</td></tr>
+<tr>
+<td>sun8iw19 (0x1817)</td>
+<td>sun8iw19p1</td>
+<td><a href="https://linux-sunxi.org/index.php?title=V533&amp;action=edit&amp;redlink=1" class="new" title="V533 (page does not exist)">V533</a>, <a href="https://linux-sunxi.org/index.php?title=V833&amp;action=edit&amp;redlink=1" class="new" title="V833 (page does not exist)">V833</a>, <a href="V831.html" title="V831">V831</a></td>
+<td>1xCortex-A7
+</td></tr>
+<tr>
+<td>sun8iw20 (0x1859)</td>
+<td>sun8iw20p1</td>
+<td><a href="https://linux-sunxi.org/index.php?title=R528&amp;action=edit&amp;redlink=1" class="new" title="R528 (page does not exist)">R528</a>, <a href="https://linux-sunxi.org/index.php?title=T113&amp;action=edit&amp;redlink=1" class="new" title="T113 (page does not exist)">T113</a>, <a href="https://linux-sunxi.org/index.php?title=T133-I&amp;action=edit&amp;redlink=1" class="new" title="T133-I (page does not exist)">T133-I</a>, <a href="T113-s3.html" title="T113-s3">T113-s3</a>, <a href="H133.html" title="H133">H133</a></td>
+<td>2xCortex-A7
+</td></tr>
+<tr>
+<td>sun8iw21 (0x1886)</td>
+<td>sun8iw21p1</td>
+<td><a href="V853.html" title="V853">V853</a>, <a href="V851s.html" title="V851s">V851s</a>, <a href="https://linux-sunxi.org/index.php?title=V851se&amp;action=edit&amp;redlink=1" class="new" title="V851se (page does not exist)">V851se</a></td>
+<td>1xCortex-A7 1xE907 AMP
+</td></tr>
+<tr>
+<td style="text-align: left;" rowspan="2">sun9i
+<p>(cortex-a15/cortex-a7 big.LITTLE) 
+</p>
+</td>
+<td style="text-align: left;" rowspan="2">sun9iw1 (0x1639)
+</td>
+<td>sun9iw1p1</td>
+<td><a href="A80.html" title="A80">A80</a></td>
+<td>4xCortex-A7 + 4xCortex-A15
+</td></tr>
+<tr>
+<td>sun9iw1p2</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A80T&amp;action=edit&amp;redlink=1" class="new" title="A80T (page does not exist)">A80T</a></td>
+<td>?
+</td></tr>
+<tr>
+<td style="text-align: left;" rowspan="3">sun20i
+<p>(RISC-V) 
+</p>
+</td>
+<td>sun20iw1 (0x1859)</td>
+<td>sun20iw1p1</td>
+<td><a href="D1.html" title="D1">D1</a>, <a href="https://linux-sunxi.org/index.php?title=F133&amp;action=edit&amp;redlink=1" class="new" title="F133 (page does not exist)">F133</a>, <a href="D1s.html" title="D1s">F133-A</a>, <a href="D1s.html" title="D1s">F133-B</a></td>
+<td>1xXuantie C906
+</td></tr>
+<tr>
+<td>sun20iw2 (0x1886)</td>
+<td>sun20iw2p1</td>
+<td><a href="V853.html" title="V853">V853</a>, <a href="V851s.html" title="V851s">V851s</a>, <a href="https://linux-sunxi.org/index.php?title=V851se&amp;action=edit&amp;redlink=1" class="new" title="V851se (page does not exist)">V851se</a></td>
+<td>1xXuantie E907</td>
+<td>Remoteproc
+</td></tr>
+<tr>
+<td>sun20iw3 (0x1883)</td>
+<td>sun20iw3p1</td>
+<td><a href="https://linux-sunxi.org/index.php?title=R128&amp;action=edit&amp;redlink=1" class="new" title="R128 (page does not exist)">R128</a></td>
+<td>1xXuantie C906 + 1xARM STAR MC1 + 1xHIFI5 DSP
+</td></tr>
+<tr>
+<td style="text-align: left;" rowspan="9">sun50i
+<p>(cortex-a53 smp) 
+</p>
+</td>
+<td>sun50iw1 (0x1689)</td>
+<td>sun50iw1p1</td>
+<td><a href="A64.html" title="A64">A64</a>, <a href="H64.html" title="H64">H64</a>, <a href="https://linux-sunxi.org/index.php?title=R18&amp;action=edit&amp;redlink=1" class="new" title="R18 (page does not exist)">R18</a></td>
+<td>4xCortex-A53
+</td></tr>
+<tr>
+<td>sun50iw2 (0x1718)</td>
+<td>sun50iw2p1</td>
+<td><a href="H5.html" title="H5">H5</a></td>
+<td>4xCortex-A53
+</td></tr>
+<tr>
+<td>sun50iw3 (0x1719)</td>
+<td>sun50iw3p1</td>
+<td><a href="A63.html" title="A63">A63</a></td>
+<td>4xCortex-A53
+</td></tr>
+<tr>
+<td>sun50iw5 (?)</td>
+<td>sun50iw5p1</td>
+<td><a href="https://linux-sunxi.org/index.php?title=AW1750&amp;action=edit&amp;redlink=1" class="new" title="AW1750 (page does not exist)">AW1750</a></td>
+<td>?
+</td></tr>
+<tr>
+<td>sun50iw6 (0x1728)</td>
+<td>sun50iw6p1</td>
+<td><a href="H6.html" title="H6">H6</a></td>
+<td>4xCortex-A53
+</td></tr>
+<tr>
+<td>sun50iw9 (0x1823)</td>
+<td>sun50iw9p1</td>
+<td><a href="H313.html" class="mw-redirect" title="H313">H313</a>, <a href="https://linux-sunxi.org/index.php?title=H503&amp;action=edit&amp;redlink=1" class="new" title="H503 (page does not exist)">H503</a>, <a href="https://linux-sunxi.org/index.php?title=H513&amp;action=edit&amp;redlink=1" class="new" title="H513 (page does not exist)">H513</a>, <a href="H616.html" title="H616">H616</a>, <a href="H618.html" class="mw-redirect" title="H618">H618</a>, <a href="H700.html" class="mw-redirect" title="H700">H700</a>, <a href="T507.html" title="T507">T507</a>, <a href="https://linux-sunxi.org/index.php?title=T517&amp;action=edit&amp;redlink=1" class="new" title="T517 (page does not exist)">T517</a></td>
+<td>4xCortex-A53
+</td></tr>
+<tr>
+<td>sun50iw10 (0x1855)</td>
+<td>sun50iw10p1</td>
+<td><a href="A100.html" class="mw-redirect" title="A100">A100</a>, <a href="A133.html" title="A133">A133</a>, <a href="https://linux-sunxi.org/index.php?title=A53&amp;action=edit&amp;redlink=1" class="new" title="A53 (page does not exist)">A53</a>, <a href="https://linux-sunxi.org/index.php?title=T509&amp;action=edit&amp;redlink=1" class="new" title="T509 (page does not exist)">T509</a>, <a href="R818.html" class="mw-redirect" title="R818">R818</a>, <a href="https://linux-sunxi.org/index.php?title=B810&amp;action=edit&amp;redlink=1" class="new" title="B810 (page does not exist)">B810</a>, <a href="https://linux-sunxi.org/index.php?title=MR813&amp;action=edit&amp;redlink=1" class="new" title="MR813 (page does not exist)">MR813</a></td>
+<td>4xCortex-A53
+</td></tr>
+<tr>
+<td>sun50iw11 (0x1851)</td>
+<td>sun50iw11p1</td>
+<td><a href="R329.html" title="R329">R329</a></td>
+<td>2xCortex-A53
+</td></tr>
+<tr>
+<td>sun50iw12 (0x1860)</td>
+<td>sun50iw12p1</td>
+<td><a href="https://linux-sunxi.org/index.php?title=TV303&amp;action=edit&amp;redlink=1" class="new" title="TV303 (page does not exist)">TV303</a>, <a href="H713.html" title="H713">H713</a></td>
+<td>4xCortex-A53
+</td></tr>
+<tr>
+<td style="text-align: left;" rowspan="2">sun55i
+<p>(cortex-a55 smp big.LITTLE) 
+</p>
+</td>
+<td>sun55iw3 (0x1890)</td>
+<td>sun55iw3p1</td>
+<td><a href="A523.html" title="A523">A523</a>, <a href="T527.html" class="mw-redirect" title="T527">T527</a>, <a href="https://linux-sunxi.org/index.php?title=MR527&amp;action=edit&amp;redlink=1" class="new" title="MR527 (page does not exist)">MR527</a>, <a href="A527.html" class="mw-redirect" title="A527">A527</a>, <a href="H728.html" class="mw-redirect" title="H728">H728</a></td>
+<td>8xCortex-A55
+</td></tr>
+<tr>
+<td>sun55iw6 (0x1909)</td>
+<td>sun55iw6p1</td>
+<td><a href="T536.html" title="T536">T536</a>, <a href="https://linux-sunxi.org/index.php?title=MR536&amp;action=edit&amp;redlink=1" class="new" title="MR536 (page does not exist)">MR536</a></td>
+<td>4xCortex-A55
+</td></tr>
+<tr>
+<td style="text-align: left;" rowspan="2">sun60i
+<p>(cortex-a76 smp big.LITTLE) 
+</p>
+</td>
+<td>sun60iw1</td>
+<td>sun60iw1p1</td>
+<td><a href="https://linux-sunxi.org/index.php?title=T736&amp;action=edit&amp;redlink=1" class="new" title="T736 (page does not exist)">T736</a> Abandoned</td>
+<td>?xCortex-A76 + ?xCortex-A55
+</td></tr>
+<tr>
+<td>sun60iw2 (0x1903)</td>
+<td>sun60iw2p1</td>
+<td><a href="A733.html" title="A733">A733</a> <a href="https://linux-sunxi.org/index.php?title=T736&amp;action=edit&amp;redlink=1" class="new" title="T736 (page does not exist)">T736</a></td>
+<td>2xCortex-A76 + 6xCortex-A55
+</td></tr>
+<tr>
+<td style="text-align: left;" rowspan="2">sun65i
+<p>(cortex-a73 smp big.LITTLE)
+</p>
+</td>
+<td>sun65iw1 (0x19xx)</td>
+<td>sun65iw1p1</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A537&amp;action=edit&amp;redlink=1" class="new" title="A537 (page does not exist)">A537</a></td>
+<td>2xCortex-A73 + 2xCortex-A53 + 4xCortex-A53
+</td></tr>
+<tr>
+<td>sun65iw1 (0x19xx)</td>
+<td>sun65iw1p1</td>
+<td><a href="https://linux-sunxi.org/index.php?title=A333&amp;action=edit&amp;redlink=1" class="new" title="A333 (page does not exist)">A333</a></td>
+<td>1xCortex-A73 + 4xCortex-A53
+</td></tr>
+<tr>
+<td style="text-align: left;" rowspan="1">sun251i
+<p>(RISC-V C906) 
+</p>
+</td>
+<td>sun251iw1 (0x19xx)</td>
+<td>sun251iw1p1</td>
+<td><a href="https://linux-sunxi.org/index.php?title=H135&amp;action=edit&amp;redlink=1" class="new" title="H135 (page does not exist)">H135</a> <a href="https://linux-sunxi.org/index.php?title=H136&amp;action=edit&amp;redlink=1" class="new" title="H136 (page does not exist)">H136</a> <a href="https://linux-sunxi.org/index.php?title=H137&amp;action=edit&amp;redlink=1" class="new" title="H137 (page does not exist)">H137</a></td>
+<td>1 x RISC-V T-Head XuanTie C906 CPU-core
+</td></tr>
+<tr>
+<td style="text-align: left;" rowspan="1">sun300i
+<p>(RISC-V) 
+</p>
+</td>
+<td>sun300iw1 (0x1882)</td>
+<td>sun300iw1p1</td>
+<td><a href="V821.html" title="V821">V821</a></td>
+<td>1xRISC-V CPU + 1xRISC-V MCU
+</td></tr>
+</tbody></table>
+<p>This new naming scheme is of absolutely no value with respect to the rest of the SoC. The actual ARM core(s) used are usually the least important piece of information for SoC support. This table completely ignores the fact that A20 is an updated A10 and is pin compatible. It also ignores the fact that A31 introduced a lot of changes which were carried on to the A23/A33 and possibly A80 parts. It therefore is quite likely that this naming scheme was purely a marketing decision, and that Allwinner marketing will change its mind again.
+</p>
+<h1><span class="mw-headline" id="Features">Features</span></h1>
+<ul><li>CPU: ARMv7-A <a class="external text" href="http://en.wikipedia.org/wiki/ARM_Cortex-A7">Cortex-A7</a>, <a class="external text" href="http://en.wikipedia.org/wiki/ARM_Cortex-A15">Cortex-A15</a> or <a class="external text" href="http://en.wikipedia.org/wiki/ARM_Cortex-A8">Cortex-A8</a> Central Processor Unit with (co-)processor extensions:
+<ul><li>Advanced SIMD: <a class="external text" href="http://en.wikipedia.org/wiki/ARM_architecture#Advanced_SIMD_.28NEON.29#Advanced_SIMD_.28NEON.29">NEON</a> (ARM's extended general-purpose advanced SIMD vector processing extension engine)</li>
+<li><a href="https://linux-sunxi.org/index.php?title=Vector_Floating_Point_Unit&amp;action=edit&amp;redlink=1" class="new" title="Vector Floating Point Unit (page does not exist)">Vector Floating Point Unit</a> (<a class="external text" href="http://en.wikipedia.org/wiki/ARM_architecture#Floating-point_.28VFP.29#Floating-point_.28VFP.29">VFPU</a>): ARM VFPv3 lite (Cortex-A8) / VFPv4 (Cortex-A7)</li>
+<li>Security Extensions:
+<ul><li><a class="external text" href="http://en.wikipedia.org/wiki/ARM_architecture#Security_extensions_.28TrustZone.29#Security_extensions_.28TrustZone.29">TrustZone</a> secure world</li>
+<li><a href="Security_System.html" title="Security System">Security accelerator</a> supporting AES, DES, 3DES, SHA-1, MD5 and pseudo-random number generation</li></ul></li>
+<li><a class="external text" href="http://en.wikipedia.org/wiki/ARM_architecture#Thumb-2#Thumb-2">Thumb-2</a> instruction set extension for optimized code to reduce memory footprint and improve performance</li></ul></li>
+<li>GPU: <a href="Mali400.html" class="mw-redirect" title="Mali400">Mali400</a>, Mali400-MP2, SGX544 or PowerVR G6230 Graphics Procesor Unit, supporting OpenGL ES2.</li>
+<li>VPU: <a href="Cedar_Engine.html" class="mw-redirect" title="Cedar Engine">Cedar Engine</a> (Video Processor Unit for audio and video hardware decoding or encoding)</li>
+<li>HDMI-transmitter with <a class="external text" href="http://en.wikipedia.org/wiki/HDMI#CEC#CEC">HDMI CEC</a> (Consumer Electronics Control), with exception of A13 which lacks HDMI-transmitter and SATA-controller<sup id="cite_ref-63" class="reference"><a href="#cite_note-63">&#91;63&#93;</a></sup></li>
+<li>Hardware virtualization capabilities (Cortex-A7 only).</li>
+<li>Up to 4GB memory (Cortex-A8), Up to 1TB memory with LPAE (Cortex-A7 only).</li></ul>
+<h2><span class="mw-headline" id="Comparison_table">Comparison table</span></h2>
+<table class="wikitable">
+<tbody><tr>
+<th scope="row"></th>
+<th><a href="A10.html" title="A10">A10</a></th>
+<th><a href="A10s.html" title="A10s">A10s</a></th>
+<th><a href="A13.html" title="A13">A13</a></th>
+<th><a href="A20.html" title="A20">A20</a></th>
+<th><a href="A23.html" title="A23">A23</a></th>
+<th><a href="A31.html" title="A31">A31</a></th>
+<th><a href="A31s.html" class="mw-redirect" title="A31s">A31s</a></th>
+<th><a href="A33.html" title="A33">A33</a></th>
+<th><a href="A80.html" title="A80">A80</a>
+</th></tr>
+<tr>
+<th scope="row">Generation
+</th>
+<td>sun4i</td>
+<td>sun5i</td>
+<td>sun5i</td>
+<td>sun7i</td>
+<td>sun8i</td>
+<td>sun6i</td>
+<td>sun6i</td>
+<td>sun8i</td>
+<td>sun9i
+</td></tr>
+<tr>
+<th scope="row">CPU
+</th>
+<td>Cortex-A8</td>
+<td>Cortex-A8</td>
+<td>Cortex-A8</td>
+<td>Cortex-A7</td>
+<td>Cortex-A7</td>
+<td>Cortex-A7</td>
+<td>Cortex-A7</td>
+<td>Cortex-A7</td>
+<td>Cortex-A7 / A15
+</td></tr>
+<tr>
+<th scope="row">CPU Maximum frequency
+</th>
+<td>1 GHz</td>
+<td>1 GHz</td>
+<td>1 GHz</td>
+<td>960 MHz</td>
+<td>1.5 GHz</td>
+<td>? GHz</td>
+<td>? GHz</td>
+<td>1.5 GHz</td>
+<td>2 (??) GHz
+</td></tr>
+<tr>
+<th scope="row">Cores
+</th>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>2</td>
+<td>2</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>2 x 4
+</td></tr>
+<tr>
+<th scope="row">Extensions
+</th>
+<td>NEON, VFPv3, Thumb-2</td>
+<td>NEON, VFPv3, Thumb-2</td>
+<td>NEON, VFPv3, Thumb-2</td>
+<td>NEON, VFPv3 / VFPv4, Thumb-2</td>
+<td>NEON, VFPv3 / VFPv4, Thumb-2</td>
+<td>NEON, VFPv3 / VFPv4, Thumb-2</td>
+<td>NEON, VFPv3 / VFPv4, Thumb-2</td>
+<td>NEON, VFPv3 / VFPv4, Thumb-2</td>
+<td>? (A80)
+</td></tr>
+<tr>
+<th scope="row">Memory
+</th>
+<td>DDR2, DDR3<br /> (max 2GB @ DDR800)</td>
+<td>DDR2, DDR3<br /> (max 2GB @ DDR800)</td>
+<td>DDR2, DDR3<br /> (max 512MB @ DDR800)</td>
+<td>LPDDR3, DDR3,<br />LPDDR2</td>
+<td>DDR3<br />(max 1GB)</td>
+<td>2-channel DDR3, LPDDR2, <br />2-channel DDR3L, DDR3U</td>
+<td>DDR3, DDR3L, LPDDR2</td>
+<td>single-channel DDR3, DDR3L<br />(max 1GB)</td>
+<td>2-channel DDR3, DDR3L, LPDDR3, LPDDR2<br /> up to 8GB
+</td></tr>
+<tr>
+<th scope="row">GPU
+</th>
+<td><a href="Mali400.html" class="mw-redirect" title="Mali400">Mali400</a><br />320&#160;MHz</td>
+<td><a href="Mali400.html" class="mw-redirect" title="Mali400">Mali400</a><br />320&#160;MHz</td>
+<td><a href="Mali400.html" class="mw-redirect" title="Mali400">Mali400</a><br />320&#160;MHz</td>
+<td><a href="Mali400.html" class="mw-redirect" title="Mali400">Mali400</a>-MP2<br />350&#160;MHz</td>
+<td><a href="Mali400.html" class="mw-redirect" title="Mali400">Mali400</a>-MP2</td>
+<td>SGX544<br />200&#160;MHz</td>
+<td>SGX544<br />200&#160;MHz</td>
+<td><a href="Mali400.html" class="mw-redirect" title="Mali400">Mali400</a>-MP2</td>
+<td>64-core PowerVR G6230
+</td></tr>
+<tr>
+<th scope="row">GPU API
+</th>
+<td>OpenGL ES 2.0, OpenVG 1.1</td>
+<td>OpenGL ES 2.0, OpenVG 1.1</td>
+<td>OpenGL ES 2.0, OpenVG 1.1</td>
+<td>OpenGL ES 2.0, OpenVG 1.1</td>
+<td>OpenGL ES 2.0, OpenVG 1.1</td>
+<td>OpenGL ES 2.0, OpenVG 1.1, OpenCL 1.1, and DirectX 9.3</td>
+<td>OpenGL ES 2.0, OpenVG 1.1, OpenCL 1.1, and DirectX 9.3</td>
+<td>OpenGL ES 2.0, OpenVG 1.1</td>
+<td>OpenGL 3.x, OpenGL ES Next,3.0,2.0, Open CL 1.x, DirectX 11 level 9_3/10_0<sup id="cite_ref-64" class="reference"><a href="#cite_note-64">&#91;64&#93;</a></sup>
+</td></tr>
+<tr>
+<th scope="row"><a href="Cedar_Engine.html" class="mw-redirect" title="Cedar Engine">Video decoder</a>
+</th>
+<td>2160p</td>
+<td>1080p</td>
+<td>1080p</td>
+<td>2160p, 4K×2K, 1080p 3D</td>
+<td>1080p@60fps</td>
+<td>2160p, 4K×2K, 1080p 3D</td>
+<td>2160p, 1080p 3D</td>
+<td>1080p@60fps</td>
+<td>? (A80)
+</td></tr>
+<tr>
+<th scope="row"><a href="Cedar_Engine.html" class="mw-redirect" title="Cedar Engine">Video encoder</a>
+</th>
+<td>H.264 1080p@30fps, JPEG</td>
+<td>H.264 1080p@30fps, JPEG</td>
+<td>H.264 1080p@30fps, JPEG</td>
+<td>H.264 1080p@30fps, JPEG</td>
+<td>1080p@60fps</td>
+<td>H.264 1080p@60fps, JPEG</td>
+<td>H264 1080p@30fps, 720p@60fps</td>
+<td>H.264 1080p@60fps, JPEG</td>
+<td>H.264 HP/VP8 4Kx2K@30fp
+</td></tr>
+<tr>
+<th scope="row">Audio decoder
+</th>
+<td>AC3, DTS</td>
+<td>?</td>
+<td>?</td>
+<td>AC3, DTS</td>
+<td>-</td>
+<td>? (A31)</td>
+<td>? (A31S)</td>
+<td>? (A33)</td>
+<td>? (A80)
+</td></tr>
+<tr>
+<th scope="row">Video interfaces
+</th>
+<td>HDMI 1.3, YPbPr, VGA, CPU/RGB/LVDS LCD</td>
+<td>HDMI 1.3, RGB/LVDS LCD</td>
+<td>RGB LCD, VGA</td>
+<td>HDMI 1.4, CVBS, YPbPr, VGA, CPU/RGB/LVDS LCD</td>
+<td>CPU/RGB/LVDS LCD, MIPI DSI</td>
+<td>HDMI 1.4, MIPI DSI, 2-channel LVDS, 2-channel RGB LCD</td>
+<td>HDMI 1.4, LVDS, RGB LCD</td>
+<td>CPU/RGB/LVDS LCD, MIPI DSI</td>
+<td>HDMI 4K, RGB LCD 2048x1536@60fps, dual-channel LVDS 1920x1080@60fps, 4-lane MIPI DSI 1920x1200@60fps, 4-lane eDP 2560x1600@60fps
+</td></tr>
+<tr>
+<th scope="row">Audio interfaces
+</th>
+<td>I2S, SPDIF, AC97</td>
+<td>I2S, AC97</td>
+<td>I2S, AC97</td>
+<td>I2S, PCM, AC97</td>
+<td>I2S, PCM</td>
+<td>2 I2S, 2 PCM</td>
+<td>I2S, 2 PCM</td>
+<td>? (A33)</td>
+<td>? (A80)
+</td></tr>
+<tr>
+<th scope="row">USB OTG
+</th>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>? (A33)</td>
+<td>1
+</td></tr>
+<tr>
+<th scope="row">USB Host
+</th>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>2</td>
+<td>1</td>
+<td>2</td>
+<td>2</td>
+<td>? (A33)</td>
+<td>2x USB Host, USB 3.0/2.0 Dual-Role (host/device)
+</td></tr>
+<tr>
+<th scope="row">Ethernet
+</th>
+<td>EMAC</td>
+<td>EMAC</td>
+<td>-</td>
+<td>EMAC/GMAC</td>
+<td>-</td>
+<td>GMAC</td>
+<td>GMAC</td>
+<td>-</td>
+<td>GMAC
+</td></tr>
+<tr>
+<th scope="row">Storage
+</th>
+<td>NAND (max 64GB), SATA II, SD Card 3.0</td>
+<td>NAND (max 64GB), SD Card 3.0</td>
+<td>NAND (max 64GB), SD Card 3.0</td>
+<td>NAND, MMC, <a rel="nofollow" class="external text" href="http://olimex.wordpress.com/2013/04/05/allwinners-a10-and-a20-are-they-really-pin-to-pin-compatible-and-drop-in-replacement/#comment-5452#comment-5452">SATA</a></td>
+<td>raw NAND, eMMC, SD card</td>
+<td>4 x SD Card, eMMC NAND, 2-channel raw NAND</td>
+<td>4 x SD Card, eMMC NAND, raw NAND</td>
+<td>3 x SD Card, eMMC NAND, raw NAND</td>
+<td>4 x SD/MMC
+</td></tr>
+<tr>
+<th scope="row">Package
+</th>
+<td>BGA441<br />19&#160;mm&#160;×&#160;19&#160;mm<br />0.80&#160;mm Pitch</td>
+<td>BGA336<br />14&#160;mm&#160;×&#160;14&#160;mm<br />0.65&#160;mm Pitch</td>
+<td>eLQFP176<br />20&#160;mm&#160;×&#160;20&#160;mm</td>
+<td>BGA441<br />19&#160;mm&#160;×&#160;19&#160;mm<br />0.80&#160;mm Pitch</td>
+<td>FBGA280<br />14&#160;mm&#160;x&#160;14&#160;mm&#160;x&#160;1.4&#160;mm<br />0.80&#160;mm Pitch</td>
+<td>BGA609<br />18&#160;mm&#160;×&#160;8&#160;mm<br />0.65&#160;mm Pitch</td>
+<td>? (A31S)</td>
+<td>? (Allwinner: pin compatible with A23)</td>
+<td>? (A80)
+</td></tr>
+<tr>
+<th scope="row">Lithography
+</th>
+<td>55 nm</td>
+<td>55 nm</td>
+<td>55 nm</td>
+<td>40 nm</td>
+<td>40 nm</td>
+<td>40 nm</td>
+<td>40 nm</td>
+<td>40 nm</td>
+<td>28 nm
+</td></tr></tbody></table>
+<p><sup id="cite_ref-65" class="reference"><a href="#cite_note-65">&#91;65&#93;</a></sup>
+</p>
+<h1><span class="mw-headline" id="References">References</span></h1>
+<div class="mw-references-wrap mw-references-columns"><ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=45">http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=45</a></span>
+</li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=23">http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=23</a></span>
+</li>
+<li id="cite_note-3"><span class="mw-cite-backlink"><a href="#cite_ref-3">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=69">http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=69</a></span>
+</li>
+<li id="cite_note-4"><span class="mw-cite-backlink"><a href="#cite_ref-4">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=72">http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=72</a></span>
+</li>
+<li id="cite_note-5"><span class="mw-cite-backlink"><a href="#cite_ref-5">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=24">http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=24</a></span>
+</li>
+<li id="cite_note-6"><span class="mw-cite-backlink"><a href="#cite_ref-6">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=67">http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=67</a></span>
+</li>
+<li id="cite_note-7"><span class="mw-cite-backlink"><a href="#cite_ref-7">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=9">http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=9</a></span>
+</li>
+<li id="cite_note-8"><span class="mw-cite-backlink"><a href="#cite_ref-8">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=93">http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=93</a></span>
+</li>
+<li id="cite_note-9"><span class="mw-cite-backlink"><a href="#cite_ref-9">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=30">http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=30</a></span>
+</li>
+<li id="cite_note-10"><span class="mw-cite-backlink"><a href="#cite_ref-10">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=31">http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=31</a></span>
+</li>
+<li id="cite_note-11"><span class="mw-cite-backlink"><a href="#cite_ref-11">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=29">http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=29</a></span>
+</li>
+<li id="cite_note-12"><span class="mw-cite-backlink"><a href="#cite_ref-12">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=73">http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=73</a></span>
+</li>
+<li id="cite_note-13"><span class="mw-cite-backlink"><a href="#cite_ref-13">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=74">http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=74</a></span>
+</li>
+<li id="cite_note-14"><span class="mw-cite-backlink"><a href="#cite_ref-14">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=27">http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=27</a></span>
+</li>
+<li id="cite_note-15"><span class="mw-cite-backlink"><a href="#cite_ref-15">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=75">http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=75</a></span>
+</li>
+<li id="cite_note-16"><span class="mw-cite-backlink"><a href="#cite_ref-16">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=28">http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=28</a></span>
+</li>
+<li id="cite_note-17"><span class="mw-cite-backlink"><a href="#cite_ref-17">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=76">http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=76</a></span>
+</li>
+<li id="cite_note-18"><span class="mw-cite-backlink"><a href="#cite_ref-18">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=64">http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=64</a></span>
+</li>
+<li id="cite_note-19"><span class="mw-cite-backlink"><a href="#cite_ref-19">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=62">http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=62</a></span>
+</li>
+<li id="cite_note-20"><span class="mw-cite-backlink"><a href="#cite_ref-20">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=47">http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=47</a></span>
+</li>
+<li id="cite_note-21"><span class="mw-cite-backlink"><a href="#cite_ref-21">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=46">http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=46</a></span>
+</li>
+<li id="cite_note-22"><span class="mw-cite-backlink"><a href="#cite_ref-22">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="https://web.archive.org/web/20180131124325/http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=57">https://web.archive.org/web/20180131124325/http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=57</a></span>
+</li>
+<li id="cite_note-23"><span class="mw-cite-backlink"><a href="#cite_ref-23">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=66">http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=66</a></span>
+</li>
+<li id="cite_note-24"><span class="mw-cite-backlink"><a href="#cite_ref-24">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://web.archive.org/web/20160425223052/http://www.allwinnertech.com/en/clq/H_series/6100.html">http://web.archive.org/web/20160425223052/http://www.allwinnertech.com/en/clq/H_series/6100.html</a></span>
+</li>
+<li id="cite_note-25"><span class="mw-cite-backlink"><a href="#cite_ref-25">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=90">http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=90</a></span>
+</li>
+<li id="cite_note-26"><span class="mw-cite-backlink"><a href="#cite_ref-26">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=89">http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=89</a></span>
+</li>
+<li id="cite_note-27"><span class="mw-cite-backlink"><a href="#cite_ref-27">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=79">http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=79</a></span>
+</li>
+<li id="cite_note-28"><span class="mw-cite-backlink"><a href="#cite_ref-28">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="https://web.archive.org/web/20191218202340/http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=82">https://web.archive.org/web/20191218202340/http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=82</a></span>
+</li>
+<li id="cite_note-29"><span class="mw-cite-backlink"><a href="#cite_ref-29">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://web.archive.org/web/20160510053338/http://www.allwinnertech.com/en/clq/R_series/2015/0514/R8.html">http://web.archive.org/web/20160510053338/http://www.allwinnertech.com/en/clq/R_series/2015/0514/R8.html</a></span>
+</li>
+<li id="cite_note-30"><span class="mw-cite-backlink"><a href="#cite_ref-30">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=83">http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=83</a></span>
+</li>
+<li id="cite_note-31"><span class="mw-cite-backlink"><a href="#cite_ref-31">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=51">http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=51</a></span>
+</li>
+<li id="cite_note-32"><span class="mw-cite-backlink"><a href="#cite_ref-32">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="https://web.archive.org/web/20191229233801/http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=56">https://web.archive.org/web/20191229233801/http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=56</a></span>
+</li>
+<li id="cite_note-33"><span class="mw-cite-backlink"><a href="#cite_ref-33">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=49">http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=49</a></span>
+</li>
+<li id="cite_note-34"><span class="mw-cite-backlink"><a href="#cite_ref-34">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=84">http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=84</a></span>
+</li>
+<li id="cite_note-35"><span class="mw-cite-backlink"><a href="#cite_ref-35">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=85">http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=85</a></span>
+</li>
+<li id="cite_note-36"><span class="mw-cite-backlink"><a href="#cite_ref-36">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://nextthing.co/">http://nextthing.co/</a></span>
+</li>
+<li id="cite_note-37"><span class="mw-cite-backlink"><a href="#cite_ref-37">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="https://groups.google.com/d/msg/linux-sunxi/vx6oQMy-nis/vgVc8d1KBAAJ">https://groups.google.com/d/msg/linux-sunxi/vx6oQMy-nis/vgVc8d1KBAAJ</a></span>
+</li>
+<li id="cite_note-38"><span class="mw-cite-backlink"><a href="#cite_ref-38">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=68">http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=68</a></span>
+</li>
+<li id="cite_note-39"><span class="mw-cite-backlink"><a href="#cite_ref-39">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=91">http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=91</a></span>
+</li>
+<li id="cite_note-40"><span class="mw-cite-backlink"><a href="#cite_ref-40">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=92">http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=92</a></span>
+</li>
+<li id="cite_note-41"><span class="mw-cite-backlink"><a href="#cite_ref-41">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=39">http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=39</a></span>
+</li>
+<li id="cite_note-42"><span class="mw-cite-backlink"><a href="#cite_ref-42">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=41">http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=41</a></span>
+</li>
+<li id="cite_note-43"><span class="mw-cite-backlink"><a href="#cite_ref-43">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=71">http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=71</a></span>
+</li>
+<li id="cite_note-44"><span class="mw-cite-backlink"><a href="#cite_ref-44">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=43">http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=43</a></span>
+</li>
+<li id="cite_note-45"><span class="mw-cite-backlink"><a href="#cite_ref-45">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=94">http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=94</a></span>
+</li>
+<li id="cite_note-46"><span class="mw-cite-backlink"><a href="#cite_ref-46">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=94">http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=94</a></span>
+</li>
+<li id="cite_note-47"><span class="mw-cite-backlink"><a href="#cite_ref-47">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=37">http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=37</a></span>
+</li>
+<li id="cite_note-48"><span class="mw-cite-backlink"><a href="#cite_ref-48">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=38">http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=38</a></span>
+</li>
+<li id="cite_note-49"><span class="mw-cite-backlink"><a href="#cite_ref-49">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=70">http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=70</a></span>
+</li>
+<li id="cite_note-50"><span class="mw-cite-backlink"><a href="#cite_ref-50">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=36">http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=36</a></span>
+</li>
+<li id="cite_note-51"><span class="mw-cite-backlink"><a href="#cite_ref-51">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=35">http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=35</a></span>
+</li>
+<li id="cite_note-52"><span class="mw-cite-backlink"><a href="#cite_ref-52">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=87">http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=87</a></span>
+</li>
+<li id="cite_note-53"><span class="mw-cite-backlink"><a href="#cite_ref-53">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=88">http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=88</a></span>
+</li>
+<li id="cite_note-54"><span class="mw-cite-backlink"><a href="#cite_ref-54">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=59">http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=59</a></span>
+</li>
+<li id="cite_note-55"><span class="mw-cite-backlink"><a href="#cite_ref-55">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=86">http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=86</a></span>
+</li>
+<li id="cite_note-56"><span class="mw-cite-backlink"><a href="#cite_ref-56">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=77">http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=77</a></span>
+</li>
+<li id="cite_note-57"><span class="mw-cite-backlink"><a href="#cite_ref-57">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=81">http://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=81</a></span>
+</li>
+<li id="cite_note-58"><span class="mw-cite-backlink"><a href="#cite_ref-58">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="https://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=78">https://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=78</a></span>
+</li>
+<li id="cite_note-59"><span class="mw-cite-backlink"><a href="#cite_ref-59">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="https://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=65">https://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=65</a></span>
+</li>
+<li id="cite_note-60"><span class="mw-cite-backlink"><a href="#cite_ref-60">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="https://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=97">https://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=97</a></span>
+</li>
+<li id="cite_note-61"><span class="mw-cite-backlink"><a href="#cite_ref-61">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="https://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=101">https://www.allwinnertech.com/index.php?c=product&amp;a=index&amp;id=101</a></span>
+</li>
+<li id="cite_note-62"><span class="mw-cite-backlink"><a href="#cite_ref-62">↑</a></span> <span class="reference-text"><a class="external free" href="https://github.com/tinalinux/brandy/blob/r40-v1.y/SUNXI_README">https://github.com/tinalinux/brandy/blob/r40-v1.y/SUNXI_README</a></span>
+</li>
+<li id="cite_note-63"><span class="mw-cite-backlink"><a href="#cite_ref-63">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external text" href="http://olimex.wordpress.com/2012/04/24/cortex-a8-in-tqfp-sure-allwinner-a13/">"Cortex A8 in TQFP? sure Allwinner A13"</a> <i>Retrieved 23 September 2012</i></span>
+</li>
+<li id="cite_note-64"><span class="mw-cite-backlink"><a href="#cite_ref-64">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.imgtec.com/news/detail.asp?ID=845">http://www.imgtec.com/news/detail.asp?ID=845</a></span>
+</li>
+<li id="cite_note-65"><span class="mw-cite-backlink"><a href="#cite_ref-65">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="https://web.archive.org/web/20130301050520/http://blog.thinkteletronics.com/all-mobile-socsolutions/">https://web.archive.org/web/20130301050520/http://blog.thinkteletronics.com/all-mobile-socsolutions/</a> All Mobile Soc/Solutions.</span>
+</li>
+</ol></div>
+<!-- 
+NewPP limit report
+Cached time: 20251029051716
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.234 seconds
+Real time usage: 0.241 seconds
+Preprocessor visited node count: 953/1000000
+Post‐expand include size: 245/2097152 bytes
+Template argument size: 206/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 27119/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    2.124      1 Template:Note
+100.00%    2.124      1 -total
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:771-0!canonical and timestamp 20251029051716 and revision id 26714
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=Allwinner_SoC_Family&amp;oldid=26714">https://linux-sunxi.org/index.php?title=Allwinner_SoC_Family&amp;oldid=26714</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Category</a>: <ul><li><a href="Category:System_on_Chip.html" title="Category:System on Chip">System on Chip</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=Allwinner+SoC+Family" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=Allwinner+SoC+Family" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="Allwinner_SoC_Family.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk"><a href="Talk:Allwinner_SoC_Family.html" rel="discussion" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="Allwinner_SoC_Family.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Allwinner_SoC_Family&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Allwinner_SoC_Family&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/Allwinner_SoC_Family.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/Allwinner_SoC_Family" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=Allwinner_SoC_Family&amp;oldid=26714" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=Allwinner_SoC_Family&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 8 September 2025, at 12:40.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.234","walltime":"0.241","ppvisitednodes":{"value":953,"limit":1000000},"postexpandincludesize":{"value":245,"limit":2097152},"templateargumentsize":{"value":206,"limit":2097152},"expansiondepth":{"value":3,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":27119,"limit":5000000},"timingprofile":["100.00%    2.124      1 Template:Note","100.00%    2.124      1 -total"]},"cachereport":{"timestamp":"20251029051716","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":1131});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

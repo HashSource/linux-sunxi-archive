@@ -1,0 +1,660 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Cubieboard/LVDS - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"b080f720f6bd041df175e229","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Cubieboard/LVDS","wgTitle":"Cubieboard/LVDS","wgCurRevisionId":11177,"wgRevisionId":11177,"wgArticleId":550,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Cubieboard"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Cubieboard/LVDS","wgRelevantArticleId":550,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready",
+"user.styles":"ready","user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=mediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="LVDS.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-Cubieboard_LVDS rootpage-Cubieboard skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">Cubieboard/LVDS</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"><span class="subpages">&lt; <a href="../Cubieboard.html" class="mw-redirect" title="Cubieboard">Cubieboard</a></span></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Powersupply"><span class="tocnumber">1.1</span> <span class="toctext">Powersupply</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Hardware_Connections"><span class="tocnumber">1.2</span> <span class="toctext">Hardware Connections</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Software_Configuration"><span class="tocnumber">1.3</span> <span class="toctext">Software Configuration</span></a>
+<ul>
+<li class="toclevel-3 tocsection-5"><a href="#LCD_Data_Clock_Frequency"><span class="tocnumber">1.3.1</span> <span class="toctext">LCD Data Clock Frequency</span></a></li>
+<li class="toclevel-3 tocsection-6"><a href="#LCD_Interface"><span class="tocnumber">1.3.2</span> <span class="toctext">LCD Interface</span></a></li>
+<li class="toclevel-3 tocsection-7"><a href="#LCD_Sync_Settings"><span class="tocnumber">1.3.3</span> <span class="toctext">LCD Sync Settings</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Introduction">Introduction</span></h1>
+<p>To use a LVDS TFT-LCD display with Cubieboard is very simple job.
+</p><p>There are two main activities do to:
+</p>
+<ol><li>Connect the LVDS to Cubieboard.</li>
+<li>Configure script.bin for LVDS display.</li></ol>
+<p>For this example I will use a CHI-MEI G070Y2-L01 800x480 LED backlight TFT-LCD.
+For other displays there would be different power-supply requirements, LCD I/O pin layouts and script.fex values.
+</p>
+<h2><span class="mw-headline" id="Powersupply">Powersupply</span></h2>
+<p>The LCD is a device which require a lot of power to work so we need two extra-power supplies:
+</p>
+<ol><li>One at 3.3V to supply LCD main board.</li>
+<li>One at 12V to supply LCD backlight system.</li></ol>
+<p><b>NB:</b> Often you can't use 3.3V from Cubieboard because the display will typically have a Rush Current of &gt; 1A at startup and Cubieboard can't supply that much power.
+</p><p>Verify all these values with the datasheet of your display. There are displays which only use 5V for the LED power supply (e.g. AUO B089AW01 V1). Using 12V on these displays will destroy them (and potentially the board you connect them to).
+</p>
+<h2><span class="mw-headline" id="Hardware_Connections">Hardware Connections</span></h2>
+<p><b>Generally</b> the following can be said of the hardware connection.
+</p>
+<ol><li>The pins VDD, VCC or similar must be connected to 3.3V external supply</li>
+<li>The pins VDD_LED, VDD_BL or similar must be connected to 5V/12V external backlight supply</li>
+<li>If there is a backlight PWM pin on the display connect it to PWM channel 0 on the board</li>
+<li>The pins GND must be connected to <i>both</i> cubieboard and external supply GND</li></ol>
+<ol><li>Each LVDS lane RX0+/- to RX3+/- and the clock lane RXC+/- must be connected to corrosponding pins on cubieboard</li></ol>
+<p>Note for users of other boards: Mapping of LCD-Dx pin names to LVDS pin names is 
+</p>
+<pre>RX0+ = LCD0-D0
+RX0- = LCD0-D1
+RX1+ = LCD0-D3
+RX1- = LCD0-D4
+RX2+ = LCD0-D5
+RX2- = LCD0-D6
+RXC+ = LCD0-D7
+RXC- = LCD0-D8
+</pre>
+<table class="wikitable">
+
+<tbody><tr>
+<th>CubieBoard U14</th>
+<th>G070Y2-L01 LVDS I/O PIN</th>
+<th>Notes
+</th></tr>
+<tr>
+<td>12 PD8 (LCDD8/LVDS0P3)</td>
+<td>01 (RX3+)</td>
+<td>
+</td></tr>
+<tr>
+<td>11 PD9 (LCDD9/LVDS0N3)</td>
+<td>02 (RX3-)</td>
+<td>
+</td></tr>
+<tr>
+<td>-N/A-</td>
+<td>03 (NC)</td>
+<td>Leave unconnected.
+</td></tr>
+<tr>
+<td>-N/A-</td>
+<td>04 (FRC)</td>
+<td>Must be connected to extra 3.3V power supply VCC.
+</td></tr>
+<tr>
+<td>02 Ground</td>
+<td>05 (GND)</td>
+<td>Must be connected also with extra 3.3V power supply Ground.
+</td></tr>
+<tr>
+<td>07 PD6 (LCDD6/LVDS0PC)</td>
+<td>06 (RXC+)</td>
+<td>
+</td></tr>
+<tr>
+<td>10 PD7 (LCDD7/LVDS0NC)</td>
+<td>07 (RXC-)</td>
+<td>
+</td></tr>
+<tr>
+<td>02 Ground</td>
+<td>08 (GND)</td>
+<td>Must be connected also with extra 3.3V power supply Ground.
+</td></tr>
+<tr>
+<td>05 PD4 (LCDD4/LNVS0P2)</td>
+<td>09 (RX2+)</td>
+<td>
+</td></tr>
+<tr>
+<td>08 PD5 (LCDD5/LVDS0N2)</td>
+<td>10 (RX2-)</td>
+<td>
+</td></tr>
+<tr>
+<td>02 Ground</td>
+<td>11 (GND)</td>
+<td>Must be connected also with extra 3.3V power supply Ground.
+</td></tr>
+<tr>
+<td>03 PD2 (LCDD2/LVDS0P1)</td>
+<td>12 (RX1+)</td>
+<td>
+</td></tr>
+<tr>
+<td>06 PD3 (LCDD3/LVDS0N1)</td>
+<td>13 (RX1-)</td>
+<td>
+</td></tr>
+<tr>
+<td>02 Ground</td>
+<td>14 (GND)</td>
+<td>Must be connected also with extra 3.3V power supply Ground.
+</td></tr>
+<tr>
+<td>01 PD0 (LCDD0/LVDSP0)</td>
+<td>15 (RX0)</td>
+<td>
+</td></tr>
+<tr>
+<td>04 PD1 (LCDD1/LVDS0N0)</td>
+<td>16 (RX0)</td>
+<td>
+</td></tr>
+<tr>
+<td>-N/A-</td>
+<td>17 (LR)</td>
+<td>Leave unconnected. Together with UD describe only display scanning direction.
+</td></tr>
+<tr>
+<td>-N/A-</td>
+<td>18 (UD)</td>
+<td>Leave unconnected. Together with LR describe only display scanning direction.
+</td></tr>
+<tr>
+<td>-N/A-</td>
+<td>19 (VCC_IN)</td>
+<td>Must be connected to extra 3.3V power supply VCC.
+</td></tr>
+<tr>
+<td>-N/A-</td>
+<td>29 (VCC_IN)</td>
+<td>Must be connected to extra 3.3V power supply VCC.
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="Software_Configuration">Software Configuration</span></h2>
+<p>At this point is important to understand HOW TO set properly the A10 chip to run with the specific display settings.
+More simple job is recover and set display X/Y resolutions. With example's devices we should use: 
+</p>
+<pre> [lcd0_para]
+ lcd_x = 800
+ lcd_y = 480
+</pre>
+<p>Now we will enter in the more complex range of settings regarding timings.<br />
+At this point only display datasheet can help us with the TIMING CHARACTERISTICS:
+</p>
+<table class="wikitable">
+
+<tbody><tr>
+<th>Vertical Display</th>
+<th>Parameter</th>
+<th>Symbol</th>
+<th>Min.</th>
+<th>Typ.</th>
+<th>Max</th>
+<th>Unit</th>
+<th>Note
+</th></tr>
+<tr>
+<td></td>
+<td>Period</td>
+<td>Tv</td>
+<td>490</td>
+<td>500</td>
+<td>550</td>
+<td>Th</td>
+<td>Tv = Tvd + Tvb
+</td></tr>
+<tr>
+<td></td>
+<td>Active</td>
+<td>Tvd</td>
+<td>-</td>
+<td>480</td>
+<td>-</td>
+<td>Th</td>
+<td>
+</td></tr>
+<tr>
+<td></td>
+<td>Blanking</td>
+<td>Tvb</td>
+<td>10</td>
+<td>20</td>
+<td>70</td>
+<td>Th</td>
+<td>
+</td></tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td></tr>
+<tr>
+<th>Horizzontal Display</th>
+<th>Parameter</th>
+<th>Symbol</th>
+<th>Min.</th>
+<th>Typ.</th>
+<th>Max</th>
+<th>Unit</th>
+<th>Note
+</th></tr>
+<tr>
+<td></td>
+<td>Period</td>
+<td>Th</td>
+<td>930</td>
+<td>992</td>
+<td>1090</td>
+<td>Tclock</td>
+<td>Th = Thd + Thb
+</td></tr>
+<tr>
+<td></td>
+<td>Active</td>
+<td>Thd</td>
+<td>-</td>
+<td>800</td>
+<td>-</td>
+<td>Tclock</td>
+<td>
+</td></tr>
+<tr>
+<td></td>
+<td>Blanking</td>
+<td>Thb</td>
+<td>130</td>
+<td>192</td>
+<td>290</td>
+<td>Tclock</td>
+<td>
+</td></tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td></tr>
+<tr>
+<th>Clock Frequency</th>
+<th></th>
+<th>Symbol</th>
+<th>Min.</th>
+<th>Typ.</th>
+<th>Max</th>
+<th>Unit</th>
+<th>Note
+</th></tr>
+<tr>
+<td></td>
+<td></td>
+<td>1/Tclock</td>
+<td>27</td>
+<td>29.5</td>
+<td>33</td>
+<td>MHz</td>
+<td>
+</td></tr></tbody></table>
+<h4><span class="mw-headline" id="LCD_Data_Clock_Frequency">LCD Data Clock Frequency</span></h4>
+<p>Looking in the table, at field <i>Clock Frequency</i>, a good value for <i>lcd_dclk_freq</i> should be comprised between 29.5 to 33 MHz.<br />
+The value of 30MHz should go fine so:
+</p>
+<pre>&#160;; lcd data clock frequency
+ lcd_dclk_freq = 30
+</pre>
+<h4><span class="mw-headline" id="LCD_Interface">LCD Interface</span></h4>
+<p>LCD interface define what type of interface to use for LCD. For LVDS the right value is 3:
+</p>
+<pre>&#160;; lcd interface
+ lcd_if = 3
+</pre>
+<p>Check whether 24 or 18 bit color is used, and set 
+</p>
+<pre> lcd_lvds_bitwidth = 1 (if 18bit (RGB666) is used)
+</pre>
+<h4><span class="mw-headline" id="LCD_Sync_Settings">LCD Sync Settings</span></h4>
+<p>Now more interesting part of settings, the sync timings. A10 require four values:
+</p>
+<ol><li>LCD horizontal sync back porch</li>
+<li>LCD horizontal sync total cycle</li>
+<li>LCD vertical sync back porch</li>
+<li>LCD vertical sync total cycle * 2</li></ol>
+<p>In the upon table we can the needed values. 
+</p>
+<ol><li>Horizontal sync total sycle (lcd_ht) is the same as <i>horizontal period</i> in the datasheet which is = 1055 at 30Mhz</li>
+<li>Horizontal back porch (lcd_hpb) is the same as <i>horizontal blanking</i> in the datasheet, which is the difference between <i>horizontal period</i> and the <i>horizontal active</i> time (1055-800) which is = 255, here 200 is used an approximate value</li>
+<li>Vertical sync total cycle (lcd_vt) is the same as 2*<i>vertical period</i> in the datasheet which is = 1050 at 30Mhz</li>
+<li>Horizontal back porch (lcd_hpb) is the same as 2*<i>vertical blanking</i> in the datasheet, which is the difference between 2*<i>vertical period</i> and the 2*<i>vertical active</i> time (1050-1000) which is = 50, 25 is used as an approximate value.</li></ol>
+<p>So the final values are:
+</p>
+<pre> lcd_hbp = 200
+ lcd_ht = 1055
+ lcd_vbp = 25
+ lcd_vt = 1050
+</pre>
+<p>So the final config of the script.fex file:
+</p>
+<pre> [disp_init]
+ disp_init_enable = 1
+ disp_mode = 0
+ screen0_output_type = 1
+ screen0_output_mode = 4
+ screen1_output_type = 1
+ screen1_output_mode = 4
+ fb0_framebuffer_num = 2
+ fb0_format = 10
+ fb0_pixel_sequence = 0
+ fb0_scaler_mode_enable = 1
+ fb1_framebuffer_num = 2
+ fb1_format = 10
+ fb1_pixel_sequence = 0
+ fb1_scaler_mode_enable = 1
+ lcd0_bright = 197
+ lcd1_bright = 197
+ lcd0_screen_bright = 50
+ lcd0_screen_contrast = 50
+ lcd0_screen_saturation = 57
+ lcd0_screen_hue = 50
+ lcd1_screen_bright = 50
+ lcd1_screen_contrast = 50
+ lcd1_screen_saturation = 57
+ lcd1_screen_hue = 50
+ 
+ [lcd0_para]
+ lcd_used = 1
+ lcd_x = 800
+ lcd_y = 480
+ lcd_dclk_freq = 30
+ lcd_pwm_not_used = 0
+ lcd_pwm_ch = 0
+ lcd_pwm_freq = 10000
+ lcd_pwm_pol = 0
+ lcd_if = 3
+ lcd_hbp = 200
+ lcd_ht = 1055
+ lcd_vbp = 25
+ lcd_vt = 1050
+ lcd_hv_if = 0
+ lcd_hv_smode = 0
+ lcd_hv_s888_if = 0
+ lcd_hv_syuv_if = 0
+ lcd_hv_vspw = 0
+ lcd_hv_hspw = 0
+ lcd_lvds_ch = 0
+ lcd_lvds_mode = 0
+ lcd_lvds_bitwidth = 0
+ lcd_lvds_io_cross = 0
+ lcd_cpu_if = 0
+ lcd_frm = 0
+ lcd_io_cfg0 = 268435456
+ lcd_gamma_correction_en = 0
+ lcd_gamma_tbl_0 = 0x0
+ lcd_gamma_tbl_1 = 0x10101
+ lcd_gamma_tbl_255 = 0xffffff
+ lcd_bl_en_used = 0
+ lcd_bl_en = port:PH07&lt;1&gt;&lt;0&gt;&lt;default&gt;&lt;1&gt;
+ lcd_power_used = 1
+ lcd_power = port:PH08&lt;1&gt;&lt;0&gt;&lt;default&gt;&lt;1&gt;
+ lcd_pwm_used = 1
+ lcd_pwm = port:PB02&lt;2&gt;&lt;0&gt;&lt;default&gt;&lt;default&gt;
+ lcd_gpio_0 =
+ lcd_gpio_1 =
+ lcd_gpio_2 =
+ lcd_gpio_3 =
+ lcdd0 = port:PD00&lt;2&gt;&lt;0&gt;&lt;default&gt;&lt;default&gt;
+ lcdd1 = port:PD01&lt;2&gt;&lt;0&gt;&lt;default&gt;&lt;default&gt;
+ lcdd2 = port:PD02&lt;2&gt;&lt;0&gt;&lt;default&gt;&lt;default&gt;
+ lcdd3 = port:PD03&lt;2&gt;&lt;0&gt;&lt;default&gt;&lt;default&gt;
+ lcdd4 = port:PD04&lt;2&gt;&lt;0&gt;&lt;default&gt;&lt;default&gt;
+ lcdd5 = port:PD05&lt;2&gt;&lt;0&gt;&lt;default&gt;&lt;default&gt;
+ lcdd6 = port:PD06&lt;2&gt;&lt;0&gt;&lt;default&gt;&lt;default&gt;
+ lcdd7 = port:PD07&lt;2&gt;&lt;0&gt;&lt;default&gt;&lt;default&gt;
+ lcdd8 = port:PD08&lt;2&gt;&lt;0&gt;&lt;default&gt;&lt;default&gt;
+ lcdd9 = port:PD09&lt;2&gt;&lt;0&gt;&lt;default&gt;&lt;default&gt;
+ lcdd10 = port:PD10&lt;2&gt;&lt;0&gt;&lt;default&gt;&lt;default&gt;
+ lcdd11 = port:PD11&lt;2&gt;&lt;0&gt;&lt;default&gt;&lt;default&gt;
+ lcdd12 = port:PD12&lt;2&gt;&lt;0&gt;&lt;default&gt;&lt;default&gt;
+ lcdd13 = port:PD13&lt;2&gt;&lt;0&gt;&lt;default&gt;&lt;default&gt;
+ lcdd14 = port:PD14&lt;2&gt;&lt;0&gt;&lt;default&gt;&lt;default&gt;
+ lcdd15 = port:PD15&lt;2&gt;&lt;0&gt;&lt;default&gt;&lt;default&gt;
+ lcdd16 = port:PD16&lt;2&gt;&lt;0&gt;&lt;default&gt;&lt;default&gt;
+ lcdd17 = port:PD17&lt;2&gt;&lt;0&gt;&lt;default&gt;&lt;default&gt;
+ lcdd18 = port:PD18&lt;2&gt;&lt;0&gt;&lt;default&gt;&lt;default&gt;
+ lcdd19 = port:PD19&lt;2&gt;&lt;0&gt;&lt;default&gt;&lt;default&gt;
+ lcdd20 = port:PD20&lt;2&gt;&lt;0&gt;&lt;default&gt;&lt;default&gt;
+ lcdd21 = port:PD21&lt;2&gt;&lt;0&gt;&lt;default&gt;&lt;default&gt;
+ lcdd22 = port:PD22&lt;2&gt;&lt;0&gt;&lt;default&gt;&lt;default&gt;
+ lcdd23 = port:PD23&lt;2&gt;&lt;0&gt;&lt;default&gt;&lt;default&gt;
+ lcdclk = port:PH24&lt;2&gt;&lt;0&gt;&lt;default&gt;&lt;default&gt;
+ lcdde = port:PH25&lt;2&gt;&lt;0&gt;&lt;default&gt;&lt;default&gt;
+ lcdhsync = port:PH26&lt;2&gt;&lt;0&gt;&lt;default&gt;&lt;default&gt;
+ lcdvsync = port:PH27&lt;2&gt;&lt;0&gt;&lt;default&gt;&lt;default&gt;
+</pre>
+<!-- 
+NewPP limit report
+Cached time: 20251029052047
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.033 seconds
+Real time usage: 0.056 seconds
+Preprocessor visited node count: 21/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:550-0!canonical and timestamp 20251029052046 and revision id 11177
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=Cubieboard/LVDS&amp;oldid=11177">https://linux-sunxi.org/index.php?title=Cubieboard/LVDS&amp;oldid=11177</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="../Special:Categories.html" title="Special:Categories">Category</a>: <ul><li><a href="../Category:Cubieboard.html" title="Category:Cubieboard">Cubieboard</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=Cubieboard%2FLVDS" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=Cubieboard%2FLVDS" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="LVDS.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:Cubieboard/LVDS&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="LVDS.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Cubieboard/LVDS&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Cubieboard/LVDS&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="../index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="../index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="../sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="../Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="https://linux-sunxi.org/Special:WhatLinksHere/Cubieboard/LVDS" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/Cubieboard/LVDS" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="../Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=Cubieboard/LVDS&amp;oldid=11177" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=Cubieboard/LVDS&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 12 September 2014, at 21:32.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.033","walltime":"0.056","ppvisitednodes":{"value":21,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":0,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20251029052047","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":1018});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

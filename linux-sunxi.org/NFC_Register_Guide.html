@@ -1,0 +1,2050 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>NFC Register Guide - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"ada8e5aa79028760ca68efb4","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"NFC_Register_Guide","wgTitle":"NFC Register Guide","wgCurRevisionId":24958,"wgRevisionId":24958,"wgArticleId":307,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["A10 Register guide","A13 Register guide","A20 Register guide"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"NFC_Register_Guide","wgRelevantArticleId":307,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};
+RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":"ready","user":"ready","user.options":"loading","ext.cite.styles":"ready","skins.vector.styles.legacy":"ready","jquery.tablesorter.styles":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","ext.cite.ux-enhancements","site","mediawiki.page.startup","mediawiki.page.ready","jquery.tablesorter","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=ext.cite.styles%7Cjquery.tablesorter.styles%7Cmediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="NFC_Register_Guide.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-NFC_Register_Guide rootpage-NFC_Register_Guide skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">NFC Register Guide</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#NAND_Flash_Controller"><span class="tocnumber">1</span> <span class="toctext">NAND Flash Controller</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Overview"><span class="tocnumber">1.1</span> <span class="toctext">Overview</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#NFC_Block_Diagram"><span class="tocnumber">1.2</span> <span class="toctext">NFC Block Diagram</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#NFC_Timing_Diagrams"><span class="tocnumber">1.3</span> <span class="toctext">NFC Timing Diagrams</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#NFC_Timing_Cycle_List"><span class="tocnumber">1.4</span> <span class="toctext">NFC Timing Cycle List</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#NFC_Operation_Guide"><span class="tocnumber">1.5</span> <span class="toctext">NFC Operation Guide</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#NFC_Registers"><span class="tocnumber">1.6</span> <span class="toctext">NFC Registers</span></a>
+<ul>
+<li class="toclevel-3 tocsection-8"><a href="#NFC_CTL"><span class="tocnumber">1.6.1</span> <span class="toctext">NFC_CTL</span></a></li>
+<li class="toclevel-3 tocsection-9"><a href="#NFC_ST"><span class="tocnumber">1.6.2</span> <span class="toctext">NFC_ST</span></a></li>
+<li class="toclevel-3 tocsection-10"><a href="#NFC_INT"><span class="tocnumber">1.6.3</span> <span class="toctext">NFC_INT</span></a></li>
+<li class="toclevel-3 tocsection-11"><a href="#NFC_TIMING_CTL"><span class="tocnumber">1.6.4</span> <span class="toctext">NFC_TIMING_CTL</span></a></li>
+<li class="toclevel-3 tocsection-12"><a href="#NFC_CMD"><span class="tocnumber">1.6.5</span> <span class="toctext">NFC_CMD</span></a></li>
+<li class="toclevel-3 tocsection-13"><a href="#NFC_READ_CMD_SET"><span class="tocnumber">1.6.6</span> <span class="toctext">NFC_READ_CMD_SET</span></a></li>
+<li class="toclevel-3 tocsection-14"><a href="#NFC_WRITE_CMD_SET"><span class="tocnumber">1.6.7</span> <span class="toctext">NFC_WRITE_CMD_SET</span></a></li>
+<li class="toclevel-3 tocsection-15"><a href="#NFC_ECC_CTL"><span class="tocnumber">1.6.8</span> <span class="toctext">NFC_ECC_CTL</span></a></li>
+<li class="toclevel-3 tocsection-16"><a href="#NFC_USER_DB"><span class="tocnumber">1.6.9</span> <span class="toctext">NFC_USER_DB</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-17"><a href="#Initial_values"><span class="tocnumber">1.7</span> <span class="toctext">Initial values</span></a>
+<ul>
+<li class="toclevel-3 tocsection-18"><a href="#default_map"><span class="tocnumber">1.7.1</span> <span class="toctext">default map</span></a></li>
+<li class="toclevel-3 tocsection-19"><a href="#all_set_to_1"><span class="tocnumber">1.7.2</span> <span class="toctext">all set to 1</span></a></li>
+<li class="toclevel-3 tocsection-20"><a href="#all_set_to_0"><span class="tocnumber">1.7.3</span> <span class="toctext">all set to 0</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-21"><a href="#Hardware_ECC"><span class="tocnumber">1.8</span> <span class="toctext">Hardware ECC</span></a>
+<ul>
+<li class="toclevel-3 tocsection-22"><a href="#Spare_area"><span class="tocnumber">1.8.1</span> <span class="toctext">Spare area</span></a></li>
+<li class="toclevel-3 tocsection-23"><a href="#Random_Seed"><span class="tocnumber">1.8.2</span> <span class="toctext">Random Seed</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="NAND_Flash_Controller">NAND Flash Controller</span></h1>
+<p>Warning, default values where obtained using mtest in u-boot. They all kept reading 0, no matter what was written to them. So it could be write only or otherwise. 
+Q: Could it possible that you're reading while NFC is disabled?
+</p>
+<h2><span class="mw-headline" id="Overview">Overview</span></h2>
+<table class="wikitable" width="100%" border="1" cellpadding="2" cellspacing="0">
+
+<tbody><tr bgcolor="#eeeeee" valign="top">
+<th>regid
+</th>
+<th>bit
+</th>
+<th>size
+</th>
+<th>access
+</th>
+<th>default
+</th>
+<th>desc
+</th>
+<th class="wikitable"><span title="Edit Entry">E</span>
+<p><a href="https://linux-sunxi.org/index.php?title=Template:NFC_Data&amp;action=edit&amp;redlink=1" class="new" title="Template:NFC Data (page does not exist)">Template:NFC Data</a>
+</p>
+</th></tr>
+</tbody></table>
+<h2><span class="mw-headline" id="NFC_Block_Diagram">NFC Block Diagram</span></h2>
+<div class="thumb tright"><div class="thumbinner" style="width:302px;"><a href="File:A13_NFC_-_Block_diagram.png.html" class="image"><img alt="" src="https://linux-sunxi.org/images/thumb/2/2d/A13_NFC_-_Block_diagram.png/300px-A13_NFC_-_Block_diagram.png" decoding="async" width="300" height="270" class="thumbimage" srcset="https://linux-sunxi.org/images/thumb/2/2d/A13_NFC_-_Block_diagram.png/450px-A13_NFC_-_Block_diagram.png 1.5x, https://linux-sunxi.org/images/thumb/2/2d/A13_NFC_-_Block_diagram.png/600px-A13_NFC_-_Block_diagram.png 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="File:A13_NFC_-_Block_diagram.png.html" class="internal" title="Enlarge"></a></div>A13 NFC Block Diagram</div></div></div>
+<h2><span class="mw-headline" id="NFC_Timing_Diagrams">NFC Timing Diagrams</span></h2>
+<p>See thumbnails to the right
+</p>
+<div class="thumb tright"><div class="thumbinner" style="width:302px;"><a href="https://linux-sunxi.org/File:A13_NFC_-_Address_Latch_Cycle.png" class="image"><img alt="" src="https://linux-sunxi.org/images/thumb/6/6f/A13_NFC_-_Address_Latch_Cycle.png/300px-A13_NFC_-_Address_Latch_Cycle.png" decoding="async" width="300" height="120" class="thumbimage" srcset="https://linux-sunxi.org/images/thumb/6/6f/A13_NFC_-_Address_Latch_Cycle.png/450px-A13_NFC_-_Address_Latch_Cycle.png 1.5x, https://linux-sunxi.org/images/thumb/6/6f/A13_NFC_-_Address_Latch_Cycle.png/600px-A13_NFC_-_Address_Latch_Cycle.png 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://linux-sunxi.org/File:A13_NFC_-_Address_Latch_Cycle.png" class="internal" title="Enlarge"></a></div>A13 NFC - Address Latch Cycle</div></div></div>
+<div class="thumb tright"><div class="thumbinner" style="width:302px;"><a href="File:A13_NFC_-_Conventional_Serial_Access_Cycle_Diagram_(SAM0).png.html" class="image"><img alt="" src="https://linux-sunxi.org/images/thumb/e/eb/A13_NFC_-_Conventional_Serial_Access_Cycle_Diagram_%28SAM0%29.png/300px-A13_NFC_-_Conventional_Serial_Access_Cycle_Diagram_%28SAM0%29.png" decoding="async" width="300" height="153" class="thumbimage" srcset="https://linux-sunxi.org/images/thumb/e/eb/A13_NFC_-_Conventional_Serial_Access_Cycle_Diagram_%28SAM0%29.png/450px-A13_NFC_-_Conventional_Serial_Access_Cycle_Diagram_%28SAM0%29.png 1.5x, https://linux-sunxi.org/images/thumb/e/eb/A13_NFC_-_Conventional_Serial_Access_Cycle_Diagram_%28SAM0%29.png/600px-A13_NFC_-_Conventional_Serial_Access_Cycle_Diagram_%28SAM0%29.png 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="File:A13_NFC_-_Conventional_Serial_Access_Cycle_Diagram_(SAM0).png.html" class="internal" title="Enlarge"></a></div>A13 NFC - Conventional Serial Access Cycle Diagram (SAM0)</div></div></div>
+<div class="thumb tright"><div class="thumbinner" style="width:302px;"><a href="File:A13_NFC_-_EDO_Type_Serial_Access_after_Read_Cycle_Diagram_(SAM1).png.html" class="image"><img alt="" src="https://linux-sunxi.org/images/thumb/5/52/A13_NFC_-_EDO_Type_Serial_Access_after_Read_Cycle_Diagram_%28SAM1%29.png/300px-A13_NFC_-_EDO_Type_Serial_Access_after_Read_Cycle_Diagram_%28SAM1%29.png" decoding="async" width="300" height="153" class="thumbimage" srcset="https://linux-sunxi.org/images/thumb/5/52/A13_NFC_-_EDO_Type_Serial_Access_after_Read_Cycle_Diagram_%28SAM1%29.png/450px-A13_NFC_-_EDO_Type_Serial_Access_after_Read_Cycle_Diagram_%28SAM1%29.png 1.5x, https://linux-sunxi.org/images/thumb/5/52/A13_NFC_-_EDO_Type_Serial_Access_after_Read_Cycle_Diagram_%28SAM1%29.png/600px-A13_NFC_-_EDO_Type_Serial_Access_after_Read_Cycle_Diagram_%28SAM1%29.png 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="File:A13_NFC_-_EDO_Type_Serial_Access_after_Read_Cycle_Diagram_(SAM1).png.html" class="internal" title="Enlarge"></a></div>A13 NFC - EDO Type Serial Access after Read Cycle Diagram (SAM1)</div></div></div>
+<div class="thumb tright"><div class="thumbinner" style="width:302px;"><a href="File:A13_NFC_-_Extending_EDO_Type_Serial_Access_Mode_Diagram_(SAM2).png.html" class="image"><img alt="" src="https://linux-sunxi.org/images/thumb/7/7d/A13_NFC_-_Extending_EDO_Type_Serial_Access_Mode_Diagram_%28SAM2%29.png/300px-A13_NFC_-_Extending_EDO_Type_Serial_Access_Mode_Diagram_%28SAM2%29.png" decoding="async" width="300" height="161" class="thumbimage" srcset="https://linux-sunxi.org/images/thumb/7/7d/A13_NFC_-_Extending_EDO_Type_Serial_Access_Mode_Diagram_%28SAM2%29.png/450px-A13_NFC_-_Extending_EDO_Type_Serial_Access_Mode_Diagram_%28SAM2%29.png 1.5x, https://linux-sunxi.org/images/thumb/7/7d/A13_NFC_-_Extending_EDO_Type_Serial_Access_Mode_Diagram_%28SAM2%29.png/600px-A13_NFC_-_Extending_EDO_Type_Serial_Access_Mode_Diagram_%28SAM2%29.png 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="File:A13_NFC_-_Extending_EDO_Type_Serial_Access_Mode_Diagram_(SAM2).png.html" class="internal" title="Enlarge"></a></div>A13 NFC - Extending EDO Type Serial Access Mode Diagram (SAM2)</div></div></div>
+<div class="thumb tright"><div class="thumbinner" style="width:302px;"><a href="https://linux-sunxi.org/File:A13_NFC_-_Command_Latch_Cycle.png" class="image"><img alt="" src="https://linux-sunxi.org/images/thumb/d/d8/A13_NFC_-_Command_Latch_Cycle.png/300px-A13_NFC_-_Command_Latch_Cycle.png" decoding="async" width="300" height="131" class="thumbimage" srcset="https://linux-sunxi.org/images/thumb/d/d8/A13_NFC_-_Command_Latch_Cycle.png/450px-A13_NFC_-_Command_Latch_Cycle.png 1.5x, https://linux-sunxi.org/images/thumb/d/d8/A13_NFC_-_Command_Latch_Cycle.png/600px-A13_NFC_-_Command_Latch_Cycle.png 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://linux-sunxi.org/File:A13_NFC_-_Command_Latch_Cycle.png" class="internal" title="Enlarge"></a></div>A13 NFC - Command Latch Cycle</div></div></div>
+<div class="thumb tright"><div class="thumbinner" style="width:302px;"><a href="https://linux-sunxi.org/File:A13_NFC_-_Address_Latch_Cycle.png" class="image"><img alt="" src="https://linux-sunxi.org/images/thumb/6/6f/A13_NFC_-_Address_Latch_Cycle.png/300px-A13_NFC_-_Address_Latch_Cycle.png" decoding="async" width="300" height="120" class="thumbimage" srcset="https://linux-sunxi.org/images/thumb/6/6f/A13_NFC_-_Address_Latch_Cycle.png/450px-A13_NFC_-_Address_Latch_Cycle.png 1.5x, https://linux-sunxi.org/images/thumb/6/6f/A13_NFC_-_Address_Latch_Cycle.png/600px-A13_NFC_-_Address_Latch_Cycle.png 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://linux-sunxi.org/File:A13_NFC_-_Address_Latch_Cycle.png" class="internal" title="Enlarge"></a></div>A13 NFC - Address Latch Cycle</div></div></div>
+<div class="thumb tright"><div class="thumbinner" style="width:302px;"><a href="File:A13_NFC_-_Write_Data_to_Flash_Cycle.png.html" class="image"><img alt="" src="https://linux-sunxi.org/images/thumb/1/1b/A13_NFC_-_Write_Data_to_Flash_Cycle.png/300px-A13_NFC_-_Write_Data_to_Flash_Cycle.png" decoding="async" width="300" height="124" class="thumbimage" srcset="https://linux-sunxi.org/images/thumb/1/1b/A13_NFC_-_Write_Data_to_Flash_Cycle.png/450px-A13_NFC_-_Write_Data_to_Flash_Cycle.png 1.5x, https://linux-sunxi.org/images/thumb/1/1b/A13_NFC_-_Write_Data_to_Flash_Cycle.png/600px-A13_NFC_-_Write_Data_to_Flash_Cycle.png 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="File:A13_NFC_-_Write_Data_to_Flash_Cycle.png.html" class="internal" title="Enlarge"></a></div>A13 NFC - Write Data to Flash Cycle</div></div></div>
+<div class="thumb tright"><div class="thumbinner" style="width:302px;"><a href="https://linux-sunxi.org/File:A13_NFC_-_Waiting_RB_Ready_Diagram.png" class="image"><img alt="" src="https://linux-sunxi.org/images/thumb/0/01/A13_NFC_-_Waiting_RB_Ready_Diagram.png/300px-A13_NFC_-_Waiting_RB_Ready_Diagram.png" decoding="async" width="300" height="128" class="thumbimage" srcset="https://linux-sunxi.org/images/thumb/0/01/A13_NFC_-_Waiting_RB_Ready_Diagram.png/450px-A13_NFC_-_Waiting_RB_Ready_Diagram.png 1.5x, https://linux-sunxi.org/images/thumb/0/01/A13_NFC_-_Waiting_RB_Ready_Diagram.png/600px-A13_NFC_-_Waiting_RB_Ready_Diagram.png 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://linux-sunxi.org/File:A13_NFC_-_Waiting_RB_Ready_Diagram.png" class="internal" title="Enlarge"></a></div>A13 NFC - Waiting RB Ready Diagram</div></div></div>
+<div class="thumb tright"><div class="thumbinner" style="width:302px;"><a href="https://linux-sunxi.org/File:A13_NFC_-_WE_High_to_RE_Low_Timing_Diagram.png" class="image"><img alt="" src="https://linux-sunxi.org/images/thumb/0/0e/A13_NFC_-_WE_High_to_RE_Low_Timing_Diagram.png/300px-A13_NFC_-_WE_High_to_RE_Low_Timing_Diagram.png" decoding="async" width="300" height="106" class="thumbimage" srcset="https://linux-sunxi.org/images/thumb/0/0e/A13_NFC_-_WE_High_to_RE_Low_Timing_Diagram.png/450px-A13_NFC_-_WE_High_to_RE_Low_Timing_Diagram.png 1.5x, https://linux-sunxi.org/images/thumb/0/0e/A13_NFC_-_WE_High_to_RE_Low_Timing_Diagram.png/600px-A13_NFC_-_WE_High_to_RE_Low_Timing_Diagram.png 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://linux-sunxi.org/File:A13_NFC_-_WE_High_to_RE_Low_Timing_Diagram.png" class="internal" title="Enlarge"></a></div>A13 NFC - WE  High to RE  Low Timing Diagram</div></div></div>
+<div class="thumb tright"><div class="thumbinner" style="width:302px;"><a href="File:A13_NFC_-_RE_High_to_WE_Low_Timing_Diagram.png.html" class="image"><img alt="" src="https://linux-sunxi.org/images/thumb/f/f3/A13_NFC_-_RE_High_to_WE_Low_Timing_Diagram.png/300px-A13_NFC_-_RE_High_to_WE_Low_Timing_Diagram.png" decoding="async" width="300" height="106" class="thumbimage" srcset="https://linux-sunxi.org/images/thumb/f/f3/A13_NFC_-_RE_High_to_WE_Low_Timing_Diagram.png/450px-A13_NFC_-_RE_High_to_WE_Low_Timing_Diagram.png 1.5x, https://linux-sunxi.org/images/thumb/f/f3/A13_NFC_-_RE_High_to_WE_Low_Timing_Diagram.png/600px-A13_NFC_-_RE_High_to_WE_Low_Timing_Diagram.png 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="File:A13_NFC_-_RE_High_to_WE_Low_Timing_Diagram.png.html" class="internal" title="Enlarge"></a></div>A13 NFC - RE  High to WE  Low Timing Diagram</div></div></div>
+<div class="thumb tright"><div class="thumbinner" style="width:302px;"><a href="https://linux-sunxi.org/File:A13_NFC_-_Address_to_Data_Loading_Timing_Diagram.png" class="image"><img alt="" src="https://linux-sunxi.org/images/thumb/e/e5/A13_NFC_-_Address_to_Data_Loading_Timing_Diagram.png/300px-A13_NFC_-_Address_to_Data_Loading_Timing_Diagram.png" decoding="async" width="300" height="117" class="thumbimage" srcset="https://linux-sunxi.org/images/thumb/e/e5/A13_NFC_-_Address_to_Data_Loading_Timing_Diagram.png/450px-A13_NFC_-_Address_to_Data_Loading_Timing_Diagram.png 1.5x, https://linux-sunxi.org/images/thumb/e/e5/A13_NFC_-_Address_to_Data_Loading_Timing_Diagram.png/600px-A13_NFC_-_Address_to_Data_Loading_Timing_Diagram.png 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://linux-sunxi.org/File:A13_NFC_-_Address_to_Data_Loading_Timing_Diagram.png" class="internal" title="Enlarge"></a></div>A13 NFC - Address to Data Loading Timing Diagram</div></div></div>
+<h2><span class="mw-headline" id="NFC_Timing_Cycle_List">NFC Timing Cycle List</span></h2>
+<p>1T is 2x NFC_CLK.
+</p>
+<table class="wikitable sortable">
+
+<tbody><tr>
+<th>ID</th>
+<th>Parameter</th>
+<th>Timing</th>
+<th>Notes
+</th></tr>
+<tr>
+<td>T1</td>
+<td>NFC_CLE setup time</td>
+<td>1T</td>
+<td>Example
+</td></tr>
+<tr>
+<td>T2</td>
+<td>NFC_CLE hold time</td>
+<td>1T</td>
+<td>Example
+</td></tr>
+<tr>
+<td>T3</td>
+<td>NFC_CE setup time</td>
+<td>1T</td>
+<td>Example
+</td></tr>
+<tr>
+<td>T4</td>
+<td>NFC_CE hold time</td>
+<td>1T</td>
+<td>Example
+</td></tr>
+<tr>
+<td>T5</td>
+<td>NFC_WE# pulse width</td>
+<td>1T</td>
+<td>Example
+</td></tr>
+<tr>
+<td>T6</td>
+<td>NFC_WE# hold time</td>
+<td>1T</td>
+<td>Example
+</td></tr>
+<tr>
+<td>T7</td>
+<td>NFC_ALE setup time</td>
+<td>1T</td>
+<td>Example
+</td></tr>
+<tr>
+<td>T8</td>
+<td>Data setup time</td>
+<td>1T</td>
+<td>Example
+</td></tr>
+<tr>
+<td>T9</td>
+<td>Data hold time</td>
+<td>1T</td>
+<td>Example
+</td></tr>
+<tr>
+<td>T10</td>
+<td>Ready to NFC_RE# low</td>
+<td>3T</td>
+<td>Example
+</td></tr>
+<tr>
+<td>T11</td>
+<td>NFC_ALE hold time</td>
+<td>1T</td>
+<td>Example
+</td></tr>
+<tr>
+<td>T12</td>
+<td>NFC_RE# pulse width</td>
+<td>1T</td>
+<td>Example
+</td></tr>
+<tr>
+<td>T13</td>
+<td>NFC_RE# hold time</td>
+<td>1T</td>
+<td>Example
+</td></tr>
+<tr>
+<td>T14</td>
+<td>Read cycle time</td>
+<td>2T</td>
+<td>Example
+</td></tr>
+<tr>
+<td>T15</td>
+<td>Write cycle time</td>
+<td>2T</td>
+<td>Example
+</td></tr>
+<tr>
+<td>T16</td>
+<td>NFC_WE# high to R/B# busy</td>
+<td>tWB</td>
+<td>Specified by timing configure register(NFC_TIMING_CFG)
+</td></tr>
+<tr>
+<td>T17</td>
+<td>NFC_WE# high to NFC_RE# low</td>
+<td>tWHR</td>
+<td>Specified by timing configure register(NFC_TIMING_CFG)
+</td></tr>
+<tr>
+<td>T18</td>
+<td>NFC_RE# high to NFC_WE# low</td>
+<td>tRHW</td>
+<td>Specified by timing configure register(NFC_TIMING_CFG)
+</td></tr>
+<tr>
+<td>T19</td>
+<td>Address to Data Loading time</td>
+<td>tADL</td>
+<td>Specified by timing configure register(NFC_TIMING_CFG)
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="NFC_Operation_Guide">NFC Operation Guide</span></h2>
+<p>See thumbnails to the right.
+</p>
+<div class="thumb tright"><div class="thumbinner" style="width:302px;"><a href="https://linux-sunxi.org/File:A13_NFC_-_Page_Read_Command_Diagram.png" class="image"><img alt="" src="https://linux-sunxi.org/images/thumb/6/6e/A13_NFC_-_Page_Read_Command_Diagram.png/300px-A13_NFC_-_Page_Read_Command_Diagram.png" decoding="async" width="300" height="126" class="thumbimage" srcset="https://linux-sunxi.org/images/thumb/6/6e/A13_NFC_-_Page_Read_Command_Diagram.png/450px-A13_NFC_-_Page_Read_Command_Diagram.png 1.5x, https://linux-sunxi.org/images/thumb/6/6e/A13_NFC_-_Page_Read_Command_Diagram.png/600px-A13_NFC_-_Page_Read_Command_Diagram.png 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://linux-sunxi.org/File:A13_NFC_-_Page_Read_Command_Diagram.png" class="internal" title="Enlarge"></a></div>A13 NFC - Page Read Command Diagram</div></div></div>
+<div class="thumb tright"><div class="thumbinner" style="width:302px;"><a href="https://linux-sunxi.org/File:A13_NFC_-_Page_Program_Diagram.png" class="image"><img alt="" src="https://linux-sunxi.org/images/thumb/a/a2/A13_NFC_-_Page_Program_Diagram.png/300px-A13_NFC_-_Page_Program_Diagram.png" decoding="async" width="300" height="153" class="thumbimage" srcset="https://linux-sunxi.org/images/thumb/a/a2/A13_NFC_-_Page_Program_Diagram.png/450px-A13_NFC_-_Page_Program_Diagram.png 1.5x, https://linux-sunxi.org/images/thumb/a/a2/A13_NFC_-_Page_Program_Diagram.png/600px-A13_NFC_-_Page_Program_Diagram.png 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://linux-sunxi.org/File:A13_NFC_-_Page_Program_Diagram.png" class="internal" title="Enlarge"></a></div>A13 NFC - Page Program Diagram</div></div></div>
+<div class="thumb tright"><div class="thumbinner" style="width:302px;"><a href="File:A13_NFC_-_EF-NAND_Page_Read_Diagram.png.html" class="image"><img alt="" src="https://linux-sunxi.org/images/thumb/9/94/A13_NFC_-_EF-NAND_Page_Read_Diagram.png/300px-A13_NFC_-_EF-NAND_Page_Read_Diagram.png" decoding="async" width="300" height="129" class="thumbimage" srcset="https://linux-sunxi.org/images/thumb/9/94/A13_NFC_-_EF-NAND_Page_Read_Diagram.png/450px-A13_NFC_-_EF-NAND_Page_Read_Diagram.png 1.5x, https://linux-sunxi.org/images/thumb/9/94/A13_NFC_-_EF-NAND_Page_Read_Diagram.png/600px-A13_NFC_-_EF-NAND_Page_Read_Diagram.png 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="File:A13_NFC_-_EF-NAND_Page_Read_Diagram.png.html" class="internal" title="Enlarge"></a></div>A13 NFC - EF-NAND Page Read Diagram</div></div></div>
+<div class="thumb tright"><div class="thumbinner" style="width:302px;"><a href="https://linux-sunxi.org/File:A13_NFC_-_Interleave_Page_Read_Diagram.png" class="image"><img alt="" src="https://linux-sunxi.org/images/thumb/8/8a/A13_NFC_-_Interleave_Page_Read_Diagram.png/300px-A13_NFC_-_Interleave_Page_Read_Diagram.png" decoding="async" width="300" height="133" class="thumbimage" srcset="https://linux-sunxi.org/images/thumb/8/8a/A13_NFC_-_Interleave_Page_Read_Diagram.png/450px-A13_NFC_-_Interleave_Page_Read_Diagram.png 1.5x, https://linux-sunxi.org/images/thumb/8/8a/A13_NFC_-_Interleave_Page_Read_Diagram.png/600px-A13_NFC_-_Interleave_Page_Read_Diagram.png 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://linux-sunxi.org/File:A13_NFC_-_Interleave_Page_Read_Diagram.png" class="internal" title="Enlarge"></a></div>A13 NFC - Interleave Page Read Diagram</div></div></div>
+<h2><span class="mw-headline" id="NFC_Registers">NFC Registers</span></h2>
+<p>NFC Base address: 0x01c03000
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Register Name
+</th>
+<th>Offset
+</th>
+<th>Size
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt><a href="#NFC_CTL">NFC_CTL</a></tt>
+</td>
+<td><tt>0x0000</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>NFC control
+</td></tr>
+<tr>
+<td><tt><a href="#NFC_ST">NFC_ST</a></tt>
+</td>
+<td><tt>0x0004</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>NFC status
+</td></tr>
+<tr>
+<td><tt><a href="#NFC_INT">NFC_INT</a></tt>
+</td>
+<td><tt>0x0008</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>NFC interrupt control
+</td></tr>
+<tr>
+<td><tt><a href="#NFC_TIMING_CTL">NFC_TIMING_CTL</a></tt>
+</td>
+<td><tt>0x000c</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>NFC NAND timing control
+</td></tr>
+<tr>
+<td><tt><a href="#NFC_TIMING_CFG">NFC_TIMING_CFG</a></tt>
+</td>
+<td><tt>0x0010</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>NFC NAND timing configuration
+</td></tr>
+<tr>
+<td><tt><a href="#NFC_ADDR_LOW">NFC_ADDR_LOW</a></tt>
+</td>
+<td><tt>0x0014</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>NFC low word of address
+</td></tr>
+<tr>
+<td><tt><a href="#NFC_ADDR_HIGH">NFC_ADDR_HIGH</a></tt>
+</td>
+<td><tt>0x0018</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>NFC high word of address
+</td></tr>
+<tr>
+<td><tt><a href="#NFC_SECTOR_NUM">NFC_SECTOR_NUM</a></tt>
+</td>
+<td><tt>0x001c</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>NFC sector count
+</td></tr>
+<tr>
+<td><tt><a href="#NFC_CNT">NFC_CNT</a></tt>
+</td>
+<td><tt>0x0020</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>NFC byte count
+</td></tr>
+<tr>
+<td><tt><a href="#NFC_CMD">NFC_CMD</a></tt>
+</td>
+<td><tt>0x0024</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>NFC command
+</td></tr>
+<tr>
+<td><tt><a href="#NFC_READ_CMD_SET">NFC_READ_CMD_SET</a></tt>
+</td>
+<td><tt>0x0028</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>NFC set read command
+</td></tr>
+<tr>
+<td><tt><a href="#NFC_WRITE_CMD_SET">NFC_WRITE_CMD_SET</a></tt>
+</td>
+<td><tt>0x002c</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>NFC set write command
+</td></tr>
+<tr>
+<td><tt><a href="#NFC_IO_DATA">NFC_IO_DATA</a></tt>
+</td>
+<td><tt>0x0030</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>NFC I/O port
+</td></tr>
+<tr>
+<td><tt><a href="#NFC_ECC_CTL">NFC_ECC_CTL</a></tt>
+</td>
+<td><tt>0x0034</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>NFC ECC control
+</td></tr>
+<tr>
+<td><tt><a href="#NFC_ECC_ST">NFC_ECC_ST</a></tt>
+</td>
+<td><tt>0x0038</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>NFC ECC status
+</td></tr>
+<tr>
+<td><tt><a href="#NFC_DEBUG">NFC_DEBUG</a></tt>
+</td>
+<td><tt>0x003c</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>NFC debug
+</td></tr>
+<tr>
+<td><tt><a href="#NFC_ECC_CNT0">NFC_ECC_CNT0</a></tt>
+</td>
+<td><tt>0x0040</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>NFC ECC corrected count for block 0-3
+</td></tr>
+<tr>
+<td><tt><a href="#NFC_ECC_CNT1">NFC_ECC_CNT1</a></tt>
+</td>
+<td><tt>0x0044</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>NFC ECC corrected count for block 4-7
+</td></tr>
+<tr>
+<td><tt><a href="#NFC_ECC_CNT2">NFC_ECC_CNT2</a></tt>
+</td>
+<td><tt>0x0048</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>NFC ECC corrected count for block 8-11
+</td></tr>
+<tr>
+<td><tt><a href="#NFC_ECC_CNT3">NFC_ECC_CNT3</a></tt>
+</td>
+<td><tt>0x004c</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>NFC ECC corrected count for block 12-15
+</td></tr>
+<tr>
+<td><tt><a href="#NFC_USER_DB">NFC_USER_DB</a></tt>
+</td>
+<td><tt>0x0050</tt>
+</td>
+<td><tt>64 B</tt>
+</td>
+<td>NFC user data for block 0-15
+</td></tr>
+<tr>
+<td><tt><a href="#NFC_SPARE_AREA">NFC_SPARE_AREA</a></tt>
+</td>
+<td><tt>0x00a0</tt>
+</td>
+<td><tt>4 B</tt>
+</td>
+<td>Offset of the spare area in a page
+</td></tr>
+<tr>
+<td><tt><a href="#NFC_RAM0">NFC_RAM0</a></tt>
+</td>
+<td><tt>0x0400</tt>
+</td>
+<td><tt>1 kiB</tt>
+</td>
+<td>Base address for SRAM0 (I/O)
+</td></tr>
+<tr>
+<td><tt><a href="#NFC_RAM1">NFC_RAM1</a></tt>
+</td>
+<td><tt>0x0800</tt>
+</td>
+<td><tt>1 kiB</tt>
+</td>
+<td>Base address for SRAM1 (I/O)
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="NFC_CTL">NFC_CTL</span></h3>
+<p>Default value: 0x0000<br />
+Offset: 0x0000
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>NFC_EN</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0b0
+</td>
+<td><tt>
+</tt><pre><tt>    0 = disable
+    1 = enable
+  </tt>
+</pre>
+</td>
+<td>Enable or disable the NAND flash controller
+</td></tr>
+<tr>
+<td><tt>NFC_RESET</tt>
+</td>
+<td><tt>1</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0b0
+</td>
+<td><tt>
+</tt><pre><tt>    When read:
+    0 = reset finished
+    1 = reset in progress
+    when write:
+    1 = start a reset progress
+  </tt>
+</pre>
+</td>
+<td>Reset the NAND flash controller
+</td></tr>
+<tr>
+<td><tt>NFC_BUS_WIDTH</tt>
+</td>
+<td><tt>2</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0b0
+</td>
+<td><tt>
+</tt><pre><tt>    0 = 8 bit
+    1 = 16 bit
+  </tt>
+</pre>
+</td>
+<td>NFC bus width
+</td></tr>
+<tr>
+<td><tt>NFC_RB_SEL</tt>
+</td>
+<td><tt>3</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0b0
+</td>
+<td><tt>
+</tt><pre><tt>    0 = r/b pin 0
+    1 = r/b pin 1
+  </tt>
+</pre>
+</td>
+<td>Selects one of the two R/B pin of NFC
+</td></tr>
+<tr>
+<td><tt>NFC_CE_CTL0</tt>
+</td>
+<td><tt>6</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0b0
+</td>
+<td><tt>
+</tt><pre><tt>    ?
+  </tt>
+</pre>
+</td>
+<td>NFC collumn ... control 0?
+</td></tr>
+<tr>
+<td><tt>NFC_CE_CTL1</tt>
+</td>
+<td><tt>7</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0b0
+</td>
+<td><tt>
+</tt><pre><tt>    ?
+  </tt>
+</pre>
+</td>
+<td>NFC collumn ... control 1?
+</td></tr>
+<tr>
+<td><tt>NFC_PAGE_SIZE</tt>
+</td>
+<td><tt>8:11</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0x00
+</td>
+<td><tt>
+</tt><pre><tt>    0x00 = 1 kiB
+    0x01 = 2 kiB
+    0x02 = 4 kiB
+    0x03 = 8 kiB
+    0x04 = 16 kiB
+  </tt>
+</pre>
+</td>
+<td>NFC page size (page shift - 10)
+</td></tr>
+<tr>
+<td><tt>NFC_SAM</tt>
+</td>
+<td><tt>12</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0b0
+</td>
+<td><tt>
+</tt><pre><tt>    ?
+  </tt>
+</pre>
+</td>
+<td>NFC SAM
+</td></tr>
+<tr>
+<td><tt>reserved</tt>
+</td>
+<td><tt>13</tt>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>NFC_RAM_METHOD</tt>
+</td>
+<td><tt>14</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0b0
+</td>
+<td><tt>
+</tt><pre><tt>    0 = Use SRAM for data transfer
+    1 = Use DMA for data transfer
+  </tt>
+</pre>
+</td>
+<td>NFC RAM method
+</td></tr>
+<tr>
+<td><tt>reserved</tt>
+</td>
+<td><tt>15:17</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>DDR_TYPE</tt>
+</td>
+<td><tt>18:19</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0x00
+</td>
+<td><tt>
+</tt><pre><tt>    0x00, 0x01 = None DDR Type
+    0x10 = ONFI DDR type
+    0x11 = <a class="external text" href="https://en.wikipedia.org/wiki/Flash_memory#NAND_flash&amp;:~:text=Toggle%20Mode#NAND_flash&amp;:~:text=Toggle Mode">Toggle DDR</a> type
+ </tt>
+</pre>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>REPEAT_MODE</tt>
+</td>
+<td><tt>20</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0x0
+</td>
+<td><tt>
+</tt><pre><tt>   0 = disable repeat mode
+   1 = enable repeat mode
+  </tt>
+</pre>
+</td>
+<td><tt> this bit only work under DDR mode, see bit 18:19 </tt>
+</td></tr>
+<tr>
+<td><tt>reserved</tt>
+</td>
+<td><tt>21:23</tt>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>NFC_CE_SEL</tt>
+</td>
+<td><tt>24:27</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0x00
+</td>
+<td><tt>
+</tt><pre><tt>    n = chip n
+  </tt>
+</pre>
+</td>
+<td>If n=0-7, selects the CS pin on the NFC. if n=8-15, doesn't select any CS pin (can be used with GPIO pin as CS pin)
+</td></tr>
+<tr>
+<td><tt>reserved</tt>
+</td>
+<td><tt>28:30</tt>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>NFC_DEBUG_CTL</tt>
+</td>
+<td><tt>31</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0b0
+</td>
+<td><tt>
+</tt><pre><tt>    0 = disable
+    1 = enable
+  </tt>
+</pre>
+</td>
+<td>NFC debug control
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="NFC_ST">NFC_ST</span></h3>
+<p>Default value: 0x00000f00<br />
+Offset: 0x0004
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>NFC_RB_B2R</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0b0
+</td>
+<td><tt>
+</tt><pre><tt>  Read:
+   1 = Transition from Busy to Ready
+  Write:
+   1 = Clear the flag
+  </tt>
+</pre>
+</td>
+<td>NFC R/B Busy-to-Ready interrupt flag
+</td></tr>
+<tr>
+<td><tt>NFC_CMD_INT_FLAG</tt>
+</td>
+<td><tt>1</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0b0
+</td>
+<td><tt>
+</tt><pre><tt>  Read:    
+   0 = Command pending
+   1 = Command completed
+  Write:
+   1 = Clear the flag
+  </tt>
+  <tt> If any error occurs, this flag will stay 0 </tt>
+</pre>
+</td>
+<td>NFC command interrupt flag
+</td></tr>
+<tr>
+<td><tt>NFC_DMA_INT_FLAG</tt>
+</td>
+<td><tt>2</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0b0
+</td>
+<td><tt>
+</tt><pre><tt>  Read:
+   0 = DMA pending
+   1 = DMA completed
+  Write:
+   1 = Clear the flag
+  </tt>
+</pre>
+</td>
+<td>NFC DMA interrupt flag
+</td></tr>
+<tr>
+<td><tt>NFC_CMD_FIFO_STAT</tt>
+</td>
+<td><tt>3</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0b0
+</td>
+<td><tt>
+</tt><pre><tt>   0 = Command FIFO can receive new command
+   1 = Command FIFO is full
+  </tt>
+</pre>
+</td>
+<td>NFC command FIFO status
+</td></tr>
+<tr>
+<td><tt>NFC_STAT</tt>
+</td>
+<td><tt>4</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0b0
+</td>
+<td><tt>
+</tt><pre><tt>    0 =&#160;?
+    1 =&#160;?
+  </tt>
+</pre>
+</td>
+<td>NFC status
+</td></tr>
+<tr>
+<td><tt>NFC_MATCH_INT_FLAG</tt>
+</td>
+<td><tt>5</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0b0
+</td>
+<td><tt>
+</tt><pre><tt>    0 =&#160;?
+    1 =&#160;?
+  </tt>
+</pre>
+</td>
+<td>NFC command dma flag
+</td></tr>
+<tr>
+<td><tt>reserved</tt>
+</td>
+<td><tt>6:7</tt>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>NFC_RB_STATE0</tt>
+</td>
+<td><tt>8</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0b1
+</td>
+<td><tt>
+</tt><pre><tt>   0 = NAND busy
+   1 = NAND ready
+  </tt>
+</pre>
+</td>
+<td>NFC R/B state for line 0
+</td></tr>
+<tr>
+<td><tt>NFC_RB_STATE1</tt>
+</td>
+<td><tt>9</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0b1
+</td>
+<td><tt>
+</tt><pre><tt>   0 = NAND busy
+   1 = NAND ready
+  </tt>
+</pre>
+</td>
+<td>NFC R/B state for line 1
+</td></tr>
+<tr>
+<td><tt>NFC_RB_STATE2</tt>
+</td>
+<td><tt>10</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0b1
+</td>
+<td><tt>
+</tt><pre><tt>   0 = NAND busy
+   1 = NAND ready
+  </tt>
+</pre>
+</td>
+<td>NFC R/B state for line 2
+</td></tr>
+<tr>
+<td><tt>NFC_RB_STATE3</tt>
+</td>
+<td><tt>11</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0b1
+</td>
+<td><tt>
+</tt><pre><tt>   0 = NAND busy
+   1 = NAND ready
+  </tt>
+</pre>
+</td>
+<td>NFC R/B state for line 3
+</td></tr>
+<tr>
+<td><tt>reserved</tt>
+</td>
+<td><tt>12:31</tt>
+</td>
+<td>
+</td>
+<td>0x00
+</td>
+<td>
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="NFC_INT">NFC_INT</span></h3>
+<p>Default value: 0x0000<br />
+Offset: 0x0008
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>NFC_B2R_INT_EN</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0b0
+</td>
+<td><tt>
+</tt><pre><tt>    0 = Disable
+    1 = Enable
+  </tt>
+</pre>
+</td>
+<td>NFC R/B Busy-to-Ready interrupt enable
+</td></tr>
+<tr>
+<td><tt>NFC_CMD_INT_EN</tt>
+</td>
+<td><tt>1</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0b0
+</td>
+<td><tt>
+</tt><pre><tt>    0 = Disable
+    1 = Enable
+  </tt>
+</pre>
+</td>
+<td>NFC command interrupt enable
+</td></tr>
+<tr>
+<td><tt>NFC_DMA_INT_EN</tt>
+</td>
+<td><tt>2</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0b0
+</td>
+<td><tt>
+</tt><pre><tt>    0 = Disable
+    1 = Enable
+  </tt>
+</pre>
+</td>
+<td>NFC DMA interrupt enable
+</td></tr>
+<tr>
+<td><tt>reserved</tt>
+</td>
+<td><tt>3:31</tt>
+</td>
+<td>
+</td>
+<td>0x00
+</td>
+<td>
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="NFC_TIMING_CTL">NFC_TIMING_CTL</span></h3>
+<p>Default value: 0x0000<br />
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>NFC_DC_CTL</tt>
+</td>
+<td><tt>0:5</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0x00
+</td>
+<td><tt>
+</tt><pre><tt>   ?
+  </tt>
+</pre>
+</td>
+<td>NFC delay chain control
+</td></tr>
+<tr>
+<td><tt>reserved</tt>
+</td>
+<td><tt>6:7</tt>
+</td>
+<td>
+</td>
+<td>0x00
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>NFC_READ_PIPE</tt>
+</td>
+<td><tt>8:11</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0x00
+</td>
+<td><tt>
+</tt><pre><tt>   ?
+  </tt>
+</pre>
+</td>
+<td>NFC read pipe?
+</td></tr>
+<tr>
+<td><tt>reserved</tt>
+</td>
+<td><tt>12:31</tt>
+</td>
+<td>
+</td>
+<td>0x00
+</td>
+<td>
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="NFC_CMD">NFC_CMD</span></h3>
+<p>Default value: 0x0000<br />
+Offset: 0x0024
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>NFC_CMD_LOW</tt>
+</td>
+<td><tt>0:7</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0x00
+</td>
+<td><tt>
+</tt><pre><tt>    ?
+  </tt>
+</pre>
+</td>
+<td>NFC low byte command
+</td></tr>
+<tr>
+<td><tt>NFC_CMD_HIGH</tt>
+</td>
+<td><tt>8:15</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0x00
+</td>
+<td><tt>
+</tt><pre><tt>    ?
+  </tt>
+</pre>
+</td>
+<td>NFC high byte command
+</td></tr>
+<tr>
+<td><tt>NFC_ADDR_NUM</tt>
+</td>
+<td><tt>16:18</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0x00
+</td>
+<td><tt>
+</tt><pre><tt>    address number - 1
+  </tt>
+</pre>
+</td>
+<td>NFC address number
+</td></tr>
+<tr>
+<td><tt>NFC_SEND_ADDR</tt>
+</td>
+<td><tt>19</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0b0
+</td>
+<td><tt>
+</tt><pre><tt>    0 = not have address cycle
+    1 = have address cycle
+  </tt>
+</pre>
+</td>
+<td>NFC send address
+</td></tr>
+<tr>
+<td><tt>NFC_XS_DIR</tt>
+</td>
+<td><tt>20</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0b0
+</td>
+<td><tt>
+</tt><pre><tt>    0 = fetch data from flash chip
+    1 = send data to flash chip
+  </tt>
+</pre>
+</td>
+<td>NFC access direction
+</td></tr>
+<tr>
+<td><tt>NFC_DATA_TRANS</tt>
+</td>
+<td><tt>21</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0b0
+</td>
+<td><tt>
+</tt><pre><tt>    0 = do not fetch data to NFC RAM
+    1 = fetch data to NFC RAM
+  </tt>
+</pre>
+</td>
+<td>NFC data transfer
+</td></tr>
+<tr>
+<td><tt>NFC_SEND_CMD0</tt>
+</td>
+<td><tt>22</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0b0
+</td>
+<td><tt>
+</tt><pre><tt>    ?
+  </tt>
+</pre>
+</td>
+<td>NFC send command 0
+</td></tr>
+<tr>
+<td><tt>NFC_WAIT_FLAG</tt>
+</td>
+<td><tt>23</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0b0
+</td>
+<td><tt>
+</tt><pre><tt>    0 = not wait r/b ready
+    1 = wait r/b ready
+  </tt>
+</pre>
+</td>
+<td>NFC wait flag
+</td></tr>
+<tr>
+<td><tt>NFC_SEND_CMD1</tt>
+</td>
+<td><tt>24</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0b0
+</td>
+<td><tt>
+</tt><pre><tt>    ?
+  </tt>
+</pre>
+</td>
+<td>NFC send command 1
+</td></tr>
+<tr>
+<td><tt>NFC_SEQ</tt>
+</td>
+<td><tt>25</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0b0
+</td>
+<td><tt>
+</tt><pre><tt>    ?
+  </tt>
+</pre>
+</td>
+<td>NFC sequence?
+</td></tr>
+<tr>
+<td><tt>NFC_DATA_SWAP_METHOD</tt>
+</td>
+<td><tt>26</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0b0
+</td>
+<td><tt>
+</tt><pre><tt>    ?
+  </tt>
+</pre>
+</td>
+<td>NFC data swap method
+</td></tr>
+<tr>
+<td><tt>NFC_ROW_AUTO_INC</tt>
+</td>
+<td><tt>27</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0b0
+</td>
+<td><tt>
+</tt><pre><tt>    ?
+  </tt>
+</pre>
+</td>
+<td>NFC row auto increase
+</td></tr>
+<tr>
+<td><tt>NFC_SEND_CMD2</tt>
+</td>
+<td><tt>28</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0b0
+</td>
+<td><tt>
+</tt><pre><tt>    ?
+  </tt>
+</pre>
+</td>
+<td>NFC send command 2
+</td></tr>
+<tr>
+<td><tt>NFC_SEND_CMD3</tt>
+</td>
+<td><tt>29</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0b0
+</td>
+<td><tt>
+</tt><pre><tt>    ?
+  </tt>
+</pre>
+</td>
+<td>NFC send command 3
+</td></tr>
+<tr>
+<td><tt>NFC_CMD_TYPE</tt>
+</td>
+<td><tt>30:31</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0b00
+</td>
+<td><tt>
+</tt><pre><tt>    ?
+  </tt>
+</pre>
+</td>
+<td>NFC command type
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="NFC_READ_CMD_SET">NFC_READ_CMD_SET</span></h3>
+<p>Default value: 0x00e00f30<br />
+Offset: 0x0028
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>NFC_READ_CMD</tt>
+</td>
+<td><tt>0:7</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0x30
+</td>
+<td><tt>
+</tt><pre><tt>    ?
+  </tt>
+</pre>
+</td>
+<td>NFC read command
+</td></tr>
+<tr>
+<td><tt>NFC_RANDOM_READ_CMD0</tt>
+</td>
+<td><tt>8:15</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0x05
+</td>
+<td><tt>
+</tt><pre><tt>    ?
+  </tt>
+</pre>
+</td>
+<td>NFC random read command 0
+</td></tr>
+<tr>
+<td><tt>NFC_RANDOM_READ_CMD1</tt>
+</td>
+<td><tt>16:23</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0xe0
+</td>
+<td><tt>
+</tt><pre><tt>    ?
+  </tt>
+</pre>
+</td>
+<td>NFC random read command 1
+</td></tr>
+<tr>
+<td><tt>reserved</tt>
+</td>
+<td><tt>24:31</tt>
+</td>
+<td>
+</td>
+<td>0x00
+</td>
+<td>
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="NFC_WRITE_CMD_SET">NFC_WRITE_CMD_SET</span></h3>
+<p>Default value: 0x70008510<br />
+Offset: 0x002c
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>NFC_PROG_CMD</tt>
+</td>
+<td><tt>0:7</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0x10
+</td>
+<td><tt>
+</tt><pre><tt>    ?
+  </tt>
+</pre>
+</td>
+<td>NFC program command
+</td></tr>
+<tr>
+<td><tt>NFC_RANDOM_WRITE_CMD</tt>
+</td>
+<td><tt>8:15</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0x85
+</td>
+<td><tt>
+</tt><pre><tt>    ?
+  </tt>
+</pre>
+</td>
+<td>NFC random write command
+</td></tr>
+<tr>
+<td><tt>NFC_READ_CMD0</tt>
+</td>
+<td><tt>16:23</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0x00
+</td>
+<td><tt>
+</tt><pre><tt>    ?
+  </tt>
+</pre>
+</td>
+<td>NFC read command 0
+</td></tr>
+<tr>
+<td><tt>NFC_READ_CMD1</tt>
+</td>
+<td><tt>24:31</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0xe0
+</td>
+<td><tt>
+</tt><pre><tt>    ?
+  </tt>
+</pre>
+</td>
+<td>NFC read command 1
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="NFC_ECC_CTL">NFC_ECC_CTL</span></h3>
+<p>Default value: 0x4a800008<br />
+Offset: 0x0034
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>NFC_ECC</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0b0
+</td>
+<td><tt>
+</tt><pre><tt>    0 = disable
+    1 = enable
+  </tt>
+</pre>
+</td>
+<td>NFC ECC enable or disable
+</td></tr>
+<tr>
+<td><tt>reserved</tt>
+</td>
+<td><tt>1:2</tt>
+</td>
+<td>
+</td>
+<td>0x00
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>NFC_ECC_PIPELINE</tt>
+</td>
+<td><tt>3</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0b0
+</td>
+<td><tt>
+</tt><pre><tt>   0= disable ecc pipeline
+   1= enable ecc pipeline
+  </tt>
+</pre>
+</td>
+<td>NFC ECC pipeline enable/disable
+</td></tr>
+<tr>
+<td><tt>NFC_ECC_EXCEPTION</tt>
+</td>
+<td><tt>4</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0b1
+</td>
+<td><tt>
+</tt><pre><tt>      0 = disable Ecc exception
+      1=enable 
+  </tt>
+</pre>
+</td>
+<td>NFC ECC exception enable/disable
+</td></tr>
+<tr>
+<td><tt>NFC_ECC_BLOCK_SIZE</tt>
+</td>
+<td><tt>5</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0b0
+</td>
+<td><tt>
+</tt><pre><tt>    ?
+  </tt>
+</pre>
+</td>
+<td>NFC ECC block size
+</td></tr>
+<tr>
+<td><tt>reserved</tt>
+</td>
+<td><tt>6:8</tt>
+</td>
+<td>
+</td>
+<td>0x00
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>NFC_ECC_RANDOM</tt>
+</td>
+<td><tt>9</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0b0
+</td>
+<td><tt>
+</tt><pre><tt>    0 = disabled
+    1 = enabled
+  </tt>
+</pre>
+</td>
+<td>NFC random ecc enable/disable
+</td></tr>
+<tr>
+<td><tt>NFC_ECC_RANDOM_DIR</tt>
+</td>
+<td><tt>10</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0b0
+</td>
+<td><tt>
+</tt><pre><tt>   ?
+  </tt>
+</pre>
+</td>
+<td>NFC random ecc direction
+</td></tr>
+<tr>
+<td><tt>reserved</tt>
+</td>
+<td><tt>11</tt>
+</td>
+<td>
+</td>
+<td>0b0
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>NFC_ECC_MODE</tt>
+</td>
+<td><tt>12:15</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0x00
+</td>
+<td><tt>
+</tt><pre><tt>   0 = 16bit
+   1 = 24bit
+   2 = 28bit
+   3 = 32bit
+   4 = 40bit
+   5 = 48bit
+   6 = 56bit
+   7 = 60bit
+   8 = 64bit
+  </tt>
+</pre>
+</td>
+<td>ECC can correct how many bits for amount of NFC_REG_CNT data
+</td></tr>
+<tr>
+<td><tt>NFC_ECC_RANDOM_SEED</tt>
+</td>
+<td><tt>16:31</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0x4a80
+</td>
+<td><tt>
+</tt><pre><tt>   16 bit value
+  </tt>
+</pre>
+</td>
+<td>NFC ecc random seed<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup>
+</td></tr></tbody></table>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">See <a href="NFC.html#Random_Seed" class="mw-redirect" title="NFC">Random Seed</a></span>
+</li>
+</ol></div>
+<h3><span class="mw-headline" id="NFC_USER_DB">NFC_USER_DB</span></h3>
+<p>Default value: 0xff * 64<br />
+Offset: 0x0050
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>NFC_USER_DB0</tt>
+</td>
+<td><tt>0:2048</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td>0xffffffff * 64
+</td>
+<td><tt>
+</tt><pre><tt>   64 x 32 bit value
+  </tt>
+</pre>
+</td>
+<td>ECC/OOB user data area. 32 bits per sector.
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="Initial_values">Initial values</span></h2>
+<h3><span class="mw-headline" id="default_map">default map</span></h3>
+<p>md 0x01c03000 0x29
+</p>
+<pre>01c03000: 00000000 00000f00 00000000 00000000    ................
+01c03010: 00000095 00000000 00000000 00000000    ................
+01c03020: 00000000 00000000 00e00530 70008510    ........0......p
+01c03030: 00000000 4a800008 00000000 00000000    .......J........
+01c03040: 00000000 00000000 00000000 00000000    ................
+01c03050: ffffffff ffffffff ffffffff ffffffff    ................
+01c03060: ffffffff ffffffff ffffffff ffffffff    ................
+01c03070: ffffffff ffffffff ffffffff ffffffff    ................
+01c03080: ffffffff ffffffff ffffffff ffffffff    ................
+01c03090: 00000000 00000000 00000000 00000000    ................
+01c030a0: 00000400    ....
+</pre>
+<h3><span class="mw-headline" id="all_set_to_1">all set to 1</span></h3>
+<p>mw 0x01c03000 0xffffffff 0x29
+md 0x01c03000 0x29
+</p>
+<pre>01c03000: 0f3fcf5f 00000f00 00000007 00000f3f    _.?.........?...
+01c03010: 000007ff ffffffff ffffffff 0000001f    ................
+01c03020: 000003ff ffff00ff 00ffffff ffffffff    ................
+01c03030: 00000000 7ffffe39 00000000 0000017f    ....9...........
+01c03040: 00000000 00000000 00000000 00000000    ................
+01c03050: ffffffff ffffffff ffffffff ffffffff    ................
+01c03060: ffffffff ffffffff ffffffff ffffffff    ................
+01c03070: ffffffff ffffffff ffffffff ffffffff    ................
+01c03080: ffffffff ffffffff ffffffff ffffffff    ................
+01c03090: 00000000 00000000 00000000 00000000    ................
+01c030a0: 0000ffff    ....
+</pre>
+<h3><span class="mw-headline" id="all_set_to_0">all set to 0</span></h3>
+<p>mw 0x01c03000 0x00 0x29
+md 0x01c03000 0x29
+</p>
+<pre>01c03000: 00000000 00000f00 00000000 00000000    ................
+01c03010: 00000095 00000000 00000000 00000000    ................
+01c03020: 00000000 00000000 00e00530 70008510    ........0......p
+01c03030: 00000000 4a800008 00000000 00000000    .......J........
+01c03040: 00000000 00000000 00000000 00000000    ................
+01c03050: ffffffff ffffffff ffffffff ffffffff    ................
+01c03060: ffffffff ffffffff ffffffff ffffffff    ................
+01c03070: ffffffff ffffffff ffffffff ffffffff    ................
+01c03080: ffffffff ffffffff ffffffff ffffffff    ................
+01c03090: 00000000 00000000 00000000 00000000    ................
+01c030a0: 00000400    ....
+</pre>
+<h2><span class="mw-headline" id="Hardware_ECC">Hardware ECC</span></h2>
+<h3><span class="mw-headline" id="Spare_area">Spare area</span></h3>
+<p>Each page data write will cause a spare area data write if hardware ECC is enabled. Sometimes the page is more than 1K, so it needs multiple times to write a page. The spare area will also be written with ECC data muliple times sequencely. One time a data write op will write 4 Byte user data stored at NFC_USER_DATA(i) following ECC data whose length depending on the ECC mode.
+</p>
+<h3><span class="mw-headline" id="Random_Seed">Random Seed</span></h3>
+<p>The controller includes a randomizer that scrambles the data to avoid large islands of the same charge. During boot the randomizer is initialized by the BROM to <b>0x4a80</b> and thus the SPL is expected to be randomized as such. Currently, boot[01] and stock kernels use the following randomized values, it is formed by page number&#160;% 128 index into
+</p>
+<pre>static const unsigned short random_seed[128] = {
+    0x2b75, 0x0bd0, 0x5ca3, 0x62d1, 0x1c93, 0x07e9, 0x2162, 0x3a72, 0x0d67, 0x67f9,
+    0x1be7, 0x077d, 0x032f, 0x0dac, 0x2716, 0x2436, 0x7922, 0x1510, 0x3860, 0x5287,
+    0x480f, 0x4252, 0x1789, 0x5a2d, 0x2a49, 0x5e10, 0x437f, 0x4b4e, 0x2f45, 0x216e,
+    0x5cb7, 0x7130, 0x2a3f, 0x60e4, 0x4dc9, 0x0ef0, 0x0f52, 0x1bb9, 0x6211, 0x7a56,
+    0x226d, 0x4ea7, 0x6f36, 0x3692, 0x38bf, 0x0c62, 0x05eb, 0x4c55, 0x60f4, 0x728c,
+    0x3b6f, 0x2037, 0x7f69, 0x0936, 0x651a, 0x4ceb, 0x6218, 0x79f3, 0x383f, 0x18d9,
+    0x4f05, 0x5c82, 0x2912, 0x6f17, 0x6856, 0x5938, 0x1007, 0x61ab, 0x3e7f, 0x57c2,
+    0x542f, 0x4f62, 0x7454, 0x2eac, 0x7739, 0x42d4, 0x2f90, 0x435a, 0x2e52, 0x2064,
+    0x637c, 0x66ad, 0x2c90, 0x0bad, 0x759c, 0x0029, 0x0986, 0x7126, 0x1ca7, 0x1605,
+    0x386a, 0x27f5, 0x1380, 0x6d75, 0x24c3, 0x0f8e, 0x2b7a, 0x1418, 0x1fd1, 0x7dc1,
+    0x2d8e, 0x43af, 0x2267, 0x7da3, 0x4e3d, 0x1338, 0x50db, 0x454d, 0x764d, 0x40a3,
+    0x42e6, 0x262b, 0x2d2e, 0x1aea, 0x2e17, 0x173d, 0x3a6e, 0x71bf, 0x25f9, 0x0a5d,
+    0x7c57, 0x0fbe, 0x46ce, 0x4939, 0x6b17, 0x37bb, 0x3e91, 0x76db
+};
+</pre>
+<!-- 
+NewPP limit report
+Cached time: 20251029050234
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.276 seconds
+Real time usage: 0.386 seconds
+Preprocessor visited node count: 160/1000000
+Post‐expand include size: 272/2097152 bytes
+Template argument size: 22/2097152 bytes
+Highest expansion depth: 4/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 3539/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   10.114      1 -total
+100.00%   10.114      1 Template:Registers_List_Full_Detail/Header
+ 15.83%    1.601      1 Template:NFC_Data
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:307-0!canonical and timestamp 20251029050234 and revision id 24958
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=NFC_Register_Guide&amp;oldid=24958">https://linux-sunxi.org/index.php?title=NFC_Register_Guide&amp;oldid=24958</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Categories</a>: <ul><li><a href="Category:A10_Register_guide.html" title="Category:A10 Register guide">A10 Register guide</a></li><li><a href="Category:A13_Register_guide.html" title="Category:A13 Register guide">A13 Register guide</a></li><li><a href="Category:A20_Register_guide.html" title="Category:A20 Register guide">A20 Register guide</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=NFC+Register+Guide" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=NFC+Register+Guide" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="NFC_Register_Guide.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:NFC_Register_Guide&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="NFC_Register_Guide.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=NFC_Register_Guide&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=NFC_Register_Guide&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/NFC_Register_Guide.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/NFC_Register_Guide" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=NFC_Register_Guide&amp;oldid=24958" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=NFC_Register_Guide&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 17 July 2022, at 03:54.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.276","walltime":"0.386","ppvisitednodes":{"value":160,"limit":1000000},"postexpandincludesize":{"value":272,"limit":2097152},"templateargumentsize":{"value":22,"limit":2097152},"expansiondepth":{"value":4,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":3539,"limit":5000000},"timingprofile":["100.00%   10.114      1 -total","100.00%   10.114      1 Template:Registers_List_Full_Detail/Header"," 15.83%    1.601      1 Template:NFC_Data"]},"cachereport":{"timestamp":"20251029050234","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":343});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

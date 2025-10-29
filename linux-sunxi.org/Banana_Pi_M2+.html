@@ -1,0 +1,607 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Sinovoip Banana Pi M2+ - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"b875562839741c1fa52ee173","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Sinovoip_Banana_Pi_M2+","wgTitle":"Sinovoip Banana Pi M2+","wgCurRevisionId":24003,"wgRevisionId":24003,"wgArticleId":2677,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Devices","H3 Boards","Sinovoip","Devices with Ethernet port","Devices with HDMI port","Mainline Kernel","Devices with Wifi"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Sinovoip_Banana_Pi_M2+","wgRelevantArticleId":2677,"wgIsProbablyEditable":!1,
+"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgRedirectedFrom":"Banana_Pi_M2+","wgInternalRedirectTargetUrl":"/Sinovoip_Banana_Pi_M2%2B"};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":"ready","user":"ready","user.options":"loading","mediawiki.page.gallery.styles":"ready","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","mediawiki.action.view.redirect","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=mediawiki.page.gallery.styles%7Cmediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="Sinovoip_Banana_Pi_M2+.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-Sinovoip_Banana_Pi_M2 rootpage-Sinovoip_Banana_Pi_M2 skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">Sinovoip Banana Pi M2+</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"><span class="mw-redirectedfrom">(Redirected from <a href="https://linux-sunxi.org/index.php?title=Banana_Pi_M2%2B&amp;redirect=no" class="mw-redirect" title="Banana Pi M2+">Banana Pi M2+</a>)</span></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>Banana Pi M2+ is <a href="H3.html" title="H3">H3</a> based development board produced by Sinovoip, mostly compatible with the H3 Orange Pis.
+</p><p><b>Despite its name, the M2+ is incompatible to previous Banana Pi boards (<a href="Banana_Pi.html" class="mw-redirect" title="Banana Pi">Banana Pi</a>/<a href="Banana_Pi_M1.html" class="mw-redirect" title="Banana Pi M1">M1</a>/<a href="Banana_Pro.html#Variants" class="mw-redirect" title="Banana Pro">M1+</a>/<a href="Banana_Pro.html" class="mw-redirect" title="Banana Pro">Pro</a>/<a href="Banana_Pi_M2.html" class="mw-redirect" title="Banana Pi M2">M2</a>), due to a different SoC - requiring different boot loaders and drivers.</b> It's another attempt to cash in on the Banana Pi's popularity with a SBC only sharing brand, name, <strike>form factor</strike> and GPIO header.
+</p><p><br />
+</p>
+<table class="infobox" cellspacing="5" style="width:22em;">
+<tbody><tr><th colspan="2" class="" style="text-align:center; font-size:125%; font-weight:bold; background: #dedede;">Sinovoip Banana Pi M2+</th></tr>
+<tr class=""><td colspan="2" class="" style="text-align:center;"><a href="File:Banana_Pi_M2_Plus_top_small.jpg.html" class="image"><img alt="Banana Pi M2 Plus top small.jpg" src="https://linux-sunxi.org/images/8/80/Banana_Pi_M2_Plus_top_small.jpg" decoding="async" width="250" height="188" /></a></td></tr>
+<tr class="">
+  <th scope="row" style="text-align:left;"> Manufacturer </th><td> <a rel="nofollow" class="external text" href="http://www.sinovoip.com.cn/">Sinovoip</a>
+</td></tr><tr class="">
+  <th scope="row" style="text-align:left;"> Dimensions </th><td> 65<i>mm</i> x 65<i>mm</i>
+</td></tr><tr class="">
+  <th scope="row" style="text-align:left;"> Release Date </th><td> April 2016
+</td></tr><tr class="">
+  <th scope="row" style="text-align:left;"> Website </th><td> <a rel="nofollow" class="external text" href="http://www.banana-pi.org/m2plus.html">M2+ product page</a>
+</td></tr><tr><th colspan="2" style="text-align:center;background:#dedede;"> Specifications
+</th></tr><tr class="">
+  <th scope="row" style="text-align:left;"> SoC </th><td> <a href="H3.html" title="H3">H3</a>
+</td></tr><tr class="">
+  <th scope="row" style="text-align:left;"> DRAM </th><td> 1GiB DDR3-1600 (<a href="DDR3.html#K4B4G1646D-BCK0" title="DDR3">K4B4G1646D-BCK0</a>)
+</td></tr><tr class="">
+  <th scope="row" style="text-align:left;"> NAND </th><td> 8GB eMMC 4.5 (Samsung KLM8G1WEMB-B031)
+</td></tr><tr class="">
+  <th scope="row" style="text-align:left;"> Power </th><td> DC 5V @ 2A (4.0mm/1.7mm barrel plug - centre positive)
+</td></tr><tr><th colspan="2" style="text-align:center;background:#dedede;"> Features
+</th></tr><tr class="">
+  <th scope="row" style="text-align:left;"> Video </th><td> HDMI (HDCP, CEC)
+</td></tr><tr class="">
+  <th scope="row" style="text-align:left;"> Audio </th><td> HDMI
+</td></tr><tr class="">
+  <th scope="row" style="text-align:left;"> Network </th><td> BT4.0/WiFi 802.11 b/g/n (<a href="Wifi.html#Ampak" title="Wifi">Ampak AP6212</a>), 10/100/1000Mbps Ethernet (<a href="Ethernet.html#Realtek_RTL8211E" title="Ethernet">Realtek RTL8211E</a>)
+</td></tr><tr class="">
+  <th scope="row" style="text-align:left;"> Storage </th><td> µSD
+</td></tr><tr class="">
+  <th scope="row" style="text-align:left;"> USB </th><td> 2 USB 2.0 Host, 1 USB 2.0 OTG
+</td></tr><tr class="">
+  <th scope="row" style="text-align:left;"> Other </th><td> IR
+</td></tr><tr class="">
+  <th scope="row" style="text-align:left;"> Headers </th><td> 3 pin UART, CSI, 40 pin GPIO
+</td></tr>
+</tbody></table>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Identification"><span class="tocnumber">1</span> <span class="toctext">Identification</span></a></li>
+<li class="toclevel-1"><a href="#Sunxi_support"><span class="tocnumber">2</span> <span class="toctext">Sunxi support</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Current_status"><span class="tocnumber">2.1</span> <span class="toctext">Current status</span></a></li>
+<li class="toclevel-2"><a href="#Manual_build"><span class="tocnumber">2.2</span> <span class="toctext">Manual build</span></a>
+<ul>
+<li class="toclevel-3"><a href="#U-Boot"><span class="tocnumber">2.2.1</span> <span class="toctext">U-Boot</span></a>
+<ul>
+<li class="toclevel-4"><a href="#Mainline_U-Boot"><span class="tocnumber">2.2.1.1</span> <span class="toctext">Mainline U-Boot</span></a></li>
+</ul>
+</li>
+<li class="toclevel-3"><a href="#Linux_Kernel"><span class="tocnumber">2.2.2</span> <span class="toctext">Linux Kernel</span></a>
+<ul>
+<li class="toclevel-4"><a href="#Sunxi.2FLegacy_Kernel"><span class="tocnumber">2.2.2.1</span> <span class="toctext">Sunxi/Legacy Kernel</span></a></li>
+<li class="toclevel-4"><a href="#Mainline_kernel"><span class="tocnumber">2.2.2.2</span> <span class="toctext">Mainline kernel</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-2"><a href="#Expansion_port"><span class="tocnumber">3</span> <span class="toctext">Expansion port</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Tips.2C_Tricks.2C_Caveats"><span class="tocnumber">4</span> <span class="toctext">Tips, Tricks, Caveats</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#FEL_mode"><span class="tocnumber">4.1</span> <span class="toctext">FEL mode</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#LEDs"><span class="tocnumber">4.2</span> <span class="toctext">LEDs</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#USB"><span class="tocnumber">4.3</span> <span class="toctext">USB</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#DRAM_clock_speed_limit"><span class="tocnumber">4.4</span> <span class="toctext">DRAM clock speed limit</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#CPU_clock_speed_limit_on_rev_1.1_boards"><span class="tocnumber">4.5</span> <span class="toctext">CPU clock speed limit on rev 1.1 boards</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#CPU_clock_speed_limit_on_rev_1.2_boards"><span class="tocnumber">4.6</span> <span class="toctext">CPU clock speed limit on rev 1.2 boards</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#Fixed_voltage_.2F_overheating"><span class="tocnumber">4.7</span> <span class="toctext">Fixed voltage / overheating</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="#ESD_.26_over-current_protections"><span class="tocnumber">4.8</span> <span class="toctext">ESD &amp; over-current protections</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-12"><a href="#Adding_a_serial_port"><span class="tocnumber">5</span> <span class="toctext">Adding a serial port</span></a>
+<ul>
+<li class="toclevel-2 tocsection-13"><a href="#Locating_the_UART"><span class="tocnumber">5.1</span> <span class="toctext">Locating the UART</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-14"><a href="#Pictures"><span class="tocnumber">6</span> <span class="toctext">Pictures</span></a>
+<ul>
+<li class="toclevel-2 tocsection-15"><a href="#Rev_v1.0"><span class="tocnumber">6.1</span> <span class="toctext">Rev v1.0</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="#Rev_v1.1"><span class="tocnumber">6.2</span> <span class="toctext">Rev v1.1</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-17"><a href="#Variants"><span class="tocnumber">7</span> <span class="toctext">Variants</span></a></li>
+<li class="toclevel-1 tocsection-18"><a href="#See_also"><span class="tocnumber">8</span> <span class="toctext">See also</span></a>
+<ul>
+<li class="toclevel-2 tocsection-19"><a href="#OS_images"><span class="tocnumber">8.1</span> <span class="toctext">OS images</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-20"><a href="#References"><span class="tocnumber">9</span> <span class="toctext">References</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Identification">Identification</span></h1>
+<p>The PCB has the following silkscreened on it:
+</p>
+<pre>BPi M2 Plus V1.1</pre>
+<p>or
+</p>
+<pre>BPi M2 Plus V1.2</pre>
+<h1><span class="mw-headline" id="Sunxi_support">Sunxi support</span></h1>
+<h2><span class="mw-headline" id="Current_status">Current status</span></h2>
+<p>The H3 SoC support has matured since its introduction in kernel 4.2. Most of the board functionality for boards such as BPi M2+ are available with current mainline kernels. Some features (hw accelerated crypto, hw spinlocks, and thermal) are still being worked on. For a more comprehensive list of supported features, see the <a href="Mainlining_Effort.html#Status_Matrix" class="mw-redirect" title="Mainlining Effort">status matrix for mainline kernels</a>. In addition, legacy 3.4 kernels are available in various work-in-progress git branches.
+</p><p>See the <a href="#Manual_build">Manual build</a> section for more details.
+</p><p>BPi M2+ is more or less a clone of Orange Pi PC/Plus it benefits automagically from all progress being made for these boards.
+</p>
+<h2><span class="mw-headline" id="Manual_build">Manual build</span></h2>
+<p>You can build things for yourself by following our <a href="Manual_build_howto.html" title="Manual build howto">Manual build howto</a> and by choosing from the configurations available below.
+</p>
+<h3><span class="mw-headline" id="U-Boot">U-Boot</span></h3>
+<h4><span class="mw-headline" id="Mainline_U-Boot">Mainline U-Boot</span></h4>
+<p>Use the <b>orangepi_plus_defconfig</b> (as a workaround until dedicated defconfig is available). Some alternative configs available from
+</p>
+<pre>* <a rel="nofollow" class="external text" href="http://pastebin.com/A1n1ecmt">Sinovoip_BPI_M2_plus_defconfig</a> (tested with 2016.03 and sun8i-h3-bananapi-m2plus.dts from below).
+* <a class="external autonumber" href="https://github.com/igorpecovnik/lib/blob/master/patch/u-boot/u-boot-default/add-missing-h3-boards.patch">[1]</a> build target. The U-Boot repository and toolchain is described in the <a href="Mainline_U-Boot.html" class="mw-redirect" title="Mainline U-Boot">Mainline U-Boot howto</a>.
+</pre>
+<p>The H3 boards can boot from <a href="Bootable_SD_card.html" title="Bootable SD card">SD cards</a>, <a href="EMMC.html" title="EMMC">eMMC</a>, <a href="MTD_Driver.html" title="MTD Driver">NAND</a> or <a href="Bootable_SPI_flash.html" title="Bootable SPI flash">SPI NOR</a> flash (if available), and via <a href="FEL/USBBoot.html" title="FEL/USBBoot">FEL</a> using the OTG USB port. In U-Boot, loading the kernel is also supported from USB or ethernet (netboot). HDMI support in U-Boot is still WIP.
+</p>
+<h3><span class="mw-headline" id="Linux_Kernel">Linux Kernel</span></h3>
+<h4><span id="Sunxi/Legacy_Kernel"></span><span class="mw-headline" id="Sunxi.2FLegacy_Kernel">Sunxi/Legacy Kernel</span></h4>
+<p>The 3.4 kernel from the official <a class="external text" href="https://github.com/allwinner-zh/linux-3.4-sunxi">Allwinner's git repository</a> <a class="external text" href="https://github.com/allwinner-zh/linux-3.4-sunxi/issues/14">does not support H3</a> yet. But it is possible to use one of the kernel forks, based on the <a rel="nofollow" class="external text" href="http://www.cnx-software.com/2015/05/12/orange-pi-plus-allwinner-h3-firmware-images-and-linux-sdk-released/">lichee H3 SDK tarball</a>:
+</p>
+<ul><li><a class="external text" href="https://github.com/ssvb/linux-sunxi/tree/20151207-embedded-lima-memtester-h3">Siarhei Siamashka's branch '20151207-embedded-lima-memtester-h3'</a></li>
+<li><a class="external text" href="https://github.com/O-Computers/linux-sunxi/commits/h3-wip">Yann Dirson's fork</a> added a few more fixes and adopted most of</li>
+<li><a class="external text" href="https://github.com/loboris/OrangePI-Kernel">Boris Lovosevic' great initial work</a> on Allwinner's H3 kernel</li></ul>
+<p>Configure this kernel using <b>sun8i_h3_defconfig</b>, the rest is explained in the <a href="Linux_Kernel.html#Compilation" title="Linux Kernel">kernel compilation guide</a>.
+</p><p>Use the .fex file for generating <a href="Script.bin.html" title="Script.bin">script.bin</a>.
+Use the <a class="external text" href="https://github.com/igorpecovnik/lib/blob/master/config/bananapim2plus.fex">bananapim2plus.fex</a> file.
+</p><p>When booting the legacy 3.4 kernel with the mainline U-Boot, add the following line to boot.cmd:
+</p>
+<pre>  setenv machid 1029
+  setenv bootm_boot_mode sec
+</pre>
+<p>Some other legacy kernel repositories:
+</p>
+<ul><li><a class="external text" href="https://github.com/O-Computers/linux-sunxi">3.4-lichee-based kernel</a>, based on work by <a class="external text" href="https://github.com/ssvb/linux-sunxi">ssvb</a> and <a class="external text" href="https://github.com/loboris/OrangePI-Kernel/">loboris</a></li>
+<li><a class="external text" href="https://github.com/O-Computers/meta-sunxi">Yocto support here</a> glues together all the required parts to get this kernel to work with mainline u-boot, as well as accelerated X11/GLES support</li>
+<li><a class="external text" href="https://github.com/friendlyarm/h3_lichee">A newer H3 BSP variant</a> appeared with tons of fixes which has been made available by FriendlyARM.</li>
+<li><a class="external text" href="https://github.com/igorpecovnik/linux/tree/sun8i">A cleaned up fork</a> has been adopted by Armbian project. On top of that Armbian maintains a bunch of <a class="external text" href="https://github.com/igorpecovnik/lib/tree/master/patch/kernel/sun8i-default">3.4.x patches for H3 devices</a>.</li></ul>
+<h4><span class="mw-headline" id="Mainline_kernel">Mainline kernel</span></h4>
+<p>The mainline kernel has good support for the H3 SoC. Please refer to the <a href="Linux_mainlining_effort.html#Status_Matrix" title="Linux mainlining effort">status matrix</a> for a more detailed list of the development process, links to patches and links to kernel fork repositories. Minor drivers that are currently work-in-progress may require a) <a href="Linux_mainlining_effort.html#Work_In_Progress" title="Linux mainlining effort">third party patches</a> (see also arm-linux mailing list) or b) a pre-patched distro (e.g. <a href="Armbian.html" title="Armbian">Armbian</a>).
+</p><p>Repositories with H3 patches:
+</p>
+<ul><li><a class="external text" href="https://github.com/megous/linux/tree/orange-pi-4.19">Ondřej Jirman's branch for H3 based orange Pi (kernel 4.19)</a> (work-in-progress DVFS)
+<ul><li>Thermal regulation (if CPU heats above certain temperature, it will try to cool itself down by reducing CPU frequency)</li>
+<li>HDMI audio support (from Jernej Skrabec)</li>
+<li>Configure on-board micro-switches to perform system power off function</li>
+<li>Wireguard (<a rel="nofollow" class="external free" href="https://www.wireguard.com/">https://www.wireguard.com/</a>)</li></ul></li>
+<li><a class="external text" href="https://github.com/embed-3d/linux/branches">Philipp Rossak's THS patches (in the sunxi-ths- branches)</a></li>
+<li><a class="external text" href="https://github.com/montjoie/linux/branches">Corentin Labbe's HW Crypto and spinlock patches (in respective branches)</a></li></ul>
+<p><br />
+Use the <b>sun8i-h3-bananapi-m2-plus.dtb</b>. For the v1.2 board, there is also <b>sun8i-h3-bananapi-m2-plus-v1.2.dtb</b>. <strike>(old: or start on this working mixture of Orange Pi stuff: <a rel="nofollow" class="external text" href="http://pastebin.com/sKfj2tTW">sun8i-h3-bananapi-m2plus.dts</a> (everything working except of WiFi/BT due to lack of interest)</strike> device-tree binary.
+</p>
+<h1><span class="mw-headline" id="Expansion_port">Expansion port</span></h1>
+<p>Banana Pi M2+ features a 40 pin GPIO header that is advertised as being 'Raspberry Pi compatible'. That's not the case, the pinout varies for unknown reasons. Some details can be found in this post in <a rel="nofollow" class="external text" href="https://forum.armbian.com/index.php/topic/1745-different-gpio-pin-mappings-on-bpi-m2-compared-to-orange-pis/">Armbian forum</a> and also somewhere <a rel="nofollow" class="external text" href="http://forum.banana-pi.org/t/bpi-m2-how-to-use-40-pin-gpio/2093">hidden in manufacturer's forum</a> (with an example how to patch WiringOP/WiringPi -- to be confirmed whether the pin mappings are correct in this example). It should be noted that the manufacturer's hardware description (fex file) still is wrong regarding GPIO pins.
+</p><p>At least one mistake has been discovered/documented: Physical pin 37 on the 40 pin header is not pin PA16 but PA17 instead. This is not a GPIO but OWA/SPDIF instead. Details can be found at the end of the aforementioned thread in Armbian forum.
+</p>
+<h1><span id="Tips,_Tricks,_Caveats"></span><span class="mw-headline" id="Tips.2C_Tricks.2C_Caveats">Tips, Tricks, Caveats</span></h1>
+<h2><span class="mw-headline" id="FEL_mode">FEL mode</span></h2>
+<p>There is a dedicated FEL button called <i>UBOOT</i> next to the reset button.
+</p>
+<h2><span class="mw-headline" id="LEDs">LEDs</span></h2>
+<p>According to <a rel="nofollow" class="external text" href="http://web.archive.org/web/20160406142041/https://bananapi.gitbooks.io/bpi-m2-/content/bpim2+hardwarespec.html">Sinovoip's documentation</a> the board has two LEDs but at least on the developer samples there is only one:
+</p>
+<ul><li>A red LED, connected to the PL10 pin.</li></ul>
+<h2><span class="mw-headline" id="USB">USB</span></h2>
+<p>The OTG port is exposed to the Micro USB jack that's also supposed to function as DC-IN source. USB host ports 1 and 2 are available as dual type A receptacle and the data lines of the 3rd USB host port are exposed without any ESD protection next to the 40 pin GPIO header for soldering experiments. For details see the <a rel="nofollow" class="external text" href="http://forum.banana-pi.org/t/possible-header-configurations-and-rtc-question/1862/8?u=tkaiser">approriate thread in banana-pi.org forum</a>.
+</p>
+<h2><span class="mw-headline" id="DRAM_clock_speed_limit">DRAM clock speed limit</span></h2>
+<p>DRAM is clocked at <b>672 MHz</b> by the hardware vendor. The settings <a class="external text" href="https://github.com/BPI-SINOVOIP/BPI-M2P-bsp/issues/3">seem to be copy&amp;paste from Xunlong's Orange Pis</a> and reliability still needs to be verified. One of the ways of doing reliability tests may be <a class="external free" href="https://github.com/ssvb/lima-memtester/releases/tag/20151207-orange-pi-pc-fel-test">https://github.com/ssvb/lima-memtester/releases/tag/20151207-orange-pi-pc-fel-test</a> (developed for Orange Pi PC). An adoption of this using fex files suited for Banana Pi M2+ is available <a rel="nofollow" class="external text" href="http://kaiser-edv.de/tmp/IXGNsR/fel-boot-lima-memtester-on-orange-pi-h3-v3.tar.bz2">here</a> (md5sum: ca8b910a5f60bbd11781423e8ade59fd  fel-boot-lima-memtester-on-orange-pi-h3-v3.tar.bz2). Use the <i>fel-boot-lima-memtester-on-banana-pi-m2-plus</i> script inside.
+</p><p>You have to eject an SD card and in case your board's eMMC contains a valid boot loader you will have to press the <i>u-boot</i> button when you power on the board to enter FEL mode. Please be aware that the board already will boot when you connect the Linux host where <i>fel-boot-lima-memtester-on-banana-pi-m2-plus</i> is running on with M2+ since the powering scheme allows using the Micro USB port for DC-IN too (lima-memtester will need 3.5W so in case you want to power the board through USB from the host ensure that you chose an USB3 port since they provide 900mA where USB2 ports might only provide 500mA which is not sufficient and you have to provide stable 5V through the barrel connector)
+</p><p>Since there is only one red led available on this board that uses the same pin mapping of the green led on Orange Pi boards you will only see a blinking red led when the test runs and get no notification through a second led starting to light solid after the necessary amount of time so it's up to you to ensure that the test runs at least one hour and shows a spinning cube on a connected display for a gray background (if in doubt please read carefully through the <a class="external text" href="https://github.com/ssvb/lima-memtester/releases/tag/20151207-orange-pi-pc-fel-test">useage instructions section</a> and remember that led use is different on BPi M2+)
+</p><p><br />
+</p>
+<table style="margin: 0.7em; border-width: 1px 1px 1px 10px; border-style: solid; border-color: #EE8822; background-color: #FFEEDD">
+<tbody><tr>
+<td style="padding: 0.2em; vertical-align: baseline;"><a href="File:MBOX_icon_important.png.html" class="image"><img alt="MBOX icon important.png" src="https://linux-sunxi.org/images/f/f0/MBOX_icon_important.png" decoding="async" width="40" height="40" /></a>
+</td>
+<td style="width:100%; padding-left: 0.2em; padding-right: 0.2em; vertical-align: baseline;">WARNING: For yet unknown reasons testing DRAM reliability through FEL mode seems to be less reliable. For an alternative approach using an Armbian test OS image please see <a rel="nofollow" class="external text" href="http://forum.armbian.com/index.php/topic/1322-testers-wanted-testing-dram-reliability-on-bpi-m2/">the relevant thread in Armbian forum</a>.
+</td></tr></tbody></table>
+<table class="wikitable">
+<tbody><tr>
+<th>Hardware
+</th>
+<th>Diagnostic software
+</th>
+<th>lima-memtester passes (at least running 1 hour)
+</th>
+<th>lima-memtester fails
+</th>
+<th>Notes
+</th></tr>
+<tr>
+<td><a href="User:Tkaiser.html" title="User:Tkaiser">User:Tkaiser</a>'s Banana Pi M2+</td>
+<td>fel-boot-lima-memtester-on-orange-pi-h3-v3.tar.bz2</td>
+<td>600 MHz</td>
+<td>624 MHz</td>
+<td><b>cheap heatsink</b>. 624 MHz fails after running for approx. 10 minutes
+</td></tr>
+<tr>
+<td><a href="User:Tkaiser.html" title="User:Tkaiser">User:Tkaiser</a>'s same Banana Pi M2+</td>
+<td>Armbian 5.14 test image</td>
+<td>720 MHz</td>
+<td>744 MHz</td>
+<td><b>cheap heatsink</b>. 744 MHz shows glowing red background after approx. 6 minutes
+</td></tr>
+<tr>
+<td><a href="https://linux-sunxi.org/index.php?title=User:Gaara&amp;action=edit&amp;redlink=1" class="new" title="User:Gaara (page does not exist)">User:gaara</a>'s Banana Pi M2+</td>
+<td>Armbian 5.10 image</td>
+<td>(unknown, FEL boot too complicated)</td>
+<td>672 MHz</td>
+<td><a rel="nofollow" class="external text" href="https://www.youtube.com/watch?v=I0M_xx7s1ls">glowing red background</a>
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="CPU_clock_speed_limit_on_rev_1.1_boards">CPU clock speed limit on rev 1.1 boards</span></h2>
+<p>Sinovoip chose the same SY8113B voltage regulator used on OPi One/Lite and NanoPi M1 but refrained from making the generated <i>VDD_CPUX</i> adjustable (the aforementioned boards switch through GPIO driven resistors between 1.1V and 1.3V). While released schematic <a rel="nofollow" class="external text" href="http://forum.banana-pi.org/t/detailed-powering-schematic/1831/13?u=tkaiser">show 1.2V SY8113B on BPi M2+ provides 1.3V</a> which would allow a maximum clockspeed of 1200 MHz. <s>Due to yet unknown reasons all released OS images by SinoVoip are limited to 1008 MHz maximum clockspeed anyway. They also prefer to kill CPU cores when the SoC starts to overheat instead of implementing sane throttling so be prepared to end up with a single core H3 board running at 1008 MHz maximum. While this is not that much of a problem for their Linux images since you can adjust the wrong THS settings yourself <a rel="nofollow" class="external text" href="http://forum.banana-pi.org/t/bpi-m2-new-image-android-4-4-vsersion-v1/1429/2">Android users might be surprised how slow the M2+ will be</a>.</s> Official OS images adopted more appropriate THS settings allowing 1200 MHz and some throttling steps in May 2016 so be sure to use a most recent one or upgrade <i>script.bin</i> contents yourself.
+</p>
+<h2><span class="mw-headline" id="CPU_clock_speed_limit_on_rev_1.2_boards">CPU clock speed limit on rev 1.2 boards</span></h2>
+<p><a rel="nofollow" class="external text" href="http://forum.banana-pi.org/t/banana-pi-bpi-m2-v1-2-hardware-version-add-pmu-voltage-regulation-design/6260">Boards marked as v1.2</a> implement voltage regulation using PL01 GPIO pin. Now switching between 1.1V and 1.3V (not known yet in which state the board comes up).
+</p>
+<h2><span id="Fixed_voltage_/_overheating"></span><span class="mw-headline" id="Fixed_voltage_.2F_overheating">Fixed voltage / overheating</span></h2>
+<div class="thumb tright"><div class="thumbinner" style="width:302px;"><a href="File:Banana_Pi_M2+_running_PTS_with_heatsink.png.html" class="image"><img alt="Banana Pi M2+ running PTS with heatsink.png" src="https://linux-sunxi.org/images/thumb/2/21/Banana_Pi_M2%2B_running_PTS_with_heatsink.png/300px-Banana_Pi_M2%2B_running_PTS_with_heatsink.png" decoding="async" width="300" height="122" class="thumbimage" srcset="https://linux-sunxi.org/images/thumb/2/21/Banana_Pi_M2%2B_running_PTS_with_heatsink.png/450px-Banana_Pi_M2%2B_running_PTS_with_heatsink.png 1.5x, https://linux-sunxi.org/images/thumb/2/21/Banana_Pi_M2%2B_running_PTS_with_heatsink.png/600px-Banana_Pi_M2%2B_running_PTS_with_heatsink.png 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="File:Banana_Pi_M2+_running_PTS_with_heatsink.png.html" class="internal" title="Enlarge"></a></div></div></div></div>
+<p>Unfortunately SinoVoip chose to feed H3 all the time with 1.3V on Rev 1.1 boards and 1.4V on Rev 1.0 boards. In this mode throttling is rather inefficient since temperatures do not decrease that much when only clockspeed will be reduced but not VDD_CPUX. Therefore expect severe performance problems unless you choose to apply a large heatsink and an additional fan. It's also easy to get killed CPU cores with BSP kernel since with real heavy workloads throttling isn't enough and the kernel driver devices to kill cores instead. Please note that with <i>normal</i> settings vendor OS images normally use you'll never get killed CPU cores back. Armbian implemented an ugly <i>corekeeper</i> hack to overcome this and the results look then like this: <a rel="nofollow" class="external text" href="http://openbenchmarking.org/result/1604074-GA-1604071GA80">The 2 last rows are SinoVoip settings taken from their BPI-M2+ github repo and the new Armbian settings</a>. 
+</p><p>While running the multithreaded parts of the 'Phoronix test suite', almost all the time max cpufreq will be throttled down to 816 MHz. An Orange Pi PC with the same cheap passive heatsink would still run at 1008 MHz or even 1104 MHz since the lower VDD_CPUX voltage at these dvfs operating points results in less emitted heat. Please be aware that currently no throttling is implemented with mainline kernel therefore you risk serious damage when running even lighter workloads on the BPi M2+ with mainline kernel!
+</p>
+<h2><span id="ESD_&amp;_over-current_protections"></span><span class="mw-headline" id="ESD_.26_over-current_protections">ESD &amp; over-current protections</span></h2>
+<p>Based on the schematic Rev 1.2 (July 12, 2018) the board incorporates the following protections:
+</p><p><br />
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th colspan="4">Protections
+<p>x - no protection, ESD - Electrostatic Discharge, OC - Over-current
+</p>
+</th>
+<td>Comments
+</td></tr>
+<tr>
+<td>1</td>
+<td>DCIN/Micro USB (power)</td>
+<td>x</td>
+<td>OC</td>
+<td>Fused (to unknown value) and bypassed.
+</td></tr>
+<tr>
+<td>2</td>
+<td>Micro SD</td>
+<td>x</td>
+<td>x</td>
+<td>
+</td></tr>
+<tr>
+<td>3</td>
+<td>Camera</td>
+<td>x</td>
+<td>x</td>
+<td>
+</td></tr>
+<tr>
+<td>4</td>
+<td>Micro USB OTG</td>
+<td>ESD</td>
+<td>x</td>
+<td>
+</td></tr>
+<tr>
+<td>5</td>
+<td>Dual USB</td>
+<td>ESD</td>
+<td>OC (1.44A)</td>
+<td>Limited by SY6280 (U8) if populated on the PCB
+</td></tr>
+<tr>
+<td>6</td>
+<td>HDMI</td>
+<td>ESD</td>
+<td>x</td>
+<td>
+</td></tr>
+<tr>
+<td>7</td>
+<td>Ethernet</td>
+<td>x</td>
+<td>N/A</td>
+<td>Over-current protection is not applicable
+</td></tr>
+<tr>
+<td>8</td>
+<td>GPIO</td>
+<td>x</td>
+<td>x</td>
+<td>
+</td></tr>
+<tr>
+<td>9</td>
+<td>Debug UART</td>
+<td>x</td>
+<td>?
+</td></tr></tbody></table>
+<h1><span class="mw-headline" id="Adding_a_serial_port">Adding a serial port</span></h1>
+<h2><span class="mw-headline" id="Locating_the_UART">Locating the UART</span></h2>
+<div class="thumb tright"><div class="thumbinner" style="width:192px;"><a href="File:Banana_Pi_M2_Plus_uart.jpg.html" class="image"><img alt="" src="https://linux-sunxi.org/images/thumb/0/0e/Banana_Pi_M2_Plus_uart.jpg/190px-Banana_Pi_M2_Plus_uart.jpg" decoding="async" width="190" height="233" class="thumbimage" srcset="https://linux-sunxi.org/images/thumb/0/0e/Banana_Pi_M2_Plus_uart.jpg/285px-Banana_Pi_M2_Plus_uart.jpg 1.5x, https://linux-sunxi.org/images/thumb/0/0e/Banana_Pi_M2_Plus_uart.jpg/380px-Banana_Pi_M2_Plus_uart.jpg 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="File:Banana_Pi_M2_Plus_uart.jpg.html" class="internal" title="Enlarge"></a></div>UART pads</div></div></div>
+<p>The UART pins are located between DRAM and GPIO header. They are marked as <i>TX</i>, <i>RX</i> and <i>GND</i> on the PCB. Just attach some leads according to our <a href="UART.html" title="UART">UART Howto</a>.
+</p>
+<h1><span class="mw-headline" id="Pictures">Pictures</span></h1>
+<h2><span class="mw-headline" id="Rev_v1.0">Rev v1.0</span></h2>
+<ul class="gallery mw-gallery-traditional">
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:30px auto;"><a href="File:Banana_Pi_M2_Plus_top.jpg.html" class="image"><img alt="Banana Pi M2 Plus top.jpg" src="https://linux-sunxi.org/images/thumb/a/ac/Banana_Pi_M2_Plus_top.jpg/120px-Banana_Pi_M2_Plus_top.jpg" decoding="async" width="120" height="90" srcset="https://linux-sunxi.org/images/thumb/a/ac/Banana_Pi_M2_Plus_top.jpg/180px-Banana_Pi_M2_Plus_top.jpg 1.5x, https://linux-sunxi.org/images/thumb/a/ac/Banana_Pi_M2_Plus_top.jpg/240px-Banana_Pi_M2_Plus_top.jpg 2x" /></a></div></div>
+			<div class="gallerytext">
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:30px auto;"><a href="File:Banana_Pi_M2_Plus_bottom.jpg.html" class="image"><img alt="Banana Pi M2 Plus bottom.jpg" src="https://linux-sunxi.org/images/thumb/f/fe/Banana_Pi_M2_Plus_bottom.jpg/120px-Banana_Pi_M2_Plus_bottom.jpg" decoding="async" width="120" height="90" srcset="https://linux-sunxi.org/images/thumb/f/fe/Banana_Pi_M2_Plus_bottom.jpg/180px-Banana_Pi_M2_Plus_bottom.jpg 1.5x, https://linux-sunxi.org/images/thumb/f/fe/Banana_Pi_M2_Plus_bottom.jpg/240px-Banana_Pi_M2_Plus_bottom.jpg 2x" /></a></div></div>
+			<div class="gallerytext">
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:30px auto;"><a href="File:Banana_Pi_M2_Plus_1.jpg.html" class="image"><img alt="Banana Pi M2 Plus 1.jpg" src="https://linux-sunxi.org/images/thumb/7/7b/Banana_Pi_M2_Plus_1.jpg/120px-Banana_Pi_M2_Plus_1.jpg" decoding="async" width="120" height="90" srcset="https://linux-sunxi.org/images/thumb/7/7b/Banana_Pi_M2_Plus_1.jpg/180px-Banana_Pi_M2_Plus_1.jpg 1.5x, https://linux-sunxi.org/images/thumb/7/7b/Banana_Pi_M2_Plus_1.jpg/240px-Banana_Pi_M2_Plus_1.jpg 2x" /></a></div></div>
+			<div class="gallerytext">
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:30px auto;"><a href="File:Banana_Pi_M2_Plus_2.jpg.html" class="image"><img alt="Banana Pi M2 Plus 2.jpg" src="https://linux-sunxi.org/images/thumb/1/17/Banana_Pi_M2_Plus_2.jpg/120px-Banana_Pi_M2_Plus_2.jpg" decoding="async" width="120" height="90" srcset="https://linux-sunxi.org/images/thumb/1/17/Banana_Pi_M2_Plus_2.jpg/180px-Banana_Pi_M2_Plus_2.jpg 1.5x, https://linux-sunxi.org/images/thumb/1/17/Banana_Pi_M2_Plus_2.jpg/240px-Banana_Pi_M2_Plus_2.jpg 2x" /></a></div></div>
+			<div class="gallerytext">
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:30px auto;"><a href="File:Banana_Pi_M2_Plus_3.jpg.html" class="image"><img alt="Banana Pi M2 Plus 3.jpg" src="https://linux-sunxi.org/images/thumb/6/66/Banana_Pi_M2_Plus_3.jpg/120px-Banana_Pi_M2_Plus_3.jpg" decoding="async" width="120" height="90" srcset="https://linux-sunxi.org/images/thumb/6/66/Banana_Pi_M2_Plus_3.jpg/180px-Banana_Pi_M2_Plus_3.jpg 1.5x, https://linux-sunxi.org/images/thumb/6/66/Banana_Pi_M2_Plus_3.jpg/240px-Banana_Pi_M2_Plus_3.jpg 2x" /></a></div></div>
+			<div class="gallerytext">
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:30px auto;"><a href="File:Banana_Pi_M2_Plus_4.jpg.html" class="image"><img alt="Banana Pi M2 Plus 4.jpg" src="https://linux-sunxi.org/images/thumb/d/d1/Banana_Pi_M2_Plus_4.jpg/120px-Banana_Pi_M2_Plus_4.jpg" decoding="async" width="120" height="90" srcset="https://linux-sunxi.org/images/thumb/d/d1/Banana_Pi_M2_Plus_4.jpg/180px-Banana_Pi_M2_Plus_4.jpg 1.5x, https://linux-sunxi.org/images/thumb/d/d1/Banana_Pi_M2_Plus_4.jpg/240px-Banana_Pi_M2_Plus_4.jpg 2x" /></a></div></div>
+			<div class="gallerytext">
+			</div>
+		</div></li>
+</ul>
+<h2><span class="mw-headline" id="Rev_v1.1">Rev v1.1</span></h2>
+<ul class="gallery mw-gallery-traditional">
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:15px auto;"><a href="File:Banana_Pi_M2_Plus_V11_top.jpg.html" class="image"><img alt="Banana Pi M2 Plus V11 top.jpg" src="https://linux-sunxi.org/images/thumb/8/8f/Banana_Pi_M2_Plus_V11_top.jpg/120px-Banana_Pi_M2_Plus_V11_top.jpg" decoding="async" width="120" height="120" srcset="https://linux-sunxi.org/images/thumb/8/8f/Banana_Pi_M2_Plus_V11_top.jpg/180px-Banana_Pi_M2_Plus_V11_top.jpg 1.5x, https://linux-sunxi.org/images/thumb/8/8f/Banana_Pi_M2_Plus_V11_top.jpg/240px-Banana_Pi_M2_Plus_V11_top.jpg 2x" /></a></div></div>
+			<div class="gallerytext">
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:15px auto;"><a href="File:Banana_Pi_M2_Plus_V11_bottom.jpg.html" class="image"><img alt="Banana Pi M2 Plus V11 bottom.jpg" src="https://linux-sunxi.org/images/thumb/e/e5/Banana_Pi_M2_Plus_V11_bottom.jpg/120px-Banana_Pi_M2_Plus_V11_bottom.jpg" decoding="async" width="120" height="120" srcset="https://linux-sunxi.org/images/thumb/e/e5/Banana_Pi_M2_Plus_V11_bottom.jpg/180px-Banana_Pi_M2_Plus_V11_bottom.jpg 1.5x, https://linux-sunxi.org/images/thumb/e/e5/Banana_Pi_M2_Plus_V11_bottom.jpg/240px-Banana_Pi_M2_Plus_V11_bottom.jpg 2x" /></a></div></div>
+			<div class="gallerytext">
+			</div>
+		</div></li>
+</ul>
+<h1><span class="mw-headline" id="Variants">Variants</span></h1>
+<ul><li>In Sep 2016 a cost down variant called <i>Banana Pi M2+ EDU</i> has been announced with just 512MiB DRAM and saving eMMC and AP6212 (no WiFi/BT). Compared to cheap Fast Ethernet equipped H3 boards with the same or more amount of DRAM the only real advantage is Gigabit Ethernet on the M2+ EDU.</li>
+<li>In May 2017 a cost down variant called <i>Banana Pi M2+ H2+</i> has been announced with a H2+ SoC instead of the original H3.</li>
+<li>In Feb 2017 Sinovoip <a rel="nofollow" class="external text" href="https://twitter.com/sinovoip/status/833891634077065216">posted a picture</a> and in Aug 2017 the company listed the <a rel="nofollow" class="external text" href="http://forum.banana-pi.org/t/all-banana-pi-sbc-comparison/1714/15">specs</a> of a H5 variant of the board. The board does not seem to be available for order from the stores, though.</li></ul>
+<h1><span class="mw-headline" id="See_also">See also</span></h1>
+<ul><li><a rel="nofollow" class="external text" href="http://www.bananapi.com/index.php/component/content/article?layout=edit&amp;id=93">bananapi.com product page</a></li>
+<li><a rel="nofollow" class="external text" href="https://www.gitbook.com/book/bananapi/bpi-m2-/details">Detailed product specs containing contradictory statements as usual</a></li>
+<li><a href="H3_Manual_build_howto.html" title="H3 Manual build howto">H3_Manual_build_howto</a></li>
+<li><a href="File:BPI-M2-PLUS-V1_1_201605(Release).pdf.html" title="File:BPI-M2-PLUS-V1 1 201605(Release).pdf">File:BPI-M2-PLUS-V1 1 201605(Release).pdf</a></li>
+<li><a href="File:Banana_Pi_BPI-M2+_V1_2_schematic_diagram_.pdf.html" title="File:Banana Pi BPI-M2+ V1 2 schematic diagram .pdf">File:Banana Pi BPI-M2+ V1 2 schematic diagram .pdf</a></li></ul>
+<h2><span class="mw-headline" id="OS_images">OS images</span></h2>
+<ul><li><a rel="nofollow" class="external text" href="http://forum.banana-pi.org/c/Banana-pi-BPI-M2/M2image">Official download page</a></li></ul>
+<h1><span class="mw-headline" id="References">References</span></h1>
+
+<!-- 
+NewPP limit report
+Cached time: 20251029040458
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.227 seconds
+Real time usage: 0.338 seconds
+Preprocessor visited node count: 430/1000000
+Post‐expand include size: 13419/2097152 bytes
+Template argument size: 3656/2097152 bytes
+Highest expansion depth: 7/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 5082/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   90.783      1 -total
+ 74.37%   67.512      1 Template:Infobox_Board
+ 49.45%   44.894     20 Template:Infobox/entry
+ 21.28%   19.321      1 Template:Alert
+ 18.53%   16.818      1 Template:MBOX_NOTE
+ 15.53%   14.099      1 Template:MBOX
+  4.71%    4.277      2 Template:Infobox/header
+  3.00%    2.726      1 Template:H3_Support_status
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:2677-0!canonical and timestamp 20251029040458 and revision id 24003
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=Sinovoip_Banana_Pi_M2%2B&amp;oldid=24003">https://linux-sunxi.org/index.php?title=Sinovoip_Banana_Pi_M2%2B&amp;oldid=24003</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Categories</a>: <ul><li><a href="Category:Devices.html" title="Category:Devices">Devices</a></li><li><a href="Category:H3_Boards.html" title="Category:H3 Boards">H3 Boards</a></li><li><a href="Category:Sinovoip.html" title="Category:Sinovoip">Sinovoip</a></li><li><a href="Category:Devices_with_Ethernet_port.html" title="Category:Devices with Ethernet port">Devices with Ethernet port</a></li><li><a href="Category:Devices_with_HDMI_port.html" title="Category:Devices with HDMI port">Devices with HDMI port</a></li><li><a href="Category:Mainline_Kernel.html" title="Category:Mainline Kernel">Mainline Kernel</a></li><li><a href="Category:Devices_with_Wifi.html" title="Category:Devices with Wifi">Devices with Wifi</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=Sinovoip+Banana+Pi+M2%2B" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=Sinovoip+Banana+Pi+M2%2B" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="Sinovoip_Banana_Pi_M2+.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:Sinovoip_Banana_Pi_M2%2B&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="Sinovoip_Banana_Pi_M2+.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Sinovoip_Banana_Pi_M2%2B&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Sinovoip_Banana_Pi_M2%2B&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/Sinovoip_Banana_Pi_M2+.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/Sinovoip_Banana_Pi_M2%2B" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=Sinovoip_Banana_Pi_M2%2B&amp;oldid=24003" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=Sinovoip_Banana_Pi_M2%2B&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 17 February 2021, at 22:12.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.227","walltime":"0.338","ppvisitednodes":{"value":430,"limit":1000000},"postexpandincludesize":{"value":13419,"limit":2097152},"templateargumentsize":{"value":3656,"limit":2097152},"expansiondepth":{"value":7,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":5082,"limit":5000000},"timingprofile":["100.00%   90.783      1 -total"," 74.37%   67.512      1 Template:Infobox_Board"," 49.45%   44.894     20 Template:Infobox/entry"," 21.28%   19.321      1 Template:Alert"," 18.53%   16.818      1 Template:MBOX_NOTE"," 15.53%   14.099      1 Template:MBOX","  4.71%    4.277      2 Template:Infobox/header","  3.00%    2.726      1 Template:H3_Support_status"]},"cachereport":{"timestamp":"20251029040458","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":283});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

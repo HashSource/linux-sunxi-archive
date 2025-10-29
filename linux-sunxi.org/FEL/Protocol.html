@@ -1,0 +1,388 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>FEL/Protocol - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"d0ca5496ba073a814566d452","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"FEL/Protocol","wgTitle":"FEL/Protocol","wgCurRevisionId":26775,"wgRevisionId":26775,"wgArticleId":1466,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"FEL/Protocol","wgRelevantArticleId":1466,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":"ready","user":
+"ready","user.options":"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=mediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="Protocol.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-FEL_Protocol rootpage-FEL skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">FEL/Protocol</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"><span class="subpages">&lt; <a href="../FEL.html" title="FEL">FEL</a></span></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Overview"><span class="tocnumber">1</span> <span class="toctext">Overview</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Examples"><span class="tocnumber">2</span> <span class="toctext">Examples</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Definition_of_messages"><span class="tocnumber">3</span> <span class="toctext">Definition of messages</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Requests"><span class="tocnumber">4</span> <span class="toctext">Requests</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Memory_information"><span class="tocnumber">5</span> <span class="toctext">Memory information</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Flashing"><span class="tocnumber">6</span> <span class="toctext">Flashing</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Overview">Overview</span></h1>
+<p>The FEL is actually a tiny usb stack implementing a special USB protocol.
+</p><p>Part of it is implemented in our <a class="external text" href="https://github.com/linux-sunxi/sunxi-tools/blob/master/fel.c">tools repository</a> and can be used as reference code.
+</p><p>Below is a specification for the protocol based on the official code. You can find it in <a href="../U-Boot.html" title="U-Boot">uboot</a> source: (<a class="external text" href="http://dl.linux-sunxi.org/SDK/A80/A80_SDK_20140728_stripped/lichee/brandy/u-boot-2011.09/usb_sunxi/usb_efex.h">usb_efex.h</a>).
+</p>
+<h1><span class="mw-headline" id="Examples">Examples</span></h1>
+<p>Communication always performs according to following routine  (→ send, ← receive, =&gt; expected length of message):
+</p><p><b>Example 1</b>. FEL_VERIFY_DEVICE (get device info)
+</p><p>1. Send request
+</p>
+<pre>→ AWUSBRequest(cmd = AW_USB_WRITE, len = 16)   =&gt; len(sizeof(AWUSBRequest) =&gt; 32)
+→ AWFELStandardRequest(FEL_VERIFY_DEVICE)      =&gt; len(sizeof(AWFELStandardRequest) =&gt; 16)
+← AWUSBResponse(csw_status = 0)                =&gt; len(sizeof(AWUSBResponse) =&gt; 13)
+</pre>
+<p>2. Read response
+</p>
+<pre>→ AWUSBRequest(cmd = AW_USB_READ, len = 32)   =&gt; len(sizeof(AWUSBRequest) =&gt; 32)
+← AWFELVerifyDeviceResponse                   =&gt; len(sizeof(AWFELVerifyDeviceResponse) =&gt; 32)
+← AWUSBResponse(csw_status = 0)               =&gt; len(sizeof(AWUSBResponse) =&gt; 13)
+</pre>
+<p>3. Read status
+</p>
+<pre>→ AWUSBRequest(cmd = AW_USB_READ, len = 8)    =&gt; len(sizeof(AWUSBRequest) =&gt; 32)
+← AWFELStatusResponse(mark=-1,state=0)        =&gt; len(sizeof(AWFELStatusResponse) =&gt; 8)
+← AWUSBResponse(csw_status = 0)               =&gt; len(sizeof(AWUSBResponse) =&gt; 13)
+</pre>
+<p><b>Example 2</b>. FEL_DOWNLOAD (write data to device memory)
+</p><p>1. Send request
+</p>
+<pre>→ AWUSBRequest(cmd = AW_USB_WRITE, len = 16)            =&gt; len(sizeof(AWUSBRequest) =&gt; 32)
+→ AWFELMessage(FEL_DOWNLOAD, address, length)   =&gt; len(sizeof(AWFELMessage) =&gt; 16)
+← AWUSBResponse(csw_status = 0)                         =&gt; len(sizeof(AWUSBResponse) =&gt; 13)
+</pre>
+<p>2. Send data
+</p>
+<pre>→ AWUSBRequest(cmd = AW_USB_WRITE, len = &lt;max 65536&gt;)   =&gt; len(sizeof(AWUSBRequest) =&gt; 32)
+→ data                                                  =&gt; len(&lt;max 65536&gt;)
+← AWUSBResponse(csw_status = 0)                         =&gt; len(sizeof(AWUSBResponse) =&gt; 13)
+</pre>
+<p>3. Read status
+</p>
+<pre>→ AWUSBRequest(cmd = AW_USB_READ, len = 8)    =&gt; len(sizeof(AWUSBRequest) =&gt; 32)
+← AWFELStatusResponse(mark=-1,state=0)        =&gt; len(sizeof(AWFELStatusResponse) =&gt; 8)
+← AWUSBResponse(csw_status = 0)               =&gt; len(sizeof(AWUSBResponse) =&gt; 13)
+</pre>
+<h1><span class="mw-headline" id="Definition_of_messages">Definition of messages</span></h1>
+<p>Default value is left after '=&gt;'
+</p><p><b>AWUSBRequest</b> (size 32)
+</p>
+<pre>  string   magic(4)             =&gt; "AWUC"
+  uint32le tag                  =&gt; 0
+  uint32le len                  =&gt; [size of data written in next transfer]
+  uint16le reserved1,           =&gt; 0
+  uint8    reserved2,           =&gt; 0
+  uint8    cmd_len,             =&gt; 0xC
+  uint8    cmd                  =&gt; [request type AW_USB_READ (0x11) or AW_USB_WRITE(0x12)]
+  uint8    reserved3,           =&gt; 0
+  uint32le len2                 =&gt; len [same value]
+  array    reserved4(uint8, 10) =&gt; {0}
+</pre>
+<p><b>AWUSBResponse</b> (size 13)
+</p>
+<pre>   string   magic(4)           =&gt; "AWUS"
+   uint32le tag                =&gt; 0
+   uint32le residue            =&gt; 0
+   uint8    csw_status         =&gt; 0 (if&#160;!= 0, then request failed)
+</pre>
+<p><b>AWFELStatusResponse</b> (size 8)
+</p>
+<pre>   uint16le mark               =&gt; 0xFFFF
+   uint16le tag                =&gt; 0
+   uint8    state              =&gt; 0 (if&#160;!=0, something wrong happened)
+   array    reserved(uint8, 3) =&gt; {0}
+</pre>
+<p><b>AWFELStandardRequest</b> (size 16)
+</p>
+<pre>   uint16le cmd                 =&gt; [one of the request e.g. FEL_VERIFY_DEVICE]
+   uint16le tag                 =&gt; 0 
+   array    reserved(uint8, 12) =&gt; {0}
+</pre>
+<p><b>AWFELMessage</b> (size 16)
+</p>
+<pre>   uint16le cmd,                =&gt; [one of the request e.g. FEL_DOWNLOAD, FEL_UPLOAD, FEL_RUN]
+   uint16le tag,                =&gt; 0 (unused?)
+   uint32le address             =&gt; 0
+   uint32le len                 =&gt; 0 (length of read/write, 0 for FEL_RUN)
+   uint32le flags               =&gt; 0 (used in <a href="../FES.html" title="FES">FES</a> mode)
+</pre>
+<p><b>AWFELVerifyDeviceResponse</b> (size 32)
+</p>
+<pre>   string   magic(8)           =&gt; "AWUSBFEX"
+   uint32le board              =&gt; Allwinner A31s (0x161000)
+   uint32le fw                 =&gt; 1
+   uint16le mode               =&gt; AL_VERIFY_DEV_MODE_FEL (1)
+   uint8    data_flag          =&gt; 0x44
+   uint8    data_length        =&gt; 0x8
+   uint32le data_start_address =&gt; 0x7E00
+   array    reserved(uint8, 8) =&gt; {0}
+</pre>
+<h1><span class="mw-headline" id="Requests">Requests</span></h1>
+<p>Full list of FEL request:
+</p>
+<pre>FEL_VERIFY_DEVICE                       = 0x1 (Read length 32 =&gt; AWFELVerifyDeviceResponse)
+FEL_SWITCH_ROLE                         = 0x2
+FEL_IS_READY                            = 0x3 (Read length 8)
+FEL_GET_CMD_SET_VER                     = 0x4
+FEL_DISCONNECT                          = 0x10
+FEL_DOWNLOAD                            = 0x101 (Write data to the device)
+FEL_RUN                                 = 0x102 (Execute code)
+FEL_UPLOAD                              = 0x103 (Read data from the device)
+</pre>
+<h1><span class="mw-headline" id="Memory_information">Memory information</span></h1>
+<p>Some useful info about memory of device in FEL mode. Dumped from A31 firmware image.
+</p>
+<pre> 
+# 0x2000 - 0x6000   : INIT_CODE (16384 bytes)
+# 0x7010 - 0x7D00   : FEL_MEMORY (3312 bytes)
+# =&gt; 0x7010 - 0x7210: SYS_PARA (512 bytes)
+# =&gt; 0x7210 - 0x7220: SYS_PARA_LOG (16 bytes)
+# =&gt; 0x7220 - 0x7D00: SYS_INIT_PROC (2784 bytes)
+# 0x7D00 - 0x7E00   :&#160;? (256 bytes)
+# 0x7E00 -&#160;?        : DATA_START_ADDRESS (obtained by FEL_VERIFY_DEVICE)
+# 0x40000000        : DRAM_BASE
+# 0x4A000000        : u-boot.fex
+# 0x4D415244        : SYS_PARA_LOG (second instance?)
+</pre>
+<h1><span class="mw-headline" id="Flashing">Flashing</span></h1>
+<p>Before proper flash process begins, device must be turned into <a href="../FES.html" title="FES">FES</a> mode. Here's exactly way how it's achieved based on <a href="../A31.html" title="A31">A31</a> device flash USB communication
+</p>
+<ol><li>FEL_VERIFY_DEVICE =&gt; mode: AL_VERIFY_DEV_MODE_FEL, data_start_address: 0x7E00</li>
+<li>FEL_VERIFY_DEVICE (not sure why it's spamming with this again)</li>
+<li>FEL_UPLOAD: Get 256 bytes of data (filled 0xCC) from 0x7E00 (data_start_address)</li>
+<li>FEL_VERIFY_DEVICE</li>
+<li>FEL_DOWNLOAD: Send 256 bytes of data (0x00000000, rest 0xCC) at 0x7E00 (data_start_address)</li>
+<li>FEL_VERIFY_DEVICE</li>
+<li>FEL_DOWNLOAD: Send 16 bytes of data (filled 0x00) at 0x7210 (SYS_PARA_LOG)</li>
+<li>FEL_DOWNLOAD: Send 6496 bytes of data (fes1.fex) at 0x2000 (INIT_CODE)</li>
+<li>FEL_RUN: Run code at 0x2000 (fes1.fex). DRAM is initialized. You can manipulate memory on DRAM_BASE address</li>
+<li>FEL_UPLOAD: Get 136 bytes of data (DRAM) from 0x7210 (SYS_PARA_LOG). Its DRAM data in same form as in dram_para section in <a href="../Fex_Guide.html" title="Fex Guide">script</a></li>
+<li>FEL_DOWNLOAD(12 times because u-boot.fex is 0xBC000 bytes): Send (u-boot.fex) 0x4A000000 in 65536 bytes chunks (last chunk is 49152 bytes and ideally starts at config.fex (also known as: script.bin) data)</li>
+<li>FEL_DOWNLOAD: Send 1 byte of data (0x10) at 0x0E offset of u-boot (0x4A00000E). This change uboot_spare_head.boot_data.work_mode to WORK_MODE_USB_PRODUCT (more (<a class="external text" href="http://dl.linux-sunxi.org/SDK/A80/A80_SDK_20140728_stripped/lichee/brandy/u-boot-2011.09/common/cmd_irq.c">cmd_irq.c</a>) . <b>Important</b>: if you skip this step device will boot normally</li>
+<li>FEL_RUN: Run code at 0x4A000000 (u-boot.fex). <b>Pause</b>: <a href="../LiveSuit.html" title="LiveSuit">LiveSuit</a> asks user if he would like to do format or upgrade</li>
+<li>FEL_VERIFY_DEVICE =&gt; mode: AL_VERIFY_DEV_MODE_SRV,  you can send <a href="../FES.html" title="FES">FES</a> commands now and you cannot send <a href="../FEL.html" title="FEL">FEL</a> commands anymore except FEL_VERIFY_DEVICE</li></ol>
+<p>Every <a href="../LiveSuit_images.html" title="LiveSuit images">LiveSuit image</a> contains a compiled LUA plugin (aultools.fex) with a script. The script is loaded by <a href="../LiveSuit.html" title="LiveSuit">LiveSuit</a> and executed when flash process starts.
+</p><p>Check also legacy informations: <a class="external text" href="https://github.com/hno/Allwinner-Info/blob/master/FEL-usb/USB-protocol.txt">USB-protocol.txt</a>.
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20251029052858
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.022 seconds
+Real time usage: 0.030 seconds
+Preprocessor visited node count: 59/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 2764/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:1466-0!canonical and timestamp 20251029052858 and revision id 26775
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=FEL/Protocol&amp;oldid=26775">https://linux-sunxi.org/index.php?title=FEL/Protocol&amp;oldid=26775</a>"</div>
+		<div id="catlinks" class="catlinks catlinks-allhidden" data-mw="interface"></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=FEL%2FProtocol" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=FEL%2FProtocol" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="Protocol.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:FEL/Protocol&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="Protocol.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=FEL/Protocol&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=FEL/Protocol&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="../index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="../index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="../sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="../Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="https://linux-sunxi.org/Special:WhatLinksHere/FEL/Protocol" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/FEL/Protocol" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="../Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=FEL/Protocol&amp;oldid=26775" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=FEL/Protocol&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 3 October 2025, at 15:06.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.022","walltime":"0.030","ppvisitednodes":{"value":59,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":2764,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20251029052858","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":262});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

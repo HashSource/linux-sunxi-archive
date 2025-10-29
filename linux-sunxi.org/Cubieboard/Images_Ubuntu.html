@@ -1,0 +1,425 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Cubieboard/Images Ubuntu - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"79b8c49a4fc9a77836a8289f","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Cubieboard/Images_Ubuntu","wgTitle":"Cubieboard/Images Ubuntu","wgCurRevisionId":9322,"wgRevisionId":9322,"wgArticleId":590,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Cubieboard"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Cubieboard/Images_Ubuntu","wgRelevantArticleId":590,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready",
+"noscript":"ready","user.styles":"ready","user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=skins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="Images_Ubuntu.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-Cubieboard_Images_Ubuntu rootpage-Cubieboard skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">Cubieboard/Images Ubuntu</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"><span class="subpages">&lt; <a href="../Cubieboard.html" class="mw-redirect" title="Cubieboard">Cubieboard</a></span></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><h2><span id="Prebuilt_Images(For_Nand_Flash_Only)"></span><span class="mw-headline" id="Prebuilt_Images.28For_Nand_Flash_Only.29">Prebuilt Images(For Nand Flash Only)</span></h2>
+<table class="wikitable">
+
+<tbody><tr>
+<th>Version</th>
+<th>Features</th>
+<th>Tips
+</th></tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="http://dl.cubieboard.org/software/ubuntuone/public/cubieboard/cb_a10_ubuntu/cb_a10_nand_ubuntu_desktop_12.04_v1.03.img.gz">Ubuntu 12.04 desktop v1.03 HDMI(click to download)</a></td>
+<td>
+<p>1.Cpu frequency scaling <br />
+2.stage-3.4@linux-sunxi kernel <br />
+3.Support 8192cu, 8188eu and more wifi <br />
+4.Could be written to Cubieboard's nandflash with livesuit <br />
+5.Default HDMI output <br />
+6.Suitable for Cubieboard(A10) <br />
+</p>
+</td>
+<td>
+<p>1. Try to run 'sudo dhclient eth0' command, if you could not access to external network with ethernet<br />
+2. Try to run following commands to tune filesystem partitions to its real size:<br />
+</p>
+<pre>   sudo resize2fs /dev/nandc <br />
+   sudo resize2fs /dev/nandd <br />
+   sudo resize2fs /dev/nande <br />
+   sudo resize2fs /dev/nandf <br />
+</pre>
+<p>3. the ethernet mac address is generated from chipid of a10
+</p>
+</td></tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="http://dl.cubieboard.org/software/ubuntuone/public/cubieboard/cb_a10_ubuntu/cb_a10_nand_ubuntu_desktop_12.04_v1.03_vga.img.gz">Ubuntu 12.04 desktop v1.03 VGA(click to download)</a></td>
+<td>
+<p>1.Cpu frequency scaling <br />
+2.stage-3.4@linux-sunxi kernel <br />
+3.Support 8192cu, 8188eu and more wifi <br />
+4.Could be written to Cubieboard's nandflash with livesuit <br />
+5.Default VGA output <br />
+6.Suitable for Cubieboard(A10) <br />
+</p>
+</td>
+<td>
+<p>1. You need a VGA baseboard <br />
+</p>
+</td></tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="http://dl.cubieboard.org/software/ubuntuone/public/cubieboard/cb_a10_ubuntu/cb_a10_nand_ubuntu_server_13.03_v1.0.tgz">Ubuntu 13.03 server v1.03</a></td>
+<td>
+<p>1.Cpu frequency scaling <br />
+2.stage-3.4@linux-sunxi kernel <br />
+3.Support 8192cu, 8188eu and more wifi <br />
+4.Could be written to Cubieboard's nandflash with livesuit <br />
+5.Default HDMI output <br />
+6.Suitable for Cubieboard(A10) <br />
+7.No X Window <br />
+</p>
+</td>
+<td>
+<p>1. <a rel="nofollow" class="external text" href="http://dl.cubieboard.org/software/ubuntuone/public/cubieboard/cb_a10_ubuntu/cb_a10_nand_ubuntu_server_13.03_kernelsource.tgz">Kernel Tarball</a>
+</p>
+</td></tr>
+<tr>
+<td>
+<p><a rel="nofollow" class="external text" href="http://dl.cubieboard.org/software/ubuntuone/public/cubieboard/cb_a20_ubunutu/cb_a20_ubn_12.04_x-v1.02-dram432.img.gz">Ubuntu 12.04 desktop v1.00 HDMI(A20)</a>
+</p>
+</td>
+<td>
+<p>1. Suitable for Cubieboard(A20) <br />
+2. Linux-3.3 kernel <br />
+3. For Cubieboard(A20) only <br />
+4. DRAM freq 432MHz <br />
+5. Dual-cores CPU <br />
+6. Dynamically CPU Frequency Scaling <br />
+</p>
+</td>
+<td>
+<p>SDK: <a class="external free" href="https://github.com/cubieboard2/manifests">https://github.com/cubieboard2/manifests</a> <br />
+</p>
+</td></tr>
+<tr>
+<td>
+<p><a rel="nofollow" class="external text" href="http://dl.cubieboard.org/software/ubuntuone/public/cubieboard/cb_a20_ubunutu/cb_a20_ubn_12.04_x-v1.02-dram480.img.gz">Ubuntu 12.04 desktop v1.00 HDMI(A20)</a>
+</p>
+</td>
+<td>
+<p>1. Suitable for Cubieboard(A20) <br />
+2. Linux-3.3 kernel <br />
+3. For Cubieboard(A20) only <br />
+4. DRAM freq 480MHz <br />
+5. Dual-cores CPU <br />
+6. Dynamically CPU Frequency Scaling <br />
+</p>
+</td>
+<td>
+<p>SDK: <a class="external free" href="https://github.com/cubieboard2/manifests">https://github.com/cubieboard2/manifests</a> <br />
+</p>
+</td></tr>
+<tr>
+<td>
+<p><a rel="nofollow" class="external text" href="http://dl.cubieboard.org/software/a20-cubieboard/lubuntu/cb-a20-lubuntu-1204-v1.04.img">Ubuntu 12.04 desktop v1.03 HDMI(A20)</a>
+</p>
+</td>
+<td>
+<p>1. Fixed livesuit(linux) hung issue <br />
+</p>
+</td>
+<td>
+<p>SDK: <a class="external free" href="https://github.com/cubieboard2/manifests">https://github.com/cubieboard2/manifests</a> <br />
+</p>
+</td></tr>
+<tr>
+<td>
+<p><a rel="nofollow" class="external text" href="http://ubuntuone.com/56srFr1jOaLMd7Jf1wn6tp">Ubuntu 12.04 desktop v1.03 VGA(A20)</a>
+</p>
+</td>
+<td>
+<p>1. Fixed livesuit(linux) hung issue <br />
+2. Default VGA output<br />
+</p>
+</td>
+<td>
+<p>SDK: <a class="external free" href="https://github.com/cubieboard2/manifests">https://github.com/cubieboard2/manifests</a> <br />
+</p>
+</td></tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="http://dl.cubieboard.org/software/tools/livesuit/PhoenixSuit1.0.7.rar">Livesuit(Windows)</a></td>
+<td>
+<p>Support Windows XP/7/8 32/64 bits <br />
+</p>
+</td>
+<td>
+<p>Support Cubieboard(A10) <br />
+</p>
+</td></tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="http://dl.cubieboard.org/software/tools/livesuit/LiveSuit_ForMac.zip">Livesuit(Mac)</a></td>
+<td>Support MacOS</td>
+<td>Support Cubieboard(A10)
+</td></tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="http://dl.cubieboard.org/software/tools/livesuit/LiveSuitV306_For_Linux32.zip">Livesuit(x86)</a></td>
+<td>Not stable</td>
+<td>Support Cubieboard(A10)
+</td></tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="http://dl.cubieboard.org/software/tools/livesuit/LiveSuitV306_For_Linux64.zip">Livesuit(x86_64)</a></td>
+<td>Not stable</td>
+<td>Support Cubieboard(A10)
+</td></tr>
+
+</tbody></table>
+<h2><span id="Prebuilt_Images(For_TF/SD_Card_Only)"></span><span class="mw-headline" id="Prebuilt_Images.28For_TF.2FSD_Card_Only.29">Prebuilt Images(For TF/SD Card Only)</span></h2>
+<table class="wikitable">
+
+<tbody><tr>
+<th>Version</th>
+<th>Features</th>
+<th>Tips
+</th></tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="http://dl.cubieboard.org/software/a10-cubieboard/lubuntu/cb-sdcard-lubuntu-linaro-quantal-alip-20130227-290.img.tar.bz">lubuntu-linaro-quantal-alip-20130227-290 HDMI(click to download)</a></td>
+<td>
+<p>1.Default HDMI output <br />
+2.Suitable for Cubieboard(A10) <br />
+</p>
+</td>
+<td>
+<p>for tf/sd card only
+</p>
+</td></tr>
+</tbody></table>
+<p><br />
+</p>
+<h2><span class="mw-headline" id="lubuntu_SDK">lubuntu SDK</span></h2>
+<table class="wikitable">
+
+<tbody><tr>
+<th>Version</th>
+<th>Features</th>
+<th>Tips
+</th></tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="http://cb-sdcard-lubuntu-linaro-quantal-alip-20130227-290.img.tar.bz">Cubieboard(A10) lubuntu desktop SDK(click to download)</a></td>
+<td>
+<p>1.Suggest using ubuntu 12.04(x86_64) as host building enviroment <br />
+2. run 'make livesuit-cb ROOTFS=rootfs/linaro-quantal-alip-20130422-342.tar.gz' to build the final livesuit image<br />
+</p>
+</td>
+<td>
+<p>You can replace the lubuntu rootfs as you can <br />
+</p>
+</td></tr>
+</tbody></table>
+<!-- 
+NewPP limit report
+Cached time: 20251029042529
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.224 seconds
+Real time usage: 0.285 seconds
+Preprocessor visited node count: 8/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:590-0!canonical and timestamp 20251029042529 and revision id 9322
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=Cubieboard/Images_Ubuntu&amp;oldid=9322">https://linux-sunxi.org/index.php?title=Cubieboard/Images_Ubuntu&amp;oldid=9322</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="../Special:Categories.html" title="Special:Categories">Category</a>: <ul><li><a href="../Category:Cubieboard.html" title="Category:Cubieboard">Cubieboard</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=Cubieboard%2FImages+Ubuntu" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=Cubieboard%2FImages+Ubuntu" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="Images_Ubuntu.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:Cubieboard/Images_Ubuntu&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="Images_Ubuntu.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Cubieboard/Images_Ubuntu&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Cubieboard/Images_Ubuntu&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="../index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="../index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="../sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="../Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="../Special:WhatLinksHere/Cubieboard/Images_Ubuntu.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/Cubieboard/Images_Ubuntu" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="../Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=Cubieboard/Images_Ubuntu&amp;oldid=9322" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=Cubieboard/Images_Ubuntu&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 12 June 2014, at 06:43.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.224","walltime":"0.285","ppvisitednodes":{"value":8,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":0,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20251029042529","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":289});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

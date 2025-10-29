@@ -1,0 +1,291 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Anichips PhoenixA20/Headers - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"fced0b2240ec1db81491b4f5","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Anichips_PhoenixA20/Headers","wgTitle":"Anichips PhoenixA20/Headers","wgCurRevisionId":10381,"wgRevisionId":10381,"wgArticleId":1545,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Anichips_PhoenixA20/Headers","wgRelevantArticleId":1545,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready",
+"noscript":"ready","user.styles":"ready","user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=mediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="Headers.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-Anichips_PhoenixA20_Headers rootpage-Anichips_PhoenixA20 skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">Anichips PhoenixA20/Headers</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"><span class="subpages">&lt; <a href="../Anichips_PhoenixA20.html" title="Anichips PhoenixA20">Anichips PhoenixA20</a></span></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>The Anichips PhoenixA20 board has four 2.00mm pitch headers. These are labelled <a href="../UART.html" title="UART">UART</a>, digital, analogue and LCD. The information here has been pulled from an inspection of the board, the <a href="../Anichips_PhoenixA20.html#See_also" title="Anichips PhoenixA20">PhoenixA20 schematics</a> and the <a class="external text" href="http://dl.linux-sunxi.org/A20/A20%20User%20Manual%202013-03-22.pdf">Allwinner A20 User Manual</a>.
+</p><p><br />
+A number of pins are controlled through the Allwinner A20 port controller. These pins are shown as (P<em>xn</em>) in the diagrams below, where <em>x</em> is the port identifier (A through to S) and <em>n</em> is the pin number. By <a href="../Fex_Guide.html" title="Fex Guide">modifying a FEX file</a> for a sunxi 3.4 Linux kernel or a DTS file for a mainline Linux kernel the use of the port can be modified. For example the LCD pins can be re-purposed as a LVDS video interface. If port controlled pins are unused they can be set up as <a href="../GPIO.html" title="GPIO">general purpose input/output (GPIO)</a>, with the LCD connector this gives a potential 28 GPIO pins. The Allwinner A20 User Manual provides mappings between pin and purpose.
+</p><p><br />
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#UART_Header"><span class="tocnumber">1</span> <span class="toctext">UART Header</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Digital_Header"><span class="tocnumber">2</span> <span class="toctext">Digital Header</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Analogue_Header"><span class="tocnumber">3</span> <span class="toctext">Analogue Header</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#LCD_Header"><span class="tocnumber">4</span> <span class="toctext">LCD Header</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="UART_Header">UART Header</span></h1>
+<p>This header provides access to UART0 and can be used for <a href="../UART.html" title="UART">debugging</a>.
+</p>
+<div class="thumb tleft"><div class="thumbinner" style="width:402px;"><a href="../File:Phoenixa20_pinout-uart0.png.html" class="image"><img alt="Phoenixa20 pinout-uart0.png" src="https://linux-sunxi.org/images/d/d9/Phoenixa20_pinout-uart0.png" decoding="async" width="400" height="300" class="thumbimage" /></a>  <div class="thumbcaption"></div></div></div>
+<div style="clear:both;"></div>
+<h1><span class="mw-headline" id="Digital_Header">Digital Header</span></h1>
+<p>The digital header mainly provides three additional UART interfaces and two <a href="../I2Cdev.html" title="I2Cdev">I<sup>2</sup>C interfaces</a>. 
+</p><p><br />
+On the board pins are also labelled for <a class="external text" href="http://en.wikipedia.org/wiki/I%C2%B2S">Inter-IC Sound (I<sup>2</sup>S)</a>, but the schematics show these pins are used to carry Bluetooth PCM audio between the AP6210 and A20 audio system. One of the I<sup>2</sup>S labelled pins (PB9) is used as a USB power switch. This leaves two pins (PB10 and PB11) unused and these could be configured as GPIO for a <a href="../1-Wire.html" title="1-Wire">1-wire interface</a>. For anyone interested in I<sup>2</sup>S this post, <a rel="nofollow" class="external text" href="http://hifiduino.wordpress.com/2014/03/07/cubieboard-for-audio/">CUBIEBOARD FOR AUDIO?</a>, that discusses the CubieTruck may be a starting point.
+</p><p><br />
+The UART interfaces are numbered 3,4 and 5 and this corresponds to the numbers used on the A20 SOC. UART0 is exposed on a separate header shown above, UART1 is not available as the pins are used for the Ethernet MAC controller and UART2 is connected to the Bluetooth chip of the AP6210. The numbers exposed in the Linux user space will be different because UART1 is not available.
+</p>
+<div class="thumb tleft"><div class="thumbinner" style="width:402px;"><a href="../File:Phoenixa20_pinout-digital.png.html" class="image"><img alt="Phoenixa20 pinout-digital.png" src="https://linux-sunxi.org/images/5/56/Phoenixa20_pinout-digital.png" decoding="async" width="400" height="600" class="thumbimage" /></a>  <div class="thumbcaption"></div></div></div>
+<div style="clear:both;"></div>
+<h1><span class="mw-headline" id="Analogue_Header">Analogue Header</span></h1>
+<p>The analogue header mainly provides audio, human input and video interfaces. The header also has the power enable and reset pins for the power management unit.
+</p><p><br />
+For audio there are pins for:
+</p>
+<ul><li>Mono microphone</li>
+<li>Stereo line level input</li>
+<li>Stereo auxiliary input (marked as from an auxiliary FM tuner, there is no FM tuner on the A20 SOC)</li>
+<li>Stereo headphones</li>
+<li>SPDIF output</li></ul>
+<p><br />
+For human input there are pins for:
+</p>
+<ul><li>Resistive touchpanel</li>
+<li>Two low resolution ADCs (6bit, 0-2V) usually used for buttons</li>
+<li>Infra-red receiver, confusingly the schematic shows the pin wired to IR-RX(PB4) but labels the pin on the connector as IR-OUT.</li></ul>
+<p><br />
+For video there are pins for:
+</p>
+<ul><li>Composite video out</li>
+<li>TV in, these are undocumented for Allwinner SOCs so are effectively useless</li></ul>
+<p><br />
+There are also two <a href="../PWM_Controller.html" class="mw-redirect" title="PWM Controller">Pulse Width Modulation pins (PWM)</a> that could be used for controlling LED brightness or a stepper motor.
+</p><p>Very few of the pins are part of the port controller so most cannot be re-purposed as GPIO pins.
+</p>
+<div class="thumb tleft"><div class="thumbinner" style="width:802px;"><a href="../File:Phoenixa20_pinout-analogue.png.html" class="image"><img alt="Phoenixa20 pinout-analogue.png" src="https://linux-sunxi.org/images/a/af/Phoenixa20_pinout-analogue.png" decoding="async" width="800" height="700" class="thumbimage" /></a>  <div class="thumbcaption"></div></div></div>
+<div style="clear:both;"></div>
+<h1><span class="mw-headline" id="LCD_Header">LCD Header</span></h1>
+<p>The LCD header could be re-purposed as a 28 pin GPIO header. The A20 User Manual also shows the pins could be re-purposed for LVDS video connector.
+</p>
+<div class="thumb tleft"><div class="thumbinner" style="width:802px;"><a href="../File:Phoenixa20_pinout-lcd.png.html" class="image"><img alt="Phoenixa20 pinout-lcd.png" src="https://linux-sunxi.org/images/2/28/Phoenixa20_pinout-lcd.png" decoding="async" width="800" height="700" class="thumbimage" /></a>  <div class="thumbcaption"></div></div></div>
+<div style="clear:both;"></div>
+<!-- 
+NewPP limit report
+Cached time: 20251029042100
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.072 seconds
+Real time usage: 0.098 seconds
+Preprocessor visited node count: 27/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:1545-0!canonical and timestamp 20251029042100 and revision id 10381
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=Anichips_PhoenixA20/Headers&amp;oldid=10381">https://linux-sunxi.org/index.php?title=Anichips_PhoenixA20/Headers&amp;oldid=10381</a>"</div>
+		<div id="catlinks" class="catlinks catlinks-allhidden" data-mw="interface"></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=Anichips+PhoenixA20%2FHeaders" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=Anichips+PhoenixA20%2FHeaders" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="Headers.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:Anichips_PhoenixA20/Headers&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="Headers.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Anichips_PhoenixA20/Headers&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Anichips_PhoenixA20/Headers&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="../index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="../index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="../sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="../Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="../Special:WhatLinksHere/Anichips_PhoenixA20/Headers.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/Anichips_PhoenixA20/Headers" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="../Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=Anichips_PhoenixA20/Headers&amp;oldid=10381" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=Anichips_PhoenixA20/Headers&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 15 August 2014, at 14:57.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.072","walltime":"0.098","ppvisitednodes":{"value":27,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":0,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20251029042100","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":233});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

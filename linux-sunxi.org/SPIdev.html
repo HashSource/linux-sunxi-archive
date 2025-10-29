@@ -1,0 +1,823 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>SPIdev - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"93c9a039e5ce21c42c43391f","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"SPIdev","wgTitle":"SPIdev","wgCurRevisionId":26793,"wgRevisionId":26793,"wgArticleId":827,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Software"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"SPIdev","wgRelevantArticleId":827,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":"ready","user":"ready",
+"user.options":"loading","ext.cite.styles":"ready","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","ext.cite.ux-enhancements","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=ext.cite.styles%7Cmediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="SPIdev.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-SPIdev rootpage-SPIdev skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">SPIdev</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>The <b>SPI</b> bus (or <b>Serial Peripheral Interface bus</b>) is a synchronous serial data link originally created by motorola.<br />
+For more information about SPI please refer to this link: <a class="external free" href="http://en.wikipedia.org/wiki/Serial_Peripheral_Interface">http://en.wikipedia.org/wiki/Serial_Peripheral_Interface</a><br />
+<br />
+In the linux kernel the SPI works only in master mode.<br />
+There is a way of using the spi kernel driver to work as a device in the userspace. It's called SPIdev.<br />
+<br />
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Configuring_your_kernel"><span class="tocnumber">1</span> <span class="toctext">Configuring your kernel</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#More_information"><span class="tocnumber">2</span> <span class="toctext">More information</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Configuring_your_FEX"><span class="tocnumber">3</span> <span class="toctext">Configuring your FEX</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Configuring_your_device-tree_.28mainline.29"><span class="tocnumber">4</span> <span class="toctext">Configuring your device-tree (mainline)</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="#Example_for_pcDuino3"><span class="tocnumber">4.1</span> <span class="toctext">Example for pcDuino3</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Example_for_A10s_Olinuxino_Micro_UEXT_connector"><span class="tocnumber">4.2</span> <span class="toctext">Example for A10s Olinuxino Micro UEXT connector</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="#.28For_newer_kernel.29_binding_the_spidev_driver_in_sysfs_to_create_.2Fdev.2FspidevX.X"><span class="tocnumber">5</span> <span class="toctext">(For newer kernel) binding the spidev driver in sysfs to create /dev/spidevX.X</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#Using_the_SPI_bus"><span class="tocnumber">6</span> <span class="toctext">Using the SPI bus</span></a>
+<ul>
+<li class="toclevel-2 tocsection-9"><a href="#In_the_user_space"><span class="tocnumber">6.1</span> <span class="toctext">In the user space</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#In_the_kernel_space"><span class="tocnumber">6.2</span> <span class="toctext">In the kernel space</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-11"><a href="#SPI_NOR_Flash"><span class="tocnumber">7</span> <span class="toctext">SPI NOR Flash</span></a></li>
+<li class="toclevel-1 tocsection-12"><a href="#Bugs.2FCaveats"><span class="tocnumber">8</span> <span class="toctext">Bugs/Caveats</span></a>
+<ul>
+<li class="toclevel-2 tocsection-13"><a href="#HIGH_on_SCK_line_right_before_transfer"><span class="tocnumber">8.1</span> <span class="toctext">HIGH on SCK line right before transfer</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="#LOW_on_SCK_line_on_transfer_start_when_using_SPI-Mode3"><span class="tocnumber">8.2</span> <span class="toctext">LOW on SCK line on transfer start when using SPI-Mode3</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Configuring_your_kernel">Configuring your kernel</span></h1>
+<p>For using it you will have to enable this options in your defconfig or manually in your kernel:<br />
+<br />
+CONFIG_SPI_SUN4I=y<br />
+CONFIG_SPI_SUN6I=y<br />
+CONFIG_SPI=y<br />
+CONFIG_SPI_MASTER=y<br />
+CONFIG_EXPERIMENTAL=y<br />
+CONFIG_SPI_SPIDEV=y<br />
+<br />
+</p>
+<h1><span class="mw-headline" id="More_information">More information</span></h1>
+<p>For more information about using SPIdev in the userspace please refer to (Documentation/spi/): <a rel="nofollow" class="external free" href="http://lxr.free-electrons.com/source/Documentation/spi/">http://lxr.free-electrons.com/source/Documentation/spi/</a><br />
+<br />
+You will find there:<br />
+</p>
+<ul><li>spidev (contains the documentantion about the spidev)<br /></li></ul>
+<p><br />
+In <i>tools/spi</i> (<a rel="nofollow" class="external free" href="http://lxr.free-electrons.com/source/tools/spi/">http://lxr.free-electrons.com/source/tools/spi/</a>) you will find:
+</p>
+<ul><li>spidev_fdx.c (contains a simple example in C of a full duplex communication)</li>
+<li>spidev_test.c (contains a simple example in C of a half duplex communication)</li></ul>
+<h1><span class="mw-headline" id="Configuring_your_FEX">Configuring your FEX</span></h1>
+<p>It is important to configure your .fex file to be able to do so:<br />
+<br />
+(if you are using spi0)<br />
+</p>
+<pre class="brush: ini">[spi0_para]
+spi_used = 1
+spi_cs_bitmap = 1
+spi_cs0 = port:PI10&lt;2&gt;&lt;default&gt;&lt;default&gt;&lt;default&gt;
+spi_sclk = port:PI11&lt;2&gt;&lt;default&gt;&lt;default&gt;&lt;default&gt;
+spi_mosi = port:PI12&lt;2&gt;&lt;default&gt;&lt;default&gt;&lt;default&gt;
+spi_miso = port:PI13&lt;2&gt;&lt;default&gt;&lt;default&gt;&lt;default&gt;
+</pre>
+<p>(here you will specify the number of spi devices your card will have, if you plan only to use the spidev just put 1):
+</p>
+<pre class="brush: ini">[spi_devices]
+spi_dev_num = 1
+</pre>
+<p>(here you will have to put in the modalias "spidev")
+</p>
+<pre class="brush: ini">[spi_board0]
+modalias = "spidev"
+max_speed_hz = 12000000
+bus_num = 0
+chip_select = 0
+mode = 0
+full_duplex = 1
+manual_cs = 0
+</pre>
+<p>For more information about editing the fex file: <a rel="nofollow" class="external free" href="http://linux-sunxi.org/Fex_Guide">http://linux-sunxi.org/Fex_Guide</a><br />
+</p>
+<h1><span id="Configuring_your_device-tree_(mainline)"></span><span class="mw-headline" id="Configuring_your_device-tree_.28mainline.29">Configuring your device-tree (mainline)</span></h1>
+<p>For the most boards SPI is disabled by default. To enable it you have to modify the <a href="Device_Tree.html" title="Device Tree">device-tree</a> of your board.
+</p>
+<h3><span class="mw-headline" id="Example_for_pcDuino3">Example for pcDuino3</span></h3>
+<p>As an example, we will enable SPI0 for this board. <br />
+We will have to modify <i>arch/arm/boot/dts/sun7i-a20-pcduino3.dts</i>.<br />
+</p><p>First of all, for aesthetic reasons, we want spi0 to appear as <i>/sys/class/spi_master/spi0</i> and not as <i>ls /sys/class/spi_master/spi32766</i>, therefore we add <i>spi0 = &amp;spi0;</i> in the aliases section.<br />
+</p><p>Second - we enable spi0 by adding <i>+&amp;spi0</i> section. In example below spidev is also enabled, so that /dev/spidev0.0 could be accessible from the userspace (please note, that you must also enable CONFIG_SPI_SPIDEV in kernel configuration, and bind the spidev driver in sysfs, see below). If you don't need that functionality, you can omit <i>spidev@0x00</i> section.
+</p><p>For more examples, see the device tree overlays in <a class="external text" href="https://github.com/armbian/sunxi-DT-overlays">Armbian's sunxi-DT-overlays</a> repository.
+</p>
+<pre>--- a/arch/arm/boot/dts/sun7i-a20-pcduino3.dts
++++ b/arch/arm/boot/dts/sun7i-a20-pcduino3.dts
+@@ -56,6 +56,7 @@
+
+        aliases {
+                serial0 = &amp;uart0;
++               spi0 = &amp;spi0;
+        };
+
+        chosen {
+@@ -230,6 +231,19 @@
+        regulator-name = "avcc";
+ };
+
++&amp;spi0 {
++       pinctrl-names = "default";
++       pinctrl-0 = &lt;&amp;spi0_pins_a&gt;,
++                   &lt;&amp;spi0_cs0_pins_a&gt;;
++       status = "okay";
++
++       spidev@0x00 {
++               compatible = "spidev";
++               spi-max-frequency = &lt;1200000&gt;;
++               reg = &lt;0&gt;;
++       };
++};
++
+ &amp;reg_usb1_vbus {
+        status = "okay";
+ };
+</pre>
+<h3><span class="mw-headline" id="Example_for_A10s_Olinuxino_Micro_UEXT_connector">Example for A10s Olinuxino Micro UEXT connector</span></h3>
+<pre>--- a/arch/arm/boot/dts/sun5i-a10s.dtsi
++++ b/arch/arm/boot/dts/sun5i-a10s.dtsi
+@@ -154,6 +154,20 @@
+                        clocks = &lt;&amp;apb1_gates 18&gt;;
+                        status = "disabled";
+                };
++
++               spi2: spi@01c17000 {
++                       compatible = "allwinner,sun4i-a10-spi";
++                       reg = &lt;0x01c17000 0x1000&gt;;
++                       interrupts = &lt;12&gt;;
++                       clocks = &lt;&amp;ahb_gates 22&gt;, &lt;&amp;spi2_clk&gt;;
++                       clock-names = "ahb", "mod";
++                       dmas = &lt;&amp;dma SUN4I_DMA_DEDICATED 29&gt;,
++                              &lt;&amp;dma SUN4I_DMA_DEDICATED 28&gt;;
++                       dma-names = "rx", "tx";
++                       status = "disabled";
++                       #address-cells = &lt;1&gt;;
++                       #size-cells = &lt;0&gt;;
++               };
+        };
+ };
+ 
+@@ -198,4 +212,18 @@
+                allwinner,drive = &lt;SUN4I_PINCTRL_30_MA&gt;;
+                allwinner,pull = &lt;SUN4I_PINCTRL_NO_PULL&gt;;
+        };
++
++       spi2_pins_a: spi2@0 {
++               allwinner,pins = "PB11", "PB12", "PB13", "PB14";
++               allwinner,function = "spi2";
++               allwinner,drive = &lt;SUN4I_PINCTRL_10_MA&gt;;
++               allwinner,pull = &lt;SUN4I_PINCTRL_NO_PULL&gt;;
++       };
++
++       spi2_pins_b: spi2@1 {
++               allwinner,pins = "PE00", "PE01", "PE02", "PE03";
++               allwinner,function = "spi2";
++               allwinner,drive = &lt;SUN4I_PINCTRL_10_MA&gt;;
++               allwinner,pull = &lt;SUN4I_PINCTRL_NO_PULL&gt;;
++       };
+ };
+
+
+--- a/arch/arm/boot/dts/sun5i-a10s-olinuxino-micro.dts
++++ b/arch/arm/boot/dts/sun5i-a10s-olinuxino-micro.dts
+@@ -182,6 +188,12 @@
+        status = "okay";
+ };
+ 
++&amp;spi2 {
++       pinctrl-names = "default";
++       pinctrl-0 = &lt;&amp;spi2_pins_a&gt;;
++       status = "okay";
++};
++
+ &amp;ohci0 {
+        status = "okay";
+ };
+
+--- a/arch/arm/boot/dts/sun5i-a10s-olinuxino-micro.dts
++++ b/arch/arm/boot/dts/sun5i-a10s-olinuxino-micro.dts
+@@ -192,6 +192,15 @@
+        pinctrl-names = "default";
+        pinctrl-0 = &lt;&amp;spi2_pins_a&gt;;
+        status = "okay";
++       spi2_0 {
++               #address-cells = &lt;1&gt;;
++               #size-cells = &lt;0&gt;;
++
++               compatible = "spidev";
++
++               reg = &lt;0&gt;;
++               spi-max-frequency = &lt;50000000&gt;;
++       };
+ };
+ 
+ &amp;ohci0 {
+</pre>
+<h1><span id="(For_newer_kernel)_binding_the_spidev_driver_in_sysfs_to_create_/dev/spidevX.X"></span><span class="mw-headline" id=".28For_newer_kernel.29_binding_the_spidev_driver_in_sysfs_to_create_.2Fdev.2FspidevX.X">(For newer kernel) binding the spidev driver in sysfs to create /dev/spidevX.X</span></h1>
+<p>According to Documentation/spi/spidev.rst in Linux source tree, <i>[i]t used to be supported to define an SPI device using the "spidev" name. For example, as .modalias = "spidev" or compatible = "spidev".  But this is no longer supported by the Linux kernel and instead a real SPI device name as listed in one of the tables must be used.</i>
+</p><p>As a result, in a newer kernel, if the "compatible" field in device tree does not contain a real SPI device which belongs to some specific device tables, the character device /dev/spidevX.X will not be created automatically. In this case, it is necessary to bind the spidev driver by running the following 2 commands<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup> (replace X.X with the SPI bus number and CS pin ID of you board):
+</p>
+<pre>echo spidev &gt; /sys/bus/spi/devices/spiX.X/driver_override
+echo spiX.X &gt; /sys/bus/spi/drivers/spidev/bind
+</pre>
+<p>After that, /dev/spidevX.X will be created, which can be accessed by user-space tools like <i>flashrom</i>.
+</p>
+<h1><span class="mw-headline" id="Using_the_SPI_bus">Using the SPI bus</span></h1>
+<h2><span class="mw-headline" id="In_the_user_space">In the user space</span></h2>
+<p>Once you will have this set you can boot your sunxi device and you will have in your dev in /dev/spidev<b>n</b>.0<br />
+</p><p><b>Transfer size is limited to 64 bytes on sun4i and 128 bytes on sun6i</b>. You have to loop over longer messages in your code. Some SPI devices may require that you prefix each message fragment with a header, other may not. YMMV. Look up transfer diagrams in device datasheet.
+<br />
+Known problems: Using the spidev_test.c example you will receive [spi]: drivers/spi/spi_sunxi.c(L1025) cpu tx data time out!<br />
+Using the spidev_fdx.c method it works like a charm!&#160;:)<br />
+<br />
+I've made a user friendlier library (C functions) to comunicate using SPIdev:<br />
+(Note, this library supose the read and write address to be 2 bytes)
+</p>
+<pre class="brush: ini">/*
+    spidevlib.c - A user-space program to comunicate using spidev.
+				Gustavo Zamboni
+*/
+#include &lt;stdint.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;getopt.h&gt;
+#include &lt;fcntl.h&gt;
+#include &lt;sys/ioctl.h&gt;
+#include &lt;linux/types.h&gt;
+#include &lt;linux/spi/spidev.h&gt;
+
+char buf[10];
+char buf2[10];
+extern int com_serial;
+extern int failcount;
+
+struct spi_ioc_transfer xfer[2];
+
+
+//////////
+// Init SPIdev
+//////////
+int spi_init(char filename[40])
+	{
+    	int file;
+	__u8	mode, lsb, bits;
+	__u32 speed=2500000;
+
+    	if ((file = open(filename,O_RDWR)) &lt; 0)
+		{
+        	printf("Failed to open the bus.");
+        	/* ERROR HANDLING; you can check errno to see what went wrong */
+		com_serial=0;
+        	exit(1);
+    		}
+
+		///////////////
+		// Verifications
+		///////////////
+		//possible modes: mode |= SPI_LOOP; mode |= SPI_CPHA; mode |= SPI_CPOL; mode |= SPI_LSB_FIRST; mode |= SPI_CS_HIGH; mode |= SPI_3WIRE; mode |= SPI_NO_CS; mode |= SPI_READY;
+		//multiple possibilities using |
+		/*
+			if (ioctl(file, SPI_IOC_WR_MODE, &amp;mode)&lt;0)	{
+				perror("can't set spi mode");
+				return;
+				}
+		*/
+
+			if (ioctl(file, SPI_IOC_RD_MODE, &amp;mode) &lt; 0)
+				{
+				perror("SPI rd_mode");
+				return;
+				}
+			if (ioctl(file, SPI_IOC_RD_LSB_FIRST, &amp;lsb) &lt; 0)
+				{
+				perror("SPI rd_lsb_fist");
+				return;
+				}
+		//sunxi supports only 8 bits
+		/*
+			if (ioctl(file, SPI_IOC_WR_BITS_PER_WORD, (__u8[1]){8})&lt;0)	
+				{
+				perror("can't set bits per word");
+				return;
+				}
+		*/
+			if (ioctl(file, SPI_IOC_RD_BITS_PER_WORD, &amp;bits) &lt; 0) 
+				{
+				perror("SPI bits_per_word");
+				return;
+				}
+		/*
+			if (ioctl(file, SPI_IOC_WR_MAX_SPEED_HZ, &amp;speed)&lt;0)	
+				{
+				perror("can't set max speed hz");
+				return;
+				}
+		*/
+			if (ioctl(file, SPI_IOC_RD_MAX_SPEED_HZ, &amp;speed) &lt; 0) 
+				{
+				perror("SPI max_speed_hz");
+				return;
+				}
+	
+
+	printf("%s: spi mode %d, %d bits %sper word, %d Hz max\n",filename, mode, bits, lsb&#160;? "(lsb first) "&#160;: "", speed);
+
+	//xfer[0].tx_buf = (unsigned long)buf;
+	xfer[0].len = 3; /* Length of  command to write*/
+	xfer[0].cs_change = 0; /* Keep CS activated */
+	xfer[0].delay_usecs = 0, //delay in us
+	xfer[0].speed_hz = 2500000, //speed
+	xfer[0].bits_per_word = 8, // bites per word 8
+
+	//xfer[1].rx_buf = (unsigned long) buf2;
+	xfer[1].len = 4; /* Length of Data to read */
+	xfer[1].cs_change = 0; /* Keep CS activated */
+	xfer[0].delay_usecs = 0;
+	xfer[0].speed_hz = 2500000;
+	xfer[0].bits_per_word = 8;
+
+	return file;
+	}
+
+
+
+//////////
+// Read n bytes from the 2 bytes add1 add2 address
+//////////
+
+char * spi_read(int add1,int add2,int nbytes,int file)
+	{
+	int status;
+
+	memset(buf, 0, sizeof buf);
+	memset(buf2, 0, sizeof buf2);
+	buf[0] = 0x01;
+	buf[1] = add1;
+	buf[2] = add2;
+	xfer[0].tx_buf = (unsigned long)buf;
+	xfer[0].len = 3; /* Length of  command to write*/
+	xfer[1].rx_buf = (unsigned long) buf2;
+	xfer[1].len = nbytes; /* Length of Data to read */
+	status = ioctl(file, SPI_IOC_MESSAGE(2), xfer);
+	if (status &lt; 0)
+		{
+		perror("SPI_IOC_MESSAGE");
+		return;
+		}
+	//printf("env: %02x %02x %02x\n", buf[0], buf[1], buf[2]);
+	//printf("ret: %02x %02x %02x %02x\n", buf2[0], buf2[1], buf2[2], buf2[3]);
+
+	com_serial=1;
+	failcount=0;
+	return buf2;
+	}
+
+//////////
+// Write n bytes int the 2 bytes address add1 add2
+//////////
+void spi_write(int add1,int add2,int nbytes,char value[10],int file)
+	{
+	unsigned char	buf[32], buf2[32];
+	int status;
+
+	memset(buf, 0, sizeof buf);
+	memset(buf2, 0, sizeof buf2);
+	buf[0] = 0x00;
+	buf[1] = add1;
+	buf[2] = add2;
+	if (nbytes&gt;=1) buf[3] = value[0];
+	if (nbytes&gt;=2) buf[4] = value[1];
+	if (nbytes&gt;=3) buf[5] = value[2];
+	if (nbytes&gt;=4) buf[6] = value[3];
+	xfer[0].tx_buf = (unsigned long)buf;
+	xfer[0].len = nbytes+3; /* Length of  command to write*/
+	status = ioctl(file, SPI_IOC_MESSAGE(1), xfer);
+	if (status &lt; 0)
+		{
+		perror("SPI_IOC_MESSAGE");
+		return;
+		}
+	//printf("env: %02x %02x %02x\n", buf[0], buf[1], buf[2]);
+	//printf("ret: %02x %02x %02x %02x\n", buf2[0], buf2[1], buf2[2], buf2[3]);
+
+	com_serial=1;
+	failcount=0;
+	}
+</pre>
+<p>Usage example:<br />
+</p>
+<pre class="brush: ini">char *buffer;
+char buf[10];
+
+file=spi_init("/dev/spidev0.0"); //dev
+
+buf[0] = 0x41;
+buf[1] = 0xFF;
+spi_write(0xE6,0x0E,2,buf,file); //this will write value 0x41FF to the address 0xE60E
+
+buffer=(char *)spi_read(0xE6,0x0E,4,file); //reading the address 0xE60E
+
+close(file);
+</pre>
+<p><br />
+For info it is possible to use all the 12000000 Hz frequency limit transfers, however bear in mind, that frequency will not scale linearly. There are fixed frequencies you can select from, especially at the higher end:
+</p>
+<ul><li>100.00 MHz</li>
+<li>50.00 MHz</li>
+<li>33.33 MHz</li>
+<li>25.00 MHz</li>
+<li>20.00 MHz</li>
+<li>16.66 MHz</li>
+<li>14.28 MHZ</li>
+<li>12.50 MHz</li>
+<li>11.11 MHz</li>
+<li>10.00 MHz</li>
+<li>&#160;9.09 MHz</li>
+<li>&#160;8.33 MHz</li>
+<li>&#160;7.69 MHz</li>
+<li>&#160;7.14 MHz</li>
+<li>&#160;6.66 MHz</li>
+<li>&#160;6.25 MHz</li>
+<li>&#160;5.88 MHz</li>
+<li>&#160;5.55 MHz</li>
+<li>&#160;5.26 MHz</li>
+<li>&#160;5.00 MHz</li>
+<li>&#160;4.76 MHz</li>
+<li>&#160;4.54 MHz</li>
+<li>&#160;4.34 MHz</li>
+<li>&#160;4.16 MHz</li>
+<li>&#160;3.84 MHz</li>
+<li>...</li></ul>
+<h2><span class="mw-headline" id="In_the_kernel_space">In the kernel space</span></h2>
+<p>If you are coding a driver for a SPI device, it makes most sense to code it as a kernel module. Instead of using /dev/spidevX.X you should register a new (slave) device and exchange data through it.
+If you are wondering what bus number you should use, you can find available buses by listing <i>/sys/class/spi_master</i>. There should be nodes like spi0, spi1... Number after spi is bus number. What number gets spi master depends on device-tree configuration.
+</p><p>Here is an example of module, that writes 0x00 to SPI when module is initialized and 0xff when uninitialized. It is using bus number 0 and communicating at the speed of 1Hz:
+</p>
+<pre class="brush: ini">
+
+#include &lt;linux/init.h&gt;
+#include &lt;linux/module.h&gt;
+#include &lt;linux/spi/spi.h&gt;
+
+#define MY_BUS_NUM 0
+static struct spi_device *spi_device;
+
+static int __init spi_init(void)
+{
+	int ret;
+	unsigned char ch = 0x00;
+	struct spi_master *master;
+	
+	//Register information about your slave device:
+	struct spi_board_info spi_device_info = {
+		.modalias = "my-device-driver-name",
+		.max_speed_hz = 1, //speed your device (slave) can handle
+		.bus_num = MY_BUS_NUM,
+		.chip_select = 0,
+		.mode = 3,
+	};
+	
+	/*To send data we have to know what spi port/pins should be used. This information 
+	  can be found in the device-tree. */
+	master = spi_busnum_to_master( spi_device_info.bus_num );
+	if( !master ){
+		printk("MASTER not found.\n");
+        	return -ENODEV;
+	}
+	
+	// create a new slave device, given the master and device info
+	spi_device = spi_new_device( master, &amp;spi_device_info );
+
+	if( !spi_device ) {
+		printk("FAILED to create slave.\n");
+		return -ENODEV;
+	}
+	
+	spi_device-&gt;bits_per_word = 8;
+
+	ret = spi_setup( spi_device );
+	
+	if( ret ){
+		printk("FAILED to setup slave.\n");
+		spi_unregister_device( spi_device );
+		return -ENODEV;
+	}
+
+	spi_write(spi_device, &amp;ch, sizeof(ch));
+	
+	return 0;
+}
+
+
+static void __exit spi_exit(void)
+{
+	unsigned char ch = 0Xff;
+
+	if( spi_device ){
+		spi_write(spi_device, &amp;ch, sizeof(ch));
+		spi_unregister_device( spi_device );
+	}
+}
+
+module_init(spi_init);
+module_exit(spi_exit);
+
+MODULE_LICENSE("GPL");
+MODULE_AUTHOR("Piktas Zuikis &lt;[email protected]&gt;");
+MODULE_DESCRIPTION("SPI module example");
+
+</pre>
+<h1><span class="mw-headline" id="SPI_NOR_Flash">SPI NOR Flash</span></h1>
+<p>The <a href="BROM.html" title="BROM">Allwinner Boot Rom</a> can boot from NOR flash packaged over an SPI interface. <a href="Bootable_SPI_flash.html" title="Bootable SPI flash">Booting devices from SPI flash</a> is covered in this other article.
+</p>
+<h1><span id="Bugs/Caveats"></span><span class="mw-headline" id="Bugs.2FCaveats">Bugs/Caveats</span></h1>
+<h2><span class="mw-headline" id="HIGH_on_SCK_line_right_before_transfer">HIGH on SCK line right before transfer</span></h2>
+<p>Starting an SPI transfer via sun6i-spi and sun4i-spi might raise the SCK line to HIGH shortly before transfer.
+Such behaviour might confuse slaves, especially when not using / ignoring chip-select.
+</p><p>This is due to SUN6I_GBL_CTL_BUS_ENABLE being written into SUN6I_GBL_CTL_REG at an early stage.
+Moving that to the transfer function, hence, right before the transfer starts, mitigates that problem.
+</p><p>The patch below does so for spi-sun6i. Note that the patch is in the mainline Linux kernel since 5.13:
+<a rel="nofollow" class="external free" href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=0d7993b234c9fad8cb6bec6adfaa74694ba85ecb">https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=0d7993b234c9fad8cb6bec6adfaa74694ba85ecb</a>
+</p>
+<pre>diff --git a/drivers/spi/spi-sun6i.c b/drivers/spi/spi-sun6i.c
+index 8533f4edd00a..6a14589cce32 100644
+--- a/drivers/spi/spi-sun6i.c
++++ b/drivers/spi/spi-sun6i.c
+@@ -304,6 +304,9 @@ static int sun6i_spi_transfer_one(struct spi_master *master,
+ 
+        sun6i_spi_write(sspi, SUN6I_CLK_CTL_REG, reg);
+ 
++       /* Finally enable the bus - doing so before might raise SCK to HIGH */
++       sun6i_spi_write(sspi, SUN6I_GBL_CTL_REG, sun6i_spi_read(sspi, SUN6I_GBL_CTL_REG) | SUN6I_GBL_CTL_BUS_ENABLE);
++
+        /* Setup the transfer now... */
+        if (sspi-&gt;tx_buf)
+                tx_len = tfr-&gt;len;
+@@ -411,7 +414,7 @@ static int sun6i_spi_runtime_resume(struct device *dev)
+        }
+ 
+        sun6i_spi_write(sspi, SUN6I_GBL_CTL_REG,
+-                       SUN6I_GBL_CTL_BUS_ENABLE | SUN6I_GBL_CTL_MASTER | SUN6I_GBL_CTL_TP);
++                       SUN6I_GBL_CTL_MASTER | SUN6I_GBL_CTL_TP);
+ 
+        return 0;
+</pre>
+<h2><span class="mw-headline" id="LOW_on_SCK_line_on_transfer_start_when_using_SPI-Mode3">LOW on SCK line on transfer start when using SPI-Mode3</span></h2>
+<p>When using SPI-Mode3, the SCK line idles on HIGH. With sun4i-spi on transfer start the SCK line will go LOW for a short duration before the actual transfer starts.
+Such behaviour might confuse slaves.
+</p><p>This is due to static configuration beeing written to SUN4I_CTL_REG on every SPI resume within function sun4i_spi_runtime_resume.
+This always reconfigures the whole SPI system on every SPI resume which also configures SPI-Mode0 (SCK idles LOW) for a short duration before the actual transfer starts.
+</p><p>Updating sun4i_spi_runtime_resume to read, manipulate, write SUN4I_CTL_REG fixes the problem.
+</p>
+<pre>--- drivers/spi/spi-sun4i.c
++++ drivers/spi/spi-sun4i.c
+@@ -393,6 +393,7 @@
+        struct spi_master *master = dev_get_drvdata(dev);
+        struct sun4i_spi *sspi = spi_master_get_devdata(master);
+        int ret;
++       u32 reg;
+
+        ret = clk_prepare_enable(sspi-&gt;hclk);
+        if (ret) {
+@@ -406,8 +407,10 @@
+                goto err;
+        }
+
++       reg = sun4i_spi_read(sspi, SUN4I_CTL_REG);
++
+        sun4i_spi_write(sspi, SUN4I_CTL_REG,
+-                       SUN4I_CTL_ENABLE | SUN4I_CTL_MASTER | SUN4I_CTL_TP);
++                       reg | SUN4I_CTL_ENABLE | SUN4I_CTL_MASTER | SUN4I_CTL_TP);
+
+        return 0;
+</pre>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external autonumber" href="https://www.kernel.org/doc/html/latest/spi/spidev.html">[1]</a>: <i>Sysfs also supports userspace driven binding/unbinding of drivers to devices that do not bind automatically using one of the tables above. To make the spidev driver bind to such a device, use the following: echo spidev &gt; /sys/bus/spi/devices/spiB.C/driver_override; echo spiB.C &gt; /sys/bus/spi/drivers/spidev/bind</i>.</span>
+</li>
+</ol></div>
+<!-- 
+NewPP limit report
+Cached time: 20251029034347
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.038 seconds
+Real time usage: 0.044 seconds
+Preprocessor visited node count: 135/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 11443/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:827-0!canonical and timestamp 20251029034347 and revision id 26793
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=SPIdev&amp;oldid=26793">https://linux-sunxi.org/index.php?title=SPIdev&amp;oldid=26793</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Category</a>: <ul><li><a href="Category:Software.html" title="Category:Software">Software</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=SPIdev" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=SPIdev" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="SPIdev.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk"><a href="Talk:SPIdev.html" rel="discussion" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="SPIdev.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=SPIdev&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=SPIdev&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/SPIdev.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/SPIdev" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=SPIdev&amp;oldid=26793" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=SPIdev&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 21 October 2025, at 09:52.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.038","walltime":"0.044","ppvisitednodes":{"value":135,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":11443,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20251029034347","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":267});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

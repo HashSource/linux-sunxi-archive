@@ -1,0 +1,510 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Mainline Debian HowTo - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"bb1fa8c02e1f06566dbe557c","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Mainline_Debian_HowTo","wgTitle":"Mainline Debian HowTo","wgCurRevisionId":21279,"wgRevisionId":21279,"wgArticleId":1477,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Tutorial"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Mainline_Debian_HowTo","wgRelevantArticleId":1477,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":
+"ready","user.styles":"ready","user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=mediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="Mainline_Debian_HowTo.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-Mainline_Debian_HowTo rootpage-Mainline_Debian_HowTo skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">Mainline Debian HowTo</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>This page describes bootstrapping Debian jessie with it's default (mainline) linux kernel (3.16) to create a SD-card with a clean (official) install.
+Based on the <a rel="nofollow" class="external text" href="https://wiki.debian.org/InstallingDebianOn/Allwinner">instructions on the official debian wiki</a>
+</p><p>To summarize the process: Most work is the normal debian bootstrapping procedure. To make the SD-card bootable, we use a precompiled version of U-Boot provided by the Debian installer team.
+Tested on <a href="Cubietech_Cubieboard.html" title="Cubietech Cubieboard">Cubieboard 1</a> and <a href="Cubietech_Cubietruck.html" title="Cubietech Cubietruck">Cubietruck</a>, should work on other boards, too.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Caveats"><span class="tocnumber">1</span> <span class="toctext">Caveats</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Using_a_ready-made_installation_SD_card_image_instead_of_bootstrapping"><span class="tocnumber">2</span> <span class="toctext">Using a ready-made installation SD card image instead of bootstrapping</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Getting_a_cross_toolchain"><span class="tocnumber">3</span> <span class="toctext">Getting a cross toolchain</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Creating_a_bootable_SD_Card_with_U-Boot"><span class="tocnumber">4</span> <span class="toctext">Creating a bootable SD Card with U-Boot</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="#Building_U-Boot_yourself"><span class="tocnumber">4.1</span> <span class="toctext">Building U-Boot yourself</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Downloading_precompiled_U-Boot_images"><span class="tocnumber">4.2</span> <span class="toctext">Downloading precompiled U-Boot images</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Setting_up_the_SD-card"><span class="tocnumber">4.3</span> <span class="toctext">Setting up the SD-card</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="#Bootstrapping_Debian"><span class="tocnumber">5</span> <span class="toctext">Bootstrapping Debian</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#Configuring_the_system"><span class="tocnumber">6</span> <span class="toctext">Configuring the system</span></a>
+<ul>
+<li class="toclevel-2 tocsection-10"><a href="#flash-kernel"><span class="tocnumber">6.1</span> <span class="toctext">flash-kernel</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="#Kernel_modules"><span class="tocnumber">6.2</span> <span class="toctext">Kernel modules</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="#Base_configuration_files"><span class="tocnumber">6.3</span> <span class="toctext">Base configuration files</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="#Prepare_Login"><span class="tocnumber">6.4</span> <span class="toctext">Prepare Login</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="#chroot_and_setup"><span class="tocnumber">6.5</span> <span class="toctext">chroot and setup</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-15"><a href="#Cleanup"><span class="tocnumber">7</span> <span class="toctext">Cleanup</span></a></li>
+<li class="toclevel-1 tocsection-16"><a href="#Boot"><span class="tocnumber">8</span> <span class="toctext">Boot</span></a>
+<ul>
+<li class="toclevel-2 tocsection-17"><a href="#Manual_boot_.28serial_console.29"><span class="tocnumber">8.1</span> <span class="toctext">Manual boot (serial console)</span></a>
+<ul>
+<li class="toclevel-3 tocsection-18"><a href="#systemd"><span class="tocnumber">8.1.1</span> <span class="toctext">systemd</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-19"><a href="#Conclusion"><span class="tocnumber">9</span> <span class="toctext">Conclusion</span></a></li>
+<li class="toclevel-1 tocsection-20"><a href="#See_also"><span class="tocnumber">10</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-21"><a href="#External_Links"><span class="tocnumber">11</span> <span class="toctext">External Links</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Caveats">Caveats</span></h2>
+<ul><li>The kernel comes without display drivers, so <b>you won't get any display-output with this guide</b>! Use <a href="UART.html" title="UART">UART</a> or ssh to login.</li>
+<li>The current Debian jessie kernels (3.16.7-ckt11-1 at the time of writing) do not support NAND yet, so only SATA and MMC/SD-card storage is supported.</li>
+<li>We will use a recent version of U-Boot and device tree. The Allwinner-specific <a href="Script.bin.html" title="Script.bin">script.bin</a> isn't needed anymore.</li></ul>
+<h2><span class="mw-headline" id="Using_a_ready-made_installation_SD_card_image_instead_of_bootstrapping">Using a ready-made installation SD card image instead of bootstrapping</span></h2>
+<p>If you are being lazy, then it is possible to download a bootable SD card image for <a href="A10.html" title="A10">A10</a>/<a href="A10s.html" title="A10s">A10s</a>/<a href="A20.html" title="A20">A20</a> based devices with the debian installer and write it to an SD card:
+</p>
+<pre>  wget <a class="external free" href="https://github.com/ssvb/sunxi-bootsetup/releases/download/20141215-sunxi-bootsetup-prototype/20141215-sunxi-bootsetup-prototype-v6.img.xz">https://github.com/ssvb/sunxi-bootsetup/releases/download/20141215-sunxi-bootsetup-prototype/20141215-sunxi-bootsetup-prototype-v6.img.xz</a>
+  xzcat 20141215-sunxi-bootsetup-prototype-v6.img.xz &gt; ${card}
+  sync
+</pre>
+<p>Then boot from this SD card and use a menu based installer, which is accessible on the UART serial console. Ignore warnings about the missing kernel modules. When asked about partitioning the SD card, any choice should be fine. But erasing the existing partition is probably the most clean and preferable solution (the installer itself is running from RAM and does not depend on any data from the SD card during the installation). At the end of the process, you should get a clean (official) installation of Debian, installed from the network. The mainline non-modified release of U-Boot v2015.01 is used as a bootloader.
+</p><p>Every part of this SD card image can be reconstructed from sources. The instructions are available at <a class="external free" href="https://github.com/ssvb/sunxi-bootsetup/releases/tag/20141215-sunxi-bootsetup-prototype">https://github.com/ssvb/sunxi-bootsetup/releases/tag/20141215-sunxi-bootsetup-prototype</a>
+</p><p>And the '<b>official' debian installer initrd file</b> is taken right from the debian website. This bootable SD card image just provides a bit more convenient deployment method instead of the TFTP or USB stick tricks from the <a rel="nofollow" class="external free" href="https://wiki.debian.org/InstallingDebianOn/Allwinner">https://wiki.debian.org/InstallingDebianOn/Allwinner</a> wiki page. Refreshing the initrd file to a more up to date build is possible in the following way:
+</p>
+<pre>   wget <a rel="nofollow" class="external free" href="http://d-i.debian.org/daily-images/armhf/daily/netboot/initrd.gz">http://d-i.debian.org/daily-images/armhf/daily/netboot/initrd.gz</a>
+   gzip -d initrd.gz
+   lzma initrd
+   mkimage -A arm -O linux -T ramdisk -C lzma -a 0x43300000 -n "Debian Installer" -d initrd.lzma initrd-debian-netboot.lzma.uboot
+</pre>
+<p>And then replace the 'initrd-debian-netboot.lzma.uboot' file on the SD card with the newly generated one.
+</p><p>Supported devices: <a href="Cubieboard.html" class="mw-redirect" title="Cubieboard">Cubieboard</a>, <a href="Cubieboard2.html" class="mw-redirect" title="Cubieboard2">Cubieboard2</a>, <a href="Cubietruck.html" class="mw-redirect" title="Cubietruck">Cubietruck</a>, <a href="A10-OLinuXino-LIME.html" class="mw-redirect" title="A10-OLinuXino-LIME">A10-OLinuXino-LIME</a>, <a href="Mele_A2000.html" class="mw-redirect" title="Mele A2000">Mele A2000</a> and many others (which are yet to be tested).
+</p>
+<h1><span class="mw-headline" id="Getting_a_cross_toolchain">Getting a cross toolchain</span></h1>
+<p>Refer to <a href="Toolchain.html" title="Toolchain">Toolchain</a>. This is not needed if you do not intent to build U-Boot by yourself.
+</p>
+<h1><span class="mw-headline" id="Creating_a_bootable_SD_Card_with_U-Boot">Creating a bootable SD Card with U-Boot</span></h1>
+<p>There are two options: Build U-Boot yourself or use the images provided by the Debian installer team.
+</p>
+<h2><span class="mw-headline" id="Building_U-Boot_yourself">Building U-Boot yourself</span></h2>
+<p>Mainline U-Boot works fine:
+</p>
+<pre> git clone -b v2015.01 <a rel="nofollow" class="external free" href="http://git.denx.de/u-boot.git">http://git.denx.de/u-boot.git</a>
+ cd u-boot
+ make Cubietruck_config
+ make -j$(nproc) CROSS_COMPILE=arm-linux-gnueabihf-
+</pre>
+<p>(Also refer to <a href="U-Boot.html#Compile_U-Boot" title="U-Boot">U-Boot#Compile U-Boot</a>)
+</p>
+<h2><span class="mw-headline" id="Downloading_precompiled_U-Boot_images">Downloading precompiled U-Boot images</span></h2>
+<p>Download the U-Boot image <i>u-boot-sunxi-with-spl.bin.gz</i> for your hardware from <a rel="nofollow" class="external free" href="http://d-i.debian.org/daily-images/armhf/daily/u-boot/">http://d-i.debian.org/daily-images/armhf/daily/u-boot/</a>, i.e. for <i>Cubieboard 1</i>
+</p>
+<pre> wget <a rel="nofollow" class="external free" href="http://d-i.debian.org/daily-images/armhf/daily/u-boot/Cubieboard/u-boot-sunxi-with-spl.bin.gz">http://d-i.debian.org/daily-images/armhf/daily/u-boot/Cubieboard/u-boot-sunxi-with-spl.bin.gz</a>
+</pre>
+<p>or for <i>Cubietruck</i>
+</p>
+<pre> wget <a rel="nofollow" class="external free" href="http://d-i.debian.org/daily-images/armhf/daily/u-boot/Cubietruck/u-boot-sunxi-with-spl.bin.gz">http://d-i.debian.org/daily-images/armhf/daily/u-boot/Cubietruck/u-boot-sunxi-with-spl.bin.gz</a>
+</pre>
+<p>then unzip:
+</p>
+<pre> gunzip u-boot-sunxi-with-spl.bin.gz
+</pre>
+<h2><span class="mw-headline" id="Setting_up_the_SD-card">Setting up the SD-card</span></h2>
+<p>${card} is the SD device (ie <i>/dev/sdc</i>). ${partition} is the partition number (ie. <i>1</i>).
+<a href="File:Exclamation.png.html" class="image"><img alt="Exclamation.png" src="https://linux-sunxi.org/images/c/c0/Exclamation.png" decoding="async" width="16" height="16" /></a> <i>Warning:</i> This will delete the content.
+</p>
+<pre> dd if=/dev/zero of=${card} bs=1M count=1
+ dd if=u-boot-sunxi-with-spl.bin of=${card} bs=1024 seek=8
+</pre>
+<p>Create partition(s). ie one big partition beginning with sector 2048, type 83 (Linux)
+</p>
+<pre> fdisk ${card}
+</pre>
+<pre> mkfs.ext4 ${card}${partition}
+ mount ${card}${partition} /mnt
+</pre>
+<p>This will first clean the card (at least the first 1M), install the U-Boot bootloader you compiled/downloaded in the step before,
+and then you can create -for example- one partition, format it, and mount it to <i>/mnt/</i> for use in the next steps.
+</p><p>(Also refer to <a href="Bootable_SD_card.html" title="Bootable SD card">Bootable_SD_card</a>)
+</p>
+<h1><span class="mw-headline" id="Bootstrapping_Debian">Bootstrapping Debian</span></h1>
+<p>This will bootstrap Debian stable (aka <i>Jessie</i>)
+</p>
+<pre> qemu-debootstrap --verbose --include=${kernel},locales,flash-kernel,sunxi-tools,firmware-linux,debconf --arch=armhf --components main,contrib,non-free jessie /mnt <a rel="nofollow" class="external free" href="http://ftp.debian.org/debian">http://ftp.debian.org/debian</a>
+</pre>
+<p>with ${kernel} being either <i>linux-image-armmp</i> for Cubieboard 1 or <i>linux-image-armmp-lpae</i> for Cubietruck. For Cubieboard 2, <i>linux-image-armmp-lpae</i> should be the correct kernel. You need to have the packages <a rel="nofollow" class="external text" href="https://packages.debian.org/jessie/qemu-user-static">qemu-user-static</a> and <a rel="nofollow" class="external text" href="https://packages.debian.org/jessie/debootstrap">debootstrap</a> installed.
+</p><p>If in doubt, have a look at the <a rel="nofollow" class="external text" href="https://wiki.debian.org/Debootstrap">Debian wiki</a> or the official documentation.
+</p>
+<h1><span class="mw-headline" id="Configuring_the_system">Configuring the system</span></h1>
+<h2><span class="mw-headline" id="flash-kernel">flash-kernel</span></h2>
+<p>We are going to use flash-kernel to generate the <i>boot.src</i>. Tell it which hardware we're aiming for. (Devices listed in: <i>/usr/share/flash-kernel/db/all.db</i>)
+</p>
+<pre> mkdir /mnt/etc/flash-kernel/
+ echo "Cubietech Cubietruck" &gt;&gt; /mnt/etc/flash-kernel/machine
+</pre>
+<p>or for Cubieboard 1 use
+</p>
+<pre> echo "Cubietech Cubieboard" &gt;&gt; /mnt/etc/flash-kernel/machine
+</pre>
+<p>Kernel arguments:
+</p>
+<pre>echo 'LINUX_KERNEL_CMDLINE="console=ttyS0,115200 hdmi.audio=EDID:0 disp.screen0_output_mode=EDID:1280x1024p60 root=/dev/mmcblk0p1 rootwait panic=10 ${extra}"' &gt;&gt; /mnt/etc/default/flash-kernel
+</pre>
+<h2><span class="mw-headline" id="Kernel_modules">Kernel modules</span></h2>
+<p>Write extra modules that should be loaded at boot time to <i>/mnt/etc/modules</i>.
+</p>
+<pre> echo "rtc_sunxi" &gt;&gt; /mnt/etc/initramfs-tools/modules
+</pre>
+<p>This module does not exist for the linux-image-armmp kernels, so it is not available for Cubieboard 1.
+</p>
+<h2><span class="mw-headline" id="Base_configuration_files">Base configuration files</span></h2>
+<pre> echo "/dev/mmcblk0p1  /           ext4    relatime,errors=remount-ro        0       1" &gt; /mnt/etc/fstab
+ echo "HOSTNAME" &gt; /mnt/etc/hostname
+</pre>
+<p>Add your hostname to the 127.0.0.1 and&#160;::1 lines in /mnt/etc/hosts, e.g.
+</p>
+<pre> nano /mnt/etc/hosts
+</pre>
+<p>Hint: Please consider using your favorite debian-mirror instead of <i>ftp.debian.org</i>.
+</p>
+<pre>cat &lt;&lt;EOF &gt; /mnt/etc/apt/sources.list
+# 
+
+deb http://ftp.debian.org/debian/ jessie main non-free contrib
+deb-src http://ftp.debian.org/debian/ jessie main non-free contrib
+
+deb http://security.debian.org/ jessie/updates main contrib non-free
+deb-src http://security.debian.org/ jessie/updates main contrib non-free
+
+# jessie-updates, previously known as 'volatile'
+deb http://ftp.debian.org/debian/ jessie-updates main contrib non-free
+deb-src http://ftp.debian.org/debian/ jessie-updates main contrib non-free
+EOF</pre>
+<pre>cat &lt;&lt;EOF &gt; /mnt/etc/network/interfaces
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# The primary network interface
+allow-hotplug eth0
+iface eth0 inet dhcp
+EOF</pre>
+<h2><span class="mw-headline" id="Prepare_Login">Prepare Login</span></h2>
+<p>Remember: We won't have any display output, so we can eiter:
+spawn a login on the serial console:
+</p>
+<pre> echo "T0:23:respawn:/sbin/getty -L ttyS0 115200 vt100" &gt;&gt; /mnt/etc/inittab
+</pre>
+<p>and/or use ssh. Since debian disabled root password-login in jessie, re-enable it: 
+</p>
+<pre> sed -i "s/^PermitRootLogin without-password/PermitRootLogin yes/" /mnt/etc/ssh/sshd_config
+</pre>
+<p>or copy your key:
+</p>
+<pre> umask 077; mkdir /mnt/root/.ssh/ cat ~/.ssh/id_rsa.pub &gt;&gt; /mnt/root/.ssh/authorized_keys
+</pre>
+<h2><span class="mw-headline" id="chroot_and_setup">chroot and setup</span></h2>
+<p>Now <i>chroot</i> in to the new system and set everything up.
+</p>
+<pre> mount -t proc chproc /mnt/proc
+ mount chsys /mnt/sys -t sysfs
+ mount -t devtmpfs chdev /mnt/dev || mount --bind /dev /mnt/dev
+ mount -t devpts chpts /mnt/dev/pts
+ echo -e '#!/bin/sh\nexit 101' &gt; /mnt/usr/sbin/policy-rc.d
+ chmod 755 /mnt/usr/sbin/policy-rc.d
+ DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true LC_ALL=C LANGUAGE=C LANG=C chroot /mnt dpkg --configure -a
+</pre>
+<pre> LC_ALL=C LANGUAGE=C LANG=C chroot /mnt
+</pre>
+<p>The next steps are executed inside the chroot:
+</p>
+<pre>   dpkg-reconfigure locales
+   dpkg-reconfigure tzdata
+</pre>
+<p>Optional: Install U-Boot (U-Boot from debian is not used, but it does no harm and i'll include it for future reference)
+</p>
+<pre>   apt-get install u-boot u-boot-tools
+</pre>
+<p>Or, if you want simple frame-buffer support (on some cards) go with kernel &gt;3.19. For this, you need to add experimental sources for apt:
+</p>
+<pre>   apt-get -t experimental install linux-image-3.19.0-trunk-armmp-lpae u-boot u-boot-tools
+</pre>
+<p>Install non-free firmware and add one currently missing file to the wifi-firmware (not for Cubieboard 1):
+</p>
+<pre>   apt-get install firmware-brcm80211
+   wget -O /lib/firmware/brcm/brcmfmac43362-sdio.txt <a rel="nofollow" class="external free" href="http://dl.cubieboard.org/public/Cubieboard/benn/firmware/ap6210/nvram_ap6210.txt">http://dl.cubieboard.org/public/Cubieboard/benn/firmware/ap6210/nvram_ap6210.txt</a>
+</pre>
+<p>Install a few other things:
+</p>
+<pre>   apt-get install console-setup keyboard-configuration openssh-server ntp
+</pre>
+<p>At this point, debian should have generated a kernel image <i>/boot/vmlinuz-???</i> and an initrd <i>/boot/initrd.img-???</i> for you.
+Generate the <i>/boot/boot.scr</i>, set a password and after a little cleanup you're set:
+</p>
+<pre>   flash-kernel
+   passwd root
+   exit
+</pre>
+<h1><span class="mw-headline" id="Cleanup">Cleanup</span></h1>
+<pre> rm /mnt/usr/sbin/policy-rc.d
+ rm /mnt/usr/bin/qemu-arm-static
+ umount /mnt/dev/pts &amp;&amp; umount /mnt/dev &amp;&amp; umount /mnt/sys &amp;&amp; umount /mnt/proc &amp;&amp; umount /mnt
+ sync
+</pre>
+<h1><span class="mw-headline" id="Boot">Boot</span></h1>
+<p>Now you should be able to boot your brand new debian installation.
+Hopefully it'll boot, pull up networking and you're able to login via ssh.
+</p>
+<h2><span id="Manual_boot_(serial_console)"></span><span class="mw-headline" id="Manual_boot_.28serial_console.29">Manual boot (serial console)</span></h2>
+<p>If it doesn't boot, you'll want an 3,3V USB <a href="UART.html" title="UART">UART</a> module to debug. U-Boot seems to be powerful and gives helpful error messages.
+If it says something like <tt>'CRC error' 'loading default environment'</tt>, that's okay, we want default. (Side note: use the filesize variable or give the size in hexadecimal)
+</p>
+<pre> setenv bootargs console=ttyS0,115200n8 hdmi.audio=EDID:0 disp.screen0_output_mode=EDID:1280x1024p60 root=/dev/mmcblk0p1 rootwait panic=10 ${extra}
+ ext4load mmc 0:1 0x47000000 boot/dtb-3.16.0-4-armmp-lpae
+ ext4load mmc 0:1 0x46000000 boot/vmlinuz-3.16.0-4-armmp-lpae
+ ext4load mmc 0:1 0x48000000 boot/initrd.img-3.16.0-4-armmp-lpae
+ bootz 0x46000000 0x48000000:${filesize} 0x47000000
+</pre>
+<h3><span class="mw-headline" id="systemd">systemd</span></h3>
+<p>Newer debian uses systemd by default. Beside activing ttyS0 there using
+</p>
+<pre>systemctl enable <a href="https://linux-sunxi.org/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6112041308000d4c06041515182115151832514f12041317080204">[email&#160;protected]</a>
+</pre>
+<p>make sure your kernel has
+</p>
+<pre>CONFIG_FHANDLE=y
+</pre>
+<p>Also note that semantic of 'halt' is not yet reestablished. Use 'poweroff' instead, meanwhile.
+</p>
+<h1><span class="mw-headline" id="Conclusion">Conclusion</span></h1>
+<p>As of now it is possible to run Debian with a recent mainline kernel and only few changes to the system. We can throw away some of the crude, device-specific things like the modifications to the kernel, 'script.bin'...
+U-Boot is on the right track and Debian-installer will be usable on various sunxi-based systems, once a recent kernel arrives in the installer builds.
+</p><p>What's left to be done is:
+</p>
+<ul><li>Optimizing the system</li>
+<li>Getting some/any graphics support</li></ul>
+<h1><span class="mw-headline" id="See_also">See also</span></h1>
+<ul><li><a href="Mainline_Kernel_Howto.html" title="Mainline Kernel Howto">Mainline Kernel Howto</a></li>
+<li><a href="Bootable_SD_card.html#Rootfs" title="Bootable SD card">Bootable SD card</a></li></ul>
+<h1><span class="mw-headline" id="External_Links">External Links</span></h1>
+<ul><li><a rel="nofollow" class="external text" href="https://wiki.debian.org/InstallingDebianOn/Allwinner">https://wiki.debian.org/InstallingDebianOn/Allwinner</a></li>
+<li><a class="external text" href="https://github.com/igorpecovnik/Cubietruck-Debian/blob/master/build.sh">https://github.com/igorpecovnik/Cubietruck-Debian/blob/master/build.sh</a></li></ul>
+<!-- 
+NewPP limit report
+Cached time: 20251029040707
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.049 seconds
+Real time usage: 0.068 seconds
+Preprocessor visited node count: 108/1000000
+Post‐expand include size: 67/2097152 bytes
+Template argument size: 29/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 959/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    2.949      1 Template:Warn
+100.00%    2.949      1 -total
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:1477-0!canonical and timestamp 20251029040707 and revision id 21279
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=Mainline_Debian_HowTo&amp;oldid=21279">https://linux-sunxi.org/index.php?title=Mainline_Debian_HowTo&amp;oldid=21279</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Category</a>: <ul><li><a href="Category:Tutorial.html" title="Category:Tutorial">Tutorial</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=Mainline+Debian+HowTo" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=Mainline+Debian+HowTo" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="Mainline_Debian_HowTo.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:Mainline_Debian_HowTo&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="Mainline_Debian_HowTo.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Mainline_Debian_HowTo&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Mainline_Debian_HowTo&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/Mainline_Debian_HowTo.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/Mainline_Debian_HowTo" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=Mainline_Debian_HowTo&amp;oldid=21279" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=Mainline_Debian_HowTo&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 19 April 2018, at 06:19.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script data-cfasync="false" src="https://linux-sunxi.org/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.049","walltime":"0.068","ppvisitednodes":{"value":108,"limit":1000000},"postexpandincludesize":{"value":67,"limit":2097152},"templateargumentsize":{"value":29,"limit":2097152},"expansiondepth":{"value":3,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":959,"limit":5000000},"timingprofile":["100.00%    2.949      1 Template:Warn","100.00%    2.949      1 -total"]},"cachereport":{"timestamp":"20251029040707","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":506});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

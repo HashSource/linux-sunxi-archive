@@ -1,0 +1,560 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>CedarX/XBMC - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"d1fd5e9867d49bc63869e839","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"CedarX/XBMC","wgTitle":"CedarX/XBMC","wgCurRevisionId":21815,"wgRevisionId":21815,"wgArticleId":212,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Software","Tutorial","CedarX"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"CedarX/XBMC","wgRelevantArticleId":212,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready",
+"user.styles":"ready","user":"ready","user.options":"loading","ext.cite.styles":"ready","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","ext.cite.ux-enhancements","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=ext.cite.styles%7Cmediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="XBMC.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-CedarX_XBMC rootpage-CedarX skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">CedarX/XBMC</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"><span class="subpages">&lt; <a href="../CedarX" title="CedarX">CedarX</a></span></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div style="color:#ba0000; border: 2px dashed #bf4f4f; padding: 0.75em;"><big>
+<p><b>This page is outdated</b>. It's about running an outdated version of XBMC with GPL violating software.<br />
+</p>
+Please refer to the new <a href="../Kodi.html" title="Kodi">Kodi page</a>!</big></div>
+<p><b>Kodi</b> (formerly <b>XBMC</b>) is a popular free and open source media player software application designed as a 10-foot frontend graphical home theater (a.k.a. media center) interface for large-screen televisions. Made to be controlled with a remote control it enables ARM-based media players and set-top boxes like those with Allwinner SoCs with <a href="../CedarX" title="CedarX">CedarX</a> VPU (Video Processor Unit) to hardware decode and play high-definition videos, music, and other digital media files from local and network storage media, as well as stream podcasts, videocasts, and such of the internet, and displayed in a appealing way on your living-room TV.
+</p><p>This article contain instructions on compiling and developing Kodi/XBMC on and for Allwinner SoCs that features the <a href="../CedarX" title="CedarX">CedarX</a> VPU, like <a href="../A10.html" title="A10">A10</a>, <a href="../A10s.html" title="A10s">A10s</a>, <a href="../A13.html" title="A13">A13</a>, <a href="../A20.html" title="A20">A20</a>, and <a href="../A23.html" title="A23">A23</a>. Note that these instructions are specifically only meant for developers and advanced or expert Linux users that can actively assist with the porting process.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Overview"><span class="tocnumber">1</span> <span class="toctext">Overview</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Building_Kodi.2FXBMC_for_A10_and_A20_SoC_series"><span class="tocnumber">2</span> <span class="toctext">Building Kodi/XBMC for A10 and A20 SoC series</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Prerequisites"><span class="tocnumber">2.1</span> <span class="toctext">Prerequisites</span></a>
+<ul>
+<li class="toclevel-3 tocsection-4"><a href="#Prepare_your_SD-Card"><span class="tocnumber">2.1.1</span> <span class="toctext">Prepare your SD-Card</span></a></li>
+<li class="toclevel-3 tocsection-5"><a href="#Boot_into_your_target_system"><span class="tocnumber">2.1.2</span> <span class="toctext">Boot into your target system</span></a></li>
+<li class="toclevel-3 tocsection-6"><a href="#Install_the_dependencies_for_XBMC_.28needs_update.21.29"><span class="tocnumber">2.1.3</span> <span class="toctext">Install the dependencies for XBMC (needs update!)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-7"><a href="#Native_Compile_of_XBMC"><span class="tocnumber">2.2</span> <span class="toctext">Native Compile of XBMC</span></a>
+<ul>
+<li class="toclevel-3 tocsection-8"><a href="#Prerequisites_for_native_compile"><span class="tocnumber">2.2.1</span> <span class="toctext">Prerequisites for native compile</span></a></li>
+<li class="toclevel-3 tocsection-9"><a href="#Checkout_the_source_code"><span class="tocnumber">2.2.2</span> <span class="toctext">Checkout the source code</span></a></li>
+<li class="toclevel-3 tocsection-10"><a href="#Build"><span class="tocnumber">2.2.3</span> <span class="toctext">Build</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-11"><a href="#Cross_Compile_of_XBMC"><span class="tocnumber">2.3</span> <span class="toctext">Cross Compile of XBMC</span></a>
+<ul>
+<li class="toclevel-3 tocsection-12"><a href="#Setup_Cross_Compiler"><span class="tocnumber">2.3.1</span> <span class="toctext">Setup Cross Compiler</span></a></li>
+<li class="toclevel-3 tocsection-13"><a href="#Prerequisites_for_Cross_Compiling"><span class="tocnumber">2.3.2</span> <span class="toctext">Prerequisites for Cross Compiling</span></a></li>
+<li class="toclevel-3 tocsection-14"><a href="#Checkout_the_source_code_2"><span class="tocnumber">2.3.3</span> <span class="toctext">Checkout the source code</span></a></li>
+<li class="toclevel-3 tocsection-15"><a href="#Update_XBMC_build_config"><span class="tocnumber">2.3.4</span> <span class="toctext">Update XBMC build config</span></a></li>
+<li class="toclevel-3 tocsection-16"><a href="#Build_2"><span class="tocnumber">2.3.5</span> <span class="toctext">Build</span></a></li>
+<li class="toclevel-3 tocsection-17"><a href="#Move_XBMC_to_target_system"><span class="tocnumber">2.3.6</span> <span class="toctext">Move XBMC to target system</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-18"><a href="#Start_XBMC"><span class="tocnumber">2.4</span> <span class="toctext">Start XBMC</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="#Using_the_Android_libraries_via_libhybris"><span class="tocnumber">2.5</span> <span class="toctext">Using the Android libraries via libhybris</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="#Troubleshooting"><span class="tocnumber">2.6</span> <span class="toctext">Troubleshooting</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-21"><a href="#Configuring_XBMC_dependencies_for_Linux_on_A10_based_devices"><span class="tocnumber">3</span> <span class="toctext">Configuring XBMC dependencies for Linux on A10 based devices</span></a>
+<ul>
+<li class="toclevel-2 tocsection-22"><a href="#Getting_IR_.28infrared.29_remotes_working_on_A10_based_media_players"><span class="tocnumber">3.1</span> <span class="toctext">Getting IR (infrared) remotes working on A10 based media players</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-23"><a href="#Enabling_dirty_regions_.28a.k.a._dirty_textures.29_for_XBMC"><span class="tocnumber">4</span> <span class="toctext">Enabling dirty regions (a.k.a. dirty textures) for XBMC</span></a></li>
+<li class="toclevel-1 tocsection-24"><a href="#Sources_implementing_CedarX_support_in_XBMC"><span class="tocnumber">5</span> <span class="toctext">Sources implementing CedarX support in XBMC</span></a></li>
+<li class="toclevel-1 tocsection-25"><a href="#See_also"><span class="tocnumber">6</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-26"><a href="#xternal_Links"><span class="tocnumber">7</span> <span class="toctext">xternal Links</span></a></li>
+<li class="toclevel-1 tocsection-27"><a href="#References"><span class="tocnumber">8</span> <span class="toctext">References</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Overview">Overview</span></h1>
+<p>Kodi/XBMC has already have an initial but ultimatly obsolete port for the A10 / A20 SoC with <a href="../CedarX" title="CedarX">CedarX</a> hardware accelerated video decoding, this experimental third-party port and the code patches have however not made it upstream into mainline Kodi/XBMC.<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup><sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;2&#93;</a></sup>
+</p><p>Pre-built application binaries of this initial port are not available so therefore you will need to compile Kodi/XBMC yourself, at least until if and when code for these CedarX based Allwinner SoCs makes it into the mainline XBMC upstream at <a rel="nofollow" class="external free" href="http://kodi.tv">http://kodi.tv</a>
+</p><p>Team-Kodi (who before used to be known as Team-XBMC), the official development team of Kodi/XBMC, does currently not recommend that any end-user buy Allwinner A1x or A2x based hardware for the specific purpose of only running Kodi/XBMC since they do not have the resources to support this platform as of yet.
+</p><p>More information about Kodi/XBMC can be found on wikipedia <a class="external free" href="http://en.wikipedia.org/wiki/XBMC">http://en.wikipedia.org/wiki/XBMC</a> and the Kodi wiki <a rel="nofollow" class="external free" href="http://wiki.kodi.tv">http://wiki.kodi.tv</a> or <a rel="nofollow" class="external free" href="http://forum.kodi.tv">http://forum.kodi.tv</a>
+</p>
+<h1><span id="Building_Kodi/XBMC_for_A10_and_A20_SoC_series"></span><span class="mw-headline" id="Building_Kodi.2FXBMC_for_A10_and_A20_SoC_series">Building Kodi/XBMC for A10 and A20 SoC series</span></h1>
+<p>This is a little how-to of steps to compile XBMC for devices using Allwinner A10 and A20 SoC series (e.g. for hardware like Mele A1000, Cubieboard, and Banana Pi) based on Empat0's GitHub sources <a class="external text" href="http://github.com/empatzero/xbmca10">http://github.com/empatzero/xbmca10</a>.
+The development work on the coding side was all done by Empat0 (a.k.a. empat zero). The used repository in the example below is however from <a class="external text" href="http://github.com/rellla/xbmca10">http://github.com/rellla/xbmca10</a> which is currently the newest and contains a few adaptions. It is a fork of empat0's work. If you want an only A20 version you can use this repository: <a class="external text" href="https://github.com/fflayol/xbmc">https://github.com/fflayol/xbmc</a> .
+</p><p>The result should be a Debian armhf system with XBMC using <a href="../CedarX" title="CedarX">CedarX</a> for hardware accelerated video decoding.
+</p><p>This version of XBMC runs directly on the framebuffer, and thus XServer is therefor not needed!
+</p>
+<h2><span class="mw-headline" id="Prerequisites">Prerequisites</span></h2>
+<p>There are more ways to prepare a working rootfs for XBMC. You can either prepare the sdcard directly as described or you can chroot into the rootfs on your host system and sync it with your sdcard later when you have finished.
+So the following steps can also be done in a chroot on your host if you are cross-compiling.
+</p>
+<h3><span class="mw-headline" id="Prepare_your_SD-Card">Prepare your SD-Card</span></h3>
+<p>Create a bootable SD-Card follwing <a href="../Manual_build_howto.html" title="Manual build howto"> our manual build howto</a> and Debian. Be sure to use a kernel with mali-drivers-version r3p0 (sunxi-3.0 should be good).
+</p>
+<h3><span class="mw-headline" id="Boot_into_your_target_system">Boot into your target system</span></h3>
+<p>Boot the new debian from the sd-card directly on the target and bring the system up to date:
+</p>
+<pre> root@mele:~/# apt-get update
+ root@mele:~/# apt-get upgrade
+</pre>
+<h3><span id="Install_the_dependencies_for_XBMC_(needs_update!)"></span><span class="mw-headline" id="Install_the_dependencies_for_XBMC_.28needs_update.21.29">Install the dependencies for XBMC (needs update!)</span></h3>
+<pre> root@mele:~/# apt-get build-dep xbmc
+</pre>
+<dl><dd>this should install the following packages:<code></code></dd><code>
+</code><dd><code>autoconf automake autopoint autotools-dev binutils bsdmainutils build-essential bzip2 cmake cmake-data comerr-dev cpp cpp-4.4 cpp-4.6 curl debhelper dpkg-dev emacsen-common fontconfig-config g++ g++-4.4 g++-4.6 gawk gcc gcc-4.4 gcc-4.4-base gcc-4.6 gcc-4.6-base gettext gettext-base git git-man gperf groff-base html2text intltool-debian krb5-multidev libao-common libao-dev libao4 libarchive12 libasound2 libasound2-dev libasprintf0c2 libass-dev libass4 libasyncns0 libavahi-client-dev libavahi-client3 libavahi-common-data libavahi-common-dev libavahi-common3 libavcodec-dev libavcodec53 libavfilter-dev libavfilter2 libavformat-dev libavformat53 libavutil-dev libavutil51 libbluetooth-dev libbluetooth3 libbluray-dev libbluray1 libboost-date-time1.49-dev libboost-date-time1.49.0 libboost-dev libboost-serialization1.49-dev libboost-serialization1.49.0 libboost-thread-dev libboost-thread1.49-dev libboost-thread1.49.0 libboost1.49-dev libbz2-dev libc-dev-bin libc6-dev libcaca-dev libcaca0 libcdio-dev libcdio13 libcec-dev libcec1 libcroco3 libcurl3 libcurl3-gnutls libcurl4-gnutls-dev libcwiid-dev libcwiid1 libdbus-1-3 libdbus-1-dev libdirac-encoder0 libdirectfb-1.2-9 libdirectfb-dev libdirectfb-extra libdpkg-perl libdrm2 libelf1 libenca-dev libenca0 liberror-perl libexpat1 libexpat1-dev libflac-dev libflac8 libfontconfig1 libfontconfig1-dev libfreetype6 libfreetype6-dev libfribidi-dev libfribidi0 libgcrypt11-dev libgettextpo0 libgl1-mesa-dev libgl1-mesa-glx libglapi-mesa libglew-dev libglew1.7 libglib2.0-bin libglib2.0-dev libglu1-mesa libglu1-mesa-dev libgmp10 libgnutls-dev libgnutls-openssl27 libgnutlsxx27 libgomp1 libgpg-error-dev libgsm1 libgssrpc4 libhal-dev libhal-storage-dev libhal-storage1 libhal1 libice-dev libice6 libicu48 libidn11-dev libiso9660-8 libiso9660-dev libjasper-dev libjasper1 libjbig-dev libjbig0 libjpeg8 libjpeg8-dev libjson0 libkadm5clnt-mit8 libkadm5srv-mit8 libkdb5-6 libkrb5-dev liblcms1 libldap-2.4-2 libldap2-dev libltdl-dev libltdl7 liblzo2-2 liblzo2-dev libmad0 libmad0-dev libmicrohttpd-dev libmicrohttpd10 libmikmod2 libmikmod2-dev libmodplug-dev libmodplug1 libmp3lame-dev libmp3lame0 libmpc2 libmpeg2-4 libmpeg2-4-dev libmpfr4 libmysqlclient-dev libmysqlclient18 libnettle4 libnfs-dev libnfs1 libogg-dev libogg0 libopencv-core2.3 libopencv-imgproc2.3 libopenjpeg2 liborc-0.4-0 libp11-kit-dev libpcre3-dev libpcrecpp0 libpipeline1 libplist-dev libplist1 libpng12-0 libpng12-dev libpopt0 libpostproc-dev libpostproc52 libpthread-stubs0 libpthread-stubs0-dev libpulse-dev libpulse-mainloop-glib0 libpulse0 libpython2.7 librtmp-dev librtmp0 libsamplerate0 libsamplerate0-dev libsasl2-2 libschroedinger-1.0-0 libsdl-image1.2 libsdl-image1.2-dev libsdl-mixer1.2 libsdl-mixer1.2-dev libsdl1.2-dev libsdl1.2debian libshairport-dev libshairport1 libsigsegv2 libslang2-dev libsm-dev libsm6 libsmbclient libsmbclient-dev libsndfile1 libspeex1 libsqlite3-0 libsqlite3-dev libssh2-1 libssh2-1-dev libssl-dev libstdc++6-4.4-dev libstdc++6-4.6-dev libswscale-dev libswscale2 libtalloc2 libtasn1-3-dev libtdb1 libtheora0 libtiff4 libtiff4-dev libtiffxx0c2 libtimedate-perl libtinyxml-dev libtinyxml2.6.2 libtool libts-0.0-0 libts-dev libudev-dev libunistring0 libva-dev libva-egl1 libva-glx1 libva-tpi1 libva-x11-1 libva1 libvdpau-dev libvdpau1 libvorbis-dev libvorbis0a libvorbisenc2 libvorbisfile3 libvpx1 libwbclient0 libwebp-dev libwebp2 libx11-dev libx11-xcb1 libx264-123 libxau-dev libxcb-glx0 libxcb1-dev libxdamage1 libxdmcp-dev libxext-dev libxfixes3 libxi6 libxml2-dev libxmlrpc-core-c3 libxmu-dev libxmu-headers libxmu6 libxrandr-dev libxrandr2 libxrender-dev libxrender1 libxt-dev libxt6 libxtst6 libxvidcore4 libxxf86vm1 libyajl-dev libyajl2 linux-libc-dev m4 make man-db mesa-common-dev mysql-common patch pkg-config po-debconf python python-dev python-imaging python-minimal python-support python2.7 python2.7-dev python2.7-minimal tsconf ttf-dejavu-core ucf x11-common x11proto-core-dev x11proto-input-dev x11proto-kb-dev x11proto-randr-dev x11proto-render-dev x11proto-xext-dev xorg-sgml-doctools xtrans-dev yasm zip zlib1g-dev</code></dd></dl>
+<p>need to install 3 more dependencies:
+</p>
+<pre> root@mele:~/# apt-get install swig default-jre libgtk2.0-bin libssh-4 libssh-dev
+</pre>
+<p>ensure you use hardware acceleration
+</p>
+<pre> root@mele:~/# echo -e "\nA10HWR=1" &gt;&gt; /etc/environment (to set it permanently)
+</pre>
+<p>Now go on with <a href="#Native_Compile_of_XBMC"> Native Compile</a> or <a href="#Cross_Compile_of_XBMC"> Cross Compile</a>.
+</p>
+<h2><span class="mw-headline" id="Native_Compile_of_XBMC">Native Compile of XBMC</span></h2>
+<h3><span class="mw-headline" id="Prerequisites_for_native_compile">Prerequisites for native compile</span></h3>
+<p>Create a swap-file, because otherwise the compiler runs out of memory during compiling and aborts
+</p>
+<pre> root@mele:~/# dd if=/dev/zero of=/swap bs=1M count=384
+ root@mele:~/# mkswap -c /swap
+ root@mele:~/# swapon /swap
+</pre>
+<p>Create your workspace directory:
+</p>
+<pre> root@mele:~/# mkdir melehacking
+ root@mele:~/# cd melehacking
+</pre>
+<h3><span class="mw-headline" id="Checkout_the_source_code">Checkout the source code</span></h3>
+<pre> root@mele:~/melehacking# apt-get install git
+ root@mele:~/melehacking# git clone <a class="external free" href="git://github.com/rellla/xbmca10.git">git://github.com/rellla/xbmca10.git</a>
+ root@mele:~/melehacking# cd xbmca10
+ root@mele:~/melehacking/xbmca10# git checkout stage/Frodo
+</pre>
+<h3><span class="mw-headline" id="Build">Build</span></h3>
+<p>The following external libs/ repos are used/ downloaded:
+</p>
+<ul><li>taglib: <a class="external free" href="https://github.com/downloads/taglib/taglib/taglib-1.8.tar.gz">https://github.com/downloads/taglib/taglib/taglib-1.8.tar.gz</a></li>
+<li>cedarx: <a class="external free" href="https://github.com/linux-sunxi/cedarx-libs/tree/master/libcedarv/linux-armhf">https://github.com/linux-sunxi/cedarx-libs/tree/master/libcedarv/linux-armhf</a></li>
+<li>libmad: <a rel="nofollow" class="external free" href="ftp://ftp.mars.org/pub/mpeg/libmad-0.15.1b.tar.gz">ftp://ftp.mars.org/pub/mpeg/libmad-0.15.1b.tar.gz</a></li>
+<li>mali: <a class="external free" href="https://github.com/linux-sunxi/sunxi-mali-proprietary/tree/master/r3p0/armhf">https://github.com/linux-sunxi/sunxi-mali-proprietary/tree/master/r3p0/armhf</a></li>
+<li>mali-dev: <a class="external free" href="https://github.com/linux-sunxi/sunxi-mali/tree/master/include">https://github.com/linux-sunxi/sunxi-mali/tree/master/include</a></li></ul>
+<p>Build dependencies
+</p>
+<pre> root@mele:~/melehacking/xbmca10# cd tools/a10/depends
+ root@mele:~/melehacking/xbmca10/tools/a10/depends# make
+</pre>
+<p>Build xbmc itself
+</p>
+<pre> root@mele:~/melehacking/xbmca10/tools/a10/depends# make -C xbmc
+ root@mele:~/melehacking/xbmca10/tools/a10/depends# cd ../../../
+ root@mele:~/melehacking/xbmca10# make install
+</pre>
+<p>Move on to <a href="#Start_XBMC">#Start_XBMC</a> and start XBMC.
+</p>
+<h2><span class="mw-headline" id="Cross_Compile_of_XBMC">Cross Compile of XBMC</span></h2>
+<p>This was tested with github.com/rellla/xbmca10 and built in Debian Sid as host. You will need several packages on the build system and a copy 
+of the root file system of the target to build against. This howto assumes you are running off an SD card with the root file system in /dev/sdb2.
+</p>
+<h3><span class="mw-headline" id="Setup_Cross_Compiler">Setup Cross Compiler</span></h3>
+<ul><li>At first set up your <a href="../Toolchain.html" title="Toolchain">toolchain</a>.</li></ul>
+<h3><span class="mw-headline" id="Prerequisites_for_Cross_Compiling">Prerequisites for Cross Compiling</span></h3>
+<ul><li>Sync and move SD card to build system</li>
+<li>Mount the rootfs of the prepared SD Card</li></ul>
+<pre> root@debian:~/# mount /dev/sdb2 /mnt/rootfs-a10
+</pre>
+<ul><li>Create symlinks to the mounted libraries</li></ul>
+<pre> root@debian:~/# ln -s /mnt/rootfs-a10/lib/arm-linux-gnueabihf /lib/arm-linux-gnueabihf
+ root@debian:~/# ln -s /mnt/rootfs-a10/usr/lib/arm-linux-gnueabihf /usr/lib/arm-linux-gnueabihf
+ root@debian:~/# ln -s /mnt/rootfs-a10/usr/include/arm-linux-gnueabihf /usr/include/arm-linux-gnueabihf
+</pre>
+<ul><li>Install the dependencies for building XBMC on the host system</li></ul>
+<pre> root@debian:~/# apt-get build-dep xbmc
+ root@debian:~/# apt-get install shtool swig default-jre
+</pre>
+<p>Note: If compiling on a 64 bit system there is a known bug with the libcurl headers not working with 32 bit programs. To work around the problem build on a 32 bit system, or copy the file /usr/include/curl/curlbuild.h from a 32 bit system to your 64 bit build host.
+</p>
+<ul><li>Create your workspace directory:</li></ul>
+<pre> root@debian:~/# mkdir melehacking
+ root@debian:~/# cd melehacking
+</pre>
+<h3><span class="mw-headline" id="Checkout_the_source_code_2">Checkout the source code</span></h3>
+<pre> root@debian:~/melehacking# git clone <a class="external free" href="git://github.com/rellla/xbmca10.git">git://github.com/rellla/xbmca10.git</a>
+ root@debian:~/melehacking# cd xbmca10
+ root@debian:~/melehacking/xbmca10# git checkout stage/Frodo
+</pre>
+<h3><span class="mw-headline" id="Update_XBMC_build_config">Update XBMC build config</span></h3>
+<p>Update this section at line 48 of tools/a10/depends/depends.mk with your values, e.g.
+</p>
+<pre> #where is your arm rootfs
+ SDKSTAGE=/mnt/rootfs-a10
+ #where is your xbmc install root 
+ XBMCPREFIX=/allwinner/xbmc-pvr-bin$(HF)
+ #where is your toolchain
+ TOOLCHAIN=/usr/arm-linux-gnueabi$(HF)
+</pre>
+<h3><span class="mw-headline" id="Build_2">Build</span></h3>
+<p>At this point the settings are basically the same for the native build:
+Build dependencies
+</p>
+<pre> root@debian:~/melehacking/xbmca10# cd tools/a10/depends
+ root@debian:~/melehacking/xbmca10/tools/a10/depends# make
+</pre>
+<p>Build xbmc itself
+</p>
+<pre> root@debian:~/melehacking/xbmca10/tools/a10/depends# make -C xbmc
+ root@debian:~/melehacking/xbmca10/tools/a10/depends# cd ../../../
+ root@debian:~/melehacking/xbmca10# make install
+</pre>
+<h3><span class="mw-headline" id="Move_XBMC_to_target_system">Move XBMC to target system</span></h3>
+<p>You should copy from your install location on your build system to an identical location on the target system (may not vital that they have the same path) like so ...
+</p>
+<pre> root@debian:~/melehacking/xbmca10/cp -r /allwinner/xbmc-pvr-binhf /mnt/rootfs-a10/allwinner/xbmc-pvr-binhf
+</pre>
+<p>To redistribute it, you can also create a tarball:
+</p>
+<pre> root@debian:~/melehacking/xbmca10/tools/a10/depends# make -C package tarball
+</pre>
+<p>This results in a xbmca10.tar.gz which includes all needed (and stripped) files in /allwinner/xbmc-pvr-binhf. This can easily be copied and extracted on the target rootfs.
+</p><p>Umount your SD Card
+</p>
+<pre> root@debian:~/melehacking/xbmca10# umount /dev/sdb2
+</pre>
+<p>and boot it on your A10 Device.
+</p>
+<h2><span class="mw-headline" id="Start_XBMC">Start XBMC</span></h2>
+<p>After a reboot you modprobe the needed modules (depending on the used kernel version):
+</p>
+<pre> root@mele:~/# modprobe disp
+ root@mele:~/# modprobe lcd
+ root@mele:~/# modprobe hdmi
+ root@mele:~/# modprobe mali
+ root@mele:~/# export A10HWR=1 (ensure to have this set if not rebooting!)
+ root@mele:~/# cd /allwinner/xbmc-pvr-bin/lib/xbmc
+ root@mele:/allwinner/xbmc-pvr-bin/lib/xbmc# ./xbmc.bin
+</pre>
+<h2><span class="mw-headline" id="Using_the_Android_libraries_via_libhybris">Using the Android libraries via libhybris</span></h2>
+<p>Due to some bugs in the native linux binaries of cedarx, <i>ssvb</i> succeeded to use libhybris and the Android binaries instead. This is the recommended way.
+See <a href="libve.html" title="CedarX/libve">CedarX/libve</a>.
+</p>
+<h2><span class="mw-headline" id="Troubleshooting">Troubleshooting</span></h2>
+<ul><li>(native) If you get a compiler error when processing h264.o or building xbmc.bin, then check, if swap is enabled. The compiler ran out of memory!</li>
+<li>(native) If deb-building fails, check, if your tmp-directory has enough free space and is no tmpfs, because of the lack of memory an mele.</li>
+<li>To use the bash-script bin/xbmc to start xbmc, you have to comment out the exec of FEH.py, because of a failing test of glxinfo -&gt; no display found.</li>
+<li>Depending on your setup you may have to change some things to build</li>
+<li>If mysql_config is not found, even though it is clearly there you can set disable-mysql in Makefile under xbmca10/tools/a10/depends/xbmc</li>
+<li>Header files might not be where they are expected, this can be fixed with symlinks and copying headers, for example...</li></ul>
+<pre> ln -s usr/include/dbus1.0/dbus usr/include/dbus 
+</pre>
+<ul><li>Once you get in trouble with some mesa conflicts, ensure to not have installed the following packages on your target system:</li></ul>
+<pre> libegl1-mesa libegl1-mesa-dev libegl1-mesa-drivers libgles2-mesa libgles2-mesa-dev
+</pre>
+<ul><li>Check the discussion section for more notes.</li>
+<li>Ensure that you have installed ALL of the dependencies, header files etc. in your target rootfs and ensure that they are available during build. The build script does not search for them on your host-rootfs!</li></ul>
+<h1><span class="mw-headline" id="Configuring_XBMC_dependencies_for_Linux_on_A10_based_devices">Configuring XBMC dependencies for Linux on A10 based devices</span></h1>
+<h2><span id="Getting_IR_(infrared)_remotes_working_on_A10_based_media_players"></span><span class="mw-headline" id="Getting_IR_.28infrared.29_remotes_working_on_A10_based_media_players">Getting IR (infrared) remotes working on A10 based media players</span></h2>
+<p>For getting IR (infrared) remote controls working on the A10 based media players, please see the <a href="../LIRC.html" title="LIRC">LIRC</a> article in this wiki. Place a suitable <a href="../Lircmap.xml.html" title="Lircmap.xml">Lircmap.xml</a> in userdata-directory.
+</p>
+<h1><span id="Enabling_dirty_regions_(a.k.a._dirty_textures)_for_XBMC"></span><span class="mw-headline" id="Enabling_dirty_regions_.28a.k.a._dirty_textures.29_for_XBMC">Enabling dirty regions (a.k.a. dirty textures) for XBMC</span></h1>
+<p>This dirty region (a.k.a. dirty texture) feature in XBMC is designed to improve XBMC's GUI renderer performance on the GPU by only drawing when something like a texture changes on the screen, that region is then marked as dirty by XBMC's GUI library and only that region is redraw region on the screen.
+</p><p>This feature is however still a little buggy and therefor not enabled by default in XBMC, but all users of XBMC on A10 based devices can try enabling the hidden "dirty regions" (a.k.a. "dirty textures") rendering feature advanced setting themselves manually. 
+</p>
+<ul><li><a rel="nofollow" class="external free" href="http://wiki.xbmc.org/index.php?title=HOW-TO:Enable_dirty_regions">http://wiki.xbmc.org/index.php?title=HOW-TO:Enable_dirty_regions</a></li>
+<li><a rel="nofollow" class="external free" href="http://xbmc.org/theuni/2011/06/19/working-with-dirty-regions/">http://xbmc.org/theuni/2011/06/19/working-with-dirty-regions/</a></li>
+<li><a rel="nofollow" class="external free" href="http://wiki.xbmc.org/index.php?title=Advancedsettings.xml#.3Calgorithmdirtyregions.3E#.3Calgorithmdirtyregions.3E">http://wiki.xbmc.org/index.php?title=Advancedsettings.xml#.3Calgorithmdirtyregions.3E</a></li></ul>
+<p>Dirty regions are any parts of the screen that have changed since the last frame. By not re-rendering what hasn't changed, big speed gains can be seen. Because all GPUs work differently, only Mode 3, combined with nofliptimeout=0, is guaranteed to be safe for everyone, but current timing issues with nofliptimeout keep this from being the default. Note that with "dirty regions" your system CPU usage might go up a little (because it is doing the dirty regions calculations) but your GPU usage will be much lower, and since it is the GPU and not CPU that is the bottleneck in XBMC for embedded systems your GUI performance will be better even though the CPU usage is higher.
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>value</th>
+<th>result</th>
+<th>description
+</th></tr>
+<tr>
+<th>0
+</th>
+<td>Off
+</td>
+<td>The entire viewport is always rendered, which is the same as having the dirty regions feature disabled. This is the default mode.
+</td></tr>
+<tr>
+<th>1
+</th>
+<td>Union
+</td>
+<td>All dirty regions are grouped into the smallest possible rectangle. This is typically the fastest mode for slower GPUs due to only making one pass.
+</td></tr>
+<tr>
+<th>2
+</th>
+<td>Cost reduction
+</td>
+<td>Each dirty region is presented separately, in as many passes as there are regions.
+</td></tr>
+<tr>
+<th>3
+</th>
+<td>Whole Screen
+</td>
+<td>The entire screen is rendered if there are any dirty regions. This, combined with nofliptimeout is a safe default for drivers that clear buffer contents (manifests as blinking or vibrating images)
+</td></tr></tbody></table>
+<p>To enable dirty regions manually you need to create a "advancedsettings.xml" text file youself and put the XML &lt;algorithmdirtyregions&gt; enabling tags in there and copying to your "/userdata/" folder (/home/username/.xbmc/userdata/).
+</p><p>Example:
+<code>
+</code></p><code><pre>  &lt;gui&gt;    
+    &lt;algorithmdirtyregions&gt;1&lt;/algorithmdirtyregions&gt;
+  &lt;/gui&gt;
+</pre></code><code></code><p><code></code>
+</p><p>You could also try to enable the &lt;nofliptimeout&gt; feature but that is even more experimental so know that it can cause even more GUI rendering issues in XBMC
+</p><p>Example: 
+<code>
+</code></p><code><pre>  &lt;gui&gt;    
+    &lt;nofliptimeout&gt;1000&lt;/nofliptimeout&gt;
+  &lt;/gui&gt;
+</pre></code><code></code><p><code></code>
+</p><p>To have both of these enabled your "advancedsettings.xml" then the finished file should look something like this:
+</p><p><code>
+</code></p><code><pre>&lt;advancedsettings&gt;
+  &lt;gui&gt;    
+    &lt;algorithmdirtyregions&gt;1&lt;/algorithmdirtyregions&gt;
+    &lt;nofliptimeout&gt;1000&lt;/nofliptimeout&gt;
+  &lt;/gui&gt;
+&lt;/advancedsettings&gt;
+</pre></code><code></code><p><code></code>
+</p>
+<h1><span class="mw-headline" id="Sources_implementing_CedarX_support_in_XBMC">Sources implementing CedarX support in XBMC</span></h1>
+<ul><li><a class="external text" href="https://github.com/empatzero/xbmca10">https://github.com/empatzero/xbmca10</a>
+<ul><li><a class="external text" href="https://github.com/rellla/xbmca10">https://github.com/rellla/xbmca10</a> Recommended fork of empatzero (<a rel="nofollow" class="external text" href="http://pastebin.com/M4Di5tha">Diff to upstream</a>)</li>
+<li><a class="external text" href="https://github.com/vidonme/xbmc/">https://github.com/vidonme/xbmc/</a> Sources of <a rel="nofollow" class="external text" href="http://www.vidon.me/download.html">VidOn.Me Player</a>? Seems to be a fork from empatzero. (<a rel="nofollow" class="external text" href="http://pastebin.com/LuQ4AB9J">Diff to upstream</a> and <a class="external text" href="https://github.com/vidonme/xbmc/compare/xbmc:7b9ab8a85fd2b6030e6cf2659ff16380afef3996...master">Github Compare</a>) This repo is reported from VidOn.me to be the "official" source code for their Allwinner XBMC version, yet the only code commit from VidOn.me themselves is <a class="external text" href="https://github.com/vidonme/xbmc/commit/b2b1696e8eb6617da07e0a043ca6ef2219ca080d#diff-2c44bd39cfe6b4185fe6a51b78c46cd0R122#diff-2c44bd39cfe6b4185fe6a51b78c46cd0R122">this one</a>.</li></ul></li>
+<li><a class="external text" href="https://github.com/huceke/xbmc/tree/allwinner">https://github.com/huceke/xbmc/tree/allwinner</a> Gimli's implementation (<a rel="nofollow" class="external text" href="http://pastebin.com/Nu3DrfNK">Diff to upstream</a>)</li></ul>
+<h1><span class="mw-headline" id="See_also">See also</span></h1>
+<ul><li><a href="../CedarX" title="CedarX">CedarX</a> - Library for Allwinner CedarX VPU (Video Processor Unit) used for audio and video decoding and encoding hardware off-loading on A1x and A2x SoC series.
+<ul><li><a href="../CedarXVideoRenderingChart.html" class="mw-redirect" title="CedarXVideoRenderingChart">CedarXVideoRenderingChart</a> - Overview chart of working/ non working video files</li></ul></li>
+<li><a href="../LIRC.html" title="LIRC">LIRC (Linux Infrared Remote Control) for IR receivers and and remotes</a></li>
+<li><a href="../Tvheadend_TV_Tuner_Server_and_PVR_backend.html" title="Tvheadend TV Tuner Server and PVR backend">Tvheadend TV Tuner Server and PVR backend</a></li></ul>
+<h1><span class="mw-headline" id="xternal_Links">xternal Links</span></h1>
+<ul><li><a rel="nofollow" class="external free" href="http://kodi.tv">http://kodi.tv</a> - Kodi.tv the official Kodi/XBMC website with wiki and forums.
+<ul><li><a class="external free" href="http://github.com/xbmc/xbmc/">http://github.com/xbmc/xbmc/</a> - The upstream Kodi mainstream source code repository on GitHub.</li></ul></li>
+<li><a rel="nofollow" class="external text" href="http://forum.xbmc.org/showthread.php?tid=126995">XBMC Official Community Forum discussion about porting to Allwinner A10</a></li>
+<li><a rel="nofollow" class="external text" href="http://jas-hacks.blogspot.co.uk/2012/11/hackberry-a10-xbmc.html">Jas Hacks Hackberry A10 - XBMC on Ubuntu 12.10 image</a></li>
+<li><a rel="nofollow" class="external text" href="http://www.j1nx.nl/buildroot-xbmc-on-mele-a1000-allwinner-a10/">Buildroot XBMC on the Mele A1000 (Allwinner A10)</a></li>
+<li><a rel="nofollow" class="external text" href="http://www.cnx-software.com/2012/11/12/xbmc-for-linux-on-allwinner-a10-devices-it-works-sort-of/">XBMC for Linux on AllWinner A10 Devices? It Works! (Sort of)</a></li></ul>
+<h1><span class="mw-headline" id="References">References</span></h1>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.j1nx.nl/buildroot-xbmc-on-mele-a1000-allwinner-a10/">http://www.j1nx.nl/buildroot-xbmc-on-mele-a1000-allwinner-a10/</a> Buildroot XBMC on the Mele A1000 (Allwinner A10)</span>
+</li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.cnx-software.com/2012/11/12/xbmc-for-linux-on-allwinner-a10-devices-it-works-sort-of/">http://www.cnx-software.com/2012/11/12/xbmc-for-linux-on-allwinner-a10-devices-it-works-sort-of/</a> XBMC for Linux on AllWinner A10 Devices? It Works! (Sort of)</span>
+</li>
+</ol></div>
+<!-- 
+NewPP limit report
+Cached time: 20251029040321
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.061 seconds
+Real time usage: 0.089 seconds
+Preprocessor visited node count: 132/1000000
+Post‐expand include size: 247/2097152 bytes
+Template argument size: 167/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 1027/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    6.443      1 Template:Redbox
+100.00%    6.443      1 -total
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:212-0!canonical and timestamp 20251029040321 and revision id 21815
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=CedarX/XBMC&amp;oldid=21815">https://linux-sunxi.org/index.php?title=CedarX/XBMC&amp;oldid=21815</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="../Special:Categories.html" title="Special:Categories">Categories</a>: <ul><li><a href="../Category:Software.html" title="Category:Software">Software</a></li><li><a href="../Category:Tutorial.html" title="Category:Tutorial">Tutorial</a></li><li><a href="../Category:CedarX.html" title="Category:CedarX">CedarX</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=CedarX%2FXBMC" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=CedarX%2FXBMC" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="XBMC.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk"><a href="../Talk:CedarX/XBMC.html" rel="discussion" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="XBMC.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=CedarX/XBMC&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=CedarX/XBMC&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="../index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="../index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="../sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="../Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="../Special:WhatLinksHere/CedarX/XBMC.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/CedarX/XBMC" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="../Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=CedarX/XBMC&amp;oldid=21815" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=CedarX/XBMC&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 3 December 2018, at 15:44.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.061","walltime":"0.089","ppvisitednodes":{"value":132,"limit":1000000},"postexpandincludesize":{"value":247,"limit":2097152},"templateargumentsize":{"value":167,"limit":2097152},"expansiondepth":{"value":3,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":1027,"limit":5000000},"timingprofile":["100.00%    6.443      1 Template:Redbox","100.00%    6.443      1 -total"]},"cachereport":{"timestamp":"20251029040321","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":182});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

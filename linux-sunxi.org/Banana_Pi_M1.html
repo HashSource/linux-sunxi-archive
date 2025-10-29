@@ -1,0 +1,883 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>LeMaker Banana Pi - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"b52957dc0bf9fa62ba2cd2cb","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"LeMaker_Banana_Pi","wgTitle":"LeMaker Banana Pi","wgCurRevisionId":26451,"wgRevisionId":26451,"wgArticleId":1748,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Devices","A20 Boards","Devices with Ethernet port","Devices with HDMI port","Devices with SATA port","Devices with USB OTG","Mainline U-Boot","Mainline Kernel"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"LeMaker_Banana_Pi","wgRelevantArticleId":1748,"wgIsProbablyEditable":
+!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgRedirectedFrom":"Banana_Pi_M1","wgInternalRedirectTargetUrl":"/LeMaker_Banana_Pi"};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":"ready","user":"ready","user.options":"loading","ext.cite.styles":"ready","mediawiki.page.gallery.styles":"ready","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","mediawiki.action.view.redirect","ext.cite.ux-enhancements","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=ext.cite.styles%7Cmediawiki.page.gallery.styles%7Cmediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="LeMaker_Banana_Pi.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-LeMaker_Banana_Pi rootpage-LeMaker_Banana_Pi skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">LeMaker Banana Pi</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"><span class="mw-redirectedfrom">(Redirected from <a href="https://linux-sunxi.org/index.php?title=Banana_Pi_M1&amp;redirect=no" class="mw-redirect" title="Banana Pi M1">Banana Pi M1</a>)</span></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><table class="infobox" cellspacing="5" style="width:22em;">
+<tbody><tr><th colspan="2" class="" style="text-align:center; font-size:125%; font-weight:bold; background: #dedede;">LeMaker Banana Pi</th></tr>
+<tr class=""><td colspan="2" class="" style="text-align:center;"><a href="File:Lemaker_BananaPI.jpg.html" class="image"><img alt="Lemaker BananaPI.jpg" src="https://linux-sunxi.org/images/thumb/c/c1/Lemaker_BananaPI.jpg/250px-Lemaker_BananaPI.jpg" decoding="async" width="250" height="207" srcset="https://linux-sunxi.org/images/thumb/c/c1/Lemaker_BananaPI.jpg/375px-Lemaker_BananaPI.jpg 1.5x, https://linux-sunxi.org/images/thumb/c/c1/Lemaker_BananaPI.jpg/500px-Lemaker_BananaPI.jpg 2x" /></a></td></tr>
+<tr class="">
+  <th scope="row" style="text-align:left;"> Manufacturer </th><td> <a rel="nofollow" class="external text" href="http://www.lemaker.org/">LeMaker</a>
+</td></tr><tr class="">
+  <th scope="row" style="text-align:left;"> Dimensions </th><td> 92 mm x 60 mm
+</td></tr><tr class="">
+  <th scope="row" style="text-align:left;"> Release Date </th><td> April 2014
+</td></tr><tr class="">
+  <th scope="row" style="text-align:left;"> Website </th><td> <a rel="nofollow" class="external text" href="http://www.lemaker.org/article-42-1.html">Banana Pi Product Page</a>
+</td></tr><tr><th colspan="2" style="text-align:center;background:#dedede;"> Specifications
+</th></tr><tr class="">
+  <th scope="row" style="text-align:left;"> SoC </th><td> <a href="A20.html" title="A20">A20</a> @ 1 GHz
+</td></tr><tr class="">
+  <th scope="row" style="text-align:left;"> DRAM </th><td> 1 GiB DDR3 @ 432 MHz
+</td></tr><tr class="">
+  <th scope="row" style="text-align:left;"> NAND </th><td> no (onboard) NAND available
+</td></tr><tr class="">
+  <th scope="row" style="text-align:left;"> Power </th><td> DC 5 V @ 2 A (micro USB)
+</td></tr><tr><th colspan="2" style="text-align:center;background:#dedede;"> Features
+</th></tr><tr class="">
+  <th scope="row" style="text-align:left;"> Video </th><td> HDMI (Type A - full), CVBS, LVDS
+</td></tr><tr class="">
+  <th scope="row" style="text-align:left;"> Audio </th><td> 3.5 mm headphone plug, HDMI, internal microphone
+</td></tr><tr class="">
+  <th scope="row" style="text-align:left;"> Network </th><td> 10/100/1000 Mbps Ethernet (<a href="Ethernet.html#Realtek_RTL8211E" title="Ethernet">Realtek RTL8211E</a>)
+</td></tr><tr class="">
+  <th scope="row" style="text-align:left;"> Storage </th><td> SD, SATA (with power connector: JST XH 2.5mm header, providing +5V)
+</td></tr><tr class="">
+  <th scope="row" style="text-align:left;"> USB </th><td> 2 x USB 2.0 Host, 1 x USB 2.0 OTG
+</td></tr><tr class="">
+  <th scope="row" style="text-align:left;"> Other </th><td> IR receiver
+</td></tr><tr class="">
+  <th scope="row" style="text-align:left;"> Headers </th><td> 2 pin UART, 8 pin UART (including power source), LCD/ LVDS, CSI, 26 pin GPIO
+</td></tr>
+</tbody></table>
+<p>The Banana Pi (also known as <a href="LeMaker_Banana_Pi.html#Variants" title="LeMaker Banana Pi">Banana Pi M1</a>) is trying very hard to mimic the formfactor of the Raspberry Pi and to cash in on its popularity, but it fails to match both the exterior dimensions, the exact connector placing and the software support.
+</p><p>Despite manufacturer claims of being <i>open source</i>, this is not <a href="OSHW.html" class="mw-redirect" title="OSHW">open source hardware</a>. If you are thinking of getting this device, you should also try looking into <a href="Buying_guide.html#Recommended_Development_boards" title="Buying guide">the hardware from our Community instead</a>. There is also little actual support to be had from LeMaker (and even less from SinoVoip), mostly they are just rehashing things from the linux sunxi community.
+</p><p>The Banana Pi has clearly suffered from having <b>different manufacturers/distributors</b> each favor their <b>competing</b> model variants and create their own (sub)"communities". On top of that there were clashes and legal disputes over trademarks and domain ownership. Quite often it would be unclear who's officially responsible for a particular device, and what degree of support the vendor provided. This has created confusion among users, and contradicted the collaborative approach that could be expected from the "open (source)" marketing label they unanimously used.
+</p><p>A <a rel="nofollow" class="external text" href="http://web.archive.org/web/20150613065041/http://www.banana-pi.com/eaxw_view.asp?id=381">2015-05-23 statement</a> describes the current state of things, and gives some historical background information<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup>. It remains to be seen whether the situation will improve in the future. (This <a rel="nofollow" class="external text" href="http://web.archive.org/web/20150906224328/http://www.bananapi.org/2015/08/important-annoncement.html">2015-08 follow up</a> seems to indicate the contrary.)
+</p><p>In 2015-11 the person behind <a href="Xunlong.html" class="mw-redirect" title="Xunlong">Xunlong</a> (Orange Pi) claimed he was paid to do the <a rel="nofollow" class="external text" href="http://web.archive.org/web/20151127100251/http://www.orangepi.org/orangepibbsen/forum.php?mod=viewthread&amp;tid=663&amp;page=2">ODM work for Banana Pi in the beginning</a>.
+</p><p>The Lemaker domain lapsed between <a rel="nofollow" class="external text" href="https://web.archive.org/web/20210919203228/http://www.lemaker.org/">September</a> and <a rel="nofollow" class="external text" href="https://web.archive.org/web/20211110065151/lemaker.org">November</a> of 2021, the status of the company is currently unclear.
+</p><p>&#160;
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Identification"><span class="tocnumber">1</span> <span class="toctext">Identification</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Sunxi_support"><span class="tocnumber">2</span> <span class="toctext">Sunxi support</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Current_status"><span class="tocnumber">2.1</span> <span class="toctext">Current status</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Manual_build"><span class="tocnumber">2.2</span> <span class="toctext">Manual build</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Mainline_U-Boot"><span class="tocnumber">2.3</span> <span class="toctext">Mainline U-Boot</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Mainline_kernel"><span class="tocnumber">2.4</span> <span class="toctext">Mainline kernel</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="#Expansion_Port"><span class="tocnumber">3</span> <span class="toctext">Expansion Port</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#Tips.2C_Tricks.2C_Caveats"><span class="tocnumber">4</span> <span class="toctext">Tips, Tricks, Caveats</span></a>
+<ul>
+<li class="toclevel-2 tocsection-9"><a href="#FEL_mode"><span class="tocnumber">4.1</span> <span class="toctext">FEL mode</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#LEDs"><span class="tocnumber">4.2</span> <span class="toctext">LEDs</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="#SATA"><span class="tocnumber">4.3</span> <span class="toctext">SATA</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="#IR_Receiver"><span class="tocnumber">4.4</span> <span class="toctext">IR Receiver</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="#Powering_the_board"><span class="tocnumber">4.5</span> <span class="toctext">Powering the board</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="#adding_li-ion_and.2For_rtc_battery"><span class="tocnumber">4.6</span> <span class="toctext">adding li-ion and/or rtc battery</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="#VCC-5V_power_failure"><span class="tocnumber">4.7</span> <span class="toctext">VCC-5V power failure</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="#LCD"><span class="tocnumber">4.8</span> <span class="toctext">LCD</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-17"><a href="#Adding_a_serial_port"><span class="tocnumber">5</span> <span class="toctext">Adding a serial port</span></a>
+<ul>
+<li class="toclevel-2 tocsection-18"><a href="#Locating_the_UART"><span class="tocnumber">5.1</span> <span class="toctext">Locating the UART</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-19"><a href="#Pictures"><span class="tocnumber">6</span> <span class="toctext">Pictures</span></a></li>
+<li class="toclevel-1 tocsection-20"><a href="#Also_known_as"><span class="tocnumber">7</span> <span class="toctext">Also known as</span></a></li>
+<li class="toclevel-1 tocsection-21"><a href="#Variants"><span class="tocnumber">8</span> <span class="toctext">Variants</span></a></li>
+<li class="toclevel-1 tocsection-22"><a href="#Manufacturer_images"><span class="tocnumber">9</span> <span class="toctext">Manufacturer images</span></a></li>
+<li class="toclevel-1 tocsection-23"><a href="#See_also"><span class="tocnumber">10</span> <span class="toctext">See also</span></a>
+<ul>
+<li class="toclevel-2 tocsection-24"><a href="#References"><span class="tocnumber">10.1</span> <span class="toctext">References</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Identification">Identification</span></h1>
+<p>The current PCB revision 1.4 has the following silkscreened on it (usually hidden below a barcode label):
+</p>
+<pre>BP-A20</pre>
+<p>(PCB revisions 1.01<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;2&#93;</a></sup> and 1.3<sup id="cite_ref-3" class="reference"><a href="#cite_note-3">&#91;3&#93;</a></sup> were labeled with exact version number, and 1.4 was also produced in a <a rel="nofollow" class="external text" href="https://commons.wikimedia.org/wiki/File:Front_of_Banana_Pi.JPG">green PCB version</a>)
+</p>
+<h1><span class="mw-headline" id="Sunxi_support">Sunxi support</span></h1>
+<h2><span class="mw-headline" id="Current_status">Current status</span></h2>
+<p><b>Supported.</b>
+</p><p>Current <a href="Mainline_U-Boot.html" class="mw-redirect" title="Mainline U-Boot">mainline U-Boot</a> (v2015.04) and <a href="Mainline_Kernel_Howto.html" title="Mainline Kernel Howto"> mainline kernel</a> (3.19.2+) work well on the Banana Pi. Kernel 4.0+ is recommended, as it adds <a href="Cpufreq.html" title="Cpufreq">cpufreq</a> support for A20 SoCs (allowing lower power consumption and reduced temperatures).
+</p>
+<h2><span class="mw-headline" id="Manual_build">Manual build</span></h2>
+<ul><li>The <a href="Fex_Guide.html" title="Fex Guide"> .fex</a> file can be found in sunxi-boards as <a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/blob/master/sys_config/a20/lemaker_banana_pi.fex">lemaker_banana_pi.fex</a></li>
+<li>For building U-Boot, use the <i>Bananapi</i> target (<code>make Bananapi_defconfig</code>).</li></ul>
+<p>Everything else is the same as the <a href="Manual_build_howto.html" title="Manual build howto">manual build howto</a>.
+</p>
+<hr />
+<dl><dd><a href="File:Sticky-note-pin.png.html" class="image"><img alt="Sticky-note-pin.png" src="https://linux-sunxi.org/images/f/f0/Sticky-note-pin.png" decoding="async" width="16" height="16" /></a> <i>Note:</i> Banana Pi's GMAC is <i>not</i> supported in the community ("sunxi-3.4") kernel. If you want proper gigabit networking support, you'll either have to use one of the later kernels diverged from the 3.4.x line (e.g. the ones from LeMaker, Igor Pečovnik or Daniel Andersen), or a 4.1+ mainline kernel - in combination with a suitable U-Boot version (v2015.04 and up).</dd></dl>
+<dl><dd>The key point is that the GMAC driver needs to be specifically instructed to set the GMAC_TX_DELAY parameter to 3. This adjusts the relative timing of the clock and data signals to the PHY, in order to compensate for differing trace lengths on the PCB. Without this modification, the Ethernet port will work at 100&#160;Mbit, but not (or not reliably) at 1000&#160;Mbit. Upstream U-Boot now sets this parameter itself, so the kernel patch isn't needed any more. For details, see also: <a href="Ethernet.html#GMAC" title="Ethernet">Ethernet#GMAC</a></dd></dl>
+<h2><span class="mw-headline" id="Mainline_U-Boot">Mainline U-Boot</span></h2>
+<div style="color:#ba0000; border: 2px dashed #bf4f4f; padding: 0.75em;">Using legacy <i>u-boot-sunxi</i> is now deprecated / mostly obsolete for the Banana Pi. As of mid-2015 you should prefer mainline U-Boot 2015.04 - which offers a wide range of features, including networking and netconsole. Mainline U-Boot also supports booting older 3.4.x kernels.</div>
+<p>If booting your 3.4.x kernel fails with <i>"Error: unrecognized/unsupported machine ID"</i>, you need to adjust your U-Boot config or patch the kernel - see <a href="Mainline_U-Boot.html#Troubleshooting" class="mw-redirect" title="Mainline U-Boot">troubleshooting</a>. In case it completely refuses to boot / gets stuck right after <i>"booting the kernel"</i>, make sure that <a href="Mainline_U-Boot.html#Boot" class="mw-redirect" title="Mainline U-Boot"><code>bootm_boot_mode=sec</code> is set</a>.
+</p>
+<h2><span class="mw-headline" id="Mainline_kernel">Mainline kernel</span></h2>
+<p>Use the <i>sun7i-a20-bananapi.dtb</i> device-tree file, and follow the <a href="Mainline_Kernel_Howto.html" title="Mainline Kernel Howto">Mainline Kernel Howto</a>.
+</p>
+<h1><span class="mw-headline" id="Expansion_Port">Expansion Port</span></h1>
+<div class="floatright"><a href="File:Bpim1-pins.jpg.html" class="image"><img alt="Bpim1-pins.jpg" src="https://linux-sunxi.org/images/thumb/9/9b/Bpim1-pins.jpg/200px-Bpim1-pins.jpg" decoding="async" width="200" height="267" srcset="https://linux-sunxi.org/images/thumb/9/9b/Bpim1-pins.jpg/300px-Bpim1-pins.jpg 1.5x, https://linux-sunxi.org/images/thumb/9/9b/Bpim1-pins.jpg/400px-Bpim1-pins.jpg 2x" /></a></div>
+<p>The Banana Pi has a 26-pin, 0.1" connector with several low-speed interfaces.
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th colspan="9">2x13 Header
+</th></tr>
+<tr>
+<td><i></i></td>
+<td><i></i></td>
+<td style="background: yellow;text-align: center">3.3V</td>
+<td style="text-align: right;">1</td>
+<td>
+</td>
+<td>2</td>
+<td style="text-align: center;background: red;">5V</td>
+<td><i></i></td>
+<td><i></i>
+</td></tr>
+<tr>
+<td><i></i></td>
+<td>PB21</td>
+<td style="background: cyan;text-align: right">I2C2_SDA</td>
+<td style="text-align: right;">3</td>
+<td>
+</td>
+<td>4</td>
+<td style="text-align: center;background: red;">5V</td>
+<td><i></i></td>
+<td><i></i>
+</td></tr>
+<tr>
+<td><i></i></td>
+<td>PB20</td>
+<td style="background: cyan;text-align: right">I2C2_SCK</td>
+<td style="text-align: right;">5</td>
+<td>
+</td>
+<td>6</td>
+<td style="text-align: center;background: black; color: white">GND</td>
+<td><i></i></td>
+<td><i></i>
+</td></tr>
+<tr>
+<td>I2C4_SDA / PWM1</td>
+<td>PI3</td>
+<td style="text-align: right;background: orange;">GPCLK</td>
+<td style="text-align: right;">7</td>
+<td>
+</td>
+<td>8</td>
+<td style="background: lightgreen;">UART3-TX</td>
+<td>PH0</td>
+<td>LCD1_D0 / EINT0 / CSI1_D0
+</td></tr>
+<tr>
+<td><i></i></td>
+<td><i></i></td>
+<td style="text-align: center;background: black; color: white">GND</td>
+<td style="text-align: right;">9</td>
+<td>
+</td>
+<td>10</td>
+<td style="background: lightgreen;">UART3-RX</td>
+<td>PH1</td>
+<td>LCD1_D1 / EINT1 / CSI1_D1
+</td></tr>
+<tr>
+<td>SPI1_MISO / UART2_RX / EINT31</td>
+<td>PI19</td>
+<td style="text-align: right;background: orange;">IO-0</td>
+<td style="text-align: right;">11</td>
+<td>
+</td>
+<td>12</td>
+<td style="background: orange;">IO-1</td>
+<td>PH2</td>
+<td>LCD1_D2 / UART3_RTS / EINT2 / CSI1_D2
+</td></tr>
+<tr>
+<td>SPI1_MOSI / UART2_TX / EINT30</td>
+<td>PI18</td>
+<td style="text-align: right;background: orange;">IO-2</td>
+<td style="text-align: right;">13</td>
+<td>
+</td>
+<td>14</td>
+<td style="text-align: center;background: black; color: white">GND</td>
+<td><i></i></td>
+<td><i></i>
+</td></tr>
+<tr>
+<td>SPI1_CLK / UART2_CTS / EINT29</td>
+<td>PI17</td>
+<td style="text-align: right;background: orange;">IO-3</td>
+<td style="text-align: right;">15</td>
+<td>
+</td>
+<td>16</td>
+<td style="background: orange;">IO-4</td>
+<td>PH20</td>
+<td>LCD1_D20 / CAN_TX / EINT20 / CSI1_D20
+</td></tr>
+<tr>
+<td><i></i></td>
+<td><i></i></td>
+<td style="background: yellow;text-align: center">3.3V</td>
+<td style="text-align: right;">17</td>
+<td>
+</td>
+<td>18</td>
+<td style="background: orange;">IO-5</td>
+<td>PH21</td>
+<td>LCD1_D21 / CAN_RX / EINT21 / CSI1_D21
+</td></tr>
+<tr>
+<td>SPI0_MOSI / UART6_TX / CLK_OUT_A / EINT24</td>
+<td>PI12</td>
+<td style="text-align: right;background: fuchsia;">SPI0-MOSI</td>
+<td style="text-align: right;">19</td>
+<td>
+</td>
+<td>20</td>
+<td style="text-align: center;background: black; color: white">GND</td>
+<td><i></i></td>
+<td><i></i>
+</td></tr>
+<tr>
+<td>SPI0_MISO / UART6_RX / CLK_OUT_B / EINT25</td>
+<td>PI13</td>
+<td style="text-align: right;background: fuchsia;">SPI0-MISO</td>
+<td style="text-align: right;">21</td>
+<td>
+</td>
+<td>22</td>
+<td style="background: orange;">IO-6</td>
+<td>PI16</td>
+<td>SPI1_CS0 / UART2_RTS / EINT28
+</td></tr>
+<tr>
+<td>SPI0_CLK / UART5_RX / EINT23</td>
+<td>PI11</td>
+<td style="text-align: right;background: fuchsia;">SPI0-CLK</td>
+<td style="text-align: right;">23</td>
+<td>
+</td>
+<td>24</td>
+<td style="background: fuchsia">SPI0-CS0</td>
+<td>PI10</td>
+<td>UART5_TX / EINT22
+</td></tr>
+<tr>
+<td><i></i></td>
+<td><i></i></td>
+<td style="text-align: center;background: black; color: white">GND</td>
+<td style="text-align: right;">25</td>
+<td>
+</td>
+<td>26</td>
+<td style="background: fuchsia;">SPI0-CS1</td>
+<td>PI14</td>
+<td>PS2_SCK1 / TCLKIN0 / EINT26
+</td></tr></tbody></table>
+<p>The Banana Pi also has two sets of extra GPIO pins (2x4 pins and 1x2 pins) next to the 26 pin connector.
+</p>
+<table class="wikitable" style="width:700px;">
+<tbody><tr>
+<th colspan="4">2x4 Header
+</th></tr>
+<tr>
+<td>1</td>
+<td><i>5V</i>
+</td>
+<td>2</td>
+<td><i>3.3V</i>
+</td></tr>
+<tr>
+<td>3</td>
+<td>IO-7
+</td>
+<td>4</td>
+<td>UART0_RX
+</td></tr>
+<tr>
+<td>5</td>
+<td>IO-8
+</td>
+<td>6</td>
+<td>UART0_TX
+</td></tr>
+<tr>
+<td>7</td>
+<td><i>GND</i>
+</td>
+<td>8</td>
+<td><i>GND</i>
+</td></tr></tbody></table>
+<table class="wikitable" style="width:350px;">
+<tbody><tr>
+<th colspan="2">1x2 Header
+</th></tr>
+<tr>
+<td>1</td>
+<td>UART3_TX
+</td></tr>
+<tr>
+<td>2</td>
+<td>UART3_RX
+</td></tr></tbody></table>
+<table class="wikitable" style="width:350px;">
+<tbody><tr>
+<th colspan="2">1x40 Header FPC 40pinn 0.5mm
+</th></tr>
+<tr>
+<td>1</td>
+<td>IPSOUT 5V
+</td></tr>
+<tr>
+<td>2</td>
+<td>TWI3-SDA
+</td></tr>
+<tr>
+<td>3</td>
+<td>IPSOUT 5V
+</td></tr>
+<tr>
+<td>4</td>
+<td>TWI3-SCK
+</td></tr>
+<tr>
+<td>5</td>
+<td>GND
+</td></tr>
+<tr>
+<td>6</td>
+<td>LCD0-IO0
+</td></tr>
+<tr>
+<td>7</td>
+<td>LCD0-IO0
+</td></tr>
+<tr>
+<td>8</td>
+<td>
+</td></tr>
+<tr>
+<td>9</td>
+<td>PD0 LVDS0-VP0
+</td></tr>
+<tr>
+<td>10</td>
+<td>PB2 PWM0
+</td></tr>
+<tr>
+<td>11</td>
+<td>PD1 LVDS0-VP0
+</td></tr>
+<tr>
+<td>12</td>
+<td>
+</td></tr>
+<tr>
+<td>13</td>
+<td>PD2 LVDS0-VN0
+</td></tr>
+<tr>
+<td>14</td>
+<td>LCD0-DE
+</td></tr>
+<tr>
+<td>15</td>
+<td>PD3 LVDS0-VP1
+</td></tr>
+<tr>
+<td>16</td>
+<td>LCD0-VSYNC
+</td></tr>
+<tr>
+<td>17</td>
+<td>PD4 LVDS0-VN1
+</td></tr>
+<tr>
+<td>18</td>
+<td>LCD0-HSYNC
+</td></tr>
+<tr>
+<td>19</td>
+<td>PD0 LVDS0-VP2
+</td></tr>
+<tr>
+<td>20</td>
+<td>LCD0-CS
+</td></tr>
+<tr>
+<td>21</td>
+<td>PD0 LVDS0-VN2
+</td></tr>
+<tr>
+<td>22</td>
+<td>LCD0-CLK
+</td></tr>
+<tr>
+<td>23</td>
+<td>PD0 LVDS0-VPC
+</td></tr>
+<tr>
+<td>24</td>
+<td>GND
+</td></tr>
+<tr>
+<td>25</td>
+<td>PD0 LVDS0-VNC
+</td></tr>
+<tr>
+<td>26</td>
+<td>PD23 LVDS0-VP0
+</td></tr>
+<tr>
+<td>27</td>
+<td>PD0 LVDS0-VP3
+</td></tr>
+<tr>
+<td>28</td>
+<td>PD22 LVDS0-VP0
+</td></tr>
+<tr>
+<td>29</td>
+<td>PD0 LVDS0-VN3
+</td></tr>
+<tr>
+<td>30</td>
+<td>PD21 LVDS0-VP0
+</td></tr>
+<tr>
+<td>31</td>
+<td>PD0 LVDS1-VP0
+</td></tr>
+<tr>
+<td>32</td>
+<td>PD20 LVDS1-VP0
+</td></tr>
+<tr>
+<td>33</td>
+<td>PD0 LVDS1-VN0
+</td></tr>
+<tr>
+<td>34</td>
+<td>PD19 LVDS1-VP0
+</td></tr>
+<tr>
+<td>35</td>
+<td>PD0 LVDS1-VP1
+</td></tr>
+<tr>
+<td>36</td>
+<td>PD18 LVDS1-VNC
+</td></tr>
+<tr>
+<td>37</td>
+<td>PD0 LVDS1-VN1
+</td></tr>
+<tr>
+<td>38</td>
+<td>PD17 LVDS1-VPC
+</td></tr>
+<tr>
+<td>39</td>
+<td>PD0 LVDS1-VP2
+</td></tr>
+<tr>
+<td>40</td>
+<td>PD16 LVDS1-VN2
+</td></tr></tbody></table>
+<h1><span id="Tips,_Tricks,_Caveats"></span><span class="mw-headline" id="Tips.2C_Tricks.2C_Caveats">Tips, Tricks, Caveats</span></h1>
+<h2><span class="mw-headline" id="FEL_mode">FEL mode</span></h2>
+<p>The button marked <i>K3</i>, located between the HDMI and USB host connectors, triggers <a href="FEL.html" title="FEL"> FEL mode</a> when pressed during boot. (<i>K3</i> pulls the A20 <i>BOOTSEL</i> pin to low level.)
+</p><p>If no SD card is present, the A20 will automatically fall back to FEL mode (as this device has no other means of booting, like e.g. onboard NAND flash). So if you want to enforce FEL mode, you may simply remove the SD card and connect to the Banana Pi via the OTG micro USB (the one right next to the SD slot). This also supplies power to the board at the same time.
+</p><p>To <a href="FEL.html#Verifying_FEL_mode" title="FEL"> verify</a> you have successfully entered FEL mode, check the output of <code>fel version</code>. For the Banana Pi, it should look like:
+</p>
+<pre>AWUSBFEX soc=00001651(A20) 00000001 ver=0001 44 08 scratchpad=00007e00 00000000 00000000</pre>
+<h2><span class="mw-headline" id="LEDs">LEDs</span></h2>
+<p>For those with a transparent case (or no case at all) the Banana Pi's LED activity might get annoying. The <b>red</b> power LED (<i>D7</i>) can't be turned off, but the behavior of the two other (green and blue) may be changed:
+</p><p>The <b>blue</b> LED (<i>D6</i>) is coupled to the Ethernet PHY, and only able to indicate network-related activity. A small utility named <a class="external text" href="https://github.com/n1tehawk/bpi_ledset">bpi_ledset</a> can control it (together with the other LEDs directly on the network connector).
+</p><p>The <b>green</b> LED (<i>D8</i>) is GPIO-driven via <i>PH24</i>, and thus user-definable. It usually can be controlled by writing to the special file <i>/sys/class/leds/bananapi:green:usr/trigger</i> (requires root privileges). Some configurations set the green LED function to "heartbeat" by default, causing it to flash constantly - "none" will turn it off instead. (Check the output of <code>cat /sys/class/leds/bananapi:green:usr/trigger</code> for possible values.) Note: Older kernels (3.4.x) may name the file <i>/sys/class/leds/green:ph24:led1/trigger</i> instead.
+</p><p>See also: <a rel="nofollow" class="external text" href="http://forum.lemaker.org/thread-1057-1-1.html">related thread on LeMaker forum</a>
+</p>
+<h2><span class="mw-headline" id="SATA">SATA</span></h2>
+<p>If you wish to connect a SATA drive (2.5" mobile harddisk or SSD) to the Banana Pi: Make sure your power supply is connected to the "DC-IN" port (micro USB next to the SATA connector), and can deliver sufficient current (e.g. 5V/2000mA). Using the OTG port or an inadequate power supply might result in your SATA device not being detected.
+</p><p>In case you're using <b>large SATA drives &gt; 2TB</b>, you might want to check that both your U-Boot and kernel support proper LBA48 addressing and partioning schemes (GPT). For U-Boot, make sure that <i>CONFIG_SYS_64BIT_LBA</i> gets defined (as of 2015.04 it's not in the default configuration). For kernel configuration, see <a href="Frequently_asked_questions.html#I.27ve_connected_a_3TB_disk_from_another_system_via_a_USB_dock.2C_but_I_can.27t_get_it_to_mount" title="Frequently asked questions"> this FAQ entry</a>.
+</p>
+<h2><span class="mw-headline" id="IR_Receiver">IR Receiver</span></h2>
+<p>The Banana Pi features a standard 3-pin onboard infrared receiver (AX-1838HS or comparable type), which is connected straight to the A20's <i>IR0_RX</i> pin (PB4).
+</p><p>The Linux kernel supports this receiver via <code>CONFIG_IR_SUNXI</code>. The mainline kernel option is located under "Device drivers", "Multimedia support", "Remote Controller devices", "SUNXI IR remote control"; the driver is named <i>sunxi_cir</i>. For 3.4.x kernels, use "Device drivers", "Input device support", "Keyboards", "sunxi IR support"; the module name is <i>sunxi-ir</i>.
+</p><p>See also: <a href="IR.html" title="IR">IR</a>.<br />
+For tips on how to setup and configure LIRC, see <a href="LIRC.html#Using_LIRC_with_Cubieboard2_.28A20_SoC.29" title="LIRC">this description for Cubieboard2</a>.
+</p>
+<h2><span class="mw-headline" id="Powering_the_board">Powering the board</span></h2>
+<p>The SATA power connector (<i>J5</i>) and the normal power-in micro USB connector (located between SATA and SATA-pwr) are directly wired with each other (with a ferrite bead FB3 in between responsible for some voltage drops). So when no 2.5" SATA disk is used, the board can also be powered alternatively through this connector. This might work more reliably, since many USB cables suffer from voltage drops due to the tiny connectors the Micro USB port dictates (max. 5 V / 1.8 A according to the USB specs) or insufficient cable diameters. To build the SATA power connector you have to buy a connector housing and two crimp contacts from the JST XH 2.5mm series. In some shops these are sold as "JST 800055" and "JST 800138", respectively.
+</p>
+<h2><span id="adding_li-ion_and/or_rtc_battery"></span><span class="mw-headline" id="adding_li-ion_and.2For_rtc_battery">adding li-ion and/or rtc battery</span></h2>
+<p>There are two unpopulated connectors: BAT for external battery (with + marked nearby), BAT1 for RTC battery ( <a rel="nofollow" class="external free" href="http://forum.lemaker.org/forum.php?mod=viewthread&amp;tid=291&amp;extra=page%3D1&amp;page=1">http://forum.lemaker.org/forum.php?mod=viewthread&amp;tid=291&amp;extra=page%3D1&amp;page=1</a> ).
+</p>
+<h2><span class="mw-headline" id="VCC-5V_power_failure">VCC-5V power failure</span></h2>
+<p>Some users have been reporting hardware defects due to loss of VCC-5V, e.g. failure to power the USB (host) ports etc. Frequently this is related to a "<b>D5 diode problem</b>". The Banana Pi schematic lists this part (1N5819, SO-123) in the "VCC-5V" section, showing it feeds the <i>VCC-5V</i> line from the AXP209's <i>IPSOUT</i>. If you suspect a problem with <i>D5</i>, check the test points: if <i>IPSOUT</i> is okay and <i>5.0V</i> absent, then <i>D5</i> likely is the culprit. It might have blown, e.g. due to drawing too much current or using a "bad" USB hub that backpowered the Pi (when self-powered). Apparently there was even a batch of devices - first 1000 according to SinoVoip - where <i>D5</i> was actually dimensioned too small.
+</p><p>See e.g. <a rel="nofollow" class="external free" href="http://forum.lemaker.org/thread-9257-1-1.html">http://forum.lemaker.org/thread-9257-1-1.html</a>, <a rel="nofollow" class="external free" href="https://google.com/search?q=diode+d5+site:lemaker.org">https://google.com/search?q=diode+d5+site:lemaker.org</a>
+</p>
+<h2><span class="mw-headline" id="LCD">LCD</span></h2>
+<p>Banana Pi LCDs are described in <a href="BPI_LCD.html" title="BPI LCD"> a separate page</a>.
+</p>
+<h1><span class="mw-headline" id="Adding_a_serial_port">Adding a serial port</span></h1>
+<p>While the GPIO pinout of the Banana Pi is designed to be compatible to the Raspberry Pi, it's important to notice subtle differences in the serial ports. The Banana Pi has some additional pins that already provide two more serial ports.
+</p><p>The default serial port <b>/dev/ttyS0</b> at MMIO 0x1c28000, used for (bootstrap) debugging and the serial console, is located at J11 - refer to the picture and instructions below. The Raspberry's "original" serial port on GPIO 14 and 15 (CON3, pins 8 and 10 - at MMIO 0x1c28c00) can usually be accessed as <b>/dev/ttyS2</b> on the Banana Pi. J12 also provides another serial port on pins 4 (<i>RXD</i>) and 6 (<i>TXD</i>) at MMIO 0x1c29c00, which should map to <b>/dev/ttyS3</b>.
+</p>
+<dl><dd><a href="File:Sticky-note-pin.png.html" class="image"><img alt="Sticky-note-pin.png" src="https://linux-sunxi.org/images/f/f0/Sticky-note-pin.png" decoding="async" width="16" height="16" /></a> <i>Note:</i> The actual mapping between physical pins, UART numbers and/or device names may depend on the specific kernel and <a href="Fex_Guide.html#uart_configuration" title="Fex Guide"> configuration</a> used. If in doubt, check the boot messages: <code>dmesg | grep -E 'uart|serial'</code></dd></dl>
+<p>The mainline kernel likely just numbers the three ports listed above sequentially: <i>/dev/ttyS[0-2]</i>. They get defined in the device tree (.dtb file).
+</p>
+<h2><span class="mw-headline" id="Locating_the_UART">Locating the UART</span></h2>
+<div class="thumb tright"><div class="thumbinner" style="width:242px;"><a href="File:Lemaker_BananaPI_uart.jpg.html" class="image"><img alt="" src="https://linux-sunxi.org/images/thumb/2/2e/Lemaker_BananaPI_uart.jpg/240px-Lemaker_BananaPI_uart.jpg" decoding="async" width="240" height="119" class="thumbimage" srcset="https://linux-sunxi.org/images/thumb/2/2e/Lemaker_BananaPI_uart.jpg/360px-Lemaker_BananaPI_uart.jpg 1.5x, https://linux-sunxi.org/images/thumb/2/2e/Lemaker_BananaPI_uart.jpg/480px-Lemaker_BananaPI_uart.jpg 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="File:Lemaker_BananaPI_uart.jpg.html" class="internal" title="Enlarge"></a></div>UART pads: <i>GND</i> (black), <i>TXD</i> (white) and <i>RXD</i> (green)</div></div></div>
+<p>The UART pins (UART3) are located in the upper left corner of the board. They are marked as <i>TXD</i>, <i>RXD</i> and <i>GND</i> on the PCB. <i>TXD</i> and <i>RXD</i> are on J11, <i>GND</i> can be grabbed from pin 7 or 8 of J12. Just attach some leads according to our <a href="UART.html" title="UART">UART Howto</a>. <a href="File:Exclamation-red.png.html" class="image"><img alt="Exclamation-red.png" src="https://linux-sunxi.org/images/2/29/Exclamation-red.png" decoding="async" width="16" height="16" /></a> <b>Do not connect the red wire (VCC or 3.3 V / 5 V), as that might damage your board.</b>
+</p><p><br />
+</p>
+<h1><span class="mw-headline" id="Pictures">Pictures</span></h1>
+<ul class="gallery mw-gallery-traditional">
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:28.5px auto;"><a href="File:Lemaker_BananaPI_front.jpg.html" class="image"><img alt="Lemaker BananaPI front.jpg" src="https://linux-sunxi.org/images/thumb/4/4e/Lemaker_BananaPI_front.jpg/120px-Lemaker_BananaPI_front.jpg" decoding="async" width="120" height="93" srcset="https://linux-sunxi.org/images/thumb/4/4e/Lemaker_BananaPI_front.jpg/180px-Lemaker_BananaPI_front.jpg 1.5x, https://linux-sunxi.org/images/thumb/4/4e/Lemaker_BananaPI_front.jpg/240px-Lemaker_BananaPI_front.jpg 2x" /></a></div></div>
+			<div class="gallerytext">
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:30px auto;"><a href="File:Banana_Pi_top.JPG.html" class="image"><img alt="Banana Pi top.JPG" src="https://linux-sunxi.org/images/thumb/f/f1/Banana_Pi_top.JPG/120px-Banana_Pi_top.JPG" decoding="async" width="120" height="90" srcset="https://linux-sunxi.org/images/thumb/f/f1/Banana_Pi_top.JPG/180px-Banana_Pi_top.JPG 1.5x, https://linux-sunxi.org/images/thumb/f/f1/Banana_Pi_top.JPG/240px-Banana_Pi_top.JPG 2x" /></a></div></div>
+			<div class="gallerytext">
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:31px auto;"><a href="File:Lemaker_BananaPI_back.jpg.html" class="image"><img alt="Lemaker BananaPI back.jpg" src="https://linux-sunxi.org/images/thumb/c/c3/Lemaker_BananaPI_back.jpg/120px-Lemaker_BananaPI_back.jpg" decoding="async" width="120" height="88" srcset="https://linux-sunxi.org/images/thumb/c/c3/Lemaker_BananaPI_back.jpg/180px-Lemaker_BananaPI_back.jpg 1.5x, https://linux-sunxi.org/images/thumb/c/c3/Lemaker_BananaPI_back.jpg/240px-Lemaker_BananaPI_back.jpg 2x" /></a></div></div>
+			<div class="gallerytext">
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:30px auto;"><a href="File:Banana_Pi_bottom_with_heatsink.JPG.html" class="image"><img alt="Banana Pi bottom with heatsink.JPG" src="https://linux-sunxi.org/images/thumb/1/14/Banana_Pi_bottom_with_heatsink.JPG/120px-Banana_Pi_bottom_with_heatsink.JPG" decoding="async" width="120" height="90" srcset="https://linux-sunxi.org/images/thumb/1/14/Banana_Pi_bottom_with_heatsink.JPG/180px-Banana_Pi_bottom_with_heatsink.JPG 1.5x, https://linux-sunxi.org/images/thumb/1/14/Banana_Pi_bottom_with_heatsink.JPG/240px-Banana_Pi_bottom_with_heatsink.JPG 2x" /></a></div></div>
+			<div class="gallerytext">
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:59.5px auto;"><a href="File:Lemaker_BananaPI_side1.jpg.html" class="image"><img alt="Lemaker BananaPI side1.jpg" src="https://linux-sunxi.org/images/thumb/c/c4/Lemaker_BananaPI_side1.jpg/120px-Lemaker_BananaPI_side1.jpg" decoding="async" width="120" height="31" srcset="https://linux-sunxi.org/images/thumb/c/c4/Lemaker_BananaPI_side1.jpg/180px-Lemaker_BananaPI_side1.jpg 1.5x, https://linux-sunxi.org/images/thumb/c/c4/Lemaker_BananaPI_side1.jpg/240px-Lemaker_BananaPI_side1.jpg 2x" /></a></div></div>
+			<div class="gallerytext">
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:30px auto;"><a href="File:Banana_Pi_Side_3.JPG.html" class="image"><img alt="Banana Pi Side 3.JPG" src="https://linux-sunxi.org/images/thumb/e/e9/Banana_Pi_Side_3.JPG/120px-Banana_Pi_Side_3.JPG" decoding="async" width="120" height="90" srcset="https://linux-sunxi.org/images/thumb/e/e9/Banana_Pi_Side_3.JPG/180px-Banana_Pi_Side_3.JPG 1.5x, https://linux-sunxi.org/images/thumb/e/e9/Banana_Pi_Side_3.JPG/240px-Banana_Pi_Side_3.JPG 2x" /></a></div></div>
+			<div class="gallerytext">
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:58px auto;"><a href="File:Lemaker_BananaPI_side2.jpg.html" class="image"><img alt="Lemaker BananaPI side2.jpg" src="https://linux-sunxi.org/images/thumb/6/60/Lemaker_BananaPI_side2.jpg/120px-Lemaker_BananaPI_side2.jpg" decoding="async" width="120" height="34" srcset="https://linux-sunxi.org/images/thumb/6/60/Lemaker_BananaPI_side2.jpg/180px-Lemaker_BananaPI_side2.jpg 1.5x, https://linux-sunxi.org/images/thumb/6/60/Lemaker_BananaPI_side2.jpg/240px-Lemaker_BananaPI_side2.jpg 2x" /></a></div></div>
+			<div class="gallerytext">
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:30px auto;"><a href="File:Banana_Pi_Side_1.JPG.html" class="image"><img alt="Banana Pi Side 1.JPG" src="https://linux-sunxi.org/images/thumb/5/5d/Banana_Pi_Side_1.JPG/120px-Banana_Pi_Side_1.JPG" decoding="async" width="120" height="90" srcset="https://linux-sunxi.org/images/thumb/5/5d/Banana_Pi_Side_1.JPG/180px-Banana_Pi_Side_1.JPG 1.5x, https://linux-sunxi.org/images/thumb/5/5d/Banana_Pi_Side_1.JPG/240px-Banana_Pi_Side_1.JPG 2x" /></a></div></div>
+			<div class="gallerytext">
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:54px auto;"><a href="File:Lemaker_BananaPI_side3.jpg.html" class="image"><img alt="Lemaker BananaPI side3.jpg" src="https://linux-sunxi.org/images/thumb/a/a2/Lemaker_BananaPI_side3.jpg/120px-Lemaker_BananaPI_side3.jpg" decoding="async" width="120" height="42" srcset="https://linux-sunxi.org/images/thumb/a/a2/Lemaker_BananaPI_side3.jpg/180px-Lemaker_BananaPI_side3.jpg 1.5x, https://linux-sunxi.org/images/thumb/a/a2/Lemaker_BananaPI_side3.jpg/240px-Lemaker_BananaPI_side3.jpg 2x" /></a></div></div>
+			<div class="gallerytext">
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:30px auto;"><a href="File:Banana_Pi_Side_4.JPG.html" class="image"><img alt="Banana Pi Side 4.JPG" src="https://linux-sunxi.org/images/thumb/9/96/Banana_Pi_Side_4.JPG/120px-Banana_Pi_Side_4.JPG" decoding="async" width="120" height="90" srcset="https://linux-sunxi.org/images/thumb/9/96/Banana_Pi_Side_4.JPG/180px-Banana_Pi_Side_4.JPG 1.5x, https://linux-sunxi.org/images/thumb/9/96/Banana_Pi_Side_4.JPG/240px-Banana_Pi_Side_4.JPG 2x" /></a></div></div>
+			<div class="gallerytext">
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:54px auto;"><a href="File:Lemaker_BananaPI_side4.jpg.html" class="image"><img alt="Lemaker BananaPI side4.jpg" src="https://linux-sunxi.org/images/thumb/5/5b/Lemaker_BananaPI_side4.jpg/120px-Lemaker_BananaPI_side4.jpg" decoding="async" width="120" height="42" srcset="https://linux-sunxi.org/images/thumb/5/5b/Lemaker_BananaPI_side4.jpg/180px-Lemaker_BananaPI_side4.jpg 1.5x, https://linux-sunxi.org/images/thumb/5/5b/Lemaker_BananaPI_side4.jpg/240px-Lemaker_BananaPI_side4.jpg 2x" /></a></div></div>
+			<div class="gallerytext">
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px;"><div style="margin:30px auto;"><a href="File:Banana_Pi_Side_2.JPG.html" class="image"><img alt="Banana Pi Side 2.JPG" src="https://linux-sunxi.org/images/thumb/5/58/Banana_Pi_Side_2.JPG/120px-Banana_Pi_Side_2.JPG" decoding="async" width="120" height="90" srcset="https://linux-sunxi.org/images/thumb/5/58/Banana_Pi_Side_2.JPG/180px-Banana_Pi_Side_2.JPG 1.5x, https://linux-sunxi.org/images/thumb/5/58/Banana_Pi_Side_2.JPG/240px-Banana_Pi_Side_2.JPG 2x" /></a></div></div>
+			<div class="gallerytext">
+			</div>
+		</div></li>
+</ul>
+<h1><span class="mw-headline" id="Also_known_as">Also known as</span></h1>
+<ul><li>Banana Pi M1</li>
+<li>The Banana Pi (M1) will be sold as <a rel="nofollow" class="external text" href="http://wiki.lamobo.org/index.php/Lamobo_M1">Lamobo M1</a> in Taiwan</li>
+<li>The Banana Router board is also known and sold as <a rel="nofollow" class="external text" href="http://wiki.lamobo.org/index.php/Lamobo_R1">Lamobo R1</a></li></ul>
+<h1><span class="mw-headline" id="Variants">Variants</span></h1>
+<ul><li>The original Banana Pi went into mass production in March 2014 (PCB revision 1.4). SinoVoip now labels it <b>BPi-M1</b> ("model 1") to distinguish it from other models that were introduced later. The M1 features a standard SD card slot and a 26 pin GPIO connector (similar to the Raspberry Pi A/B).</li>
+<li>Foxconn also produced a Banana Pi variant called the "<a href="Foxconn_Super_Pi.html" title="Foxconn Super Pi">Super Pi</a>". It has a different PCB layout and different positions for onboard connectors, but preliminary tests show that it's (mostly?) compatible with the Banana Pi.</li>
+<li>The <a href="LeMaker_Banana_Pro.html" title="LeMaker Banana Pro">LeMaker Banana Pro</a> was presented in October 2014. It's an updated version of M1, using a microSD slot, onboard WiFi (AP6181) and a 40 pin GPIO header (that mimics the Raspberry Pi A+/B+ models).</li>
+<li>SinoVoip produced a different version called "<a href="LeMaker_Banana_Pro.html#Variants" title="LeMaker Banana Pro">M1Plus</a>" (<b>BPi-M1+</b>) as a Banana Pro rip-off sharing exactly the same hardware specs and almost the same position of onboard connectors. Main difference: SoC, DRAM and PMU are on the upper side of the PCB whereas on the lower on Banana Pro. Featurewise both boards are nearly identical and fex/dts files can be interchanged directly, with one small exception: according to LeMaker's and Sinovoip's fex files, [<a rel="nofollow" class="external text" href="http://linux-sunxi.org/Fex_Guide#audio_configuration#audio_configuration">audio_pa_ctrl</a>] differs: <i>PH26</i> on M1+ and <i>PH15</i> on Banana Pro. It turned also out that the blue led is red and connected to <i>PH25</i> instead of <i>PG02</i>.</li>
+<li>The <a href="Lamobo_R1.html" title="Lamobo R1">Banana Pi Router</a> (<b>BPi-R1</b> also known as <b>Lamobo R1</b>) uses a larger form factor. The board has microSD, onboard WiFi (RTL8192CU), 5 Gbit Ethernet ports, 26 pin GPIO compatible to BPi/M1 and a connector to directly attach a SATA drive.</li></ul>
+<hr />
+<p>"Banana Pi" devices that are <span style="color:#ba0000">incompatible</span> to version 1:
+</p>
+<ul><li>The <a href="Sinovoip_Banana_Pi_M2.html" title="Sinovoip Banana Pi M2">Banana Pi M2</a> (<b>BPi-M2</b>, "model 2") is announced for 2015 (shipping from April). It offers microSD, onboard WiFi (AP6181, 802.11b/g/n), 40 pin GPIO and 4 USB type A connectors. However this device has <u>no SATA</u> any more, and it's based on a different SoC (quad-core <a href="A31s.html" class="mw-redirect" title="A31s">A31s</a> CPU), which makes it incompatible to the A20-based models.</li>
+<li>As of March 2016 SinoVoip offers a "<a href="Sinovoip_Banana_Pi_M2+.html" title="Sinovoip Banana Pi M2+">M2 Plus</a>" version (<b>BPi-M2+</b>). Due to the <a href="H3.html" title="H3">H3</a> SoC used and a different form factor it's likely rather incompatible to both <a href="Sinovoip_Banana_Pi_M2.html" title="Sinovoip Banana Pi M2">M2</a> and the older (A20-based) models.</li>
+<li>SinoVoip started to sell the so called <a href="Banana_Pi_M3.html" class="mw-redirect" title="Banana Pi M3">Banana Pi M3</a> (<b>BPi-M3</b>) in November 2015. It's based on the octa-core <a href="A83T.html" title="A83T">A83T</a> SoC with a PowerVR SGX544MP1 GPU and 2 GiB RAM. It offers microSD, onboard WiFi/BT4.0 (AP6212), GBit Ethernet, 40 pin GPIO, 1 x µ-USB 2.0 OTG, 2 x USB 2.0 host and an ultra-slow GL830 USB-to-SATA bridge behind a FE1.1S hub. Since there's no mainline support for the A83T yet and the OS images SinoVoip provides fail in many regards, situation with the M3 can be considered even more problematic than with the <a href="Sinovoip_Banana_Pi_M2.html" title="Sinovoip Banana Pi M2">M2</a> today. Even worse: Since the A83T used on the M3 has only a MIPI interface LCD displays sold for the older Banana Pi variants can not be used any more.</li>
+<li>As of July 2016 SinoVoip now offers a <a href="Banana_Pi_M64.html" class="mw-redirect" title="Banana Pi M64">Banana Pi M64</a> (<b>BPi-M64</b>) based on the <a href="A64.html" title="A64">A64</a>.</li>
+<li>SinoVoip manufactures and sells two other boards labeled "Banana Pi" that are <u>not sunxi-based</u> and <i>totally incompatible</i> with Banana Pi/M1/M1+/Pro: the <a rel="nofollow" class="external text" href="http://www.bananapi.com/index.php/component/content/article?layout=edit&amp;id=63">BPi-D1</a> has been <a rel="nofollow" class="external text" href="https://www.kickstarter.com/projects/2081058999/lamobo-d1-develop-your-own-mini-camera">developed by Lamobo</a> and is sold by them as <a rel="nofollow" class="external text" href="http://wiki.lamobo.org/index.php/Lamobo_D1">Lamobo D1</a>. Same applies to the so called <a rel="nofollow" class="external text" href="http://www.bananapi.com/index.php/component/content/article?layout=edit&amp;id=76">BPi-G1</a> which is also sold as <a rel="nofollow" class="external text" href="http://wiki.lamobo.org/index.php/Lamobo_G1">Lamobo G1</a> in Taiwan.</li></ul>
+<h1><span class="mw-headline" id="Manufacturer_images">Manufacturer images</span></h1>
+<ul><li>A various amount of <a rel="nofollow" class="external text" href="http://www.lemaker.org/portal.php?mod=list&amp;catid=4">prebuilt images</a> is provided via LeMaker's Website.</li>
+<li><a rel="nofollow" class="external text" href="http://www.bananapi.com/Download/5/">bananapi.com download section</a> for the Banana Pi (BPi-M1).</li></ul>
+<h1><span class="mw-headline" id="See_also">See also</span></h1>
+<p>There are several websites about Banana Pi and claiming to support it. It has to be clarified, what is "official" and who is behind these sites (also see introductory remarks).
+</p>
+<ul><li><a rel="nofollow" class="external text" href="http://www.lemaker.org">LeMaker Banana Pi site</a>, <a rel="nofollow" class="external text" href="http://www.lemaker.org/forum.php">Forum</a>, <a rel="nofollow" class="external text" href="http://wiki.lemaker.org">Wiki</a>, <a class="external text" href="http://github.com/LeMaker">'Official' Github Repository</a>, <a rel="nofollow" class="external text" href="http://www.lenovator.com">Lenovator (LeMaker Distributor)</a></li>
+<li><a rel="nofollow" class="external text" href="http://www.bananapi.org">BananaPi R&amp;D Team</a>, <a class="external text" href="http://github.com/bananapi-dev">Github Repository</a></li>
+<li><a rel="nofollow" class="external text" href="http://www.banana-pi.com/">SinoVoip Banana Pi site</a>, <a rel="nofollow" class="external text" href="http://sinovoip.com.cn">SinoVoip (Manufacturer?)</a>, <a rel="nofollow" class="external text" href="http://www.bananapi.com/">bananapi.com</a>, <a rel="nofollow" class="external text" href="http://www.banana-pi.org.cn">Chinese forum</a>, <a class="external text" href="https://github.com/BPI-SINOVOIP">Github Repository</a> (newly introduced with BPi-M2, but claims to support M1 and M1Plus too)</li>
+<li><a href="File:A20_Bananapi_Schematic.pdf.html" title="File:A20 Bananapi Schematic.pdf">File:A20 Bananapi Schematic.pdf</a> (LeMaker), <a rel="nofollow" class="external text" href="https://drive.google.com/folderview?id=0B4PAo2nW2KfnflVqbjJGTFlFTTd1b1o1OUxDNk5ackVDM0RNUjBpZ0FQU19SbDk1MngzZWM">Banana Pi M1/M1+ schematic</a> (SinoVoip).</li>
+<li><a rel="nofollow" class="external text" href="http://www.lamobo.org">Lamobo</a> cooperates/cooperated with SinoVoip and provided OS images for Banana Pi/M1, and the router board <i>Lamobo R1</i>.</li>
+<li>OpenWRT support for the Banana Pi with mainline kernel - <a rel="nofollow" class="external text" href="http://downloads.openwrt.org/snapshots/trunk/sunxi/">Daily build</a> / <a rel="nofollow" class="external text" href="http://wiki.openwrt.org/doc/hardware/soc/soc.allwinner.sunxi#pre-built.sd.card.images#pre-built.sd.card.images">Manual for building an SD-card image</a></li></ul>
+<p>We have dedicated wiki pages for
+</p>
+<ul><li><a href="Lamobo_R1.html" title="Lamobo R1">Banana Pi Router</a></li>
+<li><a href="Banana_Pro.html" class="mw-redirect" title="Banana Pro">Banana Pro</a></li>
+<li><a href="Banana_Pi_M2.html" class="mw-redirect" title="Banana Pi M2">Banana Pi M2</a></li>
+<li><a href="Banana_Pi_M2+.html" class="mw-redirect" title="Banana Pi M2+">Banana Pi M2+</a></li>
+<li><a href="Banana_Pi_M3.html" class="mw-redirect" title="Banana Pi M3">Banana Pi M3</a></li>
+<li><a href="Banana_Pi_M64.html" class="mw-redirect" title="Banana Pi M64">Banana Pi M64</a></li>
+<li><a href="Foxconn_Super_Pi.html" title="Foxconn Super Pi">Foxconn Super Pi</a> - Foxconn produced board.</li></ul>
+<h2><span class="mw-headline" id="References">References</span></h2>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">References to <i>Foxconn Technology Group</i> should be read as <i><a rel="nofollow" class="external text" href="http://www.kortide.com/cn.php?s=/index">Kortide</a></i>, a Shanghai-based system platform developer under the Foxconn Group founding the <a rel="nofollow" class="external text" href="http://elastos.org">Elastos community</a> and owning the <a rel="nofollow" class="external text" href="http://www.lamobo.org">Lamobo</a> brand</span>
+</li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.cnx-software.com/wp-content/uploads/2014/04/Banana_Pi_Large.jpg">http://www.cnx-software.com/wp-content/uploads/2014/04/Banana_Pi_Large.jpg</a></span>
+</li>
+<li id="cite_note-3"><span class="mw-cite-backlink"><a href="#cite_ref-3">↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://web.archive.org/web/20150628113736/http://bananapi.elastos.org/files/2013/11/up.jpg">http://web.archive.org/web/20150628113736/http://bananapi.elastos.org/files/2013/11/up.jpg</a></span>
+</li>
+</ol></div>
+<!-- 
+NewPP limit report
+Cached time: 20251029050540
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.346 seconds
+Real time usage: 0.672 seconds
+Preprocessor visited node count: 482/1000000
+Post‐expand include size: 7859/2097152 bytes
+Template argument size: 3312/2097152 bytes
+Highest expansion depth: 6/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 8959/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  519.417      1 -total
+ 72.45%  376.336      1 Template:Infobox_Board
+ 17.39%   90.314     20 Template:Infobox/entry
+  2.30%   11.955      2 Template:Infobox/header
+  1.67%    8.666      1 Template:Dont
+  1.42%    7.377      1 Template:Redbox
+  0.54%    2.825      2 Template:Note
+  0.51%    2.625      1 Template:Red
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:1748-0!canonical and timestamp 20251029050539 and revision id 26451
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=LeMaker_Banana_Pi&amp;oldid=26451">https://linux-sunxi.org/index.php?title=LeMaker_Banana_Pi&amp;oldid=26451</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Categories</a>: <ul><li><a href="Category:Devices.html" title="Category:Devices">Devices</a></li><li><a href="Category:A20_Boards.html" title="Category:A20 Boards">A20 Boards</a></li><li><a href="Category:Devices_with_Ethernet_port.html" title="Category:Devices with Ethernet port">Devices with Ethernet port</a></li><li><a href="Category:Devices_with_HDMI_port.html" title="Category:Devices with HDMI port">Devices with HDMI port</a></li><li><a href="Category:Devices_with_SATA_port.html" title="Category:Devices with SATA port">Devices with SATA port</a></li><li><a href="Category:Devices_with_USB_OTG.html" title="Category:Devices with USB OTG">Devices with USB OTG</a></li><li><a href="Category:Mainline_U-Boot.html" title="Category:Mainline U-Boot">Mainline U-Boot</a></li><li><a href="Category:Mainline_Kernel.html" title="Category:Mainline Kernel">Mainline Kernel</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=LeMaker+Banana+Pi" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=LeMaker+Banana+Pi" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="LeMaker_Banana_Pi.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:LeMaker_Banana_Pi&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="LeMaker_Banana_Pi.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=LeMaker_Banana_Pi&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=LeMaker_Banana_Pi&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/LeMaker_Banana_Pi.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/LeMaker_Banana_Pi" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=LeMaker_Banana_Pi&amp;oldid=26451" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=LeMaker_Banana_Pi&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 25 May 2025, at 21:59.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.346","walltime":"0.672","ppvisitednodes":{"value":482,"limit":1000000},"postexpandincludesize":{"value":7859,"limit":2097152},"templateargumentsize":{"value":3312,"limit":2097152},"expansiondepth":{"value":6,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":8959,"limit":5000000},"timingprofile":["100.00%  519.417      1 -total"," 72.45%  376.336      1 Template:Infobox_Board"," 17.39%   90.314     20 Template:Infobox/entry","  2.30%   11.955      2 Template:Infobox/header","  1.67%    8.666      1 Template:Dont","  1.42%    7.377      1 Template:Redbox","  0.54%    2.825      2 Template:Note","  0.51%    2.625      1 Template:Red"]},"cachereport":{"timestamp":"20251029050540","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":285});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

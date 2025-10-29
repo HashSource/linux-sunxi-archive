@@ -1,0 +1,741 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>CSI - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"8b5e9989fa8b98ee8070aaae","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"CSI","wgTitle":"CSI","wgCurRevisionId":23774,"wgRevisionId":23774,"wgArticleId":552,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Hardware","Tutorial"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"CSI","wgRelevantArticleId":552,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":"ready","user":"ready",
+"user.options":"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=mediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="CSI.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-CSI rootpage-CSI skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">CSI</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#CSI_on_mainline_Linux_with_v4l2"><span class="tocnumber">1</span> <span class="toctext">CSI on mainline Linux with v4l2</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Kernel_config_options"><span class="tocnumber">1.1</span> <span class="toctext">Kernel config options</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Userspace_configuration"><span class="tocnumber">1.2</span> <span class="toctext">Userspace configuration</span></a>
+<ul>
+<li class="toclevel-3 tocsection-4"><a href="#Media_bus_and_capture_formats"><span class="tocnumber">1.2.1</span> <span class="toctext">Media bus and capture formats</span></a></li>
+<li class="toclevel-3 tocsection-5"><a href="#Sensor_sub-device_configuration"><span class="tocnumber">1.2.2</span> <span class="toctext">Sensor sub-device configuration</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-6"><a href="#Capturing_Images"><span class="tocnumber">1.3</span> <span class="toctext">Capturing Images</span></a>
+<ul>
+<li class="toclevel-3 tocsection-7"><a href="#FFMpeg"><span class="tocnumber">1.3.1</span> <span class="toctext">FFMpeg</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-8"><a href="#Caveats_.2F_TODOs"><span class="tocnumber">1.4</span> <span class="toctext">Caveats / TODOs</span></a>
+<ul>
+<li class="toclevel-3 tocsection-9"><a href="#JPEG_media_bus_format_buffers"><span class="tocnumber">1.4.1</span> <span class="toctext">JPEG media bus format buffers</span></a></li>
+<li class="toclevel-3 tocsection-10"><a href="#MIPI_CSI-2"><span class="tocnumber">1.4.2</span> <span class="toctext">MIPI CSI-2</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-11"><a href="#BSP_kernel_supported_camera.27s_sensors_table"><span class="tocnumber">2</span> <span class="toctext">BSP kernel supported camera's sensors table</span></a>
+<ul>
+<li class="toclevel-2 tocsection-12"><a href="#Reference"><span class="tocnumber">2.1</span> <span class="toctext">Reference</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="CSI_on_mainline_Linux_with_v4l2">CSI on mainline Linux with v4l2</span></h1>
+<p>The CSI (CMOS Sensor Interface) hardware block is partially supported in mainline Linux.
+Support for the hardware block found on <a href="A31.html" title="A31">A31</a> and later generations is already upstream,
+while the one found on <a href="A10.html" title="A10">A10</a>/<a href="A20.html" title="A20">A20</a> is being worked on, as of 2019/04/12.
+</p><p>Currently parallel and BT.656 (embedded sync) interfaces are supported. MIPI CSI-2 is not.
+</p><p>The mainline driver uses v4l2 with the sub-device API and media controller API.
+</p>
+<h2><span class="mw-headline" id="Kernel_config_options">Kernel config options</span></h2>
+<p>To enable the driver, please first check if you have the <b>VIDEO_DEV</b>, <b>MEDIA_CONTROLLER</b> and
+<b>VIDEO_V4L2_SUBDEV_API</b> Kconfig options enabled.
+</p><p>Then once you enable <b>V4L_PLATFORM_DRIVERS</b> you should be able to enable <b>VIDEO_SUN6I_CSI</b> for the A31 CSI driver.
+For the A10/A20 CSI driver, enable <b>VIDEO_SUN4I_CSI</b>. (Provided you have the patches applied.)
+</p>
+<h2><span class="mw-headline" id="Userspace_configuration">Userspace configuration</span></h2>
+<p>It is recommended to use an up-to-date version of v4l-utils, as older versions, such as the one in Debian Stable (1.12.x)
+has some bugs, and doesn't understand all formats or knobs.
+</p><p>The usage of the media controller and sub-device API means configuration of the capture options
+is slightly complicated. The <b>media-ctl</b> and <b>v4l2-ctl</b> are used.
+</p><p>If you are using buildroot, enable <b>BR2_PACKAGE_LIBV4L</b> and <b>BR2_PACKAGE_LIBV4L_UTILS</b> in the make menuconfig to be able to use <b>media-ctl</b> and <b>v4l2-ctl</b>. media-ctl source and development have been moved to v4l-utils since June 2014.
+</p>
+<h3><span class="mw-headline" id="Media_bus_and_capture_formats">Media bus and capture formats</span></h3>
+<p>To see the current settings of the media bus, use
+</p>
+<pre>$ media-ctl --print-topology
+
+Media controller API version 5.1.0
+
+Media device information
+------------------------
+driver          sun6i-csi
+model           Allwinner Video Capture Device
+serial
+bus info
+hw revision     0x0
+driver version  5.1.0
+
+Device topology
+- entity 1: sun6i-csi (1 pad, 1 link)
+            type Node subtype V4L flags 0
+            device node name /dev/video0
+        pad0: Sink
+                &lt;- "ov5640 1-003c":0 [ENABLED,IMMUTABLE]
+
+- entity 5: ov5640 1-003c (1 pad, 1 link)
+            type V4L2 subdev subtype Sensor flags 0
+            device node name /dev/v4l-subdev0
+        pad0: Source
+                [fmt:UYVY8_2X8/640x480 field:none]
+                -&gt; "sun6i-csi":0 [ENABLED,IMMUTABLE]
+
+</pre>
+<p>On systems with the Cedrus driver enabled, the media device may not be the default one, in which case you should use
+</p>
+<pre>$ media-ctl --device /dev/mediaN --print-topology
+</pre>
+<p>To set the capture format (including the bus format and capture size), you specify the properties of the source pad.
+</p>
+<pre>$ media-ctl --set-v4l2 '"ov5640 1-003c":0[fmt:UYVY8_2X8/720x480]'
+</pre>
+<p>Here the entity name <b>"ov5640 1-003c"</b> can also be replaced with the entity ID <b>5</b>.
+</p><p>This configures a capture size of 720x480 pixels with the UYVY8_2X8 bus format, which is YUV 4:2:0.
+See <a rel="nofollow" class="external text" href="https://www.kernel.org/doc/html/latest/userspace-api/media/v4l/subdev-formats.html">Media Bus Formats</a> for a list and description of formats.
+</p><p>The capture resolution specified here must match what is requested by the capture application,
+otherwise the kernel driver will report an error and refuse to capture.
+</p>
+<h3><span class="mw-headline" id="Sensor_sub-device_configuration">Sensor sub-device configuration</span></h3>
+<p>Sensors can have a number of control knobs that can be configured from userspace. These range from image orientation to power line frequency to test patterns.
+</p><p>To see the full list of control knobs along with menu item descriptions, use
+</p>
+<pre>$ v4l2-ctl --list-ctrls-menus
+
+User Controls
+
+                       contrast (int)    : min=0 max=255 step=1 default=0 value=0 flags=slider
+                     saturation (int)    : min=0 max=255 step=1 default=64 value=64 flags=slider
+                            hue (int)    : min=0 max=359 step=1 default=0 value=0 flags=slider
+        white_balance_automatic (bool)   : default=1 value=1 flags=update
+                    red_balance (int)    : min=0 max=4095 step=1 default=0 value=0 flags=inactive, slider
+                   blue_balance (int)    : min=0 max=4095 step=1 default=0 value=0 flags=inactive, slider
+                       exposure (int)    : min=0 max=65535 step=1 default=0 value=885 flags=inactive, volatile
+                 gain_automatic (bool)   : default=1 value=1 flags=update
+                           gain (int)    : min=0 max=1023 step=1 default=0 value=248 flags=inactive, volatile
+                horizontal_flip (bool)   : default=0 value=0
+                  vertical_flip (bool)   : default=0 value=0
+           power_line_frequency (menu)   : min=0 max=3 default=1 value=1
+                                0: Disabled
+                                1: 50 Hz
+                                2: 60 Hz
+                                3: Auto
+
+Camera Controls
+
+                  auto_exposure (menu)   : min=0 max=1 default=0 value=0 flags=update
+                                0: Auto Mode
+                                1: Manual Mode
+
+Image Processing Controls
+
+                   test_pattern (menu)   : min=0 max=4 default=0 value=0
+                                0: Disabled
+                                1: Color bars
+                                2: Color bars w/ rolling bar
+                                3: Color squares
+                                4: Color squares w/ rolling bar
+
+</pre>
+<p>Note that if the system has multiple video devices, you may need to specify which one to use:
+</p>
+<pre>$ v4l2-ctl --device=/dev/videoN --list-ctrls-menus
+</pre>
+<p>To set an option, use
+</p>
+<pre>$ v4l2-ctl --set-ctrl=vertical_flip=1
+</pre>
+<p>Or multiple options at once
+</p>
+<pre>$ v4l2-ctl --set-ctrl=power_line_frequency=2,vertical_flip=1,horizontal_flip=1
+</pre>
+<h2><span class="mw-headline" id="Capturing_Images">Capturing Images</span></h2>
+<h3><span class="mw-headline" id="FFMpeg">FFMpeg</span></h3>
+<p>FFMpeg supports capturing from v4l2 devices. However it does not support configuration of the media bus or sub-devices.
+Please use the commands shown in the previous sections instead.
+</p><p>To capture from the first video device, use
+</p>
+<pre>$ ffmpeg -s WxH -i /dev/video0 output.mjpg
+</pre>
+<p>This captures and encodes a video of W by H pixels from the first video device to an M-JPEG file.
+</p><p>Note that W and H must match what you previously set with <b>media-ctl</b>. The system default is 640x480.
+</p><p>If you also specified a different bus format, such as JPEG_1X8, you will need to tell FFMpeg as well, using
+</p>
+<pre>$ ffmpeg -input_format mjpeg -s WxH -i /dev/video0 output.mjpg
+</pre>
+<p><br />
+</p>
+<h2><span id="Caveats_/_TODOs"></span><span class="mw-headline" id="Caveats_.2F_TODOs">Caveats / TODOs</span></h2>
+<h3><span class="mw-headline" id="JPEG_media_bus_format_buffers">JPEG media bus format buffers</span></h3>
+<p>The JPEG media bus format support in the driver does not trim the returned buffer.
+In other words, the full buffer is passed back to userspace, with trailing zeros.
+This means the user will end up with enormous JPEG files without post-processing.
+</p><p>There are already several JPEG parsers in the kernel. A proposal was made to combine
+and generalize them, which could then be used in our CSI driver to detect the end
+of the JPEG stream. This has not been implemented yet.
+</p>
+<h3><span class="mw-headline" id="MIPI_CSI-2">MIPI CSI-2</span></h3>
+<p>While a few Allwinner SoCs support MIPI CSI-2, details on the hardware is sparse.
+No one has attempted to support this yet.
+</p>
+<h1><span id="BSP_kernel_supported_camera's_sensors_table"></span><span class="mw-headline" id="BSP_kernel_supported_camera.27s_sensors_table">BSP kernel supported camera's sensors table</span></h1>
+<table class="wikitable">
+
+<tbody><tr>
+<th scope="row">Vendor</th>
+<th>Part Number</th>
+<th>Pixels</th>
+<th>Type</th>
+<th>Specification</th>
+<th>Focus</th>
+<th>AVDD</th>
+<th>DOVDD</th>
+<th>DVDD</th>
+<th>AFVCC</th>
+<th>NOTE
+</th></tr>
+<tr>
+<td>OmniVision</td>
+<td>OV7670</td>
+<td>0.3M</td>
+<td>Photo/Video</td>
+<td>640*480@30fps<br />352*176@30fps<br />320*240@30fps<br />176*144@30fps</td>
+<td>Fixed focus</td>
+<td>2.8</td>
+<td>2.8</td>
+<td>1.8</td>
+<td>NC</td>
+<td>
+</td></tr>
+<tr>
+<td>OmniVision</td>
+<td>OV2655</td>
+<td>2M</td>
+<td>Photo/Video</td>
+<td>1600*1200<br />800*600@30fps<br />640*480@30fps</td>
+<td>Fixed focus</td>
+<td>2.8</td>
+<td>2.8</td>
+<td>1.5</td>
+<td>NC</td>
+<td>Basic image can fine tune the effect
+</td></tr>
+<tr>
+<td>OmniVision</td>
+<td>OV2643</td>
+<td>2M</td>
+<td>Photo/Video</td>
+<td>1600*1200<br />1280*760@30fps<br />640*480@30fps</td>
+<td>Fixed focus</td>
+<td>2.8</td>
+<td>2.8</td>
+<td>1.5</td>
+<td>NC</td>
+<td>Module FPC needs to be as short as possible
+</td></tr>
+<tr>
+<td>OmniVision</td>
+<td>OV3660</td>
+<td>3M</td>
+<td>Photo/Video</td>
+<td>2048*1536@5fps<br />1600*1200@5fps<br />1280*720@30fps<br />640*480@30fps</td>
+<td>Fixed focus</td>
+<td>2.8</td>
+<td>2.8</td>
+<td>1.8</td>
+<td>NC</td>
+<td>
+</td></tr>
+<tr>
+<td>OmniVision</td>
+<td>OV5640</td>
+<td>5M</td>
+<td>Photo/Video</td>
+<td>2592*1936@5fps<br />2048*1536@5fps<br />1600*1200@5fps<br />1280*960@5fps<br />1024*768@5fps<br />1920*1080@30fps<br />1280*720@30fps<br />640*480@30fps</td>
+<td>Fixed focus/Autofocus</td>
+<td>2.8</td>
+<td>2.8</td>
+<td>1.5</td>
+<td>2.8~3</td>
+<td>1.OV5640 drive capability module selection FPC.<br />Need to be as short as possible.<br />2. Recommendation module model effects and auto-focus function is fine.<br />If the election of the other modules, and does not guarantee results.
+</td></tr>
+<tr>
+<td>OmniVision</td>
+<td>OV5647</td>
+<td>5M</td>
+<td>Photo/Video</td>
+<td>5M@15fps<br />1080p@30fps<br />720p@30fps</td>
+<td>Autofocus</td>
+<td>2.8</td>
+<td>2.8</td>
+<td>1.5</td>
+<td>2.8</td>
+<td>
+</td></tr>
+<tr>
+<td>Micron</td>
+<td>MT9V112</td>
+<td>0.3M</td>
+<td>Photo/Video</td>
+<td>640*480@30fps</td>
+<td>Fixed focus</td>
+<td>2.8</td>
+<td>2.8</td>
+<td>1.8</td>
+<td>NC</td>
+<td>
+</td></tr>
+<tr>
+<td>Micron</td>
+<td>MT9M112</td>
+<td>1.3M</td>
+<td>Photo/Video</td>
+<td>1280*1024@15fps<br />640*512@30fps</td>
+<td>Fixed focus</td>
+<td>2.8</td>
+<td>2.8</td>
+<td>1.8</td>
+<td>NC</td>
+<td>
+</td></tr>
+<tr>
+<td>Micron</td>
+<td>MT9M113</td>
+<td>1.3M</td>
+<td>Photo/Video</td>
+<td>1280*1024@15fps<br />640*512@30fps</td>
+<td>Fixed focus</td>
+<td>2.8</td>
+<td>2.8</td>
+<td>1.8</td>
+<td>NC</td>
+<td>
+</td></tr>
+<tr>
+<td>Micron</td>
+<td>MT9D112</td>
+<td>1.3M</td>
+<td>Photo/Video</td>
+<td>1600*1200@15fps<br />640*480@30fps</td>
+<td>Fixed focus</td>
+<td>2.8</td>
+<td>2.8</td>
+<td>1.8</td>
+<td>NC</td>
+<td>
+</td></tr>
+<tr>
+<td>Galaxy Core</td>
+<td>GC0307</td>
+<td>0.3M</td>
+<td>Video</td>
+<td>640*480@15fps</td>
+<td>Fixed focus</td>
+<td>2.8</td>
+<td>2.8</td>
+<td>1.8</td>
+<td>NC</td>
+<td>
+</td></tr>
+<tr>
+<td>Galaxy Core</td>
+<td>GC0308</td>
+<td>0.3M</td>
+<td>Video</td>
+<td>640*480@15fps</td>
+<td>Fixed focus</td>
+<td>2.8</td>
+<td>2.8</td>
+<td>1.8</td>
+<td>NC</td>
+<td>
+</td></tr>
+<tr>
+<td>Galaxy Core</td>
+<td>GC0309</td>
+<td>0.3M</td>
+<td>Video</td>
+<td>640*480@15fps</td>
+<td>Fixed focus</td>
+<td>2.8</td>
+<td>2.8</td>
+<td>1.8</td>
+<td>NC</td>
+<td>
+</td></tr>
+<tr>
+<td>Galaxy Core</td>
+<td>GC0329</td>
+<td>0.3M</td>
+<td>Video</td>
+<td>640*480@15fps</td>
+<td>Fixed focus</td>
+<td>2.8</td>
+<td>2.8</td>
+<td>1.8</td>
+<td>NC</td>
+<td>
+</td></tr>
+<tr>
+<td>Galaxy Core</td>
+<td>GT2005</td>
+<td>2M</td>
+<td>Photo/Video</td>
+<td>1600*1200@15fps<br />1280*720@15fps<br />800*600@30fps<br />640*480@30fps</td>
+<td>Fixed focus</td>
+<td>2.8</td>
+<td>2.8</td>
+<td>1.8</td>
+<td>NC</td>
+<td>
+</td></tr>
+<tr>
+<td>Galaxy Core</td>
+<td>GT2035</td>
+<td>2M</td>
+<td>Photo/Video</td>
+<td>1600*1200@2fps<br />1280*720@10fps<br />800*600@10fps<br />640*480@10fps</td>
+<td>Fixed focus</td>
+<td>2.8</td>
+<td>2.8</td>
+<td>1.8</td>
+<td>NC</td>
+<td>
+</td></tr>
+<tr>
+<td>Galaxy Core</td>
+<td>GC2015</td>
+<td>2M</td>
+<td>Photo/Video</td>
+<td>1600*1200@2fps<br />1280*1024@2fps<br />1024*768@2fps<br />800*600@8fps<br />640*480@8fps</td>
+<td>Fixed focus</td>
+<td>2.8</td>
+<td>2.8</td>
+<td>2.8</td>
+<td>NC</td>
+<td>
+</td></tr>
+<tr>
+<td>Hynix</td>
+<td>HI704</td>
+<td>0.3M</td>
+<td>Video</td>
+<td>640*480@20fps</td>
+<td>Fixed focus</td>
+<td>2.8</td>
+<td>2.8</td>
+<td>2.8</td>
+<td>NC</td>
+<td>I2C and other devices share may be a conflict
+</td></tr>
+<tr>
+<td>Hynix</td>
+<td>HI253</td>
+<td>6M</td>
+<td>Photo/Video</td>
+<td>1600*1200<br />1280*720@15fps<br />800*600@30fps<br />640*480@30fps<br />320*240@30fps</td>
+<td>Fixed focus/Autofocus</td>
+<td>2.8</td>
+<td>2.8</td>
+<td>1.8</td>
+<td>NC</td>
+<td>
+</td></tr>
+<tr>
+<td>SETi</td>
+<td>SIV121D</td>
+<td>0.3M</td>
+<td>YUV</td>
+<td>640x480@30fps</td>
+<td>Fixed focus</td>
+<td>2.8</td>
+<td>1.8/2.8</td>
+<td>internal</td>
+<td>NC</td>
+<td>based on SIV121C datasheet
+</td></tr>
+<tr>
+<td>Superpix</td>
+<td>SP0838</td>
+<td>0.3M</td>
+<td>Video</td>
+<td>640*480@20fps</td>
+<td>Fixed focus</td>
+<td>2.8</td>
+<td>2.8</td>
+<td>1.8</td>
+<td>NC</td>
+<td>
+</td></tr>
+<tr>
+<td>Superpix</td>
+<td>SP2518</td>
+<td>2M</td>
+<td>Video</td>
+<td>1600*1200@15fps</td>
+<td>Fixed focus</td>
+<td>2.8</td>
+<td>2.8</td>
+<td>1.8</td>
+<td>NC</td>
+<td>
+</td></tr>
+<tr>
+<td>Samsung</td>
+<td>S5K4EC</td>
+<td>5M</td>
+<td>Photo/Video</td>
+<td>2560*<a href="https://linux-sunxi.org/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b180888381f1869f84d7c1c2">[email&#160;protected]</a><br />2048*<a href="https://linux-sunxi.org/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3d0c080e0b7d0a13085b4d4e">[email&#160;protected]</a><br />1920*1080@15fps<br />1280*720@30fps<br />640*480@30fps</td>
+<td>Autofocus</td>
+<td>2.8</td>
+<td>2.8</td>
+<td>1.2</td>
+<td>2.8~3</td>
+<td>
+</td></tr>
+<tr>
+<td>TOSHIBA</td>
+<td>T8ET5</td>
+<td>5M</td>
+<td>Video</td>
+<td>5M@15fps<br />2048*<a href="https://linux-sunxi.org/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6c5d595f5a2c5b42590a1c1f">[email&#160;protected]</a><br />1080p@30fps<br />720p@30fps</td>
+<td>Autofocus</td>
+<td>2.8</td>
+<td>2.8</td>
+<td>1.5</td>
+<td>2.8</td>
+<td>
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="Reference">Reference</span></h2>
+<p><strike>*<a rel="nofollow" class="external autonumber" href="http://service.awbase.com:8000/faq/index.php/%E6%94%AF%E6%8C%81%E5%88%97%E8%A1%A8">[1]</a> Allwinnertech Wiki</strike>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20251029034332
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.036 seconds
+Real time usage: 0.041 seconds
+Preprocessor visited node count: 94/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 2571/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:552-0!canonical and timestamp 20251029034332 and revision id 23774
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=CSI&amp;oldid=23774">https://linux-sunxi.org/index.php?title=CSI&amp;oldid=23774</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Categories</a>: <ul><li><a href="Category:Hardware.html" title="Category:Hardware">Hardware</a></li><li><a href="Category:Tutorial.html" title="Category:Tutorial">Tutorial</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=CSI" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=CSI" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="CSI.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk"><a href="Talk:CSI.html" rel="discussion" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="CSI.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=CSI&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=CSI&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/CSI.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/CSI" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=CSI&amp;oldid=23774" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=CSI&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 30 November 2020, at 12:37.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script data-cfasync="false" src="https://linux-sunxi.org/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.036","walltime":"0.041","ppvisitednodes":{"value":94,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":2571,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20251029034332","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":119});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

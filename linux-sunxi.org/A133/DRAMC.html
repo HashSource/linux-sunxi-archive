@@ -1,0 +1,333 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>A133/DRAMC - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"61654ef8864c4e375219ebe5","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"A133/DRAMC","wgTitle":"A133/DRAMC","wgCurRevisionId":26045,"wgRevisionId":26045,"wgArticleId":4421,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"A133/DRAMC","wgRelevantArticleId":4421,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":"ready","user":"ready",
+"user.options":"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=mediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="DRAMC.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-A133_DRAMC rootpage-A133 skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">A133/DRAMC</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"><span class="subpages">&lt; <a href="../A133.html" title="A133">A133</a></span></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p><b>DRAMC</b> is the name given by Allwinner to the memory region containing the DDR controller and PHY blocks. These handle initializing the DRAM and mapping it into memory accessible by the processor.
+The DDR controller and PHY used on the A133 appear to be largely similar to that used by the H616; thus, knowledge is mostly transferable between the two.
+</p><p>This is a high-level overview that assumes some prior knowledge regarding DDR memory.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Blocks"><span class="tocnumber">1</span> <span class="toctext">Blocks</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#MCTL_CTL"><span class="tocnumber">1.1</span> <span class="toctext">MCTL_CTL</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#MCTL_COM"><span class="tocnumber">1.2</span> <span class="toctext">MCTL_COM</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#MCTL_PHY"><span class="tocnumber">1.3</span> <span class="toctext">MCTL_PHY</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="#DRAM_initialization_in_boot0"><span class="tocnumber">2</span> <span class="toctext">DRAM initialization in boot0</span></a>
+<ul>
+<li class="toclevel-2 tocsection-6"><a href="#init_DRAM"><span class="tocnumber">2.1</span> <span class="toctext">init_DRAM</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#mctl_core_init"><span class="tocnumber">2.2</span> <span class="toctext">mctl_core_init</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Blocks">Blocks</span></h2>
+<h3><span class="mw-headline" id="MCTL_CTL">MCTL_CTL</span></h3>
+<p>MCTL_CTL is the DDR controller, based on the Synopsys Enhanced Universal DDR Memory Controller (uMCTL2) IP core. This is used on a number of SoCs, including the Zynq UltraScale+ series of SoCs. This was also used on the H6 and H616.
+</p><p>Unlike most implementations of this IP, there appear to be at least 3 additional sets of shadow registers; these are all <code>0x1000</code> bytes apart. Whether or not they are used is unknown.
+</p><p>This communicates with the PHY via DFI, the "DDR PHY Interface", to configure mode registers, timings, address mapping, etc. There are a number of useful resources to understand the register layout:
+</p>
+<ul><li><a rel="nofollow" class="external text" href="https://docs.amd.com/r/en-US/ug1087-zynq-ultrascale-registers/DDRC-Module">Zynq UltraScale+ DDRC module documentation</a></li>
+<li><a rel="nofollow" class="external text" href="https://chipselect.org/peripheral_id.php?id=44656">ChipSelect.org DDRC_REGS</a> (this was stumbled across by accident)</li>
+<li><a rel="nofollow" class="external text" href="https://www.nxp.com/docs/en/reference-manual/IMX8MDQLQRM.pdf">i.MX 8M Processor Reference Manual (requires an NXP account)</a></li></ul>
+<p>This region is initially unaccessible by the processor, causing a hang of some nature (likely a data abort) on access. It appears to be gated by MCTL_COM.
+</p><p>Based on observed aliasing, the actual size of this register block is <code>0x8000</code> bytes; this seems to imply that there are potentially 7 shadow registers, with the upper 4 being completely unused.
+</p>
+<h3><span class="mw-headline" id="MCTL_COM">MCTL_COM</span></h3>
+<p>This block is largely unknown, and is used infrequently in the A133's boot0. On the H6 and H616, this appears to control more functionality, but on the A133 only two offsets are accessed:
+</p>
+<ul><li><code>0x08</code> appears to potentially control power/gating to the PHY. This is assumed due to this being written to during a function, named "mctl_phy_cold_reset", where a bit is cleared, a delay occurs, and is set again.</li>
+<li><code>0x20</code> appears to gate access to other blocks. Some parts of MCTL_CTL are gated by BIT(8) (mostly DFI registers), while BIT(15) unlocks the majority of other registers.</li></ul>
+<p>Based on observed aliasing, the actual size of this register block is <code>0x2000</code> bytes.
+</p>
+<h3><span class="mw-headline" id="MCTL_PHY">MCTL_PHY</span></h3>
+<p>The PHY is what actually communicates with the DRAM. The specific IP core is unknown, and does not appear to match any known cores in register layout; naming of the PHY config initialization function in boot0 (<code>ddrphy_phyinit_C_initPhyConfig</code>) would suggest it is DWC IP, but the layout does not match either the LPDDR4 multiPHY V1 or V2. The controller supports (LP)DDR3/4 memory, and appears to support the following, based on boot0 function names:
+</p>
+<ul><li>"Address remapping" (DQ pin swizzling?)</li>
+<li>CA bit delay compensation (CA per-bit deskew?)</li>
+<li>VREF selection</li>
+<li>Write leveling</li>
+<li>Read calibration (Read gate training?)</li>
+<li>Read training (Read DQ deskew?)</li>
+<li>Write training (Write DQ deskew?)</li>
+<li>DX bit delay compensation (DX per-bit deskew?)</li>
+<li>DFS (Dynamic Frequency Scaling?)</li>
+<li>ZQ calibration (though this is unused)</li></ul>
+<p>The highest offset into the DDRPHY block that is accessed is conditional and depends on what appears to be a SID-related quirk:
+</p>
+<ul><li>If the chipid is <code>0x800</code> or <code>0x2400</code>, the highest accessed address is <code>+0x2388</code>, during CA bit delay compensation when DDR3 is used.</li>
+<li>Otherwise, the highest accessed address is <code>0x0b80</code>, used during write training on DX3</li></ul>
+<p>Based on observed aliasing, the actual size of the DDRPHY block is <code>0x1000</code> bytes.
+</p>
+<h2><span class="mw-headline" id="DRAM_initialization_in_boot0">DRAM initialization in boot0</span></h2>
+<p>Multiple steps occur during DRAM initialization. In vendor trees, this code is precompiled and stored in an object file renamed with a ".a" extension. Usually, the name of the file is <code>libsub50iw10p1.o</code>, and is stored in <code>lichee/brandy-2.0/spl/board/{sun50iw10p1,a133,r818}/libsun50iw10p1.a</code>.
+</p><p>Initialization is done in <code>int init_DRAM(int _type /* unused */, struct dram_para* para)</code>.
+</p>
+<h3><span class="mw-headline" id="init_DRAM">init_DRAM</span></h3>
+<ol><li>Bit 8 is set at <code>SYS_CFG +0x160</code>, and <code>+0x168</code> has the bitmask <code>0x3f</code> cleared. Purpose of this is unknown</li>
+<li>DRAM voltage is set on using the PMIC.</li>
+<li>If <code>TPR13[0]</code> is not set, the DRAM configuration is auto-scanned.</li>
+<li>If <code>TPR13[12]</code> is set, software eye training is attempted using DMA.</li>
+<li><code>mctl_core_init</code> is called (documented below)</li>
+<li>The DRAM size is calculated using the parameters that successfully initialized the PHY</li>
+<li>A simple memory test is run.</li></ol>
+<p>If any of these steps fail, an error is returned and the DRAM does not initialize.
+</p>
+<h3><span class="mw-headline" id="mctl_core_init">mctl_core_init</span></h3>
+<p>Many functions are called from here, so this is extremely high level
+</p>
+<ol><li>MBUS, DRAM clock, DRAM gate, and PLL5 are reset, configured, and enabled</li>
+<li>MCTL access is enabled</li>
+<li>The DRAM scheduler is confgiured</li>
+<li>The master register, controlling DRAM type, burst length, geardown and 2T mode, are configured</li>
+<li>ODT mappings are configured</li>
+<li>HIF (Host Interface?) address mapping are configured based on SDRAM organization.</li>
+<li>DDR timings are set up.</li>
+<li>Automatic controller updates and automatic controller update requests are disabled.</li>
+<li>DBI (Data Bus Inversion) is conditionally enabled</li>
+<li>DDR auto refresh is disabled</li>
+<li>PHY is "cold reset" (powered off and on?)</li>
+<li>PHY configuration occurs; many pieces of this are unknown, what is known is:
+<ol><li>PHY DQ swizzling is configured, based on the DRAM type and SOC "chipid" from the SID</li>
+<li>VREF is configured</li>
+<li>DX drive/ODT and CA drive are configured</li>
+<li>CA per-bit deskewing is conditionally performed</li></ol></li>
+<li>Mode registers are configured via MCTL_CTL</li>
+<li>DDR auto refresh is re-enabled</li>
+<li>Depending on TPR10, the following calibrations may occur, in the following order:
+<ol><li>Write leveling</li>
+<li>Read gate training</li>
+<li>Read DQ deskew</li>
+<li>Write DQ deskew</li>
+<li>DX per-bit deskew</li></ol></li>
+<li>Depending on the value of TPR13, PHY DFS calibrations occur.</li></ol>
+<!-- 
+NewPP limit report
+Cached time: 20251029050432
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.034 seconds
+Real time usage: 0.047 seconds
+Preprocessor visited node count: 21/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:4421-0!canonical and timestamp 20251029050432 and revision id 26045
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=A133/DRAMC&amp;oldid=26045">https://linux-sunxi.org/index.php?title=A133/DRAMC&amp;oldid=26045</a>"</div>
+		<div id="catlinks" class="catlinks catlinks-allhidden" data-mw="interface"></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=A133%2FDRAMC" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=A133%2FDRAMC" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="DRAMC.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:A133/DRAMC&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="DRAMC.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=A133/DRAMC&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=A133/DRAMC&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="../index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="../index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="../sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="../Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="https://linux-sunxi.org/Special:WhatLinksHere/A133/DRAMC" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/A133/DRAMC" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="../Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=A133/DRAMC&amp;oldid=26045" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=A133/DRAMC&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 26 October 2024, at 21:40.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.034","walltime":"0.047","ppvisitednodes":{"value":21,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":0,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20251029050432","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":216});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

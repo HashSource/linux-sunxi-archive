@@ -1,0 +1,471 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Lima-memtester - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"6c7061b9cc28beea7a1d11aa","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Lima-memtester","wgTitle":"Lima-memtester","wgCurRevisionId":17614,"wgRevisionId":17614,"wgArticleId":2659,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Lima-memtester","wgRelevantArticleId":2659,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":"ready",
+"user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=mediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="Lima-memtester.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-Lima-memtester rootpage-Lima-memtester skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">Lima-memtester</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Using_lima-memester_as_a_normal_application"><span class="tocnumber">2</span> <span class="toctext">Using lima-memester as a normal application</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Using_lima-memester_as_a_part_of_FEL_bootable_image"><span class="tocnumber">3</span> <span class="toctext">Using lima-memester as a part of FEL bootable image</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Results_analysis"><span class="tocnumber">4</span> <span class="toctext">Results analysis</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="#Analysing_the_first_6_reported_results:"><span class="tocnumber">4.1</span> <span class="toctext">Analysing the first 6 reported results:</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Analysing_the_first_12_reported_results:"><span class="tocnumber">4.2</span> <span class="toctext">Analysing the first 12 reported results:</span></a>
+<ul>
+<li class="toclevel-3 tocsection-7"><a href="#Verifying_the_assumption_about_having_a_Gaussian_distribution"><span class="tocnumber">4.2.1</span> <span class="toctext">Verifying the assumption about having a Gaussian distribution</span></a></li>
+<li class="toclevel-3 tocsection-8"><a href="#Exact_multinomial_test"><span class="tocnumber">4.2.2</span> <span class="toctext">Exact multinomial test</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Introduction">Introduction</span></h2>
+<p>The <a class="external text" href="https://github.com/ssvb/lima-memtester/">lima-memtester</a> diagnostic program is one of the <a href="Hardware_Reliability_Tests.html" title="Hardware Reliability Tests">Hardware Reliability Tests</a>, which is used to verify correctness of the DRAM configuration settings in U-Boot.
+</p><p>An example of usage (detecting reliability problems):
+</p>
+<pre># ./lima-memtester 1400M
+This is a simple textured cube demo from the lima driver and
+a memtester. Both combined in a single program. The mali400
+hardware is only used to stress RAM in the background. But
+this happens to significantly increase chances of exposing
+memory stability related problems.
+
+memtester version 4.3.0 (32-bit)
+Copyright (C) 2001-2012 Charles Cazabon.
+Licensed under the GNU General Public License version 2 (only).
+
+pagesize is 4096
+pagesizemask is 0xfffff000
+want 1400MB (1468006400 bytes)
+got  1400MB (1468006400 bytes), trying mlock ...locked.
+Loop 1:
+  Stuck Address       : ok
+  Random Value        : ok
+  Compare XOR         : ok
+  Compare SUB         : ok
+  Compare MUL         : ok
+  Compare DIV         : ok
+  Compare OR          : ok
+  Compare AND         : ok
+  Sequential Increment: ok
+  Solid Bits          : testing  23FAILURE: 0xffffffff&#160;!= 0xffffff00 at offset 0x099e03bc.
+FAILURE: 0x00000000&#160;!= 0x000000ff at offset 0x099e03c0.
+FAILURE: 0xffffffff&#160;!= 0xffffff00 at offset 0x099e03c4.
+FAILURE: 0x00000000&#160;!= 0x000000ff at offset 0x099e03c8.
+</pre>
+<h2><span class="mw-headline" id="Using_lima-memester_as_a_normal_application">Using lima-memester as a normal application</span></h2>
+<p>If you have a linux system running on the device with a suitable kernel (has the framebuffer driver and mali r3pX version of the kernel driver), then you can run the lima-memtester program on it directly. See <a href="Hardware_Reliability_Tests.html#DRAM" title="Hardware Reliability Tests">Hardware Reliability Tests#DRAM</a> for more details.
+</p>
+<h2><span class="mw-headline" id="Using_lima-memester_as_a_part_of_FEL_bootable_image">Using lima-memester as a part of FEL bootable image</span></h2>
+<p>For Orange Pi PC see <a class="external free" href="https://github.com/ssvb/lima-memtester/releases/tag/20151207-orange-pi-pc-fel-test">https://github.com/ssvb/lima-memtester/releases/tag/20151207-orange-pi-pc-fel-test</a>
+</p>
+<h2><span class="mw-headline" id="Results_analysis">Results analysis</span></h2>
+<p>A question at stats.stackexchange.com: <a rel="nofollow" class="external free" href="http://stats.stackexchange.com/questions/218691/exact-multinomial-goodness-of-fit-test-as-a-normality-test-and-chebyshevs-inequ">http://stats.stackexchange.com/questions/218691/exact-multinomial-goodness-of-fit-test-as-a-normality-test-and-chebyshevs-inequ</a>
+</p><p>Using the <a href="Xunlong_Orange_Pi_PC.html" title="Xunlong Orange Pi PC">Xunlong Orange Pi PC</a> data as an example:
+</p>
+<h4><span class="mw-headline" id="Analysing_the_first_6_reported_results:">Analysing the first 6 reported results:</span></h4>
+<pre>   echo '672 672 648 672 720 672' | lima-memtester-genchart 12 chart.png
+</pre>
+<div class="thumb tright"><div class="thumbinner" style="width:302px;"><a href="https://linux-sunxi.org/File:Lima-memtester-chart_672_672_648_672_720_672.png" class="image"><img alt="" src="https://linux-sunxi.org/images/thumb/7/77/Lima-memtester-chart_672_672_648_672_720_672.png/300px-Lima-memtester-chart_672_672_648_672_720_672.png" decoding="async" width="300" height="225" class="thumbimage" srcset="https://linux-sunxi.org/images/thumb/7/77/Lima-memtester-chart_672_672_648_672_720_672.png/450px-Lima-memtester-chart_672_672_648_672_720_672.png 1.5x, https://linux-sunxi.org/images/thumb/7/77/Lima-memtester-chart_672_672_648_672_720_672.png/600px-Lima-memtester-chart_672_672_648_672_720_672.png 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://linux-sunxi.org/File:Lima-memtester-chart_672_672_648_672_720_672.png" class="internal" title="Enlarge"></a></div>Cumulative distribution function</div></div></div>
+<table class="wikitable">
+<tbody><tr>
+<th>DRAM clock speed</th>
+<th>Share of boards expected to fail the lima-memtester test
+</th></tr>
+<tr>
+<td>600 MHz</td>
+<td>0.01&#160;%
+</td></tr>
+<tr>
+<td>624 MHz</td>
+<td>0.33&#160;%
+</td></tr>
+<tr>
+<td>648 MHz</td>
+<td>4.50&#160;%
+</td></tr>
+<tr>
+<td>672 MHz</td>
+<td>24.89&#160;%
+</td></tr>
+<tr>
+<td>696 MHz</td>
+<td>63.27&#160;%
+</td></tr>
+<tr>
+<td>720 MHz</td>
+<td>91.25&#160;%
+</td></tr>
+<tr>
+<td>744 MHz</td>
+<td>99.12&#160;%
+</td></tr></tbody></table>
+<h4><span class="mw-headline" id="Analysing_the_first_12_reported_results:">Analysing the first 12 reported results:</span></h4>
+<pre>   echo '672 672 648 672 720 672 672 744 696 696 672 672' | ./lima-memtester-genchart 12 chart.png
+</pre>
+<div class="thumb tright"><div class="thumbinner" style="width:302px;"><a href="https://linux-sunxi.org/File:Lima-memtester-chart_672_672_648_672_720_672_672_744_696_696_672_672.png" class="image"><img alt="" src="https://linux-sunxi.org/images/thumb/e/ef/Lima-memtester-chart_672_672_648_672_720_672_672_744_696_696_672_672.png/300px-Lima-memtester-chart_672_672_648_672_720_672_672_744_696_696_672_672.png" decoding="async" width="300" height="225" class="thumbimage" srcset="https://linux-sunxi.org/images/thumb/e/ef/Lima-memtester-chart_672_672_648_672_720_672_672_744_696_696_672_672.png/450px-Lima-memtester-chart_672_672_648_672_720_672_672_744_696_696_672_672.png 1.5x, https://linux-sunxi.org/images/thumb/e/ef/Lima-memtester-chart_672_672_648_672_720_672_672_744_696_696_672_672.png/600px-Lima-memtester-chart_672_672_648_672_720_672_672_744_696_696_672_672.png 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://linux-sunxi.org/File:Lima-memtester-chart_672_672_648_672_720_672_672_744_696_696_672_672.png" class="internal" title="Enlarge"></a></div>Cumulative distribution function (blue - based on the first 6 results, green - based on the first 12 results)</div></div></div>
+<table class="wikitable">
+<tbody><tr>
+<th>DRAM clock speed</th>
+<th>Share of boards expected to fail the lima-memtester test
+</th></tr>
+<tr>
+<td>576 MHz</td>
+<td>0.00&#160;%
+</td></tr>
+<tr>
+<td>600 MHz</td>
+<td>0.01&#160;%
+</td></tr>
+<tr>
+<td>624 MHz</td>
+<td>0.29&#160;%
+</td></tr>
+<tr>
+<td>648 MHz</td>
+<td>3.29&#160;%
+</td></tr>
+<tr>
+<td>672 MHz</td>
+<td>17.88&#160;%
+</td></tr>
+<tr>
+<td>696 MHz</td>
+<td>50.00&#160;%
+</td></tr>
+<tr>
+<td>720 MHz</td>
+<td>82.12&#160;%
+</td></tr>
+<tr>
+<td>744 MHz</td>
+<td>96.71&#160;%
+</td></tr>
+<tr>
+<td>768 MHz</td>
+<td>99.71&#160;%
+</td></tr></tbody></table>
+<h5><span class="mw-headline" id="Verifying_the_assumption_about_having_a_Gaussian_distribution">Verifying the assumption about having a Gaussian distribution</span></h5>
+<p>This can be done via one (or more than one) of the <a class="external text" href="https://en.wikipedia.org/wiki/Normality_test">normality test</a> methods. Here is an <a rel="nofollow" class="external text" href="http://stats.stackexchange.com/a/52297">example of using R</a> for doing this. We can just substitute the data in the 'x' vector by taking the middle of each DRAM clock frequency bin (for example, if lima-memtester passes at 672 MHz and fails at 696 MHz, then take 684 as the average because it is likely a crossover point between passing and failing):
+</p>
+<pre>   x &lt;- c(684.0, 684.0, 660.0, 684.0, 732.0, 684.0, 684.0, 756.0, 708.0, 708.0, 684.0, 684.0)
+</pre>
+<p>Which results in a staircase-alike <a class="external text" href="https://en.wikipedia.org/wiki/Q%E2%80%93Q_plot">Q-Q plot</a> and very low <a class="external text" href="https://en.wikipedia.org/wiki/P-value">p-values</a> (Shapiro-Wilk test: p-value = 0.01275, Kolmogorov-Smirnov test: p-value = 0.117, Anderson-Darling test: p-value = 0.002434). That's because we are dealing with 24 MHz granularity and having many samples with exactly the same value. And normality test methods typically <a rel="nofollow" class="external text" href="http://www.variation.com/da/help/hs140.htm">don't like</a> <a rel="nofollow" class="external text" href="http://www.variation.com/da/help/hs141.htm">ties very much</a>. We can also randomize the DRAM clock frequencies within each bin in order to get rid of ties (for example, if the test passes at 672 MHz and fails at 696 MHz, then we take some random value between 672 and 696):
+</p>
+<pre>   x &lt;- c(673.1, 695.6, 652.5, 695.4, 728.3, 682.1, 691.2, 751.2, 713.9, 718.6, 675.2, 690.4)
+</pre>
+<p>Which results in a more linear Q-Q plot and much higher p-values (Shapiro-Wilk test: p-value = 0.9411, Kolmogorov-Smirnov test: p-value = 0.7025, Anderson-Darling test: p-value = 0.7469). And this means that <b>we still can't reject the assumption about having the Gaussian (Normal) distribution</b>. There is also a <a rel="nofollow" class="external text" href="http://stackoverflow.com/questions/7781798/seeing-if-data-is-normally-distributed-in-r/7788452#7788452#7788452">criticism about normality tests</a>, which demonstrates that they do not always behave well and should be taken with a grain of salt.
+</p>
+<h5><span class="mw-headline" id="Exact_multinomial_test">Exact multinomial test</span></h5>
+<p>We can also try to check if the estimated probabilities of encountering different maximum DRAM clock frequencies agree with the experimental results. For doing this, we randomly split the current 13 available DRAM clock frequency samples into a "training set" and a "validation set". The training set is used to calculate the theoretical probabilities of encountering different DRAM clock frequencies (see the "Share of boards expected to fail the lima-memtester test" table). And the validation set is used to check if the practice does not contradict with the theory. Because the number of samples is too small, the classic schoolbook <a class="external text" href="https://en.wikipedia.org/wiki/Pearson%27s_chi-squared_test">Pearson's chi-squared test</a> can't be used. So instead using <a class="external text" href="https://en.wikipedia.org/wiki/Fisher%27s_exact_test">Fisher's exact test</a> (or the <a class="external text" href="https://en.wikipedia.org/wiki/Multinomial_test">multinomial test</a> in this particular case) is a much better choice. There is a nice <a rel="nofollow" class="external text" href="https://cran.r-project.org/web/packages/XNomial/vignettes/XNomial.html">XNomial</a> library for R to do this job.
+</p><p>The training set and the validation sets can be just comma separated in the input data for the lima-memtester-genchart script:
+</p>
+<pre>echo '648 672 672 672 672 696 720 744, 672 672 672 696 696' | ./lima-memtester-genchart 12
+</pre>
+<p>Example output:
+</p>
+<pre>...
+
+&gt; library(XNomial)
+&gt; 
+&gt; prob &lt;- c(0.0007283175419052768, 0.00744356779387656, 0.04317730632627215, 0.14247361868533098, 0.2679071710633351, 0.2873730067728857, 0.17586116428130794, 0.06134920915452913, 0.012180622334238, 0.0013734297459093714)
+&gt; observed &lt;- c(0, 0, 0, 0, 3, 2, 0, 0, 0, 0)
+&gt; out &lt;- xmulti(observed, prob, detail=3)
+
+P value  (LLR)  =  0.4117
+P value (Prob)  =  0.7255
+P value (Chisq) =  0.514
+
+Observed:  0 0 0 0 3 2 0 0 0 0 
+Expected ratio:  0.0007283175 0.007443568 0.04317731 0.1424736 0.2679072 0.287373 0.1758612 0.06134921 0.01218062 0.00137343 
+Total number of tables:  2002
+</pre>
+<p>Below are the results of trying different splits of samples between the training set and the validation set:
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th rowspan="2">Training set (a sorted list of DRAM clock frequencies)
+</th>
+<th rowspan="2">Validation set (a sorted list of DRAM clock frequencies)
+</th>
+<th colspan="3">'xmulti' report from <a rel="nofollow" class="external text" href="https://cran.r-project.org/web/packages/XNomial/vignettes/XNomial.html">XNomial</a> library for R
+</th></tr>
+<tr>
+<th>P value  (LLR)</th>
+<th>P value (Prob)</th>
+<th>P value (Chisq)
+</th></tr>
+<tr>
+<td>648 672 672 672 672 696 720 744</td>
+<td>672 672 672 696 696</td>
+<td>0.4117</td>
+<td>0.7255</td>
+<td>0.514
+</td></tr>
+<tr style="color: orange;">
+<td>672 672 672 672 696 696 696 720</td>
+<td>648 672 672 672 744</td>
+<td>0.006861</td>
+<td>0.006352</td>
+<td>0.01371
+</td></tr>
+<tr>
+<td>672 672 672 672 672 696 720 744</td>
+<td>648 672 672 696 696</td>
+<td>0.7153</td>
+<td>0.7873</td>
+<td>0.8832
+</td></tr>
+<tr>
+<td>672 672 672 672 696 696 720 744</td>
+<td>648 672 672 672 696</td>
+<td>0.4332</td>
+<td>0.4204</td>
+<td>0.4122
+</td></tr>
+<tr style="color: orange;">
+<td>648 672 672 672 672 696 696 696</td>
+<td>672 672 672 720 744</td>
+<td>0.001088</td>
+<td>0.001039</td>
+<td>0.0003382
+</td></tr>
+<tr>
+<td>672 672 672 672 696 696 696 744</td>
+<td>648 672 672 672 720</td>
+<td>0.3062</td>
+<td>0.306</td>
+<td>0.4315
+</td></tr></tbody></table>
+<p>Note that the exact multinomial test rejects our <a class="external text" href="https://en.wikipedia.org/wiki/Null_hypothesis">null hypothesis</a> about the estimated DRAM clock speed frequencies distribution in the cases when the 744 MHz sample is not included into the training set. Basically, if 744 MHz is not present in the training set, then it gets estimated to have a very low probability. And then encountering it in the validation set is seen as a rather unusual outcome, resulting in a low p-value. Why do we care about this? The 744 MHz is an unusual extreme DRAM clock speed sample, which would not be predicted correctly by only analysing the first 6 reported samples. Fortunately or not, it is an extreme high DRAM clock speed. But if we had an extreme low DRAM clock speed sample instead, then we would have a bit of a problem with our original goal (estimating what is safe to use for U-Boot).
+</p><p>Also having p-value &gt; 0.05 (not failing the test) does not automatically mean that everything is fine. There are some nice explanations in the "Power analysis" section of the <a rel="nofollow" class="external text" href="http://www.biostathandbook.com/exactgof.html">Exact test of goodness-of-fit</a> article from the www.biostathandbook.com website. Basically, our number of samples is likely way too small. Power analysis <a rel="nofollow" class="external text" href="http://stats.stackexchange.com/a/22410">via simulation</a> or some other method should provide the number of required samples.
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20251029051819
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.051 seconds
+Real time usage: 0.084 seconds
+Preprocessor visited node count: 39/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 1835/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:2659-0!canonical and timestamp 20251029051819 and revision id 17614
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=Lima-memtester&amp;oldid=17614">https://linux-sunxi.org/index.php?title=Lima-memtester&amp;oldid=17614</a>"</div>
+		<div id="catlinks" class="catlinks catlinks-allhidden" data-mw="interface"></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=Lima-memtester" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=Lima-memtester" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="Lima-memtester.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:Lima-memtester&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="Lima-memtester.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Lima-memtester&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Lima-memtester&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="https://linux-sunxi.org/Special:WhatLinksHere/Lima-memtester" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/Lima-memtester" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=Lima-memtester&amp;oldid=17614" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=Lima-memtester&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 13 June 2016, at 15:44.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.051","walltime":"0.084","ppvisitednodes":{"value":39,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":1835,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20251029051819","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":1067});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

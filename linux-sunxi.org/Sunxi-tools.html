@@ -1,0 +1,425 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Sunxi-tools - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"7d1082499cae2020fd36a539","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Sunxi-tools","wgTitle":"Sunxi-tools","wgCurRevisionId":24518,"wgRevisionId":24518,"wgArticleId":86,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Software"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Sunxi-tools","wgRelevantArticleId":86,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":"ready","user"
+:"ready","user.options":"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=mediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="Sunxi-tools.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-Sunxi-tools rootpage-Sunxi-tools skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">Sunxi-tools</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>sunxi-tools are the command line utilities developed to work with devices based on the <a href="Allwinner_SoC_Family.html" title="Allwinner SoC Family">Allwinner SoC Family</a>. These tools are used in <a href="Retrieving_device_information.html" title="Retrieving device information">Retrieving device information</a> as part of the <a href="New_Device_howto.html" title="New Device howto">New Device howto</a>.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Building_from_Source"><span class="tocnumber">1</span> <span class="toctext">Building from Source</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Prerequisites"><span class="tocnumber">1.1</span> <span class="toctext">Prerequisites</span></a>
+<ul>
+<li class="toclevel-3 tocsection-3"><a href="#libusb-1.0_and_zlib"><span class="tocnumber">1.1.1</span> <span class="toctext">libusb-1.0 and zlib</span></a>
+<ul>
+<li class="toclevel-4 tocsection-4"><a href="#debian.2Fubuntu"><span class="tocnumber">1.1.1.1</span> <span class="toctext">debian/ubuntu</span></a></li>
+<li class="toclevel-4 tocsection-5"><a href="#fedora"><span class="tocnumber">1.1.1.2</span> <span class="toctext">fedora</span></a></li>
+</ul>
+</li>
+<li class="toclevel-3 tocsection-6"><a href="#pkg-config"><span class="tocnumber">1.1.2</span> <span class="toctext">pkg-config</span></a>
+<ul>
+<li class="toclevel-4 tocsection-7"><a href="#debian.2Fubuntu_2"><span class="tocnumber">1.1.2.1</span> <span class="toctext">debian/ubuntu</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-8"><a href="#Repository"><span class="tocnumber">1.2</span> <span class="toctext">Repository</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Building"><span class="tocnumber">1.3</span> <span class="toctext">Building</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-10"><a href="#Tools"><span class="tocnumber">2</span> <span class="toctext">Tools</span></a>
+<ul>
+<li class="toclevel-2 tocsection-11"><a href="#sunxi-fexc_and_wrappers"><span class="tocnumber">2.1</span> <span class="toctext">sunxi-fexc and wrappers</span></a>
+<ul>
+<li class="toclevel-3 tocsection-12"><a href="#sunxi-fexc"><span class="tocnumber">2.1.1</span> <span class="toctext">sunxi-fexc</span></a></li>
+<li class="toclevel-3 tocsection-13"><a href="#bin2fex"><span class="tocnumber">2.1.2</span> <span class="toctext">bin2fex</span></a></li>
+<li class="toclevel-3 tocsection-14"><a href="#fex2bin"><span class="tocnumber">2.1.3</span> <span class="toctext">fex2bin</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-15"><a href="#sunxi-pio"><span class="tocnumber">2.2</span> <span class="toctext">sunxi-pio</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="#sunxi-fel_and_helpers"><span class="tocnumber">2.3</span> <span class="toctext">sunxi-fel and helpers</span></a>
+<ul>
+<li class="toclevel-3 tocsection-17"><a href="#sunxi-fel"><span class="tocnumber">2.3.1</span> <span class="toctext">sunxi-fel</span></a></li>
+<li class="toclevel-3 tocsection-18"><a href="#usb-boot"><span class="tocnumber">2.3.2</span> <span class="toctext">usb-boot</span></a></li>
+<li class="toclevel-3 tocsection-19"><a href="#fel-pio"><span class="tocnumber">2.3.3</span> <span class="toctext">fel-pio</span></a></li>
+<li class="toclevel-3 tocsection-20"><a href="#fel-gpio"><span class="tocnumber">2.3.4</span> <span class="toctext">fel-gpio</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-21"><a href="#fel-sdboot"><span class="tocnumber">2.4</span> <span class="toctext">fel-sdboot</span></a></li>
+<li class="toclevel-2 tocsection-22"><a href="#jtag-loop"><span class="tocnumber">2.5</span> <span class="toctext">jtag-loop</span></a></li>
+<li class="toclevel-2 tocsection-23"><a href="#sunxi-bootinfo"><span class="tocnumber">2.6</span> <span class="toctext">sunxi-bootinfo</span></a></li>
+<li class="toclevel-2 tocsection-24"><a href="#meminfo"><span class="tocnumber">2.7</span> <span class="toctext">meminfo</span></a></li>
+<li class="toclevel-2 tocsection-25"><a href="#script-extractor"><span class="tocnumber">2.8</span> <span class="toctext">script-extractor</span></a></li>
+<li class="toclevel-2 tocsection-26"><a href="#phoenix-info"><span class="tocnumber">2.9</span> <span class="toctext">phoenix-info</span></a></li>
+<li class="toclevel-2 tocsection-27"><a href="#sunxi-nand-part"><span class="tocnumber">2.10</span> <span class="toctext">sunxi-nand-part</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-28"><a href="#See_also"><span class="tocnumber">3</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Building_from_Source">Building from Source</span></h1>
+<p><a href="File:Information.png.html" class="image"><img alt="Information.png" src="https://linux-sunxi.org/images/5/54/Information.png" decoding="async" width="16" height="16" /></a> See also <a class="external text" href="https://github.com/linux-sunxi/sunxi-tools#building#building">Instructions in the README</a>
+</p>
+<h2><span class="mw-headline" id="Prerequisites">Prerequisites</span></h2>
+<h3><span class="mw-headline" id="libusb-1.0_and_zlib">libusb-1.0 and zlib</span></h3>
+<h4><span id="debian/ubuntu"></span><span class="mw-headline" id="debian.2Fubuntu">debian/ubuntu</span></h4>
+<pre>apt-get install libusb-1.0-0-dev zlib1g-dev</pre>
+<h4><span class="mw-headline" id="fedora">fedora</span></h4>
+<pre>yum install libusbx-devel</pre>
+<h3><span class="mw-headline" id="pkg-config">pkg-config</span></h3>
+<h4><span id="debian/ubuntu_2"></span><span class="mw-headline" id="debian.2Fubuntu_2">debian/ubuntu</span></h4>
+<pre>apt-get install pkg-config</pre>
+<h2><span class="mw-headline" id="Repository">Repository</span></h2>
+<p>The repository is located on <a class="external text" href="https://github.com/linux-sunxi/sunxi-tools">GitHub</a>.
+</p><p>Change to the directory that you would like to clone the repository into and use:
+</p>
+<pre>apt-get install git
+git clone https://github.com/linux-sunxi/sunxi-tools</pre>
+<h2><span class="mw-headline" id="Building">Building</span></h2>
+<p>Change to the sunxi-tools directory.
+Those programs that need to run on the host computer will be built when you run:
+</p>
+<pre>make</pre>
+<p>The programs meant to be run <i>on the sunxi device itself</i> are not built by default. You either need to run <code>make target-tools</code> or make them individually, by explicitly naming them (e.g. <code>make sunxi-meminfo</code>).
+</p><p>When you are using <a href="Toolchain.html" title="Toolchain">a cross-compiling toolchain</a> (make sure it is added to your PATH), you may need to specify the toolchain prefix to use so that the programs can be executed on the sunxi device's architecture, e.g.
+</p>
+<pre>make target-tools CROSS_COMPILE=arm-linux-gnueabihf-</pre>
+<p>Since all these tools are tiny, you can just as well build these 'natively' as well, i.e. on the target sunxi device itself. In that case, you don't need a cross compiler and it's possible to set CROSS_COMPILE to an empty string. In this scenario - to build everything in one go - you may use <code>make all CROSS_COMPILE=</code>
+</p>
+<h1><span class="mw-headline" id="Tools">Tools</span></h1>
+<h2><span class="mw-headline" id="sunxi-fexc_and_wrappers">sunxi-fexc and wrappers</span></h2>
+<p><i>sunxi-fexc</i> is a small program to convert between <a href="Fex_Guide.html" title="Fex Guide"> FEX</a> and its binary representation, back and forth. It comes with two shortcuts (symbolic links) for easier invocation.
+</p>
+<h3><span class="mw-headline" id="sunxi-fexc">sunxi-fexc</span></h3>
+<pre>Usage: ./sunxi-fexc [-vq] [-I &lt;infmt&gt;] [-O &lt;outfmt&gt;] [&lt;input&gt; [&lt;output&gt;]]
+
+infmt:  fex, bin  (default:fex)
+outfmt: fex, bin, uboot  (default:bin)
+</pre>
+<p>When no arguments are provided, it waits on stdin. Similar, when no <i>&lt;output&gt;</i> is provided, it will dump to stdout. This is great for piping, but might mess up your terminal (type <i>reset</i> to have your terminal reset and make sense again).
+</p>
+<h3><span class="mw-headline" id="bin2fex">bin2fex</span></h3>
+<p>This is a copy of <i>sunxi-fexc</i> which takes a <i>script.bin</i> and dumps the <i>.fex</i> text.
+</p>
+<h3><span class="mw-headline" id="fex2bin">fex2bin</span></h3>
+<p>This is a copy of <i>sunxi-fexc</i> which takes the <i>.fex</i> text file and dumps the binary.
+</p>
+<h2><span class="mw-headline" id="sunxi-pio">sunxi-pio</span></h2>
+<p>Manipulate PIO settings (GPIO / pinmux config).
+</p><p>Can be used both on a file dump of the PIO registers for use by the fel-gpio script or natively on the device by direct mmap hardware acess.
+</p>
+<h2><span class="mw-headline" id="sunxi-fel_and_helpers">sunxi-fel and helpers</span></h2>
+<p>FEL is a means of talking to the Allwinner SoCs <a href="BROM.html" title="BROM">BROM</a> over USB. You first need to <a href="FEL.html" title="FEL"> activate FEL mode</a> on your device to be able to access it.
+</p>
+<h3><span class="mw-headline" id="sunxi-fel">sunxi-fel</span></h3>
+<p>Main program, which provides a script interface for talking to FEL.
+</p><p>Unless you select a specific device using the <code>--dev</code> or <code>--sid</code> options, the tool will access the first Allwinner device (in FEL mode) that it finds. You can print a list of all FEL devices currently connected/detected with <code>sunxi-fel --list --verbose</code>.
+</p><p>When called with no arguments, <code>sunxi-fel</code> will display usage information:
+</p>
+<pre>Usage: ./sunxi-fel [options] command arguments... [command...]
+        -v, --verbose                   Verbose logging
+        -p, --progress                  "write" transfers show a progress bar
+        -l, --list                      Enumerate all (USB) FEL devices and exit
+        -d, --dev bus:devnum            Use specific USB bus and device number
+            --sid SID                   Select device by SID key (exact match)
+
+        spl file                        Load and execute U-Boot SPL
+                If file additionally contains a main U-Boot binary
+                (u-boot-sunxi-with-spl.bin), this command also transfers that
+                to memory (default address from image), but won't execute it.
+
+        uboot file-with-spl             like "spl", but actually starts U-Boot
+                U-Boot execution will take place when the fel utility exits.
+                This allows combining "uboot" with further "write" commands
+                (to transfer other files needed for the boot).
+
+        hex[dump] address length        Dumps memory region in hex
+        dump address length             Binary memory dump
+        exe[cute] address               Call function address
+        reset64 address                 RMR request for AArch64 warm boot
+        readl address                   Read 32-bit value from device memory
+        writel address value            Write 32-bit value to device memory
+        read address length file        Write memory contents into file
+        write address file              Store file contents into memory
+        write-with-progress addr file   "write" with progress bar
+        write-with-gauge addr file      Output progress for "dialog --gauge"
+        write-with-xgauge addr file     Extended gauge output (updates prompt)
+        multi[write] # addr file ...    "write-with-progress" multiple files,
+                                        sharing a common progress status
+        multi[write]-with-gauge ...     like their "write-with-*" counterpart,
+        multi[write]-with-xgauge ...      but following the 'multi' syntax:
+                                          &lt;#&gt; addr file [addr file [...]]
+        echo-gauge "some text"          Update prompt/caption for gauge output
+        ver[sion]                       Show BROM version
+        sid                             Retrieve and output 128-bit SID key
+        clear address length            Clear memory
+        fill address length value       Fill memory
+</pre>
+<h3><span class="mw-headline" id="usb-boot">usb-boot</span></h3>
+<p><span style="color:#ba0000">Legacy</span> script for booting via USB in <a href="FEL.html" title="FEL"> FEL mode</a>, <i>no longer used</i>. Refer to <a href="FEL/USBBoot.html#Legacy_u-boot-sunxi" title="FEL/USBBoot"> our usb boot page for more information</a>.
+</p>
+<h3><span class="mw-headline" id="fel-pio">fel-pio</span></h3>
+<p>Small binary which runs on the target. It enables IO register access over <a href="FEL.html" title="FEL"> FEL mode</a>. This should not be used directly.
+</p>
+<h3><span class="mw-headline" id="fel-gpio">fel-gpio</span></h3>
+<p>A script which uses <i>sunxi-fel</i> to upload fel-pio to the target, and which then can use the <i>sunxi-pio</i> utility, and manipulate GPIO settings, over FEL/USB.
+</p>
+<h2><span class="mw-headline" id="fel-sdboot">fel-sdboot</span></h2>
+<p>A small ARM native SD boot code which forces FEL mode, to boot straight into <a href="FEL.html" title="FEL">FEL</a> mode without having to press any buttons.
+</p>
+<h2><span class="mw-headline" id="jtag-loop">jtag-loop</span></h2>
+<p>A small ARM native SD boot code which sets PF (CARD0) to JTAG mode and then busy-waits for you to attach with JTAG.
+</p>
+<h2><span class="mw-headline" id="sunxi-bootinfo">sunxi-bootinfo</span></h2>
+<p>Dump information from Allwinner boot files (boot0/boot1)
+</p>
+<pre>	--type=sd	include SD boot info
+	--type=nand	include NAND boot info (not implemented)
+</pre>
+<h2><span class="mw-headline" id="meminfo">meminfo</span></h2>
+<p>This device side tool reads in register information and prints out all the information you need for <a href="U-Boot.html#dram_config" title="U-Boot"> adding new device support to U-Boot</a>. This tool gets statically compiled so it can be used on Android (the target sunxi device) as well.
+</p>
+<h2><span class="mw-headline" id="script-extractor">script-extractor</span></h2>
+<p>This device side tool reads the script.bin data from RAM at the magic address 0x43000000 and saves it to a file. This tool gets statically compiled so it can be used on Android as well. Please note that it is only usable with <a href="Fex_Guide.html" title="Fex Guide">FEX</a> based kernels (as used in the stock Android firmware) and does not make any sense with the devicetree based mainline kernel.
+</p>
+<h2><span class="mw-headline" id="phoenix-info">phoenix-info</span></h2>
+<p>gives information about a phoenix SD image created by the phoenixcard utility and optionally extracts the embedded boot code &amp; firmware file from their hidden partitions. Not usable for <a href="LiveSuit_images.html" title="LiveSuit images">LiveSuit images</a>.
+</p>
+<h2><span class="mw-headline" id="sunxi-nand-part">sunxi-nand-part</span></h2>
+<p><i>sunxi-nand-part</i> is a tool to repartition the internal <a href="NAND.html" title="NAND">NAND</a> on sunxi devices. It should be (cross-)compiled for the device's architecture, and it requires the device to have a special kernel patch (already included in our <a href="Linux_Kernel.html" title="Linux Kernel">kernel tree</a>) to expose the full <a href="NAND.html" title="NAND">NAND</a> as a block device.
+</p>
+<h1><span class="mw-headline" id="See_also">See also</span></h1>
+<ul><li><a href="Fex_Guide.html" title="Fex Guide">Fex Guide</a></li>
+<li><a class="external text" href="https://github.com/linux-sunxi/sunxi-tools/">git repository</a></li>
+<li><a href="FEL.html" title="FEL"> FEL mode</a></li>
+<li>fexc for Windows: <a rel="nofollow" class="external autonumber" href="http://forum.frandroid.com/topic/132727-dev-aller-plus-loin-avec-sa-tablette-mpman/#entry2146017#entry2146017">[1]</a> or <a rel="nofollow" class="external autonumber" href="http://www.slatedroid.com/topic/41639-sunxi-tools/">[2]</a> or <a class="external autonumber" href="https://github.com/linux-sunxi/sunxi-tools/tree/windows#using-sunxi-tools-under-windows#using-sunxi-tools-under-windows">[3]</a></li></ul>
+<!-- 
+NewPP limit report
+Cached time: 20251029034420
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.060 seconds
+Real time usage: 0.070 seconds
+Preprocessor visited node count: 159/1000000
+Post‐expand include size: 155/2097152 bytes
+Template argument size: 95/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 3091/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   14.373      1 -total
+ 57.24%    8.227      1 Template:Red
+ 35.23%    5.063      1 Template:Info
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:86-0!canonical and timestamp 20251029034420 and revision id 24518
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=Sunxi-tools&amp;oldid=24518">https://linux-sunxi.org/index.php?title=Sunxi-tools&amp;oldid=24518</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Category</a>: <ul><li><a href="Category:Software.html" title="Category:Software">Software</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=Sunxi-tools" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=Sunxi-tools" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="Sunxi-tools.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:Sunxi-tools&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="Sunxi-tools.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Sunxi-tools&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Sunxi-tools&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/Sunxi-tools.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/Sunxi-tools" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=Sunxi-tools&amp;oldid=24518" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=Sunxi-tools&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 20 November 2021, at 09:25.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.060","walltime":"0.070","ppvisitednodes":{"value":159,"limit":1000000},"postexpandincludesize":{"value":155,"limit":2097152},"templateargumentsize":{"value":95,"limit":2097152},"expansiondepth":{"value":3,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":3091,"limit":5000000},"timingprofile":["100.00%   14.373      1 -total"," 57.24%    8.227      1 Template:Red"," 35.23%    5.063      1 Template:Info"]},"cachereport":{"timestamp":"20251029034420","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":144});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

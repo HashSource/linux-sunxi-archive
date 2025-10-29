@@ -1,0 +1,519 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Mainline NAND Howto - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"b8f00f58a030021f2a1a7f91","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Mainline_NAND_Howto","wgTitle":"Mainline NAND Howto","wgCurRevisionId":25679,"wgRevisionId":25679,"wgArticleId":2809,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Mainline_NAND_Howto","wgRelevantArticleId":2809,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready",
+"user.styles":"ready","user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=mediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="Mainline_NAND_Howto.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-Mainline_NAND_Howto rootpage-Mainline_NAND_Howto skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">Mainline NAND Howto</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><table style="margin: 0.7em; border-width: 1px 1px 1px 10px; border-style: solid; border-color: #EE8822; background-color: #FFEEDD">
+<tbody><tr>
+<td style="padding: 0.2em; vertical-align: baseline;"><a href="File:MBOX_icon_important.png.html" class="image"><img alt="MBOX icon important.png" src="https://linux-sunxi.org/images/f/f0/MBOX_icon_important.png" decoding="async" width="40" height="40" /></a>
+</td>
+<td style="width:100%; padding-left: 0.2em; padding-right: 0.2em; vertical-align: baseline;">MLC NANDs are not well supported right now. You can enable MLC NAND support, but remember that you risk data loss.
+</td></tr></tbody></table>
+<p>This page describes how to enable <a href="NAND.html" title="NAND">NAND</a> support in u-boot and <a href="Mainline_Kernel_Howto.html" title="Mainline Kernel Howto">kernel</a>.
+Just remember that this is incompatible with the legacy (Android) NAND layout. (see "== Known Issues ==" below)
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#NAND_support_in_u-boot"><span class="tocnumber">1</span> <span class="toctext">NAND support in u-boot</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#NAND_support_in_kernel"><span class="tocnumber">2</span> <span class="toctext">NAND support in kernel</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Current_status"><span class="tocnumber">2.1</span> <span class="toctext">Current status</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Prerequisites"><span class="tocnumber">2.2</span> <span class="toctext">Prerequisites</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Kernel_Configuration"><span class="tocnumber">2.3</span> <span class="toctext">Kernel Configuration</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Known_issues"><span class="tocnumber">2.4</span> <span class="toctext">Known issues</span></a>
+<ul>
+<li class="toclevel-3 tocsection-7"><a href="#Many_bad_blocks"><span class="tocnumber">2.4.1</span> <span class="toctext">Many bad blocks</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-8"><a href="#Adding_a_new_device"><span class="tocnumber">2.5</span> <span class="toctext">Adding a new device</span></a>
+<ul>
+<li class="toclevel-3 tocsection-9"><a href="#Add_NAND_controller_pin_definitions"><span class="tocnumber">2.5.1</span> <span class="toctext">Add NAND controller pin definitions</span></a></li>
+<li class="toclevel-3 tocsection-10"><a href="#Add_NFC_node_to_SoC.27s_DTSI"><span class="tocnumber">2.5.2</span> <span class="toctext">Add NFC node to SoC's DTSI</span></a></li>
+<li class="toclevel-3 tocsection-11"><a href="#Enable_NAND_in_board.27s_DTS"><span class="tocnumber">2.5.3</span> <span class="toctext">Enable NAND in board's DTS</span></a></li>
+<li class="toclevel-3 tocsection-12"><a href="#Define_NAND_partitions_in_DTS"><span class="tocnumber">2.5.4</span> <span class="toctext">Define NAND partitions in DTS</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="NAND_support_in_u-boot">NAND support in u-boot</span></h1>
+<p>Follow the u-boot <a rel="nofollow" class="external text" href="https://gitlab.denx.de/u-boot/u-boot/-/blob/master/board/sunxi/README.nand">README</a>
+</p>
+<h1><span class="mw-headline" id="NAND_support_in_kernel">NAND support in kernel</span></h1>
+<h2><span class="mw-headline" id="Current_status">Current status</span></h2>
+<p>See <a href="MTD_Driver.html" title="MTD Driver">MTD Driver</a><br />
+</p>
+<h2><span class="mw-headline" id="Prerequisites">Prerequisites</span></h2>
+<ul><li>Mainline kernel &gt;= 4.10.0-rc1</li>
+<li>NAND detection/initialization patchset <a rel="nofollow" class="external text" href="https://www.spinics.net/lists/kernel/msg2415319.html">patch-v5</a></li></ul>
+<h2><span class="mw-headline" id="Kernel_Configuration">Kernel Configuration</span></h2>
+<p>To use MTD driver with Linux mainline kernel you should enable:
+</p>
+<pre>Device Drivers  ---&gt;
+  &lt;*&gt; Memory Technology Device (MTD) support  ---&gt;
+    &lt;*&gt;   OpenFirmware partitioning information support
+    &lt;*&gt;   NAND Device Support  ---&gt;
+      &lt;*&gt;   Support for NAND on Allwinner SoCs
+</pre>
+<h2><span class="mw-headline" id="Known_issues">Known issues</span></h2>
+<h3><span class="mw-headline" id="Many_bad_blocks">Many bad blocks</span></h3>
+<p>To fix many bad blocks issue you should:
+</p>
+<pre>1. Disable nand-on-flash-bbt in your dts
+2. Remove this test: http://lxr.free-electrons.com/source/drivers/mtd/nand/nand_base.c?v=4.7#L2940
+3. Boot your new kernel and erase chip with flash_erase /dev/mtd[0-X]
+4. Re-introduce the bad block check removed in 2, re-enable nand-on-flash-bbt
+   and boot the new kernel
+</pre>
+<p>Patch to disable nand bad block check from here <a rel="nofollow" class="external free" href="https://lkml.org/lkml/2014/10/21/546">https://lkml.org/lkml/2014/10/21/546</a>
+</p>
+<pre>diff --git a/arch/arm/boot/dts/sun7i-a20-cubieboard2.dts b/arch/arm/boot/dts/sun7i-a20-cubieboard2.dts
+index 1ef937b..65ac8af 100644
+--- a/arch/arm/boot/dts/sun7i-a20-cubieboard2.dts
++++ b/arch/arm/boot/dts/sun7i-a20-cubieboard2.dts
+@@ -33,6 +33,7 @@
+ 
+ 				nand-ecc-mode = "hw";
+ 				nand-rnd-mode = "hw";
++				/*
+ 				nand-on-flash-bbt;
+ 
+ 				boot0@0 {
+@@ -74,6 +75,7 @@
+ 						0x2d2e 0x1aea 0x2e17 0x173d 0x3a6e 0x71bf 0x25f9 0x0a5d
+ 						0x7c57 0x0fbe 0x46ce 0x4939 0x6b17 0x37bb 0x3e91 0x76db&gt;;
+ 				};
++				*/
+ 			};
+ 		};
+ 
+diff --git a/drivers/mtd/nand/nand_base.c b/drivers/mtd/nand/nand_base.c
+index 7311063..153b323 100644
+--- a/drivers/mtd/nand/nand_base.c
++++ b/drivers/mtd/nand/nand_base.c
+@@ -3312,8 +3312,10 @@ int nand_erase_nand(struct mtd_info *mtd, struct erase_info *instr,
+ 					chip-&gt;page_shift, 0, allowbbt)) {
+ 			pr_warn("%s: attempt to erase a bad block at page 0x%08x\n",
+ 				    __func__, page);
++			/*
+ 			instr-&gt;state = MTD_ERASE_FAILED;
+ 			goto erase_exit;
++			*/
+ 		}
+</pre>
+<h2><span class="mw-headline" id="Adding_a_new_device">Adding a new device</span></h2>
+<h3><span class="mw-headline" id="Add_NAND_controller_pin_definitions">Add NAND controller pin definitions</span></h3>
+<p>Most of boards use the same pins for NAND controller, so you should add pin definitions in SoC's DTSI<br />
+For example, Allwinner A10/A20 have the same pins used for NAND:
+</p>
+<pre>			nand_pins_a: nand_base0@0 {
+				allwinner,pins = "PC0", "PC1", "PC2",
+						"PC5", "PC8", "PC9", "PC10",
+						"PC11", "PC12", "PC13", "PC14",
+						"PC15", "PC16";
+				allwinner,function = "nand0";
+				allwinner,drive = &lt;SUN4I_PINCTRL_10_MA&gt;;
+				allwinner,pull = &lt;SUN4I_PINCTRL_NO_PULL&gt;;
+			};
+
+			nand_cs0_pins_a: nand_cs@0 {
+				allwinner,pins = "PC4";
+				allwinner,function = "nand0";
+				allwinner,drive = &lt;SUN4I_PINCTRL_10_MA&gt;;
+				allwinner,pull = &lt;SUN4I_PINCTRL_NO_PULL&gt;;
+			};
+
+			nand_cs1_pins_a: nand_cs@1 {
+				allwinner,pins = "PC3";
+				allwinner,function = "nand0";
+				allwinner,drive = &lt;SUN4I_PINCTRL_10_MA&gt;;
+				allwinner,pull = &lt;SUN4I_PINCTRL_NO_PULL&gt;;
+			};
+
+			nand_cs2_pins_a: nand_cs@2 {
+				allwinner,pins = "PC17";
+				allwinner,function = "nand0";
+				allwinner,drive = &lt;SUN4I_PINCTRL_10_MA&gt;;
+				allwinner,pull = &lt;SUN4I_PINCTRL_NO_PULL&gt;;
+			};
+
+			nand_cs3_pins_a: nand_cs@3 {
+				allwinner,pins = "PC18";
+				allwinner,function = "nand0";
+				allwinner,drive = &lt;SUN4I_PINCTRL_10_MA&gt;;
+				allwinner,pull = &lt;SUN4I_PINCTRL_NO_PULL&gt;;
+			};
+
+			nand_rb0_pins_a: nand_rb@0 {
+				allwinner,pins = "PC6";
+				allwinner,function = "nand0";
+				allwinner,drive = &lt;SUN4I_PINCTRL_10_MA&gt;;
+				allwinner,pull = &lt;SUN4I_PINCTRL_NO_PULL&gt;;
+			};
+
+			nand_rb1_pins_a: nand_rb@1 {
+				allwinner,pins = "PC7";
+				allwinner,function = "nand0";
+				allwinner,drive = &lt;SUN4I_PINCTRL_10_MA&gt;;
+				allwinner,pull = &lt;SUN4I_PINCTRL_NO_PULL&gt;;
+			};
+</pre>
+<p><a href="File:Sticky-note-pin.png.html" class="image"><img alt="Sticky-note-pin.png" src="https://linux-sunxi.org/images/f/f0/Sticky-note-pin.png" decoding="async" width="16" height="16" /></a> <i>Note:</i> Enable only the pin groups that are actually used by boards.
+</p>
+<h3><span id="Add_NFC_node_to_SoC's_DTSI"></span><span class="mw-headline" id="Add_NFC_node_to_SoC.27s_DTSI">Add NFC node to SoC's DTSI</span></h3>
+<p>Once you define pins, you should add NFC node.<br />
+Example for Allwinner A10:
+</p>
+<pre>		nfc: nand@01c03000 {
+			compatible = "allwinner,sun4i-a10-nand";
+			reg = &lt;0x01c03000 0x1000&gt;;
+			interrupts = &lt;37&gt;;
+			clocks = &lt;&amp;ahb_gates 13&gt;, &lt;&amp;nand_clk&gt;;
+			clock-names = "ahb", "mod";
+			dmas = &lt;&amp;dma SUN4I_DMA_DEDICATED 3&gt;;
+			dma-names = "rxtx";
+			status = "disabled";
+			#address-cells = &lt;1&gt;;
+			#size-cells = &lt;0&gt;;
+		};
+</pre>
+<p>Since Allwinner A20 SoCs have it's own interrupt controller, interrupts line should be changed.<br />
+Example for A20:
+</p>
+<pre>		nfc: nand@01c03000 {
+			compatible = "allwinner,sun4i-a10-nand";
+			reg = &lt;0x01c03000 0x1000&gt;;
+			interrupts = &lt;GIC_SPI 37 IRQ_TYPE_LEVEL_HIGH&gt;;;
+			clocks = &lt;&amp;ahb_gates 13&gt;, &lt;&amp;nand_clk&gt;;
+			clock-names = "ahb", "mod";
+			dmas = &lt;&amp;dma SUN4I_DMA_DEDICATED 3&gt;;
+			dma-names = "rxtx";
+			status = "disabled";
+			#address-cells = &lt;1&gt;;
+			#size-cells = &lt;0&gt;;
+		};
+</pre>
+<h3><span id="Enable_NAND_in_board's_DTS"></span><span class="mw-headline" id="Enable_NAND_in_board.27s_DTS">Enable NAND in board's DTS</span></h3>
+<p>Once you have done with SoC's DTSI changes, you should enable NAND in your board DTS file.<br />
+In a single-chip configuration, chip usually connected to base nand pins, cs0(Chip Select) and rb0(Ready/Busy) pins.
+</p>
+<pre>&amp;nfc {
+	pinctrl-names = "default";
+	pinctrl-0 = &lt;&amp;nand_pins_a&gt;, &lt;&amp;nand_cs0_pins_a&gt;, &lt;&amp;nand_rb0_pins_a&gt;;
+	status = "okay";
+
+	nand@0 {
+		#address-cells = &lt;2&gt;;
+		#size-cells = &lt;2&gt;;
+		reg = &lt;0&gt;;
+		allwinner,rb = &lt;0&gt;;
+
+		nand-ecc-mode = "hw";
+		nand-on-flash-bbt;
+	};
+};
+</pre>
+<h3><span class="mw-headline" id="Define_NAND_partitions_in_DTS">Define NAND partitions in DTS</span></h3>
+<p>If you want, you can define partitions on your NAND. See <a rel="nofollow" class="external text" href="https://www.kernel.org/doc/Documentation/devicetree/bindings/mtd/partition.txt">mtd partitions documentation</a><br />
+For example, if your board have 4G NAND chip, you can split it to 5 partitions:<br />
+<a href="File:Sticky-note-pin.png.html" class="image"><img alt="Sticky-note-pin.png" src="https://linux-sunxi.org/images/f/f0/Sticky-note-pin.png" decoding="async" width="16" height="16" /></a> <i>Note:</i> This partition table is example and can be changed in feature.
+</p>
+<table class="wikitable">
+
+<tbody><tr>
+<th>Partition</th>
+<th>Partition name</th>
+<th>Partition size</th>
+<th>Uses
+</th></tr>
+<tr>
+<td>/dev/mtd0</td>
+<td>boot0</td>
+<td>2M</td>
+<td>SPL
+</td></tr>
+<tr>
+<td>/dev/mtd1</td>
+<td>boot0-rescue</td>
+<td>2M</td>
+<td>SPL Backup
+</td></tr>
+<tr>
+<td>/dev/mtd2</td>
+<td>uboot</td>
+<td>2M</td>
+<td>U-Boot
+</td></tr>
+<tr>
+<td>/dev/mtd3</td>
+<td>uboot-rescue</td>
+<td>2M</td>
+<td>U-Boot Backup
+</td></tr>
+<tr>
+<td>/dev/mtd4</td>
+<td>main</td>
+<td>4G</td>
+<td>User data
+</td></tr></tbody></table>
+<p>This lines should be placed in NFC node of your board's DTS.
+</p>
+<pre>		boot0@0 {
+			label = "boot0";
+			reg = /bits/ 64 &lt;0x0 0x200000&gt;;
+		};
+
+		boot0-rescue@200000 {
+			label = "boot0-rescue";
+			reg = /bits/ 64 &lt;0x200000 0x200000&gt;;
+		};
+
+		uboot@400000 {
+			label = "uboot";
+			reg = /bits/ 64 &lt;0x400000 0x200000&gt;;
+		};
+
+		uboot-rescue@600000 {
+			label = "uboot-rescue";
+			reg = /bits/ 64 &lt;0x600000 0x200000&gt;;
+		};
+
+		main@800000 {
+			label = "main";
+			reg = /bits/ 64 &lt;0x800000 0xff800000&gt;;
+		};
+</pre>
+<p>Armbian has a full device tree definition in their dt-overlay git repo <a class="external free" href="https://github.com/armbian/sunxi-DT-overlays/blob/e4dfea8304d66cb3403e5e1b73d2f346349124ec/sun7i-a20/sun7i-a20-nand.dts">https://github.com/armbian/sunxi-DT-overlays/blob/e4dfea8304d66cb3403e5e1b73d2f346349124ec/sun7i-a20/sun7i-a20-nand.dts</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20251029040826
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.144 seconds
+Real time usage: 0.232 seconds
+Preprocessor visited node count: 116/1000000
+Post‐expand include size: 1460/2097152 bytes
+Template argument size: 545/2097152 bytes
+Highest expansion depth: 7/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 4751/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  100.868      1 -total
+ 91.75%   92.546      1 Template:Alert
+ 81.53%   82.238      1 Template:MBOX_NOTE
+ 35.06%   35.362      1 Template:MBOX
+  7.03%    7.087      2 Template:Note
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:2809-0!canonical and timestamp 20251029040826 and revision id 25679
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=Mainline_NAND_Howto&amp;oldid=25679">https://linux-sunxi.org/index.php?title=Mainline_NAND_Howto&amp;oldid=25679</a>"</div>
+		<div id="catlinks" class="catlinks catlinks-allhidden" data-mw="interface"></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=Mainline+NAND+Howto" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=Mainline+NAND+Howto" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="Mainline_NAND_Howto.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:Mainline_NAND_Howto&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="Mainline_NAND_Howto.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Mainline_NAND_Howto&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Mainline_NAND_Howto&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/Mainline_NAND_Howto.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/Mainline_NAND_Howto" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=Mainline_NAND_Howto&amp;oldid=25679" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=Mainline_NAND_Howto&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 3 March 2024, at 21:41.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.144","walltime":"0.232","ppvisitednodes":{"value":116,"limit":1000000},"postexpandincludesize":{"value":1460,"limit":2097152},"templateargumentsize":{"value":545,"limit":2097152},"expansiondepth":{"value":7,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":4751,"limit":5000000},"timingprofile":["100.00%  100.868      1 -total"," 91.75%   92.546      1 Template:Alert"," 81.53%   82.238      1 Template:MBOX_NOTE"," 35.06%   35.362      1 Template:MBOX","  7.03%    7.087      2 Template:Note"]},"cachereport":{"timestamp":"20251029040826","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":331});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

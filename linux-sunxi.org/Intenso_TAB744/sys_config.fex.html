@@ -1,0 +1,1095 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Intenso TAB744/sys config.fex - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"d98d462052cfc63594973554","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Intenso_TAB744/sys_config.fex","wgTitle":"Intenso TAB744/sys config.fex","wgCurRevisionId":17082,"wgRevisionId":17082,"wgArticleId":2701,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Intenso_TAB744/sys_config.fex","wgRelevantArticleId":2701,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready"
+,"noscript":"ready","user.styles":"ready","user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=skins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="sys_config.fex.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-Intenso_TAB744_sys_config_fex rootpage-Intenso_TAB744 skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">Intenso TAB744/sys config.fex</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"><span class="subpages">&lt; <a href="../Intenso_TAB744.html" title="Intenso TAB744">Intenso TAB744</a></span></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div style="color:#ba0000; border: 2px dashed #bf4f4f; padding: 0.75em;">This page has problems - see the discussion at <a href="../Talk:Intenso_TAB744/sys_config.fex.html" title="Talk:Intenso TAB744/sys config.fex">Talk:Intenso TAB744/sys config.fex</a> for details.
+Please remove this notice only after any remaining issues have been resolved.</div>
+<pre>[product]
+version = "100"
+machine = "evb"
+
+[platform]
+eraseflag = 1
+next_work = 3
+
+[target]
+boot_clock = 1008
+storage_type = -1
+
+[key_detect_en]
+keyen_flag = 1
+
+[power_sply]
+dcdc1_vol = 3000
+dcdc2_vol = 1100
+dcdc3_vol = 1200
+dcdc4_vol = 0
+dcdc5_vol =
+aldo2_vol = 2500
+aldo3_vol = 3000
+
+[card_boot]
+logical_start = 40960
+sprite_gpio0 =
+
+[card0_boot_para]
+card_ctrl = 0
+card_high_speed = 1
+card_line = 4
+sdc_d1 = port:PF00&lt;2&gt;&lt;1&gt;&lt;2&gt;&lt;default&gt;
+sdc_d0 = port:PF01&lt;2&gt;&lt;1&gt;&lt;2&gt;&lt;default&gt;
+sdc_clk = port:PF02&lt;2&gt;&lt;1&gt;&lt;2&gt;&lt;default&gt;
+sdc_cmd = port:PF03&lt;2&gt;&lt;1&gt;&lt;2&gt;&lt;default&gt;
+sdc_d3 = port:PF04&lt;2&gt;&lt;1&gt;&lt;2&gt;&lt;default&gt;
+sdc_d2 = port:PF05&lt;2&gt;&lt;1&gt;&lt;2&gt;&lt;default&gt;
+
+[card2_boot_para]
+card_ctrl = 2
+card_high_speed = 1
+card_line = 4
+sdc_2xmode = 1
+sdc_clk = port:PC05&lt;3&gt;&lt;1&gt;&lt;2&gt;&lt;default&gt;
+sdc_cmd = port:PC06&lt;3&gt;&lt;1&gt;&lt;2&gt;&lt;default&gt;
+sdc_d0 = port:PC08&lt;3&gt;&lt;1&gt;&lt;2&gt;&lt;default&gt;
+sdc_d1 = port:PC09&lt;3&gt;&lt;1&gt;&lt;2&gt;&lt;default&gt;
+sdc_d2 = port:PC10&lt;3&gt;&lt;1&gt;&lt;2&gt;&lt;default&gt;
+sdc_d3 = port:PC11&lt;3&gt;&lt;1&gt;&lt;2&gt;&lt;default&gt;
+
+[twi_para]
+twi_port = 0
+twi_scl = port:PH02&lt;2&gt;&lt;default&gt;&lt;default&gt;&lt;default&gt;
+twi_sda = port:PH03&lt;2&gt;&lt;default&gt;&lt;default&gt;&lt;default&gt;
+
+[uart_para]
+uart_debug_port = 0
+uart_debug_tx = port:PF02&lt;3&gt;&lt;1&gt;&lt;default&gt;&lt;default&gt;
+uart_debug_rx = port:PF04&lt;3&gt;&lt;1&gt;&lt;default&gt;&lt;default&gt;
+
+[jtag_para]
+jtag_enable = 1
+jtag_ms = port:PF00&lt;3&gt;&lt;default&gt;&lt;default&gt;&lt;default&gt;
+jtag_ck = port:PF05&lt;3&gt;&lt;default&gt;&lt;default&gt;&lt;default&gt;
+jtag_do = port:PF03&lt;3&gt;&lt;default&gt;&lt;default&gt;&lt;default&gt;
+jtag_di = port:PF01&lt;3&gt;&lt;default&gt;&lt;default&gt;&lt;default&gt;
+
+[clock]
+pll3 = 297
+pll4 = 300
+pll6 = 600
+pll8 = 408
+pll9 = 480
+pll10 = 297
+pll_cpupat = 0
+pll_gpupat = -1002379674
+pll_videopat = 0
+pll_vepat = 0
+pll_hsicpat = 0
+pll_depat = 0
+pll_mipipat = 0
+pll_mipitun = -1979703288
+pll_mipibias = -133168128
+
+[dram_para]
+dram_clk = 552
+dram_type = 3
+dram_zq = 0x3bbb
+dram_odt_en = 1
+dram_para1 = 284295680
+dram_para2 = 0
+dram_mr0 = 6208
+dram_mr1 = 64
+dram_mr2 = 8
+dram_mr3 = 0
+dram_tpr0 = 0x48a192
+dram_tpr1 = 0x1b1b18d
+dram_tpr2 = 0x76052
+dram_tpr3 = 0x0
+dram_tpr4 = 0x0
+dram_tpr5 = 0x0
+dram_tpr6 = 0x0
+dram_tpr7 = 0x0
+dram_tpr8 = 0x0
+dram_tpr9 = 0x0
+dram_tpr10 = 0x0
+dram_tpr11 = 0x0
+dram_tpr12 = 0xa8
+dram_tpr13 = 0x40900
+
+[pm_para]
+standby_mode = 1
+
+[wakeup_src_para]
+cpu_en = 0
+cpu_freq = 48
+pll_ratio = 273
+dram_selfresh_en = 1
+dram_freq = 36
+
+[twi0]
+twi_used = 1
+twi_scl = port:PH02&lt;2&gt;&lt;default&gt;&lt;default&gt;&lt;default&gt;
+twi_sda = port:PH03&lt;2&gt;&lt;default&gt;&lt;default&gt;&lt;default&gt;
+
+[twi1]
+twi_used = 1
+twi_scl = port:PH04&lt;2&gt;&lt;default&gt;&lt;default&gt;&lt;default&gt;
+twi_sda = port:PH05&lt;2&gt;&lt;default&gt;&lt;default&gt;&lt;default&gt;
+
+[twi2]
+twi_used = 1
+twi_scl = port:PE12&lt;3&gt;&lt;default&gt;&lt;default&gt;&lt;default&gt;
+twi_sda = port:PE13&lt;3&gt;&lt;default&gt;&lt;default&gt;&lt;default&gt;
+
+[uart0]
+uart_used = 1
+uart_port = 0
+uart_type = 2
+uart_tx = port:PF02&lt;3&gt;&lt;1&gt;&lt;default&gt;&lt;default&gt;
+uart_rx = port:PF04&lt;3&gt;&lt;1&gt;&lt;default&gt;&lt;default&gt;
+
+[uart1]
+uart_used = 0
+uart_type = 4
+uart_tx = port:PG06&lt;2&gt;&lt;1&gt;&lt;default&gt;&lt;default&gt;
+uart_rx = port:PG07&lt;2&gt;&lt;1&gt;&lt;default&gt;&lt;default&gt;
+uart_rts = port:PG08&lt;2&gt;&lt;1&gt;&lt;default&gt;&lt;default&gt;
+uart_cts = port:PG09&lt;2&gt;&lt;1&gt;&lt;default&gt;&lt;default&gt;
+
+[uart2]
+uart_used = 0
+uart_type = 4
+uart_tx = port:PB00&lt;2&gt;&lt;1&gt;&lt;default&gt;&lt;default&gt;
+uart_rx = port:PB01&lt;2&gt;&lt;1&gt;&lt;default&gt;&lt;default&gt;
+uart_rts = port:PB02&lt;2&gt;&lt;1&gt;&lt;default&gt;&lt;default&gt;
+uart_cts = port:PB03&lt;2&gt;&lt;1&gt;&lt;default&gt;&lt;default&gt;
+
+[uart3]
+uart_used = 0
+uart_type = 4
+uart_tx = port:PH06&lt;3&gt;&lt;1&gt;&lt;default&gt;&lt;default&gt;
+uart_rx = port:PH07&lt;3&gt;&lt;1&gt;&lt;default&gt;&lt;default&gt;
+uart_rts = port:PH08&lt;3&gt;&lt;1&gt;&lt;default&gt;&lt;default&gt;
+uart_cts = port:PH09&lt;3&gt;&lt;1&gt;&lt;default&gt;&lt;default&gt;
+
+[uart4]
+uart_used = 0
+uart_port = 4
+uart_type = 2
+uart_tx = port:PA04&lt;2&gt;&lt;1&gt;&lt;default&gt;&lt;default&gt;
+uart_rx = port:PA05&lt;2&gt;&lt;1&gt;&lt;default&gt;&lt;default&gt;
+uart_rts = port:PA06&lt;2&gt;&lt;1&gt;&lt;default&gt;&lt;default&gt;
+uart_cts = port:PA07&lt;2&gt;&lt;1&gt;&lt;default&gt;&lt;default&gt;
+
+[spi0]
+spi_used = 0
+spi_cs_bitmap = 1
+spi_mosi = port:PC00&lt;3&gt;&lt;default&gt;&lt;default&gt;&lt;default&gt;
+spi_miso = port:PC01&lt;3&gt;&lt;default&gt;&lt;default&gt;&lt;default&gt;
+spi_sclk = port:PC02&lt;3&gt;&lt;default&gt;&lt;default&gt;&lt;default&gt;
+spi_cs0 = port:PC03&lt;3&gt;&lt;1&gt;&lt;default&gt;&lt;default&gt;
+
+[spi1]
+spi_used = 0
+spi_cs_bitmap = 1
+spi_cs0 = port:PA00&lt;2&gt;&lt;1&gt;&lt;default&gt;&lt;default&gt;
+spi_sclk = port:PA01&lt;2&gt;&lt;default&gt;&lt;default&gt;&lt;default&gt;
+spi_mosi = port:PA02&lt;2&gt;&lt;default&gt;&lt;default&gt;&lt;default&gt;
+spi_miso = port:PA03&lt;2&gt;&lt;default&gt;&lt;default&gt;&lt;default&gt;
+
+[spi_devices]
+spi_dev_num = 1
+
+[spi_board0]
+modalias = "at25df641"
+max_speed_hz = 50000000
+bus_num = 0
+chip_select = 0
+mode = 0
+
+[ctp_para]
+ctp_used = 1
+ctp_name = "ft5x_ts"
+ctp_twi_id = 0
+ctp_twi_addr = 0x38
+ctp_screen_max_x = 1024
+ctp_screen_max_y = 600
+ctp_revert_x_flag = 0
+ctp_revert_y_flag = 0
+ctp_exchange_x_y_flag = 0
+ctp_int_port = port:PB05&lt;4&gt;&lt;default&gt;&lt;default&gt;&lt;default&gt;
+ctp_wakeup = port:PH01&lt;1&gt;&lt;default&gt;&lt;default&gt;&lt;1&gt;
+ctp_power_ldo = "axp22_ldoio0"
+ctp_power_ldo_vol = 3000
+ctp_power_io =
+
+[ctp_list_para]
+ctp_det_used = 1
+ft5x_ts = 1
+gt82x = 1
+gslX680 = 0
+gslX680new = 1
+gt9xx_ts = 1
+gt9xxf_ts = 0
+tu_ts = 0
+gt818_ts = 1
+zet622x = 1
+aw5306_ts = 1
+icn83xx_ts = 0
+
+[tkey_para]
+tkey_used = 0
+tkey_twi_id =
+tkey_twi_addr =
+tkey_int =
+
+[motor_para]
+motor_used = 0
+motor_shake = port:power3&lt;1&gt;&lt;default&gt;&lt;default&gt;&lt;1&gt;
+motor_ldo = ""
+motor_ldo_voltage = 3300
+
+[ths_para]
+ths_used = 1
+ths_trip1_count = 3
+ths_trip1_0 = 75
+ths_trip1_1 = 90
+ths_trip1_2 = 110
+ths_trip1_0_min = 0
+ths_trip1_0_max = 1
+ths_trip1_1_min = 1
+ths_trip1_1_max = 3
+ths_trip1_2_min = 0
+ths_trip1_2_max = 0
+
+[cooler_table]
+cooler_count = 4
+cooler0 = "1344000 4 4294967295 0"
+cooler1 = "1200000 4 4294967295 0"
+cooler2 = "1008000 4 4294967295 0"
+cooler3 = "648000 4 4294967295 0"
+
+[nand0_para]
+nand_support_2ch = 0
+nand0_used = 1
+nand0_we = port:PC00&lt;2&gt;&lt;default&gt;&lt;default&gt;&lt;default&gt;
+nand0_ale = port:PC01&lt;2&gt;&lt;default&gt;&lt;default&gt;&lt;default&gt;
+nand0_cle = port:PC02&lt;2&gt;&lt;default&gt;&lt;default&gt;&lt;default&gt;
+nand0_ce1 = port:PC03&lt;2&gt;&lt;default&gt;&lt;default&gt;&lt;default&gt;
+nand0_ce0 = port:PC04&lt;2&gt;&lt;default&gt;&lt;default&gt;&lt;default&gt;
+nand0_nre = port:PC05&lt;2&gt;&lt;default&gt;&lt;default&gt;&lt;default&gt;
+nand0_rb0 = port:PC06&lt;2&gt;&lt;default&gt;&lt;default&gt;&lt;default&gt;
+nand0_rb1 = port:PC07&lt;2&gt;&lt;default&gt;&lt;default&gt;&lt;default&gt;
+nand0_d0 = port:PC08&lt;2&gt;&lt;default&gt;&lt;default&gt;&lt;default&gt;
+nand0_d1 = port:PC09&lt;2&gt;&lt;default&gt;&lt;default&gt;&lt;default&gt;
+nand0_d2 = port:PC10&lt;2&gt;&lt;default&gt;&lt;default&gt;&lt;default&gt;
+nand0_d3 = port:PC11&lt;2&gt;&lt;default&gt;&lt;default&gt;&lt;default&gt;
+nand0_d4 = port:PC12&lt;2&gt;&lt;default&gt;&lt;default&gt;&lt;default&gt;
+nand0_d5 = port:PC13&lt;2&gt;&lt;default&gt;&lt;default&gt;&lt;default&gt;
+nand0_d6 = port:PC14&lt;2&gt;&lt;default&gt;&lt;default&gt;&lt;default&gt;
+nand0_d7 = port:PC15&lt;2&gt;&lt;default&gt;&lt;default&gt;&lt;default&gt;
+nand0_ndqs = port:PC16&lt;2&gt;&lt;default&gt;&lt;default&gt;&lt;default&gt;
+nand0_ce2 = port:PC17&lt;2&gt;&lt;default&gt;&lt;default&gt;&lt;default&gt;
+nand0_ce3 = port:PC18&lt;2&gt;&lt;default&gt;&lt;default&gt;&lt;default&gt;
+
+[disp_init]
+disp_init_enable = 1
+disp_mode = 0
+screen0_output_type = 1
+screen0_output_mode = 4
+screen1_output_type = 1
+screen1_output_mode = 4
+fb0_format = 10
+fb0_pixel_sequence = 0
+fb0_scaler_mode_enable = 0
+fb0_width = 0
+fb0_height = 0
+fb1_format = 10
+fb1_pixel_sequence = 0
+fb1_scaler_mode_enable = 0
+fb1_width = 0
+fb1_height = 0
+lcd0_backlight = 50
+lcd1_backlight = 50
+lcd0_bright = 50
+lcd0_contrast = 50
+lcd0_saturation = 57
+lcd0_hue = 50
+lcd1_bright = 50
+lcd1_contrast = 50
+lcd1_saturation = 57
+lcd1_hue = 50
+
+[lcd0_para]
+lcd_used = 1
+lcd_driver_name = "default_lcd"
+lcd_if = 3
+lcd_x = 1024
+lcd_y = 600
+lcd_width = 0
+lcd_height = 0
+lcd_dclk_freq = 52
+lcd_pwm_used = 1
+lcd_pwm_ch = 0
+lcd_pwm_freq = 50000
+lcd_pwm_pol = 1
+lcd_hbp = 160
+lcd_ht = 1344
+lcd_hspw = 20
+lcd_vbp = 10
+lcd_vt = 635
+lcd_vspw = 3
+lcd_lvds_if = 0
+lcd_lvds_colordepth = 0
+lcd_lvds_mode = 0
+lcd_frm = 0
+lcd_gamma_en = 0
+lcd_bright_curve_en = 0
+lcd_cmap_en = 0
+deu_mode = 0
+lcdgamma4iep = 22
+smart_color = 90
+lcd_bl_en = port:PH06&lt;1&gt;&lt;0&gt;&lt;default&gt;&lt;1&gt;
+lcd_power = port:power2&lt;1&gt;&lt;0&gt;&lt;default&gt;&lt;1&gt;
+lcd_gpio_0 = port:PH07&lt;1&gt;&lt;0&gt;&lt;default&gt;&lt;1&gt;
+lcd_gpio_1 = port:PD14&lt;1&gt;&lt;0&gt;&lt;default&gt;&lt;1&gt;
+lcdd0 = port:PD18&lt;3&gt;&lt;0&gt;&lt;default&gt;&lt;default&gt;
+lcdd1 = port:PD19&lt;3&gt;&lt;0&gt;&lt;default&gt;&lt;default&gt;
+lcdd2 = port:PD20&lt;3&gt;&lt;0&gt;&lt;default&gt;&lt;default&gt;
+lcdd3 = port:PD21&lt;3&gt;&lt;0&gt;&lt;default&gt;&lt;default&gt;
+lcdd4 = port:PD22&lt;3&gt;&lt;0&gt;&lt;default&gt;&lt;default&gt;
+lcdd5 = port:PD23&lt;3&gt;&lt;0&gt;&lt;default&gt;&lt;default&gt;
+lcdd6 = port:PD24&lt;3&gt;&lt;0&gt;&lt;default&gt;&lt;default&gt;
+lcdd7 = port:PD25&lt;3&gt;&lt;0&gt;&lt;default&gt;&lt;default&gt;
+lcdd8 = port:PD26&lt;3&gt;&lt;0&gt;&lt;default&gt;&lt;default&gt;
+lcdd9 = port:PD27&lt;3&gt;&lt;0&gt;&lt;default&gt;&lt;default&gt;
+
+[pwm0_para]
+pwm_used = 1
+pwm_positive = port:PH00&lt;2&gt;&lt;0&gt;&lt;default&gt;&lt;default&gt;
+
+[pwm1_para]
+pwm_used = 0
+pwm_positive = port:PH01&lt;2&gt;&lt;0&gt;&lt;default&gt;&lt;default&gt;
+
+[csi0]
+vip_used = 1
+vip_mode = 0
+vip_dev_qty = 1
+vip_define_sensor_list = 0
+vip_csi_pck = port:PE00&lt;2&gt;&lt;default&gt;&lt;default&gt;&lt;default&gt;
+vip_csi_mck = port:PE01&lt;2&gt;&lt;default&gt;&lt;default&gt;&lt;default&gt;
+vip_csi_hsync = port:PE02&lt;2&gt;&lt;default&gt;&lt;default&gt;&lt;default&gt;
+vip_csi_vsync = port:PE03&lt;2&gt;&lt;default&gt;&lt;default&gt;&lt;default&gt;
+vip_csi_d0 = port:PE04&lt;2&gt;&lt;default&gt;&lt;default&gt;&lt;default&gt;
+vip_csi_d1 = port:PE05&lt;2&gt;&lt;default&gt;&lt;default&gt;&lt;default&gt;
+vip_csi_d2 = port:PE06&lt;2&gt;&lt;default&gt;&lt;default&gt;&lt;default&gt;
+vip_csi_d3 = port:PE07&lt;2&gt;&lt;default&gt;&lt;default&gt;&lt;default&gt;
+vip_csi_d4 = port:PE08&lt;2&gt;&lt;default&gt;&lt;default&gt;&lt;default&gt;
+vip_csi_d5 = port:PE09&lt;2&gt;&lt;default&gt;&lt;default&gt;&lt;default&gt;
+vip_csi_d6 = port:PE10&lt;2&gt;&lt;default&gt;&lt;default&gt;&lt;default&gt;
+vip_csi_d7 = port:PE11&lt;2&gt;&lt;default&gt;&lt;default&gt;&lt;default&gt;
+vip_dev0_mname = "gc0329"
+vip_dev0_pos = "front"
+vip_dev0_lane = 1
+vip_dev0_twi_id = 2
+vip_dev0_twi_addr = 98
+vip_dev0_isp_used = 0
+vip_dev0_fmt = 0
+vip_dev0_stby_mode = 0
+vip_dev0_vflip = 1
+vip_dev0_hflip = 1
+vip_dev0_iovdd = "axp22_dldo3"
+vip_dev0_iovdd_vol = 2800000
+vip_dev0_avdd = "axp22_dldo3"
+vip_dev0_avdd_vol = 2800000
+vip_dev0_dvdd = "axp22_eldo2"
+vip_dev0_dvdd_vol = 1800000
+vip_dev0_afvdd = "axp22_dldo3"
+vip_dev0_afvdd_vol = 2800000
+vip_dev0_power_en =
+vip_dev0_reset = port:PE16&lt;1&gt;&lt;default&gt;&lt;default&gt;&lt;0&gt;
+vip_dev0_pwdn = port:PE17&lt;1&gt;&lt;default&gt;&lt;default&gt;&lt;1&gt;
+vip_dev0_flash_en =
+vip_dev0_flash_mode =
+vip_dev0_af_pwdn =
+
+[mmc0_para]
+sdc_used = 1
+sdc_detmode = 2
+sdc_buswidth = 4
+sdc_d1 = port:PF00&lt;2&gt;&lt;1&gt;&lt;2&gt;&lt;default&gt;
+sdc_d0 = port:PF01&lt;2&gt;&lt;1&gt;&lt;2&gt;&lt;default&gt;
+sdc_clk = port:PF02&lt;2&gt;&lt;1&gt;&lt;2&gt;&lt;default&gt;
+sdc_cmd = port:PF03&lt;2&gt;&lt;1&gt;&lt;2&gt;&lt;default&gt;
+sdc_d3 = port:PF04&lt;2&gt;&lt;1&gt;&lt;2&gt;&lt;default&gt;
+sdc_d2 = port:PF05&lt;2&gt;&lt;1&gt;&lt;2&gt;&lt;default&gt;
+sdc_det = port:PB04&lt;4&gt;&lt;1&gt;&lt;2&gt;&lt;default&gt;
+sdc_use_wp = 0
+sdc_wp =
+sdc_isio = 0
+sdc_regulator = "none"
+
+[mmc1_para]
+sdc_used = 1
+sdc_detmode = 4
+sdc_buswidth = 4
+sdc_clk = port:PG00&lt;2&gt;&lt;1&gt;&lt;1&gt;&lt;default&gt;
+sdc_cmd = port:PG01&lt;2&gt;&lt;1&gt;&lt;1&gt;&lt;default&gt;
+sdc_d0 = port:PG02&lt;2&gt;&lt;1&gt;&lt;1&gt;&lt;default&gt;
+sdc_d1 = port:PG03&lt;2&gt;&lt;1&gt;&lt;1&gt;&lt;default&gt;
+sdc_d2 = port:PG04&lt;2&gt;&lt;1&gt;&lt;1&gt;&lt;default&gt;
+sdc_d3 = port:PG05&lt;2&gt;&lt;1&gt;&lt;1&gt;&lt;default&gt;
+sdc_det =
+sdc_use_wp = 0
+sdc_wp =
+sdc_isio = 1
+sdc_regulator = "none"
+
+[mmc2_para]
+sdc_used = 0
+sdc_detmode = 3
+sdc_buswidth = 8
+sdc_2xmode = 1
+sdc_clk = port:PC05&lt;3&gt;&lt;1&gt;&lt;2&gt;&lt;default&gt;
+sdc_cmd = port:PC06&lt;3&gt;&lt;1&gt;&lt;2&gt;&lt;default&gt;
+sdc_d0 = port:PC08&lt;3&gt;&lt;1&gt;&lt;2&gt;&lt;default&gt;
+sdc_d1 = port:PC09&lt;3&gt;&lt;1&gt;&lt;2&gt;&lt;default&gt;
+sdc_d2 = port:PC10&lt;3&gt;&lt;1&gt;&lt;2&gt;&lt;default&gt;
+sdc_d3 = port:PC11&lt;3&gt;&lt;1&gt;&lt;2&gt;&lt;default&gt;
+sdc_d4 = port:PC12&lt;3&gt;&lt;1&gt;&lt;2&gt;&lt;default&gt;
+sdc_d5 = port:PC13&lt;3&gt;&lt;1&gt;&lt;2&gt;&lt;default&gt;
+sdc_d6 = port:PC14&lt;3&gt;&lt;1&gt;&lt;2&gt;&lt;default&gt;
+sdc_d7 = port:PC15&lt;3&gt;&lt;1&gt;&lt;2&gt;&lt;default&gt;
+emmc_rst = port:PC16&lt;3&gt;&lt;1&gt;&lt;2&gt;&lt;default&gt;
+sdc_det =
+sdc_use_wp = 0
+sdc_wp =
+sdc_isio = 0
+sdc_regulator = "none"
+
+[usbc0]
+usb_used = 1
+usb_port_type = 2
+usb_detect_type = 1
+usb_id_gpio = port:PH08&lt;0&gt;&lt;1&gt;&lt;default&gt;&lt;default&gt;
+usb_det_vbus_gpio = "axp_ctrl"
+usb_drv_vbus_gpio = port:power4&lt;1&gt;&lt;0&gt;&lt;default&gt;&lt;0&gt;
+usb_restrict_gpio =
+usb_host_init_state = 0
+usb_restric_flag = 0
+usb_restric_voltage = 3550000
+usb_restric_capacity = 5
+usb_regulator_io = "nocare"
+usb_regulator_vol = 0
+usb_regulator_id_vbus = "axp22_dcdc1"
+usb_regulator_id_vbus_vol = 3000000
+
+[usbc1]
+usb_used = 1
+usb_drv_vbus_gpio =
+usb_restrict_gpio =
+usb_host_init_state = 0
+usb_restric_flag = 0
+usb_regulator_io = "nocare"
+usb_regulator_vol = 0
+usb_not_suspend = 0
+
+[usb_feature]
+vendor_id = 7994
+mass_storage_id = 4096
+adb_id = 4097
+manufacturer_name = "USB Developer"
+product_name = "Android"
+serial_number = "20080411"
+
+[msc_feature]
+vendor_name = ""
+product_name = "TAB744"
+release = 100
+luns = 2
+
+[serial_feature]
+serial_unique = 1
+
+[gsensor_para]
+gsensor_used = 1
+gsensor_twi_id = 1
+gsensor_twi_addr = 0x18
+gsensor_int1 = port:PB06&lt;4&gt;&lt;1&gt;&lt;default&gt;&lt;default&gt;
+gsensor_int2 =
+
+[gsensor_list_para]
+gsensor_det_used = 1
+bma250 = 1
+stk831x = 0
+mma8452 = 1
+mma7660 = 1
+mma865x = 1
+mc32x0 = 0
+afa750 = 1
+lis3de_acc = 1
+lis3dh_acc = 1
+kxtik = 1
+dmard10 = 0
+dmard06 = 1
+mxc622x = 1
+fxos8700 = 1
+lsm303d = 1
+
+[gps_para]
+
+[wifi_para]
+wifi_used = 1
+wifi_sdc_id = 1
+wifi_usbc_id = 1
+wifi_usbc_type = 1
+wifi_mod_sel = 3
+wifi_power = "axp22_dldo1"
+wifi_power_ext1 = ""
+wifi_power_ext2 = ""
+wifi_power_switch = ""
+
+[bt_para]
+bt_used = 0
+bt_uart_id = 1
+
+[3g_para]
+3g_used = 0
+3g_usbc_num = 1
+3g_uart_num = 2
+bb_name = "em66"
+bb_vbat =
+bb_on =
+bb_pwr_on = port:PL03&lt;1&gt;&lt;default&gt;&lt;default&gt;&lt;0&gt;
+bb_wake = port:PL04&lt;1&gt;&lt;default&gt;&lt;default&gt;&lt;0&gt;
+bb_rf_dis = port:PL11&lt;1&gt;&lt;default&gt;&lt;default&gt;&lt;0&gt;
+bb_rst = port:PL05&lt;1&gt;&lt;default&gt;&lt;default&gt;&lt;0&gt;
+bb_dldo = "axp22_aldo1"
+bb_dldo_min_uV = 2800000
+bb_dldo_max_uV = 2800000
+
+[gy_para]
+gy_used = 0
+gy_twi_id = 1
+gy_twi_addr = 106
+gy_int1 =
+gy_int2 =
+
+[gy_list_para]
+gy_det_used = 0
+l3gd20_gyr = 1
+
+[ls_para]
+ls_used = 0
+ls_twi_id = 1
+ls_twi_addr = 35
+ls_int = port:PB07&lt;4&gt;&lt;1&gt;&lt;default&gt;&lt;default&gt;
+
+[ls_list_para]
+ls_det_used = 0
+ltr_501als = 1
+jsa1212 = 1
+
+[compass_para]
+compass_used = 0
+compass_twi_id = 1
+compass_twi_addr = 13
+compass_int =
+
+[i2s0]
+i2s0_used = 0
+i2s0_channel = 2
+i2s0_master = 4
+i2s0_select = 1
+audio_format = 1
+signal_inversion = 1
+over_sample_rate = 512
+sample_resolution = 16
+word_select_size = 32
+pcm_sync_period = 256
+msb_lsb_first = 0
+sign_extend = 0
+slot_index = 0
+slot_width = 16
+frame_width = 1
+tx_data_mode = 1
+rx_data_mode = 1
+i2s0_mclk =
+i2s0_bclk = port:PB04&lt;2&gt;&lt;1&gt;&lt;default&gt;&lt;default&gt;
+i2s0_lrclk = port:PB05&lt;2&gt;&lt;1&gt;&lt;default&gt;&lt;default&gt;
+i2s0_dout0 = port:PB06&lt;2&gt;&lt;1&gt;&lt;default&gt;&lt;default&gt;
+i2s0_dout1 =
+i2s0_dout2 =
+i2s0_dout3 =
+i2s0_din = port:PB07&lt;2&gt;&lt;1&gt;&lt;default&gt;&lt;default&gt;
+
+[i2s1]
+i2s1_used = 0
+i2s1_channel = 2
+i2s1_master = 4
+i2s1_select = 1
+audio_format = 1
+signal_inversion = 1
+over_sample_rate = 512
+sample_resolution = 16
+word_select_size = 32
+pcm_sync_period = 64
+msb_lsb_first = 0
+sign_extend = 0
+slot_index = 0
+slot_width = 16
+frame_width = 1
+tx_data_mode = 0
+rx_data_mode = 0
+i2s1_mclk =
+i2s1_bclk = port:PG11&lt;2&gt;&lt;1&gt;&lt;default&gt;&lt;default&gt;
+i2s1_lrclk = port:PG10&lt;2&gt;&lt;1&gt;&lt;default&gt;&lt;default&gt;
+i2s1_dout = port:PG12&lt;2&gt;&lt;1&gt;&lt;default&gt;&lt;default&gt;
+i2s1_din = port:PG13&lt;2&gt;&lt;1&gt;&lt;default&gt;&lt;default&gt;
+
+[audio0]
+audio_used = 1
+headphone_vol = 60
+earpiece_vol = 59
+cap_vol = 4
+pa_single_vol = 62
+pa_double_used = 0
+pa_double_vol = 31
+headphone_direct_used = 1
+headset_mic_vol = 6
+main_mic_vol = 6
+audio_hp_ldo = "none"
+audio_pa_ctrl = port:PH09&lt;1&gt;&lt;default&gt;&lt;default&gt;&lt;0&gt;
+aif2_used = 0
+aif3_used = 0
+headphone_mute_used = 0
+DAC_VOL_CTRL_SPK = 39064
+DAC_VOL_CTRL_HEADPHONE = 41120
+
+[gpio_para]
+gpio_used = 1
+gpio_pin_1 = port:PB00&lt;0&gt;&lt;default&gt;&lt;default&gt;&lt;0&gt;
+gpio_pin_2 = port:PB02&lt;0&gt;&lt;default&gt;&lt;default&gt;&lt;1&gt;
+
+[pmu1_para]
+pmu_used = 1
+pmu_twi_addr = 52
+pmu_twi_id = 1
+pmu_irq_id = 0
+pmu_battery_rdc = 100
+pmu_battery_rdc1 = 124
+pmu_battery_rdc2 = 143
+pmu_battery_rdc3 = 118
+pmu_battery_cap1 = 3000
+pmu_battery_cap = 2400
+pmu_batdeten = 1
+pmu_chg_ic_temp = 0
+pmu_runtime_chgcur = 300
+pmu_earlysuspend_chgcur = 1400
+pmu_suspend_chgcur = 1400
+pmu_shutdown_chgcur = 1400
+pmu_init_chgvol = 4200
+pmu_init_chgend_rate = 10
+pmu_init_chg_enabled = 1
+pmu_init_adc_freq = 800
+pmu_init_adcts_freq = 800
+pmu_init_chg_pretime = 70
+pmu_init_chg_csttime = 720
+pmu_batt_cap_correct = 1
+pmu_bat_regu_en = 0
+pmu_bat_para1 = 0
+pmu_bat_para2 = 0
+pmu_bat_para3 = 0
+pmu_bat_para4 = 0
+pmu_bat_para5 = 0
+pmu_bat_para6 = 0
+pmu_bat_para7 = 1
+pmu_bat_para8 = 1
+pmu_bat_para9 = 2
+pmu_bat_para10 = 3
+pmu_bat_para11 = 4
+pmu_bat_para12 = 7
+pmu_bat_para13 = 11
+pmu_bat_para14 = 18
+pmu_bat_para15 = 31
+pmu_bat_para16 = 41
+pmu_bat_para17 = 46
+pmu_bat_para18 = 51
+pmu_bat_para19 = 54
+pmu_bat_para20 = 58
+pmu_bat_para21 = 62
+pmu_bat_para22 = 65
+pmu_bat_para23 = 70
+pmu_bat_para24 = 75
+pmu_bat_para25 = 80
+pmu_bat_para26 = 84
+pmu_bat_para27 = 87
+pmu_bat_para28 = 91
+pmu_bat_para29 = 94
+pmu_bat_para30 = 96
+pmu_bat_para31 = 99
+pmu_bat_para32 = 100
+pmu_usbvol_limit = 0
+pmu_usbcur_limit = 0
+pmu_usbvol = 4000
+pmu_usbcur = 0
+pmu_usbvol_pc = 4400
+pmu_usbcur_pc = 500
+pmu_pwroff_vol = 3500
+pmu_pwron_vol = 2600
+pmu_pekoff_time = 6000
+pmu_pekoff_func = 1
+pmu_pekoff_en = 1
+pmu_peklong_time = 1500
+pmu_pekon_time = 1000
+pmu_pwrok_time = 64
+pmu_battery_warning_level1 = 15
+pmu_battery_warning_level2 = 0
+pmu_restvol_adjust_time = 60
+pmu_ocv_cou_adjust_time = 60
+pmu_chgled_func = 0
+pmu_chgled_type = 0
+pmu_vbusen_func = 1
+pmu_reset = 0
+pmu_IRQ_wakeup = 0
+pmu_hot_shutdowm = 1
+pmu_inshort = 0
+power_start = 0
+pmu_temp_enable = 0
+pmu_charge_ltf = 2261
+pmu_charge_htf = 388
+pmu_discharge_ltf = 3200
+pmu_discharge_htf = 237
+pmu_temp_para1 = 7466
+pmu_temp_para2 = 4480
+pmu_temp_para3 = 3518
+pmu_temp_para4 = 2786
+pmu_temp_para5 = 2223
+pmu_temp_para6 = 1788
+pmu_temp_para7 = 1448
+pmu_temp_para8 = 969
+pmu_temp_para9 = 664
+pmu_temp_para10 = 466
+pmu_temp_para11 = 393
+pmu_temp_para12 = 333
+pmu_temp_para13 = 283
+pmu_temp_para14 = 242
+pmu_temp_para15 = 179
+pmu_temp_para16 = 134
+
+[pmu2_para]
+pmu_used = 0
+pmu_twi_addr = 52
+pmu_twi_id = 1
+pmu_irq_id = 0
+
+[recovery_key]
+key_min = 3
+key_max = 5
+
+[dvfs_table]
+extremity_freq = 1344000000
+max_freq = 1200000000
+min_freq = 120000000
+LV_count = 8
+LV1_freq = 1536000000
+LV1_volt = 1500
+LV2_freq = 1344000000
+LV2_volt = 1460
+LV3_freq = 1200000000
+LV3_volt = 1320
+LV4_freq = 1008000000
+LV4_volt = 1200
+LV5_freq = 816000000
+LV5_volt = 1100
+LV6_freq = 648000000
+LV6_volt = 1040
+LV7_freq = 0
+LV7_volt = 1040
+LV8_freq = 0
+LV8_volt = 1040
+
+[Vdevice]
+Vdevice_used = 1
+Vdevice_0 = port:PA01&lt;5&gt;&lt;1&gt;&lt;2&gt;&lt;default&gt;
+Vdevice_1 = port:PA02&lt;5&gt;&lt;1&gt;&lt;2&gt;&lt;default&gt;
+
+[s_uart0]
+s_uart_used = 0
+s_uart_tx = port:PL02&lt;2&gt;&lt;default&gt;&lt;default&gt;&lt;default&gt;
+s_uart_rx = port:PL03&lt;2&gt;&lt;default&gt;&lt;default&gt;&lt;default&gt;
+
+[s_rsb0]
+s_rsb_used = 1
+s_rsb_sck = port:PL00&lt;2&gt;&lt;1&gt;&lt;2&gt;&lt;default&gt;
+s_rsb_sda = port:PL01&lt;2&gt;&lt;1&gt;&lt;2&gt;&lt;default&gt;
+
+[s_jtag0]
+s_jtag_used = 0
+s_jtag_tms = port:PL04&lt;2&gt;&lt;1&gt;&lt;2&gt;&lt;default&gt;
+s_jtag_tck = port:PL05&lt;2&gt;&lt;1&gt;&lt;2&gt;&lt;default&gt;
+s_jtag_tdo = port:PL06&lt;2&gt;&lt;1&gt;&lt;2&gt;&lt;default&gt;
+s_jtag_tdi = port:PL07&lt;2&gt;&lt;1&gt;&lt;2&gt;&lt;default&gt;
+
+[s_powchk]
+s_powchk_used = -2147483648
+s_power_reg = 32865
+s_system_power = 50
+
+[mali_para]
+mali_used = 1
+mali_clkdiv = 1
+mali_extreme_freq = 408
+mali_extreme_vol = 1100
+
+[dram_dvfs_table]
+LV_count = 3
+LV1_freq = 552000000
+LV1_volt = 1100
+LV2_freq = 360000000
+LV2_volt = 1100
+LV3_freq = 0
+LV3_volt = 1100
+
+[charging_type]
+charging_type = 1
+
+[leds_para]
+leds_used = 1
+red_led = port:power3&lt;1&gt;&lt;default&gt;&lt;default&gt;&lt;0&gt;
+red_led_active_low = 1
+green_led = port:power1&lt;1&gt;&lt;default&gt;&lt;default&gt;&lt;0&gt;
+green_led_active_low = 0
+blue_led =
+blue_led_active_low = 0
+
+</pre>
+<!-- 
+NewPP limit report
+Cached time: 20251029044401
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.046 seconds
+Real time usage: 0.074 seconds
+Preprocessor visited node count: 12/1000000
+Post‐expand include size: 542/2097152 bytes
+Template argument size: 176/2097152 bytes
+Highest expansion depth: 5/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 22055/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   36.738      1 -total
+100.00%   36.738      1 Template:Pagehasproblems
+ 43.79%   16.089      1 Template:Redbox
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:2701-0!canonical and timestamp 20251029044401 and revision id 17082
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=Intenso_TAB744/sys_config.fex&amp;oldid=17082">https://linux-sunxi.org/index.php?title=Intenso_TAB744/sys_config.fex&amp;oldid=17082</a>"</div>
+		<div id="catlinks" class="catlinks catlinks-allhidden" data-mw="interface"></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=Intenso+TAB744%2Fsys+config.fex" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=Intenso+TAB744%2Fsys+config.fex" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="sys_config.fex.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk"><a href="../Talk:Intenso_TAB744/sys_config.fex.html" rel="discussion" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="sys_config.fex.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Intenso_TAB744/sys_config.fex&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Intenso_TAB744/sys_config.fex&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="../index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="../index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="../sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="../Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="../Special:WhatLinksHere/Intenso_TAB744/sys_config.fex.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/Intenso_TAB744/sys_config.fex" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="../Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=Intenso_TAB744/sys_config.fex&amp;oldid=17082" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=Intenso_TAB744/sys_config.fex&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 30 April 2016, at 11:36.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.046","walltime":"0.074","ppvisitednodes":{"value":12,"limit":1000000},"postexpandincludesize":{"value":542,"limit":2097152},"templateargumentsize":{"value":176,"limit":2097152},"expansiondepth":{"value":5,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":22055,"limit":5000000},"timingprofile":["100.00%   36.738      1 -total","100.00%   36.738      1 Template:Pagehasproblems"," 43.79%   16.089      1 Template:Redbox"]},"cachereport":{"timestamp":"20251029044401","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":407});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

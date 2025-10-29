@@ -1,0 +1,374 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Xorg - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"010d6830cbe763e0645e303c","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Xorg","wgTitle":"Xorg","wgCurRevisionId":18089,"wgRevisionId":18089,"wgArticleId":1064,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Tutorial","Software"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Xorg","wgRelevantArticleId":1064,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":"ready","user":
+"ready","user.options":"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=mediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="Xorg.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-Xorg rootpage-Xorg skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">Xorg</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>This page contains an explanation of how to set up the X server for our hardware.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#fbdev_driver"><span class="tocnumber">1</span> <span class="toctext">fbdev driver</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#fbturbo_driver"><span class="tocnumber">2</span> <span class="toctext">fbturbo driver</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Manual_build"><span class="tocnumber">2.1</span> <span class="toctext">Manual build</span></a>
+<ul>
+<li class="toclevel-3 tocsection-4"><a href="#Prerequisites"><span class="tocnumber">2.1.1</span> <span class="toctext">Prerequisites</span></a></li>
+<li class="toclevel-3 tocsection-5"><a href="#Clone_the_repository"><span class="tocnumber">2.1.2</span> <span class="toctext">Clone the repository</span></a></li>
+<li class="toclevel-3 tocsection-6"><a href="#Build"><span class="tocnumber">2.1.3</span> <span class="toctext">Build</span></a></li>
+<li class="toclevel-3 tocsection-7"><a href="#Installation"><span class="tocnumber">2.1.4</span> <span class="toctext">Installation</span></a></li>
+<li class="toclevel-3 tocsection-8"><a href="#Configuration"><span class="tocnumber">2.1.5</span> <span class="toctext">Configuration</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-9"><a href="#Packages"><span class="tocnumber">2.2</span> <span class="toctext">Packages</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#Verification"><span class="tocnumber">2.3</span> <span class="toctext">Verification</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="#Common_issues"><span class="tocnumber">2.4</span> <span class="toctext">Common issues</span></a>
+<ul>
+<li class="toclevel-3 tocsection-12"><a href="#The_log_complains_about_being_compiled_without_libUMP"><span class="tocnumber">2.4.1</span> <span class="toctext">The log complains about being compiled without libUMP</span></a></li>
+<li class="toclevel-3 tocsection-13"><a href="#The_screen_goes_off_and_will_not_restart_until_reset"><span class="tocnumber">2.4.2</span> <span class="toctext">The screen goes off and will not restart until reset</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-14"><a href="#See_also"><span class="tocnumber">3</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="fbdev_driver">fbdev driver</span></h1>
+<p>X tends to come preinstalled with the standard fbdev driver. This gives you a working environment, but it might be lagging a bit, and you get no hardware supported 2d or 3d acceleration.
+</p><p>No action needs to be taken for this driver to work though, you only need to have <a href="Display.html" title="Display">a working display driver</a>.
+</p>
+<h1><span class="mw-headline" id="fbturbo_driver">fbturbo driver</span></h1>
+<p>fbturbo driver works on both mainline and legacy (sunxi-3.x) kernels, utilizing a combination of various acceleration options to make your desktop experience much more fluid:
+</p>
+<ul><li>NEON CPU instructions</li>
+<li>sunxi G2D  2D acceleration (legacy only)</li>
+<li>sunxi display engine for overlays and hardware cursor (legacy only)</li>
+<li>Mali GPU acceleration for 3D/GL applications</li></ul>
+<p><br />
+For Mali support see <a href="Mali_binary_driver.html" title="Mali binary driver"> our Mali binary driver installation howto</a>).
+</p><p>This driver is a further development from the ARM provided mali xorg driver, which is available from <a class="external text" href="http://github.com/linux-sunxi/xf86-video-mali">our sunxi repositories</a>, but that driver only provides Mali support and no NEON or 2D acceleration, and doesn't use the sunxi display engine.
+</p>
+<h2><span class="mw-headline" id="Manual_build">Manual build</span></h2>
+<h3><span class="mw-headline" id="Prerequisites">Prerequisites</span></h3>
+<p>For debian or ubuntu you need the following development packages for building X drivers:
+</p>
+<pre class="brush: bash">apt-get install git build-essential xorg-dev xutils-dev x11proto-dri2-dev libltdl-dev libtool automake 
+</pre>
+<p>If you intend to use the Mali GPU, then you need to first <a href="Mali_binary_driver.html" title="Mali binary driver"> install libUMP</a> as well.
+</p>
+<h3><span class="mw-headline" id="Clone_the_repository">Clone the repository</span></h3>
+<p>Now get the fbturbo xf86 driver (from the 0.4.0 release tag):
+</p>
+<pre class="brush: bash">git clone -b 0.4.0 https://github.com/ssvb/xf86-video-fbturbo.git
+cd xf86-video-fbturbo
+</pre>
+<h3><span class="mw-headline" id="Build">Build</span></h3>
+<pre class="brush: bash">autoreconf -vi
+./configure --prefix=/usr
+make
+</pre>
+<p>Note: in modern distro autoreconf fail and leave you with a broken configure. If running configure give you an error like:
+</p>
+<pre>./configure: line 17982: syntax error near unexpected token RANDR
+</pre>
+<p>try to use the configure file in git.
+</p>
+<h3><span class="mw-headline" id="Installation">Installation</span></h3>
+<pre class="brush: bash">make install
+</pre>
+<h3><span class="mw-headline" id="Configuration">Configuration</span></h3>
+<p>Then copy over the default xorg.conf for the fbturbo driver (the preferred location for xorg.conf would be /etc/X11/ instead of /usr/share/X11/xorg.conf.d/):
+</p>
+<pre class="brush: bash">rm /usr/share/X11/xorg.conf.d/99-sunxifb.conf
+cp xorg.conf /etc/X11/xorg.conf
+</pre>
+<h2><span class="mw-headline" id="Packages">Packages</span></h2>
+<p>For some distributions, there are packages available. For more information, check our <a href="Packages.html" title="Packages"> packages howto</a>.
+</p>
+<h2><span class="mw-headline" id="Verification">Verification</span></h2>
+<p>You should now be able to (re)start your xserver, have a quick look through /var/log/Xorg.0.log to verify that the correct driver has been loaded:
+</p>
+<pre>...
+(II) Module fbturbo: vendor="X.Org Foundation"
+   compiled for 1.12.4, module version = 0.4.0
+   Module class: X.Org Video Driver
+   ABI class: X.Org Video Driver, version 12.1
+(II) FBTURBO: driver for framebuffer: fbturbo
+(--) using VT number 7
+...
+</pre>
+<h2><span class="mw-headline" id="Common_issues">Common issues</span></h2>
+<h3><span class="mw-headline" id="The_log_complains_about_being_compiled_without_libUMP">The log complains about being compiled without libUMP</span></h3>
+<p>If you have the following lines in your Xorg.0.log, then you need to install libUMP (or the libump-dev package), and then rebuild and install the fbturbo driver.
+</p>
+<pre>(II) FBTURBO(0): no 3D acceleration because the driver has been compiled without libUMP
+(II) FBTURBO(0): if this is wrong and needs to be fixed, please check ./configure log
+</pre>
+<h3><span class="mw-headline" id="The_screen_goes_off_and_will_not_restart_until_reset">The screen goes off and will not restart until reset</span></h3>
+<p>This seems to be linked (to be verified) to fbturbo (former name sunxifb). DPMS has 3 options&#160;: standby, suspend and off. The standby and suspend options work. But DPMS off put off the screen with the following error on console and in dmesg&#160;:
+</p>
+<pre> disp clks: lcd 146000000 pre_scale 1 hdmi 146000000 pll 219000000 2x 1</pre>
+<p>A workaround is to add in /usr/share/X11/xorg.conf.d/99-sunxifb.conf, in <code>Section "Device"</code>:
+</p>
+<pre> Option "OffTime" "0"</pre>
+<p>However, it you still have problems, you can disable DPMS completely in the X server by properly editing xorg.conf (located either in /etc/X11 or /usr/share/X11/xorg.conf.d) add adding a Screen and Monitor section that disables DPMS. The following xorg.conf works with xf86-video-fbturbo (the new name of xf86-video-sunxifb):
+</p>
+<pre> Section "Screen"
+         Identifier      "My Screen"
+         Device          "fbturbo device"
+         Monitor         "My Monitor"
+ EndSection
+ 
+ Section "Device"
+         Identifier      "fbturbo device"
+         Driver          "fbturbo"
+         Option          "fbdev" "/dev/fb0"
+         Option          "SwapbuffersWait" "true"
+ EndSection
+ 
+ Section "Monitor"
+         Identifier      "My Monitor"
+         Option          "DPMS" "false"
+ EndSection
+</pre>
+<p>Another suggested option is to alter the other DPMS timers (OffTime is sometimes called BlankTime):
+</p>
+<pre> Section "ServerLayout"
+    Identifier "ServerLayout0"
+    Option "StandbyTime" "0"
+    Option "SuspendTime" "0"
+ EndSection
+
+</pre>
+<h1><span class="mw-headline" id="See_also">See also</span></h1>
+<ul><li><a href="Display.html" title="Display">Display driver setup</a></li>
+<li><a href="Mali_binary_driver.html" title="Mali binary driver"> How to install the Mali binary 3D driver</a></li>
+<li><a href="Video_Engine.html" title="Video Engine"> Hardware Media acceleration</a></li>
+<li><a href="GraphicsPerformanceX11.html" title="GraphicsPerformanceX11">GraphicsPerformanceX11</a></li>
+<li><a href="Benchmarks.html" title="Benchmarks">Benchmarks</a></li></ul>
+<!-- 
+NewPP limit report
+Cached time: 20251029040345
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.119 seconds
+Real time usage: 0.160 seconds
+Preprocessor visited node count: 106/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 1744/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:1064-0!canonical and timestamp 20251029040345 and revision id 18089
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=Xorg&amp;oldid=18089">https://linux-sunxi.org/index.php?title=Xorg&amp;oldid=18089</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Categories</a>: <ul><li><a href="Category:Tutorial.html" title="Category:Tutorial">Tutorial</a></li><li><a href="Category:Software.html" title="Category:Software">Software</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=Xorg" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=Xorg" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="Xorg.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="https://linux-sunxi.org/index.php?title=Talk:Xorg&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="Xorg.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Xorg&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Xorg&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/Xorg.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/Xorg" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=Xorg&amp;oldid=18089" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=Xorg&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 28 August 2016, at 10:08.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.119","walltime":"0.160","ppvisitednodes":{"value":106,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":1744,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20251029040345","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":391});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>
