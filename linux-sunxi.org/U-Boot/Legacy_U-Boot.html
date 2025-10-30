@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8"/>
 <title>U-Boot/Legacy U-Boot - linux-sunxi.org</title>
-<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"2c8e050aae5c66b875c3a167","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"U-Boot/Legacy_U-Boot","wgTitle":"U-Boot/Legacy U-Boot","wgCurRevisionId":22878,"wgRevisionId":22878,"wgArticleId":90,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Tutorial","Software","Boot"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"U-Boot/Legacy_U-Boot","wgRelevantArticleId":90,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready",
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"545fcdaa4f63b56ea6963d74","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"U-Boot/Legacy_U-Boot","wgTitle":"U-Boot/Legacy U-Boot","wgCurRevisionId":22878,"wgRevisionId":22878,"wgArticleId":90,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Tutorial","Software","Boot"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"U-Boot/Legacy_U-Boot","wgRelevantArticleId":90,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready",
 "noscript":"ready","user.styles":"ready","user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
 <script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
 });});</script>
@@ -40,7 +40,7 @@
 		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
 		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><table style="margin: 0.7em; border-width: 1px 1px 1px 10px; border-style: solid; border-color: #EE8822; background-color: #FFEEDD">
 <tbody><tr>
-<td style="padding: 0.2em; vertical-align: baseline;"><a href="../File:MBOX_icon_important.png.html" class="image"><img alt="MBOX icon important.png" src="https://linux-sunxi.org/images/f/f0/MBOX_icon_important.png" decoding="async" width="40" height="40" /></a>
+<td style="padding: 0.2em; vertical-align: baseline;"><a href="https://linux-sunxi.org/File:MBOX_icon_important.png" class="image"><img alt="MBOX icon important.png" src="https://linux-sunxi.org/images/f/f0/MBOX_icon_important.png" decoding="async" width="40" height="40" /></a>
 </td>
 <td style="width:100%; padding-left: 0.2em; padding-right: 0.2em; vertical-align: baseline;">This page provides installation instructions for the legacy unmaintained u-boot-sunxi fork. It is only useful for the devices, which are still not supported by the <a href="../Mainline_U-Boot.html" class="mw-redirect" title="Mainline U-Boot">Mainline U-Boot</a>.
 </td></tr></tbody></table>
@@ -89,7 +89,7 @@
 <h1><span class="mw-headline" id="Compile_U-Boot">Compile U-Boot</span></h1>
 <table style="margin: 0.7em; border-width: 1px 1px 1px 10px; border-style: solid; border-color: #EE8822; background-color: #FFEEDD">
 <tbody><tr>
-<td style="padding: 0.2em; vertical-align: baseline;"><a href="../File:MBOX_icon_important.png.html" class="image"><img alt="MBOX icon important.png" src="https://linux-sunxi.org/images/f/f0/MBOX_icon_important.png" decoding="async" width="40" height="40" /></a>
+<td style="padding: 0.2em; vertical-align: baseline;"><a href="https://linux-sunxi.org/File:MBOX_icon_important.png" class="image"><img alt="MBOX icon important.png" src="https://linux-sunxi.org/images/f/f0/MBOX_icon_important.png" decoding="async" width="40" height="40" /></a>
 </td>
 <td style="width:100%; padding-left: 0.2em; padding-right: 0.2em; vertical-align: baseline;">This page provides installation instructions for the legacy unmaintained u-boot-sunxi fork. It is only useful for the devices, which are still not supported by the <a href="../Mainline_U-Boot.html" class="mw-redirect" title="Mainline U-Boot">Mainline U-Boot</a>.
 </td></tr></tbody></table>
@@ -101,7 +101,7 @@
 </p>
 <pre>git clone -b sunxi https://github.com/linux-sunxi/u-boot-sunxi.git</pre>
 <p>This should checkout the <i>sunxi</i> branch, which allows booting from <a href="../Bootable_SD_card.html" title="Bootable SD card"> SD</a>, over <a href="../FEL/USBBoot.html" title="FEL/USBBoot"> USB</a> and over <a href="../How_to_boot_the_A10_or_A20_over_the_network.html" title="How to boot the A10 or A20 over the network"> ethernet</a>, but it still lacks support for booting off the <a href="../NAND.html" title="NAND">NAND</a>. For more information about booting from NAND, check the <a href="../Installing_to_NAND.html" title="Installing to NAND"> NAND howto</a>.
-</p><p><a href="../File:Sticky-note-pin.png.html" class="image"><img alt="Sticky-note-pin.png" src="https://linux-sunxi.org/images/f/f0/Sticky-note-pin.png" decoding="async" width="16" height="16" /></a> <span style="color:#ba0000"><b>Note:</b></span> the 'sunxi' branch in the <i>u-boot-sunxi</i> repository is currently under active development and also frequently merges in the changes from the upstream U-Boot. Expect it to be occasionally broken. There is no stable branch or tag at the moment. If something does not work correctly, please consider trying older revisions from the 'sunxi' branch or look for any possible not-yet-applied fixes in the linux-sunxi and U-Boot mailing lists.
+</p><p><a href="https://linux-sunxi.org/File:Sticky-note-pin.png" class="image"><img alt="Sticky-note-pin.png" src="https://linux-sunxi.org/images/f/f0/Sticky-note-pin.png" decoding="async" width="16" height="16" /></a> <span style="color:#ba0000"><b>Note:</b></span> the 'sunxi' branch in the <i>u-boot-sunxi</i> repository is currently under active development and also frequently merges in the changes from the upstream U-Boot. Expect it to be occasionally broken. There is no stable branch or tag at the moment. If something does not work correctly, please consider trying older revisions from the 'sunxi' branch or look for any possible not-yet-applied fixes in the linux-sunxi and U-Boot mailing lists.
 </p>
 <h2><span class="mw-headline" id="Determine_build_target">Determine build target</span></h2>
 <p>You can list the available U-Boot targets by running:
@@ -126,7 +126,7 @@
 <h1><span class="mw-headline" id="Adding_a_new_device_to_U-Boot">Adding a new device to U-Boot</span></h1>
 <table style="margin: 0.7em; border-width: 1px 1px 1px 10px; border-style: solid; border-color: #EE8822; background-color: #FFEEDD">
 <tbody><tr>
-<td style="padding: 0.2em; vertical-align: baseline;"><a href="../File:MBOX_icon_important.png.html" class="image"><img alt="MBOX icon important.png" src="https://linux-sunxi.org/images/f/f0/MBOX_icon_important.png" decoding="async" width="40" height="40" /></a>
+<td style="padding: 0.2em; vertical-align: baseline;"><a href="https://linux-sunxi.org/File:MBOX_icon_important.png" class="image"><img alt="MBOX icon important.png" src="https://linux-sunxi.org/images/f/f0/MBOX_icon_important.png" decoding="async" width="40" height="40" /></a>
 </td>
 <td style="width:100%; padding-left: 0.2em; padding-right: 0.2em; vertical-align: baseline;">This page provides installation instructions for the legacy unmaintained u-boot-sunxi fork. It is only useful for the devices, which are still not supported by the <a href="../Mainline_U-Boot.html" class="mw-redirect" title="Mainline U-Boot">Mainline U-Boot</a>.
 </td></tr></tbody></table>
@@ -149,8 +149,8 @@ The <i>boards.cfg</i> file in the top level of your U-Boot tree holds all board 
 </p>
 <h3><span class="mw-headline" id="Generate_a_settings_C_file">Generate a settings C file</span></h3>
 <p>The device manufacturer is likely to have stored stable settings in the device and <a href="../Sunxi-tools.html" title="Sunxi-tools">sunxi tools</a> can be used to <a href="../Retrieving_device_information.html" title="Retrieving device information">retrieve the device information</a>.
-</p><p>Execute <a href="../Retrieving_device_information.html#Reading_memory_information_from_registers" title="Retrieving device information"><code>meminfo -u</code></a> from within the original OS to read the memory registers and output a dram configuration C file for use with U-Boot. The output from <a href="../Retrieving_device_information.html#Retrieving_data_over_USB_in_FEL_mode" title="Retrieving device information"> bootinfo</a> reads the settings from <a href="../FEL.html#Reading_over_USB_fails" title="FEL">boot1</a> and could also be used to create a dram C file.   
-</p><p>Alternatively <code><a href="../Sunxi-tools.html#fexc" title="Sunxi-tools">fexc</a></code> will translate values from a fex file into a C file (<a href="../File:Sticky-note-pin.png.html" class="image"><img alt="Sticky-note-pin.png" src="https://linux-sunxi.org/images/f/f0/Sticky-note-pin.png" decoding="async" width="16" height="16" /></a> <i>Note:</i> using a fex file derived from a <a href="../Script.bin.html" title="Script.bin">script.bin</a> will likely be missing important values).
+</p><p>Execute <a href="../Retrieving_device_information.html#Reading_memory_information_from_registers" title="Retrieving device information"><code>meminfo -u</code></a> from within the original OS to read the memory registers and output a dram configuration C file for use with U-Boot. The output from <a href="../Retrieving_device_information.html#Retrieving_data_over_USB_in_FEL_mode" title="Retrieving device information"> bootinfo</a> reads the settings from <a href="../FEL#Reading_over_USB_fails" title="FEL">boot1</a> and could also be used to create a dram C file.   
+</p><p>Alternatively <code><a href="../Sunxi-tools.html#fexc" title="Sunxi-tools">fexc</a></code> will translate values from a fex file into a C file (<a href="https://linux-sunxi.org/File:Sticky-note-pin.png" class="image"><img alt="Sticky-note-pin.png" src="https://linux-sunxi.org/images/f/f0/Sticky-note-pin.png" decoding="async" width="16" height="16" /></a> <i>Note:</i> using a fex file derived from a <a href="../Script.bin.html" title="Script.bin">script.bin</a> will likely be missing important values).
 </p>
 <h3><span class="mw-headline" id="Verify_the_settings_are_unique">Verify the settings are unique</span></h3>
 <p>The C file should be placed in the <kbd>board/sunxi</kbd> directory of your local copy of sunxi U-Boot. Run the bash script <kbd>./scripts/sunxi_dram_duplicates_find.sh</kbd> from the top level of your U-Boot directory and any files with the same settings should be shown.
@@ -168,10 +168,10 @@ The <i>boards.cfg</i> file in the top level of your U-Boot tree holds all board 
 <p>And as the final step, be sure to verify the reliability of the resulting dram settings using the <a class="external text" href="https://github.com/ssvb/lima-memtester/">lima-memtester</a> tool once you have built and run the new U-Boot. It has been discovered on more <a rel="nofollow" class="external text" href="http://irclog.whitequark.org/linux-sunxi/2013-11-26#5690482#5690482">than</a> <a rel="nofollow" class="external text" href="http://irclog.whitequark.org/linux-sunxi/2014-09-12#10161434#10161434">one</a> occasion that the dram settings from the vendors are not always perfectly reliable. So, let's say, in 90% of cases you are going to be fine by trusting the device manufacturers. But if you are out of luck, then you may get a system with mysterious application crashes or some very rare occasional deadlocks, preventing the system from having long uptime. These problems are very difficult to track, unless using dedicated stress testing tools. In other words, if you want to just save time by skipping a few minutes of downloading/compiling lima-memtester and a few hours of running it unattended, then you are essentially playing a <a class="external text" href="http://en.wikipedia.org/wiki/Russian_roulette">russian roulette</a>.
 </p>
 <h3><span class="mw-headline" id="A_note_on_optimization_research">A note on optimization research</span></h3>
-<p>You may have found reference to DRAM optimization on the Wiki, but this research should be done at a later stage as it can lead to unstable settings for different instances of the device. The <a href="../DRAM_Controller.html" title="DRAM Controller">DRAM Controller page</a> provides links to start researching this topic. Note that the 'zq' settings in 'dram_para' are not properly supported in the legacy <i>u-boot-sunxi</i>, so these dram performance optimization experiments only make sense with the <a href="../Mainline_U-Boot.html" class="mw-redirect" title="Mainline U-Boot">Mainline U-Boot</a>.
+<p>You may have found reference to DRAM optimization on the Wiki, but this research should be done at a later stage as it can lead to unstable settings for different instances of the device. The <a href="../DRAM_Controller" title="DRAM Controller">DRAM Controller page</a> provides links to start researching this topic. Note that the 'zq' settings in 'dram_para' are not properly supported in the legacy <i>u-boot-sunxi</i>, so these dram performance optimization experiments only make sense with the <a href="../Mainline_U-Boot.html" class="mw-redirect" title="Mainline U-Boot">Mainline U-Boot</a>.
 </p>
 <h2><span id="Power_Management_Unit_(PMU)"></span><span class="mw-headline" id="Power_Management_Unit_.28PMU.29">Power Management Unit (PMU)</span></h2>
-<p>There are three main PMUs used with Allwinner SoCs: <a href="../AXP152.html" title="AXP152">AXP152</a>, <a href="../AXP209.html" title="AXP209">AXP209</a> and <a href="../AXP221.html" title="AXP221">AXP221</a>
+<p>There are three main PMUs used with Allwinner SoCs: <a href="../AXP152.html" title="AXP152">AXP152</a>, <a href="../AXP209" title="AXP209">AXP209</a> and <a href="../AXP221.html" title="AXP221">AXP221</a>
 </p><p>The default build option is for the AXP209. So if your device uses this PMU no build option should be given in <i>boards.cfg</i>.
 </p><p>For AXP152 the build option is <code>AXP152_POWER</code> and for AXP221 it is <code>AXP221_POWER</code>.
 </p><p>If there is no PMU then the build option is <code>NO_AXP</code>.
@@ -203,12 +203,12 @@ The <i>boards.cfg</i> file in the top level of your U-Boot tree holds all board 
 <li><a class="external text" href="http://github.com/linux-sunxi/u-boot-sunxi/wiki">official wiki</a></li></ul>
 <!-- 
 NewPP limit report
-Cached time: 20251029040341
+Cached time: 20251029180811
 Cache expiry: 86400
 Dynamic content: false
 Complications: []
-CPU time usage: 0.078 seconds
-Real time usage: 0.129 seconds
+CPU time usage: 0.208 seconds
+Real time usage: 0.508 seconds
 Preprocessor visited node count: 239/1000000
 Post‐expand include size: 5455/2097152 bytes
 Template argument size: 2735/2097152 bytes
@@ -219,19 +219,19 @@ Unstrip post‐expand size: 659/5000000 bytes
 -->
 <!--
 Transclusion expansion time report (%,ms,calls,template)
-100.00%   39.429      1 -total
- 40.96%   16.150      3 Template:Alert
- 33.67%   13.274      3 Template:MBOX_NOTE
- 28.78%   11.349      2 Template:Note
- 27.51%   10.846      3 Template:MBOX
- 25.48%   10.047      1 Template:Todo
-  7.81%    3.078      3 Template:Red
+100.00%   42.213      1 -total
+ 42.67%   18.012      1 Template:Todo
+ 36.02%   15.205      3 Template:Alert
+ 19.21%    8.108      3 Template:MBOX_NOTE
+ 17.55%    7.407      2 Template:Note
+ 10.42%    4.398      3 Template:MBOX
+  8.75%    3.692      3 Template:Red
 -->
 
-<!-- Saved in parser cache with key wiki:pcache:idhash:90-0!canonical and timestamp 20251029040341 and revision id 22878
+<!-- Saved in parser cache with key wiki:pcache:idhash:90-0!canonical and timestamp 20251029180810 and revision id 22878
  -->
 </div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=U-Boot/Legacy_U-Boot&amp;oldid=22878">https://linux-sunxi.org/index.php?title=U-Boot/Legacy_U-Boot&amp;oldid=22878</a>"</div>
-		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="../Special:Categories.html" title="Special:Categories">Categories</a>: <ul><li><a href="../Category:Tutorial.html" title="Category:Tutorial">Tutorial</a></li><li><a href="../Category:Software.html" title="Category:Software">Software</a></li><li><a href="../Category:Boot.html" title="Category:Boot">Boot</a></li></ul></div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://linux-sunxi.org/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="https://linux-sunxi.org/Category:Tutorial" title="Category:Tutorial">Tutorial</a></li><li><a href="https://linux-sunxi.org/Category:Software" title="Category:Software">Software</a></li><li><a href="https://linux-sunxi.org/Category:Boot" title="Category:Boot">Boot</a></li></ul></div></div>
 	</div>
 </div>
 
@@ -263,7 +263,7 @@ Transclusion expansion time report (%,ms,calls,template)
 	<!-- Please do not use the .body class, it is deprecated. -->
 	<div class="body vector-menu-content">
 		<!-- Please do not use the .menu class, it is deprecated. -->
-		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="Legacy_U-Boot.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk"><a href="../Talk:U-Boot/Legacy_U-Boot.html" rel="discussion" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li></ul>
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="Legacy_U-Boot.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk"><a href="https://linux-sunxi.org/Talk:U-Boot/Legacy_U-Boot" rel="discussion" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li></ul>
 		
 	</div>
 </nav>
@@ -337,7 +337,7 @@ Transclusion expansion time report (%,ms,calls,template)
 	
 <div id="mw-panel">
 	<div id="p-logo" role="banner">
-		<a  title="Visit the main page" class="mw-wiki-logo" href="../index.html"></a>
+		<a  title="Visit the main page" class="mw-wiki-logo" href="../Main_Page.html"></a>
 	</div>
 	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
 <nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
@@ -348,7 +348,7 @@ Transclusion expansion time report (%,ms,calls,template)
 	<!-- Please do not use the .body class, it is deprecated. -->
 	<div class="body vector-menu-content">
 		<!-- Please do not use the .menu class, it is deprecated. -->
-		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="../index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="../sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="../Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="../Main_Page.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="../sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="https://linux-sunxi.org/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
 		
 	</div>
 </nav>
@@ -363,7 +363,7 @@ Transclusion expansion time report (%,ms,calls,template)
 	<!-- Please do not use the .body class, it is deprecated. -->
 	<div class="body vector-menu-content">
 		<!-- Please do not use the .menu class, it is deprecated. -->
-		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="../Special:WhatLinksHere/U-Boot/Legacy_U-Boot.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/U-Boot/Legacy_U-Boot" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="../Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=U-Boot/Legacy_U-Boot&amp;oldid=22878" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=U-Boot/Legacy_U-Boot&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="https://linux-sunxi.org/Special:WhatLinksHere/U-Boot/Legacy_U-Boot" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/U-Boot/Legacy_U-Boot" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="https://linux-sunxi.org/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=U-Boot/Legacy_U-Boot&amp;oldid=22878" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=U-Boot/Legacy_U-Boot&amp;action=info" title="More information about this page">Page information</a></li></ul>
 		
 	</div>
 </nav>
@@ -393,8 +393,8 @@ Transclusion expansion time report (%,ms,calls,template)
 
 
 
-<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.078","walltime":"0.129","ppvisitednodes":{"value":239,"limit":1000000},"postexpandincludesize":{"value":5455,"limit":2097152},"templateargumentsize":{"value":2735,"limit":2097152},"expansiondepth":{"value":7,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":659,"limit":5000000},"timingprofile":["100.00%   39.429      1 -total"," 40.96%   16.150      3 Template:Alert"," 33.67%   13.274      3 Template:MBOX_NOTE"," 28.78%   11.349      2 Template:Note"," 27.51%   10.846      3 Template:MBOX"," 25.48%   10.047      1 Template:Todo","  7.81%    3.078      3 Template:Red"]},"cachereport":{"timestamp":"20251029040341","ttl":86400,"transientcontent":false}}});});</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.208","walltime":"0.508","ppvisitednodes":{"value":239,"limit":1000000},"postexpandincludesize":{"value":5455,"limit":2097152},"templateargumentsize":{"value":2735,"limit":2097152},"expansiondepth":{"value":7,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":659,"limit":5000000},"timingprofile":["100.00%   42.213      1 -total"," 42.67%   18.012      1 Template:Todo"," 36.02%   15.205      3 Template:Alert"," 19.21%    8.108      3 Template:MBOX_NOTE"," 17.55%    7.407      2 Template:Note"," 10.42%    4.398      3 Template:MBOX","  8.75%    3.692      3 Template:Red"]},"cachereport":{"timestamp":"20251029180811","ttl":86400,"transientcontent":false}}});});</script>
 <!-- No web analytics configured. -->
 
-<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":381});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":275});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body></html>

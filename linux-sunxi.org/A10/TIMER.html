@@ -1,0 +1,4088 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Timers Controller Register guide - linux-sunxi.org</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"7e5eb7d16b23af6a170dae86","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Timers_Controller_Register_guide","wgTitle":"Timers Controller Register guide","wgCurRevisionId":5569,"wgRevisionId":5569,"wgArticleId":199,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["A10 Register guide","A13 Register guide","A20 Register guide"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Timers_Controller_Register_guide","wgRelevantArticleId":199,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,
+"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgRedirectedFrom":"A10/TIMER","wgInternalRedirectTargetUrl":"/Timers_Controller_Register_guide"};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":"ready","user":"ready","user.options":"loading","ext.cite.styles":"ready","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","mediawiki.action.view.redirect","ext.cite.ux-enhancements","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=ext.cite.styles%7Cmediawiki.toc.styles%7Cskins.vector.styles.legacy&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://linux-sunxi.org/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://linux-sunxi.org/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.8"/>
+<link rel="shortcut icon" href="https://linux-sunxi.org/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://linux-sunxi.org/opensearch_desc.php" title="linux-sunxi.org (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://linux-sunxi.org/api.php?action=rsd"/>
+<link rel="license" href="http://creativecommons.org/licenses/by/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="linux-sunxi.org Atom feed" href="https://linux-sunxi.org/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="../Timers_Controller_Register_guide.html"/>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-Timers_Controller_Register_guide rootpage-Timers_Controller_Register_guide skin-vector action-view skin-vector-legacy">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="en">Timers Controller Register guide</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
+		<div id="contentSub"><span class="mw-redirectedfrom">(Redirected from <a href="https://linux-sunxi.org/index.php?title=A10/TIMER&amp;redirect=no" class="mw-redirect" title="A10/TIMER">A10/TIMER</a>)</span></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Timer_Controller"><span class="tocnumber">1</span> <span class="toctext">Timer Controller</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Timer_Registers"><span class="tocnumber">1.1</span> <span class="toctext">Timer Registers</span></a>
+<ul>
+<li class="toclevel-3 tocsection-3"><a href="#TMR_IRQ_EN"><span class="tocnumber">1.1.1</span> <span class="toctext">TMR_IRQ_EN</span></a></li>
+<li class="toclevel-3 tocsection-4"><a href="#TMR_IRQ_STA"><span class="tocnumber">1.1.2</span> <span class="toctext">TMR_IRQ_STA</span></a></li>
+<li class="toclevel-3 tocsection-5"><a href="#TMR_0_CTRL"><span class="tocnumber">1.1.3</span> <span class="toctext">TMR_0_CTRL</span></a></li>
+<li class="toclevel-3 tocsection-6"><a href="#TMR_0_INTR_VAL"><span class="tocnumber">1.1.4</span> <span class="toctext">TMR_0_INTR_VAL</span></a></li>
+<li class="toclevel-3 tocsection-7"><a href="#TMR_0_CUR_VAL"><span class="tocnumber">1.1.5</span> <span class="toctext">TMR_0_CUR_VAL</span></a></li>
+<li class="toclevel-3 tocsection-8"><a href="#TMR_1_CTRL"><span class="tocnumber">1.1.6</span> <span class="toctext">TMR_1_CTRL</span></a></li>
+<li class="toclevel-3 tocsection-9"><a href="#TMR_1_INTR_VAL"><span class="tocnumber">1.1.7</span> <span class="toctext">TMR_1_INTR_VAL</span></a></li>
+<li class="toclevel-3 tocsection-10"><a href="#TMR_1_CUR_VAL"><span class="tocnumber">1.1.8</span> <span class="toctext">TMR_1_CUR_VAL</span></a></li>
+<li class="toclevel-3 tocsection-11"><a href="#TMR_2_CTRL"><span class="tocnumber">1.1.9</span> <span class="toctext">TMR_2_CTRL</span></a></li>
+<li class="toclevel-3 tocsection-12"><a href="#TMR_2_INTR_VAL"><span class="tocnumber">1.1.10</span> <span class="toctext">TMR_2_INTR_VAL</span></a></li>
+<li class="toclevel-3 tocsection-13"><a href="#TMR_2_CUR_VAL"><span class="tocnumber">1.1.11</span> <span class="toctext">TMR_2_CUR_VAL</span></a></li>
+<li class="toclevel-3 tocsection-14"><a href="#TMR_3_CTRL"><span class="tocnumber">1.1.12</span> <span class="toctext">TMR_3_CTRL</span></a></li>
+<li class="toclevel-3 tocsection-15"><a href="#TMR_3_INTR_VAL"><span class="tocnumber">1.1.13</span> <span class="toctext">TMR_3_INTR_VAL</span></a></li>
+<li class="toclevel-3 tocsection-16"><a href="#TMR_4_CTRL"><span class="tocnumber">1.1.14</span> <span class="toctext">TMR_4_CTRL</span></a></li>
+<li class="toclevel-3 tocsection-17"><a href="#TMR_4_INTR_VAL"><span class="tocnumber">1.1.15</span> <span class="toctext">TMR_4_INTR_VAL</span></a></li>
+<li class="toclevel-3 tocsection-18"><a href="#TMR_4_CUR_VAL"><span class="tocnumber">1.1.16</span> <span class="toctext">TMR_4_CUR_VAL</span></a></li>
+<li class="toclevel-3 tocsection-19"><a href="#TMR_5_CTRL"><span class="tocnumber">1.1.17</span> <span class="toctext">TMR_5_CTRL</span></a></li>
+<li class="toclevel-3 tocsection-20"><a href="#TMR_5_INTR_VAL"><span class="tocnumber">1.1.18</span> <span class="toctext">TMR_5_INTR_VAL</span></a></li>
+<li class="toclevel-3 tocsection-21"><a href="#TMR_5_CUR_VAL"><span class="tocnumber">1.1.19</span> <span class="toctext">TMR_5_CUR_VAL</span></a></li>
+<li class="toclevel-3 tocsection-22"><a href="#TMR_AVS_CTRL"><span class="tocnumber">1.1.20</span> <span class="toctext">TMR_AVS_CTRL</span></a></li>
+<li class="toclevel-3 tocsection-23"><a href="#TMR_AVS0_VAL"><span class="tocnumber">1.1.21</span> <span class="toctext">TMR_AVS0_VAL</span></a></li>
+<li class="toclevel-3 tocsection-24"><a href="#TMR_AVS1_VAL"><span class="tocnumber">1.1.22</span> <span class="toctext">TMR_AVS1_VAL</span></a></li>
+<li class="toclevel-3 tocsection-25"><a href="#TMR_AVS_DIV"><span class="tocnumber">1.1.23</span> <span class="toctext">TMR_AVS_DIV</span></a></li>
+<li class="toclevel-3 tocsection-26"><a href="#TMR_WDT_CTRL"><span class="tocnumber">1.1.24</span> <span class="toctext">TMR_WDT_CTRL</span></a></li>
+<li class="toclevel-3 tocsection-27"><a href="#TMR_WDT_MODE"><span class="tocnumber">1.1.25</span> <span class="toctext">TMR_WDT_MODE</span></a></li>
+<li class="toclevel-3 tocsection-28"><a href="#TMR_CNT64_CTRL"><span class="tocnumber">1.1.26</span> <span class="toctext">TMR_CNT64_CTRL</span></a></li>
+<li class="toclevel-3 tocsection-29"><a href="#TMR_CNT64_LO"><span class="tocnumber">1.1.27</span> <span class="toctext">TMR_CNT64_LO</span></a></li>
+<li class="toclevel-3 tocsection-30"><a href="#TMR_CNT64_HI"><span class="tocnumber">1.1.28</span> <span class="toctext">TMR_CNT64_HI</span></a></li>
+<li class="toclevel-3 tocsection-31"><a href="#TMR_32KHZ_OSC_CTRL"><span class="tocnumber">1.1.29</span> <span class="toctext">TMR_32KHZ_OSC_CTRL</span></a></li>
+<li class="toclevel-3 tocsection-32"><a href="#TMR_RTC_DATE"><span class="tocnumber">1.1.30</span> <span class="toctext">TMR_RTC_DATE</span></a></li>
+<li class="toclevel-3 tocsection-33"><a href="#TMR_RTC_TIME"><span class="tocnumber">1.1.31</span> <span class="toctext">TMR_RTC_TIME</span></a></li>
+<li class="toclevel-3 tocsection-34"><a href="#TMR_ALARM_CNT"><span class="tocnumber">1.1.32</span> <span class="toctext">TMR_ALARM_CNT</span></a></li>
+<li class="toclevel-3 tocsection-35"><a href="#TMR_ALARM_WK"><span class="tocnumber">1.1.33</span> <span class="toctext">TMR_ALARM_WK</span></a></li>
+<li class="toclevel-3 tocsection-36"><a href="#TMR_ALARM_EN"><span class="tocnumber">1.1.34</span> <span class="toctext">TMR_ALARM_EN</span></a></li>
+<li class="toclevel-3 tocsection-37"><a href="#TMR_ALARM_IRQ"><span class="tocnumber">1.1.35</span> <span class="toctext">TMR_ALARM_IRQ</span></a></li>
+<li class="toclevel-3 tocsection-38"><a href="#TMR_ALARM_IRQ_STATUS"><span class="tocnumber">1.1.36</span> <span class="toctext">TMR_ALARM_IRQ_STATUS</span></a></li>
+<li class="toclevel-3 tocsection-39"><a href="#TMR_GP0"><span class="tocnumber">1.1.37</span> <span class="toctext">TMR_GP0</span></a></li>
+<li class="toclevel-3 tocsection-40"><a href="#TMR_GP1"><span class="tocnumber">1.1.38</span> <span class="toctext">TMR_GP1</span></a></li>
+<li class="toclevel-3 tocsection-41"><a href="#TMR_GP2"><span class="tocnumber">1.1.39</span> <span class="toctext">TMR_GP2</span></a></li>
+<li class="toclevel-3 tocsection-42"><a href="#TMR_GP3"><span class="tocnumber">1.1.40</span> <span class="toctext">TMR_GP3</span></a></li>
+<li class="toclevel-3 tocsection-43"><a href="#CPU_CFG"><span class="tocnumber">1.1.41</span> <span class="toctext">CPU_CFG</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-44"><a href="#Initial_values"><span class="tocnumber">1.2</span> <span class="toctext">Initial values</span></a>
+<ul>
+<li class="toclevel-3 tocsection-45"><a href="#default_map"><span class="tocnumber">1.2.1</span> <span class="toctext">default map</span></a></li>
+<li class="toclevel-3 tocsection-46"><a href="#all_set_to_1"><span class="tocnumber">1.2.2</span> <span class="toctext">all set to 1</span></a></li>
+<li class="toclevel-3 tocsection-47"><a href="#all_set_to_0"><span class="tocnumber">1.2.3</span> <span class="toctext">all set to 0</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Timer_Controller">Timer Controller</span></h1>
+<p>The A10 SoC has 6 timers, an RTC, alarm timer and an AVS-timer.
+</p><p>Timer 0 and 1 can configure their input to come from various sources, the internal oscillator, the external 32K crystal or the external 24MHz crystal. Their main function is the provide an interrupt for the scheduler in the kernel. They both are programmable, 24bit wide and can safely overflow. Reload mode can be programmed to auto-reload or not.
+</p><p>Timer 2 is usable by the kernel to generate periodic interrupts.
+</p><p>Timers 3, 4 and 5 are general purpose timers.
+</p><p>The watchdog timer resets the system in case of system errors. It can be re-purposed as a regular 16bit interval timer to request an interrupt. The generated signal is a the reset signal.
+</p><p>The Real Time Clock (RTC) timer is normally a battery powered timer to be used as a timekeeping device. If software tells it that the current year is a leap year, it will automatically correct the dates for this year. On the SoC it has a dedicated power pin (RTCVDD) to supply either battery or live power.
+</p><p>The Alarm timer can trigger an alarm even when battery powered (via the RTC). When running from battery only the power-management wakeup signal is activated. Otherwise the power-management wakeup signal and the alarm interrupt are triggered.
+</p><p>An Audio Video Sync (AVS) timer with as purpose to synchronize audio and video data.
+One large 64bit counter, actually split up into two 32bit registers.
+</p><p>Note for devs: according avs driver code AVS have some differences between A10 revisions
+</p>
+<h2><span class="mw-headline" id="Timer_Registers">Timer Registers</span></h2>
+<p>Timer Base address: 0x01c20c00
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Register Name
+</th>
+<th>Offset
+</th>
+<th>Size
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>TMR_IRQ_EN</tt>
+</td>
+<td><tt>0x0000</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td>All timer IRQ's Enable/Disable
+</td></tr>
+<tr>
+<td><tt>TMR_IRQ_STA</tt>
+</td>
+<td><tt>0x0004</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td>All timer status
+</td></tr>
+<tr>
+<td><tt>TMR_0_CTRL</tt>
+</td>
+<td><tt>0x0010</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td>Timer 0 control
+</td></tr>
+<tr>
+<td><tt>TMR_0_INTR_VAL</tt>
+</td>
+<td><tt>0x0014</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td>Timer 0 interval value
+</td></tr>
+<tr>
+<td><tt>TMR_0_CUR_VAL</tt>
+</td>
+<td><tt>0x0018</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td>Timer 0 Current Value
+</td></tr>
+<tr>
+<td><tt>TMR_1_CTRL</tt>
+</td>
+<td><tt>0x0020</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td>Timer 1 control
+</td></tr>
+<tr>
+<td><tt>TMR_1_INTR_VAL</tt>
+</td>
+<td><tt>0x0024</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td>Timer 1 interval value
+</td></tr>
+<tr>
+<td><tt>TMR_1_CUR_VAL</tt>
+</td>
+<td><tt>0x0028</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td>Timer 1 Current Value
+</td></tr>
+<tr>
+<td><tt>TMR_2_CTRL</tt>
+</td>
+<td><tt>0x0030</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td>Timer 2 control
+</td></tr>
+<tr>
+<td><tt>TMR_2_INTR_VAL</tt>
+</td>
+<td><tt>0x0034</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td>Timer 2 interval value
+</td></tr>
+<tr>
+<td><tt>TMR_2_CUR_VAL</tt>
+</td>
+<td><tt>0x0038</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td>Timer 2 Current Value
+</td></tr>
+<tr>
+<td><tt>TMR_3_CTRL</tt>
+</td>
+<td><tt>0x0040</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td>Timer 3 control
+</td></tr>
+<tr>
+<td><tt>TMR_3_INTR_VAL</tt>
+</td>
+<td><tt>0x0044</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td>Timer 3 interval value
+</td></tr>
+<tr>
+<td><tt>TMR_3_CUR_VAL</tt>
+</td>
+<td><tt>0x0048</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td>Timer 3 Current Value
+</td></tr>
+<tr>
+<td><tt>TMR_4_CTRL</tt>
+</td>
+<td><tt>0x0050</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td>Timer 4 control
+</td></tr>
+<tr>
+<td><tt>TMR_4_INTR_VAL</tt>
+</td>
+<td><tt>0x0054</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td>Timer 4 interval value
+</td></tr>
+<tr>
+<td><tt>TMR_4_CUR_VAL</tt>
+</td>
+<td><tt>0x0058</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td>Timer 4 Current Value
+</td></tr>
+<tr>
+<td><tt>TMR_5_CTRL</tt>
+</td>
+<td><tt>0x0060</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td>Timer 5 control
+</td></tr>
+<tr>
+<td><tt>TMR_5_INTR_VAL</tt>
+</td>
+<td><tt>0x0064</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td>Timer 5 interval value
+</td></tr>
+<tr>
+<td><tt>TMR_5_CUR_VAL</tt>
+</td>
+<td><tt>0x0068</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td>Timer 5 Current Value
+</td></tr>
+<tr>
+<td><tt>TMR_AVS_CTRL</tt>
+</td>
+<td><tt>0x0080</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td>AVS control
+</td></tr>
+<tr>
+<td><tt>TMR_AVS0</tt>
+</td>
+<td><tt>0x0084</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td>AVS Counter 0
+</td></tr>
+<tr>
+<td><tt>TMR_AVS1</tt>
+</td>
+<td><tt>0x0088</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td>AVS Counter 1
+</td></tr>
+<tr>
+<td><tt>TMR_AVS_DIV</tt>
+</td>
+<td><tt>0x008c</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td>AVS Divisor
+</td></tr>
+<tr>
+<td><tt>TMR_WDT_CTRL</tt>
+</td>
+<td><tt>0x0090</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td>Watchdog timer control
+</td></tr>
+<tr>
+<td><tt>TMR_WDT_MODE</tt>
+</td>
+<td><tt>0x0094</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td>Watchdog timer operating mode
+</td></tr>
+<tr>
+<td><tt>TMR_CNT64_CTRL</tt>
+</td>
+<td><tt>0x00a0</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td>64bit counter control
+</td></tr>
+<tr>
+<td><tt>TMR_CNT64_LO</tt>
+</td>
+<td><tt>0x00a4</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td>64bit counter lower-half
+</td></tr>
+<tr>
+<td><tt>TMR_CNT64_HI</tt>
+</td>
+<td><tt>0x00a8</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td>64bit counter upper-half
+</td></tr>
+<tr>
+<td><tt>TMR_32KHZ_OSC_CTRL</tt>
+</td>
+<td><tt>0x0100</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td>Control the 32kHz timing crystal
+</td></tr>
+<tr>
+<td><tt>TMR_RTC_DATE</tt>
+</td>
+<td><tt>0x0104</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td>RTC date value
+</td></tr>
+<tr>
+<td><tt>TMR_RTC_TIME</tt>
+</td>
+<td><tt>0x0108</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td>RTC time value
+</td></tr>
+<tr>
+<td><tt>TMR_ALARM_CNT</tt>
+</td>
+<td><tt>0x010a</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td>Alarm counter counting days, hours, minutes and seconds
+</td></tr>
+<tr>
+<td><tt>TMR_ALARM_WK</tt>
+</td>
+<td><tt>0x0110</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td>Daily alarm
+</td></tr>
+<tr>
+<td><tt>TMR_ALARM_EN</tt>
+</td>
+<td><tt>0x0114</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td>Overal alarm enable
+</td></tr>
+<tr>
+<td><tt>TMR_ALARM_IRQ_EN</tt>
+</td>
+<td><tt>0x0118</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td>Alarm interrupt enable
+</td></tr>
+<tr>
+<td><tt>TMR_ALARM_IRQ_STA</tt>
+</td>
+<td><tt>0x011c</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td>Alarm interrupt status
+</td></tr>
+<tr>
+<td><tt>TMR_GP0</tt>
+</td>
+<td><tt>0x0120</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td>General purpose timer 0
+</td></tr>
+<tr>
+<td><tt>TMR_GP1</tt>
+</td>
+<td><tt>0x0124</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td>General purpose timer 1
+</td></tr>
+<tr>
+<td><tt>TMR_GP2</tt>
+</td>
+<td><tt>0x0128</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td>General purpose timer 2
+</td></tr>
+<tr>
+<td><tt>TMR_GP3</tt>
+</td>
+<td><tt>0x012c</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td>General purpose timer 3
+</td></tr>
+<tr>
+<td><tt>CPU_CFG</tt>
+</td>
+<td><tt>0x013c</tt>
+</td>
+<td><tt>4B</tt>
+</td>
+<td>CPU configuration
+</td></tr></tbody></table>
+<p><br />
+</p>
+<h5><span class="mw-headline" id="TMR_IRQ_EN">TMR_IRQ_EN</span></h5>
+<p>Default value: 0x00000000<br />
+Offset: 0x0000
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>TMR_IRQ0_EN</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = no operation
+    1 = enable
+  </tt>
+</pre>
+</td>
+<td>Timer 0 interrupt
+</td></tr>
+<tr>
+<td><tt>TMR_IRQ1_EN</tt>
+</td>
+<td><tt>1</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = no operation
+    1 = enable
+  </tt>
+</pre>
+</td>
+<td>Timer 1 interrupt
+</td></tr>
+<tr>
+<td><tt>TMR_IRQ2_EN</tt>
+</td>
+<td><tt>2</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = no operation
+    1 = enable
+  </tt>
+</pre>
+</td>
+<td>Timer 2 interrupt
+</td></tr>
+<tr>
+<td><tt>TMR_IRQ3_EN</tt>
+</td>
+<td><tt>3</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = no operation
+    1 = enable
+  </tt>
+</pre>
+</td>
+<td>Timer 3 interrupt
+</td></tr>
+<tr>
+<td><tt>TMR_IRQ4_EN</tt>
+</td>
+<td><tt>4</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = no operation
+    1 = enable
+  </tt>
+</pre>
+</td>
+<td>Timer 4 interrupt
+</td></tr>
+<tr>
+<td><tt>TMR_IRQ5_EN</tt>
+</td>
+<td><tt>5</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = no operation
+    1 = enable
+  </tt>
+</pre>
+</td>
+<td>Timer 5 interrupt
+</td></tr>
+<tr>
+<td><tt>undefined</tt>
+</td>
+<td><tt>6:7</tt>
+</td>
+<td><tt>Read</tt>
+</td>
+<td><tt>0b00</tt>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>TMR_IRQ_WDT_EN</tt>
+</td>
+<td><tt>8</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = no operation
+    1 = enable
+  </tt>
+</pre>
+</td>
+<td>Watchdog timer interrupt
+</td></tr>
+<tr>
+<td><tt>no operation</tt>
+</td>
+<td><tt>9:12</tt>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>unknown</tt>
+</td>
+<td><tt>13</tt>
+</td>
+<td><tt>Read</tt>
+</td>
+<td><tt>0b0</tt>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>no operation</tt>
+</td>
+<td><tt>14:31</tt>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr></tbody></table>
+<h5><span class="mw-headline" id="TMR_IRQ_STA">TMR_IRQ_STA</span></h5>
+<p>Default value: 0x00000000<br />
+Offset: 0x0004
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>TMR_IRQ0_PEN</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>   0 = no operation
+   Read:
+     1 = Interrupt pending
+   Write:
+     1 = Clear interrupt
+  </tt>
+</pre>
+</td>
+<td>Timer 0 interrupt value reached
+</td></tr>
+<tr>
+<td><tt>TMR_IRQ1_PEN</tt>
+</td>
+<td><tt>1</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>   0 = no operation
+   Read:
+     1 = Interrupt pending
+   Write:
+     1 = Clear interrupt
+  </tt>
+</pre>
+</td>
+<td>Timer 1 interrupt value reached
+</td></tr>
+<tr>
+<td><tt>TMR_IRQ2_PEN</tt>
+</td>
+<td><tt>2</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>   0 = no operation
+   Read:
+     1 = Interrupt pending
+   Write:
+     1 = Clear interrupt
+  </tt>
+</pre>
+</td>
+<td>Timer 2 interrupt value reached
+</td></tr>
+<tr>
+<td><tt>TMR_IRQ3_PEN</tt>
+</td>
+<td><tt>3</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>   0 = no operation
+   Read:
+     1 = Interrupt pending
+   Write:
+     1 = Clear interrupt
+  </tt>
+</pre>
+</td>
+<td>Timer 3 interrupt value reached
+</td></tr>
+<tr>
+<td><tt>TMR_IRQ4_PEN</tt>
+</td>
+<td><tt>4</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>   0 = no operation
+   Read:
+     1 = Interrupt pending
+   Write:
+     1 = Clear interrupt
+  </tt>
+</pre>
+</td>
+<td>Timer 4 interrupt value reached
+</td></tr>
+<tr>
+<td><tt>TMR_IRQ5_PEN</tt>
+</td>
+<td><tt>5</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>   0 = no operation
+   Read:
+     1 = Interrupt pending
+   Write:
+     1 = Clear interrupt
+  </tt>
+</pre>
+</td>
+<td>Timer 5 interrupt value reached
+</td></tr>
+<tr>
+<td><tt>no operation</tt>
+</td>
+<td><tt>6</tt>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td><i>Could be for AVS timer?</i>
+</td></tr>
+<tr>
+<td><tt>no operation</tt>
+</td>
+<td><tt>7</tt>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>TMR_IRQ_WDT_PEN</tt>
+</td>
+<td><tt>8</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>   0 = no operation
+   Read:
+     1 = Interrupt pending
+   Write:
+     1 = Clear interrupt
+  </tt>
+</pre>
+</td>
+<td>Watchdog timer interrupt value reached
+</td></tr>
+<tr>
+<td><tt>no operation</tt>
+</td>
+<td><tt>9:31</tt>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>padding
+</td></tr></tbody></table>
+<h5><span class="mw-headline" id="TMR_0_CTRL">TMR_0_CTRL</span></h5>
+<p>Default value: 0x00000005<br />
+Offset: 0x0010
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>TMR_0_RUN</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b1</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = stop/pause
+    1 = start
+  </tt>
+</pre>
+</td>
+<td>Timer 0 start/stop<br />
+<p>On start, the countdown value is reloaded (T=0) and will start counting down to zero (T=1). Because of this atleast 2 T-Cycles<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup> need to have passed in time between stop and start when reloading during active countdown.<br />
+While counting down the timer TMR_0_RUN bit is set to 0, the countdown will pause. Again, wait at least 2 T-Cycles before starting the timer.<br />
+While the timer is paused, the countdown value can be modified. For the timer to use this new value, TMR_0_RELOAD should be set to 1.<br />
+</p>
+</td></tr>
+<tr>
+<td><tt>TMR_0_RELOAD</tt>
+</td>
+<td><tt>1</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = no operation
+    1 = reload
+  </tt>
+</pre>
+</td>
+<td>Timer 0 reload
+</td></tr>
+<tr>
+<td><tt>TMR_0_CLK_SRC</tt>
+</td>
+<td><tt>2:3</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b01</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0x0 = 32kHz crystal 
+    0x1 = 24MHz crystal
+    0x2 = PLL6 divided by 6
+    0x3 = no operation
+  </tt>
+</pre>
+</td>
+<td>Timer 0 clock source
+</td></tr>
+<tr>
+<td><tt>TMR_0_CLK_PRESCALE</tt>
+</td>
+<td><tt>4:6</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b000</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0x0 = div(1)
+    0x1 = div(2)
+    0x2 = div(4)
+    0x3 = div(8)
+    0x4 = div(16)
+    0x5 = div(32)
+    0x6 = div(64)
+    0x7 = div(128)
+  </tt>
+</pre>
+</td>
+<td>Timer 0 clock pre-scale divisor.<br />
+<p>Uses TMR_0_CLK_PRESCALE to divide TMR_0_CLK_SRC with.
+</p>
+</td></tr>
+<tr>
+<td><tt>TMR_0_MODE</tt>
+</td>
+<td><tt>7</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = continuous mode, restarts when timer has finished counting down
+    1 = single, stop when done counting down
+  </tt>
+</pre>
+</td>
+<td>Timer 0 mode
+</td></tr>
+<tr>
+<td><tt>no operation</tt>
+</td>
+<td><tt>8:31</tt>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr></tbody></table>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">A Timer Cycle (T-Cycle) is defined as <b>Timer clock source/pre-scale</b></span>
+</li>
+</ol></div>
+<h5><span class="mw-headline" id="TMR_0_INTR_VAL">TMR_0_INTR_VAL</span></h5>
+<p>Default value: undefined<br />
+Offset: 0x0014
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>TMR_0_INTR_VAL</tt>
+</td>
+<td><tt>0:31</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0xffffffff</tt>
+</td>
+<td><tt>0 - 2<sup>32</sup>-1</tt>
+</td>
+<td>Timer 0 interval value
+</td></tr></tbody></table>
+<h5><span class="mw-headline" id="TMR_0_CUR_VAL">TMR_0_CUR_VAL</span></h5>
+<p>Default value: undefined<br />
+Offset: 0x0018
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default (Hex)
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>TMR_0_CUR_VAL</tt>
+</td>
+<td><tt>0:31</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00</tt>
+</td>
+<td><tt>0 - 2<sup>32</sup>-1</tt>
+</td>
+<td>Timer 0 current value<br />
+<p>This value can only be read back accurately if the PCLK is more than 2 T-Cycles.
+</p>
+</td></tr></tbody></table>
+<p><br />
+</p>
+<h5><span class="mw-headline" id="TMR_1_CTRL">TMR_1_CTRL</span></h5>
+<p>Default value: 0x00000004<br />
+Offset: 0x0020
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>TMR_1_RUN</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = stop/pause
+    1 = start
+  </tt>
+</pre>
+</td>
+<td>Timer 1 start/stop<br />
+<p>See timer 0 description for additional information.
+</p>
+</td></tr>
+<tr>
+<td><tt>TMR_1_RELOAD</tt>
+</td>
+<td><tt>1</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = no operation
+    1 = reload
+  </tt>
+</pre>
+</td>
+<td>Timer 1 reload
+</td></tr>
+<tr>
+<td><tt>TMR_1_CLK_SRC</tt>
+</td>
+<td><tt>2:3</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b01</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0x0 = 32kHz crystal 
+    0x1 = 24MHz crystal
+    0x2 = PLL6 divided by 6
+    0x3 = no operation
+  </tt>
+</pre>
+</td>
+<td>Timer 1 clock source
+</td></tr>
+<tr>
+<td><tt>TMR_0_CLK_PRESCALE</tt>
+</td>
+<td><tt>4:6</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0x0 = div(1)
+    0x1 = div(2)
+    0x2 = div(4)
+    0x3 = div(8)
+    0x4 = div(16)
+    0x5 = div(32)
+    0x6 = div(64)
+    0x7 = div(128)
+  </tt>
+</pre>
+</td>
+<td>Timer 1 clock pre-scale divisor.<br />
+<p>Uses TMR_1_CLK_PRESCALE to divide TMR_1_CLK_SRC with.
+</p>
+</td></tr>
+<tr>
+<td><tt>TMR_1_MODE</tt>
+</td>
+<td><tt>7</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = continuous mode, restarts when timer has finished counting down
+    1 = single, stop when done counting down
+  </tt>
+</pre>
+</td>
+<td>Timer 1 mode
+</td></tr>
+<tr>
+<td><tt>no operation</tt>
+</td>
+<td><tt>8:31</tt>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>padding
+</td></tr></tbody></table>
+<h5><span class="mw-headline" id="TMR_1_INTR_VAL">TMR_1_INTR_VAL</span></h5>
+<p>Default value: 0x00000000<br />
+Offset: 0x0024
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>TMR_1_INTR_VAL</tt>
+</td>
+<td><tt>0:31</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x0000</tt>
+</td>
+<td><tt>0 - 2<sup>32</sup>-1</tt>
+</td>
+<td>Timer 1 interval value
+</td></tr></tbody></table>
+<h5><span class="mw-headline" id="TMR_1_CUR_VAL">TMR_1_CUR_VAL</span></h5>
+<p>Default value: undefined<br />
+Offset: 0x0028
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default (Hex)
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>TMR_1_CUR_VAL</tt>
+</td>
+<td><tt>0:31</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00</tt>
+</td>
+<td><tt>0 - 2<sup>32</sup>-1</tt>
+</td>
+<td>Timer 1 current value<br />
+<p>See timer 0 description for additional information.
+</p>
+</td></tr></tbody></table>
+<p><br />
+</p>
+<h5><span class="mw-headline" id="TMR_2_CTRL">TMR_2_CTRL</span></h5>
+<p>Default value: 0x00000004<br />
+Offset: 0x0030
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>TMR_2_RUN</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = stop/pause
+    1 = start
+  </tt>
+</pre>
+</td>
+<td>Timer 2 start/stop<br />
+<p>See timer 0 description for additional information.
+</p>
+</td></tr>
+<tr>
+<td><tt>TMR_2_RELOAD</tt>
+</td>
+<td><tt>1</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = no operation
+    1 = reload
+  </tt>
+</pre>
+</td>
+<td>Timer 2 reload
+</td></tr>
+<tr>
+<td><tt>TMR_2_CLK_SRC</tt>
+</td>
+<td><tt>2:3</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b1</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0x0 = 32kHz crystal 
+    0x1 = 24MHz crystal
+    0x2 = PLL6 divided by 6
+    0x3 = no operation
+  </tt>
+</pre>
+</td>
+<td>Timer 2 clock source
+</td></tr>
+<tr>
+<td><tt>TMR_2_CLK_PRESCALE</tt>
+</td>
+<td><tt>4:6</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0x0 = div(1)
+    0x1 = div(2)
+    0x2 = div(4)
+    0x3 = div(8)
+    0x4 = div(16)
+    0x5 = div(32)
+    0x6 = div(64)
+    0x7 = div(128)
+  </tt>
+</pre>
+</td>
+<td>Timer 2 clock pre-scale divisor.<br />
+<p>Uses TMR_2_CLK_PRESCALE to divide TMR_2_CLK_SRC with.
+</p>
+</td></tr>
+<tr>
+<td><tt>TMR_2_MODE</tt>
+</td>
+<td><tt>7</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = continuous mode, restarts when timer has finished counting down
+    1 = single, stop when done counting down
+  </tt>
+</pre>
+</td>
+<td>Timer 2 mode
+</td></tr>
+<tr>
+<td><tt>no operation</tt>
+</td>
+<td><tt>8:31</tt>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>padding
+</td></tr></tbody></table>
+<h5><span class="mw-headline" id="TMR_2_INTR_VAL">TMR_2_INTR_VAL</span></h5>
+<p>Default value: 0x00000000<br />
+Offset: 0x0034
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>TMR_2_INTR_VAL</tt>
+</td>
+<td><tt>0:31</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00000000</tt>
+</td>
+<td><tt>0 - 2<sup>32</sup>-1</tt>
+</td>
+<td>Timer 2 interval value
+</td></tr></tbody></table>
+<h5><span class="mw-headline" id="TMR_2_CUR_VAL">TMR_2_CUR_VAL</span></h5>
+<p>Default value: 0x00000000<br />
+Offset: 0x0038
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>TMR_2_CUR_VAL</tt>
+</td>
+<td><tt>0:31</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00000000</tt>
+</td>
+<td><tt>0 - 2<sup>32</sup>-1</tt>
+</td>
+<td>Timer 2 current value<br />
+<p>See timer 0 description for additional information.
+</p>
+</td></tr></tbody></table>
+<h5><span class="mw-headline" id="TMR_3_CTRL">TMR_3_CTRL</span></h5>
+<p>Default value: 0x00000000<br />
+Offset: 0x0040
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>TMR_3_RUN</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = disable
+    1 = enable
+  </tt>
+</pre>
+</td>
+<td>Timer 3 enable/disable<br />
+</td></tr>
+<tr>
+<td><tt>no operation</tt>
+</td>
+<td><tt>1</tt>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>TMR_3_CLK_PRESCALE</tt>
+</td>
+<td><tt>2:3</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b00</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0x0 = div(16)
+    0x1 = div(32)
+    0x2 = div(64)
+    0x3 = no operation
+  </tt>
+</pre>
+</td>
+<td>Timer 3 clock pre-scale divisor.<br />
+<p>Uses TMR_3_CLK_PRESCALE to divide the 32kHz clock with.
+</p>
+</td></tr>
+<tr>
+<td><tt>TMR_3_MODE</tt>
+</td>
+<td><tt>4</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = continuous mode, restarts when timer has finished counting down
+    1 = single, stop when done counting down
+  </tt>
+</pre>
+</td>
+<td>Timer 4 mode
+</td></tr>
+<tr>
+<td><tt>no operation</tt>
+</td>
+<td><tt>5:31</tt>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr></tbody></table>
+<h5><span class="mw-headline" id="TMR_3_INTR_VAL">TMR_3_INTR_VAL</span></h5>
+<p>Default value: 0x00000000<br />
+Offset: 0x0044
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>TMR_3_INTR_VAL</tt>
+</td>
+<td><tt>0:31</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00000000</tt>
+</td>
+<td><tt>0 - 2<sup>32</sup>-1</tt>
+</td>
+<td>Timer 3 interval value
+</td></tr></tbody></table>
+<h5><span class="mw-headline" id="TMR_4_CTRL">TMR_4_CTRL</span></h5>
+<p>Default value: 0x00000004<br />
+Offset: 0x0050
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>TMR_4_RUN</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = stop/pause
+    1 = start
+  </tt>
+</pre>
+</td>
+<td>Timer 4 start/stop<br />
+<p>See timer 0 description for additional information.
+</p>
+</td></tr>
+<tr>
+<td><tt>TMR_4_RELOAD</tt>
+</td>
+<td><tt>1</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = no operation
+    1 = reload
+  </tt>
+</pre>
+</td>
+<td>Timer 4 reload
+</td></tr>
+<tr>
+<td><tt>TMR_4_CLK_SRC</tt>
+</td>
+<td><tt>2:3</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b1</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0x0 = 32kHz crystal 
+    0x1 = 24MHz crystal
+    0x2 = External CLKIN0 pin
+    0x3 = no operation
+  </tt>
+</pre>
+</td>
+<td>Timer 4 clock source<br />
+<p>If TMR_4_CLK_SRC is set to 0x2, the timer is no longer a down-counter, but an up-counter starting at 0.
+</p>
+</td></tr>
+<tr>
+<td><tt>TMR_4_CLK_PRESCALE</tt>
+</td>
+<td><tt>4:6</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b00</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0x0 = div(1)
+    0x1 = div(2)
+    0x2 = div(4)
+    0x3 = div(8)
+    0x4 = div(16)
+    0x5 = div(32)
+    0x6 = div(64)
+    0x7 = div(128)
+  </tt>
+</pre>
+</td>
+<td>Timer 4 clock pre-scale divisor.<br />
+<p>Uses TMR_4_CLK_PRESCALE to divide TMR_4_CLK_SRC with.
+</p>
+</td></tr>
+<tr>
+<td><tt>TMR_4_MODE</tt>
+</td>
+<td><tt>7</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = continuous mode, restarts when timer has finished counting down
+    1 = single, stop when done counting down
+  </tt>
+</pre>
+</td>
+<td>Timer 4 mode
+</td></tr>
+<tr>
+<td><tt>no operation</tt>
+</td>
+<td><tt>8:31</tt>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr></tbody></table>
+<h5><span class="mw-headline" id="TMR_4_INTR_VAL">TMR_4_INTR_VAL</span></h5>
+<p>Default value: 0x00000000<br />
+Offset: 0x0054
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>TMR_2_INTR_VAL</tt>
+</td>
+<td><tt>0:31</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00000000</tt>
+</td>
+<td><tt>0 - 2<sup>32</sup>-1</tt>
+</td>
+<td>Timer 4 interval value<br />
+<p>Close attention to TMR_4_CLK_SRC should be payed!
+</p>
+</td></tr></tbody></table>
+<h5><span class="mw-headline" id="TMR_4_CUR_VAL">TMR_4_CUR_VAL</span></h5>
+<p>Default value: 0x00000000<br />
+Offset: 0x0058
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>TMR_4_CUR_VAL</tt>
+</td>
+<td><tt>0:31</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00000000</tt>
+</td>
+<td><tt>0 - 2<sup>32</sup>-1</tt>
+</td>
+<td>Timer 4 current value<br />
+<p>TMR_4_CUR_VAL is uninitialized and should be set to 0 before use.
+See timer 0 description for additional information.
+</p>
+</td></tr></tbody></table>
+<h5><span class="mw-headline" id="TMR_5_CTRL">TMR_5_CTRL</span></h5>
+<p>Default value: 0x00000004<br />
+Offset: 0x0060
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>TMR_5_RUN</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = stop/pause
+    1 = start
+  </tt>
+</pre>
+</td>
+<td>Timer 5 start/stop<br />
+<p>See timer 0 description for additional information.
+</p>
+</td></tr>
+<tr>
+<td><tt>TMR_5_RELOAD</tt>
+</td>
+<td><tt>1</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = no operation
+    1 = reload
+  </tt>
+</pre>
+</td>
+<td>Timer 5 reload
+</td></tr>
+<tr>
+<td><tt>TMR_5_CLK_SRC</tt>
+</td>
+<td><tt>2:3</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b01</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0x00 = 32kHz crystal 
+    0x01 = 24MHz crystal
+    0x02 = External CLKIN1 pin
+    0x03 = no operation
+  </tt>
+</pre>
+</td>
+<td>Timer 5 clock source<br />
+<p>If TMR_5_CLK_SRC is set to 0x2, the timer is no longer a down-counter, but an up-counter starting at 0.
+</p>
+</td></tr>
+<tr>
+<td><tt>TMR_5_CLK_PRESCALE</tt>
+</td>
+<td><tt>4:6</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b00</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0x00 = div(1)
+    0x01 = div(2)
+    0x02 = div(4)
+    0x03 = div(8)
+    0x04 = div(16)
+    0x05 = div(32)
+    0x06 = div(64)
+    0x07 = div(128)
+  </tt>
+</pre>
+</td>
+<td>Timer 5 clock pre-scale divisor.<br />
+<p>Uses TMR_5_CLK_PRESCALE to divide TMR_5_CLK_SRC with.
+</p>
+</td></tr>
+<tr>
+<td><tt>TMR_5_MODE</tt>
+</td>
+<td><tt>7</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = continuous mode, restarts when timer has finished counting down
+    1 = single, stop when done counting down
+  </tt>
+</pre>
+</td>
+<td>Timer 5 mode
+</td></tr>
+<tr>
+<td><tt>no operation</tt>
+</td>
+<td><tt>8:31</tt>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr></tbody></table>
+<h5><span class="mw-headline" id="TMR_5_INTR_VAL">TMR_5_INTR_VAL</span></h5>
+<p>Default value: 0x00000000<br />
+Offset: 0x0064
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>TMR_5_INTR_VAL</tt>
+</td>
+<td><tt>0:31</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00000000</tt>
+</td>
+<td><tt>0 - 2<sup>32</sup>-1</tt>
+</td>
+<td>Timer 5 interval value<br />
+<p>Close attention to TMR_5_CLK_SRC should be payed!
+</p>
+</td></tr></tbody></table>
+<h5><span class="mw-headline" id="TMR_5_CUR_VAL">TMR_5_CUR_VAL</span></h5>
+<p>Default value: 0x00000000<br />
+Offset: 0x0068
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>TMR_5_CUR_VAL</tt>
+</td>
+<td><tt>0:31</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00000000</tt>
+</td>
+<td><tt>0 - 2<sup>32</sup>-1</tt>
+</td>
+<td>Timer 5 current value<br />
+<p>TMR_5_CUR_VAL is uninitialized and should be set to 0 before use.<br />
+See timer 0 description for additional information.
+</p>
+</td></tr></tbody></table>
+<h5><span class="mw-headline" id="TMR_AVS_CTRL">TMR_AVS_CTRL</span></h5>
+<p>Default value: 0x00000000<br />
+Offset: 0x0080
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>TMR_AVS0_EN</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = disable
+    1 = enable
+  </tt>
+</pre>
+</td>
+<td>Audio/Video Sync counter 0.<br />
+<p>The AVS counter always uses the 24MHz clock.
+</p>
+</td></tr>
+<tr>
+<td><tt>TMR_AVS1_EN</tt>
+</td>
+<td><tt>1</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = disable
+    1 = enable
+  </tt>
+</pre>
+</td>
+<td>Audio/Video Sync counter 1.<br />
+<p>The AVS counter always uses the 24MHz clock.
+</p>
+</td></tr>
+<tr>
+<td><tt>no operation</tt>
+</td>
+<td><tt>2:7</tt>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>TMR_AVS0_PAUSE</tt>
+</td>
+<td><tt>8</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = run
+    1 = pause
+  </tt>
+</pre>
+</td>
+<td>Pause AVS counter 0
+</td></tr>
+<tr>
+<td><tt>TMR_AVS1_PAUSE</tt>
+</td>
+<td><tt>9</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = run
+    1 = pause
+  </tt>
+</pre>
+</td>
+<td>Pause AVS counter 1
+</td></tr>
+<tr>
+<td><tt>no operation</tt>
+</td>
+<td><tt>10:31</tt>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr></tbody></table>
+<h5><span class="mw-headline" id="TMR_AVS0_VAL">TMR_AVS0_VAL</span></h5>
+<p>Default value: 0x00000000<br />
+Offset: 0x0084
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>TMR_AVS0_VAL</tt>
+</td>
+<td><tt>0:31</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00000000</tt>
+</td>
+<td><tt>0 - 2<sup>32</sup>-1</tt>
+</td>
+<td>The 32 high bits of the internal 33-bits AVS counter. The value of the AVS counter can be written to at any time and the LSB bit should be internally initialized to 0.
+</td></tr></tbody></table>
+<h5><span class="mw-headline" id="TMR_AVS1_VAL">TMR_AVS1_VAL</span></h5>
+<p>Default value: 0x00000000<br />
+Offset: 0x0088
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>TMR_AVS1_VAL</tt>
+</td>
+<td><tt>0:31</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00000000</tt>
+</td>
+<td><tt>0 - 2<sup>32</sup>-1</tt>
+</td>
+<td>The 32 high bits of the internal 33-bits AVS counter. The value of the AVS counter can be written to at any time and the LSB bit should be internally initialized to 0.
+</td></tr></tbody></table>
+<h5><span class="mw-headline" id="TMR_AVS_DIV">TMR_AVS_DIV</span></h5>
+<p>Default value: 0x05db05db<br />
+Offset: 0x008c
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>TMR_AVS0_DIV</tt>
+</td>
+<td><tt>0:11</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x05db</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0x0000 = div(1)
+    0x0001 = div(2)
+    ...
+    n = div(n + 1)
+    ...
+    0x07ff = div(2048)
+  </tt>
+</pre>
+</td>
+<td>Uses TMR_AVS0_DIV as divisor on the 24MHz clock.<br />
+<p>The AVS counter internally uses an extra 12-bit counter. This counter is tied to the 24MHz clock. Whenever the internal 12-bit counter &gt;= TMR_AVS0_DIV the actual 33-bit counter is increased.
+</p>
+</td></tr>
+<tr>
+<td><tt>no operation</tt>
+</td>
+<td><tt>12:15</tt>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>TMR_AVS1_DIV</tt>
+</td>
+<td><tt>16:27</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x05db</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0x0000 = div(1)
+    0x0001 = div(2)
+    ...
+    n = div(n + 1)
+    ...
+    0x07ff = div(2048)
+  </tt>
+</pre>
+</td>
+<td>Uses TMR_AVS1_DIV as divisor on the 24MHz clock.<br />
+<p>The AVS counter internally uses an extra 12-bit counter. This counter is tied to the 24MHz clock. Whenever the internal 12-bit counter &gt;= TMR_AVS1_DIV the actual 33-bit counter is increased.
+</p>
+</td></tr>
+<tr>
+<td><tt>no operation</tt>
+</td>
+<td><tt>28:31</tt>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr></tbody></table>
+<h5><span class="mw-headline" id="TMR_WDT_CTRL">TMR_WDT_CTRL</span></h5>
+<p>Default value: 0x00000000<br />
+Offset: 0x0090
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default (Hex)
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>TMR_WDT_CTRL</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = no operation
+    1 = restart
+  </tt>
+</pre>
+</td>
+<td>Restarts the watchdog timer.
+</td></tr>
+<tr>
+<td><tt>TMR_WDT_KEY</tt>
+</td>
+<td><tt>1:12</tt>
+</td>
+<td><tt>Write</tt>
+</td>
+<td><tt>0x00</tt>
+</td>
+<td><tt>0x0a57</tt>
+</td>
+<td>The watchdog timer needs a key to be re-armed/reset. 0x0a57 is this key and needs to be supplied<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;1&#93;</a></sup> on a restart; <pre>TMR_WDT_CTRL | TMR_WDT_KEY &lt;&lt; 1</pre>
+</td></tr>
+<tr>
+<td><tt>no operation</tt>
+</td>
+<td><tt>13:31</tt>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr></tbody></table>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">The key is only required on a running watchdog.</span>
+</li>
+</ol></div>
+<h5><span class="mw-headline" id="TMR_WDT_MODE">TMR_WDT_MODE</span></h5>
+<p>Default value: 0x00000002<br />
+Offset: 0x0094
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>TMR_WDT_EN</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = no operation
+    1 = enable
+  </tt>
+</pre>
+</td>
+<td>Enables the watchdog timer.
+</td></tr>
+<tr>
+<td><tt>TMR_WDT_RST</tt>
+</td>
+<td><tt>1</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b1</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0 = no operation
+    1 = enable
+  </tt>
+</pre>
+</td>
+<td>Allow the watchdog timer to reset the system.
+</td></tr>
+<tr>
+<td><tt>no operation</tt>
+</td>
+<td><tt>2</tt>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>TMR_WDT_INTER_VALUE</tt>
+</td>
+<td><tt>3:6</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00</tt>
+</td>
+<td><tt>
+</tt><pre><tt>    0x00 = 0.5
+    0x01 = 1
+    0x02 = 2
+    0x03 = 3
+    0x04 = 4
+    0x05 = 5
+    0x06 = 6
+    0x07 = 8
+    0x08 = 10
+    0x09 = 12
+    0x0a = 14
+    0x0b = 16
+    0x0c = no operation
+    ...
+  </tt>
+</pre>
+</td>
+<td>The watchdog timer interval value in seconds, which depends on the 24MHz clock. Without it the watchdog cannot run.
+</td></tr>
+<tr>
+<td><tt>no operation</tt>
+</td>
+<td><tt>7:31</tt>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr></tbody></table>
+<h5><span class="mw-headline" id="TMR_CNT64_CTRL">TMR_CNT64_CTRL</span></h5>
+<p>Default value: 0x00000000<br />
+Offset: 0x00a0
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default (Hex)
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>TMR_CNT64_CLR</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00</tt>
+</td>
+<td><tt>
+</tt><pre><tt>     0 = clear success
+     1 = clear
+  </tt>
+</pre>
+</td>
+<td>Clears the 64-bit counter, both Lo- and Hi- values. When clear has completed, TMR_CNT64_CLR reads 0.
+</td></tr>
+<tr>
+<td><tt>TMR_CNT64_RL</tt>
+</td>
+<td><tt>1</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00</tt>
+</td>
+<td><tt>
+</tt><pre><tt>     0 = latched
+     1 = latch
+  </tt>
+</pre>
+</td>
+<td>Latch the Lo- and Hi-counter registers together. TMR_CNT64_RL reads 0 on completion.
+</td></tr>
+<tr>
+<td><tt>TMR_CNT64_CLK_SRC</tt>
+</td>
+<td><tt>2</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00</tt>
+</td>
+<td><tt>
+</tt><pre><tt>     0 = 24MHz clock
+     1 = PLL6 divded by 6
+  </tt>
+</pre>
+</td>
+<td>Clock source for the 64-bit counter.
+</td></tr>
+<tr>
+<td><tt>no operation</tt>
+</td>
+<td><tt>3:31</tt>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>padding
+</td>
+<td>
+</td></tr></tbody></table>
+<p><br />
+</p>
+<h5><span class="mw-headline" id="TMR_CNT64_LO">TMR_CNT64_LO</span></h5>
+<p>Default value: 0x00000000<br />
+Offset: 0x00a4
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default (Hex)
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>TMR_CNT64_LO</tt>
+</td>
+<td><tt>0:31</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00</tt>
+</td>
+<td><tt>0 - 2<sup>32</sup>-1</tt>
+</td>
+<td>The 32 LSB's ([0:31]) for the 64-bit counter.
+</td></tr></tbody></table>
+<p><br />
+</p>
+<h5><span class="mw-headline" id="TMR_CNT64_HI">TMR_CNT64_HI</span></h5>
+<p>Default value: 0x00000000<br />
+Offset: 0x00a8
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default (Hex)
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>TMR_CNT64_HI</tt>
+</td>
+<td><tt>0:31</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00</tt>
+</td>
+<td><tt>0 - 2<sup>32</sup>-1</tt>
+</td>
+<td>The 32 MSB's ([32:63]) for the 64-bit counter.
+</td></tr></tbody></table>
+<p><br />
+</p>
+<h5><span class="mw-headline" id="TMR_32KHZ_OSC_CTRL">TMR_32KHZ_OSC_CTRL</span></h5>
+<p>Default value: 0x00004000<br />
+Offset: 0x0100
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default (Hex)
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>TMR_32KHZ_OSC_SRC</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00</tt>
+</td>
+<td><tt>
+</tt><pre><tt>     0 = internal 32kHz RC
+     1 = external 32.768kHz crystal
+  </tt>
+</pre>
+</td>
+<td>Source for the 32kHz clock.
+</td></tr>
+<tr>
+<td><tt>reserved</tt>
+</td>
+<td><tt>1</tt>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>TMR_32KHZ_GSM</tt>
+</td>
+<td><tt>2:3</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00</tt>
+</td>
+<td><tt>
+</tt><pre><tt>     0x0 = low
+     0x1 = undefined
+     0x2 = undefined
+     0x3 = high
+  </tt>
+</pre>
+</td>
+<td>External 32.768kHz crystal <i>GSM</i>.
+</td></tr>
+<tr>
+<td><tt>reserved</tt>
+</td>
+<td><tt>4:6</tt>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>TMR_32KHZ_RTC_DATE_XS</tt>
+</td>
+<td><tt>7</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00</tt>
+</td>
+<td><tt>
+</tt><pre><tt>     0 = write finished
+     1 = writing
+  </tt>
+</pre>
+</td>
+<td>When TMR_RTC_DATE is being modified, this bit is set to 1. When all modifications on TMR_RTC_DATE are complete, this bit is set to 0. While TMR_RTC_DATE_XS, TMR_RTC_TIME_XS or TMR_ALARM_CNT_XS is set to 1 neither of TMR_RTC_DATE, TMR_RTC_TIME or TMR_ALARM_CNT should be written to.
+</td></tr>
+<tr>
+<td><tt>TMR_32KHZ_RTC_TIME_XS</tt>
+</td>
+<td><tt>8</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00</tt>
+</td>
+<td><tt>
+</tt><pre><tt>     0 = write finished
+     1 = writing
+  </tt>
+</pre>
+</td>
+<td>When TMR_RTC_TIME is being modified, this bit is set to 1. When all modifications on TMR_RTC_TIME are complete, this bit is set to 0. While TMR_RTC_DATE_XS, TMR_RTC_TIME_XS or TMR_ALARM_CNT_XS is set to 1 neither of TMR_RTC_DATE, TMR_RTC_TIME or TMR_ALARM_CNT should be written to.
+</td></tr>
+<tr>
+<td><tt>TMR_32KHZ_ALARM_CNT_XS</tt>
+</td>
+<td><tt>9</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00</tt>
+</td>
+<td><tt>
+</tt><pre><tt>     0 = write finished
+     1 = writing
+  </tt>
+</pre>
+</td>
+<td>When TMR_RTC_ALARM_CNT is being modified, this bit is set to 1. When all modifications on TMR_RTC_ALARM_CNT are complete, this bit is set to 0. While TMR_RTC_DATE_XS, TMR_RTC_TIME_XS or TMR_ALARM_CNT_XS is set to 1 neither of TMR_RTC_DATE, TMR_RTC_TIME or TMR_ALARM_CNT should be written to.
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>reserved</tt>
+</td>
+<td><tt>10:13</tt>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>TMR_32KHZ_CLK_SWT_AUTO</tt>
+</td>
+<td><tt>14</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x01</tt>
+</td>
+<td><tt>
+</tt><pre><tt>     0 = disable
+     1 = enable
+  </tt>
+</pre>
+</td>
+<td>Enable/disable automatic switching.
+</td></tr>
+<tr>
+<td><tt>TMR_32KHZ_CLK_SWT_PEN</tt>
+</td>
+<td><tt>15</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00</tt>
+</td>
+<td><tt>
+</tt><pre><tt>     0 = no operation
+     1 = pending
+  </tt>
+</pre>
+</td>
+<td>Shows when a clock switch is pending.
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>reserved</tt>
+</td>
+<td><tt>16:31</tt>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>padding
+</td></tr></tbody></table>
+<p><br />
+</p>
+<h5><span class="mw-headline" id="TMR_RTC_DATE">TMR_RTC_DATE</span></h5>
+<p>Default value: undefined<br />
+Offset: 0x0104
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default (Hex)
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>TMR_RTC_DAY</tt>
+</td>
+<td><tt>0:4</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>undefined</tt>
+</td>
+<td><tt>01 - 31</tt>
+</td>
+<td>Day value of the RTC.
+</td></tr>
+<tr>
+<td><tt>reserved</tt>
+</td>
+<td><tt>5:7</tt>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>TMR_RTC_MONTH</tt>
+</td>
+<td><tt>8:11</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>undefined</tt>
+</td>
+<td><tt>01 - 12</tt>
+</td>
+<td>Month value of the RTC.
+</td></tr>
+<tr>
+<td><tt>reserved</tt>
+</td>
+<td><tt>12:15</tt>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>TMR_RTC_YEAR</tt>
+</td>
+<td><tt>16:21</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>undefined</tt>
+</td>
+<td><tt>00 - 63</tt>
+</td>
+<td>Year value of the RTC.
+</td></tr>
+<tr>
+<td><tt>TMR_RTC_LEAP</tt>
+</td>
+<td><tt>22</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00</tt>
+</td>
+<td><tt>
+</tt><pre><tt>     0 = false
+     1 = true
+  </tt>
+</pre>
+</td>
+<td>The current year is a leap year.<br />
+<p>This is not set by hardware. It needs to be set by software. Hardware will use this to calculate date/year values.
+</p>
+</td></tr>
+<tr>
+<td><tt>reserved</tt>
+</td>
+<td><tt>23:29</tt>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>TMR_RTC_SIM</tt>
+</td>
+<td><tt>30</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00</tt>
+</td>
+<td><tt>
+</tt><pre><tt>     0 = disable
+     1 = enable
+  </tt>
+</pre>
+</td>
+<td>Enables/disables simulation of the RTC. <i>WARNING, it is unknown what 0 and 1 do nor what TMR_RTC_SIM does to begin with. <b>USE WITH CAUTION</b></i>
+</td></tr>
+<tr>
+<td><tt>TMR_RTC_TESTMODE</tt>
+</td>
+<td><tt>31</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00</tt>
+</td>
+<td><tt>
+<pre>     0 = disable
+     1 = enable
+</pre>
+</tt></td>
+<td>Enables/disables RTC test mode. <i>WARNING, it is unknown what 0 and 1 do nor what TMR_RTC_TESTMODE does to begin with. <b>USE WITH CAUTION</b></i>
+</td></tr></tbody></table>
+<p><br />
+</p>
+<h5><span class="mw-headline" id="TMR_RTC_TIME">TMR_RTC_TIME</span></h5>
+<p>Default value: undefined<br />
+Offset: 0x0108
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default (Hex)
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>TMR_RTC_SEC</tt>
+</td>
+<td><tt>0:5</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>undefined</tt>
+</td>
+<td><tt>00 - 59</tt>
+</td>
+<td>Seconds value of the RTC.
+</td></tr>
+<tr>
+<td><tt>reserved</tt>
+</td>
+<td><tt>6:7</tt>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>TMR_RTC_MIN</tt>
+</td>
+<td><tt>8:13</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>undefined</tt>
+</td>
+<td><tt>00 - 59</tt>
+</td>
+<td>Minutes value of the RTC.
+</td></tr>
+<tr>
+<td><tt>reserved</tt>
+</td>
+<td><tt>14:15</tt>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>TMR_RTC_HOUR</tt>
+</td>
+<td><tt>16:20</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>undefined</tt>
+</td>
+<td><tt>00 - 23</tt>
+</td>
+<td>Hours value of the RTC.
+</td></tr>
+<tr>
+<td><tt>reserved</tt>
+</td>
+<td><tt>21:28</tt>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>TMR_RTC_DAY</tt>
+</td>
+<td><tt>29:31</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00</tt>
+</td>
+<td><tt>
+</tt><pre><tt>     0x00 = Monday
+     0x01 = Tuesday
+     0x02 = Wednesday
+     0x03 = Thursday
+     0x04 = Friday
+     0x05 = Satuday
+     0x06 = Sunday
+     0x07 = no operation
+  </tt>
+</pre>
+</td>
+<td>Day of the week value of the RTC.
+</td></tr></tbody></table>
+<p><br />
+</p>
+<h5><span class="mw-headline" id="TMR_ALARM_CNT">TMR_ALARM_CNT</span></h5>
+<p>Default value: undefined<br />
+Offset: 0x010c
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default (Hex)
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>TMR_ALARM_SEC</tt>
+</td>
+<td><tt>0:5</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>undefined</tt>
+</td>
+<td><tt>00 - 59</tt>
+</td>
+<td>Seconds value of the alarm counter.<br />
+<p>If set to 00, then it will be forced to 01.
+</p>
+</td></tr>
+<tr>
+<td><tt>reserved</tt>
+</td>
+<td><tt>6:7</tt>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>TMR_ALARM_MIN</tt>
+</td>
+<td><tt>8:13</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>undefined</tt>
+</td>
+<td><tt>00 - 59</tt>
+</td>
+<td>Minutes value of the alarm counter.
+</td></tr>
+<tr>
+<td><tt>reserved</tt>
+</td>
+<td><tt>14:15</tt>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>TMR_ALARM_HOUR</tt>
+</td>
+<td><tt>16:20</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>undefined</tt>
+</td>
+<td><tt>00 - 23</tt>
+</td>
+<td>Hours value of the alarm counter.
+</td></tr>
+<tr>
+<td><tt>reserved</tt>
+</td>
+<td><tt>21:23</tt>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>TMR_ALARM_DAY</tt>
+</td>
+<td><tt>24:31</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00</tt>
+</td>
+<td><tt>00 - 255</tt>
+</td>
+<td>Days value of the alarm counter.
+</td></tr></tbody></table>
+<p><br />
+</p>
+<h5><span class="mw-headline" id="TMR_ALARM_WK">TMR_ALARM_WK</span></h5>
+<p>Default value: undefined<br />
+Offset: 0x0110
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default (Hex)
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>TMR_ALARM_WK_SEC</tt>
+</td>
+<td><tt>0:5</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>undefined</tt>
+</td>
+<td><tt>00 - 59</tt>
+</td>
+<td>Seconds value of the alarm counter.
+</td></tr>
+<tr>
+<td><tt>reserved</tt>
+</td>
+<td><tt>6:7</tt>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>TMR_ALARM_WK_MIN</tt>
+</td>
+<td><tt>8:13</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>undefined</tt>
+</td>
+<td><tt>00 - 59</tt>
+</td>
+<td>Minutes value of the alarm counter.
+</td></tr>
+<tr>
+<td><tt>reserved</tt>
+</td>
+<td><tt>14:15</tt>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>TMR_ALARM_WK_HOUR</tt>
+</td>
+<td><tt>16:20</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>undefined</tt>
+</td>
+<td><tt>00 - 23</tt>
+</td>
+<td>Hours value of the alarm counter.
+</td></tr>
+<tr>
+<td><tt>reserved</tt>
+</td>
+<td><tt>21:31</tt>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>padding
+</td></tr></tbody></table>
+<p><br />
+</p>
+<h5><span class="mw-headline" id="TMR_ALARM_EN">TMR_ALARM_EN</span></h5>
+<p>Default value: undefined<br />
+Offset: 0x0114
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default (Hex)
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>TMR_ALARM_WK0</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00</tt>
+</td>
+<td><tt>
+</tt><pre><tt>     0 = disable
+     1 = enable
+  </tt>
+</pre>
+</td>
+<td>Enable the daily alarm to be only triggered based on TMR_ALARM_WK0 for day 0 (monday, see TMR_RTC_DAY). Also allows the TMR_ALARM_IRQ_STATUS to be set to 1 to indicate a pending alarm.
+</td></tr>
+<tr>
+<td><tt>TMR_ALARM_WK1</tt>
+</td>
+<td><tt>1</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00</tt>
+</td>
+<td><tt>
+</tt><pre><tt>     0 = disable
+     1 = enable
+  </tt>
+</pre>
+</td>
+<td>Enable the daily alarm to be only triggered based on TMR_ALARM_WK1 for day 1 (tuesday, see TMR_RTC_DAY). Also allows the TMR_ALARM_IRQ_STATUS to be set to 1 to indicate a pending alarm.
+</td></tr>
+<tr>
+<td><tt>TMR_ALARM_WK2</tt>
+</td>
+<td><tt>2</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00</tt>
+</td>
+<td><tt>
+</tt><pre><tt>     0 = disable
+     1 = enable
+  </tt>
+</pre>
+</td>
+<td>Enable the daily alarm to be only triggered based on TMR_ALARM_WK2 for day 2 (wednesday, see TMR_RTC_DAY). Also allows the TMR_ALARM_IRQ_STATUS to be set to 1 to indicate a pending alarm.
+</td></tr>
+<tr>
+<td><tt>TMR_ALARM_WK3</tt>
+</td>
+<td><tt>3</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00</tt>
+</td>
+<td><tt>
+</tt><pre><tt>     0 = disable
+     1 = enable
+  </tt>
+</pre>
+</td>
+<td>Enable the daily alarm to be only triggered based on TMR_ALARM_WK3 for day 3 (thursday, see TMR_RTC_DAY). Also allows the TMR_ALARM_IRQ_STATUS to be set to 1 to indicate a pending alarm.
+</td></tr>
+<tr>
+<td><tt>TMR_ALARM_WK4</tt>
+</td>
+<td><tt>4</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00</tt>
+</td>
+<td><tt>
+</tt><pre><tt>     0 = disable
+     1 = enable
+  </tt>
+</pre>
+</td>
+<td>Enable the daily alarm to be only triggered based on TMR_ALARM_WK4 for day 4 (friday, see TMR_RTC_DAY). Also allows the TMR_ALARM_IRQ_STATUS to be set to 1 to indicate a pending alarm.
+</td></tr>
+<tr>
+<td><tt>TMR_ALARM_WK5</tt>
+</td>
+<td><tt>5</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00</tt>
+</td>
+<td><tt>
+</tt><pre><tt>     0 = disable
+     1 = enable
+  </tt>
+</pre>
+</td>
+<td>Enable the daily alarm to be only triggered based on TMR_ALARM_WK5 for day 5 (saturday, see TMR_RTC_DAY). Also allows the TMR_ALARM_IRQ_STATUS to be set to 1 to indicate a pending alarm.
+</td></tr>
+<tr>
+<td><tt>TMR_ALARM_WK0</tt>
+</td>
+<td><tt>6</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00</tt>
+</td>
+<td><tt>
+</tt><pre><tt>     0 = disable
+     1 = enable
+  </tt>
+</pre>
+</td>
+<td>Enable the daily alarm to be only triggered based on TMR_ALARM_WK6 for day 6 (sunday, see TMR_RTC_DAY). Also allows the TMR_ALARM_IRQ_STATUS to be set to 1 to indicate a pending alarm.
+</td></tr>
+<tr>
+<td><tt>reserved</tt>
+</td>
+<td><tt>7</tt>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>TMR_ALARM_CNT_RUN</tt>
+</td>
+<td><tt>8</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00</tt>
+</td>
+<td><tt>
+</tt><pre><tt>     0 = disable
+     1 = enable
+  </tt>
+</pre>
+</td>
+<td>TMR_ALARM_CNT_RUN enables/disables the TMR_ALARM_CNT countdown. Also allows for the TMR_ALARM_IRQ_STATUS to be set.
+</td></tr>
+<tr>
+<td><tt>reserved</tt>
+</td>
+<td><tt>9:31</tt>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>padding
+</td></tr></tbody></table>
+<p><br />
+</p>
+<h5><span class="mw-headline" id="TMR_ALARM_IRQ">TMR_ALARM_IRQ</span></h5>
+<p>Default value: undefined<br />
+Offset: 0x0118
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default (Hex)
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>TMR_ALARM_IRQ_WK</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00</tt>
+</td>
+<td><tt>
+</tt><pre><tt>     0 = disable
+     1 = enable
+  </tt>
+</pre>
+</td>
+<td>Enable/disable the overal alarm interrupt.
+</td></tr>
+<tr>
+<td><tt>TMR_ALARM_IRQ_CNT</tt>
+</td>
+<td><tt>1</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00</tt>
+</td>
+<td><tt>
+</tt><pre><tt>     0 = disable
+     1 = enable
+  </tt>
+</pre>
+</td>
+<td>Enable/disable the overal alarm countdown interrupt.
+</td></tr>
+<tr>
+<td><tt>reserved</tt>
+</td>
+<td><tt>2:31</tt>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>padding
+</td></tr></tbody></table>
+<p><br />
+</p>
+<h5><span class="mw-headline" id="TMR_ALARM_IRQ_STATUS">TMR_ALARM_IRQ_STATUS</span></h5>
+<p>Default value: undefined<br />
+Offset: 0x011c
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default (Hex)
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>TMR_ALARM_IRQ_WK_PEND</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00</tt>
+</td>
+<td><tt>
+</tt><pre><tt>     0 = no operation
+     1 = enable
+  </tt>
+</pre>
+</td>
+<td>Weekly alarm interrupt pending.<br />
+<p>Alarm has been reached and if TMR_ALARM_IRQ_WK is 1, the interrupt controller will trigger an interrupt.
+</p>
+</td></tr>
+<tr>
+<td><tt>TMR_ALARM_IRQ_CNT_PEND</tt>
+</td>
+<td><tt>1</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00</tt>
+</td>
+<td><tt>
+</tt><pre><tt>     0 = disable
+     1 = enable
+  </tt>
+</pre>
+</td>
+<td>Alarm countdown interrupt pending.<br />
+<p>Alarmcountdown has reached 0. If TMR_ALARM_IRQ_CNT is 1, the interrupt controller will trigger an interrupt.
+</p>
+</td></tr>
+<tr>
+<td><tt>reserved</tt>
+</td>
+<td><tt>2:31</tt>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>padding
+</td></tr></tbody></table>
+<p><br />
+</p>
+<h5><span class="mw-headline" id="TMR_GP0">TMR_GP0</span></h5>
+<p>Default value: 0x00000000<br />
+Offset: 0x0120
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default (Hex)
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>TMR_GP0</tt>
+</td>
+<td><tt>0:31</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00000000</tt>
+</td>
+<td><tt>0 - 2<sup>32</sup>-1</tt>
+</td>
+<td>General purpose data can be stored in this register. RTCVDD needs to be larger then 1.0 volt however.
+</td></tr></tbody></table>
+<h5><span class="mw-headline" id="TMR_GP1">TMR_GP1</span></h5>
+<p>Default value: 0x00000000<br />
+Offset: 0x0124
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>TMR_GP1</tt>
+</td>
+<td><tt>0:31</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00000000</tt>
+</td>
+<td><tt>0 - 2<sup>32</sup>-1</tt>
+</td>
+<td>General purpose data can be stored in this register. RTCVDD needs to be larger then 1.0 volt however.
+</td></tr></tbody></table>
+<h5><span class="mw-headline" id="TMR_GP2">TMR_GP2</span></h5>
+<p>Default value: 0x00000000<br />
+Offset: 0x0128
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default (Hex)
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>TMR_GP2</tt>
+</td>
+<td><tt>0:31</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00000000</tt>
+</td>
+<td><tt>0 - 2<sup>32</sup>-1</tt>
+</td>
+<td>General purpose data can be stored in this register. RTCVDD needs to be larger then 1.0 volt however.
+</td></tr></tbody></table>
+<h5><span class="mw-headline" id="TMR_GP3">TMR_GP3</span></h5>
+<p>Default value: 0x00000000<br />
+Offset: 0x012c
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>TMR_GP3</tt>
+</td>
+<td><tt>0:31</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0x00000000</tt>
+</td>
+<td><tt>0 - 2<sup>32</sup>-1</tt>
+</td>
+<td>General purpose data can be stored in this register. RTCVDD needs to be larger then 1.0 volt however.
+</td></tr></tbody></table>
+<h5><span class="mw-headline" id="CPU_CFG">CPU_CFG</span></h5>
+<p>Default value: 0x00000080<br />
+Offset: 0x013c
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Name
+</th>
+<th>Bit
+</th>
+<th>Read/Write
+</th>
+<th>Default
+</th>
+<th>Values
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>CPU_CFG_L2_CACHE_INV</tt>
+</td>
+<td><tt>0</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>     0 = enable
+     1 = disable
+  </tt>
+</pre>
+</td>
+<td>Enable L2 data cache invalidation on reset.<br />
+<p>L2 data cache invalidation can take up to 1024 CPU clock cycles. This bit can be set from software.
+</p>
+</td></tr>
+<tr>
+<td><tt>CPU_CFG_L1_CACHE_INV</tt>
+</td>
+<td><tt>1</tt>
+</td>
+<td><tt>Read/Write</tt>
+</td>
+<td><tt>0b0</tt>
+</td>
+<td><tt>
+</tt><pre><tt>     0 = enable
+     1 = disable
+  </tt>
+</pre>
+</td>
+<td>Enable L1 data cache invalidation on reset.<br />
+<p>L1 data cache invalidation can take up to 512 CPU clock cycles. This bit can be set from software.
+</p>
+</td></tr>
+<tr>
+<td><tt>reserved</tt>
+</td>
+<td><tt>2:5</tt>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><tt>CPU_CFG_CHIP_VER</tt>
+</td>
+<td><tt>6:7</tt>
+</td>
+<td><tt>Read</tt>
+</td>
+<td><tt>0b01</tt>
+</td>
+<td><tt>
+</tt><pre><tt>     0x00 = A
+     0x01 = C
+     0x02 = C
+     0x03 = B
+  </tt>
+</pre>
+</td>
+<td>Chip revision ID.
+</td></tr>
+<tr>
+<td><tt>reserved</tt>
+</td>
+<td><tt>8:31</tt>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="Initial_values">Initial values</span></h2>
+<p>Note, that the clocks/timers are running when this was obtained, so values are constantly changing and should be taken into account.
+</p>
+<h3><span class="mw-headline" id="default_map">default map</span></h3>
+<p>md 0x01c20c00 0x54
+</p>
+<pre>01c20c00: 00000000 00000000 00000000 00000000    ................
+01c20c10: 00000005 ffffffff d27fc842 00000000    ........B.......
+01c20c20: 00000004 00000000 00000000 00000000    ................
+01c20c30: 00000004 00000000 00000000 00000000    ................
+01c20c40: 00000000 00000000 00000000 00000000    ................
+01c20c50: 00000004 00000000 00000000 00000000    ................
+01c20c60: 00000004 00000000 00000000 00000000    ................
+01c20c70: 00000000 00000000 00000000 00000000    ................
+01c20c80: 00000000 00000000 00000000 05db05db    ................
+01c20c90: 00000000 00000000 00000000 00000000    ................
+01c20ca0: 00000000 00000000 00000000 00000000    ................
+01c20cb0: 00000000 00000000 00000000 00000000    ................
+01c20cc0: 00000000 00000000 00000000 00000000    ................
+01c20cd0: 00000000 00000000 00000000 00000000    ................
+01c20ce0: 00000000 00000000 00000000 00000000    ................
+01c20cf0: 00000000 00000000 00000000 00000000    ................
+01c20d00: 00006000 00000101 00000020 00000000    .`...... .......
+01c20d10: 00000000 00000000 00000000 00000000    ................
+01c20d20: 00000000 00000000 00000000 00000000    ................
+01c20d30: 00000000 00000000 00000000 00000080    ................
+01c20d40: 00006000 00000101 00000020 00000000    .`...... .......
+</pre>
+<h3><span class="mw-headline" id="all_set_to_1">all set to 1</span></h3>
+<p>mw 0x01c20c00 0xffffffff 0x54<br />
+md 0x01c20c00 0x54
+</p>
+<pre>01c20c00: 0000013f 00000000 00000000 00000000    ?...............
+01c20c10: 000000ff ffffffff ffffffff 00000000    ................
+01c20c20: 000000ff ffffffff ffffffff 00000000    ................
+01c20c30: 000000fd ffffffff fff97c33 00000000    ........3|......
+01c20c40: 0000001d ffffffff 00000000 00000000    ................
+01c20c50: 000000ff ffffffff ffffffff 00000000    ................
+01c20c60: 000000ff ffffffff ffffffff 00000000    ................
+01c20c70: 00000000 00000000 00000000 00000000    ................
+01c20c80: 00000303 ffffffff ffffffff ffffffff    ................
+01c20c90: 00000000 000000ff 00000000 00000000    ................
+01c20ca0: 00000007 00000000 00000000 00000000    ................
+01c20cb0: 00000000 00000000 00000000 00000000    ................
+01c20cc0: 00000000 00000000 00000000 00000000    ................
+01c20cd0: 00000000 00000000 00000000 00000000    ................
+01c20ce0: 00000000 00000000 00000000 00000000    ................
+01c20cf0: 00000000 00000000 00000000 00000000    ................
+01c20d00: 0000407e c0550515 601b1b1b ff1f3f3f    <a href="https://linux-sunxi.org/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c3bd83edededed96">[email&#160;protected]</a>....`??..
+01c20d10: 001f3f3f 0000017f 00000003 00000001    ??..............
+01c20d20: ffffffff ffffffff ffffffff ffffffff    ................
+01c20d30: 00000000 00000000 00000000 000000bf    ................
+01c20d40: 0000407e c0550515 601b1b1b ff1f3f3f    <a href="https://linux-sunxi.org/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b5cbf59b9b9b9be0">[email&#160;protected]</a>....`??..
+
+</pre>
+<h3><span class="mw-headline" id="all_set_to_0">all set to 0</span></h3>
+<p>mw 0x01c20c00 0x00 0x54 <br />
+md 0x01c20c00 0x54
+</p>
+<pre>01c20c00: 00000000 00000101 00000000 00000000    ................
+01c20c10: 00000000 00000000 00000000 00000000    ................
+01c20c20: 00000000 00000000 00000000 00000000    ................
+01c20c30: 00000000 00000000 00000000 00000000    ................
+01c20c40: 00000000 00000000 00000000 00000000    ................
+01c20c50: 00000000 00000000 00000000 00000000    ................
+01c20c60: 00000000 00000000 00000000 00000000    ................
+01c20c70: 00000000 00000000 00000000 00000000    ................
+01c20c80: 00000000 00000000 00000000 00000000    ................
+01c20c90: 00000000 00000000 00000000 00000000    ................
+01c20ca0: 00000000 00000000 00000000 00000000    ................
+01c20cb0: 00000000 00000000 00000000 00000000    ................
+01c20cc0: 00000000 00000000 00000000 00000000    ................
+01c20cd0: 00000000 00000000 00000000 00000000    ................
+01c20ce0: 00000000 00000000 00000000 00000000    ................
+01c20cf0: 00000000 00000000 00000000 00000000    ................
+01c20d00: 00002000 00000000 00000000 00000000    . ..............
+01c20d10: 00000000 00000000 00000000 00000000    ................
+01c20d20: 00000000 00000000 00000000 00000000    ................
+01c20d30: 00000000 00000000 00000000 00000080    ................
+01c20d40: 00002000 00000000 00000000 00000000    . ..............
+</pre>
+<!-- 
+NewPP limit report
+Cached time: 20251029225823
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.191 seconds
+Real time usage: 0.198 seconds
+Preprocessor visited node count: 268/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 4927/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:199-0!canonical and timestamp 20251029225823 and revision id 5569
+ -->
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=Timers_Controller_Register_guide&amp;oldid=5569">https://linux-sunxi.org/index.php?title=Timers_Controller_Register_guide&amp;oldid=5569</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://linux-sunxi.org/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="https://linux-sunxi.org/Category:A10_Register_guide" title="Category:A10 Register guide">A10 Register guide</a></li><li><a href="https://linux-sunxi.org/Category:A13_Register_guide" title="Category:A13 Register guide">A13 Register guide</a></li><li><a href="https://linux-sunxi.org/Category:A20_Register_guide" title="Category:A20 Register guide">A20 Register guide</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>Personal tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-createaccount"><a href="https://linux-sunxi.org/index.php?title=Special:CreateAccount&amp;returnto=Timers+Controller+Register+guide" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://linux-sunxi.org/index.php?title=Special:UserLogin&amp;returnto=Timers+Controller+Register+guide" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>Namespaces</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="../Timers_Controller_Register_guide.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk"><a href="https://linux-sunxi.org/Talk:Timers_Controller_Register_guide" rel="discussion" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>Variants</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>Views</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="../Timers_Controller_Register_guide.html">Read</a></li><li id="ca-viewsource" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Timers_Controller_Register_guide&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history" class="collapsible"><a href="https://linux-sunxi.org/index.php?title=Timers_Controller_Register_guide&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>More</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Search</label>
+	</h3>
+	<form action="https://linux-sunxi.org/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Search linux-sunxi.org" title="Search linux-sunxi.org [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="Special:Search">
+			<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="Visit the main page" class="mw-wiki-logo" href="../Main_Page.html"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>Navigation</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="../Main_Page.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="../sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="https://linux-sunxi.org/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>Tools</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="https://linux-sunxi.org/Special:WhatLinksHere/Timers_Controller_Register_guide" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/Timers_Controller_Register_guide" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="https://linux-sunxi.org/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=Timers_Controller_Register_guide&amp;oldid=5569" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=Timers_Controller_Register_guide&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> This page was last edited on 26 October 2013, at 12:43.</li>
+		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="https://linux-sunxi.org/sunxi:Privacy_policy" title="sunxi:Privacy policy">Privacy policy</a></li>
+		<li id="footer-places-about"><a href="https://linux-sunxi.org/sunxi:About" title="sunxi:About">About linux-sunxi.org</a></li>
+		<li id="footer-places-disclaimer"><a href="https://linux-sunxi.org/sunxi:General_disclaimer" title="sunxi:General disclaimer">Disclaimers</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="http://creativecommons.org/licenses/by/3.0/"><img src="https://linux-sunxi.org/resources/assets/licenses/cc-by.png" alt="Creative Commons Attribution" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://linux-sunxi.org/resources/assets/poweredby_mediawiki_132x47.png 1.5x, https://linux-sunxi.org/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script data-cfasync="false" src="https://linux-sunxi.org/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.191","walltime":"0.198","ppvisitednodes":{"value":268,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":4927,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20251029225823","ttl":86400,"transientcontent":false}}});});</script>
+<!-- No web analytics configured. -->
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":274});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

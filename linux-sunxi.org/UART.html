@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8"/>
 <title>UART - linux-sunxi.org</title>
-<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"6d0a339cfc47e6df4fe6d4eb","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"UART","wgTitle":"UART","wgCurRevisionId":24508,"wgRevisionId":24508,"wgArticleId":788,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Hardware","Development"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"UART","wgRelevantArticleId":788,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":"ready","user":
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"28773824c8be42bbeb32f7af","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"UART","wgTitle":"UART","wgCurRevisionId":24508,"wgRevisionId":24508,"wgArticleId":788,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Hardware","Development"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"UART","wgRelevantArticleId":788,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":"ready","user":
 "ready","user.options":"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
 <script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
 });});</script>
@@ -38,7 +38,7 @@
 		<div id="jump-to-nav"></div>
 		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
 		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
-		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div class="thumb tright"><div class="thumbinner" style="width:242px;"><a href="File:Cp2102_usb_uart_module.jpg.html" class="image"><img alt="" src="https://linux-sunxi.org/images/thumb/c/c6/Cp2102_usb_uart_module.jpg/240px-Cp2102_usb_uart_module.jpg" decoding="async" width="240" height="165" class="thumbimage" srcset="https://linux-sunxi.org/images/thumb/c/c6/Cp2102_usb_uart_module.jpg/360px-Cp2102_usb_uart_module.jpg 1.5x, https://linux-sunxi.org/images/c/c6/Cp2102_usb_uart_module.jpg 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="File:Cp2102_usb_uart_module.jpg.html" class="internal" title="Enlarge"></a></div>A common CP2102 3.3V capable USB UART module</div></div></div>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div class="thumb tright"><div class="thumbinner" style="width:242px;"><a href="https://linux-sunxi.org/File:Cp2102_usb_uart_module.jpg" class="image"><img alt="" src="https://linux-sunxi.org/images/thumb/c/c6/Cp2102_usb_uart_module.jpg/240px-Cp2102_usb_uart_module.jpg" decoding="async" width="240" height="165" class="thumbimage" srcset="https://linux-sunxi.org/images/thumb/c/c6/Cp2102_usb_uart_module.jpg/360px-Cp2102_usb_uart_module.jpg 1.5x, https://linux-sunxi.org/images/c/c6/Cp2102_usb_uart_module.jpg 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://linux-sunxi.org/File:Cp2102_usb_uart_module.jpg" class="internal" title="Enlarge"></a></div>A common CP2102 3.3V capable USB UART module</div></div></div>
 <p>A UART (stands for universal asynchronous receiver-transmitter)  or serial console is absolutely essential when doing bootloader or kernel development on any computer. Due to the lack of a standard PC BIOS and the VESA BIOS that goes with it, access to the serial console on ARM devices is even more important than on the PC.
 </p><p>Even if you do not intend to do much U-Boot or kernel work, access to the serial console will be a life-saver when anything goes wrong.
 </p>
@@ -114,7 +114,7 @@
 <h2><span class="mw-headline" id="UART-USB_dongle">UART-USB dongle</span></h2>
 <p>Currently, all of the available sunxi hardware requires a <b>3.3V UART</b>. Popular chips for such modules are the Silicon Labs CP2102 and the Prolific PL2303HX which are both cheap and relatively easy to find. Many cheap chinese dongles come with either of these or a CH340 based design. They all are supported by mainline Linux.
 </p><p>If you don't know what to buy, consider one that explicitly has 3.3V and 5V printed on the board -- it will probably be compatible with both 3.3V TX/RX. Please note that the cheap dongles will probably leak more power to the SBC, which might cause issues if you want to reset or shut down the board properly. If you want to avoid this power leakage, google for (optically) isolated USB-UART designs. If you already have a cheap dongle, you could try adding some resistors or diodes between the dongle and the SBC or try a thin USB extension cable. These might lower the leakage just enough to enable resetting the board.
-</p><p><a href="File:Exclamation.png.html" class="image"><img alt="Exclamation.png" src="https://linux-sunxi.org/images/c/c0/Exclamation.png" decoding="async" width="16" height="16" /></a>  Unfortunately, many TTL adapters are very poorly documented. The actual available voltage level (1.8/3.3/5/&#8230;V) is either switchable, or a fixed arbitrary value depending on adapter design. Also adapters with the board embedded inside a case tend to have just wires sticking out at one end, with no documentation regarding which wire is which. <b>If in doubt use a multimeter.</b>
+</p><p><a href="https://linux-sunxi.org/File:Exclamation.png" class="image"><img alt="Exclamation.png" src="https://linux-sunxi.org/images/c/c0/Exclamation.png" decoding="async" width="16" height="16" /></a>  Unfortunately, many TTL adapters are very poorly documented. The actual available voltage level (1.8/3.3/5/&#8230;V) is either switchable, or a fixed arbitrary value depending on adapter design. Also adapters with the board embedded inside a case tend to have just wires sticking out at one end, with no documentation regarding which wire is which. <b>If in doubt use a multimeter.</b>
 </p><p>Sample measured values (against USB shell when connected to USB only):
 </p>
 <ul><li>Original <a rel="nofollow" class="external text" href="http://store.r0ck.me/products/ttl-to-usb-serial-cable">Cubietech adapter (board SJ-019 V3.0)</a> or <a rel="nofollow" class="external text" href="http://dx.com/p/arduino-pl2303hx-to-usb-ttl-upload-download-wire-black-100cm-199553">this (board SJ-019 V6.0)</a> white (RX) floating, green (TX) 3.5V, black (gnd) 0V, red (5V) 4.9V. When connected to CB/CT and the board is powered off the power led on the board is dim (not off completely). (You can also check the "<a href="Cubieboard/TTL.html" title="Cubieboard/TTL">Cubieboard/TTL</a>" article to use it with a Cubieboard).</li></ul>
@@ -186,7 +186,7 @@ For the case of Ubuntu, which has AppArmor, your account needs to be member of t
 <h1><span class="mw-headline" id="Attaching_the_UART">Attaching the UART</span></h1>
 <h2><span class="mw-headline" id="With_a_UART_connector_available">With a UART connector available</span></h2>
 <p>If you are using a development board, or a device like the Mele A1000, you should have a nice connector available for attaching your UART module to. If you are extremely lucky, the pin functions will even be printed on your board. Many will not be so lucky, especially with tablets. How to deal with those tougher cases is described below.
-</p><p><br /><b><a href="File:Exclamation-red.png.html" class="image"><img alt="Exclamation-red.png" src="https://linux-sunxi.org/images/2/29/Exclamation-red.png" decoding="async" width="16" height="16" /></a> Do not connect the VCC or 3.3V/5V pin, as that will damage your device!</b> <br /> Some modules have color-coded leads, in that case the <span style="color:red">red</span> wire should correspond to VCC.
+</p><p><br /><b><a href="https://linux-sunxi.org/File:Exclamation-red.png" class="image"><img alt="Exclamation-red.png" src="https://linux-sunxi.org/images/2/29/Exclamation-red.png" decoding="async" width="16" height="16" /></a> Do not connect the VCC or 3.3V/5V pin, as that will damage your device!</b> <br /> Some modules have color-coded leads, in that case the <span style="color:red">red</span> wire should correspond to VCC.
 </p><p>Your USB UART module should have 3 pins:<br />
 RX goes to TX<br />
 TX goes to RX<br />
@@ -196,7 +196,7 @@ GND goes to GND on both
 </p>
 <h2><span class="mw-headline" id="Without_a_UART_connector">Without a UART connector</span></h2>
 <p>Finding the UART pins on a device not meant for development might get quite tricky. It involves disassembling your device with great care, some basic (logical) troubleshooting, some soldering, and then some creativity to be able to export your serial connection to the outside world.
-</p><p><b><a href="File:Exclamation.png.html" class="image"><img alt="Exclamation.png" src="https://linux-sunxi.org/images/c/c0/Exclamation.png" decoding="async" width="16" height="16" /></a>  You will be seriously voiding your warranty here. The likelihood of being left with a damaged device is very high. You might even totally destroy your device. So you need to be extremely careful.</b>
+</p><p><b><a href="https://linux-sunxi.org/File:Exclamation.png" class="image"><img alt="Exclamation.png" src="https://linux-sunxi.org/images/c/c0/Exclamation.png" decoding="async" width="16" height="16" /></a>  You will be seriously voiding your warranty here. The likelihood of being left with a damaged device is very high. You might even totally destroy your device. So you need to be extremely careful.</b>
 </p><p><b>Like with everything on this wiki, you yourself are responsible for the actions you take. If you do damage or destroy your device, it's your own fault.</b>
 </p><p>If you do NOT want to risk damaging or destroying your device, then this howto is not for you. If you are not comfortable with disassembling your device, soldering wires to it, or are lacking some of the necessary equipment, get someone else to do it for you, or don't do it at all.
 </p>
@@ -242,7 +242,7 @@ GND goes to GND on both
 </p><p>A good example of bad routing and the damage that it causes can be seen on the <a href="Hyundai_A7HD.html" title="Hyundai A7HD">Hyundai A7HD page</a>.
 </p><p>Make a point of clearly marking which wire is GND by using a brown or black wire for it. If you use jumper wires from an old PC case, try use a triple connector to make life easier in future.
 </p>
-<div class="thumb tright"><div class="thumbinner" style="width:242px;"><a href="File:A7hd_working.jpg.html" class="image"><img alt="" src="https://linux-sunxi.org/images/thumb/1/16/A7hd_working.jpg/240px-A7hd_working.jpg" decoding="async" width="240" height="180" class="thumbimage" srcset="https://linux-sunxi.org/images/thumb/1/16/A7hd_working.jpg/360px-A7hd_working.jpg 1.5x, https://linux-sunxi.org/images/thumb/1/16/A7hd_working.jpg/480px-A7hd_working.jpg 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="File:A7hd_working.jpg.html" class="internal" title="Enlarge"></a></div>Great for development, but not very socially acceptable.</div></div></div>
+<div class="thumb tright"><div class="thumbinner" style="width:242px;"><a href="https://linux-sunxi.org/File:A7hd_working.jpg" class="image"><img alt="" src="https://linux-sunxi.org/images/thumb/1/16/A7hd_working.jpg/240px-A7hd_working.jpg" decoding="async" width="240" height="180" class="thumbimage" srcset="https://linux-sunxi.org/images/thumb/1/16/A7hd_working.jpg/360px-A7hd_working.jpg 1.5x, https://linux-sunxi.org/images/thumb/1/16/A7hd_working.jpg/480px-A7hd_working.jpg 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://linux-sunxi.org/File:A7hd_working.jpg" class="internal" title="Enlarge"></a></div>Great for development, but not very socially acceptable.</div></div></div>
 <h3><span class="mw-headline" id="Soldering_the_jumper_wires">Soldering the jumper wires</span></h3>
 <p>The usual recommendations for small electronics soldering apply.
 </p>
@@ -322,15 +322,15 @@ the division factor becomes valid, switch the clock source."
 <p>The UART link may often leak some current, which prevents the board from completely shutting down. As a result, the board might not switch to FEL boot mode. Disconnecting and reattaching the UART cable should solve this issue. If one needs to constantly reboot, this can become an issue. There are (optically) isolated UART modules that don't leak power, but one could also experiment with a resistor in the host TX pin or using USB UART dongles with a long extension cable (will weaken the current just enough to prevent the board from staying on).
 </p>
 <h1><span class="mw-headline" id="See_Also">See Also</span></h1>
-<ul><li><a href="JTAG.html" title="JTAG">JTAG</a></li></ul>
+<ul><li><a href="JTAG" title="JTAG">JTAG</a></li></ul>
 <!-- 
 NewPP limit report
-Cached time: 20251029040207
+Cached time: 20251029180625
 Cache expiry: 86400
 Dynamic content: false
 Complications: []
-CPU time usage: 0.147 seconds
-Real time usage: 0.155 seconds
+CPU time usage: 0.123 seconds
+Real time usage: 0.141 seconds
 Preprocessor visited node count: 182/1000000
 Post‐expand include size: 732/2097152 bytes
 Template argument size: 651/2097152 bytes
@@ -341,15 +341,15 @@ Unstrip post‐expand size: 1253/5000000 bytes
 -->
 <!--
 Transclusion expansion time report (%,ms,calls,template)
-100.00%   18.858      1 -total
- 11.43%    2.155      2 Template:Warn
-  9.37%    1.768      1 Template:Dont
+100.00%   16.582      1 -total
+ 51.07%    8.468      2 Template:Warn
+ 38.66%    6.411      1 Template:Dont
 -->
 
-<!-- Saved in parser cache with key wiki:pcache:idhash:788-0!canonical and timestamp 20251029040207 and revision id 24508
+<!-- Saved in parser cache with key wiki:pcache:idhash:788-0!canonical and timestamp 20251029180625 and revision id 24508
  -->
 </div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=UART&amp;oldid=24508">https://linux-sunxi.org/index.php?title=UART&amp;oldid=24508</a>"</div>
-		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Categories</a>: <ul><li><a href="Category:Hardware.html" title="Category:Hardware">Hardware</a></li><li><a href="Category:Development.html" title="Category:Development">Development</a></li></ul></div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://linux-sunxi.org/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="https://linux-sunxi.org/Category:Hardware" title="Category:Hardware">Hardware</a></li><li><a href="https://linux-sunxi.org/Category:Development" title="Category:Development">Development</a></li></ul></div></div>
 	</div>
 </div>
 
@@ -455,7 +455,7 @@ Transclusion expansion time report (%,ms,calls,template)
 	
 <div id="mw-panel">
 	<div id="p-logo" role="banner">
-		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+		<a  title="Visit the main page" class="mw-wiki-logo" href="Main_Page.html"></a>
 	</div>
 	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
 <nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
@@ -466,7 +466,7 @@ Transclusion expansion time report (%,ms,calls,template)
 	<!-- Please do not use the .body class, it is deprecated. -->
 	<div class="body vector-menu-content">
 		<!-- Please do not use the .menu class, it is deprecated. -->
-		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="Main_Page.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="https://linux-sunxi.org/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
 		
 	</div>
 </nav>
@@ -481,7 +481,7 @@ Transclusion expansion time report (%,ms,calls,template)
 	<!-- Please do not use the .body class, it is deprecated. -->
 	<div class="body vector-menu-content">
 		<!-- Please do not use the .menu class, it is deprecated. -->
-		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/UART.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/UART" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=UART&amp;oldid=24508" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=UART&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="https://linux-sunxi.org/Special:WhatLinksHere/UART" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/UART" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="https://linux-sunxi.org/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=UART&amp;oldid=24508" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=UART&amp;action=info" title="More information about this page">Page information</a></li></ul>
 		
 	</div>
 </nav>
@@ -511,8 +511,8 @@ Transclusion expansion time report (%,ms,calls,template)
 
 
 
-<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.147","walltime":"0.155","ppvisitednodes":{"value":182,"limit":1000000},"postexpandincludesize":{"value":732,"limit":2097152},"templateargumentsize":{"value":651,"limit":2097152},"expansiondepth":{"value":3,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":1253,"limit":5000000},"timingprofile":["100.00%   18.858      1 -total"," 11.43%    2.155      2 Template:Warn","  9.37%    1.768      1 Template:Dont"]},"cachereport":{"timestamp":"20251029040207","ttl":86400,"transientcontent":false}}});});</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.123","walltime":"0.141","ppvisitednodes":{"value":182,"limit":1000000},"postexpandincludesize":{"value":732,"limit":2097152},"templateargumentsize":{"value":651,"limit":2097152},"expansiondepth":{"value":3,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":1253,"limit":5000000},"timingprofile":["100.00%   16.582      1 -total"," 51.07%    8.468      2 Template:Warn"," 38.66%    6.411      1 Template:Dont"]},"cachereport":{"timestamp":"20251029180625","ttl":86400,"transientcontent":false}}});});</script>
 <!-- No web analytics configured. -->
 
-<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":508});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":172});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body></html>

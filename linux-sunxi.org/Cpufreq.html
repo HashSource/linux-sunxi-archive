@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8"/>
 <title>Cpufreq - linux-sunxi.org</title>
-<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"a9ba84d177069d5d1f8c086c","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Cpufreq","wgTitle":"Cpufreq","wgCurRevisionId":24296,"wgRevisionId":24296,"wgArticleId":186,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Software","Tutorial","Power"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Cpufreq","wgRelevantArticleId":186,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"351a65ce47dec7bd05a3c49a","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Cpufreq","wgTitle":"Cpufreq","wgCurRevisionId":24296,"wgRevisionId":24296,"wgArticleId":186,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Software","Tutorial","Power"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Cpufreq","wgRelevantArticleId":186,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":
 "ready","user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
 <script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
 });});</script>
@@ -59,7 +59,7 @@
 </div>
 
 <h2><span class="mw-headline" id="Basics">Basics</span></h2>
-<p>Since the main market for Allwinner are mobile devices it is one of the design goals of their SoCs (System on chip) to be able to operate both performant as well as energy efficient. An important role plays 'cpu frequency scaling'. The lower the clock speed, the slower the device and the less energy it consumes (and vice versa). Even the voltage available to the ARM core(s) will be adjusted depending on the clock speed. This is done inside the kernel by defining <i>operating-points</i>, which provide mapping between clock speeds and voltages (the higher the CPU is clocked the more voltage it needs to still operate reliable). Depending on the kernel version, the operating points can be hardcoded in the kernel sources (the sunxi-3.4 kernel on <a href="A10.html" title="A10">A10</a>), defined in the FEX file (the sunxi-3.4 kernel on <a href="A20.html" title="A20">A20</a>) or stored in the device tree blob (the mainline kernel).
+<p>Since the main market for Allwinner are mobile devices it is one of the design goals of their SoCs (System on chip) to be able to operate both performant as well as energy efficient. An important role plays 'cpu frequency scaling'. The lower the clock speed, the slower the device and the less energy it consumes (and vice versa). Even the voltage available to the ARM core(s) will be adjusted depending on the clock speed. This is done inside the kernel by defining <i>operating-points</i>, which provide mapping between clock speeds and voltages (the higher the CPU is clocked the more voltage it needs to still operate reliable). Depending on the kernel version, the operating points can be hardcoded in the kernel sources (the sunxi-3.4 kernel on <a href="A10" title="A10">A10</a>), defined in the FEX file (the sunxi-3.4 kernel on <a href="A20" title="A20">A20</a>) or stored in the device tree blob (the mainline kernel).
 </p><p>It's not enough to define a set of CPU frequency/voltage mappings and upper/lower limits but also strategies to switch between them are needed. These so called <a rel="nofollow" class="external text" href="https://www.kernel.org/doc/Documentation/cpu-freq/governors.txt">cpufreq governors</a> are responsible for that. If your kernel supports cpu frequency scaling you can get the list of available governors and dvfs_table-mappings/operating-points by:
 </p>
 <pre>cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_governors
@@ -103,13 +103,13 @@ echo 1 &gt; /sys/devices/system/cpu/cpufreq/ondemand/io_is_busy
         cd /mnt/ssd &amp;&amp; stress -t 900 -c 2 -m 2 -i 2 -d 2
         sleep 900
 done</pre>
-<p>Each <i>stress</i> task ran 15 minutes, after that we idled 15 min. Temperatures have been read out internally from the thermal sensors inside the A20's touchscreen controller and the <a href="AXP209.html" title="AXP209">AXP209 power management unit (PMU</a>) and verified roughly using two external DHT22 sensors measuring ambient temperature (green graph) and above SoC (purple graph). No external devices were connected to the board except network.
+<p>Each <i>stress</i> task ran 15 minutes, after that we idled 15 min. Temperatures have been read out internally from the thermal sensors inside the A20's touchscreen controller and the <a href="AXP209" title="AXP209">AXP209 power management unit (PMU</a>) and verified roughly using two external DHT22 sensors measuring ambient temperature (green graph) and above SoC (purple graph). No external devices were connected to the board except network.
 </p><p><br />
-<a href="File:Cpufreq_experiment_temperatures.png.html" class="image"><img alt="Cpufreq experiment temperatures.png" src="https://linux-sunxi.org/images/e/e6/Cpufreq_experiment_temperatures.png" decoding="async" width="752" height="302" /></a>
+<a href="https://linux-sunxi.org/File:Cpufreq_experiment_temperatures.png" class="image"><img alt="Cpufreq experiment temperatures.png" src="https://linux-sunxi.org/images/e/e6/Cpufreq_experiment_temperatures.png" decoding="async" width="752" height="302" /></a>
 </p><p>Being idle (then the <i>ondemand</i> governor decreased the CPU clock speed down to 408 MHz) SoC/PMU temperature were 13°/11° above ambient temperature, under load the temperature of the SoC raised 19°C (816 MHz) to 22°C (1104 MHz) above ambient temp. The PMU was also or even more affected (since it has to provide more voltage when the SoC is clocked higher): 19°C at 816 MHz but 24°C above surrounding temperature with the CPU running at 1104 MHz.
 </p><p>Please keep in mind that these thermal values will increase considerably when your device is in a small enclosure preventing airflow and/or the PMU has to power other stuff (external USB peripherals, onboard Wi-Fi or even a SATA disk like on <a href="Lamobo_R1.html" title="Lamobo R1">Lamobo R1</a>).
 </p><p><br />
-<a href="File:Cpufreq_experiment_consumption.png.html" class="image"><img alt="Cpufreq experiment consumption.png" src="https://linux-sunxi.org/images/2/20/Cpufreq_experiment_consumption.png" decoding="async" width="756" height="305" /></a>
+<a href="https://linux-sunxi.org/File:Cpufreq_experiment_consumption.png" class="image"><img alt="Cpufreq experiment consumption.png" src="https://linux-sunxi.org/images/2/20/Cpufreq_experiment_consumption.png" decoding="async" width="756" height="305" /></a>
 </p><p>The board consumed between 270mA (idle, 408 MHz, ~1.35W), 400mA (816 MHz, ~2W) and 500mA (1104 MHz, ~2.5W). Please note that the Olimex boards like nearly all other A20 boards do not power a connected SATA disk through the PMU so the SSD's consumption doesn't show up in the graph at all and the whole system's consumption was 0.8W higher (an energy efficient SSD was used for the tests)
 </p><p>Note that the <a href="Hardware_Reliability_Tests.html#Overheating" title="Hardware Reliability Tests">'cpuburn-a7' and 'cpuburn-a8' tools</a> are a lot more effective for heating the CPU than the 'stress' tool.
 </p>
@@ -127,12 +127,12 @@ It wasn't loaded, and in my case I had not build the module at all.
 </p>
 <!-- 
 NewPP limit report
-Cached time: 20251029034321
+Cached time: 20251029180126
 Cache expiry: 86400
 Dynamic content: false
 Complications: []
-CPU time usage: 0.025 seconds
-Real time usage: 0.029 seconds
+CPU time usage: 0.052 seconds
+Real time usage: 0.096 seconds
 Preprocessor visited node count: 55/1000000
 Post‐expand include size: 0/2097152 bytes
 Template argument size: 0/2097152 bytes
@@ -146,10 +146,10 @@ Transclusion expansion time report (%,ms,calls,template)
 100.00%    0.000      1 -total
 -->
 
-<!-- Saved in parser cache with key wiki:pcache:idhash:186-0!canonical and timestamp 20251029034321 and revision id 24296
+<!-- Saved in parser cache with key wiki:pcache:idhash:186-0!canonical and timestamp 20251029180126 and revision id 24296
  -->
 </div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=Cpufreq&amp;oldid=24296">https://linux-sunxi.org/index.php?title=Cpufreq&amp;oldid=24296</a>"</div>
-		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Categories</a>: <ul><li><a href="Category:Software.html" title="Category:Software">Software</a></li><li><a href="Category:Tutorial.html" title="Category:Tutorial">Tutorial</a></li><li><a href="Category:Power.html" title="Category:Power">Power</a></li></ul></div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://linux-sunxi.org/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="https://linux-sunxi.org/Category:Software" title="Category:Software">Software</a></li><li><a href="https://linux-sunxi.org/Category:Tutorial" title="Category:Tutorial">Tutorial</a></li><li><a href="https://linux-sunxi.org/Category:Power" title="Category:Power">Power</a></li></ul></div></div>
 	</div>
 </div>
 
@@ -255,7 +255,7 @@ Transclusion expansion time report (%,ms,calls,template)
 	
 <div id="mw-panel">
 	<div id="p-logo" role="banner">
-		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+		<a  title="Visit the main page" class="mw-wiki-logo" href="Main_Page.html"></a>
 	</div>
 	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
 <nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
@@ -266,7 +266,7 @@ Transclusion expansion time report (%,ms,calls,template)
 	<!-- Please do not use the .body class, it is deprecated. -->
 	<div class="body vector-menu-content">
 		<!-- Please do not use the .menu class, it is deprecated. -->
-		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="Main_Page.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="https://linux-sunxi.org/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
 		
 	</div>
 </nav>
@@ -281,7 +281,7 @@ Transclusion expansion time report (%,ms,calls,template)
 	<!-- Please do not use the .body class, it is deprecated. -->
 	<div class="body vector-menu-content">
 		<!-- Please do not use the .menu class, it is deprecated. -->
-		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/Cpufreq.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/Cpufreq" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=Cpufreq&amp;oldid=24296" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=Cpufreq&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="https://linux-sunxi.org/Special:WhatLinksHere/Cpufreq" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/Cpufreq" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="https://linux-sunxi.org/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=Cpufreq&amp;oldid=24296" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=Cpufreq&amp;action=info" title="More information about this page">Page information</a></li></ul>
 		
 	</div>
 </nav>
@@ -311,8 +311,8 @@ Transclusion expansion time report (%,ms,calls,template)
 
 
 
-<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.025","walltime":"0.029","ppvisitednodes":{"value":55,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":913,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20251029034321","ttl":86400,"transientcontent":false}}});});</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.052","walltime":"0.096","ppvisitednodes":{"value":55,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":913,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20251029180126","ttl":86400,"transientcontent":false}}});});</script>
 <!-- No web analytics configured. -->
 
-<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":227});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":267});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body></html>

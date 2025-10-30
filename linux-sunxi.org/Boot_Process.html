@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8"/>
 <title>Boot Process - linux-sunxi.org</title>
-<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"81b06f95af7fb6d69ba91940","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Boot_Process","wgTitle":"Boot Process","wgCurRevisionId":22576,"wgRevisionId":22576,"wgArticleId":588,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Boot"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Boot_Process","wgRelevantArticleId":588,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":"ready",
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"108b4fa8135660b14eb85e0b","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Boot_Process","wgTitle":"Boot Process","wgCurRevisionId":22576,"wgRevisionId":22576,"wgArticleId":588,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Boot"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Boot_Process","wgRelevantArticleId":588,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":"ready",
 "user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
 <script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
 });});</script>
@@ -38,7 +38,7 @@
 		<div id="jump-to-nav"></div>
 		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
 		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
-		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>Our SoCs have a very specific boot process. First it executes <a href="BROM.html" title="BROM"> a tiny on chip rom (BROM)</a> which then checks the buttons for <a href="FEL.html" title="FEL">FEL</a> mode and then starts checking the various storage options for a valid boot signature at the right location.
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>Our SoCs have a very specific boot process. First it executes <a href="BROM.html" title="BROM"> a tiny on chip rom (BROM)</a> which then checks the buttons for <a href="FEL" title="FEL">FEL</a> mode and then starts checking the various storage options for a valid boot signature at the right location.
 </p><p>Generally, the BROM first check <a href="Bootable_SD_card.html" title="Bootable SD card"> SD-card</a> boot availability, then in second, <a href="NAND.html" title="NAND">NAND</a> one. The BROM will try to load the <a href="U-Boot.html" title="U-Boot">SPL</a> from U-Boot in each of these devices, which in turn loads the <a class="external text" href="http://en.wikipedia.org/wiki/Kernel_(operating_system)">kernel</a>.
 </p>
 <div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
@@ -78,10 +78,10 @@
 </p>
 <ul><li>"<a href="How_to_boot_the_A10_or_A20_over_the_network.html" title="How to boot the A10 or A20 over the network">How_to_boot_the_A10_or_A20_over_the_network</a>" explains how to configure U-boot for TFTP boot and NFS for system network boot process.</li></ul>
 <h2><span class="mw-headline" id="SATA">SATA</span></h2>
-<p><a href="A10.html" title="A10">A10</a> and <a href="A20.html" title="A20">A20</a> SoCs, support <a href="SATA.html" title="SATA">SATA</a> controler. U-boot also support SATA boot process. That's so possible to boot on SATA device (hard disc drive, solid state device, ...).
+<p><a href="A10" title="A10">A10</a> and <a href="A20" title="A20">A20</a> SoCs, support <a href="SATA.html" title="SATA">SATA</a> controler. U-boot also support SATA boot process. That's so possible to boot on SATA device (hard disc drive, solid state device, ...).
 </p><p>In this case, <a href="Initial_Ramdisk.html" title="Initial Ramdisk">initial Ramdisk</a> is needed.
 </p>
-<ul><li><a href="Category:Devices_with_SATA_port.html" title="Category:Devices with SATA port">Category:Devices with SATA port</a> contains list of devices with SATA port.</li></ul>
+<ul><li><a href="https://linux-sunxi.org/Category:Devices_with_SATA_port" title="Category:Devices with SATA port">Category:Devices with SATA port</a> contains list of devices with SATA port.</li></ul>
 <h2><span class="mw-headline" id="USB">USB</span></h2>
 <p>Most devices with Allwinner SoC have USB ports. U-boot also support USB Boot but U-boot needs to be built specifically for booting over USB
 </p>
@@ -94,12 +94,12 @@ The BROM will try to load the <a href="U-Boot.html" title="U-Boot">SPL</a> from 
 </p>
 <!-- 
 NewPP limit report
-Cached time: 20251029052531
+Cached time: 20251029192241
 Cache expiry: 86400
 Dynamic content: false
 Complications: []
-CPU time usage: 0.020 seconds
-Real time usage: 0.081 seconds
+CPU time usage: 0.024 seconds
+Real time usage: 0.036 seconds
 Preprocessor visited node count: 38/1000000
 Post‐expand include size: 0/2097152 bytes
 Template argument size: 0/2097152 bytes
@@ -113,10 +113,10 @@ Transclusion expansion time report (%,ms,calls,template)
 100.00%    0.000      1 -total
 -->
 
-<!-- Saved in parser cache with key wiki:pcache:idhash:588-0!canonical and timestamp 20251029052531 and revision id 22576
+<!-- Saved in parser cache with key wiki:pcache:idhash:588-0!canonical and timestamp 20251029192241 and revision id 22576
  -->
 </div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=Boot_Process&amp;oldid=22576">https://linux-sunxi.org/index.php?title=Boot_Process&amp;oldid=22576</a>"</div>
-		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Category</a>: <ul><li><a href="Category:Boot.html" title="Category:Boot">Boot</a></li></ul></div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://linux-sunxi.org/Special:Categories" title="Special:Categories">Category</a>: <ul><li><a href="https://linux-sunxi.org/Category:Boot" title="Category:Boot">Boot</a></li></ul></div></div>
 	</div>
 </div>
 
@@ -222,7 +222,7 @@ Transclusion expansion time report (%,ms,calls,template)
 	
 <div id="mw-panel">
 	<div id="p-logo" role="banner">
-		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+		<a  title="Visit the main page" class="mw-wiki-logo" href="Main_Page.html"></a>
 	</div>
 	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
 <nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
@@ -233,7 +233,7 @@ Transclusion expansion time report (%,ms,calls,template)
 	<!-- Please do not use the .body class, it is deprecated. -->
 	<div class="body vector-menu-content">
 		<!-- Please do not use the .menu class, it is deprecated. -->
-		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="Main_Page.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="https://linux-sunxi.org/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
 		
 	</div>
 </nav>
@@ -248,7 +248,7 @@ Transclusion expansion time report (%,ms,calls,template)
 	<!-- Please do not use the .body class, it is deprecated. -->
 	<div class="body vector-menu-content">
 		<!-- Please do not use the .menu class, it is deprecated. -->
-		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="https://linux-sunxi.org/Special:WhatLinksHere/Boot_Process" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/Boot_Process" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=Boot_Process&amp;oldid=22576" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=Boot_Process&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="https://linux-sunxi.org/Special:WhatLinksHere/Boot_Process" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/Boot_Process" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="https://linux-sunxi.org/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=Boot_Process&amp;oldid=22576" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=Boot_Process&amp;action=info" title="More information about this page">Page information</a></li></ul>
 		
 	</div>
 </nav>
@@ -278,8 +278,8 @@ Transclusion expansion time report (%,ms,calls,template)
 
 
 
-<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.020","walltime":"0.081","ppvisitednodes":{"value":38,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":0,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20251029052531","ttl":86400,"transientcontent":false}}});});</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.024","walltime":"0.036","ppvisitednodes":{"value":38,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":0,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20251029192241","ttl":86400,"transientcontent":false}}});});</script>
 <!-- No web analytics configured. -->
 
-<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":263});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":281});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body></html>

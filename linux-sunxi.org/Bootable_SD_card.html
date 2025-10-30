@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8"/>
 <title>Bootable SD card - linux-sunxi.org</title>
-<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"d1e8478c88eee832536fe51c","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Bootable_SD_card","wgTitle":"Bootable SD card","wgCurRevisionId":26778,"wgRevisionId":26778,"wgArticleId":172,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Software","Tutorial","Boot"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Bootable_SD_card","wgRelevantArticleId":172,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"6a47fb7b76284b2fc4ac8921","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Bootable_SD_card","wgTitle":"Bootable SD card","wgCurRevisionId":26799,"wgRevisionId":26799,"wgArticleId":172,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Software","Tutorial","Boot"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Bootable_SD_card","wgRelevantArticleId":172,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":
 "ready","user.styles":"ready","user":"ready","user.options":"loading","ext.cite.styles":"ready","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","ext.cite.ux-enhancements","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
 <script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
 });});</script>
@@ -90,7 +90,7 @@ If the SD card is connected via a USB adapter, linux will know it for example as
 If connected via a SD slot on a device, linux will know it as <kbd>/dev/mmcblk0</kbd> (or <kbd>mmcblk1</kbd>, <kbd>mmcblk2</kbd> depending on which mmc slot is used).
 </p><p>Data is either stored raw on the SD card or in a partition. If <kbd>${p}</kbd> is used then the appropiate partition should be used. Also this differs for USB adapters or mmc controllers. When using an USB adapter, <kbd>${p}</kbd> will be 1, 2, 3 etc so the resulting device is <kbd>/dev/sdb1</kbd>. Using an mmc controller, this would be p1, p2, p3 etc so the resulting device is <kbd>/dev/mmcblk0p1</kbd>.
 </p><p>To summarize: <kbd>${card}</kbd> and <kbd>${card}${p}1</kbd> mean <kbd>/dev/sdb</kbd> and <kbd>/dev/sdb1</kbd> on a USB connected SD card, and <kbd>/dev/mmcblk0</kbd>, <kbd>/dev/mmcblk0p1</kbd> on an mmc controller connected device.
-</p><p><a href="File:Exclamation.png.html" class="image"><img alt="Exclamation.png" src="https://linux-sunxi.org/images/c/c0/Exclamation.png" decoding="async" width="16" height="16" /></a>  If the SD card is connected in another way, the device nodes can change to be even different, take this into account.
+</p><p><a href="https://linux-sunxi.org/File:Exclamation.png" class="image"><img alt="Exclamation.png" src="https://linux-sunxi.org/images/c/c0/Exclamation.png" decoding="async" width="16" height="16" /></a>  If the SD card is connected in another way, the device nodes can change to be even different, take this into account.
 </p>
 <h2><span class="mw-headline" id="SD_Card_Layout">SD Card Layout</span></h2>
 <p>A default <a href="U-Boot.html" title="U-Boot">U-Boot</a> build for an Allwinner based board uses the following layout on (micro-)SD cards or eMMC storage (from v2018.05 or newer):
@@ -245,8 +245,8 @@ mkfs.ext4 ${card}${p}2
 </pre>
 <h4><span class="mw-headline" id="Boot_Partition">Boot Partition</span></h4>
 <pre class="brush: shell">mount ${card}${p}1 /mnt/
-cp linux-sunxi/arch/arm/boot/uImage /mnt/
-cp sunxi-boards/sys_config/a10/script.bin /mnt/
+cp kernel/arch/arm/boot/zImage /mnt/
+cp kernel/arch/arm/boot/dts/allwinner/sunXi-board.dtb /mnt/
 umount /mnt/
 </pre>
 <h3><span class="mw-headline" id="Single_partition">Single partition</span></h3>
@@ -263,8 +263,8 @@ EOT
 <h4><span class="mw-headline" id="Boot_Partition_2">Boot Partition</span></h4>
 <pre class="brush: shell">mount ${card}${p}1 /mnt/
 mkdir /mnt/boot
-cp linux-sunxi/arch/arm/boot/uImage /mnt/boot
-cp sunxi-boards/sys_config/a10/script.bin /mnt/boot
+cp kernel/arch/arm/boot/zImage /mnt/boot
+cp kernel/arch/arm/boot/dts/allwinner/sunXi-board.dtb /mnt/boot
 umount /mnt/
 </pre>
 <h3><span id="GPT_(experimental)"></span><span class="mw-headline" id="GPT_.28experimental.29">GPT (experimental)</span></h3>
@@ -370,7 +370,7 @@ unit: sectors
 <ul><li><b>Power off the board completely before booting</b> If you are using a console cable the board may not power off completely. There is a possiblility that self-powered USB peripherials or USB hubs may cause sililar issue. The red power light would get dimmer when the board is off but does not turn off completely. In this case the mmc controller may not get reset properly and the board boots from nand. Power off the board, disconnect all peripherials, and disconnect the serial console cable. Try booting again. You can re-connect your peripherials before booting. This issue does not seem to happen when the kernel powers down the mmc controller properly but is common when the kernel crashes.</li></ul>
 <ul><li><b>Check for bad micro-SD card contact</b> This is common issue on boards that use micro-SD socket. Try removing and re-inserting the card, cleaning the contacs on the card and dusting off the SD card socket. Some people report that inserting the card together with a piece of paper improves contact and allows booting cards which are too loose in the socket.</li></ul>
 <h1><span class="mw-headline" id="See_also">See also</span></h1>
-<ul><li><a href="FEL.html#Through_a_special_SD_card_image" title="FEL">FEL</a> (Special formatted SD card for FEL boot)</li>
+<ul><li><a href="FEL#Through_a_special_SD_card_image" title="FEL">FEL</a> (Special formatted SD card for FEL boot)</li>
 <li><a href="U-Boot.html" title="U-Boot">U-Boot</a></li></ul>
 <h2><span class="mw-headline" id="External">External</span></h2>
 <ul><li><a class="external text" href="https://github.com/linux-sunxi/u-boot-sunxi/wiki">Additional info on sunxi's flavor of U-Boot</a></li></ul>
@@ -383,30 +383,30 @@ unit: sectors
 </ol></div>
 <!-- 
 NewPP limit report
-Cached time: 20251029040321
+Cached time: 20251029180737
 Cache expiry: 86400
 Dynamic content: false
 Complications: []
-CPU time usage: 0.152 seconds
-Real time usage: 0.189 seconds
+CPU time usage: 0.069 seconds
+Real time usage: 0.087 seconds
 Preprocessor visited node count: 199/1000000
 Post‐expand include size: 143/2097152 bytes
 Template argument size: 117/2097152 bytes
 Highest expansion depth: 3/40
 Expensive parser function count: 0/100
 Unstrip recursion depth: 0/20
-Unstrip post‐expand size: 2915/5000000 bytes
+Unstrip post‐expand size: 2929/5000000 bytes
 -->
 <!--
 Transclusion expansion time report (%,ms,calls,template)
-100.00%    3.391      1 Template:Warn
-100.00%    3.391      1 -total
+100.00%    3.999      1 Template:Warn
+100.00%    3.999      1 -total
 -->
 
-<!-- Saved in parser cache with key wiki:pcache:idhash:172-0!canonical and timestamp 20251029040321 and revision id 26778
+<!-- Saved in parser cache with key wiki:pcache:idhash:172-0!canonical and timestamp 20251029180737 and revision id 26799
  -->
-</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=Bootable_SD_card&amp;oldid=26778">https://linux-sunxi.org/index.php?title=Bootable_SD_card&amp;oldid=26778</a>"</div>
-		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Categories</a>: <ul><li><a href="Category:Software.html" title="Category:Software">Software</a></li><li><a href="Category:Tutorial.html" title="Category:Tutorial">Tutorial</a></li><li><a href="Category:Boot.html" title="Category:Boot">Boot</a></li></ul></div></div>
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=Bootable_SD_card&amp;oldid=26799">https://linux-sunxi.org/index.php?title=Bootable_SD_card&amp;oldid=26799</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://linux-sunxi.org/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="https://linux-sunxi.org/Category:Software" title="Category:Software">Software</a></li><li><a href="https://linux-sunxi.org/Category:Tutorial" title="Category:Tutorial">Tutorial</a></li><li><a href="https://linux-sunxi.org/Category:Boot" title="Category:Boot">Boot</a></li></ul></div></div>
 	</div>
 </div>
 
@@ -438,7 +438,7 @@ Transclusion expansion time report (%,ms,calls,template)
 	<!-- Please do not use the .body class, it is deprecated. -->
 	<div class="body vector-menu-content">
 		<!-- Please do not use the .menu class, it is deprecated. -->
-		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="Bootable_SD_card.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk"><a href="Talk:Bootable_SD_card.html" rel="discussion" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li></ul>
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="Bootable_SD_card.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk"><a href="https://linux-sunxi.org/Talk:Bootable_SD_card" rel="discussion" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li></ul>
 		
 	</div>
 </nav>
@@ -512,7 +512,7 @@ Transclusion expansion time report (%,ms,calls,template)
 	
 <div id="mw-panel">
 	<div id="p-logo" role="banner">
-		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+		<a  title="Visit the main page" class="mw-wiki-logo" href="Main_Page.html"></a>
 	</div>
 	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
 <nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
@@ -523,7 +523,7 @@ Transclusion expansion time report (%,ms,calls,template)
 	<!-- Please do not use the .body class, it is deprecated. -->
 	<div class="body vector-menu-content">
 		<!-- Please do not use the .menu class, it is deprecated. -->
-		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="Main_Page.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="https://linux-sunxi.org/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
 		
 	</div>
 </nav>
@@ -538,7 +538,7 @@ Transclusion expansion time report (%,ms,calls,template)
 	<!-- Please do not use the .body class, it is deprecated. -->
 	<div class="body vector-menu-content">
 		<!-- Please do not use the .menu class, it is deprecated. -->
-		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/Bootable_SD_card.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/Bootable_SD_card" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=Bootable_SD_card&amp;oldid=26778" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=Bootable_SD_card&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="https://linux-sunxi.org/Special:WhatLinksHere/Bootable_SD_card" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/Bootable_SD_card" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="https://linux-sunxi.org/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=Bootable_SD_card&amp;oldid=26799" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=Bootable_SD_card&amp;action=info" title="More information about this page">Page information</a></li></ul>
 		
 	</div>
 </nav>
@@ -551,7 +551,7 @@ Transclusion expansion time report (%,ms,calls,template)
 
 <footer id="footer" class="mw-footer" role="contentinfo" >
 	<ul id="footer-info" >
-		<li id="footer-info-lastmod"> This page was last edited on 5 October 2025, at 21:39.</li>
+		<li id="footer-info-lastmod"> This page was last edited on 29 October 2025, at 09:36.</li>
 		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
 	</ul>
 	<ul id="footer-places" >
@@ -568,8 +568,8 @@ Transclusion expansion time report (%,ms,calls,template)
 
 
 
-<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.152","walltime":"0.189","ppvisitednodes":{"value":199,"limit":1000000},"postexpandincludesize":{"value":143,"limit":2097152},"templateargumentsize":{"value":117,"limit":2097152},"expansiondepth":{"value":3,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":2915,"limit":5000000},"timingprofile":["100.00%    3.391      1 Template:Warn","100.00%    3.391      1 -total"]},"cachereport":{"timestamp":"20251029040321","ttl":86400,"transientcontent":false}}});});</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.069","walltime":"0.087","ppvisitednodes":{"value":199,"limit":1000000},"postexpandincludesize":{"value":143,"limit":2097152},"templateargumentsize":{"value":117,"limit":2097152},"expansiondepth":{"value":3,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":2929,"limit":5000000},"timingprofile":["100.00%    3.999      1 Template:Warn","100.00%    3.999      1 -total"]},"cachereport":{"timestamp":"20251029180737","ttl":86400,"transientcontent":false}}});});</script>
 <!-- No web analytics configured. -->
 
-<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":844});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":326});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body></html>

@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8"/>
 <title>U-Boot - linux-sunxi.org</title>
-<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"d5a9e53f0fef590db44f2b5a","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"U-Boot","wgTitle":"U-Boot","wgCurRevisionId":26665,"wgRevisionId":26665,"wgArticleId":1504,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Tutorial","Software","Development","Boot"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"U-Boot","wgRelevantArticleId":1504,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgRedirectedFrom":"Mainline_U-boot",
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"29356171ba18f2106a60c863","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"U-Boot","wgTitle":"U-Boot","wgCurRevisionId":26801,"wgRevisionId":26801,"wgArticleId":1504,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Tutorial","Software","Development","Boot"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"U-Boot","wgRelevantArticleId":1504,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgRedirectedFrom":"Mainline_U-boot",
 "wgInternalRedirectTargetUrl":"/U-Boot"};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":"ready","user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","mediawiki.action.view.redirect","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
 <script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
 });});</script>
@@ -531,36 +531,19 @@ make CROSS_COMPILE=aarch64-linux-gnu- BL31=&lt;path_to_arm-trusted-firmware&gt;/
 <li><a href="/How_to_boot_the_A10_or_A20_over_the_network" title="How to boot the A10 or A20 over the network"> Ethernet</a></li>
 <li><a href="/Fastboot" title="Fastboot">Fastboot</a></li></ul>
 <h3><span class="mw-headline" id="Booting_with_boot.cmd">Booting with boot.cmd</span></h3>
-<p>For booting from SD with mainline U-Boot, the recommended way is:
+<p>For booting from SD with mainline U-Boot, the recommended way is by using a <i>boot.cmd</i> on the boot partition.
+</p><p>A basic boot.cmd would be:
 </p>
-<ul><li>create a file <i>boot.cmd</i> on the first partition (also check <a href="/Kernel_arguments" title="Kernel arguments">Kernel arguments</a> for extra 'bootargs' options):</li></ul>
-<table class="wikitable">
-<tbody><tr>
-<th>mainline kernel
-</th>
-<th>sunxi-3.4 kernel
-</th></tr>
-<tr>
-<td>
 <pre>setenv bootargs console=ttyS0,115200 root=/dev/mmcblk0p2 rootwait panic=10
-load mmc 0:1 0x43000000 ${fdtfile} || load mmc 0:1 0x43000000 boot/${fdtfile}
-load mmc 0:1 0x42000000 uImage || load mmc 0:1 0x42000000 boot/uImage
-bootm 0x42000000 - 0x43000000
-</pre>
-</td>
-<td>
-<pre>setenv bootm_boot_mode sec
-setenv bootargs console=ttyS0,115200 root=/dev/mmcblk0p2 rootwait panic=10
-load mmc 0:1 0x43000000 script.bin || load mmc 0:1 0x43000000 boot/script.bin
-load mmc 0:1 0x42000000 uImage || load mmc 0:1 0x42000000 boot/uImage
-bootm 0x42000000
-</pre>
-</td></tr></tbody></table>
-<ul><li>If you also want to use an initramfs, please refer to the <a href="/Initial_Ramdisk" title="Initial Ramdisk">Initial Ramdisk</a> article for details.</li></ul>
-<dl><dd><a href="/File:Information.png" class="image"><img alt="Information.png" src="/images/5/54/Information.png" decoding="async" width="16" height="16" /></a> If you're wondering why setting <b>bootm_boot_mode</b> might be necessary for older kernels, have a look at the details of <a href="/PSCI" title="PSCI">PSCI</a>.</dd></dl>
-<dl><dd><a href="/File:Sticky-note-pin.png" class="image"><img alt="Sticky-note-pin.png" src="/images/f/f0/Sticky-note-pin.png" decoding="async" width="16" height="16" /></a> <i>Note:</i> Directly using a <b>zImage</b> is also supported by U-Boot for the sunxi platform. Substitute <i>zImage</i> in place of <i>uImage</i> in the commands above, and then use the <b>bootz</b> command instead of <i>bootm</i>.</dd>
-<dd><a href="/File:Sticky-note-pin.png" class="image"><img alt="Sticky-note-pin.png" src="/images/f/f0/Sticky-note-pin.png" decoding="async" width="16" height="16" /></a> <i>Note:</i> In order to boot your newly created <b>arm64</b> or <b>riscv</b> kernel, remember to use <i>Image</i> instead of <i>uImage/zImage</i>. You also have to load it with <i>booti</i> instead of <i>bootm/bootz</i>. So you have to adopt the corresponding lines in the boot.cmd file.</dd></dl>
-<ul><li><i>boot.cmd</i> isn't used directly, but needs to be wrapped with uboot header with the command:</li></ul>
+load mmc 0:1 0x43000000 sunXi-board.dtb || load mmc 0:1 0x43000000 boot/sunXi-board.dtb
+load mmc 0:1 0x42000000 zImage || load mmc 0:1 0x42000000 boot/zImage
+bootz 0x42000000 - 0x43000000</pre>
+<p>If you are using a <b>uImage</b> for the kernel image, then substitute <i>zImage</i> with <i>uImage</i>, and use <b>bootm</b> instead of <i>bootz</i>.
+If you are on a <b>arm64</b> or <b>riscv</b> kernel, you are using <b>Image</b>, and you have to load it with <b>booti</b>.
+</p><p>If you also want to use an initramfs, please refer to the <a href="/Initial_Ramdisk" title="Initial Ramdisk">Initial Ramdisk</a> article for details.
+</p><p>On kernels before 3.14 (from 2013) setting <b>bootm_boot_mode</b> might be necessary, more info is on the <a href="/PSCI" title="PSCI"> PSCI page</a>.
+</p><p><i>boot.cmd</i> isn't used directly, but needs to be wrapped with uboot header with the command:
+</p>
 <pre>mkimage -C none -A arm -T script -d boot.cmd boot.scr</pre>
 <h3><span class="mw-headline" id="Booting_with_extlinux.conf">Booting with extlinux.conf</span></h3>
 <p>Mainline U-Boot also use syslinux/extlinux as payload.
@@ -736,36 +719,36 @@ git am d47d367036be38c5180632ec8a3ad169a4593a88.patch
 <li><a href="/U-Boot/Changelog" title="U-Boot/Changelog">U-Boot/Changelog</a></li></ul>
 <!-- 
 NewPP limit report
-Cached time: 20251029040831
+Cached time: 20251029181320
 Cache expiry: 86400
 Dynamic content: false
 Complications: []
-CPU time usage: 0.597 seconds
-Real time usage: 0.720 seconds
-Preprocessor visited node count: 1398/1000000
-Post‐expand include size: 19603/2097152 bytes
-Template argument size: 2414/2097152 bytes
+CPU time usage: 0.166 seconds
+Real time usage: 0.211 seconds
+Preprocessor visited node count: 1383/1000000
+Post‐expand include size: 19027/2097152 bytes
+Template argument size: 1941/2097152 bytes
 Highest expansion depth: 4/40
 Expensive parser function count: 0/100
 Unstrip recursion depth: 0/20
-Unstrip post‐expand size: 3231/5000000 bytes
+Unstrip post‐expand size: 3504/5000000 bytes
 -->
 <!--
 Transclusion expansion time report (%,ms,calls,template)
-100.00%  102.904      1 -total
- 18.17%   18.700     86 Template:StatusDone
- 17.84%   18.356      1 Template:Warn
- 13.86%   14.266      6 Template:StatusUnknown
- 10.12%   10.416      2 Template:Info
-  8.46%    8.710      7 Template:StatusInProgress
-  7.41%    7.629     23 Template:StatusTODO
-  5.12%    5.269     10 Template:StatusNA
-  2.25%    2.319      3 Template:Note
+100.00%   94.570      1 -total
+ 20.48%   19.368     86 Template:StatusDone
+ 14.31%   13.532     10 Template:StatusNA
+ 11.95%   11.299      1 Template:Warn
+  8.33%    7.874     23 Template:StatusTODO
+  7.66%    7.240      6 Template:StatusUnknown
+  7.46%    7.059      1 Template:Info
+  7.23%    6.841      7 Template:StatusInProgress
+  2.84%    2.689      1 Template:Note
 -->
 
-<!-- Saved in parser cache with key wiki:pcache:idhash:1504-0!canonical and timestamp 20251029040830 and revision id 26665
+<!-- Saved in parser cache with key wiki:pcache:idhash:1504-0!canonical and timestamp 20251029181320 and revision id 26801
  -->
-</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=U-Boot&amp;oldid=26665">https://linux-sunxi.org/index.php?title=U-Boot&amp;oldid=26665</a>"</div>
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=U-Boot&amp;oldid=26801">https://linux-sunxi.org/index.php?title=U-Boot&amp;oldid=26801</a>"</div>
 		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="/Category:Tutorial" title="Category:Tutorial">Tutorial</a></li><li><a href="/Category:Software" title="Category:Software">Software</a></li><li><a href="/Category:Development" title="Category:Development">Development</a></li><li><a href="/Category:Boot" title="Category:Boot">Boot</a></li></ul></div></div>
 	</div>
 </div>
@@ -898,7 +881,7 @@ Transclusion expansion time report (%,ms,calls,template)
 	<!-- Please do not use the .body class, it is deprecated. -->
 	<div class="body vector-menu-content">
 		<!-- Please do not use the .menu class, it is deprecated. -->
-		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="/Special:WhatLinksHere/U-Boot" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="/Special:RecentChangesLinked/U-Boot" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="/index.php?title=U-Boot&amp;oldid=26665" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="/index.php?title=U-Boot&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="/Special:WhatLinksHere/U-Boot" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="/Special:RecentChangesLinked/U-Boot" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="/index.php?title=U-Boot&amp;oldid=26801" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="/index.php?title=U-Boot&amp;action=info" title="More information about this page">Page information</a></li></ul>
 		
 	</div>
 </nav>
@@ -911,7 +894,7 @@ Transclusion expansion time report (%,ms,calls,template)
 
 <footer id="footer" class="mw-footer" role="contentinfo" >
 	<ul id="footer-info" >
-		<li id="footer-info-lastmod"> This page was last edited on 21 August 2025, at 01:40.</li>
+		<li id="footer-info-lastmod"> This page was last edited on 29 October 2025, at 10:34.</li>
 		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
 	</ul>
 	<ul id="footer-places" >
@@ -928,8 +911,8 @@ Transclusion expansion time report (%,ms,calls,template)
 
 
 
-<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.597","walltime":"0.720","ppvisitednodes":{"value":1398,"limit":1000000},"postexpandincludesize":{"value":19603,"limit":2097152},"templateargumentsize":{"value":2414,"limit":2097152},"expansiondepth":{"value":4,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":3231,"limit":5000000},"timingprofile":["100.00%  102.904      1 -total"," 18.17%   18.700     86 Template:StatusDone"," 17.84%   18.356      1 Template:Warn"," 13.86%   14.266      6 Template:StatusUnknown"," 10.12%   10.416      2 Template:Info","  8.46%    8.710      7 Template:StatusInProgress","  7.41%    7.629     23 Template:StatusTODO","  5.12%    5.269     10 Template:StatusNA","  2.25%    2.319      3 Template:Note"]},"cachereport":{"timestamp":"20251029040831","ttl":86400,"transientcontent":false}}});});</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.166","walltime":"0.211","ppvisitednodes":{"value":1383,"limit":1000000},"postexpandincludesize":{"value":19027,"limit":2097152},"templateargumentsize":{"value":1941,"limit":2097152},"expansiondepth":{"value":4,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":3504,"limit":5000000},"timingprofile":["100.00%   94.570      1 -total"," 20.48%   19.368     86 Template:StatusDone"," 14.31%   13.532     10 Template:StatusNA"," 11.95%   11.299      1 Template:Warn","  8.33%    7.874     23 Template:StatusTODO","  7.66%    7.240      6 Template:StatusUnknown","  7.46%    7.059      1 Template:Info","  7.23%    6.841      7 Template:StatusInProgress","  2.84%    2.689      1 Template:Note"]},"cachereport":{"timestamp":"20251029181320","ttl":86400,"transientcontent":false}}});});</script>
 <!-- No web analytics configured. -->
 
-<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":316});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":383});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body></html>

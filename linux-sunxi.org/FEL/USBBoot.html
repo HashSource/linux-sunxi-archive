@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8"/>
 <title>FEL/USBBoot - linux-sunxi.org</title>
-<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"7a9541172286658638a31ee4","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"FEL/USBBoot","wgTitle":"FEL/USBBoot","wgCurRevisionId":25215,"wgRevisionId":25215,"wgArticleId":219,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Tutorial","Boot"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"FEL/USBBoot","wgRelevantArticleId":219,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"5ab0b2f281dc7a35909731d0","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"FEL/USBBoot","wgTitle":"FEL/USBBoot","wgCurRevisionId":25215,"wgRevisionId":25215,"wgArticleId":219,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Tutorial","Boot"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"FEL/USBBoot","wgRelevantArticleId":219,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":
 "ready","user":"ready","user.options":"loading","ext.cite.styles":"ready","skins.vector.styles.legacy":"ready","jquery.makeCollapsible.styles":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","ext.cite.ux-enhancements","site","mediawiki.page.startup","mediawiki.page.ready","jquery.makeCollapsible","mediawiki.toc","skins.vector.legacy.js"];</script>
 <script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
 });});</script>
@@ -32,7 +32,7 @@
 	<h1 id="firstHeading" class="firstHeading" lang="en">FEL/USBBoot</h1>
 	<div id="bodyContent" class="mw-body-content">
 		<div id="siteSub" class="noprint">From linux-sunxi.org</div>
-		<div id="contentSub"><span class="subpages">&lt; <a href="../FEL.html" title="FEL">FEL</a></span></div>
+		<div id="contentSub"><span class="subpages">&lt; <a href="../FEL" title="FEL">FEL</a></span></div>
 		<div id="contentSub2"></div>
 		
 		<div id="jump-to-nav"></div>
@@ -139,11 +139,11 @@
 	spiflash-read addr length file	Write SPI flash contents into file
 	spiflash-write addr file	Store file contents into SPI flash
 </pre>
-<p><a href="../File:Exclamation.png.html" class="image"><img alt="Exclamation.png" src="https://linux-sunxi.org/images/c/c0/Exclamation.png" decoding="async" width="16" height="16" /></a> <i>Warning:</i> some Linux distributions are already providing packaging for sunxi-tools. However they are also removing certain tools and renaming executables at their discretion. If you encounter troubles with the sunxi-tools package from your distro, then getting sunxi-tools directly from the <a class="external text" href="https://github.com/linux-sunxi/sunxi-tools">github repository</a> is always an option.
+<p><a href="https://linux-sunxi.org/File:Exclamation.png" class="image"><img alt="Exclamation.png" src="https://linux-sunxi.org/images/c/c0/Exclamation.png" decoding="async" width="16" height="16" /></a> <i>Warning:</i> some Linux distributions are already providing packaging for sunxi-tools. However they are also removing certain tools and renaming executables at their discretion. If you encounter troubles with the sunxi-tools package from your distro, then getting sunxi-tools directly from the <a class="external text" href="https://github.com/linux-sunxi/sunxi-tools">github repository</a> is always an option.
 </p>
 <h1><span class="mw-headline" id="Switch_your_device_into_FEL_mode">Switch your device into FEL mode</span></h1>
 <p>Before the 'sunxi-fel' tool can actually talk to your device, the device needs to be connected to your PC using a "USB A to USB mini/micro B" cable.
-</p><p>And then the device needs to be switched into FEL mode. Please refer to the <a href="../FEL.html" title="FEL"> FEL howto</a> for information on how to boot to FEL mode. Device pages should mention the button which triggers FEL mode as well.
+</p><p>And then the device needs to be switched into FEL mode. Please refer to the <a href="../FEL" title="FEL"> FEL howto</a> for information on how to boot to FEL mode. Device pages should mention the button which triggers FEL mode as well.
 </p><p>If you run:
 </p>
 <pre> sunxi-fel version </pre>
@@ -252,7 +252,7 @@ BR2_TARGET_ROOTFS_INITRAMFS=y
 </p><p><i>key=&lt;value&gt;</i> pairs from a textual representation will get <b>merged with the default environment</b>;
 similar to U-Boot's <code>import -t</code> command, or what older U-Boot did with the <i>uEnv.txt</i> file on autoboot.
 </p>
-<dl><dd><a href="../File:Sticky-note-pin.png.html" class="image"><img alt="Sticky-note-pin.png" src="https://linux-sunxi.org/images/f/f0/Sticky-note-pin.png" decoding="async" width="16" height="16" /></a> <i>Note:</i> <span style="color:#ba0000">This requires an up-to-date U-Boot (v2016.09 or later), plus you need to start your data with a special 'magic' signature:</span></dd>
+<dl><dd><a href="https://linux-sunxi.org/File:Sticky-note-pin.png" class="image"><img alt="Sticky-note-pin.png" src="https://linux-sunxi.org/images/f/f0/Sticky-note-pin.png" decoding="async" width="16" height="16" /></a> <i>Note:</i> <span style="color:#ba0000">This requires an up-to-date U-Boot (v2016.09 or later), plus you need to start your data with a special 'magic' signature:</span></dd>
 <dd><pre>#=uEnv</pre></dd></dl>
 <p>The signature will allow the sunxi-fel "write" command to detect uEnv-style data - and will cause it to flag this transfer accordingly, in turn requesting U-Boot v2016.09+ to import it afterwards. You may override arbitrary environment variables this way, including the <code>bootcmd</code>.
 </p>
@@ -351,14 +351,14 @@ chmod +x usb-boot
 </p>
 <h3><span class="mw-headline" id="Zadig_to_the_rescue">Zadig to the rescue</span></h3>
 <p>Fortunately, there's a very convenient utility to help with the USB driver setup. Grab your copy from <a rel="nofollow" class="external free" href="http://zadig.akeo.ie/">http://zadig.akeo.ie/</a>.
-</p><p>Before launching it, make sure your Allwinner device is connected and in <a href="../FEL.html" title="FEL">FEL</a> mode.
-</p><p><a href="../File:Zadig-fel-winusb-instructions.png.html" class="image"><img alt="Zadig-fel-winusb-instructions.png" src="https://linux-sunxi.org/images/7/7a/Zadig-fel-winusb-instructions.png" decoding="async" width="575" height="249" /></a>
+</p><p>Before launching it, make sure your Allwinner device is connected and in <a href="../FEL" title="FEL">FEL</a> mode.
+</p><p><a href="https://linux-sunxi.org/File:Zadig-fel-winusb-instructions.png" class="image"><img alt="Zadig-fel-winusb-instructions.png" src="https://linux-sunxi.org/images/7/7a/Zadig-fel-winusb-instructions.png" decoding="async" width="575" height="249" /></a>
 </p><p><br />Initially, the Zadig utility should only present you a single "Unknown Device #1". If it happens to actually list multiple devices, make sure you pick the correct one by verifying the <b>USB ID</b>, shown as "<b>1F3A:EFE8</b>" in above picture.
 </p>
 <ol><li><i>(Optional, but recommended)</i> Tick the "Edit" checkbox on the right hand side, and enter a more descriptive name for the USB ID in question. This helps a lot later, to distinguish your Allwinner device from other USB entries in the Device Manager.</li>
 <li>Select the desired USB driver. This depends on the Windows executables you intend to use; namely the specific version of <i>libusb</i> that those binaries were compiled with. If your <tt>sunxi-fel.exe</tt> has special driver requirements, those should be stated in the accompanying documentation. When in doubt, select <a rel="nofollow" class="external text" href="http://windows.libusb.info/"><b>WinUSB</b></a> for a "generic" driver (available from Win XP SP3 onwards).</li>
 <li>Click "Install Driver". Voilà - from now on your device should no longer be "unknown" in Device Manager, and <tt>sunxi-fel</tt> is expected to work with it.</li></ol>
-<dl><dd><a href="../File:Sunxi-fel_win32.png.html" class="image"><img alt="Sunxi-fel win32.png" src="https://linux-sunxi.org/images/thumb/a/ab/Sunxi-fel_win32.png/500px-Sunxi-fel_win32.png" decoding="async" width="500" height="294" srcset="https://linux-sunxi.org/images/thumb/a/ab/Sunxi-fel_win32.png/750px-Sunxi-fel_win32.png 1.5x, https://linux-sunxi.org/images/a/ab/Sunxi-fel_win32.png 2x" /></a></dd></dl>
+<dl><dd><a href="https://linux-sunxi.org/File:Sunxi-fel_win32.png" class="image"><img alt="Sunxi-fel win32.png" src="https://linux-sunxi.org/images/thumb/a/ab/Sunxi-fel_win32.png/500px-Sunxi-fel_win32.png" decoding="async" width="500" height="294" srcset="https://linux-sunxi.org/images/thumb/a/ab/Sunxi-fel_win32.png/750px-Sunxi-fel_win32.png 1.5x, https://linux-sunxi.org/images/a/ab/Sunxi-fel_win32.png 2x" /></a></dd></dl>
 <p><br /><b>Troubleshooting:</b>
 </p>
 <ul><li>If you have <tt>listdevs.exe</tt> available in your package, you may use it to check that Windows detects your device at all, and to determine the <i>libusb</i> bus/device numbers.</li>
@@ -387,7 +387,7 @@ chmod +x usb-boot
 <th>Notes
 </th></tr>
 <tr>
-<td>Allwinner <a href="../A10.html" title="A10">A10</a></td>
+<td>Allwinner <a href="../A10" title="A10">A10</a></td>
 <td>Supported</td>
 <td>Supported</td>
 <td>~600 KB/s</td>
@@ -397,7 +397,7 @@ chmod +x usb-boot
 <td>
 </td></tr>
 <tr>
-<td>Allwinner <a href="../A13.html" title="A13">A13</a></td>
+<td>Allwinner <a href="../A13" title="A13">A13</a></td>
 <td>Supported</td>
 <td>Supported</td>
 <td>~570 KB/s (win7 laptop), ~940kB/s (linux opipc)</td>
@@ -407,7 +407,7 @@ chmod +x usb-boot
 <td>
 </td></tr>
 <tr>
-<td>Allwinner <a href="../A20.html" title="A20">A20</a></td>
+<td>Allwinner <a href="../A20" title="A20">A20</a></td>
 <td>Supported</td>
 <td>Supported</td>
 <td>~960 KB/s</td>
@@ -447,7 +447,7 @@ chmod +x usb-boot
 <td>
 </td></tr>
 <tr>
-<td>Allwinner <a href="../A64.html" title="A64">A64</a></td>
+<td>Allwinner <a href="../A64" title="A64">A64</a></td>
 <td>Supported</td>
 <td>Supported <sup id="cite_ref-spl32_4-0" class="reference"><a href="#cite_note-spl32-4">&#91;4&#93;</a></sup></td>
 <td>~510 KB/s</td>
@@ -457,7 +457,7 @@ chmod +x usb-boot
 <td>SPL needs to be loaded at 0x10000 (instead of 0x0)
 </td></tr>
 <tr>
-<td>Allwinner <a href="../A80.html" title="A80">A80</a></td>
+<td>Allwinner <a href="../A80" title="A80">A80</a></td>
 <td>Supported</td>
 <td>Supported</td>
 <td>~930 KB/s (boot0)</td>
@@ -477,7 +477,7 @@ chmod +x usb-boot
 <td>
 </td></tr>
 <tr>
-<td>Allwinner <a href="../H3.html" title="H3">H3</a></td>
+<td>Allwinner <a href="../H3" title="H3">H3</a></td>
 <td>Supported</td>
 <td>Supported</td>
 <td>~960 KB/s</td>
@@ -559,7 +559,7 @@ When uploading data via "sunxi-fel write" command, be sure not to overwrite thes
 <li>For booting via FEL, the Allwinner's idea is that we are supposed to upload only something like up to ~15K of code at the address 0x2000 in SRAM and execute it.</li></ul>
 <p>This is at least inconsistent and definitely not good for us. U-Boot used to require a special size-optimized variant of the SPL specifically for booting via FEL, which also had the base address changed from 0x0 to 0x2000 as an additional inconvenience. Having a special variant of the SPL means an extra configuration to maintain. And the code size limitation is also a nasty problem because a certain set of features has to be disabled. But the "spl" and "uboot" commands, which are implemented by the "sunxi-fel" tool, can work-around this limitation by smuggling just the ordinary MMC or NAND variant of the U-Boot SPL into SRAM. More technical details are provided below.
 </p><p>The reason why we have ~15K code size limitation when booting via FEL is illustrated on the picture below. When we are booting the device in FEL mode, a special code is activated in the BROM and starts communicating over USB using FEL protocol. The USB driver code from the BROM allocates two stacks at rather inconvenient locations inside of the first 32K of SRAM. The IRQ handler stack is set at the address 0x2000 and grows down. And the ordinary application stack is set at the address 0x7000 and also grows down. These stacks make the SRAM space fragmented, and the largest usable contiguous ~15K area is sandwiched between these two stacks. Overwriting either of these stacks via the "sunxi-fel write" crashes the device and it just stops responding to further FEL commands. So uploading a normal U-Boot SPL (which typically has size slightly larger than 20K) to the address 0x0 via "sunxi-fel write" command with the intention to execute it via "sunxi-fel exe" command does not work as expected.
-</p><p><a href="../File:FEL_uboot_memory_map.jpg.html" class="image"><img alt="FEL uboot memory map.jpg" src="https://linux-sunxi.org/images/5/59/FEL_uboot_memory_map.jpg" decoding="async" width="1024" height="732" /></a>
+</p><p><a href="https://linux-sunxi.org/File:FEL_uboot_memory_map.jpg" class="image"><img alt="FEL uboot memory map.jpg" src="https://linux-sunxi.org/images/5/59/FEL_uboot_memory_map.jpg" decoding="async" width="1024" height="732" /></a>
 </p><p>So, how do we solve this problem? Allwinner devices typically have more than 32K of SRAM (the smallest total amount of SRAM among all devices is 48K in Allwinner A13). And we can use extra SRAM locations as a backup storage for the FEL stacks (shown as "backup area 1" and "backup area 2" on the picture above). We also upload a special <a class="external text" href="https://github.com/linux-sunxi/sunxi-tools/blob/1627b13718bae612a2cb14bb03de5bfd578280be/fel-to-spl-thunk.S">thunk code</a>, which is responsible for swapping the content of the FEL stacks with the content of these backup areas before jumping to the address 0x0. Now in order to execute a full-fledged SPL from U-Boot, we only need to split the SPL into chunks and upload it to SRAM, writing the parts which are supposed to overlap the FEL stacks to the backup areas. Executing the thunk code saves the FEL stacks to the backup areas, reassembles the SPL together and passes control to the SPL.
 </p><p>Why do we need to backup the original FEL stacks? The reason is that just uploading and executing the SPL alone is not enough to boot the system. The SPL code is very small and its primary task is to setup clocks and initialize the DRAM. After the DRAM is initialized, all the storage space problems are resolved and we want to load the main U-Boot code to the device. And for this we still need the BROM FEL code alive and getting control back, so that it can still talk with the 'sunxi-fel' tool over USB and execute FEL commands. Hence the SPL returns control back to the thunk code. The thunk code swaps FEL stacks with backup areas again and finally passes control back to the FEL code in the BROM, which is able to happily resume its work because it has all the original data back in its stacks.
 </p>
@@ -616,16 +616,16 @@ soc_sram_info soc_sram_info_table[] = {
 <p>Please report problems to <a class="external free" href="https://github.com/linux-sunxi/sunxi-tools/issues">https://github.com/linux-sunxi/sunxi-tools/issues</a>
 </p>
 <h1><span class="mw-headline" id="See_also">See also</span></h1>
-<ul><li><a href="../FEL.html" title="FEL">FEL</a></li>
+<ul><li><a href="../FEL" title="FEL">FEL</a></li>
 <li><a href="../Miniroot.html" title="Miniroot">miniroot</a></li></ul>
 <!-- 
 NewPP limit report
-Cached time: 20251029040547
+Cached time: 20251029181026
 Cache expiry: 86400
 Dynamic content: false
 Complications: []
-CPU time usage: 0.101 seconds
-Real time usage: 0.117 seconds
+CPU time usage: 0.106 seconds
+Real time usage: 0.122 seconds
 Preprocessor visited node count: 347/1000000
 Post‐expand include size: 802/2097152 bytes
 Template argument size: 655/2097152 bytes
@@ -636,16 +636,16 @@ Unstrip post‐expand size: 10241/5000000 bytes
 -->
 <!--
 Transclusion expansion time report (%,ms,calls,template)
-100.00%   10.618      1 -total
- 60.08%    6.379      1 Template:Note
- 27.53%    2.923      2 Template:Red
- 27.30%    2.899      1 Template:Warn
+100.00%    8.699      1 -total
+ 54.09%    4.705      1 Template:Note
+ 31.07%    2.703      1 Template:Warn
+ 28.42%    2.472      2 Template:Red
 -->
 
-<!-- Saved in parser cache with key wiki:pcache:idhash:219-0!canonical and timestamp 20251029040547 and revision id 25215
+<!-- Saved in parser cache with key wiki:pcache:idhash:219-0!canonical and timestamp 20251029181026 and revision id 25215
  -->
 </div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=FEL/USBBoot&amp;oldid=25215">https://linux-sunxi.org/index.php?title=FEL/USBBoot&amp;oldid=25215</a>"</div>
-		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="../Special:Categories.html" title="Special:Categories">Categories</a>: <ul><li><a href="../Category:Tutorial.html" title="Category:Tutorial">Tutorial</a></li><li><a href="../Category:Boot.html" title="Category:Boot">Boot</a></li></ul></div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://linux-sunxi.org/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="https://linux-sunxi.org/Category:Tutorial" title="Category:Tutorial">Tutorial</a></li><li><a href="https://linux-sunxi.org/Category:Boot" title="Category:Boot">Boot</a></li></ul></div></div>
 	</div>
 </div>
 
@@ -751,7 +751,7 @@ Transclusion expansion time report (%,ms,calls,template)
 	
 <div id="mw-panel">
 	<div id="p-logo" role="banner">
-		<a  title="Visit the main page" class="mw-wiki-logo" href="../index.html"></a>
+		<a  title="Visit the main page" class="mw-wiki-logo" href="../Main_Page.html"></a>
 	</div>
 	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
 <nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
@@ -762,7 +762,7 @@ Transclusion expansion time report (%,ms,calls,template)
 	<!-- Please do not use the .body class, it is deprecated. -->
 	<div class="body vector-menu-content">
 		<!-- Please do not use the .menu class, it is deprecated. -->
-		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="../index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="../sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="../Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="../Main_Page.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="../sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="https://linux-sunxi.org/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
 		
 	</div>
 </nav>
@@ -777,7 +777,7 @@ Transclusion expansion time report (%,ms,calls,template)
 	<!-- Please do not use the .body class, it is deprecated. -->
 	<div class="body vector-menu-content">
 		<!-- Please do not use the .menu class, it is deprecated. -->
-		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="../Special:WhatLinksHere/FEL/USBBoot.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/FEL/USBBoot" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="../Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=FEL/USBBoot&amp;oldid=25215" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=FEL/USBBoot&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="https://linux-sunxi.org/Special:WhatLinksHere/FEL/USBBoot" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/FEL/USBBoot" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="https://linux-sunxi.org/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=FEL/USBBoot&amp;oldid=25215" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=FEL/USBBoot&amp;action=info" title="More information about this page">Page information</a></li></ul>
 		
 	</div>
 </nav>
@@ -807,8 +807,8 @@ Transclusion expansion time report (%,ms,calls,template)
 
 
 
-<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.101","walltime":"0.117","ppvisitednodes":{"value":347,"limit":1000000},"postexpandincludesize":{"value":802,"limit":2097152},"templateargumentsize":{"value":655,"limit":2097152},"expansiondepth":{"value":5,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":1,"limit":20},"unstrip-size":{"value":10241,"limit":5000000},"timingprofile":["100.00%   10.618      1 -total"," 60.08%    6.379      1 Template:Note"," 27.53%    2.923      2 Template:Red"," 27.30%    2.899      1 Template:Warn"]},"cachereport":{"timestamp":"20251029040547","ttl":86400,"transientcontent":false}}});});</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.106","walltime":"0.122","ppvisitednodes":{"value":347,"limit":1000000},"postexpandincludesize":{"value":802,"limit":2097152},"templateargumentsize":{"value":655,"limit":2097152},"expansiondepth":{"value":5,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":1,"limit":20},"unstrip-size":{"value":10241,"limit":5000000},"timingprofile":["100.00%    8.699      1 -total"," 54.09%    4.705      1 Template:Note"," 31.07%    2.703      1 Template:Warn"," 28.42%    2.472      2 Template:Red"]},"cachereport":{"timestamp":"20251029181026","ttl":86400,"transientcontent":false}}});});</script>
 <!-- No web analytics configured. -->
 
-<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":484});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":176});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body></html>

@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8"/>
 <title>Mainline Debian HowTo - linux-sunxi.org</title>
-<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"bb1fa8c02e1f06566dbe557c","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Mainline_Debian_HowTo","wgTitle":"Mainline Debian HowTo","wgCurRevisionId":21279,"wgRevisionId":21279,"wgArticleId":1477,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Tutorial"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Mainline_Debian_HowTo","wgRelevantArticleId":1477,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"d40f8188a365277568736be0","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Mainline_Debian_HowTo","wgTitle":"Mainline Debian HowTo","wgCurRevisionId":21279,"wgRevisionId":21279,"wgArticleId":1477,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Tutorial"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Mainline_Debian_HowTo","wgRelevantArticleId":1477,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":
 "ready","user.styles":"ready","user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
 <script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
 });});</script>
@@ -41,7 +41,7 @@
 		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>This page describes bootstrapping Debian jessie with it's default (mainline) linux kernel (3.16) to create a SD-card with a clean (official) install.
 Based on the <a rel="nofollow" class="external text" href="https://wiki.debian.org/InstallingDebianOn/Allwinner">instructions on the official debian wiki</a>
 </p><p>To summarize the process: Most work is the normal debian bootstrapping procedure. To make the SD-card bootable, we use a precompiled version of U-Boot provided by the Debian installer team.
-Tested on <a href="Cubietech_Cubieboard.html" title="Cubietech Cubieboard">Cubieboard 1</a> and <a href="Cubietech_Cubietruck.html" title="Cubietech Cubietruck">Cubietruck</a>, should work on other boards, too.
+Tested on <a href="Cubietech_Cubieboard" title="Cubietech Cubieboard">Cubieboard 1</a> and <a href="Cubietech_Cubietruck.html" title="Cubietech Cubietruck">Cubietruck</a>, should work on other boards, too.
 </p>
 <div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
 <ul>
@@ -86,7 +86,7 @@ Tested on <a href="Cubietech_Cubieboard.html" title="Cubietech Cubieboard">Cubie
 <li>The current Debian jessie kernels (3.16.7-ckt11-1 at the time of writing) do not support NAND yet, so only SATA and MMC/SD-card storage is supported.</li>
 <li>We will use a recent version of U-Boot and device tree. The Allwinner-specific <a href="Script.bin.html" title="Script.bin">script.bin</a> isn't needed anymore.</li></ul>
 <h2><span class="mw-headline" id="Using_a_ready-made_installation_SD_card_image_instead_of_bootstrapping">Using a ready-made installation SD card image instead of bootstrapping</span></h2>
-<p>If you are being lazy, then it is possible to download a bootable SD card image for <a href="A10.html" title="A10">A10</a>/<a href="A10s.html" title="A10s">A10s</a>/<a href="A20.html" title="A20">A20</a> based devices with the debian installer and write it to an SD card:
+<p>If you are being lazy, then it is possible to download a bootable SD card image for <a href="A10" title="A10">A10</a>/<a href="A10s" title="A10s">A10s</a>/<a href="A20" title="A20">A20</a> based devices with the debian installer and write it to an SD card:
 </p>
 <pre>  wget <a class="external free" href="https://github.com/ssvb/sunxi-bootsetup/releases/download/20141215-sunxi-bootsetup-prototype/20141215-sunxi-bootsetup-prototype-v6.img.xz">https://github.com/ssvb/sunxi-bootsetup/releases/download/20141215-sunxi-bootsetup-prototype/20141215-sunxi-bootsetup-prototype-v6.img.xz</a>
   xzcat 20141215-sunxi-bootsetup-prototype-v6.img.xz &gt; ${card}
@@ -102,7 +102,7 @@ Tested on <a href="Cubietech_Cubieboard.html" title="Cubietech Cubieboard">Cubie
    mkimage -A arm -O linux -T ramdisk -C lzma -a 0x43300000 -n "Debian Installer" -d initrd.lzma initrd-debian-netboot.lzma.uboot
 </pre>
 <p>And then replace the 'initrd-debian-netboot.lzma.uboot' file on the SD card with the newly generated one.
-</p><p>Supported devices: <a href="Cubieboard.html" class="mw-redirect" title="Cubieboard">Cubieboard</a>, <a href="Cubieboard2.html" class="mw-redirect" title="Cubieboard2">Cubieboard2</a>, <a href="Cubietruck.html" class="mw-redirect" title="Cubietruck">Cubietruck</a>, <a href="A10-OLinuXino-LIME.html" class="mw-redirect" title="A10-OLinuXino-LIME">A10-OLinuXino-LIME</a>, <a href="Mele_A2000.html" class="mw-redirect" title="Mele A2000">Mele A2000</a> and many others (which are yet to be tested).
+</p><p>Supported devices: <a href="Cubieboard" class="mw-redirect" title="Cubieboard">Cubieboard</a>, <a href="Cubieboard2.html" class="mw-redirect" title="Cubieboard2">Cubieboard2</a>, <a href="Cubietruck" class="mw-redirect" title="Cubietruck">Cubietruck</a>, <a href="A10-OLinuXino-LIME.html" class="mw-redirect" title="A10-OLinuXino-LIME">A10-OLinuXino-LIME</a>, <a href="Mele_A2000.html" class="mw-redirect" title="Mele A2000">Mele A2000</a> and many others (which are yet to be tested).
 </p>
 <h1><span class="mw-headline" id="Getting_a_cross_toolchain">Getting a cross toolchain</span></h1>
 <p>Refer to <a href="Toolchain.html" title="Toolchain">Toolchain</a>. This is not needed if you do not intent to build U-Boot by yourself.
@@ -135,7 +135,7 @@ Tested on <a href="Cubietech_Cubieboard.html" title="Cubietech Cubieboard">Cubie
 </pre>
 <h2><span class="mw-headline" id="Setting_up_the_SD-card">Setting up the SD-card</span></h2>
 <p>${card} is the SD device (ie <i>/dev/sdc</i>). ${partition} is the partition number (ie. <i>1</i>).
-<a href="File:Exclamation.png.html" class="image"><img alt="Exclamation.png" src="https://linux-sunxi.org/images/c/c0/Exclamation.png" decoding="async" width="16" height="16" /></a> <i>Warning:</i> This will delete the content.
+<a href="https://linux-sunxi.org/File:Exclamation.png" class="image"><img alt="Exclamation.png" src="https://linux-sunxi.org/images/c/c0/Exclamation.png" decoding="async" width="16" height="16" /></a> <i>Warning:</i> This will delete the content.
 </p>
 <pre> dd if=/dev/zero of=${card} bs=1M count=1
  dd if=u-boot-sunxi-with-spl.bin of=${card} bs=1024 seek=8
@@ -295,7 +295,7 @@ If it says something like <tt>'CRC error' 'loading default environment'</tt>, th
 <h3><span class="mw-headline" id="systemd">systemd</span></h3>
 <p>Newer debian uses systemd by default. Beside activing ttyS0 there using
 </p>
-<pre>systemctl enable <a href="https://linux-sunxi.org/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6112041308000d4c06041515182115151832514f12041317080204">[email&#160;protected]</a>
+<pre>systemctl enable <a href="https://linux-sunxi.org/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a8dbcddac1c9c485cfcddcdcd1e8dcdcd1fb9886dbcddadec1cbcd">[email&#160;protected]</a>
 </pre>
 <p>make sure your kernel has
 </p>
@@ -318,12 +318,12 @@ U-Boot is on the right track and Debian-installer will be usable on various sunx
 <li><a class="external text" href="https://github.com/igorpecovnik/Cubietruck-Debian/blob/master/build.sh">https://github.com/igorpecovnik/Cubietruck-Debian/blob/master/build.sh</a></li></ul>
 <!-- 
 NewPP limit report
-Cached time: 20251029040707
+Cached time: 20251029181150
 Cache expiry: 86400
 Dynamic content: false
 Complications: []
-CPU time usage: 0.049 seconds
-Real time usage: 0.068 seconds
+CPU time usage: 0.050 seconds
+Real time usage: 0.114 seconds
 Preprocessor visited node count: 108/1000000
 Post‐expand include size: 67/2097152 bytes
 Template argument size: 29/2097152 bytes
@@ -334,14 +334,14 @@ Unstrip post‐expand size: 959/5000000 bytes
 -->
 <!--
 Transclusion expansion time report (%,ms,calls,template)
-100.00%    2.949      1 Template:Warn
-100.00%    2.949      1 -total
+100.00%    3.995      1 Template:Warn
+100.00%    3.995      1 -total
 -->
 
-<!-- Saved in parser cache with key wiki:pcache:idhash:1477-0!canonical and timestamp 20251029040707 and revision id 21279
+<!-- Saved in parser cache with key wiki:pcache:idhash:1477-0!canonical and timestamp 20251029181150 and revision id 21279
  -->
 </div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=Mainline_Debian_HowTo&amp;oldid=21279">https://linux-sunxi.org/index.php?title=Mainline_Debian_HowTo&amp;oldid=21279</a>"</div>
-		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Category</a>: <ul><li><a href="Category:Tutorial.html" title="Category:Tutorial">Tutorial</a></li></ul></div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://linux-sunxi.org/Special:Categories" title="Special:Categories">Category</a>: <ul><li><a href="https://linux-sunxi.org/Category:Tutorial" title="Category:Tutorial">Tutorial</a></li></ul></div></div>
 	</div>
 </div>
 
@@ -447,7 +447,7 @@ Transclusion expansion time report (%,ms,calls,template)
 	
 <div id="mw-panel">
 	<div id="p-logo" role="banner">
-		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+		<a  title="Visit the main page" class="mw-wiki-logo" href="Main_Page.html"></a>
 	</div>
 	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
 <nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
@@ -458,7 +458,7 @@ Transclusion expansion time report (%,ms,calls,template)
 	<!-- Please do not use the .body class, it is deprecated. -->
 	<div class="body vector-menu-content">
 		<!-- Please do not use the .menu class, it is deprecated. -->
-		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="Main_Page.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="https://linux-sunxi.org/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
 		
 	</div>
 </nav>
@@ -473,7 +473,7 @@ Transclusion expansion time report (%,ms,calls,template)
 	<!-- Please do not use the .body class, it is deprecated. -->
 	<div class="body vector-menu-content">
 		<!-- Please do not use the .menu class, it is deprecated. -->
-		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/Mainline_Debian_HowTo.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/Mainline_Debian_HowTo" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=Mainline_Debian_HowTo&amp;oldid=21279" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=Mainline_Debian_HowTo&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="https://linux-sunxi.org/Special:WhatLinksHere/Mainline_Debian_HowTo" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/Mainline_Debian_HowTo" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="https://linux-sunxi.org/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=Mainline_Debian_HowTo&amp;oldid=21279" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=Mainline_Debian_HowTo&amp;action=info" title="More information about this page">Page information</a></li></ul>
 		
 	</div>
 </nav>
@@ -503,8 +503,8 @@ Transclusion expansion time report (%,ms,calls,template)
 
 
 
-<script data-cfasync="false" src="https://linux-sunxi.org/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.049","walltime":"0.068","ppvisitednodes":{"value":108,"limit":1000000},"postexpandincludesize":{"value":67,"limit":2097152},"templateargumentsize":{"value":29,"limit":2097152},"expansiondepth":{"value":3,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":959,"limit":5000000},"timingprofile":["100.00%    2.949      1 Template:Warn","100.00%    2.949      1 -total"]},"cachereport":{"timestamp":"20251029040707","ttl":86400,"transientcontent":false}}});});</script>
+<script data-cfasync="false" src="https://linux-sunxi.org/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.050","walltime":"0.114","ppvisitednodes":{"value":108,"limit":1000000},"postexpandincludesize":{"value":67,"limit":2097152},"templateargumentsize":{"value":29,"limit":2097152},"expansiondepth":{"value":3,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":959,"limit":5000000},"timingprofile":["100.00%    3.995      1 Template:Warn","100.00%    3.995      1 -total"]},"cachereport":{"timestamp":"20251029181150","ttl":86400,"transientcontent":false}}});});</script>
 <!-- No web analytics configured. -->
 
-<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":506});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":211});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body></html>

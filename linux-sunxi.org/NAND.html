@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8"/>
 <title>NAND - linux-sunxi.org</title>
-<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"fa27a3e91f0a9565e5bc1cc7","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"NAND","wgTitle":"NAND","wgCurRevisionId":22414,"wgRevisionId":22414,"wgArticleId":811,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Hardware"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"NAND","wgRelevantArticleId":811,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":"ready","user":"ready",
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"7bc4d27436c395d83980b502","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"NAND","wgTitle":"NAND","wgCurRevisionId":22414,"wgRevisionId":22414,"wgArticleId":811,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Hardware"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"NAND","wgRelevantArticleId":811,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":"ready","user":"ready",
 "user.options":"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
 <script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
 });});</script>
@@ -40,7 +40,7 @@
 		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
 		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><table style="margin: 0.7em; border-width: 1px 1px 1px 10px; border-style: solid; border-color: #EE8822; background-color: #FFEEDD">
 <tbody><tr>
-<td style="padding: 0.2em; vertical-align: baseline;"><a href="File:MBOX_icon_important.png.html" class="image"><img alt="MBOX icon important.png" src="https://linux-sunxi.org/images/f/f0/MBOX_icon_important.png" decoding="async" width="40" height="40" /></a>
+<td style="padding: 0.2em; vertical-align: baseline;"><a href="https://linux-sunxi.org/File:MBOX_icon_important.png" class="image"><img alt="MBOX icon important.png" src="https://linux-sunxi.org/images/f/f0/MBOX_icon_important.png" decoding="async" width="40" height="40" /></a>
 </td>
 <td style="width:100%; padding-left: 0.2em; padding-right: 0.2em; vertical-align: baseline;">This page provides installation instructions for the legacy unmaintained u-boot-sunxi and sunxi-3.4 kernel forks. Although it contains useful information how things work, driver for mainline kernel (3.14+) has <a href="MTD_Driver.html" title="MTD Driver">its own page here</a>.
 </td></tr></tbody></table>
@@ -48,7 +48,7 @@
 </p>
 <table style="margin: 0.7em; border-width: 1px 1px 1px 10px; border-style: solid; border-color: #EE8822; background-color: #FFEEDD">
 <tbody><tr>
-<td style="padding: 0.2em; vertical-align: baseline;"><a href="File:MBOX_icon_important.png.html" class="image"><img alt="MBOX icon important.png" src="https://linux-sunxi.org/images/f/f0/MBOX_icon_important.png" decoding="async" width="40" height="40" /></a>
+<td style="padding: 0.2em; vertical-align: baseline;"><a href="https://linux-sunxi.org/File:MBOX_icon_important.png" class="image"><img alt="MBOX icon important.png" src="https://linux-sunxi.org/images/f/f0/MBOX_icon_important.png" decoding="async" width="40" height="40" /></a>
 </td>
 <td style="width:100%; padding-left: 0.2em; padding-right: 0.2em; vertical-align: baseline;">Also see: <a href="Mainline_NAND_Howto.html" title="Mainline NAND Howto">Mainline_NAND_Howto</a> and <a href="Linux_mainlining_effort.html#Status_Matrix" title="Linux mainlining effort">Linux_mainlining_effort#Status_Matrix</a>.
 </td></tr></tbody></table>
@@ -85,7 +85,7 @@
 </div>
 
 <h1><span class="mw-headline" id="Background">Background</span></h1>
-<p>Our SoCs have a very specific <a href="Boot_Process.html" title="Boot Process"> boot process</a>. First it executes <a href="BROM.html" title="BROM"> a tiny on chip rom (BROM)</a> which then checks the buttons for <a href="FEL.html" title="FEL">FEL</a> mode and then starts checking the various storage options for a valid boot signature at the right location.
+<p>Our SoCs have a very specific <a href="Boot_Process.html" title="Boot Process"> boot process</a>. First it executes <a href="BROM.html" title="BROM"> a tiny on chip rom (BROM)</a> which then checks the buttons for <a href="FEL" title="FEL">FEL</a> mode and then starts checking the various storage options for a valid boot signature at the right location.
 </p><p>There is no real difference between NAND and an SD-card apart from the fact that directly attached flash use the Sunxi NAND controller directly while SD-Cards come with a standard interface and an embedded controller usually based today on cortex-m0 core that runs proprietary firmware which implements flash translation layer that performs wear leveling. The sunxi nand controller is harder to implement than the sunxi sd-card controller, and the sample code provided by allwinner is rather large (and shared between U-boot and the kernel).
 </p><p>Then there is the NAND hw randomizer that gets in the way. Allwinner uses one setting for the BROM and the second boot stage (boot0/SPL), and another setting for normal use. With this setup, it is currently not implemented to access both bits at the same time. This currently provides another barrier for implementation, as one first needs to be able to read/write this area. While this is not beyond fixing, these are quite a few hoops to jump through.
 </p><p>As a result of the above, we have to use the existing second and third stages of the allwinner nand boot process, and we need to use nand-part for partitioning. If we had proper u-boot support, we would not need any of that.
@@ -358,15 +358,15 @@ partition  9: class =         DISK, name =        UDISK, partition start =  4104
 <h1><span class="mw-headline" id="See_also">See also</span></h1>
 <ul><li><a rel="nofollow" class="external text" href="http://www.onfi.org/~/media/ONFI/specs/onfi_3_1_spec.pdf">Open NAND Flash Interface Specification</a>.</li></ul>
 <h1><span class="mw-headline" id="Documents">Documents</span></h1>
-<ul><li><a href="File:A33_Nand_Flash_Controller_Specification.pdf.html" title="File:A33 Nand Flash Controller Specification.pdf">File:A33 Nand Flash Controller Specification.pdf</a><small>(PDF, 29 pages, 2014-02-28)</small></li></ul>
+<ul><li><a href="https://linux-sunxi.org/File:A33_Nand_Flash_Controller_Specification.pdf" title="File:A33 Nand Flash Controller Specification.pdf">File:A33 Nand Flash Controller Specification.pdf</a><small>(PDF, 29 pages, 2014-02-28)</small></li></ul>
 <!-- 
 NewPP limit report
-Cached time: 20251029040259
+Cached time: 20251029180732
 Cache expiry: 86400
 Dynamic content: false
 Complications: []
-CPU time usage: 0.062 seconds
-Real time usage: 0.095 seconds
+CPU time usage: 0.464 seconds
+Real time usage: 0.857 seconds
 Preprocessor visited node count: 94/1000000
 Post‐expand include size: 2805/2097152 bytes
 Template argument size: 1131/2097152 bytes
@@ -377,16 +377,16 @@ Unstrip post‐expand size: 2915/5000000 bytes
 -->
 <!--
 Transclusion expansion time report (%,ms,calls,template)
-100.00%   10.562      1 -total
- 98.51%   10.405      2 Template:Alert
- 61.70%    6.516      2 Template:MBOX_NOTE
- 30.22%    3.192      2 Template:MBOX
+100.00%  221.758      1 -total
+ 99.92%  221.577      2 Template:Alert
+ 85.31%  189.172      2 Template:MBOX_NOTE
+ 66.14%  146.671      2 Template:MBOX
 -->
 
-<!-- Saved in parser cache with key wiki:pcache:idhash:811-0!canonical and timestamp 20251029040259 and revision id 22414
+<!-- Saved in parser cache with key wiki:pcache:idhash:811-0!canonical and timestamp 20251029180732 and revision id 22414
  -->
 </div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=NAND&amp;oldid=22414">https://linux-sunxi.org/index.php?title=NAND&amp;oldid=22414</a>"</div>
-		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Category</a>: <ul><li><a href="Category:Hardware.html" title="Category:Hardware">Hardware</a></li></ul></div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://linux-sunxi.org/Special:Categories" title="Special:Categories">Category</a>: <ul><li><a href="https://linux-sunxi.org/Category:Hardware" title="Category:Hardware">Hardware</a></li></ul></div></div>
 	</div>
 </div>
 
@@ -418,7 +418,7 @@ Transclusion expansion time report (%,ms,calls,template)
 	<!-- Please do not use the .body class, it is deprecated. -->
 	<div class="body vector-menu-content">
 		<!-- Please do not use the .menu class, it is deprecated. -->
-		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="NAND.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk"><a href="Talk:NAND.html" rel="discussion" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li></ul>
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="NAND.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk"><a href="https://linux-sunxi.org/Talk:NAND" rel="discussion" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li></ul>
 		
 	</div>
 </nav>
@@ -492,7 +492,7 @@ Transclusion expansion time report (%,ms,calls,template)
 	
 <div id="mw-panel">
 	<div id="p-logo" role="banner">
-		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+		<a  title="Visit the main page" class="mw-wiki-logo" href="Main_Page.html"></a>
 	</div>
 	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
 <nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
@@ -503,7 +503,7 @@ Transclusion expansion time report (%,ms,calls,template)
 	<!-- Please do not use the .body class, it is deprecated. -->
 	<div class="body vector-menu-content">
 		<!-- Please do not use the .menu class, it is deprecated. -->
-		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="Main_Page.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="https://linux-sunxi.org/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
 		
 	</div>
 </nav>
@@ -518,7 +518,7 @@ Transclusion expansion time report (%,ms,calls,template)
 	<!-- Please do not use the .body class, it is deprecated. -->
 	<div class="body vector-menu-content">
 		<!-- Please do not use the .menu class, it is deprecated. -->
-		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/NAND.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/NAND" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=NAND&amp;oldid=22414" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=NAND&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="https://linux-sunxi.org/Special:WhatLinksHere/NAND" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/NAND" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="https://linux-sunxi.org/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=NAND&amp;oldid=22414" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=NAND&amp;action=info" title="More information about this page">Page information</a></li></ul>
 		
 	</div>
 </nav>
@@ -548,8 +548,8 @@ Transclusion expansion time report (%,ms,calls,template)
 
 
 
-<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.062","walltime":"0.095","ppvisitednodes":{"value":94,"limit":1000000},"postexpandincludesize":{"value":2805,"limit":2097152},"templateargumentsize":{"value":1131,"limit":2097152},"expansiondepth":{"value":7,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":2915,"limit":5000000},"timingprofile":["100.00%   10.562      1 -total"," 98.51%   10.405      2 Template:Alert"," 61.70%    6.516      2 Template:MBOX_NOTE"," 30.22%    3.192      2 Template:MBOX"]},"cachereport":{"timestamp":"20251029040259","ttl":86400,"transientcontent":false}}});});</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.464","walltime":"0.857","ppvisitednodes":{"value":94,"limit":1000000},"postexpandincludesize":{"value":2805,"limit":2097152},"templateargumentsize":{"value":1131,"limit":2097152},"expansiondepth":{"value":7,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":2915,"limit":5000000},"timingprofile":["100.00%  221.758      1 -total"," 99.92%  221.577      2 Template:Alert"," 85.31%  189.172      2 Template:MBOX_NOTE"," 66.14%  146.671      2 Template:MBOX"]},"cachereport":{"timestamp":"20251029180732","ttl":86400,"transientcontent":false}}});});</script>
 <!-- No web analytics configured. -->
 
-<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":378});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":231});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body></html>

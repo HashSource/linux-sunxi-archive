@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8"/>
 <title>BROM - linux-sunxi.org</title>
-<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"32cf4b3cd7d980cb169bec83","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"BROM","wgTitle":"BROM","wgCurRevisionId":23844,"wgRevisionId":23844,"wgArticleId":192,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Boot"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"BROM","wgRelevantArticleId":192,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":"ready","user":"ready","user.options"
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"aad32d32cf02730db99711b7","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"BROM","wgTitle":"BROM","wgCurRevisionId":23844,"wgRevisionId":23844,"wgArticleId":192,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Boot"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"BROM","wgRelevantArticleId":192,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":"ready","user":"ready","user.options"
 :"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
 <script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
 });});</script>
@@ -55,7 +55,7 @@
 </div>
 
 <h2><span id="A10/A20"></span><span class="mw-headline" id="A10.2FA20">A10/A20</span></h2>
-<p>After power-up, the A10/A20 boots from an integrated, non-replaceable 32 KiB ROM chip (Boot ROM or BROM). This could be considered the primary program-loader. The SoC starts to fetch instructions from address 0xffff0000 which is where the BROM is located at. The BROM split up into two parts: The first part (at 0xffff0000) is the <a href="FEL.html" title="FEL">FEL mode</a> and the second is the <a href="EGON.html#eGON.BRM" title="EGON">eGON.BRM</a> (located at 0xffff4000).
+<p>After power-up, the A10/A20 boots from an integrated, non-replaceable 32 KiB ROM chip (Boot ROM or BROM). This could be considered the primary program-loader. The SoC starts to fetch instructions from address 0xffff0000 which is where the BROM is located at. The BROM split up into two parts: The first part (at 0xffff0000) is the <a href="FEL" title="FEL">FEL mode</a> and the second is the <a href="EGON.html#eGON.BRM" title="EGON">eGON.BRM</a> (located at 0xffff4000).
 </p>
 <h3><span class="mw-headline" id="Reset_vector">Reset vector</span></h3>
 <p>The <a class="external text" href="https://github.com/hno/Allwinner-Info/blob/master/BROM/ffff0000.s#L1#L1">reset vector</a> is located at the very begining of FEL mode: at address 0xffff0000. On reset, it jumps to 0xffff0028 where it <a class="external text" href="https://github.com/hno/Allwinner-Info/blob/master/BROM/ffff0000.s#L17#L17">loads</a> 0xffff4000 (eGON.BRM) into the program counter to be executed next.
@@ -71,7 +71,7 @@
 <li><a class="external text" href="https://github.com/hno/Allwinner-Info/blob/master/BROM/ffff4000.s#L40#L40">sets</a> the Stack Pointer to 32K</li>
 <li>then it <a class="external text" href="https://github.com/hno/Allwinner-Info/blob/master/BROM/ffff4000.s#L41#L41">jumps</a> to <a class="external text" href="https://github.com/hno/Allwinner-Info/blob/master/BROM/ffff4000.s#L84#L84">'boot'</a> which immediately <a class="external text" href="https://github.com/hno/Allwinner-Info/blob/master/BROM/ffff4000.s#L86#L86">jumps to</a> <a class="external text" href="https://github.com/hno/Allwinner-Info/blob/master/BROM/ffff4000.s#L2551#L2551">check_uboot</a></li>
 <li><a class="external text" href="https://github.com/hno/Allwinner-Info/blob/master/BROM/ffff4000.s#L2551#L2551">check_uboot</a> setups up some registers, then <a class="external text" href="https://github.com/hno/Allwinner-Info/blob/master/BROM/ffff4000.s#L2560#L2560">checks the status pin</a> (often called FEL pin, BSP pin or <b>uboot</b>)
-<ol><li>if the pin is low (connected to GND) <a class="external text" href="https://github.com/hno/Allwinner-Info/blob/master/BROM/ffff4000.s#L90#L90">executes</a> <a href="FEL.html" title="FEL">FEL</a> mode at 0xffff0020.</li>
+<ol><li>if the pin is low (connected to GND) <a class="external text" href="https://github.com/hno/Allwinner-Info/blob/master/BROM/ffff4000.s#L90#L90">executes</a> <a href="FEL" title="FEL">FEL</a> mode at 0xffff0020.</li>
 <li>If the pin is high it continues trying to boot from the following media and on failure continues to the next in order.
 <ol><li><a class="external text" href="https://github.com/hno/Allwinner-Info/blob/master/BROM/ffff4000.s#L91#L91">SD Card0</a> also known as <a href="A10/CCM.html#CCM_MMC0_CLK" class="mw-redirect" title="A10/CCM">MMC0</a></li>
 <li><a class="external text" href="https://github.com/hno/Allwinner-Info/blob/master/BROM/ffff4000.s#L98#L98">Internal NAND flash</a> also known as <a href="A10/CCM.html#CCM_NAND_CLK" class="mw-redirect" title="A10/CCM">NAND</a></li>
@@ -131,7 +131,7 @@ by hipboi
 <th>Notes
 </th></tr>
 <tr>
-<td>Allwinner <a href="A10.html" title="A10">A10</a></td>
+<td>Allwinner <a href="A10" title="A10">A10</a></td>
 <td>24 KiB</td>
 <td></td>
 <td>0x00000</td>
@@ -139,7 +139,7 @@ by hipboi
 <td>There is an artificial 24 KiB limit and anything larger is rejected by the BROM
 </td></tr>
 <tr>
-<td>Allwinner <a href="A13.html" title="A13">A13</a></td>
+<td>Allwinner <a href="A13" title="A13">A13</a></td>
 <td>0x7E00</td>
 <td></td>
 <td>0x00000</td>
@@ -147,7 +147,7 @@ by hipboi
 <td>Sizes larger than 0x7E00 bytes are rejected by the BROM. Exactly 0x7E00 is fine, as verified by writing a special pattern at the end of the SPL file and checking it in the SRAM. Note that the top of the SPL stack needs to be changed in U-Boot sources from 0x8000 to something like 0x7000 in order to make it a clean experiment.
 </td></tr>
 <tr>
-<td>Allwinner <a href="A20.html" title="A20">A20</a></td>
+<td>Allwinner <a href="A20" title="A20">A20</a></td>
 <td>24 KiB</td>
 <td></td>
 <td>0x00000</td>
@@ -163,7 +163,7 @@ by hipboi
 <td>Sizes larger than 32 KiB are rejected by the BROM. Exactly 32 KiB is fine, as verified by writing a special pattern at the end of the SPL and checking it in the SRAM.
 </td></tr>
 <tr>
-<td>Allwinner <a href="A64.html" title="A64">A64</a></td>
+<td>Allwinner <a href="A64" title="A64">A64</a></td>
 <td>32 KiB</td>
 <td></td>
 <td>0x10000</td>
@@ -171,7 +171,7 @@ by hipboi
 <td>Sizes larger than 32 KiB are rejected by the BROM. Exactly 32 KiB is fine, as verified by writing a special pattern at the end of the SPL and checking it in the SRAM.
 </td></tr>
 <tr>
-<td>Allwinner <a href="H3.html" title="H3">H3</a></td>
+<td>Allwinner <a href="H3" title="H3">H3</a></td>
 <td>32 KiB</td>
 <td></td>
 <td>0x00000</td>
@@ -201,12 +201,12 @@ by hipboi
 <ul><li><a href="How_to_boot_the_A10_over_the_network.html" class="mw-redirect" title="How to boot the A10 over the network">How to boot the A10 over the network</a></li></ul>
 <!-- 
 NewPP limit report
-Cached time: 20251029040631
+Cached time: 20251029181102
 Cache expiry: 86400
 Dynamic content: false
 Complications: []
-CPU time usage: 0.088 seconds
-Real time usage: 0.176 seconds
+CPU time usage: 0.144 seconds
+Real time usage: 0.205 seconds
 Preprocessor visited node count: 72/1000000
 Post‐expand include size: 82/2097152 bytes
 Template argument size: 12/2097152 bytes
@@ -217,15 +217,15 @@ Unstrip post‐expand size: 1348/5000000 bytes
 -->
 <!--
 Transclusion expansion time report (%,ms,calls,template)
-100.00%    6.530      1 -total
-100.00%    6.530      1 Template:Edit
- 32.01%    2.090      1 Template:Red
+100.00%   87.238      1 -total
+100.00%   87.238      1 Template:Edit
+ 33.09%   28.870      1 Template:Red
 -->
 
-<!-- Saved in parser cache with key wiki:pcache:idhash:192-0!canonical and timestamp 20251029040631 and revision id 23844
+<!-- Saved in parser cache with key wiki:pcache:idhash:192-0!canonical and timestamp 20251029181102 and revision id 23844
  -->
 </div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=BROM&amp;oldid=23844">https://linux-sunxi.org/index.php?title=BROM&amp;oldid=23844</a>"</div>
-		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Category</a>: <ul><li><a href="Category:Boot.html" title="Category:Boot">Boot</a></li></ul></div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://linux-sunxi.org/Special:Categories" title="Special:Categories">Category</a>: <ul><li><a href="https://linux-sunxi.org/Category:Boot" title="Category:Boot">Boot</a></li></ul></div></div>
 	</div>
 </div>
 
@@ -331,7 +331,7 @@ Transclusion expansion time report (%,ms,calls,template)
 	
 <div id="mw-panel">
 	<div id="p-logo" role="banner">
-		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+		<a  title="Visit the main page" class="mw-wiki-logo" href="Main_Page.html"></a>
 	</div>
 	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
 <nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
@@ -342,7 +342,7 @@ Transclusion expansion time report (%,ms,calls,template)
 	<!-- Please do not use the .body class, it is deprecated. -->
 	<div class="body vector-menu-content">
 		<!-- Please do not use the .menu class, it is deprecated. -->
-		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="Main_Page.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="https://linux-sunxi.org/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
 		
 	</div>
 </nav>
@@ -357,7 +357,7 @@ Transclusion expansion time report (%,ms,calls,template)
 	<!-- Please do not use the .body class, it is deprecated. -->
 	<div class="body vector-menu-content">
 		<!-- Please do not use the .menu class, it is deprecated. -->
-		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/BROM.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/BROM" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=BROM&amp;oldid=23844" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=BROM&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="https://linux-sunxi.org/Special:WhatLinksHere/BROM" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/BROM" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="https://linux-sunxi.org/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=BROM&amp;oldid=23844" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=BROM&amp;action=info" title="More information about this page">Page information</a></li></ul>
 		
 	</div>
 </nav>
@@ -387,8 +387,8 @@ Transclusion expansion time report (%,ms,calls,template)
 
 
 
-<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.088","walltime":"0.176","ppvisitednodes":{"value":72,"limit":1000000},"postexpandincludesize":{"value":82,"limit":2097152},"templateargumentsize":{"value":12,"limit":2097152},"expansiondepth":{"value":5,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":1348,"limit":5000000},"timingprofile":["100.00%    6.530      1 -total","100.00%    6.530      1 Template:Edit"," 32.01%    2.090      1 Template:Red"]},"cachereport":{"timestamp":"20251029040631","ttl":86400,"transientcontent":false}}});});</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.144","walltime":"0.205","ppvisitednodes":{"value":72,"limit":1000000},"postexpandincludesize":{"value":82,"limit":2097152},"templateargumentsize":{"value":12,"limit":2097152},"expansiondepth":{"value":5,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":1348,"limit":5000000},"timingprofile":["100.00%   87.238      1 -total","100.00%   87.238      1 Template:Edit"," 33.09%   28.870      1 Template:Red"]},"cachereport":{"timestamp":"20251029181102","ttl":86400,"transientcontent":false}}});});</script>
 <!-- No web analytics configured. -->
 
-<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":226});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":624});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body></html>

@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8"/>
 <title>New Device howto - linux-sunxi.org</title>
-<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"4a3b7b726b58fa632e82a968","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"New_Device_howto","wgTitle":"New Device howto","wgCurRevisionId":24509,"wgRevisionId":24509,"wgArticleId":770,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Tutorial","Community"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"New_Device_howto","wgRelevantArticleId":770,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready"
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"634adecd08ccdc74b8b2e7f7","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"New_Device_howto","wgTitle":"New Device howto","wgCurRevisionId":24509,"wgRevisionId":24509,"wgArticleId":770,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Tutorial","Community"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"New_Device_howto","wgRelevantArticleId":770,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready"
 ,"user.styles":"ready","user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
 <script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
 });});</script>
@@ -64,27 +64,27 @@
 
 <h1><span class="mw-headline" id="Step_1:_Find_out_all_you_can">Step 1: Find out all you can</span></h1>
 <p>Before you rush into things, it really pays to find out all you can about your device. Bringing up a new board is not rocket science, but it is non-trivial and time consuming, so it pays to spend a few hours on google and on our wiki to find out what is publicly known about your device.
-</p><p>When googling, you will find that android forum posts are a treasure trove of badly dispersed information. This ranges from basic android usage information all the way to device disassembly and pictures of the mainboard. If you are really lucky, someone will have posted information on how to expose the <a href="https://linux-sunxi.org/UART" title="UART">UART</a> (serial). Part of your task is making this horribly inaccessible information easily and neatly available, at least for those bits that are relevant for the sunxi project.
-</p><p>As for the sunxi website, it is a really good idea to investigate similar devices with the same <a href="https://linux-sunxi.org/SoC" class="mw-redirect" title="SoC">SoC</a>. It often happens that devices get rebranded (<a href="Identification_guide.html" title="Identification guide">Identification guide</a>). If you are really lucky, you might find that your hardware is already supported. If not, you will be able to find out what other names your device was branded under, and you can include that information on the wiki page which you will create in step 2. You might also find similar devices with similar mainboards, but with just different bits bolted on, in which case you still might find some valuable information (like how to wire up the UART).
-</p><p>It also pays to check out board <a rel="nofollow" class="external text" href="http://git.denx.de/?p=u-boot.git;a=tree;f=configs">defconfig files in the U-Boot repository</a>, and see if your device is already listed there. Similarly, have a look through our <a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/tree/master/sys_config">Boards repository</a> to see whether your device <a href="https://linux-sunxi.org/Fex_Guide#FEX_Description#FEX_Description" title="Fex Guide">fex</a> is listed there.
+</p><p>When googling, you will find that android forum posts are a treasure trove of badly dispersed information. This ranges from basic android usage information all the way to device disassembly and pictures of the mainboard. If you are really lucky, someone will have posted information on how to expose the <a href="UART.html" title="UART">UART</a> (serial). Part of your task is making this horribly inaccessible information easily and neatly available, at least for those bits that are relevant for the sunxi project.
+</p><p>As for the sunxi website, it is a really good idea to investigate similar devices with the same <a href="SoC.html" class="mw-redirect" title="SoC">SoC</a>. It often happens that devices get rebranded (<a href="Identification_guide.html" title="Identification guide">Identification guide</a>). If you are really lucky, you might find that your hardware is already supported. If not, you will be able to find out what other names your device was branded under, and you can include that information on the wiki page which you will create in step 2. You might also find similar devices with similar mainboards, but with just different bits bolted on, in which case you still might find some valuable information (like how to wire up the UART).
+</p><p>It also pays to check out board <a rel="nofollow" class="external text" href="http://git.denx.de/?p=u-boot.git;a=tree;f=configs">defconfig files in the U-Boot repository</a>, and see if your device is already listed there. Similarly, have a look through our <a class="external text" href="https://github.com/linux-sunxi/sunxi-boards/tree/master/sys_config">Boards repository</a> to see whether your device <a href="Fex_Guide.html#FEX_Description" title="Fex Guide">fex</a> is listed there.
 </p>
 <h1><span class="mw-headline" id="Step_2:_Create_a_wiki_page">Step 2: Create a wiki page</span></h1>
 <p>If you have determined that your device is unique, then go ahead and create a new page. If your device is similar to an already documented device, then still create a new page and crosslink the two under a "See also" section. If it is just a rebadged version of some other device, then add it to the "Also known as" section of an existing wiki page.
-</p><p>The process of and details for creating a new device page is described in our <a href="https://linux-sunxi.org/New_Device_page" title="New Device page"> new device page howto</a>, an easy to hack template is provided.
+</p><p>The process of and details for creating a new device page is described in our <a href="New_Device_page.html" title="New Device page"> new device page howto</a>, an easy to hack template is provided.
 </p><p><b>You must do this now.</b> This wiki page allows you to document things as you go along, and this way you will not forgot any details, and people will ask for and refer to this page when you ask for any help. You also should make exterior device pictures now, before disassembling the device. Similarly, you need to get all the identification information from the stock OS before you replace it with something else.
 </p>
 <h1><span class="mw-headline" id="Step_3:_Retrieve_crucial_information_from_the_stock_OS">Step 3: Retrieve crucial information from the stock OS</span></h1>
 <p>If you are not using a development board, then Android will be the stock OS. You will need to gather the identification strings from the stock OS for <a href="#Step_2:_Create_a_wiki_page"> the device page in the previous step</a>.
-</p><p>You will also need to use <a href="https://linux-sunxi.org/Retrieving_device_information" title="Retrieving device information">our retrieving device information howto</a> to retrieve the bootinfo and .fex files. You will need them later on in <a href="#Step_5:_Add_support_to_u-boot">Step 5</a> and <a href="#Step_6:_Add_support_to_sunxi-boards">Step 6</a>.
+</p><p>You will also need to use <a href="Retrieving_device_information.html" title="Retrieving device information">our retrieving device information howto</a> to retrieve the bootinfo and .fex files. You will need them later on in <a href="#Step_5:_Add_support_to_u-boot">Step 5</a> and <a href="#Step_6:_Add_support_to_sunxi-boards">Step 6</a>.
 </p>
 <h1><span class="mw-headline" id="Step_4:_Get_a_serial_console">Step 4: Get a serial console</span></h1>
-<p>Like any ARMv7 system, you are pretty much lost when anything goes wrong, unless you have access to a serial console (<a href="https://linux-sunxi.org/UART" title="UART">UART</a>). If you intend to bring up a new device, it will really pay off to spend the time and effort to try to gain access to the serial console. So while this step is optional, it is usually quite crucial.
+<p>Like any ARMv7 system, you are pretty much lost when anything goes wrong, unless you have access to a serial console (<a href="UART.html" title="UART">UART</a>). If you intend to bring up a new device, it will really pay off to spend the time and effort to try to gain access to the serial console. So while this step is optional, it is usually quite crucial.
 </p><p>You will need a 3.3V TTL UART to USB converter usually, or a level changer to standard RS232 to be able to successfully talk to the serial port on sunxi hardware.
 </p><p>Some devices directly expose their UART, so all you really need to do is hook things up. Mobile devices never export a UART directly, or do not provide easy access to the UART. Here you will need to disassemble your device, locate the UART pins (if there are any) on the motherboard, solder on some wires and route them to the outside. This is a lot more work, but not impossible.
-</p><p>All of the above is explained in detail in our <a href="https://linux-sunxi.org/UART" title="UART">UART howto</a>
+</p><p>All of the above is explained in detail in our <a href="UART.html" title="UART">UART howto</a>
 </p>
 <h1><span class="mw-headline" id="Step_5:_Add_support_to_u-boot">Step 5: Add support to u-boot</span></h1>
-<p>Please refer to <a href="U-Boot#Adding_a_new_device_to_upstream_U-Boot" title="U-Boot"> the adding a new device to u-boot howto</a> with the information retrieved in <a href="#Step_3:_Retrieve_crucial_information_from_the_stock_OS"> Step 3</a>.
+<p>Please refer to <a href="U-Boot.html#Adding_a_new_device_to_upstream_U-Boot" title="U-Boot"> the adding a new device to u-boot howto</a> with the information retrieved in <a href="#Step_3:_Retrieve_crucial_information_from_the_stock_OS"> Step 3</a>.
 </p><p><b>Note: no u-boot patches are accepted without <a href="#Step_2:_Create_a_wiki_page"> a complete device page</a> in place.</b>
 </p>
 <h1><span class="mw-headline" id="Step_6:_Add_support_to_sunxi-boards">Step 6: Add support to sunxi-boards</span></h1>
@@ -97,14 +97,14 @@
 </p>
 <pre>git format-patch -M -C HEAD^
 </pre>
-<p>You will create a git mbox patch file which you can mail to <a href="https://linux-sunxi.org/Mailing_list" title="Mailing list"> our mailinglist</a>. If you have <a href="https://linux-sunxi.org/Mailing_list#Configuring_git_for_send-email#Configuring_git_for_send-email" title="Mailing list"> set up git correctly</a>, you can just run:
+<p>You will create a git mbox patch file which you can mail to <a href="Mailing_list.html" title="Mailing list"> our mailinglist</a>. If you have <a href="Mailing_list.html#Configuring_git_for_send-email" title="Mailing list"> set up git correctly</a>, you can just run:
 </p>
 <pre>git send-email 0001-*.patch
 </pre>
 <p><b>Note: no sunxi-boards patches are accepted without <a href="#Step_2:_Create_a_wiki_page"> a complete device page</a> in place.</b>
 </p>
 <h1><span class="mw-headline" id="Step_7:_run_through_a_full_manual_build">Step 7: run through a full manual build</span></h1>
-<p>Please work through our <a href="https://linux-sunxi.org/Manual_build_howto" title="Manual build howto"> Manual build howto</a> to verify your handiwork.
+<p>Please work through our <a href="Manual_build_howto.html" title="Manual build howto"> Manual build howto</a> to verify your handiwork.
 </p><p>You will be left with a fully working linux system on what was previously an android only device. Congratulations!
 </p>
 <h1><span class="mw-headline" id="Frequently_Asked_Questions">Frequently Asked Questions</span></h1>
@@ -125,7 +125,7 @@
 </p>
 <!-- 
 NewPP limit report
-Cached time: 20251029145818
+Cached time: 20251029180118
 Cache expiry: 86400
 Dynamic content: false
 Complications: []
@@ -144,7 +144,7 @@ Transclusion expansion time report (%,ms,calls,template)
 100.00%    0.000      1 -total
 -->
 
-<!-- Saved in parser cache with key wiki:pcache:idhash:770-0!canonical and timestamp 20251029145818 and revision id 24509
+<!-- Saved in parser cache with key wiki:pcache:idhash:770-0!canonical and timestamp 20251029180118 and revision id 24509
  -->
 </div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=New_Device_howto&amp;oldid=24509">https://linux-sunxi.org/index.php?title=New_Device_howto&amp;oldid=24509</a>"</div>
 		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://linux-sunxi.org/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="https://linux-sunxi.org/Category:Tutorial" title="Category:Tutorial">Tutorial</a></li><li><a href="https://linux-sunxi.org/Category:Community" title="Category:Community">Community</a></li></ul></div></div>
@@ -264,7 +264,7 @@ Transclusion expansion time report (%,ms,calls,template)
 	<!-- Please do not use the .body class, it is deprecated. -->
 	<div class="body vector-menu-content">
 		<!-- Please do not use the .menu class, it is deprecated. -->
-		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="Main_Page.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="https://linux-sunxi.org/sunxi:Community_portal" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="https://linux-sunxi.org/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="Main_Page.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="https://linux-sunxi.org/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
 		
 	</div>
 </nav>
@@ -309,8 +309,8 @@ Transclusion expansion time report (%,ms,calls,template)
 
 
 
-<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.034","walltime":"0.048","ppvisitednodes":{"value":71,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":149,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20251029145818","ttl":86400,"transientcontent":false}}});});</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.034","walltime":"0.048","ppvisitednodes":{"value":71,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":149,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20251029180118","ttl":86400,"transientcontent":false}}});});</script>
 <!-- No web analytics configured. -->
 
-<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":131});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":595});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body></html>

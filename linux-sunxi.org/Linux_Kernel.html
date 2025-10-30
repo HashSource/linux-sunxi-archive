@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8"/>
 <title>Linux Kernel - linux-sunxi.org</title>
-<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"89acbf935fd381e34b330a64","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Linux_Kernel","wgTitle":"Linux Kernel","wgCurRevisionId":21537,"wgRevisionId":21537,"wgArticleId":85,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Software"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Linux_Kernel","wgRelevantArticleId":85,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":"ready",
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"5eb367ceb5c573dfa746140a","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Linux_Kernel","wgTitle":"Linux Kernel","wgCurRevisionId":26800,"wgRevisionId":26800,"wgArticleId":85,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Software"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Linux_Kernel","wgRelevantArticleId":85,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":"ready",
 "user":"ready","user.options":"loading","ext.cite.styles":"ready","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","ext.cite.ux-enhancements","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
 <script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
 });});</script>
@@ -40,7 +40,7 @@
 		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
 		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><table style="margin: 0.7em; border-width: 1px 1px 1px 10px; border-style: solid; border-color: #EE8822; background-color: #FFEEDD">
 <tbody><tr>
-<td style="padding: 0.2em; vertical-align: baseline;"><a href="File:MBOX_icon_important.png.html" class="image"><img alt="MBOX icon important.png" src="https://linux-sunxi.org/images/f/f0/MBOX_icon_important.png" decoding="async" width="40" height="40" /></a>
+<td style="padding: 0.2em; vertical-align: baseline;"><a href="https://linux-sunxi.org/File:MBOX_icon_important.png" class="image"><img alt="MBOX icon important.png" src="https://linux-sunxi.org/images/f/f0/MBOX_icon_important.png" decoding="async" width="40" height="40" /></a>
 </td>
 <td style="width:100%; padding-left: 0.2em; padding-right: 0.2em; vertical-align: baseline;">This page provides information about the legacy linux-sunxi kernels, which are based on the vendor code drops. It is only useful when accelerated 3D graphics and multimedia support is strictly necessary.
 <p><br />
@@ -74,16 +74,21 @@ But the <a href="Mainline_Kernel_Howto.html" title="Mainline Kernel Howto">Mainl
 <li class="toclevel-2 tocsection-14"><a href="#Tweak_config"><span class="tocnumber">4.4</span> <span class="toctext">Tweak config</span></a></li>
 <li class="toclevel-2 tocsection-15"><a href="#Build"><span class="tocnumber">4.5</span> <span class="toctext">Build</span></a></li>
 <li class="toclevel-2 tocsection-16"><a href="#Install"><span class="tocnumber">4.6</span> <span class="toctext">Install</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="#U-boot_setup"><span class="tocnumber">4.7</span> <span class="toctext">U-boot setup</span></a>
+<ul>
+<li class="toclevel-3 tocsection-18"><a href="#Mainline_U-boot"><span class="tocnumber">4.7.1</span> <span class="toctext">Mainline U-boot</span></a></li>
 </ul>
 </li>
-<li class="toclevel-1 tocsection-17"><a href="#Upstream_code"><span class="tocnumber">5</span> <span class="toctext">Upstream code</span></a></li>
-<li class="toclevel-1 tocsection-18"><a href="#External_links"><span class="tocnumber">6</span> <span class="toctext">External links</span></a></li>
-<li class="toclevel-1 tocsection-19"><a href="#References"><span class="tocnumber">7</span> <span class="toctext">References</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-19"><a href="#Upstream_code"><span class="tocnumber">5</span> <span class="toctext">Upstream code</span></a></li>
+<li class="toclevel-1 tocsection-20"><a href="#External_links"><span class="tocnumber">6</span> <span class="toctext">External links</span></a></li>
+<li class="toclevel-1 tocsection-21"><a href="#References"><span class="tocnumber">7</span> <span class="toctext">References</span></a></li>
 </ul>
 </div>
 
 <h1><span class="mw-headline" id="History">History</span></h1>
-<p>Public <a rel="nofollow" class="external text" href="http://kernel.org">Linux Kernel</a> support for the sunxi family (Allwinner <a href="A10.html" title="A10">A10</a>, <a href="A13.html" title="A13">A13</a>, ...) started with a source drop of <tt>2.6.36</tt> made by <a href="https://linux-sunxi.org/index.php?title=Ainol&amp;action=edit&amp;redlink=1" class="new" title="Ainol (page does not exist)">Ainol</a>, followed by an official release of 2.6.36<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup> sources by <a href="Allwinner.html" title="Allwinner">Allwinner</a>. Developement jumped forward after a source release of 3.0.8 made by <a rel="nofollow" class="external text" href="http://qware.nl">Qware</a><sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;2&#93;</a></sup>
+<p>Public <a rel="nofollow" class="external text" href="http://kernel.org">Linux Kernel</a> support for the sunxi family (Allwinner <a href="A10" title="A10">A10</a>, <a href="A13" title="A13">A13</a>, ...) started with a source drop of <tt>2.6.36</tt> made by <a href="https://linux-sunxi.org/index.php?title=Ainol&amp;action=edit&amp;redlink=1" class="new" title="Ainol (page does not exist)">Ainol</a>, followed by an official release of 2.6.36<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup> sources by <a href="Allwinner.html" title="Allwinner">Allwinner</a>. Developement jumped forward after a source release of 3.0.8 made by <a rel="nofollow" class="external text" href="http://qware.nl">Qware</a><sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;2&#93;</a></sup>
 </p><p>Initially living in <a class="external text" href="https://github.com/amery/">amery's github</a> now our <a class="external text" href="https://github.com/linux-sunxi/linux-sunxi">community driven sunxi kernel</a> repo is located in the <a class="external text" href="https://github.com/linux-sunxi/">linux-sunxi's github</a>.
 </p>
 <h1><span class="mw-headline" id="Repository">Repository</span></h1>
@@ -206,7 +211,7 @@ But the <a href="Mainline_Kernel_Howto.html" title="Mainline Kernel Howto">Mainl
 <tr>
 <td><tt>lichee-3.0.8-sun4i</tt></td>
 <td>compat</td>
-<td>based on <a href="https://linux-sunxi.org/index.php?title=Qware&amp;action=edit&amp;redlink=1" class="new" title="Qware (page does not exist)">Qware</a>'s source release, kept only to let people drop-in new modules into a GPL-violating <a href="https://linux-sunxi.org/index.php?title=Lichee&amp;action=edit&amp;redlink=1" class="new" title="Lichee (page does not exist)">lichee3</a>/<a href="A10.html" title="A10">A10</a> based install.
+<td>based on <a href="https://linux-sunxi.org/index.php?title=Qware&amp;action=edit&amp;redlink=1" class="new" title="Qware (page does not exist)">Qware</a>'s source release, kept only to let people drop-in new modules into a GPL-violating <a href="https://linux-sunxi.org/index.php?title=Lichee&amp;action=edit&amp;redlink=1" class="new" title="Lichee (page does not exist)">lichee3</a>/<a href="A10" title="A10">A10</a> based install.
 </td></tr>
 <tr>
 <td><tt>wip/*</tt></td>
@@ -230,7 +235,7 @@ Downloading a branch as a zip is recommended as the entire branch is compressed 
 <h2><span class="mw-headline" id="Set_default_config">Set default config</span></h2>
 <table style="margin: 0.7em; border-width: 1px 1px 1px 10px; border-style: solid; border-color: #EE8822; background-color: #FFEEDD">
 <tbody><tr>
-<td style="padding: 0.2em; vertical-align: baseline;"><a href="File:MBOX_icon_important.png.html" class="image"><img alt="MBOX icon important.png" src="https://linux-sunxi.org/images/f/f0/MBOX_icon_important.png" decoding="async" width="40" height="40" /></a>
+<td style="padding: 0.2em; vertical-align: baseline;"><a href="https://linux-sunxi.org/File:MBOX_icon_important.png" class="image"><img alt="MBOX icon important.png" src="https://linux-sunxi.org/images/f/f0/MBOX_icon_important.png" decoding="async" width="40" height="40" /></a>
 </td>
 <td style="width:100%; padding-left: 0.2em; padding-right: 0.2em; vertical-align: baseline;">This page provides information about the legacy linux-sunxi kernels, which are based on the vendor code drops. It is only useful when accelerated 3D graphics and multimedia support is strictly necessary.
 <p><br />
@@ -238,15 +243,15 @@ But the <a href="Mainline_Kernel_Howto.html" title="Mainline Kernel Howto">Mainl
 </p>
 </td></tr></tbody></table>
 <h3><span class="mw-headline" id="A10">A10</span></h3>
-<p>For <a href="A10.html" title="A10">A10</a> use:
+<p>For <a href="A10" title="A10">A10</a> use:
 </p>
 <pre>make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- sun4i_defconfig</pre>
 <h3><span class="mw-headline" id="A13">A13</span></h3>
-<p>For <a href="A13.html" title="A13">A13</a> use:
+<p>For <a href="A13" title="A13">A13</a> use:
 </p>
 <pre>make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- sun5i_defconfig</pre>
 <h3><span class="mw-headline" id="A10s">A10s</span></h3>
-<p>For <a href="A10s.html" title="A10s">A10s</a> use:
+<p>For <a href="A10s" title="A10s">A10s</a> use:
 </p>
 <pre>make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- sun5i_defconfig</pre>
 <p>But to get a booting system, you need to set:
@@ -266,7 +271,7 @@ But the <a href="Mainline_Kernel_Howto.html" title="Mainline Kernel Howto">Mainl
 </p>
 <pre>(1) UART to use for low-level debug</pre>
 <h3><span class="mw-headline" id="A20">A20</span></h3>
-<p>For <a href="A20.html" title="A20">A20</a> use:
+<p>For <a href="A20" title="A20">A20</a> use:
 </p>
 <pre>make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- sun7i_defconfig</pre>
 <h2><span class="mw-headline" id="Tweak_config">Tweak config</span></h2>
@@ -296,8 +301,20 @@ But the <a href="Mainline_Kernel_Howto.html" title="Mainline Kernel Howto">Mainl
 <pre>    arch/arm/boot/uImage
     output/lib/modules/3.4.XXX/
 </pre>
-<p>The <kbd>uImage</kbd> file (the kernel minus the modules) needs to be started by U-Boot, so it is usually copied to a boot partition where U-Boot will find it, load it in RAM and then transfer control to it (U-Boot can also pass parameters to the kernel). The modules subdirectory needs to be copied to <kbd>/lib/modules</kbd> on the target root file system.
+<p>The <b>uImage</b> file (the kernel minus the modules) needs to be started by U-Boot, so it is usually copied to a boot partition where U-Boot will find it, load it in RAM and then transfer control to it (U-Boot can also pass parameters to the kernel). The modules subdirectory needs to be copied to <b>/lib/modules</b> on the target root file system.
 </p>
+<h2><span class="mw-headline" id="U-boot_setup">U-boot setup</span></h2>
+<h3><span class="mw-headline" id="Mainline_U-boot">Mainline U-boot</span></h3>
+<p>A basic boot.cmd for the <b>deprecated sunxi-3.4 kernel</b> would be:
+</p>
+<pre> setenv bootm_boot_mode sec
+ setenv bootargs console=ttyS0,115200 root=/dev/mmcblk0p2 rootwait panic=10
+ load mmc 0:1 0x43000000 script.bin || load mmc 0:1 0x43000000 boot/script.bin
+ load mmc 0:1 0x42000000 uImage || load mmc 0:1 0x42000000 boot/uImage
+ bootm 0x42000000</pre>
+<p><i>boot.cmd</i> isn't used directly, but needs to be wrapped with uboot header with the command:
+</p>
+<pre>mkimage -C none -A arm -T script -d boot.cmd boot.scr</pre>
 <h1><span class="mw-headline" id="Upstream_code">Upstream code</span></h1>
 <p>Although it depends on the SoC, the status of <a href="Mainline_Kernel_Howto.html" title="Mainline Kernel Howto"> mainline kernel</a> is now almost suitable for normal use.
 </p>
@@ -316,32 +333,32 @@ But the <a href="Mainline_Kernel_Howto.html" title="Mainline Kernel Howto">Mainl
 </ol></div>
 <!-- 
 NewPP limit report
-Cached time: 20251029034427
+Cached time: 20251029162614
 Cache expiry: 86400
 Dynamic content: false
 Complications: []
-CPU time usage: 0.081 seconds
-Real time usage: 0.091 seconds
-Preprocessor visited node count: 226/1000000
+CPU time usage: 0.112 seconds
+Real time usage: 0.147 seconds
+Preprocessor visited node count: 242/1000000
 Post‐expand include size: 5064/2097152 bytes
 Template argument size: 3390/2097152 bytes
 Highest expansion depth: 7/40
 Expensive parser function count: 0/100
 Unstrip recursion depth: 0/20
-Unstrip post‐expand size: 1872/5000000 bytes
+Unstrip post‐expand size: 2218/5000000 bytes
 -->
 <!--
 Transclusion expansion time report (%,ms,calls,template)
-100.00%   32.034      1 -total
- 32.99%   10.567      2 Template:Alert
- 21.95%    7.030      2 Template:MBOX_NOTE
-  9.86%    3.158      2 Template:MBOX
+100.00%   60.416      1 -total
+ 54.64%   33.014      2 Template:Alert
+ 39.17%   23.667      2 Template:MBOX_NOTE
+  4.52%    2.729      2 Template:MBOX
 -->
 
-<!-- Saved in parser cache with key wiki:pcache:idhash:85-0!canonical and timestamp 20251029034427 and revision id 21537
+<!-- Saved in parser cache with key wiki:pcache:idhash:85-0!canonical and timestamp 20251029162614 and revision id 26800
  -->
-</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=Linux_Kernel&amp;oldid=21537">https://linux-sunxi.org/index.php?title=Linux_Kernel&amp;oldid=21537</a>"</div>
-		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Category</a>: <ul><li><a href="Category:Software.html" title="Category:Software">Software</a></li></ul></div></div>
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=Linux_Kernel&amp;oldid=26800">https://linux-sunxi.org/index.php?title=Linux_Kernel&amp;oldid=26800</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://linux-sunxi.org/Special:Categories" title="Special:Categories">Category</a>: <ul><li><a href="https://linux-sunxi.org/Category:Software" title="Category:Software">Software</a></li></ul></div></div>
 	</div>
 </div>
 
@@ -447,7 +464,7 @@ Transclusion expansion time report (%,ms,calls,template)
 	
 <div id="mw-panel">
 	<div id="p-logo" role="banner">
-		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+		<a  title="Visit the main page" class="mw-wiki-logo" href="Main_Page.html"></a>
 	</div>
 	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
 <nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
@@ -458,7 +475,7 @@ Transclusion expansion time report (%,ms,calls,template)
 	<!-- Please do not use the .body class, it is deprecated. -->
 	<div class="body vector-menu-content">
 		<!-- Please do not use the .menu class, it is deprecated. -->
-		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="Main_Page.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="https://linux-sunxi.org/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
 		
 	</div>
 </nav>
@@ -473,7 +490,7 @@ Transclusion expansion time report (%,ms,calls,template)
 	<!-- Please do not use the .body class, it is deprecated. -->
 	<div class="body vector-menu-content">
 		<!-- Please do not use the .menu class, it is deprecated. -->
-		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/Linux_Kernel.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/Linux_Kernel" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=Linux_Kernel&amp;oldid=21537" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=Linux_Kernel&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="https://linux-sunxi.org/Special:WhatLinksHere/Linux_Kernel" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/Linux_Kernel" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="https://linux-sunxi.org/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=Linux_Kernel&amp;oldid=26800" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=Linux_Kernel&amp;action=info" title="More information about this page">Page information</a></li></ul>
 		
 	</div>
 </nav>
@@ -486,7 +503,7 @@ Transclusion expansion time report (%,ms,calls,template)
 
 <footer id="footer" class="mw-footer" role="contentinfo" >
 	<ul id="footer-info" >
-		<li id="footer-info-lastmod"> This page was last edited on 28 July 2018, at 20:13.</li>
+		<li id="footer-info-lastmod"> This page was last edited on 29 October 2025, at 10:31.</li>
 		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
 	</ul>
 	<ul id="footer-places" >
@@ -503,8 +520,8 @@ Transclusion expansion time report (%,ms,calls,template)
 
 
 
-<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.081","walltime":"0.091","ppvisitednodes":{"value":226,"limit":1000000},"postexpandincludesize":{"value":5064,"limit":2097152},"templateargumentsize":{"value":3390,"limit":2097152},"expansiondepth":{"value":7,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":1872,"limit":5000000},"timingprofile":["100.00%   32.034      1 -total"," 32.99%   10.567      2 Template:Alert"," 21.95%    7.030      2 Template:MBOX_NOTE","  9.86%    3.158      2 Template:MBOX"]},"cachereport":{"timestamp":"20251029034427","ttl":86400,"transientcontent":false}}});});</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.112","walltime":"0.147","ppvisitednodes":{"value":242,"limit":1000000},"postexpandincludesize":{"value":5064,"limit":2097152},"templateargumentsize":{"value":3390,"limit":2097152},"expansiondepth":{"value":7,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":2218,"limit":5000000},"timingprofile":["100.00%   60.416      1 -total"," 54.64%   33.014      2 Template:Alert"," 39.17%   23.667      2 Template:MBOX_NOTE","  4.52%    2.729      2 Template:MBOX"]},"cachereport":{"timestamp":"20251029162614","ttl":86400,"transientcontent":false}}});});</script>
 <!-- No web analytics configured. -->
 
-<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":130});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":170});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body></html>

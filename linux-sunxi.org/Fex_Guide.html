@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8"/>
 <title>Fex Guide - linux-sunxi.org</title>
-<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"c6538a4a4327abe5e4ec6b11","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Fex_Guide","wgTitle":"Fex Guide","wgCurRevisionId":26404,"wgRevisionId":26404,"wgArticleId":101,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Software"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Fex_Guide","wgRelevantArticleId":101,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":"ready","user":
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"e8987ab8030d7fd973932069","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Fex_Guide","wgTitle":"Fex Guide","wgCurRevisionId":26404,"wgRevisionId":26404,"wgArticleId":101,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Software"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Fex_Guide","wgRelevantArticleId":101,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":"ready","user":
 "ready","user.options":"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
 <script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
 });});</script>
@@ -330,7 +330,7 @@
 <h2><span class="mw-headline" id="FEX_Description">FEX Description</span></h2>
 <p>A FEX file defines various aspects of how the SoC works. It configures the GPIO pins and sets up DRAM, Display, etc parameters. It is Allwinners predecessor for the devicetree.
 </p><p>Each line consists of a <b>key</b> = <b>value</b> pair combination under a <b>[sectionheader]</b>. All three, <b>[sectionheader]</b>, <b>key</b> and <b>value</b> are case-sensitive. For comments a semi-colon (<b>;</b>) is used and everything following a semi-colon is ignored. The chip does not parse a textual version of a fex file, it gets cleaned and compiled by a fex-compiler. A reverse engineered open source version exists in the <a href="Sunxi-tools.html#sunxi-fexc_and_wrappers" title="Sunxi-tools">sunxi-tools repository</a>. Also a de-compiler which takes a binary <i>script.bin</i> and creates a textual <i>script.fex</i>. Usually, <i>script.bin</i> can be found on the nanda boot partition on A10 devices.
-</p><p><a href="File:Sticky-note-pin.png.html" class="image"><img alt="Sticky-note-pin.png" src="https://linux-sunxi.org/images/f/f0/Sticky-note-pin.png" decoding="async" width="16" height="16" /></a> <i>Note:</i> The <a href="Mainline_Kernel_Howto.html" title="Mainline Kernel Howto">mainline</a> Linux kernel makes no use of FEX / <a href="Script.bin.html" title="Script.bin">script.bin</a>, and relies on the <a href="Device_Tree.html" title="Device Tree">device tree</a> model instead (<i>.dtb</i> files).
+</p><p><a href="https://linux-sunxi.org/File:Sticky-note-pin.png" class="image"><img alt="Sticky-note-pin.png" src="https://linux-sunxi.org/images/f/f0/Sticky-note-pin.png" decoding="async" width="16" height="16" /></a> <i>Note:</i> The <a href="Mainline_Kernel_Howto.html" title="Mainline Kernel Howto">mainline</a> Linux kernel makes no use of FEX / <a href="Script.bin.html" title="Script.bin">script.bin</a>, and relies on the <a href="Device_Tree.html" title="Device Tree">device tree</a> model instead (<i>.dtb</i> files).
 </p>
 <h2><span class="mw-headline" id="Port_Definitions">Port Definitions</span></h2>
 <p>Description of the GPIO configuration in the form:
@@ -401,7 +401,7 @@ machine = "A10-EVB-V1.2"
 </pre>
 <h2><span class="mw-headline" id="system_configuration">system configuration</span></h2>
 <h3><span id="[target]"></span><span class="mw-headline" id=".5Btarget.5D">[target]</span></h3>
-<p><a href="File:Sticky-note-pin.png.html" class="image"><img alt="Sticky-note-pin.png" src="https://linux-sunxi.org/images/f/f0/Sticky-note-pin.png" decoding="async" width="16" height="16" /></a> <i>Note:</i> blue module chip pin configuration, the black module internal control configuration
+<p><a href="https://linux-sunxi.org/File:Sticky-note-pin.png" class="image"><img alt="Sticky-note-pin.png" src="https://linux-sunxi.org/images/f/f0/Sticky-note-pin.png" decoding="async" width="16" height="16" /></a> <i>Note:</i> blue module chip pin configuration, the black module internal control configuration
 </p><p>Configuration items to configure the meaning of
 </p>
 <ul><li><b>boot_clock</b>: Initial boot frequency in MHz.</li>
@@ -831,7 +831,7 @@ uart_rx = port:PA15&lt;4&gt;&lt;1&gt;&lt;default&gt;&lt;default&gt;
 <li><b>spi_sclk</b>: clock GPIO configuration</li>
 <li><b>spi_mosi</b>: MOSI GPIO configuration</li>
 <li><b>spi_miso</b>: MISO GPIO configuration</li></ul>
-<p><a href="File:Sticky-note-pin.png.html" class="image"><img alt="Sticky-note-pin.png" src="https://linux-sunxi.org/images/f/f0/Sticky-note-pin.png" decoding="async" width="16" height="16" /></a> <i>Note:</i> Not all spi chip select bits are required to be set
+<p><a href="https://linux-sunxi.org/File:Sticky-note-pin.png" class="image"><img alt="Sticky-note-pin.png" src="https://linux-sunxi.org/images/f/f0/Sticky-note-pin.png" decoding="async" width="16" height="16" /></a> <i>Note:</i> Not all spi chip select bits are required to be set
 </p>
 <h3><span id="[spi0_para]"></span><span class="mw-headline" id=".5Bspi0_para.5D">[spi0_para]</span></h3>
 <p>Configuration example 1:
@@ -946,8 +946,8 @@ gpio_pin_1 = port:PB04&lt;6&gt;&lt;default&gt;&lt;default&gt;&lt;default&gt;
 <li><b>rtp_screen_size</b>: diagonal screen size rounded to full inches</li>
 <li><b>rtp_regidity_level</b>: touchscreen regidty in 10 ms units</li>
 <li><b>rtp_press_threshold_enable</b>: 0 to disable; 1 to enable</li>
-<li><b>rtp_press_threshold</b>: defines the press-threshold sensitivity; (0x0 is least sensitive, 0xffffff is most sensitive) using TP Pressure Management threshold control (PRE_MEA_THRE_CNT register in <a href="A20.html#Documentation" title="A20">A20 User Manual</a>)</li>
-<li><b>rtp_sensitive_level</b>: defines the sensitivity (0x0 is least sensitive, 0xf is most sensitive) using internal pull-up resistor control (TP_SENSITIVE_ADJUST register in <a href="A20.html#Documentation" title="A20">A20 User Manual</a>)</li>
+<li><b>rtp_press_threshold</b>: defines the press-threshold sensitivity; (0x0 is least sensitive, 0xffffff is most sensitive) using TP Pressure Management threshold control (PRE_MEA_THRE_CNT register in <a href="A20#Documentation" title="A20">A20 User Manual</a>)</li>
+<li><b>rtp_sensitive_level</b>: defines the sensitivity (0x0 is least sensitive, 0xf is most sensitive) using internal pull-up resistor control (TP_SENSITIVE_ADJUST register in <a href="A20#Documentation" title="A20">A20 User Manual</a>)</li>
 <li><b>rtp_exchange_x_y_flag</b>: 0 for normal operation; 1 to flip X and Y coordinates</li></ul>
 <p>Configuration example:
 </p>
@@ -1526,7 +1526,7 @@ fb1_scaler_mode_enable = 1
 <tr>
 <td>4
 </td>
-<td>dsi (on <a href="A20.html" title="A20">A20</a> it means the use of <a href="SSD2828.html" title="SSD2828">SSD2828</a> bridge chip, on <a href="A31.html" title="A31">A31</a> it might really mean native DSI)
+<td>dsi (on <a href="A20" title="A20">A20</a> it means the use of <a href="SSD2828.html" title="SSD2828">SSD2828</a> bridge chip, on <a href="A31" title="A31">A31</a> it might really mean native DSI)
 </td></tr>
 <tr>
 <td>5
@@ -1536,7 +1536,7 @@ fb1_scaler_mode_enable = 1
 <tr>
 <td>6
 </td>
-<td>external dsi (the use of <a href="SSD2828.html" title="SSD2828">SSD2828</a> bridge chip on <a href="A31.html" title="A31">A31</a> and onwards)
+<td>external dsi (the use of <a href="SSD2828.html" title="SSD2828">SSD2828</a> bridge chip on <a href="A31" title="A31">A31</a> and onwards)
 </td></tr></tbody></table></dd></dl></dd></dl></dd></dl>
 <ul><li><b>lcd_hbp</b>: hsync back porch</li>
 <li><b>lcd_ht</b>: hsync total cycle</li>
@@ -3186,12 +3186,12 @@ MAC = "000000000000"
 </pre>
 <!-- 
 NewPP limit report
-Cached time: 20251029040211
+Cached time: 20251029180626
 Cache expiry: 86400
 Dynamic content: false
 Complications: []
-CPU time usage: 1.569 seconds
-Real time usage: 2.065 seconds
+CPU time usage: 0.237 seconds
+Real time usage: 0.256 seconds
 Preprocessor visited node count: 896/1000000
 Post‐expand include size: 429/2097152 bytes
 Template argument size: 312/2097152 bytes
@@ -3202,14 +3202,14 @@ Unstrip post‐expand size: 45650/5000000 bytes
 -->
 <!--
 Transclusion expansion time report (%,ms,calls,template)
-100.00%  174.806      1 -total
- 88.08%  153.976      3 Template:Note
+100.00%    8.554      1 -total
+ 73.57%    6.293      3 Template:Note
 -->
 
-<!-- Saved in parser cache with key wiki:pcache:idhash:101-0!canonical and timestamp 20251029040209 and revision id 26404
+<!-- Saved in parser cache with key wiki:pcache:idhash:101-0!canonical and timestamp 20251029180626 and revision id 26404
  -->
 </div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=Fex_Guide&amp;oldid=26404">https://linux-sunxi.org/index.php?title=Fex_Guide&amp;oldid=26404</a>"</div>
-		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Category</a>: <ul><li><a href="Category:Software.html" title="Category:Software">Software</a></li></ul></div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://linux-sunxi.org/Special:Categories" title="Special:Categories">Category</a>: <ul><li><a href="https://linux-sunxi.org/Category:Software" title="Category:Software">Software</a></li></ul></div></div>
 	</div>
 </div>
 
@@ -3241,7 +3241,7 @@ Transclusion expansion time report (%,ms,calls,template)
 	<!-- Please do not use the .body class, it is deprecated. -->
 	<div class="body vector-menu-content">
 		<!-- Please do not use the .menu class, it is deprecated. -->
-		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="Fex_Guide.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk"><a href="Talk:Fex_Guide.html" rel="discussion" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li></ul>
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="Fex_Guide.html" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk"><a href="https://linux-sunxi.org/Talk:Fex_Guide" rel="discussion" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li></ul>
 		
 	</div>
 </nav>
@@ -3315,7 +3315,7 @@ Transclusion expansion time report (%,ms,calls,template)
 	
 <div id="mw-panel">
 	<div id="p-logo" role="banner">
-		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+		<a  title="Visit the main page" class="mw-wiki-logo" href="Main_Page.html"></a>
 	</div>
 	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
 <nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
@@ -3326,7 +3326,7 @@ Transclusion expansion time report (%,ms,calls,template)
 	<!-- Please do not use the .body class, it is deprecated. -->
 	<div class="body vector-menu-content">
 		<!-- Please do not use the .menu class, it is deprecated. -->
-		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="Main_Page.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="https://linux-sunxi.org/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
 		
 	</div>
 </nav>
@@ -3341,7 +3341,7 @@ Transclusion expansion time report (%,ms,calls,template)
 	<!-- Please do not use the .body class, it is deprecated. -->
 	<div class="body vector-menu-content">
 		<!-- Please do not use the .menu class, it is deprecated. -->
-		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/Fex_Guide.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/Fex_Guide" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=Fex_Guide&amp;oldid=26404" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=Fex_Guide&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="https://linux-sunxi.org/Special:WhatLinksHere/Fex_Guide" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/Fex_Guide" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="https://linux-sunxi.org/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=Fex_Guide&amp;oldid=26404" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=Fex_Guide&amp;action=info" title="More information about this page">Page information</a></li></ul>
 		
 	</div>
 </nav>
@@ -3371,8 +3371,8 @@ Transclusion expansion time report (%,ms,calls,template)
 
 
 
-<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"1.569","walltime":"2.065","ppvisitednodes":{"value":896,"limit":1000000},"postexpandincludesize":{"value":429,"limit":2097152},"templateargumentsize":{"value":312,"limit":2097152},"expansiondepth":{"value":3,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":45650,"limit":5000000},"timingprofile":["100.00%  174.806      1 -total"," 88.08%  153.976      3 Template:Note"]},"cachereport":{"timestamp":"20251029040211","ttl":86400,"transientcontent":false}}});});</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.237","walltime":"0.256","ppvisitednodes":{"value":896,"limit":1000000},"postexpandincludesize":{"value":429,"limit":2097152},"templateargumentsize":{"value":312,"limit":2097152},"expansiondepth":{"value":3,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":45650,"limit":5000000},"timingprofile":["100.00%    8.554      1 -total"," 73.57%    6.293      3 Template:Note"]},"cachereport":{"timestamp":"20251029180626","ttl":86400,"transientcontent":false}}});});</script>
 <!-- No web analytics configured. -->
 
-<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":495});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":253});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body></html>

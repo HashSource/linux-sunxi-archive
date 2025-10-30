@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8"/>
 <title>Bootable SPI flash - linux-sunxi.org</title>
-<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"ea159e2784e5446da6fe3d0d","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Bootable_SPI_flash","wgTitle":"Bootable SPI flash","wgCurRevisionId":23110,"wgRevisionId":23110,"wgArticleId":2715,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Hardware","Boot"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Bootable_SPI_flash","wgRelevantArticleId":2715,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"e89c3872a45af38885140378","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Bootable_SPI_flash","wgTitle":"Bootable SPI flash","wgCurRevisionId":23110,"wgRevisionId":23110,"wgArticleId":2715,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Hardware","Boot"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Bootable_SPI_flash","wgRelevantArticleId":2715,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":
 "ready","user.styles":"ready","user":"ready","user.options":"loading","ext.cite.styles":"ready","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","ext.cite.ux-enhancements","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
 <script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
 });});</script>
@@ -87,7 +87,7 @@
 <p>The SPI flash can be used to store a bootable firmware on the low cost development boards, which do not offer any other kind of non-removable storage (NAND or eMMC).
 </p><p>The minimum amount of the required storage would be <b>1 MiB (8 Mbit)</b> to fit a user friendly bootloader with some advanced features. The prices of suitable SPI NOR flash chips seem to be around 10-20 cents on AliExpress (or even as low as <a rel="nofollow" class="external text" href="http://www.aliexpress.com/item/W25Q16BVSSIG-W25Q16BVSIG-2MB-SOP8/32660083443.html">only 4 cents</a>?). This is non-negligible, but might be still worth it at least to avoid the frustrated <i>"I plugged the power but there is nothing on the monitor"</i> support requests from inexperienced users.
 </p><p>There is no point using SPI NOR flash chips larger than <b>16 MiB (128 Mbit)</b>. The primary use for this additional space would be a storage of some size reduced Linux kernel together with a small <a rel="nofollow" class="external text" href="https://buildroot.org/">Buildroot</a> generated compressed initrd image. And if no operating system is found on the SD card, then this built-in kernel+initrd can be booted instead. The whole point of having a kernel+initrd bundle in addition to just a bootloader is that developing the initrd is relatively easy, because it can be implemented using scripting languages and rely on existing GUI toolkits (Qt, FLTK, ...) or offer a text based user interface (via <a class="external text" href="https://en.wikipedia.org/wiki/Dialog_%28software%29">dialog</a> or something similar). As for the provided functionality, it can do some hardware diagnostic self-tests and even update itself over Internet. In order to have a realistic size estimate, we can look at the <a class="external text" href="https://github.com/ssvb/lima-memtester/releases/tag/20151207-orange-pi-pc-fel-test">kernel+intrd used for lima-memtester</a> and see that it's size is less than 7 MiB, which would fit even into a 8 MiB (64 Mbit) SPI NOR flash chip. So it's a tight fit with 8 MiB (64 Mbit) and a lot of headroom with 16 MiB (128 Mbit). And an additional factor to consider is that programming NOR flash is slow and maxes at around ~200 KiB/s, so having smaller firmware reduces the time needed for flashing.
-</p><p>U-Boot can run UEFI applications since the release v2016.05, such as Grub2 or anything else. This is very nice, because it may provide a middle ground solution in terms of the firmware size (not as easy to implement as the kernel+initrd, but at least better than native U-Boot application hacks). There are some UEFI ports of the scripting language interpreters already available, such as <a rel="nofollow" class="external text" href="https://firmwaresecurity.com/2015/05/28/lua-for-uefi">Python/Lua</a> and <a rel="nofollow" class="external text" href="https://firmwaresecurity.com/tag/mruby-on-efi-shell">Ruby</a> (<a href="User:Ssvb" title="User:Ssvb">Ssvb</a>'s favorite). But it is still not quite clear what is the UEFI GUI toolkits story.
+</p><p>U-Boot can run UEFI applications since the release v2016.05, such as Grub2 or anything else. This is very nice, because it may provide a middle ground solution in terms of the firmware size (not as easy to implement as the kernel+initrd, but at least better than native U-Boot application hacks). There are some UEFI ports of the scripting language interpreters already available, such as <a rel="nofollow" class="external text" href="https://firmwaresecurity.com/2015/05/28/lua-for-uefi">Python/Lua</a> and <a rel="nofollow" class="external text" href="https://firmwaresecurity.com/tag/mruby-on-efi-shell">Ruby</a> (<a href="https://linux-sunxi.org/User:Ssvb" title="User:Ssvb">Ssvb</a>'s favorite). But it is still not quite clear what is the UEFI GUI toolkits story.
 </p><p>The SPI flash chip needs to be connected to SPI0 pins (port C), which are multiplexed with NAND. There are also HOLD and WP pins, which need to be pulled up and optionally connected to the SoC GPIO pins for implementing write protect control in software. The table below lists the exact pins for different SoC variants and some additional notes:
 </p>
 <table class="wikitable">
@@ -105,7 +105,7 @@
 <th>Notes
 </th></tr>
 <tr>
-<td><a href="A10.html" title="A10">A10</a>/<a href="A20.html" title="A20">A20</a></td>
+<td><a href="A10" title="A10">A10</a>/<a href="A20" title="A20">A20</a></td>
 <td>PC0,PC1,PC2,PC23</td>
 <td>4</td>
 <td>4</td>
@@ -113,7 +113,7 @@
 <td>SPI0 is also available on pins PI12,PI13,PI11,PI10 and can be used for other purposes even if a bootable SPI flash is hooked to PC0,PC1,PC2,PC23.
 </td></tr>
 <tr>
-<td><a href="A13.html" title="A13">A13</a></td>
+<td><a href="A13" title="A13">A13</a></td>
 <td>PC0,PC1,PC2,PC3</td>
 <td>3</td>
 <td>2</td>
@@ -121,7 +121,7 @@
 <td>The SPI0_CS0 pin is multiplexed with NCE1 (the CS pin of the second NAND).
 </td></tr>
 <tr>
-<td><a href="H3.html" title="H3">H3</a>/<a href="H5.html" title="H5">H5</a></td>
+<td><a href="H3" title="H3">H3</a>/<a href="H5.html" title="H5">H5</a></td>
 <td>PC0,PC1,PC2,PC3</td>
 <td>2</td>
 <td>1</td>
@@ -129,7 +129,7 @@
 <td>The SPI0_CS pin is multiplexed with NAND_CE1 (the CS pin of the second NAND).
 </td></tr>
 <tr>
-<td><a href="A64.html" title="A64">A64</a></td>
+<td><a href="A64" title="A64">A64</a></td>
 <td>PC0,PC1,PC2,PC3</td>
 <td>2</td>
 <td>1</td>
@@ -139,7 +139,7 @@
 <p>It looks like SPI is getting gradually phased out from the newer Allwinner SoCs. This may be a problem for providing the necessary SPI pins for the <a rel="nofollow" class="external text" href="http://elinux.org/RPi_Low-level_peripherals#General_Purpose_Input.2FOutput_.28GPIO.29#General_Purpose_Input.2FOutput_.28GPIO.29">Raspberry Pi compatible expansion headers</a> or <a class="external text" href="https://en.wikipedia.org/wiki/UEXT">OLIMEX UEXT connectors</a>.
 </p>
 <h2><span class="mw-headline" id="The_BROM_implementation_details">The BROM implementation details</span></h2>
-<div class="thumb tright"><div class="thumbinner" style="width:162px;"><a href="File:Pine64_board_booted_over_SPI.jpg.html" class="image"><img alt="" src="https://linux-sunxi.org/images/thumb/8/84/Pine64_board_booted_over_SPI.jpg/160px-Pine64_board_booted_over_SPI.jpg" decoding="async" width="160" height="213" class="thumbimage" srcset="https://linux-sunxi.org/images/thumb/8/84/Pine64_board_booted_over_SPI.jpg/240px-Pine64_board_booted_over_SPI.jpg 1.5x, https://linux-sunxi.org/images/thumb/8/84/Pine64_board_booted_over_SPI.jpg/320px-Pine64_board_booted_over_SPI.jpg 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="File:Pine64_board_booted_over_SPI.jpg.html" class="internal" title="Enlarge"></a></div>A demo showcasing the SPI boot on Pine64</div></div></div>
+<div class="thumb tright"><div class="thumbinner" style="width:162px;"><a href="https://linux-sunxi.org/File:Pine64_board_booted_over_SPI.jpg" class="image"><img alt="" src="https://linux-sunxi.org/images/thumb/8/84/Pine64_board_booted_over_SPI.jpg/160px-Pine64_board_booted_over_SPI.jpg" decoding="async" width="160" height="213" class="thumbimage" srcset="https://linux-sunxi.org/images/thumb/8/84/Pine64_board_booted_over_SPI.jpg/240px-Pine64_board_booted_over_SPI.jpg 1.5x, https://linux-sunxi.org/images/thumb/8/84/Pine64_board_booted_over_SPI.jpg/320px-Pine64_board_booted_over_SPI.jpg 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://linux-sunxi.org/File:Pine64_board_booted_over_SPI.jpg" class="internal" title="Enlarge"></a></div>A demo showcasing the SPI boot on Pine64</div></div></div>
 <p>For SPI NOR flash booting, the BROM sets up 6 MHz (OSC24M with divisor 4?) clock frequency for SPI0 and then issues a sequence of Read Data Bytes (03h) commands. Each of these commands is encoded in 4 bytes (1 byte for the command id and 3 bytes for the address). The first command reads 256 bytes from the address 0. If a valid eGON header is recognized, then a sequence of commands reading 2048 byte blocks is done next. The first 2048 byte block is read from the address 0, the second 2048 byte block is read from the address 2048 and this continues until the whole first stage bootloader is transferred.
 </p><p>Some SoCs can also boot from SPI NAND flash. Here the BROM tries to read a valid first stage bootloader starting from page number 0, 32, 64, 96, 128, 160, 192 and 224. It only reads the first 1024 bytes from every page. Since it simply sends the standard SPI NAND flash commands, it is a good idea to use a flash with ECC turned on by default and is performed by the flash itself, since errors cannot otherwise be corrected.
 </p><p>As an experiment, it is possible to configure SPI on one board in the slave mode, connect jumper wires and emulate the SPI flash for the BROM in another board. But the timing constraints are too tight to do a perfect emulation. A perfect emulation would need to correctly handle the Read Data Bytes command, which means that after the last bit of the address is received, the first bit of data from that address needs to be served back in the next SPI cycle. With such a protocol, we can't benefit from any kind of receive and transmit buffering and make use of the hardware SPI controller. For the GPIO bit-banging implementation of the 6 MHz SPI, we have around ~170 cycles per SPI bit at the 1008 MHz CPU clock frequency. This time is comparable to the DRAM access latency, so we are in a big trouble if we get any L2 cache misses (though this can be mitigated by prefetching the right cache line after receiving just enough of the address bits). Moreover, the GPIO itself is relatively slow and it takes a huge amount of CPU cycles to read/write GPIO registers. So a simplistic approach is just to use the SPI controller hardware, ignore any received commands and stream the data according to the expected pattern. That would be 4 padding bytes, then 256 initial bytes of the firmware, then 4 bytes padding again and 2048 initial bytes of the firmware, etc. And this works, see the picture on the right side&#160;:-)
@@ -148,11 +148,11 @@
 <h2><span class="mw-headline" id="Software_development_and_trying_something_here_and_now">Software development and trying something here and now</span></h2>
 <table style="margin: 0.7em; border-width: 1px 1px 1px 10px; border-style: solid; border-color: #EE8822; background-color: #FFEEDD">
 <tbody><tr>
-<td style="padding: 0.2em; vertical-align: baseline;"><a href="File:MBOX_icon_important.png.html" class="image"><img alt="MBOX icon important.png" src="https://linux-sunxi.org/images/f/f0/MBOX_icon_important.png" decoding="async" width="40" height="40" /></a>
+<td style="padding: 0.2em; vertical-align: baseline;"><a href="https://linux-sunxi.org/File:MBOX_icon_important.png" class="image"><img alt="MBOX icon important.png" src="https://linux-sunxi.org/images/f/f0/MBOX_icon_important.png" decoding="async" width="40" height="40" /></a>
 </td>
 <td style="width:100%; padding-left: 0.2em; padding-right: 0.2em; vertical-align: baseline;">This section is a bit out of date because the <a href="Xunlong_Orange_Pi_PC_2.html" title="Xunlong Orange Pi PC 2">Xunlong Orange Pi PC 2</a> board is now available and it has built-in SPI flash. Some other boards are also underway and are expected to become available soon.
 </td></tr></tbody></table>
-<div class="thumb tright"><div class="thumbinner" style="width:162px;"><a href="File:Xunlong_Orange_Pi_PC_with_improvised_SPI_flash_shield.jpg.html" class="image"><img alt="" src="https://linux-sunxi.org/images/thumb/e/e0/Xunlong_Orange_Pi_PC_with_improvised_SPI_flash_shield.jpg/160px-Xunlong_Orange_Pi_PC_with_improvised_SPI_flash_shield.jpg" decoding="async" width="160" height="213" class="thumbimage" srcset="https://linux-sunxi.org/images/thumb/e/e0/Xunlong_Orange_Pi_PC_with_improvised_SPI_flash_shield.jpg/240px-Xunlong_Orange_Pi_PC_with_improvised_SPI_flash_shield.jpg 1.5x, https://linux-sunxi.org/images/thumb/e/e0/Xunlong_Orange_Pi_PC_with_improvised_SPI_flash_shield.jpg/320px-Xunlong_Orange_Pi_PC_with_improvised_SPI_flash_shield.jpg 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="File:Xunlong_Orange_Pi_PC_with_improvised_SPI_flash_shield.jpg.html" class="internal" title="Enlarge"></a></div>W25Q SPI flash module connected to the board expansion header</div></div></div>
+<div class="thumb tright"><div class="thumbinner" style="width:162px;"><a href="https://linux-sunxi.org/File:Xunlong_Orange_Pi_PC_with_improvised_SPI_flash_shield.jpg" class="image"><img alt="" src="https://linux-sunxi.org/images/thumb/e/e0/Xunlong_Orange_Pi_PC_with_improvised_SPI_flash_shield.jpg/160px-Xunlong_Orange_Pi_PC_with_improvised_SPI_flash_shield.jpg" decoding="async" width="160" height="213" class="thumbimage" srcset="https://linux-sunxi.org/images/thumb/e/e0/Xunlong_Orange_Pi_PC_with_improvised_SPI_flash_shield.jpg/240px-Xunlong_Orange_Pi_PC_with_improvised_SPI_flash_shield.jpg 1.5x, https://linux-sunxi.org/images/thumb/e/e0/Xunlong_Orange_Pi_PC_with_improvised_SPI_flash_shield.jpg/320px-Xunlong_Orange_Pi_PC_with_improvised_SPI_flash_shield.jpg 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://linux-sunxi.org/File:Xunlong_Orange_Pi_PC_with_improvised_SPI_flash_shield.jpg" class="internal" title="Enlarge"></a></div>W25Q SPI flash module connected to the board expansion header</div></div></div>
 <p>While there are no known boards with built-in SPI flash, it is still possible to arrange some test setup. The SPI0 pins are often available on the expansion headers. The picture on the right side shows how the SPI0_CS,SPI0_CLK,SPI0_MOSI,SPI0_MISO,3V3,GND pins on the <a href="Xunlong_Orange_Pi_PC.html" title="Xunlong Orange Pi PC">Xunlong Orange Pi PC</a> expansion header are connected to the CS,CLK,DI,DO,VCC,GND pins on the <a rel="nofollow" class="external text" href="http://www.ebay.com/itm/W25Q-Windbond-Serial-Flash-Memory-Module-SPI-W25Q128B-BIOS-25Q64BVSIG-EEPROM-/181873964697">W25Q SPI flash module</a>. The wires are entangled and tied in a knot, with the SPI flash module being more or less fixated in place and sticking upwards. Not a very aesthetically pleasing sight, but it works fine for testing the software.
 </p><p>The availability of the SPI0 (port C) pins on the expansion headers is both a blessing and a curse for the existing development boards, such as <a href="Xunlong_Orange_Pi_PC.html" title="Xunlong Orange Pi PC">Xunlong Orange Pi PC</a> and <a href="Pine64.html" title="Pine64">Pine64</a>:
 </p>
@@ -166,11 +166,11 @@
 <th>SoC support status in U-Boot
 </th></tr>
 <tr>
-<td><a href="A10.html" title="A10">A10</a></td>
+<td><a href="A10" title="A10">A10</a></td>
 <td>Supported since v2016.09. But still untested because SPI0 is not easily accessible on popular boards. The test has been done only using a SPI2 based modification.
 </td></tr>
 <tr>
-<td><a href="A13.html" title="A13">A13</a> / <a href="A20.html" title="A20">A20</a> <a href="A64.html" title="A64">A64</a> / <a href="H3.html" title="H3">H3</a></td>
+<td><a href="A13" title="A13">A13</a> / <a href="A20" title="A20">A20</a> <a href="A64" title="A64">A64</a> / <a href="H3" title="H3">H3</a></td>
 <td>Supported since v2016.09
 </td></tr>
 <tr>
@@ -239,7 +239,7 @@
 </td></tr>
 <tr>
 <td>Write its own bootloader to some accessible higher priority bootable media (for example an SD card) and then program the SPI flash from it.</td>
-<td>Some SoCs have special pins to configure the default boot order (the UBOOT_SEL pins in <a href="A31.html" title="A31">A31</a>). The other SoCs could probably use MMC1 instead of MMC0 for the SD card slot to ensure that the firmware always boots for the SPI flash. <span style="color:#ba0000">Still untested and  needs to be confirmed.</span>
+<td>Some SoCs have special pins to configure the default boot order (the UBOOT_SEL pins in <a href="A31" title="A31">A31</a>). The other SoCs could probably use MMC1 instead of MMC0 for the SD card slot to ensure that the firmware always boots for the SPI flash. <span style="color:#ba0000">Still untested and  needs to be confirmed.</span>
 </td></tr></tbody></table>
 <p>Ideally, the user should have full control over the firmware upgrade (it is the user who owns the device and not the other way around). When having physical assess to the device, the firmware is always upgradable from the FEL mode (which is activated by pressing a hardware FEL button). And for the sake of convenience, when doing upgrades on the device itself, the firmware can implement asymmetric cryptography to ensure that upgrade only happens to new versions of the firmware from the same trusted author.
 </p>
@@ -250,7 +250,7 @@
 <li>For additional users convenience, it would be nice to support upgrading the firmware from the running system too.</li></ul>
 <h3><span class="mw-headline" id="Using_the_sunxi-fel_tool">Using the sunxi-fel tool</span></h3>
 <p>The sunxi-fel tool can be run on an x86 desktop system to program the SPI flash over a Micro-USB cable and bring a non-bootable Allwinner device back to life <sup id="cite_ref-spi_flash_vailability_1-0" class="reference"><a href="#cite_note-spi_flash_vailability-1">&#91;1&#93;</a></sup>. Just upgrading or initially programming the SPI flash firmware on a perfectly working device is possible too. 
-</p><p>Trying to check if there is a real SPI flash chip connected to SPI0 pins (after connecting some Allwinner device to your desktop PC via a Micro-USB cable and booting the device in <a href="FEL.html" title="FEL">FEL</a> mode):
+</p><p>Trying to check if there is a real SPI flash chip connected to SPI0 pins (after connecting some Allwinner device to your desktop PC via a Micro-USB cable and booting the device in <a href="FEL" title="FEL">FEL</a> mode):
 </p>
 <pre>   ./sunxi-fel spiflash-info
 </pre>
@@ -272,7 +272,7 @@
 <h3><span class="mw-headline" id="Using_the_flashrom_tool_from_a_running_Linux_system_on_the_device">Using the <a rel="nofollow" class="external text" href="https://www.flashrom.org">flashrom</a> tool from a running Linux system on the device</span></h3>
 <table style="margin: 0.7em; border-width: 1px 1px 1px 10px; border-style: solid; border-color: #EE8822; background-color: #FFEEDD">
 <tbody><tr>
-<td style="padding: 0.2em; vertical-align: baseline;"><a href="File:MBOX_icon_important.png.html" class="image"><img alt="MBOX icon important.png" src="https://linux-sunxi.org/images/f/f0/MBOX_icon_important.png" decoding="async" width="40" height="40" /></a>
+<td style="padding: 0.2em; vertical-align: baseline;"><a href="https://linux-sunxi.org/File:MBOX_icon_important.png" class="image"><img alt="MBOX icon important.png" src="https://linux-sunxi.org/images/f/f0/MBOX_icon_important.png" decoding="async" width="40" height="40" /></a>
 </td>
 <td style="width:100%; padding-left: 0.2em; padding-right: 0.2em; vertical-align: baseline;">It is not clear whether doing firmware updates via flashrom or some other generic tool is a great idea. Not having the firmware write-protected against unauthorized modifications is one concern. Another concern is the fact that the firmware updater needs to be at least a little bit intelligent and try to prevent the user from doing obviously stupid acts (such as flashing an incompatible firmware intended for a different device model).
 </td></tr></tbody></table>
@@ -297,7 +297,7 @@
 <p>The Read JEDEC ID (9Fh) command is supposed to be around since 2003. The Read SFDP command is relatively new and is documented in the JEDEC standard JESD216, published on 2011. The updated JESD216B standard from 2013 also describes how to use capacities larger than 128 Mbit in a generic way (such capacities exceed the legacy 24-bit addressing mode and can't be used with the old commands).
 </p>
 <h3><span class="mw-headline" id="Macronix_MX25L1606E">Macronix MX25L1606E</span></h3>
-<div class="thumb tright"><div class="thumbinner" style="width:134px;"><a href="File:SPI_Flash_Macronix_MX25L1606E.png.html" class="image"><img alt="SPI Flash Macronix MX25L1606E.png" src="https://linux-sunxi.org/images/3/32/SPI_Flash_Macronix_MX25L1606E.png" decoding="async" width="132" height="104" class="thumbimage" /></a>  <div class="thumbcaption"><div class="magnify"><a href="File:SPI_Flash_Macronix_MX25L1606E.png.html" class="internal" title="Enlarge"></a></div></div></div></div>
+<div class="thumb tright"><div class="thumbinner" style="width:134px;"><a href="https://linux-sunxi.org/File:SPI_Flash_Macronix_MX25L1606E.png" class="image"><img alt="SPI Flash Macronix MX25L1606E.png" src="https://linux-sunxi.org/images/3/32/SPI_Flash_Macronix_MX25L1606E.png" decoding="async" width="132" height="104" class="thumbimage" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://linux-sunxi.org/File:SPI_Flash_Macronix_MX25L1606E.png" class="internal" title="Enlarge"></a></div></div></div></div>
 <p>This is a 16 Mbit chip, which is used by the <a href="Xunlong_Orange_Pi_PC_2.html" title="Xunlong Orange Pi PC 2">Xunlong Orange Pi PC 2</a> board. Supports the JEDEC ID (9Fh) command and returns the 0xC22015 id. Also supports the Read SFDP (0x5A) command and returns:
 </p>
 <pre>00000000: 53 46 44 50 00 01 01 ff 00 00 01 09 30 00 00 ff  SFDP........0...
@@ -314,7 +314,7 @@
 <pre>   1 / (0.6 ms / 256 bytes + 400 ms / 65536 bytes) = <b>~118 kB/s</b>.
 </pre>
 <h3><span class="mw-headline" id="Winbond_25Q128FVSG">Winbond 25Q128FVSG</span></h3>
-<div class="thumb tright"><div class="thumbinner" style="width:162px;"><a href="File:SPI_Flash_Winbond_25Q128FVSG.jpg.html" class="image"><img alt="SPI Flash Winbond 25Q128FVSG.jpg" src="https://linux-sunxi.org/images/thumb/5/5e/SPI_Flash_Winbond_25Q128FVSG.jpg/160px-SPI_Flash_Winbond_25Q128FVSG.jpg" decoding="async" width="160" height="142" class="thumbimage" srcset="https://linux-sunxi.org/images/5/5e/SPI_Flash_Winbond_25Q128FVSG.jpg 1.5x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="File:SPI_Flash_Winbond_25Q128FVSG.jpg.html" class="internal" title="Enlarge"></a></div></div></div></div>
+<div class="thumb tright"><div class="thumbinner" style="width:162px;"><a href="https://linux-sunxi.org/File:SPI_Flash_Winbond_25Q128FVSG.jpg" class="image"><img alt="SPI Flash Winbond 25Q128FVSG.jpg" src="https://linux-sunxi.org/images/thumb/5/5e/SPI_Flash_Winbond_25Q128FVSG.jpg/160px-SPI_Flash_Winbond_25Q128FVSG.jpg" decoding="async" width="160" height="142" class="thumbimage" srcset="https://linux-sunxi.org/images/5/5e/SPI_Flash_Winbond_25Q128FVSG.jpg 1.5x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://linux-sunxi.org/File:SPI_Flash_Winbond_25Q128FVSG.jpg" class="internal" title="Enlarge"></a></div></div></div></div>
 <p>This is a 128 Mbit chip, which is used by the <a href="Pine64.html" title="Pine64">SOPINE A64 compute module</a>. Supports the JEDEC ID (9Fh) command and returns the 0xEF4018 id. Also supports the Read SFDP (0x5A) command and returns:
 </p>
 <pre>00000000: 53 46 44 50 00 01 00 ff 00 00 01 09 80 00 00 ff  SFDP............
@@ -338,7 +338,7 @@
 <p>Note that unlike the erasing/programming operation, reading speed is very fast for the NOR flash and is only limited by the SPI interface.
 </p>
 <h3><span class="mw-headline" id="25Q128FV">25Q128FV</span></h3>
-<div class="thumb tright"><div class="thumbinner" style="width:162px;"><a href="File:SPI_Flash_Noname_25Q128FV.jpg.html" class="image"><img alt="SPI Flash Noname 25Q128FV.jpg" src="https://linux-sunxi.org/images/thumb/8/89/SPI_Flash_Noname_25Q128FV.jpg/160px-SPI_Flash_Noname_25Q128FV.jpg" decoding="async" width="160" height="150" class="thumbimage" srcset="https://linux-sunxi.org/images/8/89/SPI_Flash_Noname_25Q128FV.jpg 1.5x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="File:SPI_Flash_Noname_25Q128FV.jpg.html" class="internal" title="Enlarge"></a></div></div></div></div>
+<div class="thumb tright"><div class="thumbinner" style="width:162px;"><a href="https://linux-sunxi.org/File:SPI_Flash_Noname_25Q128FV.jpg" class="image"><img alt="SPI Flash Noname 25Q128FV.jpg" src="https://linux-sunxi.org/images/thumb/8/89/SPI_Flash_Noname_25Q128FV.jpg/160px-SPI_Flash_Noname_25Q128FV.jpg" decoding="async" width="160" height="150" class="thumbimage" srcset="https://linux-sunxi.org/images/8/89/SPI_Flash_Noname_25Q128FV.jpg 1.5x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://linux-sunxi.org/File:SPI_Flash_Noname_25Q128FV.jpg" class="internal" title="Enlarge"></a></div></div></div></div>
 <p>This is a noname 128 Mbit chip, which is used in <a rel="nofollow" class="external text" href="http://www.ebay.com/itm/W25Q-Windbond-Serial-Flash-Memory-Module-SPI-W25Q128B-BIOS-25Q64BVSIG-EEPROM-/181873964697">W25Q SPI flash module</a> from ebay. Supports the JEDEC ID (9Fh) command and returns the 0xEF4018 id (the same as the Winbond 25Q128FVSG). Does not support the Read SFDP (0x5A) command, but other than this seems to be pretty much compatible.
 </p>
 <h2><span class="mw-headline" id="See_also">See also</span></h2>
@@ -347,12 +347,12 @@
 <li><a rel="nofollow" class="external text" href="http://www.cypress.com/file/202606/download">Migrating from Winbond W25Q-FV, Micron N25Q-A, and Macronix M25L-F Devices to Cypress S25FL-L</a> (useful for checking the SPI commands compatibility overview)</li></ul>
 <!-- 
 NewPP limit report
-Cached time: 20251029040249
+Cached time: 20251029180723
 Cache expiry: 86400
 Dynamic content: false
 Complications: []
-CPU time usage: 0.093 seconds
-Real time usage: 0.111 seconds
+CPU time usage: 0.237 seconds
+Real time usage: 0.418 seconds
 Preprocessor visited node count: 184/1000000
 Post‐expand include size: 3995/2097152 bytes
 Template argument size: 2216/2097152 bytes
@@ -363,17 +363,17 @@ Unstrip post‐expand size: 2111/5000000 bytes
 -->
 <!--
 Transclusion expansion time report (%,ms,calls,template)
-100.00%   29.680      1 -total
- 35.77%   10.616      2 Template:Alert
- 27.35%    8.117      2 Template:MBOX_NOTE
- 16.04%    4.760      2 Template:MBOX
- 10.55%    3.132      3 Template:Red
+100.00%  159.364      1 -total
+ 70.15%  111.795      2 Template:Alert
+ 37.43%   59.657      2 Template:MBOX_NOTE
+ 12.47%   19.874      3 Template:Red
+  2.44%    3.896      2 Template:MBOX
 -->
 
-<!-- Saved in parser cache with key wiki:pcache:idhash:2715-0!canonical and timestamp 20251029040249 and revision id 23110
+<!-- Saved in parser cache with key wiki:pcache:idhash:2715-0!canonical and timestamp 20251029180723 and revision id 23110
  -->
 </div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=Bootable_SPI_flash&amp;oldid=23110">https://linux-sunxi.org/index.php?title=Bootable_SPI_flash&amp;oldid=23110</a>"</div>
-		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Categories</a>: <ul><li><a href="Category:Hardware.html" title="Category:Hardware">Hardware</a></li><li><a href="Category:Boot.html" title="Category:Boot">Boot</a></li></ul></div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://linux-sunxi.org/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="https://linux-sunxi.org/Category:Hardware" title="Category:Hardware">Hardware</a></li><li><a href="https://linux-sunxi.org/Category:Boot" title="Category:Boot">Boot</a></li></ul></div></div>
 	</div>
 </div>
 
@@ -479,7 +479,7 @@ Transclusion expansion time report (%,ms,calls,template)
 	
 <div id="mw-panel">
 	<div id="p-logo" role="banner">
-		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+		<a  title="Visit the main page" class="mw-wiki-logo" href="Main_Page.html"></a>
 	</div>
 	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
 <nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
@@ -490,7 +490,7 @@ Transclusion expansion time report (%,ms,calls,template)
 	<!-- Please do not use the .body class, it is deprecated. -->
 	<div class="body vector-menu-content">
 		<!-- Please do not use the .menu class, it is deprecated. -->
-		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="Main_Page.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="https://linux-sunxi.org/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
 		
 	</div>
 </nav>
@@ -505,7 +505,7 @@ Transclusion expansion time report (%,ms,calls,template)
 	<!-- Please do not use the .body class, it is deprecated. -->
 	<div class="body vector-menu-content">
 		<!-- Please do not use the .menu class, it is deprecated. -->
-		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/Bootable_SPI_flash.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/Bootable_SPI_flash" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=Bootable_SPI_flash&amp;oldid=23110" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=Bootable_SPI_flash&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="https://linux-sunxi.org/Special:WhatLinksHere/Bootable_SPI_flash" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/Bootable_SPI_flash" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="https://linux-sunxi.org/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=Bootable_SPI_flash&amp;oldid=23110" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=Bootable_SPI_flash&amp;action=info" title="More information about this page">Page information</a></li></ul>
 		
 	</div>
 </nav>
@@ -535,8 +535,8 @@ Transclusion expansion time report (%,ms,calls,template)
 
 
 
-<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.093","walltime":"0.111","ppvisitednodes":{"value":184,"limit":1000000},"postexpandincludesize":{"value":3995,"limit":2097152},"templateargumentsize":{"value":2216,"limit":2097152},"expansiondepth":{"value":7,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":2111,"limit":5000000},"timingprofile":["100.00%   29.680      1 -total"," 35.77%   10.616      2 Template:Alert"," 27.35%    8.117      2 Template:MBOX_NOTE"," 16.04%    4.760      2 Template:MBOX"," 10.55%    3.132      3 Template:Red"]},"cachereport":{"timestamp":"20251029040249","ttl":86400,"transientcontent":false}}});});</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.237","walltime":"0.418","ppvisitednodes":{"value":184,"limit":1000000},"postexpandincludesize":{"value":3995,"limit":2097152},"templateargumentsize":{"value":2216,"limit":2097152},"expansiondepth":{"value":7,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":2111,"limit":5000000},"timingprofile":["100.00%  159.364      1 -total"," 70.15%  111.795      2 Template:Alert"," 37.43%   59.657      2 Template:MBOX_NOTE"," 12.47%   19.874      3 Template:Red","  2.44%    3.896      2 Template:MBOX"]},"cachereport":{"timestamp":"20251029180723","ttl":86400,"transientcontent":false}}});});</script>
 <!-- No web analytics configured. -->
 
-<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":227});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":348});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body></html>

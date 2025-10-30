@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8"/>
 <title>Mainline Kernel Howto - linux-sunxi.org</title>
-<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"18e21a791515922a107cb439","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Mainline_Kernel_Howto","wgTitle":"Mainline Kernel Howto","wgCurRevisionId":26441,"wgRevisionId":26441,"wgArticleId":602,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Tutorial","Software"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Mainline_Kernel_Howto","wgRelevantArticleId":602,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready",
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"0f0657c1ed34f15e9e3aefdc","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Mainline_Kernel_Howto","wgTitle":"Mainline Kernel Howto","wgCurRevisionId":26806,"wgRevisionId":26806,"wgArticleId":602,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Tutorial","Software"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Mainline_Kernel_Howto","wgRelevantArticleId":602,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready",
 "noscript":"ready","user.styles":"ready","user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
 <script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
 });});</script>
@@ -80,13 +80,14 @@
 </li>
 <li class="toclevel-1 tocsection-21"><a href="#Extra_features"><span class="tocnumber">7</span> <span class="toctext">Extra features</span></a>
 <ul>
-<li class="toclevel-2 tocsection-22"><a href="#SYSV_IPC_.28debian_users.21.29"><span class="tocnumber">7.1</span> <span class="toctext">SYSV IPC (debian users!)</span></a></li>
-<li class="toclevel-2 tocsection-23"><a href="#Early_printk"><span class="tocnumber">7.2</span> <span class="toctext">Early printk</span></a></li>
-<li class="toclevel-2 tocsection-24"><a href="#simplefb"><span class="tocnumber">7.3</span> <span class="toctext">simplefb</span></a></li>
+<li class="toclevel-2 tocsection-22"><a href="#IPv6"><span class="tocnumber">7.1</span> <span class="toctext">IPv6</span></a></li>
+<li class="toclevel-2 tocsection-23"><a href="#SYSV_IPC_.28debian_users.21.29"><span class="tocnumber">7.2</span> <span class="toctext">SYSV IPC (debian users!)</span></a></li>
+<li class="toclevel-2 tocsection-24"><a href="#Early_printk"><span class="tocnumber">7.3</span> <span class="toctext">Early printk</span></a></li>
+<li class="toclevel-2 tocsection-25"><a href="#simplefb"><span class="tocnumber">7.4</span> <span class="toctext">simplefb</span></a></li>
 </ul>
 </li>
-<li class="toclevel-1 tocsection-25"><a href="#Adding_a_new_device"><span class="tocnumber">8</span> <span class="toctext">Adding a new device</span></a></li>
-<li class="toclevel-1 tocsection-26"><a href="#See_also"><span class="tocnumber">9</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-26"><a href="#Adding_a_new_device"><span class="tocnumber">8</span> <span class="toctext">Adding a new device</span></a></li>
+<li class="toclevel-1 tocsection-27"><a href="#See_also"><span class="tocnumber">9</span> <span class="toctext">See also</span></a></li>
 </ul>
 </div>
 
@@ -122,7 +123,7 @@
 <h2><span class="mw-headline" id="oldconfig">oldconfig</span></h2>
 <p>If you have an old relevant .config, e.g. if you installed a late debian, and now want to build the kernel, you can copy it in and run <code>make ARCH=arm oldconfig</code> or <code>make ARCH=arm64 oldconfig</code>.
 </p>
-<dl><dd><a href="File:Sticky-note-pin.png.html" class="image"><img alt="Sticky-note-pin.png" src="https://linux-sunxi.org/images/f/f0/Sticky-note-pin.png" decoding="async" width="16" height="16" /></a> <i>Note:</i> If you happen to run <code>make menuconfig</code> without specifying the architecture, architecture-specific options will be <b>lost</b>; in that case you'll need to go back to an existing config and start again.</dd></dl>
+<dl><dd><a href="https://linux-sunxi.org/File:Sticky-note-pin.png" class="image"><img alt="Sticky-note-pin.png" src="https://linux-sunxi.org/images/f/f0/Sticky-note-pin.png" decoding="async" width="16" height="16" /></a> <i>Note:</i> If you happen to run <code>make menuconfig</code> without specifying the architecture, architecture-specific options will be <b>lost</b>; in that case you'll need to go back to an existing config and start again.</dd></dl>
 <h2><span class="mw-headline" id="manual_configuration">manual configuration</span></h2>
 <p>If you wish to alter configuration, run:
 </p><p><b>armhf</b>
@@ -201,7 +202,7 @@ fatload mmc 0 0x49000000 &lt;board&gt;.dtb
 setenv bootargs console=ttyS0,115200 earlyprintk root=/dev/mmcblk0p&lt;partition&gt; rootwait panic=10 ${extra}
 
 bootz 0x46000000 - 0x49000000</pre>
-<dl><dd><a href="File:Sticky-note-pin.png.html" class="image"><img alt="Sticky-note-pin.png" src="https://linux-sunxi.org/images/f/f0/Sticky-note-pin.png" decoding="async" width="16" height="16" /></a> <i>Note:</i> In order to boot an <b>arm64</b> kernel, remember to use <i>Image</i> instead of <i>zImage</i>. You also have to load it with <i>booti</i> instead of <i>bootz</i>. So you have to adopt the corresponding lines in the above boot.cmd file.</dd></dl>
+<dl><dd><a href="https://linux-sunxi.org/File:Sticky-note-pin.png" class="image"><img alt="Sticky-note-pin.png" src="https://linux-sunxi.org/images/f/f0/Sticky-note-pin.png" decoding="async" width="16" height="16" /></a> <i>Note:</i> In order to boot an <b>arm64</b> kernel, remember to use <i>Image</i> instead of <i>zImage</i>. You also have to load it with <i>booti</i> instead of <i>bootz</i>. So you have to adopt the corresponding lines in the above boot.cmd file.</dd></dl>
 <p>Replace <i>fatload</i> with <i>ext2load</i> if needed. <a href="#Early_printk">earlyprintk</a> is optional; if your kernel boots up just fine, you might as well remove it.
 </p><p>If you are using an older U-Boot (you shouldn't - <span style="color:#ba0000">Which?</span>), you might require the following line, to keep the extracted kernel from overwriting the device tree configuration:
 </p>
@@ -213,7 +214,7 @@ bootz 0x46000000 - 0x49000000</pre>
 </p>
 <h2><span class="mw-headline" id="eMMC_boot_partition">eMMC boot partition</span></h2>
 <p><a class="external text" href="http://en.wikipedia.org/wiki/MultiMediaCard#eMMC#eMMC">eMMC</a> is very similar to the SD card case (see above). From a user's perspective, think of it as an "internal" memory card. Some devices are able to boot entirely from eMMC, forgoing the need for an external SD card.
-</p><p><a href="File:Information.png.html" class="image"><img alt="Information.png" src="https://linux-sunxi.org/images/5/54/Information.png" decoding="async" width="16" height="16" /></a> Keep a keen eye on the numbering of the <i>mmcblk</i> devices when switching the boot process between SD card and eMMC, e.g. during installation.
+</p><p><a href="https://linux-sunxi.org/File:Information.png" class="image"><img alt="Information.png" src="https://linux-sunxi.org/images/5/54/Information.png" decoding="async" width="16" height="16" /></a> Keep a keen eye on the numbering of the <i>mmcblk</i> devices when switching the boot process between SD card and eMMC, e.g. during installation.
 </p>
 <dl><dd>The Linux kernel may change device numbers depending on which mmc devices are actually present.</dd>
 <dd>For example: If your SD card corresponds to <i>mmc0</i>, and the eMMC is <i>mmc1</i>, you'll probably end up with the eMMC as <i>mmcblk<b>1</b></i> when a SD card is also present (with the latter being <i>mmcblk<b>0</b></i>). But it's likely that the eMMC becomes <i>mmcblk<b>0</b></i> as soon as no SD card (<i>mmc0</i>) is present. If in doubt, check the kernel messages and adjust your partition layout / boot options accordingly.</dd></dl>
@@ -221,6 +222,14 @@ bootz 0x46000000 - 0x49000000</pre>
 <p><span style="color:#ba0000">TODO.</span> Fold in <a href="Possible_setups_for_hacking_on_mainline.html" title="Possible setups for hacking on mainline">Possible setups for hacking on mainline</a>.
 </p>
 <h1><span class="mw-headline" id="Extra_features">Extra features</span></h1>
+<h2><span class="mw-headline" id="IPv6">IPv6</span></h2>
+<p>In this day and age, you might want to use IPv6 as well. It is missing from the armhf defconfig.
+</p><p>The config text file top level option is called <b>CONFIG_IPV6</b>
+</p><p>You can find this in <i>menuconfig</i> under:
+</p>
+<pre>[*] Networking support   ---&gt;
+     Networking options  ---&gt;
+     &lt; &gt;   The IPv6 protocol  ---&gt;</pre>
 <h2><span id="SYSV_IPC_(debian_users!)"></span><span class="mw-headline" id="SYSV_IPC_.28debian_users.21.29">SYSV IPC (debian users!)</span></h2>
 <p>The current sunxi_defconfig has actually become rather complete, but SYSV IPC is disabled, and it is important for the fakeroot tool which is used for making debian packages.
 </p><p>Go to:
@@ -262,33 +271,33 @@ Inside arm debugging:
 <li><a href="Possible_setups_for_hacking_on_mainline.html" title="Possible setups for hacking on mainline">Possible setups for hacking on mainline</a></li></ul>
 <!-- 
 NewPP limit report
-Cached time: 20251029040332
+Cached time: 20251029180800
 Cache expiry: 86400
 Dynamic content: false
 Complications: []
-CPU time usage: 0.072 seconds
-Real time usage: 0.088 seconds
-Preprocessor visited node count: 278/1000000
+CPU time usage: 0.098 seconds
+Real time usage: 0.110 seconds
+Preprocessor visited node count: 286/1000000
 Post‐expand include size: 1167/2097152 bytes
 Template argument size: 854/2097152 bytes
 Highest expansion depth: 5/40
 Expensive parser function count: 0/100
 Unstrip recursion depth: 0/20
-Unstrip post‐expand size: 2340/5000000 bytes
+Unstrip post‐expand size: 2460/5000000 bytes
 -->
 <!--
 Transclusion expansion time report (%,ms,calls,template)
-100.00%   17.768      1 -total
- 47.59%    8.455      3 Template:Remove
- 29.47%    5.237      2 Template:Note
- 17.39%    3.090      3 Template:Red
- 13.72%    2.437      1 Template:Info
+100.00%   19.827      1 -total
+ 40.82%    8.094      3 Template:Remove
+ 35.97%    7.132      2 Template:Note
+ 23.31%    4.621      3 Template:Red
+ 13.12%    2.601      1 Template:Info
 -->
 
-<!-- Saved in parser cache with key wiki:pcache:idhash:602-0!canonical and timestamp 20251029040332 and revision id 26441
+<!-- Saved in parser cache with key wiki:pcache:idhash:602-0!canonical and timestamp 20251029180800 and revision id 26806
  -->
-</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=Mainline_Kernel_Howto&amp;oldid=26441">https://linux-sunxi.org/index.php?title=Mainline_Kernel_Howto&amp;oldid=26441</a>"</div>
-		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Categories</a>: <ul><li><a href="Category:Tutorial.html" title="Category:Tutorial">Tutorial</a></li><li><a href="Category:Software.html" title="Category:Software">Software</a></li></ul></div></div>
+</div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=Mainline_Kernel_Howto&amp;oldid=26806">https://linux-sunxi.org/index.php?title=Mainline_Kernel_Howto&amp;oldid=26806</a>"</div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://linux-sunxi.org/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="https://linux-sunxi.org/Category:Tutorial" title="Category:Tutorial">Tutorial</a></li><li><a href="https://linux-sunxi.org/Category:Software" title="Category:Software">Software</a></li></ul></div></div>
 	</div>
 </div>
 
@@ -394,7 +403,7 @@ Transclusion expansion time report (%,ms,calls,template)
 	
 <div id="mw-panel">
 	<div id="p-logo" role="banner">
-		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+		<a  title="Visit the main page" class="mw-wiki-logo" href="Main_Page.html"></a>
 	</div>
 	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
 <nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
@@ -405,7 +414,7 @@ Transclusion expansion time report (%,ms,calls,template)
 	<!-- Please do not use the .body class, it is deprecated. -->
 	<div class="body vector-menu-content">
 		<!-- Please do not use the .menu class, it is deprecated. -->
-		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="Main_Page.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="https://linux-sunxi.org/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
 		
 	</div>
 </nav>
@@ -420,7 +429,7 @@ Transclusion expansion time report (%,ms,calls,template)
 	<!-- Please do not use the .body class, it is deprecated. -->
 	<div class="body vector-menu-content">
 		<!-- Please do not use the .menu class, it is deprecated. -->
-		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/Mainline_Kernel_Howto.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/Mainline_Kernel_Howto" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=Mainline_Kernel_Howto&amp;oldid=26441" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=Mainline_Kernel_Howto&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="https://linux-sunxi.org/Special:WhatLinksHere/Mainline_Kernel_Howto" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/Mainline_Kernel_Howto" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="https://linux-sunxi.org/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=Mainline_Kernel_Howto&amp;oldid=26806" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=Mainline_Kernel_Howto&amp;action=info" title="More information about this page">Page information</a></li></ul>
 		
 	</div>
 </nav>
@@ -433,7 +442,7 @@ Transclusion expansion time report (%,ms,calls,template)
 
 <footer id="footer" class="mw-footer" role="contentinfo" >
 	<ul id="footer-info" >
-		<li id="footer-info-lastmod"> This page was last edited on 18 May 2025, at 20:56.</li>
+		<li id="footer-info-lastmod"> This page was last edited on 29 October 2025, at 12:24.</li>
 		<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution</a> unless otherwise noted.</li>
 	</ul>
 	<ul id="footer-places" >
@@ -450,8 +459,8 @@ Transclusion expansion time report (%,ms,calls,template)
 
 
 
-<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.072","walltime":"0.088","ppvisitednodes":{"value":278,"limit":1000000},"postexpandincludesize":{"value":1167,"limit":2097152},"templateargumentsize":{"value":854,"limit":2097152},"expansiondepth":{"value":5,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":2340,"limit":5000000},"timingprofile":["100.00%   17.768      1 -total"," 47.59%    8.455      3 Template:Remove"," 29.47%    5.237      2 Template:Note"," 17.39%    3.090      3 Template:Red"," 13.72%    2.437      1 Template:Info"]},"cachereport":{"timestamp":"20251029040332","ttl":86400,"transientcontent":false}}});});</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.098","walltime":"0.110","ppvisitednodes":{"value":286,"limit":1000000},"postexpandincludesize":{"value":1167,"limit":2097152},"templateargumentsize":{"value":854,"limit":2097152},"expansiondepth":{"value":5,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":2460,"limit":5000000},"timingprofile":["100.00%   19.827      1 -total"," 40.82%    8.094      3 Template:Remove"," 35.97%    7.132      2 Template:Note"," 23.31%    4.621      3 Template:Red"," 13.12%    2.601      1 Template:Info"]},"cachereport":{"timestamp":"20251029180800","ttl":86400,"transientcontent":false}}});});</script>
 <!-- No web analytics configured. -->
 
-<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":164});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":411});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body></html>

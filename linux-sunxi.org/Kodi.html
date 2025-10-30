@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8"/>
 <title>Kodi - linux-sunxi.org</title>
-<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"5cd39fa3c0138892908217f8","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Kodi","wgTitle":"Kodi","wgCurRevisionId":22481,"wgRevisionId":22481,"wgArticleId":2555,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Software","Cedrus"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Kodi","wgRelevantArticleId":2555,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":"ready","user":"ready"
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"d334429b8d3842a05b65cf4a","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Kodi","wgTitle":"Kodi","wgCurRevisionId":22481,"wgRevisionId":22481,"wgArticleId":2555,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Software","Cedrus"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Kodi","wgRelevantArticleId":2555,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":"ready","user":"ready"
 ,"user.options":"loading","ext.cite.styles":"ready","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","ext.cite.ux-enhancements","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
 <script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
 });});</script>
@@ -65,11 +65,11 @@
 <p>In history (since 2012), there have been a bunch of solutions (e.g. empat0, gimli) to get Kodi running on Allwinner SoCs using the closed sourced libraries from Allwinner (provided via the initial makers of cubieboard) for hardware accelerated video decoding. One problem of these implementation is, that these closed source libs have bugs in their linux version. Using the android version via libhybris solves this bug. The GPL issue still remaines.<br />
 </p><p><b>Team-Kodi</b>, the official development team of Kodi, negotiated support due to lack of resources and - the more important reason - the fact, that Allwinner was <a href="GPL_Violations.html" title="GPL Violations">violating the GPL</a> with these binaries. It is prooved, that they are still <a href="GPL_Violations.html" title="GPL Violations">violating the GPL</a> with the binaries they shipped at the beginning, because they never released the source for them. Team-Kodi does currently not recommend that any end-user buy Allwinner A1x or A2x based hardware for the specific purpose of only running Kodi. There are a few threads in the kodi forum that one can read to get the whole story regarding Allwinner and their support to Team-Kodi. Team-Kodi in fact did not get effective Allwinner support in the end.<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup><br />
 </p><p>Due to massive pressure of the <b>linux-sunxi community</b> (in fact that have only been a few designated developers), Allwinner tried to solve the CedarX GPL violation issue with releasing a rewrite of their CedarX code, summarized as their "media-codec". This new media-codec provides the source for direct register access of the video decoding engine within the SoC. Codecs are now included via plugins. The basic decoder and MPEG2, MJPEG, MPEG4 and H246 codecs implementation are available as GPL'ed source, while the encoder and the other codecs are includeable only via a closed source library still. It's not prooved, that these closed source library is GPL compliant.<br />
-</p><p>In the meantime, many parts of the video decoding engine have been reverse engineered by a few developers of the linux-sunxi community, so that the hardware can be accessed via real open source code, independent of any code which was released by Allwinner. The working name of this community based piece of software is <a href="Cedrus.html" title="Cedrus">Cedrus</a>.
+</p><p>In the meantime, many parts of the video decoding engine have been reverse engineered by a few developers of the linux-sunxi community, so that the hardware can be accessed via real open source code, independent of any code which was released by Allwinner. The working name of this community based piece of software is <a href="Cedrus" title="Cedrus">Cedrus</a>.
 The sad thing about the media-codec release of Allwinner is the fact, that it does not provide any other funtionality with it's open source part, that was not known already due to the <a href="CedarX/Reverse_Engineering.html" title="CedarX/Reverse Engineering">reverse engineering effort</a>.<br />
 </p>
 <h1><span class="mw-headline" id="Linux-sunxi_community">Linux-sunxi community</span></h1>
-<p>While all these efforts have been done by the linux-sunxi community, there has been nearly <b>NO</b> support from Allwinner since now, helping the community to do a open source driver for their video engine, which is <a href="VE_Planning.html" title="VE Planning">able to be merged into the mainline kernel</a> in the end. Even though it was possible to figure out the <a href="VE_Register_guide.html" title="VE Register guide">register's usage</a> of the video engine and to build a <a href="Cedrus.html#Installing_sunxi-vdpau_library" title="Cedrus">vdpau backend</a> which demonstrates the usage of the sunxi video decoding/encoding engine. With this <a href="Cedrus.html#Installing_sunxi-vdpau_library" title="Cedrus">libvdpau-sunxi backend</a> it's possible to support hardware accelerated video decoding on common media players which support VDPAU. Even though linux-sunxi community does get no help from Allwinner in these task (and nearly zero in all the others btw.), a small group of developers has started to think about a v4l2 kernel driver. Main goal for the community is to support the sunxi video decoding/encoding engine within the mainline kernel.<br />
+<p>While all these efforts have been done by the linux-sunxi community, there has been nearly <b>NO</b> support from Allwinner since now, helping the community to do a open source driver for their video engine, which is <a href="VE_Planning.html" title="VE Planning">able to be merged into the mainline kernel</a> in the end. Even though it was possible to figure out the <a href="VE_Register_guide.html" title="VE Register guide">register's usage</a> of the video engine and to build a <a href="Cedrus#Installing_sunxi-vdpau_library" title="Cedrus">vdpau backend</a> which demonstrates the usage of the sunxi video decoding/encoding engine. With this <a href="Cedrus#Installing_sunxi-vdpau_library" title="Cedrus">libvdpau-sunxi backend</a> it's possible to support hardware accelerated video decoding on common media players which support VDPAU. Even though linux-sunxi community does get no help from Allwinner in these task (and nearly zero in all the others btw.), a small group of developers has started to think about a v4l2 kernel driver. Main goal for the community is to support the sunxi video decoding/encoding engine within the mainline kernel.<br />
 </p>
 <h1><span class="mw-headline" id="Technical_overview">Technical overview</span></h1>
 <p>To run Kodi on sunxi devices without GPL violating code and the official linux kernel, we basically need a few things:
@@ -104,12 +104,12 @@ The sad thing about the media-codec release of Allwinner is the fact, that it do
 </ol></div>
 <!-- 
 NewPP limit report
-Cached time: 20251029040329
+Cached time: 20251029180757
 Cache expiry: 86400
 Dynamic content: false
 Complications: []
-CPU time usage: 0.058 seconds
-Real time usage: 0.102 seconds
+CPU time usage: 0.071 seconds
+Real time usage: 0.110 seconds
 Preprocessor visited node count: 74/1000000
 Post‐expand include size: 857/2097152 bytes
 Template argument size: 777/2097152 bytes
@@ -120,14 +120,14 @@ Unstrip post‐expand size: 473/5000000 bytes
 -->
 <!--
 Transclusion expansion time report (%,ms,calls,template)
-100.00%   17.735      1 Template:Redbox
-100.00%   17.735      1 -total
+100.00%    3.658      1 Template:Redbox
+100.00%    3.658      1 -total
 -->
 
-<!-- Saved in parser cache with key wiki:pcache:idhash:2555-0!canonical and timestamp 20251029040329 and revision id 22481
+<!-- Saved in parser cache with key wiki:pcache:idhash:2555-0!canonical and timestamp 20251029180757 and revision id 22481
  -->
 </div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=Kodi&amp;oldid=22481">https://linux-sunxi.org/index.php?title=Kodi&amp;oldid=22481</a>"</div>
-		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Categories</a>: <ul><li><a href="Category:Software.html" title="Category:Software">Software</a></li><li><a href="Category:Cedrus.html" title="Category:Cedrus">Cedrus</a></li></ul></div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://linux-sunxi.org/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="https://linux-sunxi.org/Category:Software" title="Category:Software">Software</a></li><li><a href="https://linux-sunxi.org/Category:Cedrus" title="Category:Cedrus">Cedrus</a></li></ul></div></div>
 	</div>
 </div>
 
@@ -233,7 +233,7 @@ Transclusion expansion time report (%,ms,calls,template)
 	
 <div id="mw-panel">
 	<div id="p-logo" role="banner">
-		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+		<a  title="Visit the main page" class="mw-wiki-logo" href="Main_Page.html"></a>
 	</div>
 	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
 <nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
@@ -244,7 +244,7 @@ Transclusion expansion time report (%,ms,calls,template)
 	<!-- Please do not use the .body class, it is deprecated. -->
 	<div class="body vector-menu-content">
 		<!-- Please do not use the .menu class, it is deprecated. -->
-		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="Main_Page.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="https://linux-sunxi.org/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
 		
 	</div>
 </nav>
@@ -259,7 +259,7 @@ Transclusion expansion time report (%,ms,calls,template)
 	<!-- Please do not use the .body class, it is deprecated. -->
 	<div class="body vector-menu-content">
 		<!-- Please do not use the .menu class, it is deprecated. -->
-		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/Kodi.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/Kodi" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=Kodi&amp;oldid=22481" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=Kodi&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="https://linux-sunxi.org/Special:WhatLinksHere/Kodi" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/Kodi" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="https://linux-sunxi.org/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=Kodi&amp;oldid=22481" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=Kodi&amp;action=info" title="More information about this page">Page information</a></li></ul>
 		
 	</div>
 </nav>
@@ -289,8 +289,8 @@ Transclusion expansion time report (%,ms,calls,template)
 
 
 
-<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.058","walltime":"0.102","ppvisitednodes":{"value":74,"limit":1000000},"postexpandincludesize":{"value":857,"limit":2097152},"templateargumentsize":{"value":777,"limit":2097152},"expansiondepth":{"value":3,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":473,"limit":5000000},"timingprofile":["100.00%   17.735      1 Template:Redbox","100.00%   17.735      1 -total"]},"cachereport":{"timestamp":"20251029040329","ttl":86400,"transientcontent":false}}});});</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.071","walltime":"0.110","ppvisitednodes":{"value":74,"limit":1000000},"postexpandincludesize":{"value":857,"limit":2097152},"templateargumentsize":{"value":777,"limit":2097152},"expansiondepth":{"value":3,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":473,"limit":5000000},"timingprofile":["100.00%    3.658      1 Template:Redbox","100.00%    3.658      1 -total"]},"cachereport":{"timestamp":"20251029180757","ttl":86400,"transientcontent":false}}});});</script>
 <!-- No web analytics configured. -->
 
-<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":180});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":198});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body></html>

@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8"/>
 <title>Mainline NAND Howto - linux-sunxi.org</title>
-<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"b8f00f58a030021f2a1a7f91","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Mainline_NAND_Howto","wgTitle":"Mainline NAND Howto","wgCurRevisionId":25679,"wgRevisionId":25679,"wgArticleId":2809,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Mainline_NAND_Howto","wgRelevantArticleId":2809,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready",
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"03217cfbe7757f7f9a6640b2","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Mainline_NAND_Howto","wgTitle":"Mainline NAND Howto","wgCurRevisionId":25679,"wgRevisionId":25679,"wgArticleId":2809,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Mainline_NAND_Howto","wgRelevantArticleId":2809,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":"ready",
 "user.styles":"ready","user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
 <script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
 });});</script>
@@ -40,7 +40,7 @@
 		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
 		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><table style="margin: 0.7em; border-width: 1px 1px 1px 10px; border-style: solid; border-color: #EE8822; background-color: #FFEEDD">
 <tbody><tr>
-<td style="padding: 0.2em; vertical-align: baseline;"><a href="File:MBOX_icon_important.png.html" class="image"><img alt="MBOX icon important.png" src="https://linux-sunxi.org/images/f/f0/MBOX_icon_important.png" decoding="async" width="40" height="40" /></a>
+<td style="padding: 0.2em; vertical-align: baseline;"><a href="https://linux-sunxi.org/File:MBOX_icon_important.png" class="image"><img alt="MBOX icon important.png" src="https://linux-sunxi.org/images/f/f0/MBOX_icon_important.png" decoding="async" width="40" height="40" /></a>
 </td>
 <td style="width:100%; padding-left: 0.2em; padding-right: 0.2em; vertical-align: baseline;">MLC NANDs are not well supported right now. You can enable MLC NAND support, but remember that you risk data loss.
 </td></tr></tbody></table>
@@ -195,7 +195,7 @@ For example, Allwinner A10/A20 have the same pins used for NAND:
 				allwinner,pull = &lt;SUN4I_PINCTRL_NO_PULL&gt;;
 			};
 </pre>
-<p><a href="File:Sticky-note-pin.png.html" class="image"><img alt="Sticky-note-pin.png" src="https://linux-sunxi.org/images/f/f0/Sticky-note-pin.png" decoding="async" width="16" height="16" /></a> <i>Note:</i> Enable only the pin groups that are actually used by boards.
+<p><a href="https://linux-sunxi.org/File:Sticky-note-pin.png" class="image"><img alt="Sticky-note-pin.png" src="https://linux-sunxi.org/images/f/f0/Sticky-note-pin.png" decoding="async" width="16" height="16" /></a> <i>Note:</i> Enable only the pin groups that are actually used by boards.
 </p>
 <h3><span id="Add_NFC_node_to_SoC's_DTSI"></span><span class="mw-headline" id="Add_NFC_node_to_SoC.27s_DTSI">Add NFC node to SoC's DTSI</span></h3>
 <p>Once you define pins, you should add NFC node.<br />
@@ -253,7 +253,7 @@ In a single-chip configuration, chip usually connected to base nand pins, cs0(Ch
 <h3><span class="mw-headline" id="Define_NAND_partitions_in_DTS">Define NAND partitions in DTS</span></h3>
 <p>If you want, you can define partitions on your NAND. See <a rel="nofollow" class="external text" href="https://www.kernel.org/doc/Documentation/devicetree/bindings/mtd/partition.txt">mtd partitions documentation</a><br />
 For example, if your board have 4G NAND chip, you can split it to 5 partitions:<br />
-<a href="File:Sticky-note-pin.png.html" class="image"><img alt="Sticky-note-pin.png" src="https://linux-sunxi.org/images/f/f0/Sticky-note-pin.png" decoding="async" width="16" height="16" /></a> <i>Note:</i> This partition table is example and can be changed in feature.
+<a href="https://linux-sunxi.org/File:Sticky-note-pin.png" class="image"><img alt="Sticky-note-pin.png" src="https://linux-sunxi.org/images/f/f0/Sticky-note-pin.png" decoding="async" width="16" height="16" /></a> <i>Note:</i> This partition table is example and can be changed in feature.
 </p>
 <table class="wikitable">
 
@@ -324,12 +324,12 @@ For example, if your board have 4G NAND chip, you can split it to 5 partitions:<
 </p>
 <!-- 
 NewPP limit report
-Cached time: 20251029040826
+Cached time: 20251029181317
 Cache expiry: 86400
 Dynamic content: false
 Complications: []
-CPU time usage: 0.144 seconds
-Real time usage: 0.232 seconds
+CPU time usage: 0.065 seconds
+Real time usage: 0.086 seconds
 Preprocessor visited node count: 116/1000000
 Post‐expand include size: 1460/2097152 bytes
 Template argument size: 545/2097152 bytes
@@ -340,14 +340,14 @@ Unstrip post‐expand size: 4751/5000000 bytes
 -->
 <!--
 Transclusion expansion time report (%,ms,calls,template)
-100.00%  100.868      1 -total
- 91.75%   92.546      1 Template:Alert
- 81.53%   82.238      1 Template:MBOX_NOTE
- 35.06%   35.362      1 Template:MBOX
-  7.03%    7.087      2 Template:Note
+100.00%   18.124      1 -total
+ 59.24%   10.737      1 Template:Alert
+ 35.19%    6.378      1 Template:MBOX_NOTE
+ 34.90%    6.325      2 Template:Note
+ 15.33%    2.778      1 Template:MBOX
 -->
 
-<!-- Saved in parser cache with key wiki:pcache:idhash:2809-0!canonical and timestamp 20251029040826 and revision id 25679
+<!-- Saved in parser cache with key wiki:pcache:idhash:2809-0!canonical and timestamp 20251029181317 and revision id 25679
  -->
 </div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=Mainline_NAND_Howto&amp;oldid=25679">https://linux-sunxi.org/index.php?title=Mainline_NAND_Howto&amp;oldid=25679</a>"</div>
 		<div id="catlinks" class="catlinks catlinks-allhidden" data-mw="interface"></div>
@@ -456,7 +456,7 @@ Transclusion expansion time report (%,ms,calls,template)
 	
 <div id="mw-panel">
 	<div id="p-logo" role="banner">
-		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+		<a  title="Visit the main page" class="mw-wiki-logo" href="Main_Page.html"></a>
 	</div>
 	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
 <nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
@@ -467,7 +467,7 @@ Transclusion expansion time report (%,ms,calls,template)
 	<!-- Please do not use the .body class, it is deprecated. -->
 	<div class="body vector-menu-content">
 		<!-- Please do not use the .menu class, it is deprecated. -->
-		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="Main_Page.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="https://linux-sunxi.org/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
 		
 	</div>
 </nav>
@@ -482,7 +482,7 @@ Transclusion expansion time report (%,ms,calls,template)
 	<!-- Please do not use the .body class, it is deprecated. -->
 	<div class="body vector-menu-content">
 		<!-- Please do not use the .menu class, it is deprecated. -->
-		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/Mainline_NAND_Howto.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/Mainline_NAND_Howto" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=Mainline_NAND_Howto&amp;oldid=25679" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=Mainline_NAND_Howto&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="https://linux-sunxi.org/Special:WhatLinksHere/Mainline_NAND_Howto" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/Mainline_NAND_Howto" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="https://linux-sunxi.org/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=Mainline_NAND_Howto&amp;oldid=25679" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=Mainline_NAND_Howto&amp;action=info" title="More information about this page">Page information</a></li></ul>
 		
 	</div>
 </nav>
@@ -512,8 +512,8 @@ Transclusion expansion time report (%,ms,calls,template)
 
 
 
-<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.144","walltime":"0.232","ppvisitednodes":{"value":116,"limit":1000000},"postexpandincludesize":{"value":1460,"limit":2097152},"templateargumentsize":{"value":545,"limit":2097152},"expansiondepth":{"value":7,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":4751,"limit":5000000},"timingprofile":["100.00%  100.868      1 -total"," 91.75%   92.546      1 Template:Alert"," 81.53%   82.238      1 Template:MBOX_NOTE"," 35.06%   35.362      1 Template:MBOX","  7.03%    7.087      2 Template:Note"]},"cachereport":{"timestamp":"20251029040826","ttl":86400,"transientcontent":false}}});});</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.065","walltime":"0.086","ppvisitednodes":{"value":116,"limit":1000000},"postexpandincludesize":{"value":1460,"limit":2097152},"templateargumentsize":{"value":545,"limit":2097152},"expansiondepth":{"value":7,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":4751,"limit":5000000},"timingprofile":["100.00%   18.124      1 -total"," 59.24%   10.737      1 Template:Alert"," 35.19%    6.378      1 Template:MBOX_NOTE"," 34.90%    6.325      2 Template:Note"," 15.33%    2.778      1 Template:MBOX"]},"cachereport":{"timestamp":"20251029181317","ttl":86400,"transientcontent":false}}});});</script>
 <!-- No web analytics configured. -->
 
-<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":331});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":174});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body></html>

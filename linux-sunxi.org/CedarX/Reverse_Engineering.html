@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8"/>
 <title>CedarX/Reverse Engineering - linux-sunxi.org</title>
-<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"e32adb3e1f6fa629f2c40fb0","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"CedarX/Reverse_Engineering","wgTitle":"CedarX/Reverse Engineering","wgCurRevisionId":21044,"wgRevisionId":21044,"wgArticleId":568,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["CedarX"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"CedarX/Reverse_Engineering","wgRelevantArticleId":568,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready",
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"433dc0a183b4b78147bc503c","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"CedarX/Reverse_Engineering","wgTitle":"CedarX/Reverse Engineering","wgCurRevisionId":21044,"wgRevisionId":21044,"wgArticleId":568,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["CedarX"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"CedarX/Reverse_Engineering","wgRelevantArticleId":568,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready",
 "noscript":"ready","user.styles":"ready","user":"ready","user.options":"loading","ext.embedVideo.styles":"ready","skins.vector.styles.legacy":"ready"};RLPAGEMODULES=["ext.RegularTooltips","ext.embedVideo","site","mediawiki.page.startup","mediawiki.page.ready","skins.vector.legacy.js"];</script>
 <script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
 });});</script>
@@ -41,11 +41,11 @@
 		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><h1><span class="mw-headline" id="Current_status">Current status</span></h1>
 <table style="margin: 0.7em; border-width: 1px 1px 1px 10px; border-style: solid; border-color: #EE8822; background-color: #FFEEDD">
 <tbody><tr>
-<td style="padding: 0.2em; vertical-align: baseline;"><a href="../File:MBOX_icon_important.png.html" class="image"><img alt="MBOX icon important.png" src="https://linux-sunxi.org/images/f/f0/MBOX_icon_important.png" decoding="async" width="40" height="40" /></a>
+<td style="padding: 0.2em; vertical-align: baseline;"><a href="https://linux-sunxi.org/File:MBOX_icon_important.png" class="image"><img alt="MBOX icon important.png" src="https://linux-sunxi.org/images/f/f0/MBOX_icon_important.png" decoding="async" width="40" height="40" /></a>
 </td>
 <td style="width:100%; padding-left: 0.2em; padding-right: 0.2em; vertical-align: baseline;"><b>FIRST NOTE: Allwinner's <a href="../Cedar_Engine.html" class="mw-redirect" title="Cedar Engine">video de-/encoding engine</a> is successfully reverse engineered in the most common parts (HEVC, H264, MPEG1/2, MPEG4).</b>
 <p>The results of this reverse engineering are bundled in a <a href="../Cedrus/libvdpau-sunxi.html" title="Cedrus/libvdpau-sunxi">vdpau driver backend</a> since January 2014.
-</p><p>To do hardware accelerated video decoding on sunxi devices nowadays, you don't need any software provided by Allwinner, which is either (partly) closed sourced and/ or violating the GPL. Instead you should use the result of the community's reverse engineering work, called <a href="../Cedrus.html" title="Cedrus">Cedrus</a>.
+</p><p>To do hardware accelerated video decoding on sunxi devices nowadays, you don't need any software provided by Allwinner, which is either (partly) closed sourced and/ or violating the GPL. Instead you should use the result of the community's reverse engineering work, called <a href="../Cedrus" title="Cedrus">Cedrus</a>.
 </p><p>As this is only proof of concept code, the goal is a <a href="../VE_Planning.html" title="VE Planning">mainlined video engine driver</a> in the end. To take full advantage of such a driver, the other bits (display, hdmi, sound ...) also have to be rewritten in ongoing <a href="../Linux_mainlining_effort.html" title="Linux mainlining effort">mainline process</a>.
 </p><p><br />
 </p>
@@ -89,12 +89,12 @@
 <div class="thumb embedvideo autoResize" style="width: 648px;"><div class="embedvideo autoResize" style=""><div class="embedvideowrap" style="width: 640px;"><iframe title="Play video" src="https://www.youtube.com/embed/z__RxeVmYCQ?" width="640" height="360" frameborder="0" allowfullscreen="true"></iframe></div></div></div>
 <!-- 
 NewPP limit report
-Cached time: 20251029051625
+Cached time: 20251029192624
 Cache expiry: 86400
 Dynamic content: false
 Complications: []
-CPU time usage: 0.256 seconds
-Real time usage: 0.304 seconds
+CPU time usage: 0.030 seconds
+Real time usage: 0.044 seconds
 Preprocessor visited node count: 31/1000000
 Post‐expand include size: 2342/2097152 bytes
 Template argument size: 1785/2097152 bytes
@@ -105,15 +105,15 @@ Unstrip post‐expand size: 318/5000000 bytes
 -->
 <!--
 Transclusion expansion time report (%,ms,calls,template)
-100.00%  106.049      1 -total
-100.00%  106.049      1 Template:MBOX_NOTE
- 29.23%   30.996      1 Template:MBOX
+100.00%    5.588      1 -total
+100.00%    5.588      1 Template:MBOX_NOTE
+ 44.90%    2.509      1 Template:MBOX
 -->
 
-<!-- Saved in parser cache with key wiki:pcache:idhash:568-0!canonical and timestamp 20251029051624 and revision id 21044
+<!-- Saved in parser cache with key wiki:pcache:idhash:568-0!canonical and timestamp 20251029192624 and revision id 21044
  -->
 </div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=CedarX/Reverse_Engineering&amp;oldid=21044">https://linux-sunxi.org/index.php?title=CedarX/Reverse_Engineering&amp;oldid=21044</a>"</div>
-		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="../Special:Categories.html" title="Special:Categories">Category</a>: <ul><li><a href="../Category:CedarX.html" title="Category:CedarX">CedarX</a></li></ul></div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://linux-sunxi.org/Special:Categories" title="Special:Categories">Category</a>: <ul><li><a href="https://linux-sunxi.org/Category:CedarX" title="Category:CedarX">CedarX</a></li></ul></div></div>
 	</div>
 </div>
 
@@ -219,7 +219,7 @@ Transclusion expansion time report (%,ms,calls,template)
 	
 <div id="mw-panel">
 	<div id="p-logo" role="banner">
-		<a  title="Visit the main page" class="mw-wiki-logo" href="../index.html"></a>
+		<a  title="Visit the main page" class="mw-wiki-logo" href="../Main_Page.html"></a>
 	</div>
 	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
 <nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
@@ -230,7 +230,7 @@ Transclusion expansion time report (%,ms,calls,template)
 	<!-- Please do not use the .body class, it is deprecated. -->
 	<div class="body vector-menu-content">
 		<!-- Please do not use the .menu class, it is deprecated. -->
-		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="../index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="../sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="../Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="../Main_Page.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="../sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="https://linux-sunxi.org/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
 		
 	</div>
 </nav>
@@ -245,7 +245,7 @@ Transclusion expansion time report (%,ms,calls,template)
 	<!-- Please do not use the .body class, it is deprecated. -->
 	<div class="body vector-menu-content">
 		<!-- Please do not use the .menu class, it is deprecated. -->
-		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="https://linux-sunxi.org/Special:WhatLinksHere/CedarX/Reverse_Engineering" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/CedarX/Reverse_Engineering" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="../Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=CedarX/Reverse_Engineering&amp;oldid=21044" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=CedarX/Reverse_Engineering&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="https://linux-sunxi.org/Special:WhatLinksHere/CedarX/Reverse_Engineering" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/CedarX/Reverse_Engineering" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="https://linux-sunxi.org/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=CedarX/Reverse_Engineering&amp;oldid=21044" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=CedarX/Reverse_Engineering&amp;action=info" title="More information about this page">Page information</a></li></ul>
 		
 	</div>
 </nav>
@@ -275,8 +275,8 @@ Transclusion expansion time report (%,ms,calls,template)
 
 
 
-<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.256","walltime":"0.304","ppvisitednodes":{"value":31,"limit":1000000},"postexpandincludesize":{"value":2342,"limit":2097152},"templateargumentsize":{"value":1785,"limit":2097152},"expansiondepth":{"value":5,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":318,"limit":5000000},"timingprofile":["100.00%  106.049      1 -total","100.00%  106.049      1 Template:MBOX_NOTE"," 29.23%   30.996      1 Template:MBOX"]},"cachereport":{"timestamp":"20251029051625","ttl":86400,"transientcontent":false}}});});</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.030","walltime":"0.044","ppvisitednodes":{"value":31,"limit":1000000},"postexpandincludesize":{"value":2342,"limit":2097152},"templateargumentsize":{"value":1785,"limit":2097152},"expansiondepth":{"value":5,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":318,"limit":5000000},"timingprofile":["100.00%    5.588      1 -total","100.00%    5.588      1 Template:MBOX_NOTE"," 44.90%    2.509      1 Template:MBOX"]},"cachereport":{"timestamp":"20251029192624","ttl":86400,"transientcontent":false}}});});</script>
 <!-- No web analytics configured. -->
 
-<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":461});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":213});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body></html>

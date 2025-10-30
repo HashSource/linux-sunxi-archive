@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8"/>
 <title>Bootable OS images - linux-sunxi.org</title>
-<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"cf7f78043e06a93c218d9c81","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Bootable_OS_images","wgTitle":"Bootable OS images","wgCurRevisionId":25047,"wgRevisionId":25047,"wgArticleId":424,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Software","Images"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Bootable_OS_images","wgRelevantArticleId":424,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"1b067de610c123cff9295796","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Bootable_OS_images","wgTitle":"Bootable OS images","wgCurRevisionId":25047,"wgRevisionId":25047,"wgArticleId":424,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Software","Images"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Bootable_OS_images","wgRelevantArticleId":424,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]};RLSTATE={"site.styles":"ready","noscript":
 "ready","user.styles":"ready","user":"ready","user.options":"loading","skins.vector.styles.legacy":"ready","mediawiki.toc.styles":"ready"};RLPAGEMODULES=["ext.RegularTooltips","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js"];</script>
 <script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
 });});</script>
@@ -77,7 +77,7 @@
 </div>
 
 <h1><span id="GNU/Linux"></span><span class="mw-headline" id="GNU.2FLinux">GNU/Linux</span></h1>
-<p>When the image you download is made for a different type of device (eg. <a href="Cubieboard.html" class="mw-redirect" title="Cubieboard">Cubieboard</a> vs MK802) but using the same CPU (eg. <a href="A10.html" title="A10">A10</a>) you should be able to use it after updating u-boot and script.bin from your particular <a href="Hwpack.html" title="Hwpack">hwpack</a>. 
+<p>When the image you download is made for a different type of device (eg. <a href="Cubieboard" class="mw-redirect" title="Cubieboard">Cubieboard</a> vs MK802) but using the same CPU (eg. <a href="A10" title="A10">A10</a>) you should be able to use it after updating u-boot and script.bin from your particular <a href="Hwpack.html" title="Hwpack">hwpack</a>. 
 </p><p>Some images that use very little hardware like the headless server images might work without changes on many devices.
 </p>
 <h2><span class="mw-headline" id="Alpine_Linux">Alpine Linux</span></h2>
@@ -88,7 +88,7 @@
 <li><a rel="nofollow" class="external text" href="https://groups.google.com/d/msg/cubieboard/SQVD3sCoWTg/eRxZl82at0UJ">ArchLinuxARM</a></li></ul>
 <h2><span class="mw-headline" id="Berryboot"><a href="Berryboot.html" title="Berryboot">Berryboot</a></span></h2>
 <ul><li><a rel="nofollow" class="external text" href="http://www.berryterminal.com/doku.php/berryboot_a10">Berryboot</a></li></ul>
-<p><i><a href="File:Exclamation.png.html" class="image"><img alt="Exclamation.png" src="https://linux-sunxi.org/images/c/c0/Exclamation.png" decoding="async" width="16" height="16" /></a>  Keep in mind berryboot is not a recommended boot image for A10 devices.</i>
+<p><i><a href="https://linux-sunxi.org/File:Exclamation.png" class="image"><img alt="Exclamation.png" src="https://linux-sunxi.org/images/c/c0/Exclamation.png" decoding="async" width="16" height="16" /></a>  Keep in mind berryboot is not a recommended boot image for A10 devices.</i>
 </p>
 <h2><span class="mw-headline" id="Debian"><a href="Debian.html" title="Debian">Debian</a></span></h2>
 <ul><li><a rel="nofollow" class="external text" href="https://wiki.debian.org/InstallingDebianOn/Allwinner">Debian</a> Unmodified Debian installation Wiki. <a rel="nofollow" class="external text" href="https://deb.debian.org/debian/dists/stable/main/installer-armhf/current/images/netboot/SD-card-images/">Stable</a> <a rel="nofollow" class="external text" href="https://deb.debian.org/debian/dists/unstable/main/installer-armhf/current/images/netboot/SD-card-images/">Unstable</a> <a rel="nofollow" class="external text" href="https://deb.debian.org/debian/dists/testing/main/installer-armhf/current/images/netboot/SD-card-images/">Testing</a> Images. You need a firmware.*.img.gz and the partition.img.gz. zcat firmware.&lt;x&gt;.img.gz partition.img.gz &gt;/dev/sdn (if sdn is your µSD Reader)</li>
@@ -166,7 +166,7 @@
 </p><p>It is not easily possible to update the script.bin in LiveSuit images so you need an image for your particular device. Old android images would let the bootloader present on the nand set up memory controller so there is better chance of compatibility.
 </p>
 <h2><span class="mw-headline" id="Cubieboard">Cubieboard</span></h2>
-<ul><li><a rel="nofollow" class="external text" href="http://cubieboard.org/download/">Cubieboard download page</a> <a href="Android.html" title="Android">Android</a> TV box and testing images for LiveSuit (bottom of page) - HDMI TV output</li></ul>
+<ul><li><a rel="nofollow" class="external text" href="http://cubieboard.org/download/">Cubieboard download page</a> <a href="Android" title="Android">Android</a> TV box and testing images for LiveSuit (bottom of page) - HDMI TV output</li></ul>
 <h2><span id="Generic_H2+/H3_based_device"></span><span class="mw-headline" id="Generic_H2.2B.2FH3_based_device">Generic H2+/H3 based device</span></h2>
 <ul><li><a rel="nofollow" class="external text" href="http://h3droid.com">H3Droid</a> is universal android 4.4.2 based on xunlong's bsp dump and tuned to work with most H2+/H3 based devices. with added bugfixes and features and normal installer. slim, fast and no need for livesuit.</li></ul>
 <h1><span class="mw-headline" id="BSD_derivatives">BSD derivatives</span></h1>
@@ -181,12 +181,12 @@
 </p>
 <!-- 
 NewPP limit report
-Cached time: 20251029034409
+Cached time: 20251029173531
 Cache expiry: 86400
 Dynamic content: false
 Complications: []
 CPU time usage: 0.072 seconds
-Real time usage: 0.104 seconds
+Real time usage: 0.080 seconds
 Preprocessor visited node count: 87/1000000
 Post‐expand include size: 96/2097152 bytes
 Template argument size: 70/2097152 bytes
@@ -197,14 +197,14 @@ Unstrip post‐expand size: 0/5000000 bytes
 -->
 <!--
 Transclusion expansion time report (%,ms,calls,template)
-100.00%    4.197      1 Template:Warn
-100.00%    4.197      1 -total
+100.00%    4.107      1 Template:Warn
+100.00%    4.107      1 -total
 -->
 
-<!-- Saved in parser cache with key wiki:pcache:idhash:424-0!canonical and timestamp 20251029034409 and revision id 25047
+<!-- Saved in parser cache with key wiki:pcache:idhash:424-0!canonical and timestamp 20251029173531 and revision id 25047
  -->
 </div></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://linux-sunxi.org/index.php?title=Bootable_OS_images&amp;oldid=25047">https://linux-sunxi.org/index.php?title=Bootable_OS_images&amp;oldid=25047</a>"</div>
-		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Categories</a>: <ul><li><a href="Category:Software.html" title="Category:Software">Software</a></li><li><a href="Category:Images.html" title="Category:Images">Images</a></li></ul></div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://linux-sunxi.org/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="https://linux-sunxi.org/Category:Software" title="Category:Software">Software</a></li><li><a href="https://linux-sunxi.org/Category:Images" title="Category:Images">Images</a></li></ul></div></div>
 	</div>
 </div>
 
@@ -310,7 +310,7 @@ Transclusion expansion time report (%,ms,calls,template)
 	
 <div id="mw-panel">
 	<div id="p-logo" role="banner">
-		<a  title="Visit the main page" class="mw-wiki-logo" href="index.html"></a>
+		<a  title="Visit the main page" class="mw-wiki-logo" href="Main_Page.html"></a>
 	</div>
 	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
 <nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
@@ -321,7 +321,7 @@ Transclusion expansion time report (%,ms,calls,template)
 	<!-- Please do not use the .body class, it is deprecated. -->
 	<div class="body vector-menu-content">
 		<!-- Please do not use the .menu class, it is deprecated. -->
-		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="index.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="Special:RecentChanges.html" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="Main_Page.html" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-portal"><a href="sunxi:Community_portal.html" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="https://linux-sunxi.org/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://linux-sunxi.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li></ul>
 		
 	</div>
 </nav>
@@ -336,7 +336,7 @@ Transclusion expansion time report (%,ms,calls,template)
 	<!-- Please do not use the .body class, it is deprecated. -->
 	<div class="body vector-menu-content">
 		<!-- Please do not use the .menu class, it is deprecated. -->
-		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="Special:WhatLinksHere/Bootable_OS_images.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/Bootable_OS_images" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="Special:SpecialPages.html" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=Bootable_OS_images&amp;oldid=25047" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=Bootable_OS_images&amp;action=info" title="More information about this page">Page information</a></li></ul>
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="https://linux-sunxi.org/Special:WhatLinksHere/Bootable_OS_images" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://linux-sunxi.org/Special:RecentChangesLinked/Bootable_OS_images" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="https://linux-sunxi.org/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://linux-sunxi.org/index.php?title=Bootable_OS_images&amp;oldid=25047" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://linux-sunxi.org/index.php?title=Bootable_OS_images&amp;action=info" title="More information about this page">Page information</a></li></ul>
 		
 	</div>
 </nav>
@@ -366,8 +366,8 @@ Transclusion expansion time report (%,ms,calls,template)
 
 
 
-<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.072","walltime":"0.104","ppvisitednodes":{"value":87,"limit":1000000},"postexpandincludesize":{"value":96,"limit":2097152},"templateargumentsize":{"value":70,"limit":2097152},"expansiondepth":{"value":3,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":0,"limit":5000000},"timingprofile":["100.00%    4.197      1 Template:Warn","100.00%    4.197      1 -total"]},"cachereport":{"timestamp":"20251029034409","ttl":86400,"transientcontent":false}}});});</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.072","walltime":"0.080","ppvisitednodes":{"value":87,"limit":1000000},"postexpandincludesize":{"value":96,"limit":2097152},"templateargumentsize":{"value":70,"limit":2097152},"expansiondepth":{"value":3,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":0,"limit":5000000},"timingprofile":["100.00%    4.107      1 Template:Warn","100.00%    4.107      1 -total"]},"cachereport":{"timestamp":"20251029173531","ttl":86400,"transientcontent":false}}});});</script>
 <!-- No web analytics configured. -->
 
-<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":180});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":289});});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"016cbc9bb6a94e94934580b61e921a02","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body></html>
