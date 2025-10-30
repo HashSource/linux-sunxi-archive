@@ -1,0 +1,4 @@
+# Parabola GNU/Linux-libre
+# Parabola GNU/Linux-libre on ARM
+There are a number of ways to get Parabola up and running. One method is to follow the archlinux-arm method then "parabola-ise" it. Another is to bootstrap from an x86 parabola or archlinux system (requires proot and qemu-arm). A more convoluted method which can be done from a non-archlinux / non-parabola GNU/Linux system is to download the x86 Parabola live boot CD, run it under qemu, set up a root NFS server on the qemu host, mount the external filesystem and then follow the bootstrapping instructions from there. However rather than run qemu-arm from within qemu the proot instructions may be successfully adapted for the host OS and followed from the qemu host. 
+More information: <https://wiki.parabola.nu/ARM_Installation_Guide>

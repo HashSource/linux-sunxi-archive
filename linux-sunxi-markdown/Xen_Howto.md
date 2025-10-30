@@ -1,0 +1,3 @@
+# Xen Howto
+[Xen][60028] is a type 1 hypervisor under the GPLv2 license. It allows to run multiple operating systems at once on the same hardware platform. Since version 4.4 Xen supports [A20][60029] SoCs, with the [Cubietruck][60030] actually being used in the official Xen test farm. 
+Starting with version 4.10-rc1 more Allwinner SoCs are supported, including 64-bit SoCs like the [A64][60031] and [H5][60032]. It has been briefly tested on the [OrangePi Zero][60033], [Pine64][60034] and [OrangePi PC2][60035] board. For more details on how to run Xen on Allwinner based boards refer to the [Xen wiki][60036].
